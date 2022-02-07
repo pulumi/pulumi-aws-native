@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Stack
         /// </summary>
-        public static Task<GetStackResult> InvokeAsync(GetStackArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws-native:appstream:getStack", args ?? new GetStackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Stack
         /// </summary>
-        public static Output<GetStackResult> Invoke(GetStackInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:appstream:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStackArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStackArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetStackInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStackInvokeArgs()
         {

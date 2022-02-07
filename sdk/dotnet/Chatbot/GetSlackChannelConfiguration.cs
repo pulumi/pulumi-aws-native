@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Chatbot
         /// <summary>
         /// Resource schema for AWS::Chatbot::SlackChannelConfiguration.
         /// </summary>
-        public static Task<GetSlackChannelConfigurationResult> InvokeAsync(GetSlackChannelConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSlackChannelConfigurationResult> InvokeAsync(GetSlackChannelConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSlackChannelConfigurationResult>("aws-native:chatbot:getSlackChannelConfiguration", args ?? new GetSlackChannelConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Chatbot::SlackChannelConfiguration.
         /// </summary>
-        public static Output<GetSlackChannelConfigurationResult> Invoke(GetSlackChannelConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSlackChannelConfigurationResult> Invoke(GetSlackChannelConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSlackChannelConfigurationResult>("aws-native:chatbot:getSlackChannelConfiguration", args ?? new GetSlackChannelConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Chatbot
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetSlackChannelConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Chatbot
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetSlackChannelConfigurationInvokeArgs()
         {

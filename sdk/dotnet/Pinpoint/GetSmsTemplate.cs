@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::SmsTemplate
         /// </summary>
-        public static Task<GetSmsTemplateResult> InvokeAsync(GetSmsTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSmsTemplateResult> InvokeAsync(GetSmsTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSmsTemplateResult>("aws-native:pinpoint:getSmsTemplate", args ?? new GetSmsTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::SmsTemplate
         /// </summary>
-        public static Output<GetSmsTemplateResult> Invoke(GetSmsTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSmsTemplateResult> Invoke(GetSmsTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSmsTemplateResult>("aws-native:pinpoint:getSmsTemplate", args ?? new GetSmsTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSmsTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSmsTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetSmsTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSmsTemplateInvokeArgs()
         {

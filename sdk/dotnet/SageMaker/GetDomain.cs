@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Domain
         /// </summary>
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:sagemaker:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Domain
         /// </summary>
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:sagemaker:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The domain name.
         /// </summary>
-        [Input("domainId")]
-        public string? DomainId { get; set; }
+        [Input("domainId", required: true)]
+        public string DomainId { get; set; } = null!;
 
         public GetDomainArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The domain name.
         /// </summary>
-        [Input("domainId")]
-        public Input<string>? DomainId { get; set; }
+        [Input("domainId", required: true)]
+        public Input<string> DomainId { get; set; } = null!;
 
         public GetDomainInvokeArgs()
         {

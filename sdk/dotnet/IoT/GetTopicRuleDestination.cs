@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Resource Type definition for AWS::IoT::TopicRuleDestination
         /// </summary>
-        public static Task<GetTopicRuleDestinationResult> InvokeAsync(GetTopicRuleDestinationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTopicRuleDestinationResult> InvokeAsync(GetTopicRuleDestinationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicRuleDestinationResult>("aws-native:iot:getTopicRuleDestination", args ?? new GetTopicRuleDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::TopicRuleDestination
         /// </summary>
-        public static Output<GetTopicRuleDestinationResult> Invoke(GetTopicRuleDestinationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTopicRuleDestinationResult> Invoke(GetTopicRuleDestinationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTopicRuleDestinationResult>("aws-native:iot:getTopicRuleDestination", args ?? new GetTopicRuleDestinationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetTopicRuleDestinationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetTopicRuleDestinationInvokeArgs()
         {

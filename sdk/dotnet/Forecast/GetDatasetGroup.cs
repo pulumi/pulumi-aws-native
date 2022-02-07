@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Forecast
         /// <summary>
         /// Represents a dataset group that holds a collection of related datasets
         /// </summary>
-        public static Task<GetDatasetGroupResult> InvokeAsync(GetDatasetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatasetGroupResult> InvokeAsync(GetDatasetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a dataset group that holds a collection of related datasets
         /// </summary>
-        public static Output<GetDatasetGroupResult> Invoke(GetDatasetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatasetGroupResult> Invoke(GetDatasetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Forecast
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dataset group to delete.
         /// </summary>
-        [Input("datasetGroupArn")]
-        public string? DatasetGroupArn { get; set; }
+        [Input("datasetGroupArn", required: true)]
+        public string DatasetGroupArn { get; set; } = null!;
 
         public GetDatasetGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Forecast
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dataset group to delete.
         /// </summary>
-        [Input("datasetGroupArn")]
-        public Input<string>? DatasetGroupArn { get; set; }
+        [Input("datasetGroupArn", required: true)]
+        public Input<string> DatasetGroupArn { get; set; } = null!;
 
         public GetDatasetGroupInvokeArgs()
         {

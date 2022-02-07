@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppMesh
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualService
         /// </summary>
-        public static Task<GetVirtualServiceResult> InvokeAsync(GetVirtualServiceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVirtualServiceResult> InvokeAsync(GetVirtualServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualServiceResult>("aws-native:appmesh:getVirtualService", args ?? new GetVirtualServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualService
         /// </summary>
-        public static Output<GetVirtualServiceResult> Invoke(GetVirtualServiceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVirtualServiceResult> Invoke(GetVirtualServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualServiceResult>("aws-native:appmesh:getVirtualService", args ?? new GetVirtualServiceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVirtualServiceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVirtualServiceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppMesh
 
     public sealed class GetVirtualServiceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVirtualServiceInvokeArgs()
         {

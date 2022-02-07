@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetCarrierGatewayResult> InvokeAsync(GetCarrierGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCarrierGatewayResult> InvokeAsync(GetCarrierGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetCarrierGatewayResult> Invoke(GetCarrierGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCarrierGatewayResult> Invoke(GetCarrierGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the carrier gateway.
         /// </summary>
-        [Input("carrierGatewayId")]
-        public string? CarrierGatewayId { get; set; }
+        [Input("carrierGatewayId", required: true)]
+        public string CarrierGatewayId { get; set; } = null!;
 
         public GetCarrierGatewayArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the carrier gateway.
         /// </summary>
-        [Input("carrierGatewayId")]
-        public Input<string>? CarrierGatewayId { get; set; }
+        [Input("carrierGatewayId", required: true)]
+        public Input<string> CarrierGatewayId { get; set; } = null!;
 
         public GetCarrierGatewayInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioShare
         /// </summary>
-        public static Task<GetPortfolioShareResult> InvokeAsync(GetPortfolioShareArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPortfolioShareResult> InvokeAsync(GetPortfolioShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioShareResult>("aws-native:servicecatalog:getPortfolioShare", args ?? new GetPortfolioShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioShare
         /// </summary>
-        public static Output<GetPortfolioShareResult> Invoke(GetPortfolioShareInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPortfolioShareResult> Invoke(GetPortfolioShareInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPortfolioShareResult>("aws-native:servicecatalog:getPortfolioShare", args ?? new GetPortfolioShareInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPortfolioShareArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPortfolioShareArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetPortfolioShareInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPortfolioShareInvokeArgs()
         {

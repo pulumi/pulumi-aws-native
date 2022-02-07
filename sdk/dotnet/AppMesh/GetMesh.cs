@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppMesh
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::Mesh
         /// </summary>
-        public static Task<GetMeshResult> InvokeAsync(GetMeshArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws-native:appmesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::Mesh
         /// </summary>
-        public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws-native:appmesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMeshArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMeshArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppMesh
 
     public sealed class GetMeshInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMeshInvokeArgs()
         {

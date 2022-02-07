@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
         /// </summary>
-        public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:memorydb:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
         /// </summary>
-        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:memorydb:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
         /// </summary>
-        [Input("subnetGroupName")]
-        public string? SubnetGroupName { get; set; }
+        [Input("subnetGroupName", required: true)]
+        public string SubnetGroupName { get; set; } = null!;
 
         public GetSubnetGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
         /// </summary>
-        [Input("subnetGroupName")]
-        public Input<string>? SubnetGroupName { get; set; }
+        [Input("subnetGroupName", required: true)]
+        public Input<string> SubnetGroupName { get; set; } = null!;
 
         public GetSubnetGroupInvokeArgs()
         {

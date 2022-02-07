@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::SMSChannel
         /// </summary>
-        public static Task<GetSMSChannelResult> InvokeAsync(GetSMSChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSMSChannelResult> InvokeAsync(GetSMSChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSMSChannelResult>("aws-native:pinpoint:getSMSChannel", args ?? new GetSMSChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::SMSChannel
         /// </summary>
-        public static Output<GetSMSChannelResult> Invoke(GetSMSChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSMSChannelResult> Invoke(GetSMSChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSMSChannelResult>("aws-native:pinpoint:getSMSChannel", args ?? new GetSMSChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSMSChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSMSChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetSMSChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSMSChannelInvokeArgs()
         {

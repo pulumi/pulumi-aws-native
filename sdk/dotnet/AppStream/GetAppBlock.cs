@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::AppBlock
         /// </summary>
-        public static Task<GetAppBlockResult> InvokeAsync(GetAppBlockArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAppBlockResult> InvokeAsync(GetAppBlockArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppBlockResult>("aws-native:appstream:getAppBlock", args ?? new GetAppBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::AppBlock
         /// </summary>
-        public static Output<GetAppBlockResult> Invoke(GetAppBlockInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAppBlockResult> Invoke(GetAppBlockInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppBlockResult>("aws-native:appstream:getAppBlock", args ?? new GetAppBlockInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAppBlockArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAppBlockArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAppBlockInvokeArgs()
         {

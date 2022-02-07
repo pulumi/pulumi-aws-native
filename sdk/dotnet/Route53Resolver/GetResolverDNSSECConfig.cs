@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
         /// </summary>
-        public static Task<GetResolverDNSSECConfigResult> InvokeAsync(GetResolverDNSSECConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResolverDNSSECConfigResult> InvokeAsync(GetResolverDNSSECConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverDNSSECConfigResult>("aws-native:route53resolver:getResolverDNSSECConfig", args ?? new GetResolverDNSSECConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
         /// </summary>
-        public static Output<GetResolverDNSSECConfigResult> Invoke(GetResolverDNSSECConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResolverDNSSECConfigResult> Invoke(GetResolverDNSSECConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResolverDNSSECConfigResult>("aws-native:route53resolver:getResolverDNSSECConfig", args ?? new GetResolverDNSSECConfigInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Id
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResolverDNSSECConfigArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Id
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResolverDNSSECConfigInvokeArgs()
         {

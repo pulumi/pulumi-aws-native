@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Resource Type definition for AWS::LicenseManager::License
         /// </summary>
-        public static Task<GetLicenseResult> InvokeAsync(GetLicenseArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLicenseResult> InvokeAsync(GetLicenseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LicenseManager::License
         /// </summary>
-        public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Amazon Resource Name is a unique name for each resource.
         /// </summary>
-        [Input("licenseArn")]
-        public string? LicenseArn { get; set; }
+        [Input("licenseArn", required: true)]
+        public string LicenseArn { get; set; } = null!;
 
         public GetLicenseArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Amazon Resource Name is a unique name for each resource.
         /// </summary>
-        [Input("licenseArn")]
-        public Input<string>? LicenseArn { get; set; }
+        [Input("licenseArn", required: true)]
+        public Input<string> LicenseArn { get; set; } = null!;
 
         public GetLicenseInvokeArgs()
         {

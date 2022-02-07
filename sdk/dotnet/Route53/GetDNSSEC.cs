@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
         /// </summary>
-        public static Task<GetDNSSECResult> InvokeAsync(GetDNSSECArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDNSSECResult> InvokeAsync(GetDNSSECArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDNSSECResult>("aws-native:route53:getDNSSEC", args ?? new GetDNSSECArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
         /// </summary>
-        public static Output<GetDNSSECResult> Invoke(GetDNSSECInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDNSSECResult> Invoke(GetDNSSECInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDNSSECResult>("aws-native:route53:getDNSSEC", args ?? new GetDNSSECInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
         /// </summary>
-        [Input("hostedZoneId")]
-        public string? HostedZoneId { get; set; }
+        [Input("hostedZoneId", required: true)]
+        public string HostedZoneId { get; set; } = null!;
 
         public GetDNSSECArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
         /// </summary>
-        [Input("hostedZoneId")]
-        public Input<string>? HostedZoneId { get; set; }
+        [Input("hostedZoneId", required: true)]
+        public Input<string> HostedZoneId { get; set; } = null!;
 
         public GetDNSSECInvokeArgs()
         {

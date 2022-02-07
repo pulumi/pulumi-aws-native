@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppSync
         /// <summary>
         /// Resource Type definition for AWS::AppSync::ApiKey
         /// </summary>
-        public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("aws-native:appsync:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::ApiKey
         /// </summary>
-        public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:appsync:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApiKeyArgs : Pulumi.InvokeArgs
     {
-        [Input("apiKeyId")]
-        public string? ApiKeyId { get; set; }
+        [Input("apiKeyId", required: true)]
+        public string ApiKeyId { get; set; } = null!;
 
         public GetApiKeyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetApiKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("apiKeyId")]
-        public Input<string>? ApiKeyId { get; set; }
+        [Input("apiKeyId", required: true)]
+        public Input<string> ApiKeyId { get; set; } = null!;
 
         public GetApiKeyInvokeArgs()
         {

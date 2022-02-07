@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
         /// </summary>
-        public static Task<GetConformancePackResult> InvokeAsync(GetConformancePackArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConformancePackResult> InvokeAsync(GetConformancePackArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConformancePackResult>("aws-native:configuration:getConformancePack", args ?? new GetConformancePackArgs(), options.WithDefaults());
 
         /// <summary>
         /// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
         /// </summary>
-        public static Output<GetConformancePackResult> Invoke(GetConformancePackInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConformancePackResult> Invoke(GetConformancePackInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConformancePackResult>("aws-native:configuration:getConformancePack", args ?? new GetConformancePackInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Name of the conformance pack which will be assigned as the unique identifier.
         /// </summary>
-        [Input("conformancePackName")]
-        public string? ConformancePackName { get; set; }
+        [Input("conformancePackName", required: true)]
+        public string ConformancePackName { get; set; } = null!;
 
         public GetConformancePackArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Name of the conformance pack which will be assigned as the unique identifier.
         /// </summary>
-        [Input("conformancePackName")]
-        public Input<string>? ConformancePackName { get; set; }
+        [Input("conformancePackName", required: true)]
+        public Input<string> ConformancePackName { get; set; } = null!;
 
         public GetConformancePackInvokeArgs()
         {

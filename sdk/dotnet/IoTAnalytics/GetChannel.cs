@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Channel
         /// </summary>
-        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:iotanalytics:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Channel
         /// </summary>
-        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:iotanalytics:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("channelName")]
-        public string? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public string ChannelName { get; set; } = null!;
 
         public GetChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("channelName")]
-        public Input<string>? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
 
         public GetChannelInvokeArgs()
         {

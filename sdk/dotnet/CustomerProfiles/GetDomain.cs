@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// A domain defined for 3rd party data source in Profile Service
         /// </summary>
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:customerprofiles:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// A domain defined for 3rd party data source in Profile Service
         /// </summary>
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:customerprofiles:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public string? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         public GetDomainArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         public GetDomainInvokeArgs()
         {

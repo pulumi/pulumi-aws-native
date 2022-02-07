@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ASK
         /// <summary>
         /// Resource Type definition for Alexa::ASK::Skill
         /// </summary>
-        public static Task<GetSkillResult> InvokeAsync(GetSkillArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSkillResult> InvokeAsync(GetSkillArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkillResult>("aws-native:ask:getSkill", args ?? new GetSkillArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for Alexa::ASK::Skill
         /// </summary>
-        public static Output<GetSkillResult> Invoke(GetSkillInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSkillResult> Invoke(GetSkillInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSkillResult>("aws-native:ask:getSkill", args ?? new GetSkillInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSkillArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSkillArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ASK
 
     public sealed class GetSkillInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSkillInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::DHCPOptions
         /// </summary>
-        public static Task<GetDHCPOptionsResult> InvokeAsync(GetDHCPOptionsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDHCPOptionsResult> InvokeAsync(GetDHCPOptionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDHCPOptionsResult>("aws-native:ec2:getDHCPOptions", args ?? new GetDHCPOptionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::DHCPOptions
         /// </summary>
-        public static Output<GetDHCPOptionsResult> Invoke(GetDHCPOptionsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDHCPOptionsResult> Invoke(GetDHCPOptionsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDHCPOptionsResult>("aws-native:ec2:getDHCPOptions", args ?? new GetDHCPOptionsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDHCPOptionsArgs : Pulumi.InvokeArgs
     {
-        [Input("dhcpOptionsId")]
-        public string? DhcpOptionsId { get; set; }
+        [Input("dhcpOptionsId", required: true)]
+        public string DhcpOptionsId { get; set; } = null!;
 
         public GetDHCPOptionsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetDHCPOptionsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("dhcpOptionsId")]
-        public Input<string>? DhcpOptionsId { get; set; }
+        [Input("dhcpOptionsId", required: true)]
+        public Input<string> DhcpOptionsId { get; set; } = null!;
 
         public GetDHCPOptionsInvokeArgs()
         {

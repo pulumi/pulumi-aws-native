@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
         /// </summary>
-        public static Task<GetCoreDefinitionVersionResult> InvokeAsync(GetCoreDefinitionVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCoreDefinitionVersionResult> InvokeAsync(GetCoreDefinitionVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCoreDefinitionVersionResult>("aws-native:greengrass:getCoreDefinitionVersion", args ?? new GetCoreDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
         /// </summary>
-        public static Output<GetCoreDefinitionVersionResult> Invoke(GetCoreDefinitionVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCoreDefinitionVersionResult> Invoke(GetCoreDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCoreDefinitionVersionResult>("aws-native:greengrass:getCoreDefinitionVersion", args ?? new GetCoreDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCoreDefinitionVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCoreDefinitionVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetCoreDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCoreDefinitionVersionInvokeArgs()
         {

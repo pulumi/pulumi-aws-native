@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SNS
         /// <summary>
         /// Resource Type definition for AWS::SNS::Subscription
         /// </summary>
-        public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("aws-native:sns:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SNS::Subscription
         /// </summary>
-        public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("aws-native:sns:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubscriptionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SNS
 
     public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubscriptionInvokeArgs()
         {

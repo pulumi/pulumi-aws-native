@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
         /// </summary>
-        public static Task<GetResponseHeadersPolicyResult> InvokeAsync(GetResponseHeadersPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResponseHeadersPolicyResult> InvokeAsync(GetResponseHeadersPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResponseHeadersPolicyResult>("aws-native:cloudfront:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
         /// </summary>
-        public static Output<GetResponseHeadersPolicyResult> Invoke(GetResponseHeadersPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResponseHeadersPolicyResult> Invoke(GetResponseHeadersPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResponseHeadersPolicyResult>("aws-native:cloudfront:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResponseHeadersPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResponseHeadersPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetResponseHeadersPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResponseHeadersPolicyInvokeArgs()
         {

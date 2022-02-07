@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ImageRecipe
         /// </summary>
-        public static Task<GetImageRecipeResult> InvokeAsync(GetImageRecipeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetImageRecipeResult> InvokeAsync(GetImageRecipeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipeResult>("aws-native:imagebuilder:getImageRecipe", args ?? new GetImageRecipeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ImageRecipe
         /// </summary>
-        public static Output<GetImageRecipeResult> Invoke(GetImageRecipeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetImageRecipeResult> Invoke(GetImageRecipeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetImageRecipeResult>("aws-native:imagebuilder:getImageRecipe", args ?? new GetImageRecipeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetImageRecipeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetImageRecipeInvokeArgs()
         {

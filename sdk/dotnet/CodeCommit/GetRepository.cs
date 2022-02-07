@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CodeCommit
         /// <summary>
         /// Resource Type definition for AWS::CodeCommit::Repository
         /// </summary>
-        public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws-native:codecommit:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeCommit::Repository
         /// </summary>
-        public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("aws-native:codecommit:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRepositoryArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CodeCommit
 
     public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRepositoryInvokeArgs()
         {

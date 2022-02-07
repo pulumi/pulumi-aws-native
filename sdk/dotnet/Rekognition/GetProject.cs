@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Rekognition
         /// <summary>
         /// The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
         /// </summary>
-        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("aws-native:rekognition:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
         /// </summary>
-        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:rekognition:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
-        [Input("projectName")]
-        public string? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public string ProjectName { get; set; } = null!;
 
         public GetProjectArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("projectName")]
-        public Input<string>? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
 
         public GetProjectInvokeArgs()
         {

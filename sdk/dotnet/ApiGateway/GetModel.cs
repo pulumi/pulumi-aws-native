@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Model
         /// </summary>
-        public static Task<GetModelResult> InvokeAsync(GetModelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Model
         /// </summary>
-        public static Output<GetModelResult> Invoke(GetModelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The ID of a REST API with which to associate this model.
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetModelArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The ID of a REST API with which to associate this model.
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetModelInvokeArgs()
         {

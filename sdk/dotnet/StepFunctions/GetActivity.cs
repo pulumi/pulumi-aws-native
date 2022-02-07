@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.StepFunctions
         /// <summary>
         /// Resource schema for Activity
         /// </summary>
-        public static Task<GetActivityResult> InvokeAsync(GetActivityArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetActivityResult> InvokeAsync(GetActivityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws-native:stepfunctions:getActivity", args ?? new GetActivityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for Activity
         /// </summary>
-        public static Output<GetActivityResult> Invoke(GetActivityInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetActivityResult> Invoke(GetActivityInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetActivityResult>("aws-native:stepfunctions:getActivity", args ?? new GetActivityInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetActivityArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetActivityArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetActivityInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetActivityInvokeArgs()
         {

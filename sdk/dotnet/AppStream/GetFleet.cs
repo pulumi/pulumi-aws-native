@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Fleet
         /// </summary>
-        public static Task<GetFleetResult> InvokeAsync(GetFleetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:appstream:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Fleet
         /// </summary>
-        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:appstream:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFleetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFleetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetFleetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFleetInvokeArgs()
         {

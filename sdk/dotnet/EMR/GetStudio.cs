@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// Resource schema for AWS::EMR::Studio
         /// </summary>
-        public static Task<GetStudioResult> InvokeAsync(GetStudioArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStudioResult> InvokeAsync(GetStudioArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStudioResult>("aws-native:emr:getStudio", args ?? new GetStudioArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EMR::Studio
         /// </summary>
-        public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:emr:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// The ID of the EMR Studio.
         /// </summary>
-        [Input("studioId")]
-        public string? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public string StudioId { get; set; } = null!;
 
         public GetStudioArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// The ID of the EMR Studio.
         /// </summary>
-        [Input("studioId")]
-        public Input<string>? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public Input<string> StudioId { get; set; } = null!;
 
         public GetStudioInvokeArgs()
         {

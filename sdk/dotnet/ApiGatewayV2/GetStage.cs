@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Stage
         /// </summary>
-        public static Task<GetStageResult> InvokeAsync(GetStageArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStageResult> InvokeAsync(GetStageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStageResult>("aws-native:apigatewayv2:getStage", args ?? new GetStageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Stage
         /// </summary>
-        public static Output<GetStageResult> Invoke(GetStageInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:apigatewayv2:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStageArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStageArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetStageInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStageInvokeArgs()
         {

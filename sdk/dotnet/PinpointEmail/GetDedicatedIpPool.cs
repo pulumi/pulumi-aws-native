@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
         /// </summary>
-        public static Task<GetDedicatedIpPoolResult> InvokeAsync(GetDedicatedIpPoolArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDedicatedIpPoolResult> InvokeAsync(GetDedicatedIpPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedIpPoolResult>("aws-native:pinpointemail:getDedicatedIpPool", args ?? new GetDedicatedIpPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
         /// </summary>
-        public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws-native:pinpointemail:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDedicatedIpPoolArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDedicatedIpPoolArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.PinpointEmail
 
     public sealed class GetDedicatedIpPoolInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDedicatedIpPoolInvokeArgs()
         {

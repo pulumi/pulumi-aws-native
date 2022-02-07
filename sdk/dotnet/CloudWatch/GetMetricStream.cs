@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// Resource Type definition for Metric Stream
         /// </summary>
-        public static Task<GetMetricStreamResult> InvokeAsync(GetMetricStreamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMetricStreamResult> InvokeAsync(GetMetricStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetricStreamResult>("aws-native:cloudwatch:getMetricStream", args ?? new GetMetricStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for Metric Stream
         /// </summary>
-        public static Output<GetMetricStreamResult> Invoke(GetMetricStreamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMetricStreamResult> Invoke(GetMetricStreamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMetricStreamResult>("aws-native:cloudwatch:getMetricStream", args ?? new GetMetricStreamInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// Name of the metric stream.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetMetricStreamArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// Name of the metric stream.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetMetricStreamInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpsWorks
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
         /// </summary>
-        public static Task<GetElasticLoadBalancerAttachmentResult> InvokeAsync(GetElasticLoadBalancerAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetElasticLoadBalancerAttachmentResult> InvokeAsync(GetElasticLoadBalancerAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetElasticLoadBalancerAttachmentResult>("aws-native:opsworks:getElasticLoadBalancerAttachment", args ?? new GetElasticLoadBalancerAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
         /// </summary>
-        public static Output<GetElasticLoadBalancerAttachmentResult> Invoke(GetElasticLoadBalancerAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetElasticLoadBalancerAttachmentResult> Invoke(GetElasticLoadBalancerAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancerAttachmentResult>("aws-native:opsworks:getElasticLoadBalancerAttachment", args ?? new GetElasticLoadBalancerAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetElasticLoadBalancerAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetElasticLoadBalancerAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class GetElasticLoadBalancerAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetElasticLoadBalancerAttachmentInvokeArgs()
         {

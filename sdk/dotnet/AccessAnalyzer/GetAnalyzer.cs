@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         /// <summary>
         /// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
         /// </summary>
-        public static Task<GetAnalyzerResult> InvokeAsync(GetAnalyzerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAnalyzerResult> InvokeAsync(GetAnalyzerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyzerResult>("aws-native:accessanalyzer:getAnalyzer", args ?? new GetAnalyzerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
         /// </summary>
-        public static Output<GetAnalyzerResult> Invoke(GetAnalyzerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAnalyzerResult> Invoke(GetAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAnalyzerResult>("aws-native:accessanalyzer:getAnalyzer", args ?? new GetAnalyzerInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         /// <summary>
         /// Amazon Resource Name (ARN) of the analyzer
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAnalyzerArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         /// <summary>
         /// Amazon Resource Name (ARN) of the analyzer
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAnalyzerInvokeArgs()
         {

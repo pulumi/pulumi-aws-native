@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppSync
         /// <summary>
         /// Resource Type definition for AWS::AppSync::FunctionConfiguration
         /// </summary>
-        public static Task<GetFunctionConfigurationResult> InvokeAsync(GetFunctionConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFunctionConfigurationResult> InvokeAsync(GetFunctionConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::FunctionConfiguration
         /// </summary>
-        public static Output<GetFunctionConfigurationResult> Invoke(GetFunctionConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFunctionConfigurationResult> Invoke(GetFunctionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFunctionConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFunctionConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetFunctionConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFunctionConfigurationInvokeArgs()
         {

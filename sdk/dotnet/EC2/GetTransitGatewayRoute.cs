@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayRoute
         /// </summary>
-        public static Task<GetTransitGatewayRouteResult> InvokeAsync(GetTransitGatewayRouteArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayRouteResult> InvokeAsync(GetTransitGatewayRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRouteResult>("aws-native:ec2:getTransitGatewayRoute", args ?? new GetTransitGatewayRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayRoute
         /// </summary>
-        public static Output<GetTransitGatewayRouteResult> Invoke(GetTransitGatewayRouteInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayRouteResult> Invoke(GetTransitGatewayRouteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteResult>("aws-native:ec2:getTransitGatewayRoute", args ?? new GetTransitGatewayRouteInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTransitGatewayRouteArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTransitGatewayRouteArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetTransitGatewayRouteInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTransitGatewayRouteInvokeArgs()
         {

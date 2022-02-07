@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.APS
         /// <summary>
         /// RuleGroupsNamespace schema for cloudformation.
         /// </summary>
-        public static Task<GetRuleGroupsNamespaceResult> InvokeAsync(GetRuleGroupsNamespaceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRuleGroupsNamespaceResult> InvokeAsync(GetRuleGroupsNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// RuleGroupsNamespace schema for cloudformation.
         /// </summary>
-        public static Output<GetRuleGroupsNamespaceResult> Invoke(GetRuleGroupsNamespaceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRuleGroupsNamespaceResult> Invoke(GetRuleGroupsNamespaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.APS
         /// <summary>
         /// The RuleGroupsNamespace ARN.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRuleGroupsNamespaceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.APS
         /// <summary>
         /// The RuleGroupsNamespace ARN.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRuleGroupsNamespaceInvokeArgs()
         {

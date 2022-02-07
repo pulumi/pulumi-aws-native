@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
         /// </summary>
-        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws-native:codestarconnections:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
         /// </summary>
-        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:codestarconnections:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
         /// </summary>
-        [Input("connectionArn")]
-        public string? ConnectionArn { get; set; }
+        [Input("connectionArn", required: true)]
+        public string ConnectionArn { get; set; } = null!;
 
         public GetConnectionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
         /// </summary>
-        [Input("connectionArn")]
-        public Input<string>? ConnectionArn { get; set; }
+        [Input("connectionArn", required: true)]
+        public Input<string> ConnectionArn { get; set; } = null!;
 
         public GetConnectionInvokeArgs()
         {

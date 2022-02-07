@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Resource Type definition for AWS::IVS::Channel
         /// </summary>
-        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:ivs:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IVS::Channel
         /// </summary>
-        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:ivs:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Channel ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetChannelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Channel ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetChannelInvokeArgs()
         {

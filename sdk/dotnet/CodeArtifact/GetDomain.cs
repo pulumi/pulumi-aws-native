@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The resource schema to create a CodeArtifact domain.
         /// </summary>
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:codeartifact:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema to create a CodeArtifact domain.
         /// </summary>
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:codeartifact:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The ARN of the domain.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetDomainArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The ARN of the domain.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetDomainInvokeArgs()
         {

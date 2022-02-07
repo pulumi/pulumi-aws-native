@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <summary>
         /// Resource Type definition for AWS::SSMContacts::ContactChannel
         /// </summary>
-        public static Task<GetContactChannelResult> InvokeAsync(GetContactChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContactChannelResult> InvokeAsync(GetContactChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSMContacts::ContactChannel
         /// </summary>
-        public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the engagement to a contact channel.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetContactChannelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the engagement to a contact channel.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetContactChannelInvokeArgs()
         {

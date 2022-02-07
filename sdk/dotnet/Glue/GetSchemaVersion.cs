@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// This resource represents an individual schema version of a schema defined in Glue Schema Registry.
         /// </summary>
-        public static Task<GetSchemaVersionResult> InvokeAsync(GetSchemaVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSchemaVersionResult> InvokeAsync(GetSchemaVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchemaVersionResult>("aws-native:glue:getSchemaVersion", args ?? new GetSchemaVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource represents an individual schema version of a schema defined in Glue Schema Registry.
         /// </summary>
-        public static Output<GetSchemaVersionResult> Invoke(GetSchemaVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSchemaVersionResult> Invoke(GetSchemaVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSchemaVersionResult>("aws-native:glue:getSchemaVersion", args ?? new GetSchemaVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Represents the version ID associated with the schema version.
         /// </summary>
-        [Input("versionId")]
-        public string? VersionId { get; set; }
+        [Input("versionId", required: true)]
+        public string VersionId { get; set; } = null!;
 
         public GetSchemaVersionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Represents the version ID associated with the schema version.
         /// </summary>
-        [Input("versionId")]
-        public Input<string>? VersionId { get; set; }
+        [Input("versionId", required: true)]
+        public Input<string> VersionId { get; set; } = null!;
 
         public GetSchemaVersionInvokeArgs()
         {

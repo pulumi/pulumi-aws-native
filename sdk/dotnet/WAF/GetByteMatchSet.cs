@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAF
         /// <summary>
         /// Resource Type definition for AWS::WAF::ByteMatchSet
         /// </summary>
-        public static Task<GetByteMatchSetResult> InvokeAsync(GetByteMatchSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetByteMatchSetResult> InvokeAsync(GetByteMatchSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetByteMatchSetResult>("aws-native:waf:getByteMatchSet", args ?? new GetByteMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::ByteMatchSet
         /// </summary>
-        public static Output<GetByteMatchSetResult> Invoke(GetByteMatchSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetByteMatchSetResult> Invoke(GetByteMatchSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetByteMatchSetResult>("aws-native:waf:getByteMatchSet", args ?? new GetByteMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetByteMatchSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetByteMatchSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class GetByteMatchSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetByteMatchSetInvokeArgs()
         {

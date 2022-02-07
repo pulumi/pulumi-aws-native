@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// <summary>
         /// An Amazon Lookout for Metrics Detector
         /// </summary>
-        public static Task<GetAnomalyDetectorResult> InvokeAsync(GetAnomalyDetectorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAnomalyDetectorResult> InvokeAsync(GetAnomalyDetectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyDetectorResult>("aws-native:lookoutmetrics:getAnomalyDetector", args ?? new GetAnomalyDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Amazon Lookout for Metrics Detector
         /// </summary>
-        public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAnomalyDetectorResult>("aws-native:lookoutmetrics:getAnomalyDetector", args ?? new GetAnomalyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAnomalyDetectorArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAnomalyDetectorArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.LookoutMetrics
 
     public sealed class GetAnomalyDetectorInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAnomalyDetectorInvokeArgs()
         {

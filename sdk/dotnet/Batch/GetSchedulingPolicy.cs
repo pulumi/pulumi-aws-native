@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Batch
         /// <summary>
         /// Resource Type schema for AWS::Batch::SchedulingPolicy
         /// </summary>
-        public static Task<GetSchedulingPolicyResult> InvokeAsync(GetSchedulingPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSchedulingPolicyResult> InvokeAsync(GetSchedulingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchedulingPolicyResult>("aws-native:batch:getSchedulingPolicy", args ?? new GetSchedulingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type schema for AWS::Batch::SchedulingPolicy
         /// </summary>
-        public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws-native:batch:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSchedulingPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetSchedulingPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetSchedulingPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetSchedulingPolicyInvokeArgs()
         {

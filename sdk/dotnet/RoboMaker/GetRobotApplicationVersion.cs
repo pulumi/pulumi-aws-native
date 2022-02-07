@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RoboMaker
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetRobotApplicationVersionResult> InvokeAsync(GetRobotApplicationVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRobotApplicationVersionResult> InvokeAsync(GetRobotApplicationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRobotApplicationVersionResult>("aws-native:robomaker:getRobotApplicationVersion", args ?? new GetRobotApplicationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetRobotApplicationVersionResult> Invoke(GetRobotApplicationVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRobotApplicationVersionResult> Invoke(GetRobotApplicationVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRobotApplicationVersionResult>("aws-native:robomaker:getRobotApplicationVersion", args ?? new GetRobotApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRobotApplicationVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRobotApplicationVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotApplicationVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRobotApplicationVersionInvokeArgs()
         {

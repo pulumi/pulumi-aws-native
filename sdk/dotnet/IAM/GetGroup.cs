@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::Group
         /// </summary>
-        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws-native:iam:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::Group
         /// </summary>
-        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:iam:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGroupInvokeArgs()
         {

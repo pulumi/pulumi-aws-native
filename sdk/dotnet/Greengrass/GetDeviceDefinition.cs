@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::DeviceDefinition
         /// </summary>
-        public static Task<GetDeviceDefinitionResult> InvokeAsync(GetDeviceDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeviceDefinitionResult> InvokeAsync(GetDeviceDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceDefinitionResult>("aws-native:greengrass:getDeviceDefinition", args ?? new GetDeviceDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::DeviceDefinition
         /// </summary>
-        public static Output<GetDeviceDefinitionResult> Invoke(GetDeviceDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeviceDefinitionResult> Invoke(GetDeviceDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceDefinitionResult>("aws-native:greengrass:getDeviceDefinition", args ?? new GetDeviceDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeviceDefinitionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeviceDefinitionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetDeviceDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeviceDefinitionInvokeArgs()
         {

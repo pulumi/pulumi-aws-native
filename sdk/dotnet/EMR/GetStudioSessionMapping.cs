@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetStudioSessionMappingResult> InvokeAsync(GetStudioSessionMappingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStudioSessionMappingResult> InvokeAsync(GetStudioSessionMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetStudioSessionMappingResult> Invoke(GetStudioSessionMappingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStudioSessionMappingResult> Invoke(GetStudioSessionMappingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         /// </summary>
-        [Input("identityName")]
-        public string? IdentityName { get; set; }
+        [Input("identityName", required: true)]
+        public string IdentityName { get; set; } = null!;
 
         /// <summary>
         /// Specifies whether the identity to map to the Studio is a user or a group.
         /// </summary>
-        [Input("identityType")]
-        public Pulumi.AwsNative.EMR.StudioSessionMappingIdentityType? IdentityType { get; set; }
+        [Input("identityType", required: true)]
+        public Pulumi.AwsNative.EMR.StudioSessionMappingIdentityType IdentityType { get; set; }
 
         /// <summary>
         /// The ID of the Amazon EMR Studio to which the user or group will be mapped.
         /// </summary>
-        [Input("studioId")]
-        public string? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public string StudioId { get; set; } = null!;
 
         public GetStudioSessionMappingArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         /// </summary>
-        [Input("identityName")]
-        public Input<string>? IdentityName { get; set; }
+        [Input("identityName", required: true)]
+        public Input<string> IdentityName { get; set; } = null!;
 
         /// <summary>
         /// Specifies whether the identity to map to the Studio is a user or a group.
         /// </summary>
-        [Input("identityType")]
-        public Input<Pulumi.AwsNative.EMR.StudioSessionMappingIdentityType>? IdentityType { get; set; }
+        [Input("identityType", required: true)]
+        public Input<Pulumi.AwsNative.EMR.StudioSessionMappingIdentityType> IdentityType { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Amazon EMR Studio to which the user or group will be mapped.
         /// </summary>
-        [Input("studioId")]
-        public Input<string>? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public Input<string> StudioId { get; set; } = null!;
 
         public GetStudioSessionMappingInvokeArgs()
         {

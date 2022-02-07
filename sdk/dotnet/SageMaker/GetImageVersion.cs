@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ImageVersion
         /// </summary>
-        public static Task<GetImageVersionResult> InvokeAsync(GetImageVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetImageVersionResult> InvokeAsync(GetImageVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageVersionResult>("aws-native:sagemaker:getImageVersion", args ?? new GetImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ImageVersion
         /// </summary>
-        public static Output<GetImageVersionResult> Invoke(GetImageVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetImageVersionResult> Invoke(GetImageVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetImageVersionResult>("aws-native:sagemaker:getImageVersion", args ?? new GetImageVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetImageVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("imageVersionArn")]
-        public string? ImageVersionArn { get; set; }
+        [Input("imageVersionArn", required: true)]
+        public string ImageVersionArn { get; set; } = null!;
 
         public GetImageVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetImageVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("imageVersionArn")]
-        public Input<string>? ImageVersionArn { get; set; }
+        [Input("imageVersionArn", required: true)]
+        public Input<string> ImageVersionArn { get; set; } = null!;
 
         public GetImageVersionInvokeArgs()
         {

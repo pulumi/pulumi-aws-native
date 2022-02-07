@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::AutoScalingGroup
         /// </summary>
-        public static Task<GetAutoScalingGroupResult> InvokeAsync(GetAutoScalingGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAutoScalingGroupResult> InvokeAsync(GetAutoScalingGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoScalingGroupResult>("aws-native:autoscaling:getAutoScalingGroup", args ?? new GetAutoScalingGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::AutoScalingGroup
         /// </summary>
-        public static Output<GetAutoScalingGroupResult> Invoke(GetAutoScalingGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAutoScalingGroupResult> Invoke(GetAutoScalingGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAutoScalingGroupResult>("aws-native:autoscaling:getAutoScalingGroup", args ?? new GetAutoScalingGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAutoScalingGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAutoScalingGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetAutoScalingGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAutoScalingGroupInvokeArgs()
         {

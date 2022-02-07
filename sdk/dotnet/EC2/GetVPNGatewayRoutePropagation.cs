@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
         /// </summary>
-        public static Task<GetVPNGatewayRoutePropagationResult> InvokeAsync(GetVPNGatewayRoutePropagationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPNGatewayRoutePropagationResult> InvokeAsync(GetVPNGatewayRoutePropagationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPNGatewayRoutePropagationResult>("aws-native:ec2:getVPNGatewayRoutePropagation", args ?? new GetVPNGatewayRoutePropagationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
         /// </summary>
-        public static Output<GetVPNGatewayRoutePropagationResult> Invoke(GetVPNGatewayRoutePropagationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPNGatewayRoutePropagationResult> Invoke(GetVPNGatewayRoutePropagationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPNGatewayRoutePropagationResult>("aws-native:ec2:getVPNGatewayRoutePropagation", args ?? new GetVPNGatewayRoutePropagationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPNGatewayRoutePropagationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPNGatewayRoutePropagationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPNGatewayRoutePropagationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPNGatewayRoutePropagationInvokeArgs()
         {

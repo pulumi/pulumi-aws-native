@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cloud9
         /// <summary>
         /// Resource Type definition for AWS::Cloud9::EnvironmentEC2
         /// </summary>
-        public static Task<GetEnvironmentEC2Result> InvokeAsync(GetEnvironmentEC2Args? args = null, InvokeOptions? options = null)
+        public static Task<GetEnvironmentEC2Result> InvokeAsync(GetEnvironmentEC2Args args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentEC2Result>("aws-native:cloud9:getEnvironmentEC2", args ?? new GetEnvironmentEC2Args(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cloud9::EnvironmentEC2
         /// </summary>
-        public static Output<GetEnvironmentEC2Result> Invoke(GetEnvironmentEC2InvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEnvironmentEC2Result> Invoke(GetEnvironmentEC2InvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEnvironmentEC2Result>("aws-native:cloud9:getEnvironmentEC2", args ?? new GetEnvironmentEC2InvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEnvironmentEC2Args : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEnvironmentEC2Args()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cloud9
 
     public sealed class GetEnvironmentEC2InvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEnvironmentEC2InvokeArgs()
         {

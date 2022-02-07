@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
         /// </summary>
-        public static Task<GetLoadBalancerTlsCertificateResult> InvokeAsync(GetLoadBalancerTlsCertificateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLoadBalancerTlsCertificateResult> InvokeAsync(GetLoadBalancerTlsCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
         /// </summary>
-        public static Output<GetLoadBalancerTlsCertificateResult> Invoke(GetLoadBalancerTlsCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLoadBalancerTlsCertificateResult> Invoke(GetLoadBalancerTlsCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The SSL/TLS certificate name.
         /// </summary>
-        [Input("certificateName")]
-        public string? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of your load balancer.
         /// </summary>
-        [Input("loadBalancerName")]
-        public string? LoadBalancerName { get; set; }
+        [Input("loadBalancerName", required: true)]
+        public string LoadBalancerName { get; set; } = null!;
 
         public GetLoadBalancerTlsCertificateArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The SSL/TLS certificate name.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of your load balancer.
         /// </summary>
-        [Input("loadBalancerName")]
-        public Input<string>? LoadBalancerName { get; set; }
+        [Input("loadBalancerName", required: true)]
+        public Input<string> LoadBalancerName { get; set; } = null!;
 
         public GetLoadBalancerTlsCertificateInvokeArgs()
         {

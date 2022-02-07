@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Resource Type definition for AWS::Events::ApiDestination.
         /// </summary>
-        public static Task<GetApiDestinationResult> InvokeAsync(GetApiDestinationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApiDestinationResult> InvokeAsync(GetApiDestinationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::ApiDestination.
         /// </summary>
-        public static Output<GetApiDestinationResult> Invoke(GetApiDestinationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApiDestinationResult> Invoke(GetApiDestinationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Name of the apiDestination.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetApiDestinationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Name of the apiDestination.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetApiDestinationInvokeArgs()
         {

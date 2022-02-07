@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Enable a resource that has been published in the CloudFormation Registry.
         /// </summary>
-        public static Task<GetTypeActivationResult> InvokeAsync(GetTypeActivationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTypeActivationResult> InvokeAsync(GetTypeActivationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Enable a resource that has been published in the CloudFormation Registry.
         /// </summary>
-        public static Output<GetTypeActivationResult> Invoke(GetTypeActivationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTypeActivationResult> Invoke(GetTypeActivationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the extension.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetTypeActivationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the extension.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetTypeActivationInvokeArgs()
         {

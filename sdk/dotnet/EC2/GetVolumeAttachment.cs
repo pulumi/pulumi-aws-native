@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VolumeAttachment
         /// </summary>
-        public static Task<GetVolumeAttachmentResult> InvokeAsync(GetVolumeAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVolumeAttachmentResult> InvokeAsync(GetVolumeAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeAttachmentResult>("aws-native:ec2:getVolumeAttachment", args ?? new GetVolumeAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VolumeAttachment
         /// </summary>
-        public static Output<GetVolumeAttachmentResult> Invoke(GetVolumeAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVolumeAttachmentResult> Invoke(GetVolumeAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVolumeAttachmentResult>("aws-native:ec2:getVolumeAttachment", args ?? new GetVolumeAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVolumeAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVolumeAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVolumeAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVolumeAttachmentInvokeArgs()
         {

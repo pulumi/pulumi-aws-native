@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// Resource schema for AWS::Cassandra::Table
         /// </summary>
-        public static Task<GetTableResult> InvokeAsync(GetTableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:cassandra:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Cassandra::Table
         /// </summary>
-        public static Output<GetTableResult> Invoke(GetTableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:cassandra:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// Name for Cassandra keyspace
         /// </summary>
-        [Input("keyspaceName")]
-        public string? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public string KeyspaceName { get; set; } = null!;
 
         /// <summary>
         /// Name for Cassandra table
         /// </summary>
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetTableArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// Name for Cassandra keyspace
         /// </summary>
-        [Input("keyspaceName")]
-        public Input<string>? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
 
         /// <summary>
         /// Name for Cassandra table
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public GetTableInvokeArgs()
         {

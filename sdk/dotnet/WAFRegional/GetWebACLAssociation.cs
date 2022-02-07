@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAFRegional
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::WebACLAssociation
         /// </summary>
-        public static Task<GetWebACLAssociationResult> InvokeAsync(GetWebACLAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWebACLAssociationResult> InvokeAsync(GetWebACLAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebACLAssociationResult>("aws-native:wafregional:getWebACLAssociation", args ?? new GetWebACLAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::WebACLAssociation
         /// </summary>
-        public static Output<GetWebACLAssociationResult> Invoke(GetWebACLAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWebACLAssociationResult> Invoke(GetWebACLAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebACLAssociationResult>("aws-native:wafregional:getWebACLAssociation", args ?? new GetWebACLAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWebACLAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWebACLAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class GetWebACLAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWebACLAssociationInvokeArgs()
         {

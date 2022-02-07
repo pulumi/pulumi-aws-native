@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
         /// </summary>
-        public static Task<GetRecoveryGroupResult> InvokeAsync(GetRecoveryGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRecoveryGroupResult> InvokeAsync(GetRecoveryGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryGroupResult>("aws-native:route53recoveryreadiness:getRecoveryGroup", args ?? new GetRecoveryGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
         /// </summary>
-        public static Output<GetRecoveryGroupResult> Invoke(GetRecoveryGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRecoveryGroupResult> Invoke(GetRecoveryGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRecoveryGroupResult>("aws-native:route53recoveryreadiness:getRecoveryGroup", args ?? new GetRecoveryGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the recovery group to create.
         /// </summary>
-        [Input("recoveryGroupName")]
-        public string? RecoveryGroupName { get; set; }
+        [Input("recoveryGroupName", required: true)]
+        public string RecoveryGroupName { get; set; } = null!;
 
         public GetRecoveryGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the recovery group to create.
         /// </summary>
-        [Input("recoveryGroupName")]
-        public Input<string>? RecoveryGroupName { get; set; }
+        [Input("recoveryGroupName", required: true)]
+        public Input<string> RecoveryGroupName { get; set; } = null!;
 
         public GetRecoveryGroupInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
         /// </summary>
-        public static Task<GetConnectorDefinitionVersionResult> InvokeAsync(GetConnectorDefinitionVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectorDefinitionVersionResult> InvokeAsync(GetConnectorDefinitionVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorDefinitionVersionResult>("aws-native:greengrass:getConnectorDefinitionVersion", args ?? new GetConnectorDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
         /// </summary>
-        public static Output<GetConnectorDefinitionVersionResult> Invoke(GetConnectorDefinitionVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectorDefinitionVersionResult> Invoke(GetConnectorDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectorDefinitionVersionResult>("aws-native:greengrass:getConnectorDefinitionVersion", args ?? new GetConnectorDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConnectorDefinitionVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConnectorDefinitionVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetConnectorDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConnectorDefinitionVersionInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Inspector
         /// <summary>
         /// Resource Type definition for AWS::Inspector::ResourceGroup
         /// </summary>
-        public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("aws-native:inspector:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Inspector::ResourceGroup
         /// </summary>
-        public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("aws-native:inspector:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourceGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResourceGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetResourceGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResourceGroupInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpsWorks
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Volume
         /// </summary>
-        public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws-native:opsworks:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Volume
         /// </summary>
-        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws-native:opsworks:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVolumeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVolumeArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVolumeInvokeArgs()
         {

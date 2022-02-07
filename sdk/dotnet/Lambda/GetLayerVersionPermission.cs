@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::LayerVersionPermission
         /// </summary>
-        public static Task<GetLayerVersionPermissionResult> InvokeAsync(GetLayerVersionPermissionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLayerVersionPermissionResult> InvokeAsync(GetLayerVersionPermissionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::LayerVersionPermission
         /// </summary>
-        public static Output<GetLayerVersionPermissionResult> Invoke(GetLayerVersionPermissionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLayerVersionPermissionResult> Invoke(GetLayerVersionPermissionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLayerVersionPermissionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLayerVersionPermissionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetLayerVersionPermissionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLayerVersionPermissionInvokeArgs()
         {

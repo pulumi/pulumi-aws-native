@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Model
         /// </summary>
-        public static Task<GetModelResult> InvokeAsync(GetModelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:apigatewayv2:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Model
         /// </summary>
-        public static Output<GetModelResult> Invoke(GetModelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigatewayv2:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetModelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetModelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetModelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetModelInvokeArgs()
         {

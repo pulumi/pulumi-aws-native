@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
         /// </summary>
-        public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetListenerResult> InvokeAsync(GetListenerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws-native:elasticloadbalancingv2:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
         /// </summary>
-        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:elasticloadbalancingv2:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetListenerArgs : Pulumi.InvokeArgs
     {
-        [Input("listenerArn")]
-        public string? ListenerArn { get; set; }
+        [Input("listenerArn", required: true)]
+        public string ListenerArn { get; set; } = null!;
 
         public GetListenerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetListenerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("listenerArn")]
-        public Input<string>? ListenerArn { get; set; }
+        [Input("listenerArn", required: true)]
+        public Input<string> ListenerArn { get; set; } = null!;
 
         public GetListenerInvokeArgs()
         {

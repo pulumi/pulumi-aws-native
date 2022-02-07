@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::CapacityReservation
         /// </summary>
-        public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("aws-native:ec2:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::CapacityReservation
         /// </summary>
-        public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("aws-native:ec2:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCapacityReservationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCapacityReservationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetCapacityReservationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCapacityReservationInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
         /// </summary>
-        public static Task<GetPortfolioProductAssociationResult> InvokeAsync(GetPortfolioProductAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPortfolioProductAssociationResult> InvokeAsync(GetPortfolioProductAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioProductAssociationResult>("aws-native:servicecatalog:getPortfolioProductAssociation", args ?? new GetPortfolioProductAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
         /// </summary>
-        public static Output<GetPortfolioProductAssociationResult> Invoke(GetPortfolioProductAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPortfolioProductAssociationResult> Invoke(GetPortfolioProductAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPortfolioProductAssociationResult>("aws-native:servicecatalog:getPortfolioProductAssociation", args ?? new GetPortfolioProductAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPortfolioProductAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPortfolioProductAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetPortfolioProductAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPortfolioProductAssociationInvokeArgs()
         {

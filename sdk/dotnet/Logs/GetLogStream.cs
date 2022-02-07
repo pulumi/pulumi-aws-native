@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Resource Type definition for AWS::Logs::LogStream
         /// </summary>
-        public static Task<GetLogStreamResult> InvokeAsync(GetLogStreamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLogStreamResult> InvokeAsync(GetLogStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogStreamResult>("aws-native:logs:getLogStream", args ?? new GetLogStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Logs::LogStream
         /// </summary>
-        public static Output<GetLogStreamResult> Invoke(GetLogStreamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLogStreamResult> Invoke(GetLogStreamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLogStreamResult>("aws-native:logs:getLogStream", args ?? new GetLogStreamInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLogStreamArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLogStreamArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetLogStreamInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLogStreamInvokeArgs()
         {

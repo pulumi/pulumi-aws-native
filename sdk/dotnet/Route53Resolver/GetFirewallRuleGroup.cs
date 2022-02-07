@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
         /// </summary>
-        public static Task<GetFirewallRuleGroupResult> InvokeAsync(GetFirewallRuleGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFirewallRuleGroupResult> InvokeAsync(GetFirewallRuleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleGroupResult>("aws-native:route53resolver:getFirewallRuleGroup", args ?? new GetFirewallRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
         /// </summary>
-        public static Output<GetFirewallRuleGroupResult> Invoke(GetFirewallRuleGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFirewallRuleGroupResult> Invoke(GetFirewallRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleGroupResult>("aws-native:route53resolver:getFirewallRuleGroup", args ?? new GetFirewallRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// ResourceId
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFirewallRuleGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// ResourceId
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFirewallRuleGroupInvokeArgs()
         {

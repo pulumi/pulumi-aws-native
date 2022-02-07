@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
         /// </summary>
-        public static Task<GetEgressOnlyInternetGatewayResult> InvokeAsync(GetEgressOnlyInternetGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEgressOnlyInternetGatewayResult> InvokeAsync(GetEgressOnlyInternetGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
         /// </summary>
-        public static Output<GetEgressOnlyInternetGatewayResult> Invoke(GetEgressOnlyInternetGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEgressOnlyInternetGatewayResult> Invoke(GetEgressOnlyInternetGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Service Generated ID of the EgressOnlyInternetGateway
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEgressOnlyInternetGatewayArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Service Generated ID of the EgressOnlyInternetGateway
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEgressOnlyInternetGatewayInvokeArgs()
         {

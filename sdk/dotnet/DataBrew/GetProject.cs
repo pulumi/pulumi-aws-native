@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Resource schema for AWS::DataBrew::Project.
         /// </summary>
-        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("aws-native:databrew:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataBrew::Project.
         /// </summary>
-        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:databrew:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Project name
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetProjectArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Project name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetProjectInvokeArgs()
         {

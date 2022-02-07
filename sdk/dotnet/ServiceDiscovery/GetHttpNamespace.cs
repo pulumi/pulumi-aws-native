@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
         /// </summary>
-        public static Task<GetHttpNamespaceResult> InvokeAsync(GetHttpNamespaceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHttpNamespaceResult> InvokeAsync(GetHttpNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHttpNamespaceResult>("aws-native:servicediscovery:getHttpNamespace", args ?? new GetHttpNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
         /// </summary>
-        public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws-native:servicediscovery:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetHttpNamespaceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetHttpNamespaceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
     public sealed class GetHttpNamespaceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetHttpNamespaceInvokeArgs()
         {

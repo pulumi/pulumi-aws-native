@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Disk
         /// </summary>
-        public static Task<GetDiskResult> InvokeAsync(GetDiskArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("aws-native:lightsail:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Disk
         /// </summary>
-        public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDiskResult>("aws-native:lightsail:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The names to use for your new Lightsail disk.
         /// </summary>
-        [Input("diskName")]
-        public string? DiskName { get; set; }
+        [Input("diskName", required: true)]
+        public string DiskName { get; set; } = null!;
 
         public GetDiskArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The names to use for your new Lightsail disk.
         /// </summary>
-        [Input("diskName")]
-        public Input<string>? DiskName { get; set; }
+        [Input("diskName", required: true)]
+        public Input<string> DiskName { get; set; } = null!;
 
         public GetDiskInvokeArgs()
         {

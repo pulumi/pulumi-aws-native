@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:opensearchservice:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:opensearchservice:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDomainArgs : Pulumi.InvokeArgs
     {
-        [Input("domainName")]
-        public string? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         public GetDomainArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
     public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         public GetDomainInvokeArgs()
         {

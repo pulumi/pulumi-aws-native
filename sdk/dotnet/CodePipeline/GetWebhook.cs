@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CodePipeline
         /// <summary>
         /// Resource Type definition for AWS::CodePipeline::Webhook
         /// </summary>
-        public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("aws-native:codepipeline:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodePipeline::Webhook
         /// </summary>
-        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("aws-native:codepipeline:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWebhookArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWebhookArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CodePipeline
 
     public sealed class GetWebhookInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWebhookInvokeArgs()
         {

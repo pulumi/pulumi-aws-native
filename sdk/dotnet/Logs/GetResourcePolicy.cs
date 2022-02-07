@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// The resource schema for AWSLogs ResourcePolicy
         /// </summary>
-        public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:logs:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema for AWSLogs ResourcePolicy
         /// </summary>
-        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:logs:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// A name for resource policy
         /// </summary>
-        [Input("policyName")]
-        public string? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public string PolicyName { get; set; } = null!;
 
         public GetResourcePolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// A name for resource policy
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         public GetResourcePolicyInvokeArgs()
         {

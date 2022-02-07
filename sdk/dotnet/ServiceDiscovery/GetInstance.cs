@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::Instance
         /// </summary>
-        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws-native:servicediscovery:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::Instance
         /// </summary>
-        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:servicediscovery:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInstanceArgs : Pulumi.InvokeArgs
     {
-        [Input("instanceId")]
-        public string? InstanceId { get; set; }
+        [Input("instanceId", required: true)]
+        public string InstanceId { get; set; } = null!;
 
         public GetInstanceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
     public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
 
         public GetInstanceInvokeArgs()
         {

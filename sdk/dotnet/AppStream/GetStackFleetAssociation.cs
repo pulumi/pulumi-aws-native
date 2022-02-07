@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::StackFleetAssociation
         /// </summary>
-        public static Task<GetStackFleetAssociationResult> InvokeAsync(GetStackFleetAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStackFleetAssociationResult> InvokeAsync(GetStackFleetAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStackFleetAssociationResult>("aws-native:appstream:getStackFleetAssociation", args ?? new GetStackFleetAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::StackFleetAssociation
         /// </summary>
-        public static Output<GetStackFleetAssociationResult> Invoke(GetStackFleetAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStackFleetAssociationResult> Invoke(GetStackFleetAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStackFleetAssociationResult>("aws-native:appstream:getStackFleetAssociation", args ?? new GetStackFleetAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStackFleetAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStackFleetAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetStackFleetAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStackFleetAssociationInvokeArgs()
         {

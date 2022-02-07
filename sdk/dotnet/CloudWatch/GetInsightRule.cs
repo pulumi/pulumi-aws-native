@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::InsightRule
         /// </summary>
-        public static Task<GetInsightRuleResult> InvokeAsync(GetInsightRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInsightRuleResult> InvokeAsync(GetInsightRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInsightRuleResult>("aws-native:cloudwatch:getInsightRule", args ?? new GetInsightRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::InsightRule
         /// </summary>
-        public static Output<GetInsightRuleResult> Invoke(GetInsightRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInsightRuleResult> Invoke(GetInsightRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInsightRuleResult>("aws-native:cloudwatch:getInsightRule", args ?? new GetInsightRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInsightRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInsightRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class GetInsightRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInsightRuleInvokeArgs()
         {

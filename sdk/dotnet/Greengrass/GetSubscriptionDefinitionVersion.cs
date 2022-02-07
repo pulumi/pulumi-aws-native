@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
         /// </summary>
-        public static Task<GetSubscriptionDefinitionVersionResult> InvokeAsync(GetSubscriptionDefinitionVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubscriptionDefinitionVersionResult> InvokeAsync(GetSubscriptionDefinitionVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDefinitionVersionResult>("aws-native:greengrass:getSubscriptionDefinitionVersion", args ?? new GetSubscriptionDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
         /// </summary>
-        public static Output<GetSubscriptionDefinitionVersionResult> Invoke(GetSubscriptionDefinitionVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubscriptionDefinitionVersionResult> Invoke(GetSubscriptionDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubscriptionDefinitionVersionResult>("aws-native:greengrass:getSubscriptionDefinitionVersion", args ?? new GetSubscriptionDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubscriptionDefinitionVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubscriptionDefinitionVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetSubscriptionDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubscriptionDefinitionVersionInvokeArgs()
         {

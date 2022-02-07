@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
         /// </summary>
-        public static Task<GetSessionResult> InvokeAsync(GetSessionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSessionResult> InvokeAsync(GetSessionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSessionResult>("aws-native:macie:getSession", args ?? new GetSessionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
         /// </summary>
-        public static Output<GetSessionResult> Invoke(GetSessionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSessionResult> Invoke(GetSessionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSessionResult>("aws-native:macie:getSession", args ?? new GetSessionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// AWS account ID of customer
         /// </summary>
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
         public GetSessionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// AWS account ID of customer
         /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
         public GetSessionInvokeArgs()
         {

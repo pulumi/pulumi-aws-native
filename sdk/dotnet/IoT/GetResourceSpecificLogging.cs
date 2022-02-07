@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Resource-specific logging allows you to specify a logging level for a specific thing group.
         /// </summary>
-        public static Task<GetResourceSpecificLoggingResult> InvokeAsync(GetResourceSpecificLoggingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceSpecificLoggingResult> InvokeAsync(GetResourceSpecificLoggingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceSpecificLoggingResult>("aws-native:iot:getResourceSpecificLogging", args ?? new GetResourceSpecificLoggingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource-specific logging allows you to specify a logging level for a specific thing group.
         /// </summary>
-        public static Output<GetResourceSpecificLoggingResult> Invoke(GetResourceSpecificLoggingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceSpecificLoggingResult> Invoke(GetResourceSpecificLoggingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceSpecificLoggingResult>("aws-native:iot:getResourceSpecificLogging", args ?? new GetResourceSpecificLoggingInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
         /// </summary>
-        [Input("targetId")]
-        public string? TargetId { get; set; }
+        [Input("targetId", required: true)]
+        public string TargetId { get; set; } = null!;
 
         public GetResourceSpecificLoggingArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
         /// </summary>
-        [Input("targetId")]
-        public Input<string>? TargetId { get; set; }
+        [Input("targetId", required: true)]
+        public Input<string> TargetId { get; set; } = null!;
 
         public GetResourceSpecificLoggingInvokeArgs()
         {

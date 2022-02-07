@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Service Resource Type
         /// </summary>
-        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws-native:refactorspaces:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Service Resource Type
         /// </summary>
-        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:refactorspaces:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public string? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public string ApplicationIdentifier { get; set; } = null!;
 
-        [Input("environmentIdentifier")]
-        public string? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public string EnvironmentIdentifier { get; set; } = null!;
 
-        [Input("serviceIdentifier")]
-        public string? ServiceIdentifier { get; set; }
+        [Input("serviceIdentifier", required: true)]
+        public string ServiceIdentifier { get; set; } = null!;
 
         public GetServiceArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public Input<string>? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public Input<string> ApplicationIdentifier { get; set; } = null!;
 
-        [Input("environmentIdentifier")]
-        public Input<string>? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
-        [Input("serviceIdentifier")]
-        public Input<string>? ServiceIdentifier { get; set; }
+        [Input("serviceIdentifier", required: true)]
+        public Input<string> ServiceIdentifier { get; set; } = null!;
 
         public GetServiceInvokeArgs()
         {

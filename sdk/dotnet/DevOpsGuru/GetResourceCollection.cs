@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
         /// </summary>
-        public static Task<GetResourceCollectionResult> InvokeAsync(GetResourceCollectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceCollectionResult> InvokeAsync(GetResourceCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
         /// </summary>
-        public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// The type of ResourceCollection
         /// </summary>
-        [Input("resourceCollectionType")]
-        public Pulumi.AwsNative.DevOpsGuru.ResourceCollectionType? ResourceCollectionType { get; set; }
+        [Input("resourceCollectionType", required: true)]
+        public Pulumi.AwsNative.DevOpsGuru.ResourceCollectionType ResourceCollectionType { get; set; }
 
         public GetResourceCollectionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// The type of ResourceCollection
         /// </summary>
-        [Input("resourceCollectionType")]
-        public Input<Pulumi.AwsNative.DevOpsGuru.ResourceCollectionType>? ResourceCollectionType { get; set; }
+        [Input("resourceCollectionType", required: true)]
+        public Input<Pulumi.AwsNative.DevOpsGuru.ResourceCollectionType> ResourceCollectionType { get; set; } = null!;
 
         public GetResourceCollectionInvokeArgs()
         {

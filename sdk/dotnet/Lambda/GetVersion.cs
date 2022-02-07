@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Version
         /// </summary>
-        public static Task<GetVersionResult> InvokeAsync(GetVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVersionResult> InvokeAsync(GetVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Version
         /// </summary>
-        public static Output<GetVersionResult> Invoke(GetVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVersionResult> Invoke(GetVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVersionInvokeArgs()
         {

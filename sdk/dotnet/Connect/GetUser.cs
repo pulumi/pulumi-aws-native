@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Resource Type definition for AWS::Connect::User
         /// </summary>
-        public static Task<GetUserResult> InvokeAsync(GetUserArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws-native:connect:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::User
         /// </summary>
-        public static Output<GetUserResult> Invoke(GetUserInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws-native:connect:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user.
         /// </summary>
-        [Input("userArn")]
-        public string? UserArn { get; set; }
+        [Input("userArn", required: true)]
+        public string UserArn { get; set; } = null!;
 
         public GetUserArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user.
         /// </summary>
-        [Input("userArn")]
-        public Input<string>? UserArn { get; set; }
+        [Input("userArn", required: true)]
+        public Input<string> UserArn { get; set; } = null!;
 
         public GetUserInvokeArgs()
         {

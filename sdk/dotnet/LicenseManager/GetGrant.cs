@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetGrantResult> InvokeAsync(GetGrantArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGrantResult> InvokeAsync(GetGrantArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetGrantResult> Invoke(GetGrantInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGrantResult> Invoke(GetGrantInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Arn of the grant.
         /// </summary>
-        [Input("grantArn")]
-        public string? GrantArn { get; set; }
+        [Input("grantArn", required: true)]
+        public string GrantArn { get; set; } = null!;
 
         public GetGrantArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Arn of the grant.
         /// </summary>
-        [Input("grantArn")]
-        public Input<string>? GrantArn { get; set; }
+        [Input("grantArn", required: true)]
+        public Input<string> GrantArn { get; set; } = null!;
 
         public GetGrantInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
-        public static Task<GetCloudFormationProductResult> InvokeAsync(GetCloudFormationProductArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCloudFormationProductResult> InvokeAsync(GetCloudFormationProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
-        public static Output<GetCloudFormationProductResult> Invoke(GetCloudFormationProductInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCloudFormationProductResult> Invoke(GetCloudFormationProductInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCloudFormationProductArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCloudFormationProductArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetCloudFormationProductInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCloudFormationProductInvokeArgs()
         {

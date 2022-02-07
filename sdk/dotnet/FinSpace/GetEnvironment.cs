@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.FinSpace
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("aws-native:finspace:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:finspace:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.FinSpace
         /// <summary>
         /// Unique identifier for representing FinSpace Environment
         /// </summary>
-        [Input("environmentId")]
-        public string? EnvironmentId { get; set; }
+        [Input("environmentId", required: true)]
+        public string EnvironmentId { get; set; } = null!;
 
         public GetEnvironmentArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.FinSpace
         /// <summary>
         /// Unique identifier for representing FinSpace Environment
         /// </summary>
-        [Input("environmentId")]
-        public Input<string>? EnvironmentId { get; set; }
+        [Input("environmentId", required: true)]
+        public Input<string> EnvironmentId { get; set; } = null!;
 
         public GetEnvironmentInvokeArgs()
         {

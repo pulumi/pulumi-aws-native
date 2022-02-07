@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Alias
         /// </summary>
-        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:lambda:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Alias
         /// </summary>
-        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:lambda:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAliasArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAliasArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAliasInvokeArgs()
         {

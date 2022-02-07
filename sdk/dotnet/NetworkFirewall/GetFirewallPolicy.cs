@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::FirewallPolicy
         /// </summary>
-        public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("aws-native:networkfirewall:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::FirewallPolicy
         /// </summary>
-        public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("aws-native:networkfirewall:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFirewallPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("firewallPolicyArn")]
-        public string? FirewallPolicyArn { get; set; }
+        [Input("firewallPolicyArn", required: true)]
+        public string FirewallPolicyArn { get; set; } = null!;
 
         public GetFirewallPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("firewallPolicyArn")]
-        public Input<string>? FirewallPolicyArn { get; set; }
+        [Input("firewallPolicyArn", required: true)]
+        public Input<string> FirewallPolicyArn { get; set; } = null!;
 
         public GetFirewallPolicyInvokeArgs()
         {

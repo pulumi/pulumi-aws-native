@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MWAA
         /// <summary>
         /// Resource schema for AWS::MWAA::Environment
         /// </summary>
-        public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("aws-native:mwaa:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MWAA::Environment
         /// </summary>
-        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:mwaa:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEnvironmentArgs : Pulumi.InvokeArgs
     {
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetEnvironmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MWAA
 
     public sealed class GetEnvironmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetEnvironmentInvokeArgs()
         {

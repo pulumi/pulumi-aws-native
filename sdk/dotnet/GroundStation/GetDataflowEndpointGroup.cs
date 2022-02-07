@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GroundStation
         /// <summary>
         /// AWS Ground Station DataflowEndpointGroup schema for CloudFormation
         /// </summary>
-        public static Task<GetDataflowEndpointGroupResult> InvokeAsync(GetDataflowEndpointGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataflowEndpointGroupResult> InvokeAsync(GetDataflowEndpointGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataflowEndpointGroupResult>("aws-native:groundstation:getDataflowEndpointGroup", args ?? new GetDataflowEndpointGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Ground Station DataflowEndpointGroup schema for CloudFormation
         /// </summary>
-        public static Output<GetDataflowEndpointGroupResult> Invoke(GetDataflowEndpointGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataflowEndpointGroupResult> Invoke(GetDataflowEndpointGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointGroupResult>("aws-native:groundstation:getDataflowEndpointGroup", args ?? new GetDataflowEndpointGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDataflowEndpointGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDataflowEndpointGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetDataflowEndpointGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDataflowEndpointGroupInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A security profile defines a set of expected behaviors for devices in your account.
         /// </summary>
-        public static Task<GetSecurityProfileResult> InvokeAsync(GetSecurityProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSecurityProfileResult> InvokeAsync(GetSecurityProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityProfileResult>("aws-native:iot:getSecurityProfile", args ?? new GetSecurityProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// A security profile defines a set of expected behaviors for devices in your account.
         /// </summary>
-        public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws-native:iot:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A unique identifier for the security profile.
         /// </summary>
-        [Input("securityProfileName")]
-        public string? SecurityProfileName { get; set; }
+        [Input("securityProfileName", required: true)]
+        public string SecurityProfileName { get; set; } = null!;
 
         public GetSecurityProfileArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A unique identifier for the security profile.
         /// </summary>
-        [Input("securityProfileName")]
-        public Input<string>? SecurityProfileName { get; set; }
+        [Input("securityProfileName", required: true)]
+        public Input<string> SecurityProfileName { get; set; } = null!;
 
         public GetSecurityProfileInvokeArgs()
         {

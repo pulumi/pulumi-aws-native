@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupPlan
         /// </summary>
-        public static Task<GetBackupPlanResult> InvokeAsync(GetBackupPlanArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBackupPlanResult> InvokeAsync(GetBackupPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPlanResult>("aws-native:backup:getBackupPlan", args ?? new GetBackupPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupPlan
         /// </summary>
-        public static Output<GetBackupPlanResult> Invoke(GetBackupPlanInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBackupPlanResult> Invoke(GetBackupPlanInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBackupPlanResult>("aws-native:backup:getBackupPlan", args ?? new GetBackupPlanInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBackupPlanArgs : Pulumi.InvokeArgs
     {
-        [Input("backupPlanId")]
-        public string? BackupPlanId { get; set; }
+        [Input("backupPlanId", required: true)]
+        public string BackupPlanId { get; set; } = null!;
 
         public GetBackupPlanArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupPlanInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("backupPlanId")]
-        public Input<string>? BackupPlanId { get; set; }
+        [Input("backupPlanId", required: true)]
+        public Input<string> BackupPlanId { get; set; } = null!;
 
         public GetBackupPlanInvokeArgs()
         {

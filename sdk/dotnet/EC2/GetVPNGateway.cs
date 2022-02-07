@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPNGateway
         /// </summary>
-        public static Task<GetVPNGatewayResult> InvokeAsync(GetVPNGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPNGatewayResult> InvokeAsync(GetVPNGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPNGatewayResult>("aws-native:ec2:getVPNGateway", args ?? new GetVPNGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPNGateway
         /// </summary>
-        public static Output<GetVPNGatewayResult> Invoke(GetVPNGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPNGatewayResult> Invoke(GetVPNGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPNGatewayResult>("aws-native:ec2:getVPNGateway", args ?? new GetVPNGatewayInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPNGatewayArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPNGatewayArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPNGatewayInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPNGatewayInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RoboMaker
         /// <summary>
         /// Resource Type definition for AWS::RoboMaker::RobotApplication
         /// </summary>
-        public static Task<GetRobotApplicationResult> InvokeAsync(GetRobotApplicationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRobotApplicationResult> InvokeAsync(GetRobotApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRobotApplicationResult>("aws-native:robomaker:getRobotApplication", args ?? new GetRobotApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RoboMaker::RobotApplication
         /// </summary>
-        public static Output<GetRobotApplicationResult> Invoke(GetRobotApplicationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRobotApplicationResult> Invoke(GetRobotApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRobotApplicationResult>("aws-native:robomaker:getRobotApplication", args ?? new GetRobotApplicationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRobotApplicationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRobotApplicationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotApplicationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRobotApplicationInvokeArgs()
         {

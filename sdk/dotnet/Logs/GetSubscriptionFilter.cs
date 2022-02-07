@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Resource Type definition for AWS::Logs::SubscriptionFilter
         /// </summary>
-        public static Task<GetSubscriptionFilterResult> InvokeAsync(GetSubscriptionFilterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubscriptionFilterResult> InvokeAsync(GetSubscriptionFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFilterResult>("aws-native:logs:getSubscriptionFilter", args ?? new GetSubscriptionFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Logs::SubscriptionFilter
         /// </summary>
-        public static Output<GetSubscriptionFilterResult> Invoke(GetSubscriptionFilterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubscriptionFilterResult> Invoke(GetSubscriptionFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubscriptionFilterResult>("aws-native:logs:getSubscriptionFilter", args ?? new GetSubscriptionFilterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubscriptionFilterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubscriptionFilterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetSubscriptionFilterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubscriptionFilterInvokeArgs()
         {

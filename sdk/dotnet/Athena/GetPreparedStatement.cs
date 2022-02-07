@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// Resource schema for AWS::Athena::PreparedStatement
         /// </summary>
-        public static Task<GetPreparedStatementResult> InvokeAsync(GetPreparedStatementArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPreparedStatementResult> InvokeAsync(GetPreparedStatementArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPreparedStatementResult>("aws-native:athena:getPreparedStatement", args ?? new GetPreparedStatementArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Athena::PreparedStatement
         /// </summary>
-        public static Output<GetPreparedStatementResult> Invoke(GetPreparedStatementInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPreparedStatementResult> Invoke(GetPreparedStatementInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPreparedStatementResult>("aws-native:athena:getPreparedStatement", args ?? new GetPreparedStatementInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The name of the prepared statement.
         /// </summary>
-        [Input("statementName")]
-        public string? StatementName { get; set; }
+        [Input("statementName", required: true)]
+        public string StatementName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
-        [Input("workGroup")]
-        public string? WorkGroup { get; set; }
+        [Input("workGroup", required: true)]
+        public string WorkGroup { get; set; } = null!;
 
         public GetPreparedStatementArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The name of the prepared statement.
         /// </summary>
-        [Input("statementName")]
-        public Input<string>? StatementName { get; set; }
+        [Input("statementName", required: true)]
+        public Input<string> StatementName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
-        [Input("workGroup")]
-        public Input<string>? WorkGroup { get; set; }
+        [Input("workGroup", required: true)]
+        public Input<string> WorkGroup { get; set; } = null!;
 
         public GetPreparedStatementInvokeArgs()
         {

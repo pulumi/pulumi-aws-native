@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Create and manage wireless gateways, including LoRa gateways.
         /// </summary>
-        public static Task<GetWirelessDeviceResult> InvokeAsync(GetWirelessDeviceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWirelessDeviceResult> InvokeAsync(GetWirelessDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWirelessDeviceResult>("aws-native:iotwireless:getWirelessDevice", args ?? new GetWirelessDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage wireless gateways, including LoRa gateways.
         /// </summary>
-        public static Output<GetWirelessDeviceResult> Invoke(GetWirelessDeviceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWirelessDeviceResult> Invoke(GetWirelessDeviceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWirelessDeviceResult>("aws-native:iotwireless:getWirelessDevice", args ?? new GetWirelessDeviceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Wireless device Id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWirelessDeviceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Wireless device Id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWirelessDeviceInvokeArgs()
         {

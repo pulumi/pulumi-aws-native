@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Resource schema for AWS::DataBrew::Recipe.
         /// </summary>
-        public static Task<GetRecipeResult> InvokeAsync(GetRecipeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRecipeResult> InvokeAsync(GetRecipeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecipeResult>("aws-native:databrew:getRecipe", args ?? new GetRecipeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataBrew::Recipe.
         /// </summary>
-        public static Output<GetRecipeResult> Invoke(GetRecipeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRecipeResult> Invoke(GetRecipeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRecipeResult>("aws-native:databrew:getRecipe", args ?? new GetRecipeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Recipe name
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetRecipeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Recipe name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetRecipeInvokeArgs()
         {

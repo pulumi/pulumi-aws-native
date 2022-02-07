@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::GatewayResponse
         /// </summary>
-        public static Task<GetGatewayResponseResult> InvokeAsync(GetGatewayResponseArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGatewayResponseResult> InvokeAsync(GetGatewayResponseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::GatewayResponse
         /// </summary>
-        public static Output<GetGatewayResponseResult> Invoke(GetGatewayResponseInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGatewayResponseResult> Invoke(GetGatewayResponseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A Cloudformation auto generated ID.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGatewayResponseArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A Cloudformation auto generated ID.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGatewayResponseInvokeArgs()
         {

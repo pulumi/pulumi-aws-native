@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Resource Schema for AWS::EKS::FargateProfile
         /// </summary>
-        public static Task<GetFargateProfileResult> InvokeAsync(GetFargateProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFargateProfileResult> InvokeAsync(GetFargateProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFargateProfileResult>("aws-native:eks:getFargateProfile", args ?? new GetFargateProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::EKS::FargateProfile
         /// </summary>
-        public static Output<GetFargateProfileResult> Invoke(GetFargateProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFargateProfileResult> Invoke(GetFargateProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFargateProfileResult>("aws-native:eks:getFargateProfile", args ?? new GetFargateProfileInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Name of the Cluster
         /// </summary>
-        [Input("clusterName")]
-        public string? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         /// <summary>
         /// Name of FargateProfile
         /// </summary>
-        [Input("fargateProfileName")]
-        public string? FargateProfileName { get; set; }
+        [Input("fargateProfileName", required: true)]
+        public string FargateProfileName { get; set; } = null!;
 
         public GetFargateProfileArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Name of the Cluster
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
         /// Name of FargateProfile
         /// </summary>
-        [Input("fargateProfileName")]
-        public Input<string>? FargateProfileName { get; set; }
+        [Input("fargateProfileName", required: true)]
+        public Input<string> FargateProfileName { get; set; } = null!;
 
         public GetFargateProfileInvokeArgs()
         {

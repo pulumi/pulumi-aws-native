@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
         /// </summary>
-        public static Task<GetNetworkInsightsAccessScopeAnalysisResult> InvokeAsync(GetNetworkInsightsAccessScopeAnalysisArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkInsightsAccessScopeAnalysisResult> InvokeAsync(GetNetworkInsightsAccessScopeAnalysisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAccessScopeAnalysisResult>("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", args ?? new GetNetworkInsightsAccessScopeAnalysisArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
         /// </summary>
-        public static Output<GetNetworkInsightsAccessScopeAnalysisResult> Invoke(GetNetworkInsightsAccessScopeAnalysisInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkInsightsAccessScopeAnalysisResult> Invoke(GetNetworkInsightsAccessScopeAnalysisInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAccessScopeAnalysisResult>("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", args ?? new GetNetworkInsightsAccessScopeAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkInsightsAccessScopeAnalysisArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsAccessScopeAnalysisId")]
-        public string? NetworkInsightsAccessScopeAnalysisId { get; set; }
+        [Input("networkInsightsAccessScopeAnalysisId", required: true)]
+        public string NetworkInsightsAccessScopeAnalysisId { get; set; } = null!;
 
         public GetNetworkInsightsAccessScopeAnalysisArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetNetworkInsightsAccessScopeAnalysisInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsAccessScopeAnalysisId")]
-        public Input<string>? NetworkInsightsAccessScopeAnalysisId { get; set; }
+        [Input("networkInsightsAccessScopeAnalysisId", required: true)]
+        public Input<string> NetworkInsightsAccessScopeAnalysisId { get; set; } = null!;
 
         public GetNetworkInsightsAccessScopeAnalysisInvokeArgs()
         {

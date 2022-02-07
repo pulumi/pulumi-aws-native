@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SDB
         /// <summary>
         /// Resource Type definition for AWS::SDB::Domain
         /// </summary>
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:sdb:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SDB::Domain
         /// </summary>
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:sdb:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDomainArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDomainArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SDB
 
     public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDomainInvokeArgs()
         {

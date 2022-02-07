@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::SubscriptionDefinition
         /// </summary>
-        public static Task<GetSubscriptionDefinitionResult> InvokeAsync(GetSubscriptionDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubscriptionDefinitionResult> InvokeAsync(GetSubscriptionDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDefinitionResult>("aws-native:greengrass:getSubscriptionDefinition", args ?? new GetSubscriptionDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::SubscriptionDefinition
         /// </summary>
-        public static Output<GetSubscriptionDefinitionResult> Invoke(GetSubscriptionDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubscriptionDefinitionResult> Invoke(GetSubscriptionDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubscriptionDefinitionResult>("aws-native:greengrass:getSubscriptionDefinition", args ?? new GetSubscriptionDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubscriptionDefinitionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubscriptionDefinitionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetSubscriptionDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubscriptionDefinitionInvokeArgs()
         {

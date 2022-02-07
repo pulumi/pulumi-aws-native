@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup
         /// </summary>
-        public static Task<GetClusterSubnetGroupResult> InvokeAsync(GetClusterSubnetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterSubnetGroupResult> InvokeAsync(GetClusterSubnetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup
         /// </summary>
-        public static Output<GetClusterSubnetGroupResult> Invoke(GetClusterSubnetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterSubnetGroupResult> Invoke(GetClusterSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClusterSubnetGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClusterSubnetGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class GetClusterSubnetGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClusterSubnetGroupInvokeArgs()
         {

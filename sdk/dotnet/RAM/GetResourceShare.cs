@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RAM
         /// <summary>
         /// Resource Type definition for AWS::RAM::ResourceShare
         /// </summary>
-        public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws-native:ram:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RAM::ResourceShare
         /// </summary>
-        public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws-native:ram:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourceShareArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResourceShareArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RAM
 
     public sealed class GetResourceShareInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResourceShareInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
         /// </summary>
-        public static Task<GetClientVpnTargetNetworkAssociationResult> InvokeAsync(GetClientVpnTargetNetworkAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClientVpnTargetNetworkAssociationResult> InvokeAsync(GetClientVpnTargetNetworkAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnTargetNetworkAssociationResult>("aws-native:ec2:getClientVpnTargetNetworkAssociation", args ?? new GetClientVpnTargetNetworkAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
         /// </summary>
-        public static Output<GetClientVpnTargetNetworkAssociationResult> Invoke(GetClientVpnTargetNetworkAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClientVpnTargetNetworkAssociationResult> Invoke(GetClientVpnTargetNetworkAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClientVpnTargetNetworkAssociationResult>("aws-native:ec2:getClientVpnTargetNetworkAssociation", args ?? new GetClientVpnTargetNetworkAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClientVpnTargetNetworkAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClientVpnTargetNetworkAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetClientVpnTargetNetworkAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClientVpnTargetNetworkAssociationInvokeArgs()
         {

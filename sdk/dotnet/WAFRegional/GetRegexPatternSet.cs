@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAFRegional
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::RegexPatternSet
         /// </summary>
-        public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegexPatternSetResult>("aws-native:wafregional:getRegexPatternSet", args ?? new GetRegexPatternSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::RegexPatternSet
         /// </summary>
-        public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws-native:wafregional:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRegexPatternSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRegexPatternSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class GetRegexPatternSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRegexPatternSetInvokeArgs()
         {

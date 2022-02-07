@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// Resource Type definition for AWS::SSM::Parameter
         /// </summary>
-        public static Task<GetParameterResult> InvokeAsync(GetParameterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws-native:ssm:getParameter", args ?? new GetParameterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::Parameter
         /// </summary>
-        public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws-native:ssm:getParameter", args ?? new GetParameterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetParameterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetParameterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class GetParameterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetParameterInvokeArgs()
         {

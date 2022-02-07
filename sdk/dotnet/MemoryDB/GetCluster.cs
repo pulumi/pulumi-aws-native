@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
         /// </summary>
-        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:memorydb:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
         /// </summary>
-        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:memorydb:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         /// </summary>
-        [Input("clusterName")]
-        public string? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         public GetClusterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         public GetClusterInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsPath
         /// </summary>
-        public static Task<GetNetworkInsightsPathResult> InvokeAsync(GetNetworkInsightsPathArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkInsightsPathResult> InvokeAsync(GetNetworkInsightsPathArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsPathResult>("aws-native:ec2:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsPath
         /// </summary>
-        public static Output<GetNetworkInsightsPathResult> Invoke(GetNetworkInsightsPathInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkInsightsPathResult> Invoke(GetNetworkInsightsPathInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsPathResult>("aws-native:ec2:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkInsightsPathArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsPathId")]
-        public string? NetworkInsightsPathId { get; set; }
+        [Input("networkInsightsPathId", required: true)]
+        public string NetworkInsightsPathId { get; set; } = null!;
 
         public GetNetworkInsightsPathArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetNetworkInsightsPathInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsPathId")]
-        public Input<string>? NetworkInsightsPathId { get; set; }
+        [Input("networkInsightsPathId", required: true)]
+        public Input<string> NetworkInsightsPathId { get; set; } = null!;
 
         public GetNetworkInsightsPathInvokeArgs()
         {

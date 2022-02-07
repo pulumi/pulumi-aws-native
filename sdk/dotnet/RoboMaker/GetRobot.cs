@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RoboMaker
         /// <summary>
         /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
         /// </summary>
-        public static Task<GetRobotResult> InvokeAsync(GetRobotArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRobotResult> InvokeAsync(GetRobotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRobotResult>("aws-native:robomaker:getRobot", args ?? new GetRobotArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
         /// </summary>
-        public static Output<GetRobotResult> Invoke(GetRobotInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRobotResult> Invoke(GetRobotInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRobotResult>("aws-native:robomaker:getRobot", args ?? new GetRobotInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRobotArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRobotArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRobotInvokeArgs()
         {

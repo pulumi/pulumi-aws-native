@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupVault
         /// </summary>
-        public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("aws-native:backup:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupVault
         /// </summary>
-        public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("aws-native:backup:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBackupVaultArgs : Pulumi.InvokeArgs
     {
-        [Input("backupVaultName")]
-        public string? BackupVaultName { get; set; }
+        [Input("backupVaultName", required: true)]
+        public string BackupVaultName { get; set; } = null!;
 
         public GetBackupVaultArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupVaultInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("backupVaultName")]
-        public Input<string>? BackupVaultName { get; set; }
+        [Input("backupVaultName", required: true)]
+        public Input<string> BackupVaultName { get; set; } = null!;
 
         public GetBackupVaultInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
         /// </summary>
-        public static Task<GetCompositeAlarmResult> InvokeAsync(GetCompositeAlarmArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCompositeAlarmResult> InvokeAsync(GetCompositeAlarmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCompositeAlarmResult>("aws-native:cloudwatch:getCompositeAlarm", args ?? new GetCompositeAlarmArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
         /// </summary>
-        public static Output<GetCompositeAlarmResult> Invoke(GetCompositeAlarmInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCompositeAlarmResult> Invoke(GetCompositeAlarmInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCompositeAlarmResult>("aws-native:cloudwatch:getCompositeAlarm", args ?? new GetCompositeAlarmInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The name of the Composite Alarm
         /// </summary>
-        [Input("alarmName")]
-        public string? AlarmName { get; set; }
+        [Input("alarmName", required: true)]
+        public string AlarmName { get; set; } = null!;
 
         public GetCompositeAlarmArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The name of the Composite Alarm
         /// </summary>
-        [Input("alarmName")]
-        public Input<string>? AlarmName { get; set; }
+        [Input("alarmName", required: true)]
+        public Input<string> AlarmName { get; set; } = null!;
 
         public GetCompositeAlarmInvokeArgs()
         {

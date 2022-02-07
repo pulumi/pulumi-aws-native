@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Classifier
         /// </summary>
-        public static Task<GetClassifierResult> InvokeAsync(GetClassifierArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClassifierResult> InvokeAsync(GetClassifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClassifierResult>("aws-native:glue:getClassifier", args ?? new GetClassifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Classifier
         /// </summary>
-        public static Output<GetClassifierResult> Invoke(GetClassifierInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClassifierResult> Invoke(GetClassifierInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClassifierResult>("aws-native:glue:getClassifier", args ?? new GetClassifierInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClassifierArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClassifierArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetClassifierInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClassifierInvokeArgs()
         {

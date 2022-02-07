@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::EventSourceMapping
         /// </summary>
-        public static Task<GetEventSourceMappingResult> InvokeAsync(GetEventSourceMappingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventSourceMappingResult> InvokeAsync(GetEventSourceMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::EventSourceMapping
         /// </summary>
-        public static Output<GetEventSourceMappingResult> Invoke(GetEventSourceMappingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventSourceMappingResult> Invoke(GetEventSourceMappingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Event Source Mapping Identifier UUID.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEventSourceMappingArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Event Source Mapping Identifier UUID.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEventSourceMappingInvokeArgs()
         {

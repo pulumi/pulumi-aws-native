@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::Endpoint
         /// </summary>
-        public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws-native:s3outposts:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::Endpoint
         /// </summary>
-        public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws-native:s3outposts:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetEndpointArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetEndpointInvokeArgs()
         {

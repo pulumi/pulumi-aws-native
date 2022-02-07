@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EFS
         /// <summary>
         /// Resource Type definition for AWS::EFS::AccessPoint
         /// </summary>
-        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("aws-native:efs:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EFS::AccessPoint
         /// </summary>
-        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:efs:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAccessPointArgs : Pulumi.InvokeArgs
     {
-        [Input("accessPointId")]
-        public string? AccessPointId { get; set; }
+        [Input("accessPointId", required: true)]
+        public string AccessPointId { get; set; } = null!;
 
         public GetAccessPointArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EFS
 
     public sealed class GetAccessPointInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("accessPointId")]
-        public Input<string>? AccessPointId { get; set; }
+        [Input("accessPointId", required: true)]
+        public Input<string> AccessPointId { get; set; } = null!;
 
         public GetAccessPointInvokeArgs()
         {

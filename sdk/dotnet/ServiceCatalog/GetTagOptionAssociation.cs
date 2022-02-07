@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
         /// </summary>
-        public static Task<GetTagOptionAssociationResult> InvokeAsync(GetTagOptionAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTagOptionAssociationResult> InvokeAsync(GetTagOptionAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagOptionAssociationResult>("aws-native:servicecatalog:getTagOptionAssociation", args ?? new GetTagOptionAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
         /// </summary>
-        public static Output<GetTagOptionAssociationResult> Invoke(GetTagOptionAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTagOptionAssociationResult> Invoke(GetTagOptionAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTagOptionAssociationResult>("aws-native:servicecatalog:getTagOptionAssociation", args ?? new GetTagOptionAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTagOptionAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTagOptionAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetTagOptionAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTagOptionAssociationInvokeArgs()
         {

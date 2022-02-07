@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::Host
         /// </summary>
-        public static Task<GetHostResult> InvokeAsync(GetHostArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("aws-native:ec2:getHost", args ?? new GetHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::Host
         /// </summary>
-        public static Output<GetHostResult> Invoke(GetHostInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHostResult>("aws-native:ec2:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the host created.
         /// </summary>
-        [Input("hostId")]
-        public string? HostId { get; set; }
+        [Input("hostId", required: true)]
+        public string HostId { get; set; } = null!;
 
         public GetHostArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the host created.
         /// </summary>
-        [Input("hostId")]
-        public Input<string>? HostId { get; set; }
+        [Input("hostId", required: true)]
+        public Input<string> HostId { get; set; } = null!;
 
         public GetHostInvokeArgs()
         {

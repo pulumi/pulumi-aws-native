@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::RuleGroup
         /// </summary>
-        public static Task<GetRuleGroupResult> InvokeAsync(GetRuleGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRuleGroupResult> InvokeAsync(GetRuleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupResult>("aws-native:networkfirewall:getRuleGroup", args ?? new GetRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::RuleGroup
         /// </summary>
-        public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRuleGroupResult>("aws-native:networkfirewall:getRuleGroup", args ?? new GetRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRuleGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("ruleGroupArn")]
-        public string? RuleGroupArn { get; set; }
+        [Input("ruleGroupArn", required: true)]
+        public string RuleGroupArn { get; set; } = null!;
 
         public GetRuleGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetRuleGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("ruleGroupArn")]
-        public Input<string>? RuleGroupArn { get; set; }
+        [Input("ruleGroupArn", required: true)]
+        public Input<string> RuleGroupArn { get; set; } = null!;
 
         public GetRuleGroupInvokeArgs()
         {

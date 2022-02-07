@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationS3
         /// </summary>
-        public static Task<GetLocationS3Result> InvokeAsync(GetLocationS3Args? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationS3Result> InvokeAsync(GetLocationS3Args args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationS3Result>("aws-native:datasync:getLocationS3", args ?? new GetLocationS3Args(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationS3
         /// </summary>
-        public static Output<GetLocationS3Result> Invoke(GetLocationS3InvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationS3Result> Invoke(GetLocationS3InvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationS3Result>("aws-native:datasync:getLocationS3", args ?? new GetLocationS3InvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationS3Args()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationS3InvokeArgs()
         {

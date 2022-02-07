@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// <summary>
         /// Resource Type Definition for Resiliency Policy.
         /// </summary>
-        public static Task<GetResiliencyPolicyResult> InvokeAsync(GetResiliencyPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResiliencyPolicyResult> InvokeAsync(GetResiliencyPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResiliencyPolicyResult>("aws-native:resiliencehub:getResiliencyPolicy", args ?? new GetResiliencyPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for Resiliency Policy.
         /// </summary>
-        public static Output<GetResiliencyPolicyResult> Invoke(GetResiliencyPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResiliencyPolicyResult> Invoke(GetResiliencyPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResiliencyPolicyResult>("aws-native:resiliencehub:getResiliencyPolicy", args ?? new GetResiliencyPolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
         /// </summary>
-        [Input("policyArn")]
-        public string? PolicyArn { get; set; }
+        [Input("policyArn", required: true)]
+        public string PolicyArn { get; set; } = null!;
 
         public GetResiliencyPolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
         /// </summary>
-        [Input("policyArn")]
-        public Input<string>? PolicyArn { get; set; }
+        [Input("policyArn", required: true)]
+        public Input<string> PolicyArn { get; set; } = null!;
 
         public GetResiliencyPolicyInvokeArgs()
         {

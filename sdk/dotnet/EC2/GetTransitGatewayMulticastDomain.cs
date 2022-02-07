@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastDomain type
         /// </summary>
-        public static Task<GetTransitGatewayMulticastDomainResult> InvokeAsync(GetTransitGatewayMulticastDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayMulticastDomainResult> InvokeAsync(GetTransitGatewayMulticastDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastDomain type
         /// </summary>
-        public static Output<GetTransitGatewayMulticastDomainResult> Invoke(GetTransitGatewayMulticastDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayMulticastDomainResult> Invoke(GetTransitGatewayMulticastDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
-        public string? TransitGatewayMulticastDomainId { get; set; }
+        [Input("transitGatewayMulticastDomainId", required: true)]
+        public string TransitGatewayMulticastDomainId { get; set; } = null!;
 
         public GetTransitGatewayMulticastDomainArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
-        public Input<string>? TransitGatewayMulticastDomainId { get; set; }
+        [Input("transitGatewayMulticastDomainId", required: true)]
+        public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;
 
         public GetTransitGatewayMulticastDomainInvokeArgs()
         {

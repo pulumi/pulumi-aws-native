@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// Private certificate authority.
         /// </summary>
-        public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws-native:acmpca:getCertificateAuthority", args ?? new GetCertificateAuthorityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Private certificate authority.
         /// </summary>
-        public static Output<GetCertificateAuthorityResult> Invoke(GetCertificateAuthorityInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCertificateAuthorityResult> Invoke(GetCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityResult>("aws-native:acmpca:getCertificateAuthority", args ?? new GetCertificateAuthorityInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// The Amazon Resource Name (ARN) of the certificate authority.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetCertificateAuthorityArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// The Amazon Resource Name (ARN) of the certificate authority.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetCertificateAuthorityInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// <summary>
         /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
         /// </summary>
-        public static Task<GetDevicePoolResult> InvokeAsync(GetDevicePoolArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDevicePoolResult> InvokeAsync(GetDevicePoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
         /// </summary>
-        public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDevicePoolArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetDevicePoolArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetDevicePoolInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetDevicePoolInvokeArgs()
         {

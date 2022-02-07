@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Resource Type definition for AWS::IoT::ThingPrincipalAttachment
         /// </summary>
-        public static Task<GetThingPrincipalAttachmentResult> InvokeAsync(GetThingPrincipalAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetThingPrincipalAttachmentResult> InvokeAsync(GetThingPrincipalAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThingPrincipalAttachmentResult>("aws-native:iot:getThingPrincipalAttachment", args ?? new GetThingPrincipalAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::ThingPrincipalAttachment
         /// </summary>
-        public static Output<GetThingPrincipalAttachmentResult> Invoke(GetThingPrincipalAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetThingPrincipalAttachmentResult> Invoke(GetThingPrincipalAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetThingPrincipalAttachmentResult>("aws-native:iot:getThingPrincipalAttachment", args ?? new GetThingPrincipalAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetThingPrincipalAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetThingPrincipalAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingPrincipalAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetThingPrincipalAttachmentInvokeArgs()
         {

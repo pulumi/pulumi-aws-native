@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Instance
         /// </summary>
-        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws-native:lightsail:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Instance
         /// </summary>
-        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:lightsail:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The names to use for your new Lightsail instance.
         /// </summary>
-        [Input("instanceName")]
-        public string? InstanceName { get; set; }
+        [Input("instanceName", required: true)]
+        public string InstanceName { get; set; } = null!;
 
         public GetInstanceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The names to use for your new Lightsail instance.
         /// </summary>
-        [Input("instanceName")]
-        public Input<string>? InstanceName { get; set; }
+        [Input("instanceName", required: true)]
+        public Input<string> InstanceName { get; set; } = null!;
 
         public GetInstanceInvokeArgs()
         {

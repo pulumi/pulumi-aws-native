@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxyEndpoint.
         /// </summary>
-        public static Task<GetDBProxyEndpointResult> InvokeAsync(GetDBProxyEndpointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBProxyEndpointResult> InvokeAsync(GetDBProxyEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBProxyEndpointResult>("aws-native:rds:getDBProxyEndpoint", args ?? new GetDBProxyEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxyEndpoint.
         /// </summary>
-        public static Output<GetDBProxyEndpointResult> Invoke(GetDBProxyEndpointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBProxyEndpointResult> Invoke(GetDBProxyEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBProxyEndpointResult>("aws-native:rds:getDBProxyEndpoint", args ?? new GetDBProxyEndpointInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyEndpointName")]
-        public string? DBProxyEndpointName { get; set; }
+        [Input("dBProxyEndpointName", required: true)]
+        public string DBProxyEndpointName { get; set; } = null!;
 
         public GetDBProxyEndpointArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyEndpointName")]
-        public Input<string>? DBProxyEndpointName { get; set; }
+        [Input("dBProxyEndpointName", required: true)]
+        public Input<string> DBProxyEndpointName { get; set; } = null!;
 
         public GetDBProxyEndpointInvokeArgs()
         {

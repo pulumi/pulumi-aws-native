@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MSK
         /// <summary>
         /// Resource Type definition for AWS::MSK::Cluster
         /// </summary>
-        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:msk:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MSK::Cluster
         /// </summary>
-        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:msk:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClusterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MSK
 
     public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClusterInvokeArgs()
         {

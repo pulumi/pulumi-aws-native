@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::Role
         /// </summary>
-        public static Task<GetRoleResult> InvokeAsync(GetRoleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws-native:iam:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::Role
         /// </summary>
-        public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws-native:iam:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// A name for the IAM role, up to 64 characters in length.
         /// </summary>
-        [Input("roleName")]
-        public string? RoleName { get; set; }
+        [Input("roleName", required: true)]
+        public string RoleName { get; set; } = null!;
 
         public GetRoleArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// A name for the IAM role, up to 64 characters in length.
         /// </summary>
-        [Input("roleName")]
-        public Input<string>? RoleName { get; set; }
+        [Input("roleName", required: true)]
+        public Input<string> RoleName { get; set; } = null!;
 
         public GetRoleInvokeArgs()
         {

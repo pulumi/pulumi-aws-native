@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Job
         /// </summary>
-        public static Task<GetJobResult> InvokeAsync(GetJobArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("aws-native:glue:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Job
         /// </summary>
-        public static Output<GetJobResult> Invoke(GetJobInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetJobResult>("aws-native:glue:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetJobArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetJobArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetJobInvokeArgs()
         {

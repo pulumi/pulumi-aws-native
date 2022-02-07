@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::TagOption
         /// </summary>
-        public static Task<GetTagOptionResult> InvokeAsync(GetTagOptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTagOptionResult> InvokeAsync(GetTagOptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagOptionResult>("aws-native:servicecatalog:getTagOption", args ?? new GetTagOptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::TagOption
         /// </summary>
-        public static Output<GetTagOptionResult> Invoke(GetTagOptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTagOptionResult> Invoke(GetTagOptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTagOptionResult>("aws-native:servicecatalog:getTagOption", args ?? new GetTagOptionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTagOptionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTagOptionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetTagOptionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTagOptionInvokeArgs()
         {

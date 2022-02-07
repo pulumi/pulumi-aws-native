@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Resource Type definition for AWS::Events::Archive
         /// </summary>
-        public static Task<GetArchiveResult> InvokeAsync(GetArchiveArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetArchiveResult> InvokeAsync(GetArchiveArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArchiveResult>("aws-native:events:getArchive", args ?? new GetArchiveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::Archive
         /// </summary>
-        public static Output<GetArchiveResult> Invoke(GetArchiveInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetArchiveResult> Invoke(GetArchiveInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetArchiveResult>("aws-native:events:getArchive", args ?? new GetArchiveInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetArchiveArgs : Pulumi.InvokeArgs
     {
-        [Input("archiveName")]
-        public string? ArchiveName { get; set; }
+        [Input("archiveName", required: true)]
+        public string ArchiveName { get; set; } = null!;
 
         public GetArchiveArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetArchiveInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("archiveName")]
-        public Input<string>? ArchiveName { get; set; }
+        [Input("archiveName", required: true)]
+        public Input<string> ArchiveName { get; set; } = null!;
 
         public GetArchiveInvokeArgs()
         {

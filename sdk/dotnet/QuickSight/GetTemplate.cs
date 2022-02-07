@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// Definition of the AWS::QuickSight::Template Resource Type.
         /// </summary>
-        public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateResult>("aws-native:quicksight:getTemplate", args ?? new GetTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::Template Resource Type.
         /// </summary>
-        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:quicksight:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
-        [Input("templateId")]
-        public string? TemplateId { get; set; }
+        [Input("templateId", required: true)]
+        public string TemplateId { get; set; } = null!;
 
         public GetTemplateArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("templateId")]
-        public Input<string>? TemplateId { get; set; }
+        [Input("templateId", required: true)]
+        public Input<string> TemplateId { get; set; } = null!;
 
         public GetTemplateInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppSync
         /// <summary>
         /// Resource Type definition for AWS::AppSync::Resolver
         /// </summary>
-        public static Task<GetResolverResult> InvokeAsync(GetResolverArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResolverResult> InvokeAsync(GetResolverArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::Resolver
         /// </summary>
-        public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResolverArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResolverArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResolverInvokeArgs()
         {

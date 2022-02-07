@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Kinesis
         /// <summary>
         /// Resource Type definition for AWS::Kinesis::StreamConsumer
         /// </summary>
-        public static Task<GetStreamConsumerResult> InvokeAsync(GetStreamConsumerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStreamConsumerResult> InvokeAsync(GetStreamConsumerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamConsumerResult>("aws-native:kinesis:getStreamConsumer", args ?? new GetStreamConsumerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Kinesis::StreamConsumer
         /// </summary>
-        public static Output<GetStreamConsumerResult> Invoke(GetStreamConsumerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStreamConsumerResult> Invoke(GetStreamConsumerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamConsumerResult>("aws-native:kinesis:getStreamConsumer", args ?? new GetStreamConsumerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStreamConsumerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStreamConsumerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Kinesis
 
     public sealed class GetStreamConsumerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStreamConsumerInvokeArgs()
         {

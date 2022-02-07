@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// Resource schema for AWS::Athena::NamedQuery
         /// </summary>
-        public static Task<GetNamedQueryResult> InvokeAsync(GetNamedQueryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNamedQueryResult> InvokeAsync(GetNamedQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Athena::NamedQuery
         /// </summary>
-        public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The unique ID of the query.
         /// </summary>
-        [Input("namedQueryId")]
-        public string? NamedQueryId { get; set; }
+        [Input("namedQueryId", required: true)]
+        public string NamedQueryId { get; set; } = null!;
 
         public GetNamedQueryArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The unique ID of the query.
         /// </summary>
-        [Input("namedQueryId")]
-        public Input<string>? NamedQueryId { get; set; }
+        [Input("namedQueryId", required: true)]
+        public Input<string> NamedQueryId { get; set; } = null!;
 
         public GetNamedQueryInvokeArgs()
         {

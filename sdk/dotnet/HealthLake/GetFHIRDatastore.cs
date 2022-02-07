@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.HealthLake
         /// <summary>
         /// HealthLake FHIR Datastore
         /// </summary>
-        public static Task<GetFHIRDatastoreResult> InvokeAsync(GetFHIRDatastoreArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFHIRDatastoreResult> InvokeAsync(GetFHIRDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFHIRDatastoreResult>("aws-native:healthlake:getFHIRDatastore", args ?? new GetFHIRDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// HealthLake FHIR Datastore
         /// </summary>
-        public static Output<GetFHIRDatastoreResult> Invoke(GetFHIRDatastoreInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFHIRDatastoreResult> Invoke(GetFHIRDatastoreInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFHIRDatastoreResult>("aws-native:healthlake:getFHIRDatastore", args ?? new GetFHIRDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFHIRDatastoreArgs : Pulumi.InvokeArgs
     {
-        [Input("datastoreId")]
-        public string? DatastoreId { get; set; }
+        [Input("datastoreId", required: true)]
+        public string DatastoreId { get; set; } = null!;
 
         public GetFHIRDatastoreArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.HealthLake
 
     public sealed class GetFHIRDatastoreInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("datastoreId")]
-        public Input<string>? DatastoreId { get; set; }
+        [Input("datastoreId", required: true)]
+        public Input<string> DatastoreId { get; set; } = null!;
 
         public GetFHIRDatastoreInvokeArgs()
         {

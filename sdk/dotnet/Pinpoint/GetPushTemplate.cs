@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::PushTemplate
         /// </summary>
-        public static Task<GetPushTemplateResult> InvokeAsync(GetPushTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPushTemplateResult> InvokeAsync(GetPushTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPushTemplateResult>("aws-native:pinpoint:getPushTemplate", args ?? new GetPushTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::PushTemplate
         /// </summary>
-        public static Output<GetPushTemplateResult> Invoke(GetPushTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPushTemplateResult> Invoke(GetPushTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPushTemplateResult>("aws-native:pinpoint:getPushTemplate", args ?? new GetPushTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPushTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPushTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetPushTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPushTemplateInvokeArgs()
         {

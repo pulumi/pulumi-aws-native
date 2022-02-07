@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSecurityGroup
         /// </summary>
-        public static Task<GetDBSecurityGroupResult> InvokeAsync(GetDBSecurityGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBSecurityGroupResult> InvokeAsync(GetDBSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBSecurityGroupResult>("aws-native:rds:getDBSecurityGroup", args ?? new GetDBSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSecurityGroup
         /// </summary>
-        public static Output<GetDBSecurityGroupResult> Invoke(GetDBSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBSecurityGroupResult> Invoke(GetDBSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBSecurityGroupResult>("aws-native:rds:getDBSecurityGroup", args ?? new GetDBSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDBSecurityGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBSecurityGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBSecurityGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBSecurityGroupInvokeArgs()
         {

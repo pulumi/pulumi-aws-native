@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SecretsManager
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::ResourcePolicy
         /// </summary>
-        public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:secretsmanager:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::ResourcePolicy
         /// </summary>
-        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:secretsmanager:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourcePolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResourcePolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class GetResourcePolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResourcePolicyInvokeArgs()
         {

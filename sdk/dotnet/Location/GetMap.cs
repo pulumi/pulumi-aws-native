@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Definition of AWS::Location::Map Resource Type
         /// </summary>
-        public static Task<GetMapResult> InvokeAsync(GetMapArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("aws-native:location:getMap", args ?? new GetMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::Map Resource Type
         /// </summary>
-        public static Output<GetMapResult> Invoke(GetMapInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws-native:location:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMapArgs : Pulumi.InvokeArgs
     {
-        [Input("mapName")]
-        public string? MapName { get; set; }
+        [Input("mapName", required: true)]
+        public string MapName { get; set; } = null!;
 
         public GetMapArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetMapInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("mapName")]
-        public Input<string>? MapName { get; set; }
+        [Input("mapName", required: true)]
+        public Input<string> MapName { get; set; } = null!;
 
         public GetMapInvokeArgs()
         {

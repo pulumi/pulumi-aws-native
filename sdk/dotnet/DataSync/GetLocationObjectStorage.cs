@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationObjectStorage.
         /// </summary>
-        public static Task<GetLocationObjectStorageResult> InvokeAsync(GetLocationObjectStorageArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationObjectStorageResult> InvokeAsync(GetLocationObjectStorageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationObjectStorage.
         /// </summary>
-        public static Output<GetLocationObjectStorageResult> Invoke(GetLocationObjectStorageInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationObjectStorageResult> Invoke(GetLocationObjectStorageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationObjectStorageArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationObjectStorageInvokeArgs()
         {

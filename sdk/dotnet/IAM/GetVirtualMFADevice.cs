@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::VirtualMFADevice
         /// </summary>
-        public static Task<GetVirtualMFADeviceResult> InvokeAsync(GetVirtualMFADeviceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVirtualMFADeviceResult> InvokeAsync(GetVirtualMFADeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMFADeviceResult>("aws-native:iam:getVirtualMFADevice", args ?? new GetVirtualMFADeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::VirtualMFADevice
         /// </summary>
-        public static Output<GetVirtualMFADeviceResult> Invoke(GetVirtualMFADeviceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVirtualMFADeviceResult> Invoke(GetVirtualMFADeviceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualMFADeviceResult>("aws-native:iam:getVirtualMFADevice", args ?? new GetVirtualMFADeviceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVirtualMFADeviceArgs : Pulumi.InvokeArgs
     {
-        [Input("serialNumber")]
-        public string? SerialNumber { get; set; }
+        [Input("serialNumber", required: true)]
+        public string SerialNumber { get; set; } = null!;
 
         public GetVirtualMFADeviceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetVirtualMFADeviceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("serialNumber")]
-        public Input<string>? SerialNumber { get; set; }
+        [Input("serialNumber", required: true)]
+        public Input<string> SerialNumber { get; set; } = null!;
 
         public GetVirtualMFADeviceInvokeArgs()
         {

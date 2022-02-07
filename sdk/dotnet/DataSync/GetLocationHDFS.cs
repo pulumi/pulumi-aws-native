@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationHDFS.
         /// </summary>
-        public static Task<GetLocationHDFSResult> InvokeAsync(GetLocationHDFSArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationHDFSResult> InvokeAsync(GetLocationHDFSArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationHDFSResult>("aws-native:datasync:getLocationHDFS", args ?? new GetLocationHDFSArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationHDFS.
         /// </summary>
-        public static Output<GetLocationHDFSResult> Invoke(GetLocationHDFSInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationHDFSResult> Invoke(GetLocationHDFSInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationHDFSResult>("aws-native:datasync:getLocationHDFS", args ?? new GetLocationHDFSInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the HDFS location.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationHDFSArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the HDFS location.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationHDFSInvokeArgs()
         {

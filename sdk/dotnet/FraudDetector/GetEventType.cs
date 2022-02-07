@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// A resource schema for an EventType in Amazon Fraud Detector.
         /// </summary>
-        public static Task<GetEventTypeResult> InvokeAsync(GetEventTypeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventTypeResult> InvokeAsync(GetEventTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventTypeResult>("aws-native:frauddetector:getEventType", args ?? new GetEventTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource schema for an EventType in Amazon Fraud Detector.
         /// </summary>
-        public static Output<GetEventTypeResult> Invoke(GetEventTypeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventTypeResult> Invoke(GetEventTypeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventTypeResult>("aws-native:frauddetector:getEventType", args ?? new GetEventTypeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The ARN of the event type.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetEventTypeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The ARN of the event type.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetEventTypeInvokeArgs()
         {

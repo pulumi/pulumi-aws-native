@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DirectoryService
         /// <summary>
         /// Resource Type definition for AWS::DirectoryService::MicrosoftAD
         /// </summary>
-        public static Task<GetMicrosoftADResult> InvokeAsync(GetMicrosoftADArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMicrosoftADResult> InvokeAsync(GetMicrosoftADArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftADResult>("aws-native:directoryservice:getMicrosoftAD", args ?? new GetMicrosoftADArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DirectoryService::MicrosoftAD
         /// </summary>
-        public static Output<GetMicrosoftADResult> Invoke(GetMicrosoftADInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMicrosoftADResult> Invoke(GetMicrosoftADInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMicrosoftADResult>("aws-native:directoryservice:getMicrosoftAD", args ?? new GetMicrosoftADInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMicrosoftADArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMicrosoftADArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DirectoryService
 
     public sealed class GetMicrosoftADInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMicrosoftADInvokeArgs()
         {

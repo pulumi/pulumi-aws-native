@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
         /// </summary>
-        public static Task<GetGatewayRouteTableAssociationResult> InvokeAsync(GetGatewayRouteTableAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGatewayRouteTableAssociationResult> InvokeAsync(GetGatewayRouteTableAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteTableAssociationResult>("aws-native:ec2:getGatewayRouteTableAssociation", args ?? new GetGatewayRouteTableAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
         /// </summary>
-        public static Output<GetGatewayRouteTableAssociationResult> Invoke(GetGatewayRouteTableAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGatewayRouteTableAssociationResult> Invoke(GetGatewayRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGatewayRouteTableAssociationResult>("aws-native:ec2:getGatewayRouteTableAssociation", args ?? new GetGatewayRouteTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the gateway.
         /// </summary>
-        [Input("gatewayId")]
-        public string? GatewayId { get; set; }
+        [Input("gatewayId", required: true)]
+        public string GatewayId { get; set; } = null!;
 
         public GetGatewayRouteTableAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the gateway.
         /// </summary>
-        [Input("gatewayId")]
-        public Input<string>? GatewayId { get; set; }
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
 
         public GetGatewayRouteTableAssociationInvokeArgs()
         {

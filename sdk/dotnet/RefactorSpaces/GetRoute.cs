@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Route Resource Type
         /// </summary>
-        public static Task<GetRouteResult> InvokeAsync(GetRouteArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Route Resource Type
         /// </summary>
-        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRouteArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public string? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public string ApplicationIdentifier { get; set; } = null!;
 
-        [Input("environmentIdentifier")]
-        public string? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public string EnvironmentIdentifier { get; set; } = null!;
 
-        [Input("routeIdentifier")]
-        public string? RouteIdentifier { get; set; }
+        [Input("routeIdentifier", required: true)]
+        public string RouteIdentifier { get; set; } = null!;
 
         public GetRouteArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public Input<string>? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public Input<string> ApplicationIdentifier { get; set; } = null!;
 
-        [Input("environmentIdentifier")]
-        public Input<string>? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
-        [Input("routeIdentifier")]
-        public Input<string>? RouteIdentifier { get; set; }
+        [Input("routeIdentifier", required: true)]
+        public Input<string> RouteIdentifier { get; set; } = null!;
 
         public GetRouteInvokeArgs()
         {

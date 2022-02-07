@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::Subnet
         /// </summary>
-        public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::Subnet
         /// </summary>
-        public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubnetArgs : Pulumi.InvokeArgs
     {
-        [Input("subnetId")]
-        public string? SubnetId { get; set; }
+        [Input("subnetId", required: true)]
+        public string SubnetId { get; set; } = null!;
 
         public GetSubnetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSubnetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
+        [Input("subnetId", required: true)]
+        public Input<string> SubnetId { get; set; } = null!;
 
         public GetSubnetInvokeArgs()
         {

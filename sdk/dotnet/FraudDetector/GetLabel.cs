@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// An label for fraud detector.
         /// </summary>
-        public static Task<GetLabelResult> InvokeAsync(GetLabelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLabelResult> InvokeAsync(GetLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabelResult>("aws-native:frauddetector:getLabel", args ?? new GetLabelArgs(), options.WithDefaults());
 
         /// <summary>
         /// An label for fraud detector.
         /// </summary>
-        public static Output<GetLabelResult> Invoke(GetLabelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLabelResult> Invoke(GetLabelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLabelResult>("aws-native:frauddetector:getLabel", args ?? new GetLabelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The label ARN.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetLabelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The label ARN.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetLabelInvokeArgs()
         {

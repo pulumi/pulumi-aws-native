@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::Discoverer
         /// </summary>
-        public static Task<GetDiscovererResult> InvokeAsync(GetDiscovererArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDiscovererResult> InvokeAsync(GetDiscovererArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiscovererResult>("aws-native:eventschemas:getDiscoverer", args ?? new GetDiscovererArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::Discoverer
         /// </summary>
-        public static Output<GetDiscovererResult> Invoke(GetDiscovererInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDiscovererResult> Invoke(GetDiscovererInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDiscovererResult>("aws-native:eventschemas:getDiscoverer", args ?? new GetDiscovererInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDiscovererArgs : Pulumi.InvokeArgs
     {
-        [Input("discovererId")]
-        public string? DiscovererId { get; set; }
+        [Input("discovererId", required: true)]
+        public string DiscovererId { get; set; } = null!;
 
         public GetDiscovererArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetDiscovererInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("discovererId")]
-        public Input<string>? DiscovererId { get; set; }
+        [Input("discovererId", required: true)]
+        public Input<string> DiscovererId { get; set; } = null!;
 
         public GetDiscovererInvokeArgs()
         {

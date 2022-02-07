@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaLive
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::Input
         /// </summary>
-        public static Task<GetInputResult> InvokeAsync(GetInputArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("aws-native:medialive:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::Input
         /// </summary>
-        public static Output<GetInputResult> Invoke(GetInputInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws-native:medialive:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInputArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInputArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaLive
 
     public sealed class GetInputInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInputInvokeArgs()
         {

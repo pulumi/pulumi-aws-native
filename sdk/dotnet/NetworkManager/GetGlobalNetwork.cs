@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
         /// </summary>
-        public static Task<GetGlobalNetworkResult> InvokeAsync(GetGlobalNetworkArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGlobalNetworkResult> InvokeAsync(GetGlobalNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworkResult>("aws-native:networkmanager:getGlobalNetwork", args ?? new GetGlobalNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
         /// </summary>
-        public static Output<GetGlobalNetworkResult> Invoke(GetGlobalNetworkInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGlobalNetworkResult> Invoke(GetGlobalNetworkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGlobalNetworkResult>("aws-native:networkmanager:getGlobalNetwork", args ?? new GetGlobalNetworkInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGlobalNetworkArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGlobalNetworkInvokeArgs()
         {

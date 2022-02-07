@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppRunner
         /// <summary>
         /// The AWS::AppRunner::Service resource specifies an AppRunner Service.
         /// </summary>
-        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws-native:apprunner:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::AppRunner::Service resource specifies an AppRunner Service.
         /// </summary>
-        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:apprunner:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.AppRunner
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppRunner Service.
         /// </summary>
-        [Input("serviceArn")]
-        public string? ServiceArn { get; set; }
+        [Input("serviceArn", required: true)]
+        public string ServiceArn { get; set; } = null!;
 
         public GetServiceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.AppRunner
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppRunner Service.
         /// </summary>
-        [Input("serviceArn")]
-        public Input<string>? ServiceArn { get; set; }
+        [Input("serviceArn", required: true)]
+        public Input<string> ServiceArn { get; set; } = null!;
 
         public GetServiceInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A custom metric published by your devices to Device Defender.
         /// </summary>
-        public static Task<GetCustomMetricResult> InvokeAsync(GetCustomMetricArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCustomMetricResult> InvokeAsync(GetCustomMetricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomMetricResult>("aws-native:iot:getCustomMetric", args ?? new GetCustomMetricArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom metric published by your devices to Device Defender.
         /// </summary>
-        public static Output<GetCustomMetricResult> Invoke(GetCustomMetricInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCustomMetricResult> Invoke(GetCustomMetricInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomMetricResult>("aws-native:iot:getCustomMetric", args ?? new GetCustomMetricInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
         /// </summary>
-        [Input("metricName")]
-        public string? MetricName { get; set; }
+        [Input("metricName", required: true)]
+        public string MetricName { get; set; } = null!;
 
         public GetCustomMetricArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
         /// </summary>
-        [Input("metricName")]
-        public Input<string>? MetricName { get; set; }
+        [Input("metricName", required: true)]
+        public Input<string> MetricName { get; set; } = null!;
 
         public GetCustomMetricInvokeArgs()
         {

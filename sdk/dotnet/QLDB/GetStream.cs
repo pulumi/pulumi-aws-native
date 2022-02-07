@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QLDB
         /// <summary>
         /// Resource schema for AWS::QLDB::Stream.
         /// </summary>
-        public static Task<GetStreamResult> InvokeAsync(GetStreamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws-native:qldb:getStream", args ?? new GetStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::QLDB::Stream.
         /// </summary>
-        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:qldb:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStreamArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        [Input("ledgerName")]
-        public string? LedgerName { get; set; }
+        [Input("ledgerName", required: true)]
+        public string LedgerName { get; set; } = null!;
 
         public GetStreamArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QLDB
 
     public sealed class GetStreamInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        [Input("ledgerName")]
-        public Input<string>? LedgerName { get; set; }
+        [Input("ledgerName", required: true)]
+        public Input<string> LedgerName { get; set; } = null!;
 
         public GetStreamInvokeArgs()
         {

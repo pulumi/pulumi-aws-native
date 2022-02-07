@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPC
         /// </summary>
-        public static Task<GetVPCResult> InvokeAsync(GetVPCArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCResult> InvokeAsync(GetVPCArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCResult>("aws-native:ec2:getVPC", args ?? new GetVPCArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPC
         /// </summary>
-        public static Output<GetVPCResult> Invoke(GetVPCInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCResult> Invoke(GetVPCInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCResult>("aws-native:ec2:getVPC", args ?? new GetVPCInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Id for the model.
         /// </summary>
-        [Input("vpcId")]
-        public string? VpcId { get; set; }
+        [Input("vpcId", required: true)]
+        public string VpcId { get; set; } = null!;
 
         public GetVPCArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Id for the model.
         /// </summary>
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         public GetVPCInvokeArgs()
         {

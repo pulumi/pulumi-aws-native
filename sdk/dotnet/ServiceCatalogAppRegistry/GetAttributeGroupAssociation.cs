@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
         /// </summary>
-        public static Task<GetAttributeGroupAssociationResult> InvokeAsync(GetAttributeGroupAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAttributeGroupAssociationResult> InvokeAsync(GetAttributeGroupAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttributeGroupAssociationResult>("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", args ?? new GetAttributeGroupAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
         /// </summary>
-        public static Output<GetAttributeGroupAssociationResult> Invoke(GetAttributeGroupAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAttributeGroupAssociationResult> Invoke(GetAttributeGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAttributeGroupAssociationResult>("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", args ?? new GetAttributeGroupAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAttributeGroupAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAttributeGroupAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetAttributeGroupAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAttributeGroupAssociationInvokeArgs()
         {

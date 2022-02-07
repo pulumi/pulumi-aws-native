@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
         /// </summary>
-        public static Task<GetEndpointGroupResult> InvokeAsync(GetEndpointGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEndpointGroupResult> InvokeAsync(GetEndpointGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointGroupResult>("aws-native:globalaccelerator:getEndpointGroup", args ?? new GetEndpointGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
         /// </summary>
-        public static Output<GetEndpointGroupResult> Invoke(GetEndpointGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEndpointGroupResult> Invoke(GetEndpointGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointGroupResult>("aws-native:globalaccelerator:getEndpointGroup", args ?? new GetEndpointGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group
         /// </summary>
-        [Input("endpointGroupArn")]
-        public string? EndpointGroupArn { get; set; }
+        [Input("endpointGroupArn", required: true)]
+        public string EndpointGroupArn { get; set; } = null!;
 
         public GetEndpointGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group
         /// </summary>
-        [Input("endpointGroupArn")]
-        public Input<string>? EndpointGroupArn { get; set; }
+        [Input("endpointGroupArn", required: true)]
+        public Input<string> EndpointGroupArn { get; set; } = null!;
 
         public GetEndpointGroupInvokeArgs()
         {

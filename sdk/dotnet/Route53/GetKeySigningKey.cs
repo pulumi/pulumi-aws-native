@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
         /// </summary>
-        public static Task<GetKeySigningKeyResult> InvokeAsync(GetKeySigningKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetKeySigningKeyResult> InvokeAsync(GetKeySigningKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeySigningKeyResult>("aws-native:route53:getKeySigningKey", args ?? new GetKeySigningKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
         /// </summary>
-        public static Output<GetKeySigningKeyResult> Invoke(GetKeySigningKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetKeySigningKeyResult> Invoke(GetKeySigningKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetKeySigningKeyResult>("aws-native:route53:getKeySigningKey", args ?? new GetKeySigningKeyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
         /// </summary>
-        [Input("hostedZoneId")]
-        public string? HostedZoneId { get; set; }
+        [Input("hostedZoneId", required: true)]
+        public string HostedZoneId { get; set; } = null!;
 
         /// <summary>
         /// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetKeySigningKeyArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
         /// </summary>
-        [Input("hostedZoneId")]
-        public Input<string>? HostedZoneId { get; set; }
+        [Input("hostedZoneId", required: true)]
+        public Input<string> HostedZoneId { get; set; } = null!;
 
         /// <summary>
         /// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetKeySigningKeyInvokeArgs()
         {

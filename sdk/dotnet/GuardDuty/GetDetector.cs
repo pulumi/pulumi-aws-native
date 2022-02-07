@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Detector
         /// </summary>
-        public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws-native:guardduty:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Detector
         /// </summary>
-        public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws-native:guardduty:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDetectorArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDetectorArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetDetectorInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDetectorInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Launch.
         /// </summary>
-        public static Task<GetLaunchResult> InvokeAsync(GetLaunchArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLaunchResult> InvokeAsync(GetLaunchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchResult>("aws-native:evidently:getLaunch", args ?? new GetLaunchArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Launch.
         /// </summary>
-        public static Output<GetLaunchResult> Invoke(GetLaunchInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLaunchResult> Invoke(GetLaunchInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLaunchResult>("aws-native:evidently:getLaunch", args ?? new GetLaunchInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLaunchArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetLaunchArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetLaunchInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetLaunchInvokeArgs()
         {

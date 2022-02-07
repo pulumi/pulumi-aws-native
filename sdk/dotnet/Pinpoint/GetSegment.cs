@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::Segment
         /// </summary>
-        public static Task<GetSegmentResult> InvokeAsync(GetSegmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSegmentResult> InvokeAsync(GetSegmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSegmentResult>("aws-native:pinpoint:getSegment", args ?? new GetSegmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::Segment
         /// </summary>
-        public static Output<GetSegmentResult> Invoke(GetSegmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSegmentResult> Invoke(GetSegmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSegmentResult>("aws-native:pinpoint:getSegment", args ?? new GetSegmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSegmentArgs : Pulumi.InvokeArgs
     {
-        [Input("segmentId")]
-        public string? SegmentId { get; set; }
+        [Input("segmentId", required: true)]
+        public string SegmentId { get; set; } = null!;
 
         public GetSegmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetSegmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("segmentId")]
-        public Input<string>? SegmentId { get; set; }
+        [Input("segmentId", required: true)]
+        public Input<string> SegmentId { get; set; } = null!;
 
         public GetSegmentInvokeArgs()
         {

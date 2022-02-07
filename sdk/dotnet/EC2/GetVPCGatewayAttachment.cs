@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCGatewayAttachment
         /// </summary>
-        public static Task<GetVPCGatewayAttachmentResult> InvokeAsync(GetVPCGatewayAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCGatewayAttachmentResult> InvokeAsync(GetVPCGatewayAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCGatewayAttachmentResult>("aws-native:ec2:getVPCGatewayAttachment", args ?? new GetVPCGatewayAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCGatewayAttachment
         /// </summary>
-        public static Output<GetVPCGatewayAttachmentResult> Invoke(GetVPCGatewayAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCGatewayAttachmentResult> Invoke(GetVPCGatewayAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCGatewayAttachmentResult>("aws-native:ec2:getVPCGatewayAttachment", args ?? new GetVPCGatewayAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPCGatewayAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPCGatewayAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCGatewayAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPCGatewayAttachmentInvokeArgs()
         {

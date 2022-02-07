@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Resource Type definition for AWS::EKS::Nodegroup
         /// </summary>
-        public static Task<GetNodegroupResult> InvokeAsync(GetNodegroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNodegroupResult> InvokeAsync(GetNodegroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EKS::Nodegroup
         /// </summary>
-        public static Output<GetNodegroupResult> Invoke(GetNodegroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNodegroupResult> Invoke(GetNodegroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNodegroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetNodegroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EKS
 
     public sealed class GetNodegroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetNodegroupInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::VpcLink
         /// </summary>
-        public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws-native:apigateway:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::VpcLink
         /// </summary>
-        public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws-native:apigateway:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVpcLinkArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVpcLinkArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetVpcLinkInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVpcLinkInvokeArgs()
         {

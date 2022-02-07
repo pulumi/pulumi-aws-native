@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Connection
         /// </summary>
-        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws-native:glue:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Connection
         /// </summary>
-        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:glue:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConnectionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConnectionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConnectionInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// <summary>
         /// Resource Type Definition for AWS::ResilienceHub::App.
         /// </summary>
-        public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("aws-native:resiliencehub:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::ResilienceHub::App.
         /// </summary>
-        public static Output<GetAppResult> Invoke(GetAppInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:resiliencehub:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// <summary>
         /// Amazon Resource Name (ARN) of the App.
         /// </summary>
-        [Input("appArn")]
-        public string? AppArn { get; set; }
+        [Input("appArn", required: true)]
+        public string AppArn { get; set; } = null!;
 
         public GetAppArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// <summary>
         /// Amazon Resource Name (ARN) of the App.
         /// </summary>
-        [Input("appArn")]
-        public Input<string>? AppArn { get; set; }
+        [Input("appArn", required: true)]
+        public Input<string> AppArn { get; set; } = null!;
 
         public GetAppInvokeArgs()
         {

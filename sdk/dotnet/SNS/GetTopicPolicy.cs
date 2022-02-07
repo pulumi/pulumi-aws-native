@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SNS
         /// <summary>
         /// Resource Type definition for AWS::SNS::TopicPolicy
         /// </summary>
-        public static Task<GetTopicPolicyResult> InvokeAsync(GetTopicPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTopicPolicyResult> InvokeAsync(GetTopicPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SNS::TopicPolicy
         /// </summary>
-        public static Output<GetTopicPolicyResult> Invoke(GetTopicPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTopicPolicyResult> Invoke(GetTopicPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTopicPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTopicPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SNS
 
     public sealed class GetTopicPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTopicPolicyInvokeArgs()
         {

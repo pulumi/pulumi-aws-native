@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
-        public static Task<GetDeliveryChannelResult> InvokeAsync(GetDeliveryChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeliveryChannelResult> InvokeAsync(GetDeliveryChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
-        public static Output<GetDeliveryChannelResult> Invoke(GetDeliveryChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeliveryChannelResult> Invoke(GetDeliveryChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeliveryChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeliveryChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetDeliveryChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeliveryChannelInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::OIDCProvider
         /// </summary>
-        public static Task<GetOIDCProviderResult> InvokeAsync(GetOIDCProviderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetOIDCProviderResult> InvokeAsync(GetOIDCProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOIDCProviderResult>("aws-native:iam:getOIDCProvider", args ?? new GetOIDCProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::OIDCProvider
         /// </summary>
-        public static Output<GetOIDCProviderResult> Invoke(GetOIDCProviderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetOIDCProviderResult> Invoke(GetOIDCProviderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOIDCProviderResult>("aws-native:iam:getOIDCProvider", args ?? new GetOIDCProviderInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Amazon Resource Name (ARN) of the OIDC provider
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetOIDCProviderArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Amazon Resource Name (ARN) of the OIDC provider
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetOIDCProviderInvokeArgs()
         {

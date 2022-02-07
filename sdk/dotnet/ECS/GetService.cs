@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// Resource Type definition for AWS::ECS::Service
         /// </summary>
-        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws-native:ecs:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ECS::Service
         /// </summary>
-        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:ecs:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
-        [Input("cluster")]
-        public string? Cluster { get; set; }
+        [Input("cluster", required: true)]
+        public string Cluster { get; set; } = null!;
 
-        [Input("serviceArn")]
-        public string? ServiceArn { get; set; }
+        [Input("serviceArn", required: true)]
+        public string ServiceArn { get; set; } = null!;
 
         public GetServiceArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.ECS
 
     public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("cluster")]
-        public Input<string>? Cluster { get; set; }
+        [Input("cluster", required: true)]
+        public Input<string> Cluster { get; set; } = null!;
 
-        [Input("serviceArn")]
-        public Input<string>? ServiceArn { get; set; }
+        [Input("serviceArn", required: true)]
+        public Input<string> ServiceArn { get; set; } = null!;
 
         public GetServiceInvokeArgs()
         {

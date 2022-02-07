@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Resource schema for a Redshift-managed VPC endpoint.
         /// </summary>
-        public static Task<GetEndpointAccessResult> InvokeAsync(GetEndpointAccessArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEndpointAccessResult> InvokeAsync(GetEndpointAccessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointAccessResult>("aws-native:redshift:getEndpointAccess", args ?? new GetEndpointAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for a Redshift-managed VPC endpoint.
         /// </summary>
-        public static Output<GetEndpointAccessResult> Invoke(GetEndpointAccessInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEndpointAccessResult> Invoke(GetEndpointAccessInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointAccessResult>("aws-native:redshift:getEndpointAccess", args ?? new GetEndpointAccessInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
-        [Input("endpointName")]
-        public string? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         public GetEndpointAccessArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         public GetEndpointAccessInvokeArgs()
         {

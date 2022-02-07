@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// Aws Route53 Recovery Readiness Check Schema and API specification.
         /// </summary>
-        public static Task<GetReadinessCheckResult> InvokeAsync(GetReadinessCheckArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReadinessCheckResult> InvokeAsync(GetReadinessCheckArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReadinessCheckResult>("aws-native:route53recoveryreadiness:getReadinessCheck", args ?? new GetReadinessCheckArgs(), options.WithDefaults());
 
         /// <summary>
         /// Aws Route53 Recovery Readiness Check Schema and API specification.
         /// </summary>
-        public static Output<GetReadinessCheckResult> Invoke(GetReadinessCheckInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReadinessCheckResult> Invoke(GetReadinessCheckInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReadinessCheckResult>("aws-native:route53recoveryreadiness:getReadinessCheck", args ?? new GetReadinessCheckInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// Name of the ReadinessCheck to create.
         /// </summary>
-        [Input("readinessCheckName")]
-        public string? ReadinessCheckName { get; set; }
+        [Input("readinessCheckName", required: true)]
+        public string ReadinessCheckName { get; set; } = null!;
 
         public GetReadinessCheckArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// Name of the ReadinessCheck to create.
         /// </summary>
-        [Input("readinessCheckName")]
-        public Input<string>? ReadinessCheckName { get; set; }
+        [Input("readinessCheckName", required: true)]
+        public Input<string> ReadinessCheckName { get; set; } = null!;
 
         public GetReadinessCheckInvokeArgs()
         {

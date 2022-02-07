@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::AggregationAuthorization
         /// </summary>
-        public static Task<GetAggregationAuthorizationResult> InvokeAsync(GetAggregationAuthorizationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAggregationAuthorizationResult> InvokeAsync(GetAggregationAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAggregationAuthorizationResult>("aws-native:configuration:getAggregationAuthorization", args ?? new GetAggregationAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::AggregationAuthorization
         /// </summary>
-        public static Output<GetAggregationAuthorizationResult> Invoke(GetAggregationAuthorizationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAggregationAuthorizationResult> Invoke(GetAggregationAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAggregationAuthorizationResult>("aws-native:configuration:getAggregationAuthorization", args ?? new GetAggregationAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The ARN of the AggregationAuthorization.
         /// </summary>
-        [Input("aggregationAuthorizationArn")]
-        public string? AggregationAuthorizationArn { get; set; }
+        [Input("aggregationAuthorizationArn", required: true)]
+        public string AggregationAuthorizationArn { get; set; } = null!;
 
         public GetAggregationAuthorizationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The ARN of the AggregationAuthorization.
         /// </summary>
-        [Input("aggregationAuthorizationArn")]
-        public Input<string>? AggregationAuthorizationArn { get; set; }
+        [Input("aggregationAuthorizationArn", required: true)]
+        public Input<string> AggregationAuthorizationArn { get; set; } = null!;
 
         public GetAggregationAuthorizationInvokeArgs()
         {

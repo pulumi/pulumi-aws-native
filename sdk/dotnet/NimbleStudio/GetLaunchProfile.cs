@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// Represents a launch profile which delegates access to a collection of studio components to studio users
         /// </summary>
-        public static Task<GetLaunchProfileResult> InvokeAsync(GetLaunchProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLaunchProfileResult> InvokeAsync(GetLaunchProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a launch profile which delegates access to a collection of studio components to studio users
         /// </summary>
-        public static Output<GetLaunchProfileResult> Invoke(GetLaunchProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLaunchProfileResult> Invoke(GetLaunchProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLaunchProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("launchProfileId")]
-        public string? LaunchProfileId { get; set; }
+        [Input("launchProfileId", required: true)]
+        public string LaunchProfileId { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
-        [Input("studioId")]
-        public string? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public string StudioId { get; set; } = null!;
 
         public GetLaunchProfileArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetLaunchProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("launchProfileId")]
-        public Input<string>? LaunchProfileId { get; set; }
+        [Input("launchProfileId", required: true)]
+        public Input<string> LaunchProfileId { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
-        [Input("studioId")]
-        public Input<string>? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public Input<string> StudioId { get; set; } = null!;
 
         public GetLaunchProfileInvokeArgs()
         {

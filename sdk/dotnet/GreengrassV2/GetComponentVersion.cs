@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GreengrassV2
         /// <summary>
         /// Resource for Greengrass component version.
         /// </summary>
-        public static Task<GetComponentVersionResult> InvokeAsync(GetComponentVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetComponentVersionResult> InvokeAsync(GetComponentVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource for Greengrass component version.
         /// </summary>
-        public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetComponentVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetComponentVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class GetComponentVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetComponentVersionInvokeArgs()
         {

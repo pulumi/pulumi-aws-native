@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The AWS::Timestream::Database resource creates a Timestream database.
         /// </summary>
-        public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("aws-native:timestream:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Timestream::Database resource creates a Timestream database.
         /// </summary>
-        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("aws-native:timestream:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
         /// </summary>
-        [Input("databaseName")]
-        public string? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public string DatabaseName { get; set; } = null!;
 
         public GetDatabaseArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         public GetDatabaseInvokeArgs()
         {

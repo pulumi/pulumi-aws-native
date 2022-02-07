@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AutoScalingPlans
         /// <summary>
         /// Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
         /// </summary>
-        public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("aws-native:autoscalingplans:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
         /// </summary>
-        public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("aws-native:autoscalingplans:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetScalingPlanArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetScalingPlanArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AutoScalingPlans
 
     public sealed class GetScalingPlanInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetScalingPlanInvokeArgs()
         {

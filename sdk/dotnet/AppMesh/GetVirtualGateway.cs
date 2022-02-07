@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppMesh
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualGateway
         /// </summary>
-        public static Task<GetVirtualGatewayResult> InvokeAsync(GetVirtualGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVirtualGatewayResult> InvokeAsync(GetVirtualGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGatewayResult>("aws-native:appmesh:getVirtualGateway", args ?? new GetVirtualGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualGateway
         /// </summary>
-        public static Output<GetVirtualGatewayResult> Invoke(GetVirtualGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVirtualGatewayResult> Invoke(GetVirtualGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualGatewayResult>("aws-native:appmesh:getVirtualGateway", args ?? new GetVirtualGatewayInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVirtualGatewayArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVirtualGatewayArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppMesh
 
     public sealed class GetVirtualGatewayInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVirtualGatewayInvokeArgs()
         {

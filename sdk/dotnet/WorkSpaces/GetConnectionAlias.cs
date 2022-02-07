@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// <summary>
         /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
         /// </summary>
-        public static Task<GetConnectionAliasResult> InvokeAsync(GetConnectionAliasArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectionAliasResult> InvokeAsync(GetConnectionAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionAliasResult>("aws-native:workspaces:getConnectionAlias", args ?? new GetConnectionAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
         /// </summary>
-        public static Output<GetConnectionAliasResult> Invoke(GetConnectionAliasInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectionAliasResult> Invoke(GetConnectionAliasInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectionAliasResult>("aws-native:workspaces:getConnectionAlias", args ?? new GetConnectionAliasInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConnectionAliasArgs : Pulumi.InvokeArgs
     {
-        [Input("aliasId")]
-        public string? AliasId { get; set; }
+        [Input("aliasId", required: true)]
+        public string AliasId { get; set; } = null!;
 
         public GetConnectionAliasArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class GetConnectionAliasInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("aliasId")]
-        public Input<string>? AliasId { get; set; }
+        [Input("aliasId", required: true)]
+        public Input<string> AliasId { get; set; } = null!;
 
         public GetConnectionAliasInvokeArgs()
         {

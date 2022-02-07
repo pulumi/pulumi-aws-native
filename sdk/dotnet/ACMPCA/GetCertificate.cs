@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// A certificate issued via a private certificate authority
         /// </summary>
-        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws-native:acmpca:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// A certificate issued via a private certificate authority
         /// </summary>
-        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:acmpca:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// The ARN of the issued certificate.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
         /// </summary>
-        [Input("certificateAuthorityArn")]
-        public string? CertificateAuthorityArn { get; set; }
+        [Input("certificateAuthorityArn", required: true)]
+        public string CertificateAuthorityArn { get; set; } = null!;
 
         public GetCertificateArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// The ARN of the issued certificate.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
         /// </summary>
-        [Input("certificateAuthorityArn")]
-        public Input<string>? CertificateAuthorityArn { get; set; }
+        [Input("certificateAuthorityArn", required: true)]
+        public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         public GetCertificateInvokeArgs()
         {

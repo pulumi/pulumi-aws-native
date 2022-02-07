@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayAttachment
         /// </summary>
-        public static Task<GetTransitGatewayAttachmentResult> InvokeAsync(GetTransitGatewayAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayAttachmentResult> InvokeAsync(GetTransitGatewayAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayAttachmentResult>("aws-native:ec2:getTransitGatewayAttachment", args ?? new GetTransitGatewayAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayAttachment
         /// </summary>
-        public static Output<GetTransitGatewayAttachmentResult> Invoke(GetTransitGatewayAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayAttachmentResult> Invoke(GetTransitGatewayAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayAttachmentResult>("aws-native:ec2:getTransitGatewayAttachment", args ?? new GetTransitGatewayAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTransitGatewayAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTransitGatewayAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetTransitGatewayAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTransitGatewayAttachmentInvokeArgs()
         {

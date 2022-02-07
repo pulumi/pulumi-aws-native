@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppMesh
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::Route
         /// </summary>
-        public static Task<GetRouteResult> InvokeAsync(GetRouteArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:appmesh:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::Route
         /// </summary>
-        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:appmesh:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRouteArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRouteArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppMesh
 
     public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRouteInvokeArgs()
         {

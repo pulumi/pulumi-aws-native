@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::CustomResource
         /// </summary>
-        public static Task<GetCustomResourceResult> InvokeAsync(GetCustomResourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCustomResourceResult> InvokeAsync(GetCustomResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceResult>("aws-native:cloudformation:getCustomResource", args ?? new GetCustomResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::CustomResource
         /// </summary>
-        public static Output<GetCustomResourceResult> Invoke(GetCustomResourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCustomResourceResult> Invoke(GetCustomResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomResourceResult>("aws-native:cloudformation:getCustomResource", args ?? new GetCustomResourceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCustomResourceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCustomResourceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class GetCustomResourceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCustomResourceInvokeArgs()
         {

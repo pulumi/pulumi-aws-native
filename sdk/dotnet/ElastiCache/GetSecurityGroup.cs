@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::SecurityGroup
         /// </summary>
-        public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws-native:elasticache:getSecurityGroup", args ?? new GetSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::SecurityGroup
         /// </summary>
-        public static Output<GetSecurityGroupResult> Invoke(GetSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSecurityGroupResult> Invoke(GetSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecurityGroupResult>("aws-native:elasticache:getSecurityGroup", args ?? new GetSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSecurityGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSecurityGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class GetSecurityGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSecurityGroupInvokeArgs()
         {

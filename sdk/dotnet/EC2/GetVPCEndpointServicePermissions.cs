@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
         /// </summary>
-        public static Task<GetVPCEndpointServicePermissionsResult> InvokeAsync(GetVPCEndpointServicePermissionsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCEndpointServicePermissionsResult> InvokeAsync(GetVPCEndpointServicePermissionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointServicePermissionsResult>("aws-native:ec2:getVPCEndpointServicePermissions", args ?? new GetVPCEndpointServicePermissionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
         /// </summary>
-        public static Output<GetVPCEndpointServicePermissionsResult> Invoke(GetVPCEndpointServicePermissionsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCEndpointServicePermissionsResult> Invoke(GetVPCEndpointServicePermissionsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCEndpointServicePermissionsResult>("aws-native:ec2:getVPCEndpointServicePermissions", args ?? new GetVPCEndpointServicePermissionsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPCEndpointServicePermissionsArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPCEndpointServicePermissionsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCEndpointServicePermissionsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPCEndpointServicePermissionsInvokeArgs()
         {

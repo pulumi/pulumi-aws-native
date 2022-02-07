@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
         /// </summary>
-        public static Task<GetAccessPointPolicyResult> InvokeAsync(GetAccessPointPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessPointPolicyResult> InvokeAsync(GetAccessPointPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointPolicyResult>("aws-native:s3objectlambda:getAccessPointPolicy", args ?? new GetAccessPointPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
         /// </summary>
-        public static Output<GetAccessPointPolicyResult> Invoke(GetAccessPointPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessPointPolicyResult> Invoke(GetAccessPointPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPointPolicyResult>("aws-native:s3objectlambda:getAccessPointPolicy", args ?? new GetAccessPointPolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         /// </summary>
-        [Input("objectLambdaAccessPoint")]
-        public string? ObjectLambdaAccessPoint { get; set; }
+        [Input("objectLambdaAccessPoint", required: true)]
+        public string ObjectLambdaAccessPoint { get; set; } = null!;
 
         public GetAccessPointPolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         /// </summary>
-        [Input("objectLambdaAccessPoint")]
-        public Input<string>? ObjectLambdaAccessPoint { get; set; }
+        [Input("objectLambdaAccessPoint", required: true)]
+        public Input<string> ObjectLambdaAccessPoint { get; set; } = null!;
 
         public GetAccessPointPolicyInvokeArgs()
         {

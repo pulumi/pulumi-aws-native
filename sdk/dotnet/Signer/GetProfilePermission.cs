@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Signer
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetProfilePermissionResult> InvokeAsync(GetProfilePermissionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProfilePermissionResult> InvokeAsync(GetProfilePermissionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfilePermissionResult>("aws-native:signer:getProfilePermission", args ?? new GetProfilePermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetProfilePermissionResult> Invoke(GetProfilePermissionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProfilePermissionResult> Invoke(GetProfilePermissionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProfilePermissionResult>("aws-native:signer:getProfilePermission", args ?? new GetProfilePermissionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetProfilePermissionArgs : Pulumi.InvokeArgs
     {
-        [Input("profileName")]
-        public string? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public string ProfileName { get; set; } = null!;
 
-        [Input("statementId")]
-        public string? StatementId { get; set; }
+        [Input("statementId", required: true)]
+        public string StatementId { get; set; } = null!;
 
         public GetProfilePermissionArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Signer
 
     public sealed class GetProfilePermissionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
-        [Input("statementId")]
-        public Input<string>? StatementId { get; set; }
+        [Input("statementId", required: true)]
+        public Input<string> StatementId { get; set; } = null!;
 
         public GetProfilePermissionInvokeArgs()
         {

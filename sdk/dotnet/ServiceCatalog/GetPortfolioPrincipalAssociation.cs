@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
         /// </summary>
-        public static Task<GetPortfolioPrincipalAssociationResult> InvokeAsync(GetPortfolioPrincipalAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPortfolioPrincipalAssociationResult> InvokeAsync(GetPortfolioPrincipalAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioPrincipalAssociationResult>("aws-native:servicecatalog:getPortfolioPrincipalAssociation", args ?? new GetPortfolioPrincipalAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
         /// </summary>
-        public static Output<GetPortfolioPrincipalAssociationResult> Invoke(GetPortfolioPrincipalAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPortfolioPrincipalAssociationResult> Invoke(GetPortfolioPrincipalAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPortfolioPrincipalAssociationResult>("aws-native:servicecatalog:getPortfolioPrincipalAssociation", args ?? new GetPortfolioPrincipalAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPortfolioPrincipalAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPortfolioPrincipalAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetPortfolioPrincipalAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPortfolioPrincipalAssociationInvokeArgs()
         {

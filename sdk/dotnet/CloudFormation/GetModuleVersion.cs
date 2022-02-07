@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// A module that has been registered in the CloudFormation registry.
         /// </summary>
-        public static Task<GetModuleVersionResult> InvokeAsync(GetModuleVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModuleVersionResult> InvokeAsync(GetModuleVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModuleVersionResult>("aws-native:cloudformation:getModuleVersion", args ?? new GetModuleVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A module that has been registered in the CloudFormation registry.
         /// </summary>
-        public static Output<GetModuleVersionResult> Invoke(GetModuleVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModuleVersionResult> Invoke(GetModuleVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModuleVersionResult>("aws-native:cloudformation:getModuleVersion", args ?? new GetModuleVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetModuleVersionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetModuleVersionInvokeArgs()
         {

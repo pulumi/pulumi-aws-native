@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::CodeSigningConfig.
         /// </summary>
-        public static Task<GetCodeSigningConfigResult> InvokeAsync(GetCodeSigningConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCodeSigningConfigResult> InvokeAsync(GetCodeSigningConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningConfigResult>("aws-native:lambda:getCodeSigningConfig", args ?? new GetCodeSigningConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::CodeSigningConfig.
         /// </summary>
-        public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws-native:lambda:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// A unique Arn for CodeSigningConfig resource
         /// </summary>
-        [Input("codeSigningConfigArn")]
-        public string? CodeSigningConfigArn { get; set; }
+        [Input("codeSigningConfigArn", required: true)]
+        public string CodeSigningConfigArn { get; set; } = null!;
 
         public GetCodeSigningConfigArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// A unique Arn for CodeSigningConfig resource
         /// </summary>
-        [Input("codeSigningConfigArn")]
-        public Input<string>? CodeSigningConfigArn { get; set; }
+        [Input("codeSigningConfigArn", required: true)]
+        public Input<string> CodeSigningConfigArn { get; set; } = null!;
 
         public GetCodeSigningConfigInvokeArgs()
         {

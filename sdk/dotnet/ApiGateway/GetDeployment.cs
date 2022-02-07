@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Deployment
         /// </summary>
-        public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("aws-native:apigateway:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Deployment
         /// </summary>
-        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:apigateway:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Primary Id for this resource
         /// </summary>
-        [Input("deploymentId")]
-        public string? DeploymentId { get; set; }
+        [Input("deploymentId", required: true)]
+        public string DeploymentId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the RestApi resource to deploy. 
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetDeploymentArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Primary Id for this resource
         /// </summary>
-        [Input("deploymentId")]
-        public Input<string>? DeploymentId { get; set; }
+        [Input("deploymentId", required: true)]
+        public Input<string> DeploymentId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the RestApi resource to deploy. 
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetDeploymentInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// <summary>
         /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
         /// </summary>
-        public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
         /// </summary>
-        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetInstanceProfileArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetInstanceProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetInstanceProfileInvokeArgs()
         {

@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
         /// </summary>
-        public static Task<GetApplicationEntitlementAssociationResult> InvokeAsync(GetApplicationEntitlementAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationEntitlementAssociationResult> InvokeAsync(GetApplicationEntitlementAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationEntitlementAssociationResult>("aws-native:appstream:getApplicationEntitlementAssociation", args ?? new GetApplicationEntitlementAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
         /// </summary>
-        public static Output<GetApplicationEntitlementAssociationResult> Invoke(GetApplicationEntitlementAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationEntitlementAssociationResult> Invoke(GetApplicationEntitlementAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationEntitlementAssociationResult>("aws-native:appstream:getApplicationEntitlementAssociation", args ?? new GetApplicationEntitlementAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationEntitlementAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public string? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public string ApplicationIdentifier { get; set; } = null!;
 
-        [Input("entitlementName")]
-        public string? EntitlementName { get; set; }
+        [Input("entitlementName", required: true)]
+        public string EntitlementName { get; set; } = null!;
 
-        [Input("stackName")]
-        public string? StackName { get; set; }
+        [Input("stackName", required: true)]
+        public string StackName { get; set; } = null!;
 
         public GetApplicationEntitlementAssociationArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetApplicationEntitlementAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public Input<string>? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public Input<string> ApplicationIdentifier { get; set; } = null!;
 
-        [Input("entitlementName")]
-        public Input<string>? EntitlementName { get; set; }
+        [Input("entitlementName", required: true)]
+        public Input<string> EntitlementName { get; set; } = null!;
 
-        [Input("stackName")]
-        public Input<string>? StackName { get; set; }
+        [Input("stackName", required: true)]
+        public Input<string> StackName { get; set; } = null!;
 
         public GetApplicationEntitlementAssociationInvokeArgs()
         {

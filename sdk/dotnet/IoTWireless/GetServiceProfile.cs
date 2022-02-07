@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetServiceProfileResult> InvokeAsync(GetServiceProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceProfileResult> InvokeAsync(GetServiceProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceProfileResult>("aws-native:iotwireless:getServiceProfile", args ?? new GetServiceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetServiceProfileResult> Invoke(GetServiceProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceProfileResult> Invoke(GetServiceProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceProfileResult>("aws-native:iotwireless:getServiceProfile", args ?? new GetServiceProfileInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Service profile Id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetServiceProfileArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Service profile Id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetServiceProfileInvokeArgs()
         {

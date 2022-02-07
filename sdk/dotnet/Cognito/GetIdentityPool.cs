@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::IdentityPool
         /// </summary>
-        public static Task<GetIdentityPoolResult> InvokeAsync(GetIdentityPoolArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIdentityPoolResult> InvokeAsync(GetIdentityPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("aws-native:cognito:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::IdentityPool
         /// </summary>
-        public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws-native:cognito:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIdentityPoolArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetIdentityPoolArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetIdentityPoolInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetIdentityPoolInvokeArgs()
         {

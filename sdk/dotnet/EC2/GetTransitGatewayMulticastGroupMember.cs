@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
         /// </summary>
-        public static Task<GetTransitGatewayMulticastGroupMemberResult> InvokeAsync(GetTransitGatewayMulticastGroupMemberArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayMulticastGroupMemberResult> InvokeAsync(GetTransitGatewayMulticastGroupMemberArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastGroupMemberResult>("aws-native:ec2:getTransitGatewayMulticastGroupMember", args ?? new GetTransitGatewayMulticastGroupMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
         /// </summary>
-        public static Output<GetTransitGatewayMulticastGroupMemberResult> Invoke(GetTransitGatewayMulticastGroupMemberInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayMulticastGroupMemberResult> Invoke(GetTransitGatewayMulticastGroupMemberInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastGroupMemberResult>("aws-native:ec2:getTransitGatewayMulticastGroupMember", args ?? new GetTransitGatewayMulticastGroupMemberInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
-        [Input("groupIpAddress")]
-        public string? GroupIpAddress { get; set; }
+        [Input("groupIpAddress", required: true)]
+        public string GroupIpAddress { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
-        [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId { get; set; }
+        [Input("networkInterfaceId", required: true)]
+        public string NetworkInterfaceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
-        public string? TransitGatewayMulticastDomainId { get; set; }
+        [Input("transitGatewayMulticastDomainId", required: true)]
+        public string TransitGatewayMulticastDomainId { get; set; } = null!;
 
         public GetTransitGatewayMulticastGroupMemberArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
-        [Input("groupIpAddress")]
-        public Input<string>? GroupIpAddress { get; set; }
+        [Input("groupIpAddress", required: true)]
+        public Input<string> GroupIpAddress { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
-        [Input("networkInterfaceId")]
-        public Input<string>? NetworkInterfaceId { get; set; }
+        [Input("networkInterfaceId", required: true)]
+        public Input<string> NetworkInterfaceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
-        public Input<string>? TransitGatewayMulticastDomainId { get; set; }
+        [Input("transitGatewayMulticastDomainId", required: true)]
+        public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;
 
         public GetTransitGatewayMulticastGroupMemberInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Create and manage FUOTA tasks.
         /// </summary>
-        public static Task<GetFuotaTaskResult> InvokeAsync(GetFuotaTaskArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFuotaTaskResult> InvokeAsync(GetFuotaTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFuotaTaskResult>("aws-native:iotwireless:getFuotaTask", args ?? new GetFuotaTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage FUOTA tasks.
         /// </summary>
-        public static Output<GetFuotaTaskResult> Invoke(GetFuotaTaskInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFuotaTaskResult> Invoke(GetFuotaTaskInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFuotaTaskResult>("aws-native:iotwireless:getFuotaTask", args ?? new GetFuotaTaskInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// FUOTA task id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFuotaTaskArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// FUOTA task id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFuotaTaskInvokeArgs()
         {

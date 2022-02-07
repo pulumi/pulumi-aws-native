@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Panorama
         /// <summary>
         /// Schema for ApplicationInstance CloudFormation Resource
         /// </summary>
-        public static Task<GetApplicationInstanceResult> InvokeAsync(GetApplicationInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationInstanceResult> InvokeAsync(GetApplicationInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for ApplicationInstance CloudFormation Resource
         /// </summary>
-        public static Output<GetApplicationInstanceResult> Invoke(GetApplicationInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationInstanceResult> Invoke(GetApplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationInstanceArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationInstanceId")]
-        public string? ApplicationInstanceId { get; set; }
+        [Input("applicationInstanceId", required: true)]
+        public string ApplicationInstanceId { get; set; } = null!;
 
         public GetApplicationInstanceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetApplicationInstanceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationInstanceId")]
-        public Input<string>? ApplicationInstanceId { get; set; }
+        [Input("applicationInstanceId", required: true)]
+        public Input<string> ApplicationInstanceId { get; set; } = null!;
 
         public GetApplicationInstanceInvokeArgs()
         {

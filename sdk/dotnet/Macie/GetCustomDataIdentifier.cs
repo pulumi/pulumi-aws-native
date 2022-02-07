@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Macie CustomDataIdentifier resource schema
         /// </summary>
-        public static Task<GetCustomDataIdentifierResult> InvokeAsync(GetCustomDataIdentifierArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCustomDataIdentifierResult> InvokeAsync(GetCustomDataIdentifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Macie CustomDataIdentifier resource schema
         /// </summary>
-        public static Output<GetCustomDataIdentifierResult> Invoke(GetCustomDataIdentifierInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCustomDataIdentifierResult> Invoke(GetCustomDataIdentifierInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Custom data identifier ID.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCustomDataIdentifierArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Custom data identifier ID.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCustomDataIdentifierInvokeArgs()
         {

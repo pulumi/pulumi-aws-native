@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         /// <summary>
         /// Resource Type definition for AWS::ManagedBlockchain::Node
         /// </summary>
-        public static Task<GetNodeResult> InvokeAsync(GetNodeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNodeResult> InvokeAsync(GetNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("aws-native:managedblockchain:getNode", args ?? new GetNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ManagedBlockchain::Node
         /// </summary>
-        public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNodeResult>("aws-native:managedblockchain:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNodeArgs : Pulumi.InvokeArgs
     {
-        [Input("nodeId")]
-        public string? NodeId { get; set; }
+        [Input("nodeId", required: true)]
+        public string NodeId { get; set; } = null!;
 
         public GetNodeArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ManagedBlockchain
 
     public sealed class GetNodeInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("nodeId")]
-        public Input<string>? NodeId { get; set; }
+        [Input("nodeId", required: true)]
+        public Input<string> NodeId { get; set; } = null!;
 
         public GetNodeInvokeArgs()
         {

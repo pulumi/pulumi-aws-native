@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <summary>
         /// Resource type definition for AWS::SSMIncidents::ResponsePlan
         /// </summary>
-        public static Task<GetResponsePlanResult> InvokeAsync(GetResponsePlanArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResponsePlanResult> InvokeAsync(GetResponsePlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResponsePlanResult>("aws-native:ssmincidents:getResponsePlan", args ?? new GetResponsePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::SSMIncidents::ResponsePlan
         /// </summary>
-        public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws-native:ssmincidents:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <summary>
         /// The ARN of the response plan.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetResponsePlanArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <summary>
         /// The ARN of the response plan.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetResponsePlanInvokeArgs()
         {

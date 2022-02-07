@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// Resource schema for AWS::Cassandra::Keyspace
         /// </summary>
-        public static Task<GetKeyspaceResult> InvokeAsync(GetKeyspaceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetKeyspaceResult> InvokeAsync(GetKeyspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Cassandra::Keyspace
         /// </summary>
-        public static Output<GetKeyspaceResult> Invoke(GetKeyspaceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetKeyspaceResult> Invoke(GetKeyspaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// Name for Cassandra keyspace
         /// </summary>
-        [Input("keyspaceName")]
-        public string? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public string KeyspaceName { get; set; } = null!;
 
         public GetKeyspaceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// Name for Cassandra keyspace
         /// </summary>
-        [Input("keyspaceName")]
-        public Input<string>? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
 
         public GetKeyspaceInvokeArgs()
         {

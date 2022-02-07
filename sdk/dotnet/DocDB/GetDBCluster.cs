@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DocDB
         /// <summary>
         /// Resource Type definition for AWS::DocDB::DBCluster
         /// </summary>
-        public static Task<GetDBClusterResult> InvokeAsync(GetDBClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBClusterResult> InvokeAsync(GetDBClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterResult>("aws-native:docdb:getDBCluster", args ?? new GetDBClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DocDB::DBCluster
         /// </summary>
-        public static Output<GetDBClusterResult> Invoke(GetDBClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBClusterResult> Invoke(GetDBClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBClusterResult>("aws-native:docdb:getDBCluster", args ?? new GetDBClusterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDBClusterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBClusterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DocDB
 
     public sealed class GetDBClusterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBClusterInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// The AWS::KMS::Alias resource specifies a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS). You can use an alias to identify a CMK in cryptographic operations.
         /// </summary>
-        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::KMS::Alias resource specifies a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS). You can use an alias to identify a CMK in cryptographic operations.
         /// </summary>
-        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
         /// </summary>
-        [Input("aliasName")]
-        public string? AliasName { get; set; }
+        [Input("aliasName", required: true)]
+        public string AliasName { get; set; } = null!;
 
         public GetAliasArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
         /// </summary>
-        [Input("aliasName")]
-        public Input<string>? AliasName { get; set; }
+        [Input("aliasName", required: true)]
+        public Input<string> AliasName { get; set; } = null!;
 
         public GetAliasInvokeArgs()
         {

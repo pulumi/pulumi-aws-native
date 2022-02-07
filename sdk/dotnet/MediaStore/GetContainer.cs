@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaStore
         /// <summary>
         /// Resource Type definition for AWS::MediaStore::Container
         /// </summary>
-        public static Task<GetContainerResult> InvokeAsync(GetContainerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("aws-native:mediastore:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaStore::Container
         /// </summary>
-        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerResult>("aws-native:mediastore:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetContainerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetContainerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaStore
 
     public sealed class GetContainerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetContainerInvokeArgs()
         {

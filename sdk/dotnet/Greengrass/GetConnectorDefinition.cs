@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ConnectorDefinition
         /// </summary>
-        public static Task<GetConnectorDefinitionResult> InvokeAsync(GetConnectorDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectorDefinitionResult> InvokeAsync(GetConnectorDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorDefinitionResult>("aws-native:greengrass:getConnectorDefinition", args ?? new GetConnectorDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ConnectorDefinition
         /// </summary>
-        public static Output<GetConnectorDefinitionResult> Invoke(GetConnectorDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectorDefinitionResult> Invoke(GetConnectorDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectorDefinitionResult>("aws-native:greengrass:getConnectorDefinition", args ?? new GetConnectorDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConnectorDefinitionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConnectorDefinitionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetConnectorDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConnectorDefinitionInvokeArgs()
         {

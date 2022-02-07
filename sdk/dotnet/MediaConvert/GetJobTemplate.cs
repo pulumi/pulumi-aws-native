@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaConvert
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::JobTemplate
         /// </summary>
-        public static Task<GetJobTemplateResult> InvokeAsync(GetJobTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetJobTemplateResult> InvokeAsync(GetJobTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobTemplateResult>("aws-native:mediaconvert:getJobTemplate", args ?? new GetJobTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::JobTemplate
         /// </summary>
-        public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:mediaconvert:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetJobTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetJobTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaConvert
 
     public sealed class GetJobTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetJobTemplateInvokeArgs()
         {

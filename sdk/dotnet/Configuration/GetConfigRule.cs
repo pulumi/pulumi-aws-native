@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::ConfigRule
         /// </summary>
-        public static Task<GetConfigRuleResult> InvokeAsync(GetConfigRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigRuleResult> InvokeAsync(GetConfigRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::ConfigRule
         /// </summary>
-        public static Output<GetConfigRuleResult> Invoke(GetConfigRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigRuleResult> Invoke(GetConfigRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("configRuleId")]
-        public string? ConfigRuleId { get; set; }
+        [Input("configRuleId", required: true)]
+        public string ConfigRuleId { get; set; } = null!;
 
         public GetConfigRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetConfigRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("configRuleId")]
-        public Input<string>? ConfigRuleId { get; set; }
+        [Input("configRuleId", required: true)]
+        public Input<string> ConfigRuleId { get; set; } = null!;
 
         public GetConfigRuleInvokeArgs()
         {

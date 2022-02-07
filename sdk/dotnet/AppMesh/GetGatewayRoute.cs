@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppMesh
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::GatewayRoute
         /// </summary>
-        public static Task<GetGatewayRouteResult> InvokeAsync(GetGatewayRouteArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGatewayRouteResult> InvokeAsync(GetGatewayRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteResult>("aws-native:appmesh:getGatewayRoute", args ?? new GetGatewayRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::GatewayRoute
         /// </summary>
-        public static Output<GetGatewayRouteResult> Invoke(GetGatewayRouteInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGatewayRouteResult> Invoke(GetGatewayRouteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGatewayRouteResult>("aws-native:appmesh:getGatewayRoute", args ?? new GetGatewayRouteInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGatewayRouteArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGatewayRouteArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppMesh
 
     public sealed class GetGatewayRouteInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGatewayRouteInvokeArgs()
         {

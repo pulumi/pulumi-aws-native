@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// Kendra DataSource
         /// </summary>
-        public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("aws-native:kendra:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Kendra DataSource
         /// </summary>
-        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:kendra:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDataSourceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        [Input("indexId")]
-        public string? IndexId { get; set; }
+        [Input("indexId", required: true)]
+        public string IndexId { get; set; } = null!;
 
         public GetDataSourceArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetDataSourceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        [Input("indexId")]
-        public Input<string>? IndexId { get; set; }
+        [Input("indexId", required: true)]
+        public Input<string> IndexId { get; set; } = null!;
 
         public GetDataSourceInvokeArgs()
         {

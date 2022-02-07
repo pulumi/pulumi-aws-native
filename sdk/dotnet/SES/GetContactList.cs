@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// Resource schema for AWS::SES::ContactList.
         /// </summary>
-        public static Task<GetContactListResult> InvokeAsync(GetContactListArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContactListResult> InvokeAsync(GetContactListArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactListResult>("aws-native:ses:getContactList", args ?? new GetContactListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::SES::ContactList.
         /// </summary>
-        public static Output<GetContactListResult> Invoke(GetContactListInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContactListResult> Invoke(GetContactListInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactListResult>("aws-native:ses:getContactList", args ?? new GetContactListInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// The name of the contact list.
         /// </summary>
-        [Input("contactListName")]
-        public string? ContactListName { get; set; }
+        [Input("contactListName", required: true)]
+        public string ContactListName { get; set; } = null!;
 
         public GetContactListArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// The name of the contact list.
         /// </summary>
-        [Input("contactListName")]
-        public Input<string>? ContactListName { get; set; }
+        [Input("contactListName", required: true)]
+        public Input<string> ContactListName { get; set; } = null!;
 
         public GetContactListInvokeArgs()
         {

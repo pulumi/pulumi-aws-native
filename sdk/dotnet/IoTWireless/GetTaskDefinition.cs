@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Creates a gateway task definition.
         /// </summary>
-        public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws-native:iotwireless:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates a gateway task definition.
         /// </summary>
-        public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws-native:iotwireless:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// The ID of the new wireless gateway task definition
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTaskDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// The ID of the new wireless gateway task definition
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTaskDefinitionInvokeArgs()
         {

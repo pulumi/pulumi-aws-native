@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
         /// </summary>
-        public static Task<GetLoggingResult> InvokeAsync(GetLoggingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLoggingResult> InvokeAsync(GetLoggingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggingResult>("aws-native:iot:getLogging", args ?? new GetLoggingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
         /// </summary>
-        public static Output<GetLoggingResult> Invoke(GetLoggingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLoggingResult> Invoke(GetLoggingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoggingResult>("aws-native:iot:getLogging", args ?? new GetLoggingInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         /// </summary>
-        [Input("accountId")]
-        public string? AccountId { get; set; }
+        [Input("accountId", required: true)]
+        public string AccountId { get; set; } = null!;
 
         public GetLoggingArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
+        [Input("accountId", required: true)]
+        public Input<string> AccountId { get; set; } = null!;
 
         public GetLoggingInvokeArgs()
         {

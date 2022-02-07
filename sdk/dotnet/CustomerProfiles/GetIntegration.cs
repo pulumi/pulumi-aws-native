@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The resource schema for creating an Amazon Connect Customer Profiles Integration.
         /// </summary>
-        public static Task<GetIntegrationResult> InvokeAsync(GetIntegrationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIntegrationResult> InvokeAsync(GetIntegrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:customerprofiles:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema for creating an Amazon Connect Customer Profiles Integration.
         /// </summary>
-        public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:customerprofiles:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public string? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         /// <summary>
         /// The URI of the S3 bucket or any other type of data source.
         /// </summary>
-        [Input("uri")]
-        public string? Uri { get; set; }
+        [Input("uri", required: true)]
+        public string Uri { get; set; } = null!;
 
         public GetIntegrationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// The URI of the S3 bucket or any other type of data source.
         /// </summary>
-        [Input("uri")]
-        public Input<string>? Uri { get; set; }
+        [Input("uri", required: true)]
+        public Input<string> Uri { get; set; } = null!;
 
         public GetIntegrationInvokeArgs()
         {

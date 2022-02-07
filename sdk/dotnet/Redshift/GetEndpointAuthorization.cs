@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
         /// </summary>
-        public static Task<GetEndpointAuthorizationResult> InvokeAsync(GetEndpointAuthorizationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEndpointAuthorizationResult> InvokeAsync(GetEndpointAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointAuthorizationResult>("aws-native:redshift:getEndpointAuthorization", args ?? new GetEndpointAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
         /// </summary>
-        public static Output<GetEndpointAuthorizationResult> Invoke(GetEndpointAuthorizationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEndpointAuthorizationResult> Invoke(GetEndpointAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointAuthorizationResult>("aws-native:redshift:getEndpointAuthorization", args ?? new GetEndpointAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The target AWS account ID to grant or revoke access for.
         /// </summary>
-        [Input("account")]
-        public string? Account { get; set; }
+        [Input("account", required: true)]
+        public string Account { get; set; } = null!;
 
         /// <summary>
         /// The cluster identifier.
         /// </summary>
-        [Input("clusterIdentifier")]
-        public string? ClusterIdentifier { get; set; }
+        [Input("clusterIdentifier", required: true)]
+        public string ClusterIdentifier { get; set; } = null!;
 
         public GetEndpointAuthorizationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The target AWS account ID to grant or revoke access for.
         /// </summary>
-        [Input("account")]
-        public Input<string>? Account { get; set; }
+        [Input("account", required: true)]
+        public Input<string> Account { get; set; } = null!;
 
         /// <summary>
         /// The cluster identifier.
         /// </summary>
-        [Input("clusterIdentifier")]
-        public Input<string>? ClusterIdentifier { get; set; }
+        [Input("clusterIdentifier", required: true)]
+        public Input<string> ClusterIdentifier { get; set; } = null!;
 
         public GetEndpointAuthorizationInvokeArgs()
         {

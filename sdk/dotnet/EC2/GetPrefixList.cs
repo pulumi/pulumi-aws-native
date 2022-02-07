@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource schema of AWS::EC2::PrefixList Type
         /// </summary>
-        public static Task<GetPrefixListResult> InvokeAsync(GetPrefixListArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPrefixListResult> InvokeAsync(GetPrefixListArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws-native:ec2:getPrefixList", args ?? new GetPrefixListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema of AWS::EC2::PrefixList Type
         /// </summary>
-        public static Output<GetPrefixListResult> Invoke(GetPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPrefixListResult> Invoke(GetPrefixListInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrefixListResult>("aws-native:ec2:getPrefixList", args ?? new GetPrefixListInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of Prefix List.
         /// </summary>
-        [Input("prefixListId")]
-        public string? PrefixListId { get; set; }
+        [Input("prefixListId", required: true)]
+        public string PrefixListId { get; set; } = null!;
 
         public GetPrefixListArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of Prefix List.
         /// </summary>
-        [Input("prefixListId")]
-        public Input<string>? PrefixListId { get; set; }
+        [Input("prefixListId", required: true)]
+        public Input<string> PrefixListId { get; set; } = null!;
 
         public GetPrefixListInvokeArgs()
         {

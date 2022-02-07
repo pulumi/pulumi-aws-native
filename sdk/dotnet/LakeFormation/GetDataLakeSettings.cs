@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.LakeFormation
         /// <summary>
         /// Resource Type definition for AWS::LakeFormation::DataLakeSettings
         /// </summary>
-        public static Task<GetDataLakeSettingsResult> InvokeAsync(GetDataLakeSettingsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataLakeSettingsResult> InvokeAsync(GetDataLakeSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws-native:lakeformation:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LakeFormation::DataLakeSettings
         /// </summary>
-        public static Output<GetDataLakeSettingsResult> Invoke(GetDataLakeSettingsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataLakeSettingsResult> Invoke(GetDataLakeSettingsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws-native:lakeformation:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDataLakeSettingsArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDataLakeSettingsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.LakeFormation
 
     public sealed class GetDataLakeSettingsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDataLakeSettingsInvokeArgs()
         {

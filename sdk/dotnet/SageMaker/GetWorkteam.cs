@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Workteam
         /// </summary>
-        public static Task<GetWorkteamResult> InvokeAsync(GetWorkteamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWorkteamResult> InvokeAsync(GetWorkteamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkteamResult>("aws-native:sagemaker:getWorkteam", args ?? new GetWorkteamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Workteam
         /// </summary>
-        public static Output<GetWorkteamResult> Invoke(GetWorkteamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWorkteamResult> Invoke(GetWorkteamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkteamResult>("aws-native:sagemaker:getWorkteam", args ?? new GetWorkteamInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWorkteamArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWorkteamArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetWorkteamInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWorkteamInvokeArgs()
         {

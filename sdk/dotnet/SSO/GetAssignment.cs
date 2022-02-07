@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// Resource Type definition for SSO assignmet
         /// </summary>
-        public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("aws-native:sso:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for SSO assignmet
         /// </summary>
-        public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("aws-native:sso:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,38 +30,38 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The sso instance that the permission set is owned.
         /// </summary>
-        [Input("instanceArn")]
-        public string? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public string InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// The permission set that the assignemt will be assigned
         /// </summary>
-        [Input("permissionSetArn")]
-        public string? PermissionSetArn { get; set; }
+        [Input("permissionSetArn", required: true)]
+        public string PermissionSetArn { get; set; } = null!;
 
         /// <summary>
         /// The assignee's identifier, user id/group id
         /// </summary>
-        [Input("principalId")]
-        public string? PrincipalId { get; set; }
+        [Input("principalId", required: true)]
+        public string PrincipalId { get; set; } = null!;
 
         /// <summary>
         /// The assignee's type, user/group
         /// </summary>
-        [Input("principalType")]
-        public Pulumi.AwsNative.SSO.AssignmentPrincipalType? PrincipalType { get; set; }
+        [Input("principalType", required: true)]
+        public Pulumi.AwsNative.SSO.AssignmentPrincipalType PrincipalType { get; set; }
 
         /// <summary>
         /// The account id to be provisioned.
         /// </summary>
-        [Input("targetId")]
-        public string? TargetId { get; set; }
+        [Input("targetId", required: true)]
+        public string TargetId { get; set; } = null!;
 
         /// <summary>
         /// The type of resource to be provsioned to, only aws account now
         /// </summary>
-        [Input("targetType")]
-        public Pulumi.AwsNative.SSO.AssignmentTargetType? TargetType { get; set; }
+        [Input("targetType", required: true)]
+        public Pulumi.AwsNative.SSO.AssignmentTargetType TargetType { get; set; }
 
         public GetAssignmentArgs()
         {
@@ -73,38 +73,38 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The sso instance that the permission set is owned.
         /// </summary>
-        [Input("instanceArn")]
-        public Input<string>? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// The permission set that the assignemt will be assigned
         /// </summary>
-        [Input("permissionSetArn")]
-        public Input<string>? PermissionSetArn { get; set; }
+        [Input("permissionSetArn", required: true)]
+        public Input<string> PermissionSetArn { get; set; } = null!;
 
         /// <summary>
         /// The assignee's identifier, user id/group id
         /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
+        [Input("principalId", required: true)]
+        public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
         /// The assignee's type, user/group
         /// </summary>
-        [Input("principalType")]
-        public Input<Pulumi.AwsNative.SSO.AssignmentPrincipalType>? PrincipalType { get; set; }
+        [Input("principalType", required: true)]
+        public Input<Pulumi.AwsNative.SSO.AssignmentPrincipalType> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The account id to be provisioned.
         /// </summary>
-        [Input("targetId")]
-        public Input<string>? TargetId { get; set; }
+        [Input("targetId", required: true)]
+        public Input<string> TargetId { get; set; } = null!;
 
         /// <summary>
         /// The type of resource to be provsioned to, only aws account now
         /// </summary>
-        [Input("targetType")]
-        public Input<Pulumi.AwsNative.SSO.AssignmentTargetType>? TargetType { get; set; }
+        [Input("targetType", required: true)]
+        public Input<Pulumi.AwsNative.SSO.AssignmentTargetType> TargetType { get; set; } = null!;
 
         public GetAssignmentInvokeArgs()
         {

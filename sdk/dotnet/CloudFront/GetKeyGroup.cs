@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::KeyGroup
         /// </summary>
-        public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::KeyGroup
         /// </summary>
-        public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetKeyGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetKeyGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetKeyGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetKeyGroupInvokeArgs()
         {

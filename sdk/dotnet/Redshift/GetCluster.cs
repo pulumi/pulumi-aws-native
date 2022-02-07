@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:redshift:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:redshift:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         /// </summary>
-        [Input("clusterIdentifier")]
-        public string? ClusterIdentifier { get; set; }
+        [Input("clusterIdentifier", required: true)]
+        public string ClusterIdentifier { get; set; } = null!;
 
         public GetClusterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         /// </summary>
-        [Input("clusterIdentifier")]
-        public Input<string>? ClusterIdentifier { get; set; }
+        [Input("clusterIdentifier", required: true)]
+        public Input<string> ClusterIdentifier { get; set; } = null!;
 
         public GetClusterInvokeArgs()
         {

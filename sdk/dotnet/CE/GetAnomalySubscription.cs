@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CE
         /// <summary>
         /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
         /// </summary>
-        public static Task<GetAnomalySubscriptionResult> InvokeAsync(GetAnomalySubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAnomalySubscriptionResult> InvokeAsync(GetAnomalySubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalySubscriptionResult>("aws-native:ce:getAnomalySubscription", args ?? new GetAnomalySubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
         /// </summary>
-        public static Output<GetAnomalySubscriptionResult> Invoke(GetAnomalySubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAnomalySubscriptionResult> Invoke(GetAnomalySubscriptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAnomalySubscriptionResult>("aws-native:ce:getAnomalySubscription", args ?? new GetAnomalySubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAnomalySubscriptionArgs : Pulumi.InvokeArgs
     {
-        [Input("subscriptionArn")]
-        public string? SubscriptionArn { get; set; }
+        [Input("subscriptionArn", required: true)]
+        public string SubscriptionArn { get; set; } = null!;
 
         public GetAnomalySubscriptionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CE
 
     public sealed class GetAnomalySubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("subscriptionArn")]
-        public Input<string>? SubscriptionArn { get; set; }
+        [Input("subscriptionArn", required: true)]
+        public Input<string> SubscriptionArn { get; set; } = null!;
 
         public GetAnomalySubscriptionInvokeArgs()
         {

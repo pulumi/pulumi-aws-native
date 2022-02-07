@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DirectoryService
         /// <summary>
         /// Resource Type definition for AWS::DirectoryService::SimpleAD
         /// </summary>
-        public static Task<GetSimpleADResult> InvokeAsync(GetSimpleADArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSimpleADResult> InvokeAsync(GetSimpleADArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSimpleADResult>("aws-native:directoryservice:getSimpleAD", args ?? new GetSimpleADArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DirectoryService::SimpleAD
         /// </summary>
-        public static Output<GetSimpleADResult> Invoke(GetSimpleADInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSimpleADResult> Invoke(GetSimpleADInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSimpleADResult>("aws-native:directoryservice:getSimpleAD", args ?? new GetSimpleADInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSimpleADArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSimpleADArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DirectoryService
 
     public sealed class GetSimpleADInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSimpleADInvokeArgs()
         {

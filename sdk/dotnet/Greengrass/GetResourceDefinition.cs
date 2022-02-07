@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ResourceDefinition
         /// </summary>
-        public static Task<GetResourceDefinitionResult> InvokeAsync(GetResourceDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceDefinitionResult> InvokeAsync(GetResourceDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceDefinitionResult>("aws-native:greengrass:getResourceDefinition", args ?? new GetResourceDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ResourceDefinition
         /// </summary>
-        public static Output<GetResourceDefinitionResult> Invoke(GetResourceDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceDefinitionResult> Invoke(GetResourceDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceDefinitionResult>("aws-native:greengrass:getResourceDefinition", args ?? new GetResourceDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourceDefinitionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResourceDefinitionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetResourceDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResourceDefinitionInvokeArgs()
         {

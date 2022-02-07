@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::ManagedPolicy
         /// </summary>
-        public static Task<GetManagedPolicyResult> InvokeAsync(GetManagedPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetManagedPolicyResult> InvokeAsync(GetManagedPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPolicyResult>("aws-native:iam:getManagedPolicy", args ?? new GetManagedPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::ManagedPolicy
         /// </summary>
-        public static Output<GetManagedPolicyResult> Invoke(GetManagedPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetManagedPolicyResult> Invoke(GetManagedPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetManagedPolicyResult>("aws-native:iam:getManagedPolicy", args ?? new GetManagedPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetManagedPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetManagedPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetManagedPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetManagedPolicyInvokeArgs()
         {

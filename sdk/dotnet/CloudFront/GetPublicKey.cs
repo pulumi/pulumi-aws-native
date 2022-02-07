@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::PublicKey
         /// </summary>
-        public static Task<GetPublicKeyResult> InvokeAsync(GetPublicKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPublicKeyResult> InvokeAsync(GetPublicKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicKeyResult>("aws-native:cloudfront:getPublicKey", args ?? new GetPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::PublicKey
         /// </summary>
-        public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws-native:cloudfront:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPublicKeyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPublicKeyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetPublicKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPublicKeyInvokeArgs()
         {

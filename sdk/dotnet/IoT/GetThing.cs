@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Resource Type definition for AWS::IoT::Thing
         /// </summary>
-        public static Task<GetThingResult> InvokeAsync(GetThingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetThingResult> InvokeAsync(GetThingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThingResult>("aws-native:iot:getThing", args ?? new GetThingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::Thing
         /// </summary>
-        public static Output<GetThingResult> Invoke(GetThingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetThingResult> Invoke(GetThingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetThingResult>("aws-native:iot:getThing", args ?? new GetThingInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetThingArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetThingArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetThingInvokeArgs()
         {

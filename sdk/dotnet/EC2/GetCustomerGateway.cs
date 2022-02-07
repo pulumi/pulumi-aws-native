@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::CustomerGateway
         /// </summary>
-        public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws-native:ec2:getCustomerGateway", args ?? new GetCustomerGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::CustomerGateway
         /// </summary>
-        public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws-native:ec2:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCustomerGatewayArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCustomerGatewayArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetCustomerGatewayInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCustomerGatewayInvokeArgs()
         {

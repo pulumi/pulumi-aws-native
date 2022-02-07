@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppSync
         /// <summary>
         /// Resource Type definition for AWS::AppSync::ApiCache
         /// </summary>
-        public static Task<GetApiCacheResult> InvokeAsync(GetApiCacheArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApiCacheResult> InvokeAsync(GetApiCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiCacheResult>("aws-native:appsync:getApiCache", args ?? new GetApiCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::ApiCache
         /// </summary>
-        public static Output<GetApiCacheResult> Invoke(GetApiCacheInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApiCacheResult> Invoke(GetApiCacheInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiCacheResult>("aws-native:appsync:getApiCache", args ?? new GetApiCacheInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApiCacheArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApiCacheArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetApiCacheInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApiCacheInvokeArgs()
         {

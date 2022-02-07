@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// A module that has been registered in the CloudFormation registry as the default version
         /// </summary>
-        public static Task<GetModuleDefaultVersionResult> InvokeAsync(GetModuleDefaultVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModuleDefaultVersionResult> InvokeAsync(GetModuleDefaultVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModuleDefaultVersionResult>("aws-native:cloudformation:getModuleDefaultVersion", args ?? new GetModuleDefaultVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A module that has been registered in the CloudFormation registry as the default version
         /// </summary>
-        public static Output<GetModuleDefaultVersionResult> Invoke(GetModuleDefaultVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModuleDefaultVersionResult> Invoke(GetModuleDefaultVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModuleDefaultVersionResult>("aws-native:cloudformation:getModuleDefaultVersion", args ?? new GetModuleDefaultVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module version to set as the default version.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetModuleDefaultVersionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module version to set as the default version.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetModuleDefaultVersionInvokeArgs()
         {

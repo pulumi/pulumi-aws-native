@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCPeeringConnection
         /// </summary>
-        public static Task<GetVPCPeeringConnectionResult> InvokeAsync(GetVPCPeeringConnectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCPeeringConnectionResult> InvokeAsync(GetVPCPeeringConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCPeeringConnectionResult>("aws-native:ec2:getVPCPeeringConnection", args ?? new GetVPCPeeringConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCPeeringConnection
         /// </summary>
-        public static Output<GetVPCPeeringConnectionResult> Invoke(GetVPCPeeringConnectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCPeeringConnectionResult> Invoke(GetVPCPeeringConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCPeeringConnectionResult>("aws-native:ec2:getVPCPeeringConnection", args ?? new GetVPCPeeringConnectionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPCPeeringConnectionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPCPeeringConnectionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCPeeringConnectionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPCPeeringConnectionInvokeArgs()
         {

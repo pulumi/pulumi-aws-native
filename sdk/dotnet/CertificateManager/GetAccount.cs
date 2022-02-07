@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CertificateManager
         /// <summary>
         /// Resource schema for AWS::CertificateManager::Account.
         /// </summary>
-        public static Task<GetAccountResult> InvokeAsync(GetAccountArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("aws-native:certificatemanager:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::CertificateManager::Account.
         /// </summary>
-        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws-native:certificatemanager:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
-        [Input("accountId")]
-        public string? AccountId { get; set; }
+        [Input("accountId", required: true)]
+        public string AccountId { get; set; } = null!;
 
         public GetAccountArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CertificateManager
 
     public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
+        [Input("accountId", required: true)]
+        public Input<string> AccountId { get; set; } = null!;
 
         public GetAccountInvokeArgs()
         {

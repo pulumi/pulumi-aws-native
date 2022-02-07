@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::EventStream
         /// </summary>
-        public static Task<GetEventStreamResult> InvokeAsync(GetEventStreamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventStreamResult> InvokeAsync(GetEventStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventStreamResult>("aws-native:pinpoint:getEventStream", args ?? new GetEventStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::EventStream
         /// </summary>
-        public static Output<GetEventStreamResult> Invoke(GetEventStreamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventStreamResult> Invoke(GetEventStreamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventStreamResult>("aws-native:pinpoint:getEventStream", args ?? new GetEventStreamInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEventStreamArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEventStreamArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetEventStreamInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEventStreamInvokeArgs()
         {

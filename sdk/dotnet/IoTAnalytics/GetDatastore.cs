@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Datastore
         /// </summary>
-        public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("aws-native:iotanalytics:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Datastore
         /// </summary>
-        public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("aws-native:iotanalytics:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDatastoreArgs : Pulumi.InvokeArgs
     {
-        [Input("datastoreName")]
-        public string? DatastoreName { get; set; }
+        [Input("datastoreName", required: true)]
+        public string DatastoreName { get; set; } = null!;
 
         public GetDatastoreArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetDatastoreInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("datastoreName")]
-        public Input<string>? DatastoreName { get; set; }
+        [Input("datastoreName", required: true)]
+        public Input<string> DatastoreName { get; set; } = null!;
 
         public GetDatastoreInvokeArgs()
         {

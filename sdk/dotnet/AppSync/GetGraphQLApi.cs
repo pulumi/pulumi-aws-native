@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppSync
         /// <summary>
         /// Resource Type definition for AWS::AppSync::GraphQLApi
         /// </summary>
-        public static Task<GetGraphQLApiResult> InvokeAsync(GetGraphQLApiArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGraphQLApiResult> InvokeAsync(GetGraphQLApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLApiResult>("aws-native:appsync:getGraphQLApi", args ?? new GetGraphQLApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::GraphQLApi
         /// </summary>
-        public static Output<GetGraphQLApiResult> Invoke(GetGraphQLApiInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGraphQLApiResult> Invoke(GetGraphQLApiInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResult>("aws-native:appsync:getGraphQLApi", args ?? new GetGraphQLApiInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGraphQLApiArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGraphQLApiArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetGraphQLApiInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGraphQLApiInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// Create an Elastic Container Service (ECS) cluster.
         /// </summary>
-        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:ecs:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create an Elastic Container Service (ECS) cluster.
         /// </summary>
-        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:ecs:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
         /// </summary>
-        [Input("clusterName")]
-        public string? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         public GetClusterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         public GetClusterInvokeArgs()
         {

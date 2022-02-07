@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
         /// </summary>
-        public static Task<GetUserPoolRiskConfigurationAttachmentResult> InvokeAsync(GetUserPoolRiskConfigurationAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserPoolRiskConfigurationAttachmentResult> InvokeAsync(GetUserPoolRiskConfigurationAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
         /// </summary>
-        public static Output<GetUserPoolRiskConfigurationAttachmentResult> Invoke(GetUserPoolRiskConfigurationAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserPoolRiskConfigurationAttachmentResult> Invoke(GetUserPoolRiskConfigurationAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserPoolRiskConfigurationAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolRiskConfigurationAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolRiskConfigurationAttachmentInvokeArgs()
         {

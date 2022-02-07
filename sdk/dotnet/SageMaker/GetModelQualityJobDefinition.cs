@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
         /// </summary>
-        public static Task<GetModelQualityJobDefinitionResult> InvokeAsync(GetModelQualityJobDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelQualityJobDefinitionResult> InvokeAsync(GetModelQualityJobDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelQualityJobDefinitionResult>("aws-native:sagemaker:getModelQualityJobDefinition", args ?? new GetModelQualityJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
         /// </summary>
-        public static Output<GetModelQualityJobDefinitionResult> Invoke(GetModelQualityJobDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelQualityJobDefinitionResult> Invoke(GetModelQualityJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelQualityJobDefinitionResult>("aws-native:sagemaker:getModelQualityJobDefinition", args ?? new GetModelQualityJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
-        [Input("jobDefinitionArn")]
-        public string? JobDefinitionArn { get; set; }
+        [Input("jobDefinitionArn", required: true)]
+        public string JobDefinitionArn { get; set; } = null!;
 
         public GetModelQualityJobDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
-        [Input("jobDefinitionArn")]
-        public Input<string>? JobDefinitionArn { get; set; }
+        [Input("jobDefinitionArn", required: true)]
+        public Input<string> JobDefinitionArn { get; set; } = null!;
 
         public GetModelQualityJobDefinitionInvokeArgs()
         {

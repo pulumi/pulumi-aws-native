@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::BaiduChannel
         /// </summary>
-        public static Task<GetBaiduChannelResult> InvokeAsync(GetBaiduChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBaiduChannelResult> InvokeAsync(GetBaiduChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBaiduChannelResult>("aws-native:pinpoint:getBaiduChannel", args ?? new GetBaiduChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::BaiduChannel
         /// </summary>
-        public static Output<GetBaiduChannelResult> Invoke(GetBaiduChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBaiduChannelResult> Invoke(GetBaiduChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBaiduChannelResult>("aws-native:pinpoint:getBaiduChannel", args ?? new GetBaiduChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBaiduChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBaiduChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetBaiduChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBaiduChannelInvokeArgs()
         {

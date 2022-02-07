@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Budgets
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetBudgetsActionResult> InvokeAsync(GetBudgetsActionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBudgetsActionResult> InvokeAsync(GetBudgetsActionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetBudgetsActionResult> Invoke(GetBudgetsActionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBudgetsActionResult> Invoke(GetBudgetsActionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBudgetsActionArgs : Pulumi.InvokeArgs
     {
-        [Input("actionId")]
-        public string? ActionId { get; set; }
+        [Input("actionId", required: true)]
+        public string ActionId { get; set; } = null!;
 
-        [Input("budgetName")]
-        public string? BudgetName { get; set; }
+        [Input("budgetName", required: true)]
+        public string BudgetName { get; set; } = null!;
 
         public GetBudgetsActionArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Budgets
 
     public sealed class GetBudgetsActionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("actionId")]
-        public Input<string>? ActionId { get; set; }
+        [Input("actionId", required: true)]
+        public Input<string> ActionId { get; set; } = null!;
 
-        [Input("budgetName")]
-        public Input<string>? BudgetName { get; set; }
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
 
         public GetBudgetsActionInvokeArgs()
         {

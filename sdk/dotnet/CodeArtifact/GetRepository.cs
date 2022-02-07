@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The resource schema to create a CodeArtifact repository.
         /// </summary>
-        public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws-native:codeartifact:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema to create a CodeArtifact repository.
         /// </summary>
-        public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("aws-native:codeartifact:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The ARN of the repository.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRepositoryArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The ARN of the repository.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRepositoryInvokeArgs()
         {

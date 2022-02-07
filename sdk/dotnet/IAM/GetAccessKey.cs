@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::AccessKey
         /// </summary>
-        public static Task<GetAccessKeyResult> InvokeAsync(GetAccessKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessKeyResult> InvokeAsync(GetAccessKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessKeyResult>("aws-native:iam:getAccessKey", args ?? new GetAccessKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::AccessKey
         /// </summary>
-        public static Output<GetAccessKeyResult> Invoke(GetAccessKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessKeyResult> Invoke(GetAccessKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessKeyResult>("aws-native:iam:getAccessKey", args ?? new GetAccessKeyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAccessKeyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAccessKeyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetAccessKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAccessKeyInvokeArgs()
         {

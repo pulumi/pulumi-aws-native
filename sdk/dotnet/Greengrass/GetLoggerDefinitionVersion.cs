@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
         /// </summary>
-        public static Task<GetLoggerDefinitionVersionResult> InvokeAsync(GetLoggerDefinitionVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLoggerDefinitionVersionResult> InvokeAsync(GetLoggerDefinitionVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerDefinitionVersionResult>("aws-native:greengrass:getLoggerDefinitionVersion", args ?? new GetLoggerDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
         /// </summary>
-        public static Output<GetLoggerDefinitionVersionResult> Invoke(GetLoggerDefinitionVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLoggerDefinitionVersionResult> Invoke(GetLoggerDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoggerDefinitionVersionResult>("aws-native:greengrass:getLoggerDefinitionVersion", args ?? new GetLoggerDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLoggerDefinitionVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLoggerDefinitionVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetLoggerDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLoggerDefinitionVersionInvokeArgs()
         {

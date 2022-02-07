@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupSelection
         /// </summary>
-        public static Task<GetBackupSelectionResult> InvokeAsync(GetBackupSelectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBackupSelectionResult> InvokeAsync(GetBackupSelectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupSelectionResult>("aws-native:backup:getBackupSelection", args ?? new GetBackupSelectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupSelection
         /// </summary>
-        public static Output<GetBackupSelectionResult> Invoke(GetBackupSelectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBackupSelectionResult> Invoke(GetBackupSelectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBackupSelectionResult>("aws-native:backup:getBackupSelection", args ?? new GetBackupSelectionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBackupSelectionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBackupSelectionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupSelectionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBackupSelectionInvokeArgs()
         {

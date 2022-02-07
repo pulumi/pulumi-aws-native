@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkInterfacePermission
         /// </summary>
-        public static Task<GetNetworkInterfacePermissionResult> InvokeAsync(GetNetworkInterfacePermissionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkInterfacePermissionResult> InvokeAsync(GetNetworkInterfacePermissionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacePermissionResult>("aws-native:ec2:getNetworkInterfacePermission", args ?? new GetNetworkInterfacePermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkInterfacePermission
         /// </summary>
-        public static Output<GetNetworkInterfacePermissionResult> Invoke(GetNetworkInterfacePermissionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkInterfacePermissionResult> Invoke(GetNetworkInterfacePermissionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfacePermissionResult>("aws-native:ec2:getNetworkInterfacePermission", args ?? new GetNetworkInterfacePermissionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkInterfacePermissionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetNetworkInterfacePermissionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetNetworkInterfacePermissionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetNetworkInterfacePermissionInvokeArgs()
         {

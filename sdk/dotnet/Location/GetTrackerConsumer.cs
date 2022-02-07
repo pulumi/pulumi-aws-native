@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Definition of AWS::Location::TrackerConsumer Resource Type
         /// </summary>
-        public static Task<GetTrackerConsumerResult> InvokeAsync(GetTrackerConsumerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTrackerConsumerResult> InvokeAsync(GetTrackerConsumerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrackerConsumerResult>("aws-native:location:getTrackerConsumer", args ?? new GetTrackerConsumerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::TrackerConsumer Resource Type
         /// </summary>
-        public static Output<GetTrackerConsumerResult> Invoke(GetTrackerConsumerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTrackerConsumerResult> Invoke(GetTrackerConsumerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTrackerConsumerResult>("aws-native:location:getTrackerConsumer", args ?? new GetTrackerConsumerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTrackerConsumerArgs : Pulumi.InvokeArgs
     {
-        [Input("consumerArn")]
-        public string? ConsumerArn { get; set; }
+        [Input("consumerArn", required: true)]
+        public string ConsumerArn { get; set; } = null!;
 
-        [Input("trackerName")]
-        public string? TrackerName { get; set; }
+        [Input("trackerName", required: true)]
+        public string TrackerName { get; set; } = null!;
 
         public GetTrackerConsumerArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetTrackerConsumerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("consumerArn")]
-        public Input<string>? ConsumerArn { get; set; }
+        [Input("consumerArn", required: true)]
+        public Input<string> ConsumerArn { get; set; } = null!;
 
-        [Input("trackerName")]
-        public Input<string>? TrackerName { get; set; }
+        [Input("trackerName", required: true)]
+        public Input<string> TrackerName { get; set; } = null!;
 
         public GetTrackerConsumerInvokeArgs()
         {

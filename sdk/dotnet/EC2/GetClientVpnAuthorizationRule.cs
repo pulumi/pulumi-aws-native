@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
         /// </summary>
-        public static Task<GetClientVpnAuthorizationRuleResult> InvokeAsync(GetClientVpnAuthorizationRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClientVpnAuthorizationRuleResult> InvokeAsync(GetClientVpnAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnAuthorizationRuleResult>("aws-native:ec2:getClientVpnAuthorizationRule", args ?? new GetClientVpnAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
         /// </summary>
-        public static Output<GetClientVpnAuthorizationRuleResult> Invoke(GetClientVpnAuthorizationRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClientVpnAuthorizationRuleResult> Invoke(GetClientVpnAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClientVpnAuthorizationRuleResult>("aws-native:ec2:getClientVpnAuthorizationRule", args ?? new GetClientVpnAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClientVpnAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClientVpnAuthorizationRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetClientVpnAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClientVpnAuthorizationRuleInvokeArgs()
         {

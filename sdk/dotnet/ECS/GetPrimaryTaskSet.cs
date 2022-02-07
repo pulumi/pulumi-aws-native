@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// A pseudo-resource that manages which of your ECS task sets is primary.
         /// </summary>
-        public static Task<GetPrimaryTaskSetResult> InvokeAsync(GetPrimaryTaskSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPrimaryTaskSetResult> InvokeAsync(GetPrimaryTaskSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A pseudo-resource that manages which of your ECS task sets is primary.
         /// </summary>
-        public static Output<GetPrimaryTaskSetResult> Invoke(GetPrimaryTaskSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPrimaryTaskSetResult> Invoke(GetPrimaryTaskSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
-        [Input("cluster")]
-        public string? Cluster { get; set; }
+        [Input("cluster", required: true)]
+        public string Cluster { get; set; } = null!;
 
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         /// </summary>
-        [Input("service")]
-        public string? Service { get; set; }
+        [Input("service", required: true)]
+        public string Service { get; set; } = null!;
 
         public GetPrimaryTaskSetArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
-        [Input("cluster")]
-        public Input<string>? Cluster { get; set; }
+        [Input("cluster", required: true)]
+        public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         /// </summary>
-        [Input("service")]
-        public Input<string>? Service { get; set; }
+        [Input("service", required: true)]
+        public Input<string> Service { get; set; } = null!;
 
         public GetPrimaryTaskSetInvokeArgs()
         {

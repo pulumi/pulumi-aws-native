@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The default version of a resource that has been registered in the CloudFormation Registry.
         /// </summary>
-        public static Task<GetResourceDefaultVersionResult> InvokeAsync(GetResourceDefaultVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceDefaultVersionResult> InvokeAsync(GetResourceDefaultVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceDefaultVersionResult>("aws-native:cloudformation:getResourceDefaultVersion", args ?? new GetResourceDefaultVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The default version of a resource that has been registered in the CloudFormation Registry.
         /// </summary>
-        public static Output<GetResourceDefaultVersionResult> Invoke(GetResourceDefaultVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceDefaultVersionResult> Invoke(GetResourceDefaultVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceDefaultVersionResult>("aws-native:cloudformation:getResourceDefaultVersion", args ?? new GetResourceDefaultVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetResourceDefaultVersionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetResourceDefaultVersionInvokeArgs()
         {

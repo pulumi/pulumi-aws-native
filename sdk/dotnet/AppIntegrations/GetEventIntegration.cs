@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// Resource Type definition for AWS::AppIntegrations::EventIntegration
         /// </summary>
-        public static Task<GetEventIntegrationResult> InvokeAsync(GetEventIntegrationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventIntegrationResult> InvokeAsync(GetEventIntegrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventIntegrationResult>("aws-native:appintegrations:getEventIntegration", args ?? new GetEventIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppIntegrations::EventIntegration
         /// </summary>
-        public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws-native:appintegrations:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The name of the event integration.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetEventIntegrationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The name of the event integration.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetEventIntegrationInvokeArgs()
         {

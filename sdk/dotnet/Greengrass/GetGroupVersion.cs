@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::GroupVersion
         /// </summary>
-        public static Task<GetGroupVersionResult> InvokeAsync(GetGroupVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGroupVersionResult> InvokeAsync(GetGroupVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupVersionResult>("aws-native:greengrass:getGroupVersion", args ?? new GetGroupVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::GroupVersion
         /// </summary>
-        public static Output<GetGroupVersionResult> Invoke(GetGroupVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGroupVersionResult> Invoke(GetGroupVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGroupVersionResult>("aws-native:greengrass:getGroupVersion", args ?? new GetGroupVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGroupVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGroupVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetGroupVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGroupVersionInvokeArgs()
         {

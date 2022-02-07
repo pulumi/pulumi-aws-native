@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::Portfolio
         /// </summary>
-        public static Task<GetPortfolioResult> InvokeAsync(GetPortfolioArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPortfolioResult> InvokeAsync(GetPortfolioArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioResult>("aws-native:servicecatalog:getPortfolio", args ?? new GetPortfolioArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::Portfolio
         /// </summary>
-        public static Output<GetPortfolioResult> Invoke(GetPortfolioInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPortfolioResult> Invoke(GetPortfolioInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPortfolioResult>("aws-native:servicecatalog:getPortfolio", args ?? new GetPortfolioInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPortfolioArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPortfolioArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetPortfolioInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPortfolioInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AuditManager
         /// <summary>
         /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
         /// </summary>
-        public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
         /// </summary>
-        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAssessmentArgs : Pulumi.InvokeArgs
     {
-        [Input("assessmentId")]
-        public string? AssessmentId { get; set; }
+        [Input("assessmentId", required: true)]
+        public string AssessmentId { get; set; } = null!;
 
         public GetAssessmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AuditManager
 
     public sealed class GetAssessmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("assessmentId")]
-        public Input<string>? AssessmentId { get; set; }
+        [Input("assessmentId", required: true)]
+        public Input<string> AssessmentId { get; set; } = null!;
 
         public GetAssessmentInvokeArgs()
         {

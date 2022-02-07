@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ECR
         /// <summary>
         /// The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
         /// </summary>
-        public static Task<GetRegistryPolicyResult> InvokeAsync(GetRegistryPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRegistryPolicyResult> InvokeAsync(GetRegistryPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryPolicyResult>("aws-native:ecr:getRegistryPolicy", args ?? new GetRegistryPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
         /// </summary>
-        public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:ecr:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRegistryPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("registryId")]
-        public string? RegistryId { get; set; }
+        [Input("registryId", required: true)]
+        public string RegistryId { get; set; } = null!;
 
         public GetRegistryPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ECR
 
     public sealed class GetRegistryPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("registryId")]
-        public Input<string>? RegistryId { get; set; }
+        [Input("registryId", required: true)]
+        public Input<string> RegistryId { get; set; } = null!;
 
         public GetRegistryPolicyInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetSuiteDefinitionResult> InvokeAsync(GetSuiteDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSuiteDefinitionResult> InvokeAsync(GetSuiteDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSuiteDefinitionResult>("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args ?? new GetSuiteDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetSuiteDefinitionResult> Invoke(GetSuiteDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSuiteDefinitionResult> Invoke(GetSuiteDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSuiteDefinitionResult>("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args ?? new GetSuiteDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         /// <summary>
         /// The unique identifier for the suite definition.
         /// </summary>
-        [Input("suiteDefinitionId")]
-        public string? SuiteDefinitionId { get; set; }
+        [Input("suiteDefinitionId", required: true)]
+        public string SuiteDefinitionId { get; set; } = null!;
 
         public GetSuiteDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         /// <summary>
         /// The unique identifier for the suite definition.
         /// </summary>
-        [Input("suiteDefinitionId")]
-        public Input<string>? SuiteDefinitionId { get; set; }
+        [Input("suiteDefinitionId", required: true)]
+        public Input<string> SuiteDefinitionId { get; set; } = null!;
 
         public GetSuiteDefinitionInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// <summary>
         /// Resource Type definition for AWS::KafkaConnect::Connector
         /// </summary>
-        public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws-native:kafkaconnect:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KafkaConnect::Connector
         /// </summary>
-        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:kafkaconnect:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// <summary>
         /// Amazon Resource Name for the created Connector.
         /// </summary>
-        [Input("connectorArn")]
-        public string? ConnectorArn { get; set; }
+        [Input("connectorArn", required: true)]
+        public string ConnectorArn { get; set; } = null!;
 
         public GetConnectorArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// <summary>
         /// Amazon Resource Name for the created Connector.
         /// </summary>
-        [Input("connectorArn")]
-        public Input<string>? ConnectorArn { get; set; }
+        [Input("connectorArn", required: true)]
+        public Input<string> ConnectorArn { get; set; } = null!;
 
         public GetConnectorInvokeArgs()
         {

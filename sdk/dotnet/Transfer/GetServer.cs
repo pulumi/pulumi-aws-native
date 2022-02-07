@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Resource Type definition for AWS::Transfer::Server
         /// </summary>
-        public static Task<GetServerResult> InvokeAsync(GetServerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("aws-native:transfer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Transfer::Server
         /// </summary>
-        public static Output<GetServerResult> Invoke(GetServerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerResult>("aws-native:transfer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
-        [Input("serverId")]
-        public string? ServerId { get; set; }
+        [Input("serverId", required: true)]
+        public string ServerId { get; set; } = null!;
 
         public GetServerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Transfer
 
     public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("serverId")]
-        public Input<string>? ServerId { get; set; }
+        [Input("serverId", required: true)]
+        public Input<string> ServerId { get; set; } = null!;
 
         public GetServerInvokeArgs()
         {

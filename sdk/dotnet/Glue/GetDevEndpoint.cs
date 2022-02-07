@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::DevEndpoint
         /// </summary>
-        public static Task<GetDevEndpointResult> InvokeAsync(GetDevEndpointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDevEndpointResult> InvokeAsync(GetDevEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDevEndpointResult>("aws-native:glue:getDevEndpoint", args ?? new GetDevEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::DevEndpoint
         /// </summary>
-        public static Output<GetDevEndpointResult> Invoke(GetDevEndpointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDevEndpointResult> Invoke(GetDevEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDevEndpointResult>("aws-native:glue:getDevEndpoint", args ?? new GetDevEndpointInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDevEndpointArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDevEndpointArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetDevEndpointInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDevEndpointInvokeArgs()
         {

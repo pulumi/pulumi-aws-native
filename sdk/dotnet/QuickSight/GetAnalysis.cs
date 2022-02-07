@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// Definition of the AWS::QuickSight::Analysis Resource Type.
         /// </summary>
-        public static Task<GetAnalysisResult> InvokeAsync(GetAnalysisArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAnalysisResult> InvokeAsync(GetAnalysisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnalysisResult>("aws-native:quicksight:getAnalysis", args ?? new GetAnalysisArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::Analysis Resource Type.
         /// </summary>
-        public static Output<GetAnalysisResult> Invoke(GetAnalysisInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAnalysisResult> Invoke(GetAnalysisInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAnalysisResult>("aws-native:quicksight:getAnalysis", args ?? new GetAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAnalysisArgs : Pulumi.InvokeArgs
     {
-        [Input("analysisId")]
-        public string? AnalysisId { get; set; }
+        [Input("analysisId", required: true)]
+        public string AnalysisId { get; set; } = null!;
 
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
         public GetAnalysisArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetAnalysisInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("analysisId")]
-        public Input<string>? AnalysisId { get; set; }
+        [Input("analysisId", required: true)]
+        public Input<string> AnalysisId { get; set; } = null!;
 
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
         public GetAnalysisInvokeArgs()
         {

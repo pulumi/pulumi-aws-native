@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// <summary>
         /// Resource Type definition for AWS::WorkSpaces::Workspace
         /// </summary>
-        public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws-native:workspaces:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WorkSpaces::Workspace
         /// </summary>
-        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws-native:workspaces:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWorkspaceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWorkspaceInvokeArgs()
         {

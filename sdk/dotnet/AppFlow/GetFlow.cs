@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// Resource schema for AWS::AppFlow::Flow.
         /// </summary>
-        public static Task<GetFlowResult> InvokeAsync(GetFlowArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFlowResult> InvokeAsync(GetFlowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::AppFlow::Flow.
         /// </summary>
-        public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// Name of the flow.
         /// </summary>
-        [Input("flowName")]
-        public string? FlowName { get; set; }
+        [Input("flowName", required: true)]
+        public string FlowName { get; set; } = null!;
 
         public GetFlowArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// Name of the flow.
         /// </summary>
-        [Input("flowName")]
-        public Input<string>? FlowName { get; set; }
+        [Input("flowName", required: true)]
+        public Input<string> FlowName { get; set; } = null!;
 
         public GetFlowInvokeArgs()
         {

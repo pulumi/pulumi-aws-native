@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
         /// </summary>
-        public static Task<GetTransitGatewayRegistrationResult> InvokeAsync(GetTransitGatewayRegistrationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayRegistrationResult> InvokeAsync(GetTransitGatewayRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRegistrationResult>("aws-native:networkmanager:getTransitGatewayRegistration", args ?? new GetTransitGatewayRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
         /// </summary>
-        public static Output<GetTransitGatewayRegistrationResult> Invoke(GetTransitGatewayRegistrationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayRegistrationResult> Invoke(GetTransitGatewayRegistrationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRegistrationResult>("aws-native:networkmanager:getTransitGatewayRegistration", args ?? new GetTransitGatewayRegistrationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public string? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the transit gateway.
         /// </summary>
-        [Input("transitGatewayArn")]
-        public string? TransitGatewayArn { get; set; }
+        [Input("transitGatewayArn", required: true)]
+        public string TransitGatewayArn { get; set; } = null!;
 
         public GetTransitGatewayRegistrationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public Input<string>? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the transit gateway.
         /// </summary>
-        [Input("transitGatewayArn")]
-        public Input<string>? TransitGatewayArn { get; set; }
+        [Input("transitGatewayArn", required: true)]
+        public Input<string> TransitGatewayArn { get; set; } = null!;
 
         public GetTransitGatewayRegistrationInvokeArgs()
         {

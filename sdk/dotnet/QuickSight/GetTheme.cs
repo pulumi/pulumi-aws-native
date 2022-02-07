@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// Definition of the AWS::QuickSight::Theme Resource Type.
         /// </summary>
-        public static Task<GetThemeResult> InvokeAsync(GetThemeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("aws-native:quicksight:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::Theme Resource Type.
         /// </summary>
-        public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws-native:quicksight:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetThemeArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
-        [Input("themeId")]
-        public string? ThemeId { get; set; }
+        [Input("themeId", required: true)]
+        public string ThemeId { get; set; } = null!;
 
         public GetThemeArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetThemeInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("themeId")]
-        public Input<string>? ThemeId { get; set; }
+        [Input("themeId", required: true)]
+        public Input<string> ThemeId { get; set; } = null!;
 
         public GetThemeInvokeArgs()
         {

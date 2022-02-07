@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// Resource Type definition for AWS::S3::BucketPolicy
         /// </summary>
-        public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws-native:s3:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::S3::BucketPolicy
         /// </summary>
-        public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws-native:s3:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBucketPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBucketPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetBucketPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBucketPolicyInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
         /// </summary>
-        public static Task<GetEnclaveCertificateIamRoleAssociationResult> InvokeAsync(GetEnclaveCertificateIamRoleAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEnclaveCertificateIamRoleAssociationResult> InvokeAsync(GetEnclaveCertificateIamRoleAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnclaveCertificateIamRoleAssociationResult>("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", args ?? new GetEnclaveCertificateIamRoleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
         /// </summary>
-        public static Output<GetEnclaveCertificateIamRoleAssociationResult> Invoke(GetEnclaveCertificateIamRoleAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEnclaveCertificateIamRoleAssociationResult> Invoke(GetEnclaveCertificateIamRoleAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEnclaveCertificateIamRoleAssociationResult>("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", args ?? new GetEnclaveCertificateIamRoleAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
         /// </summary>
-        [Input("certificateArn")]
-        public string? CertificateArn { get; set; }
+        [Input("certificateArn", required: true)]
+        public string CertificateArn { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         /// </summary>
-        [Input("roleArn")]
-        public string? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public string RoleArn { get; set; } = null!;
 
         public GetEnclaveCertificateIamRoleAssociationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
         /// </summary>
-        [Input("certificateArn")]
-        public Input<string>? CertificateArn { get; set; }
+        [Input("certificateArn", required: true)]
+        public Input<string> CertificateArn { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         /// </summary>
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         public GetEnclaveCertificateIamRoleAssociationInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxy
         /// </summary>
-        public static Task<GetDBProxyResult> InvokeAsync(GetDBProxyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBProxyResult> InvokeAsync(GetDBProxyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBProxyResult>("aws-native:rds:getDBProxy", args ?? new GetDBProxyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxy
         /// </summary>
-        public static Output<GetDBProxyResult> Invoke(GetDBProxyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBProxyResult> Invoke(GetDBProxyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBProxyResult>("aws-native:rds:getDBProxy", args ?? new GetDBProxyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyName")]
-        public string? DBProxyName { get; set; }
+        [Input("dBProxyName", required: true)]
+        public string DBProxyName { get; set; } = null!;
 
         public GetDBProxyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyName")]
-        public Input<string>? DBProxyName { get; set; }
+        [Input("dBProxyName", required: true)]
+        public Input<string> DBProxyName { get; set; } = null!;
 
         public GetDBProxyInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::AnomalyDetector
         /// </summary>
-        public static Task<GetAnomalyDetectorResult> InvokeAsync(GetAnomalyDetectorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAnomalyDetectorResult> InvokeAsync(GetAnomalyDetectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyDetectorResult>("aws-native:cloudwatch:getAnomalyDetector", args ?? new GetAnomalyDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::AnomalyDetector
         /// </summary>
-        public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAnomalyDetectorResult>("aws-native:cloudwatch:getAnomalyDetector", args ?? new GetAnomalyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAnomalyDetectorArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAnomalyDetectorArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class GetAnomalyDetectorInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAnomalyDetectorInvokeArgs()
         {

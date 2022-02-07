@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
         /// </summary>
-        public static Task<GetSamplingRuleResult> InvokeAsync(GetSamplingRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSamplingRuleResult> InvokeAsync(GetSamplingRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSamplingRuleResult>("aws-native:xray:getSamplingRule", args ?? new GetSamplingRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
         /// </summary>
-        public static Output<GetSamplingRuleResult> Invoke(GetSamplingRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSamplingRuleResult> Invoke(GetSamplingRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSamplingRuleResult>("aws-native:xray:getSamplingRule", args ?? new GetSamplingRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSamplingRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("ruleARN")]
-        public string? RuleARN { get; set; }
+        [Input("ruleARN", required: true)]
+        public string RuleARN { get; set; } = null!;
 
         public GetSamplingRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class GetSamplingRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("ruleARN")]
-        public Input<string>? RuleARN { get; set; }
+        [Input("ruleARN", required: true)]
+        public Input<string> RuleARN { get; set; } = null!;
 
         public GetSamplingRuleInvokeArgs()
         {

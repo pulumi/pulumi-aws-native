@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::ServiceAction
         /// </summary>
-        public static Task<GetServiceActionResult> InvokeAsync(GetServiceActionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceActionResult> InvokeAsync(GetServiceActionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceActionResult>("aws-native:servicecatalog:getServiceAction", args ?? new GetServiceActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::ServiceAction
         /// </summary>
-        public static Output<GetServiceActionResult> Invoke(GetServiceActionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceActionResult> Invoke(GetServiceActionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceActionResult>("aws-native:servicecatalog:getServiceAction", args ?? new GetServiceActionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServiceActionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetServiceActionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetServiceActionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetServiceActionInvokeArgs()
         {

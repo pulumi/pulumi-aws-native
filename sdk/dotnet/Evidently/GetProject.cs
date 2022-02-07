@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Project
         /// </summary>
-        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("aws-native:evidently:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Project
         /// </summary>
-        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:evidently:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetProjectArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetProjectInvokeArgs()
         {

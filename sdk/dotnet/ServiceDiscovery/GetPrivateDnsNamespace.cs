@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
         /// </summary>
-        public static Task<GetPrivateDnsNamespaceResult> InvokeAsync(GetPrivateDnsNamespaceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPrivateDnsNamespaceResult> InvokeAsync(GetPrivateDnsNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateDnsNamespaceResult>("aws-native:servicediscovery:getPrivateDnsNamespace", args ?? new GetPrivateDnsNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
         /// </summary>
-        public static Output<GetPrivateDnsNamespaceResult> Invoke(GetPrivateDnsNamespaceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPrivateDnsNamespaceResult> Invoke(GetPrivateDnsNamespaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateDnsNamespaceResult>("aws-native:servicediscovery:getPrivateDnsNamespace", args ?? new GetPrivateDnsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPrivateDnsNamespaceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPrivateDnsNamespaceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
     public sealed class GetPrivateDnsNamespaceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPrivateDnsNamespaceInvokeArgs()
         {

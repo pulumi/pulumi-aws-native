@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Describes a route for a local gateway route table.
         /// </summary>
-        public static Task<GetLocalGatewayRouteResult> InvokeAsync(GetLocalGatewayRouteArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocalGatewayRouteResult> InvokeAsync(GetLocalGatewayRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteResult>("aws-native:ec2:getLocalGatewayRoute", args ?? new GetLocalGatewayRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a route for a local gateway route table.
         /// </summary>
-        public static Output<GetLocalGatewayRouteResult> Invoke(GetLocalGatewayRouteInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocalGatewayRouteResult> Invoke(GetLocalGatewayRouteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteResult>("aws-native:ec2:getLocalGatewayRoute", args ?? new GetLocalGatewayRouteInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The CIDR block used for destination matches.
         /// </summary>
-        [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock { get; set; }
+        [Input("destinationCidrBlock", required: true)]
+        public string DestinationCidrBlock { get; set; } = null!;
 
         /// <summary>
         /// The ID of the local gateway route table.
         /// </summary>
-        [Input("localGatewayRouteTableId")]
-        public string? LocalGatewayRouteTableId { get; set; }
+        [Input("localGatewayRouteTableId", required: true)]
+        public string LocalGatewayRouteTableId { get; set; } = null!;
 
         public GetLocalGatewayRouteArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The CIDR block used for destination matches.
         /// </summary>
-        [Input("destinationCidrBlock")]
-        public Input<string>? DestinationCidrBlock { get; set; }
+        [Input("destinationCidrBlock", required: true)]
+        public Input<string> DestinationCidrBlock { get; set; } = null!;
 
         /// <summary>
         /// The ID of the local gateway route table.
         /// </summary>
-        [Input("localGatewayRouteTableId")]
-        public Input<string>? LocalGatewayRouteTableId { get; set; }
+        [Input("localGatewayRouteTableId", required: true)]
+        public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
         public GetLocalGatewayRouteInvokeArgs()
         {

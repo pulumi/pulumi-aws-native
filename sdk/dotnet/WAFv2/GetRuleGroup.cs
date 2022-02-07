@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
         /// </summary>
-        public static Task<GetRuleGroupResult> InvokeAsync(GetRuleGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRuleGroupResult> InvokeAsync(GetRuleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupResult>("aws-native:wafv2:getRuleGroup", args ?? new GetRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
         /// </summary>
-        public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRuleGroupResult>("aws-native:wafv2:getRuleGroup", args ?? new GetRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRuleGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
-        [Input("scope")]
-        public Pulumi.AwsNative.WAFv2.RuleGroupScope? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Pulumi.AwsNative.WAFv2.RuleGroupScope Scope { get; set; }
 
         public GetRuleGroupArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class GetRuleGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
-        [Input("scope")]
-        public Input<Pulumi.AwsNative.WAFv2.RuleGroupScope>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupScope> Scope { get; set; } = null!;
 
         public GetRuleGroupInvokeArgs()
         {

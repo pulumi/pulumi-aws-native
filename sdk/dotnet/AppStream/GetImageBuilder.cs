@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ImageBuilder
         /// </summary>
-        public static Task<GetImageBuilderResult> InvokeAsync(GetImageBuilderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetImageBuilderResult> InvokeAsync(GetImageBuilderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ImageBuilder
         /// </summary>
-        public static Output<GetImageBuilderResult> Invoke(GetImageBuilderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetImageBuilderResult> Invoke(GetImageBuilderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetImageBuilderArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetImageBuilderArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetImageBuilderInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetImageBuilderInvokeArgs()
         {

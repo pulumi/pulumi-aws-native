@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.FIS
         /// <summary>
         /// Resource schema for AWS::FIS::ExperimentTemplate
         /// </summary>
-        public static Task<GetExperimentTemplateResult> InvokeAsync(GetExperimentTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetExperimentTemplateResult> InvokeAsync(GetExperimentTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentTemplateResult>("aws-native:fis:getExperimentTemplate", args ?? new GetExperimentTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::FIS::ExperimentTemplate
         /// </summary>
-        public static Output<GetExperimentTemplateResult> Invoke(GetExperimentTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetExperimentTemplateResult> Invoke(GetExperimentTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExperimentTemplateResult>("aws-native:fis:getExperimentTemplate", args ?? new GetExperimentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetExperimentTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetExperimentTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.FIS
 
     public sealed class GetExperimentTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetExperimentTemplateInvokeArgs()
         {

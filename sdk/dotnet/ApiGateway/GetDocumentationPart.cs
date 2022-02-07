@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::DocumentationPart
         /// </summary>
-        public static Task<GetDocumentationPartResult> InvokeAsync(GetDocumentationPartArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDocumentationPartResult> InvokeAsync(GetDocumentationPartArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::DocumentationPart
         /// </summary>
-        public static Output<GetDocumentationPartResult> Invoke(GetDocumentationPartInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDocumentationPartResult> Invoke(GetDocumentationPartInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDocumentationPartArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDocumentationPartArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDocumentationPartInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDocumentationPartInvokeArgs()
         {

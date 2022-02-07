@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::VoiceChannel
         /// </summary>
-        public static Task<GetVoiceChannelResult> InvokeAsync(GetVoiceChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVoiceChannelResult> InvokeAsync(GetVoiceChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVoiceChannelResult>("aws-native:pinpoint:getVoiceChannel", args ?? new GetVoiceChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::VoiceChannel
         /// </summary>
-        public static Output<GetVoiceChannelResult> Invoke(GetVoiceChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVoiceChannelResult> Invoke(GetVoiceChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVoiceChannelResult>("aws-native:pinpoint:getVoiceChannel", args ?? new GetVoiceChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVoiceChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVoiceChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetVoiceChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVoiceChannelInvokeArgs()
         {

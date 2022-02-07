@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::ConfigurationSetEventDestination
         /// </summary>
-        public static Task<GetConfigurationSetEventDestinationResult> InvokeAsync(GetConfigurationSetEventDestinationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationSetEventDestinationResult> InvokeAsync(GetConfigurationSetEventDestinationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationSetEventDestinationResult>("aws-native:pinpointemail:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::ConfigurationSetEventDestination
         /// </summary>
-        public static Output<GetConfigurationSetEventDestinationResult> Invoke(GetConfigurationSetEventDestinationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationSetEventDestinationResult> Invoke(GetConfigurationSetEventDestinationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationSetEventDestinationResult>("aws-native:pinpointemail:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigurationSetEventDestinationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConfigurationSetEventDestinationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.PinpointEmail
 
     public sealed class GetConfigurationSetEventDestinationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConfigurationSetEventDestinationInvokeArgs()
         {

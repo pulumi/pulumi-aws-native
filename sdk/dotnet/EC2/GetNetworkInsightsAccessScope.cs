@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAccessScope
         /// </summary>
-        public static Task<GetNetworkInsightsAccessScopeResult> InvokeAsync(GetNetworkInsightsAccessScopeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkInsightsAccessScopeResult> InvokeAsync(GetNetworkInsightsAccessScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAccessScopeResult>("aws-native:ec2:getNetworkInsightsAccessScope", args ?? new GetNetworkInsightsAccessScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAccessScope
         /// </summary>
-        public static Output<GetNetworkInsightsAccessScopeResult> Invoke(GetNetworkInsightsAccessScopeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkInsightsAccessScopeResult> Invoke(GetNetworkInsightsAccessScopeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAccessScopeResult>("aws-native:ec2:getNetworkInsightsAccessScope", args ?? new GetNetworkInsightsAccessScopeInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkInsightsAccessScopeArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsAccessScopeId")]
-        public string? NetworkInsightsAccessScopeId { get; set; }
+        [Input("networkInsightsAccessScopeId", required: true)]
+        public string NetworkInsightsAccessScopeId { get; set; } = null!;
 
         public GetNetworkInsightsAccessScopeArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetNetworkInsightsAccessScopeInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsAccessScopeId")]
-        public Input<string>? NetworkInsightsAccessScopeId { get; set; }
+        [Input("networkInsightsAccessScopeId", required: true)]
+        public Input<string> NetworkInsightsAccessScopeId { get; set; } = null!;
 
         public GetNetworkInsightsAccessScopeInvokeArgs()
         {

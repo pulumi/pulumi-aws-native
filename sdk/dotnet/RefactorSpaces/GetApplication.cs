@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Application Resource Type
         /// </summary>
-        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:refactorspaces:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Application Resource Type
         /// </summary>
-        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:refactorspaces:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public string? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public string ApplicationIdentifier { get; set; } = null!;
 
-        [Input("environmentIdentifier")]
-        public string? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public string EnvironmentIdentifier { get; set; } = null!;
 
         public GetApplicationArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationIdentifier")]
-        public Input<string>? ApplicationIdentifier { get; set; }
+        [Input("applicationIdentifier", required: true)]
+        public Input<string> ApplicationIdentifier { get; set; } = null!;
 
-        [Input("environmentIdentifier")]
-        public Input<string>? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
         public GetApplicationInvokeArgs()
         {

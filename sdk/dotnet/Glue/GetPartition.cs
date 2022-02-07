@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Partition
         /// </summary>
-        public static Task<GetPartitionResult> InvokeAsync(GetPartitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPartitionResult> InvokeAsync(GetPartitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws-native:glue:getPartition", args ?? new GetPartitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Partition
         /// </summary>
-        public static Output<GetPartitionResult> Invoke(GetPartitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPartitionResult> Invoke(GetPartitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws-native:glue:getPartition", args ?? new GetPartitionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPartitionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPartitionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetPartitionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPartitionInvokeArgs()
         {

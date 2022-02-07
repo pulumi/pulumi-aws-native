@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Resource
         /// </summary>
-        public static Task<GetResourceResult> InvokeAsync(GetResourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws-native:apigateway:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Resource
         /// </summary>
-        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws-native:apigateway:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A unique primary identifier for a Resource
         /// </summary>
-        [Input("resourceId")]
-        public string? ResourceId { get; set; }
+        [Input("resourceId", required: true)]
+        public string ResourceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the RestApi resource in which you want to create this resource..
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetResourceArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A unique primary identifier for a Resource
         /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the RestApi resource in which you want to create this resource..
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetResourceInvokeArgs()
         {

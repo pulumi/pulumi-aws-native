@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Resource Schema for AWS::EKS::Addon
         /// </summary>
-        public static Task<GetAddonResult> InvokeAsync(GetAddonArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("aws-native:eks:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::EKS::Addon
         /// </summary>
-        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws-native:eks:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Name of Addon
         /// </summary>
-        [Input("addonName")]
-        public string? AddonName { get; set; }
+        [Input("addonName", required: true)]
+        public string AddonName { get; set; } = null!;
 
         /// <summary>
         /// Name of Cluster
         /// </summary>
-        [Input("clusterName")]
-        public string? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         public GetAddonArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Name of Addon
         /// </summary>
-        [Input("addonName")]
-        public Input<string>? AddonName { get; set; }
+        [Input("addonName", required: true)]
+        public Input<string> AddonName { get; set; } = null!;
 
         /// <summary>
         /// Name of Cluster
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         public GetAddonInvokeArgs()
         {

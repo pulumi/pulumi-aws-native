@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// Resource Type definition for AWS::SSM::ResourceDataSync
         /// </summary>
-        public static Task<GetResourceDataSyncResult> InvokeAsync(GetResourceDataSyncArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceDataSyncResult> InvokeAsync(GetResourceDataSyncArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceDataSyncResult>("aws-native:ssm:getResourceDataSync", args ?? new GetResourceDataSyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::ResourceDataSync
         /// </summary>
-        public static Output<GetResourceDataSyncResult> Invoke(GetResourceDataSyncInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceDataSyncResult> Invoke(GetResourceDataSyncInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceDataSyncResult>("aws-native:ssm:getResourceDataSync", args ?? new GetResourceDataSyncInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourceDataSyncArgs : Pulumi.InvokeArgs
     {
-        [Input("syncName")]
-        public string? SyncName { get; set; }
+        [Input("syncName", required: true)]
+        public string SyncName { get; set; } = null!;
 
         public GetResourceDataSyncArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class GetResourceDataSyncInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("syncName")]
-        public Input<string>? SyncName { get; set; }
+        [Input("syncName", required: true)]
+        public Input<string> SyncName { get; set; } = null!;
 
         public GetResourceDataSyncInvokeArgs()
         {

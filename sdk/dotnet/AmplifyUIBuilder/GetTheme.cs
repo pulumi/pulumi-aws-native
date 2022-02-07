@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         /// <summary>
         /// Definition of AWS::AmplifyUIBuilder::Theme Resource Type
         /// </summary>
-        public static Task<GetThemeResult> InvokeAsync(GetThemeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("aws-native:amplifyuibuilder:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::AmplifyUIBuilder::Theme Resource Type
         /// </summary>
-        public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws-native:amplifyuibuilder:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetThemeArgs : Pulumi.InvokeArgs
     {
-        [Input("appId")]
-        public string? AppId { get; set; }
+        [Input("appId", required: true)]
+        public string AppId { get; set; } = null!;
 
-        [Input("environmentName")]
-        public string? EnvironmentName { get; set; }
+        [Input("environmentName", required: true)]
+        public string EnvironmentName { get; set; } = null!;
 
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetThemeArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
     public sealed class GetThemeInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("appId")]
-        public Input<string>? AppId { get; set; }
+        [Input("appId", required: true)]
+        public Input<string> AppId { get; set; } = null!;
 
-        [Input("environmentName")]
-        public Input<string>? EnvironmentName { get; set; }
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetThemeInvokeArgs()
         {

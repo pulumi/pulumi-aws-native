@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::WaitCondition
         /// </summary>
-        public static Task<GetWaitConditionResult> InvokeAsync(GetWaitConditionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWaitConditionResult> InvokeAsync(GetWaitConditionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWaitConditionResult>("aws-native:cloudformation:getWaitCondition", args ?? new GetWaitConditionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::WaitCondition
         /// </summary>
-        public static Output<GetWaitConditionResult> Invoke(GetWaitConditionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWaitConditionResult> Invoke(GetWaitConditionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWaitConditionResult>("aws-native:cloudformation:getWaitCondition", args ?? new GetWaitConditionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWaitConditionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWaitConditionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class GetWaitConditionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWaitConditionInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::UserToGroupAddition
         /// </summary>
-        public static Task<GetUserToGroupAdditionResult> InvokeAsync(GetUserToGroupAdditionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserToGroupAdditionResult> InvokeAsync(GetUserToGroupAdditionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserToGroupAdditionResult>("aws-native:iam:getUserToGroupAddition", args ?? new GetUserToGroupAdditionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::UserToGroupAddition
         /// </summary>
-        public static Output<GetUserToGroupAdditionResult> Invoke(GetUserToGroupAdditionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserToGroupAdditionResult> Invoke(GetUserToGroupAdditionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserToGroupAdditionResult>("aws-native:iam:getUserToGroupAddition", args ?? new GetUserToGroupAdditionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserToGroupAdditionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserToGroupAdditionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetUserToGroupAdditionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserToGroupAdditionInvokeArgs()
         {

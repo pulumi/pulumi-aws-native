@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
         /// </summary>
-        public static Task<GetUserPoolUICustomizationAttachmentResult> InvokeAsync(GetUserPoolUICustomizationAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserPoolUICustomizationAttachmentResult> InvokeAsync(GetUserPoolUICustomizationAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolUICustomizationAttachmentResult>("aws-native:cognito:getUserPoolUICustomizationAttachment", args ?? new GetUserPoolUICustomizationAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
         /// </summary>
-        public static Output<GetUserPoolUICustomizationAttachmentResult> Invoke(GetUserPoolUICustomizationAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserPoolUICustomizationAttachmentResult> Invoke(GetUserPoolUICustomizationAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserPoolUICustomizationAttachmentResult>("aws-native:cognito:getUserPoolUICustomizationAttachment", args ?? new GetUserPoolUICustomizationAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserPoolUICustomizationAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolUICustomizationAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUICustomizationAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolUICustomizationAttachmentInvokeArgs()
         {

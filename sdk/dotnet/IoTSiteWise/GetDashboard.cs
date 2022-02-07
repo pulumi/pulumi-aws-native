@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Dashboard
         /// </summary>
-        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("aws-native:iotsitewise:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Dashboard
         /// </summary>
-        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:iotsitewise:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the dashboard.
         /// </summary>
-        [Input("dashboardId")]
-        public string? DashboardId { get; set; }
+        [Input("dashboardId", required: true)]
+        public string DashboardId { get; set; } = null!;
 
         public GetDashboardArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the dashboard.
         /// </summary>
-        [Input("dashboardId")]
-        public Input<string>? DashboardId { get; set; }
+        [Input("dashboardId", required: true)]
+        public Input<string> DashboardId { get; set; } = null!;
 
         public GetDashboardInvokeArgs()
         {

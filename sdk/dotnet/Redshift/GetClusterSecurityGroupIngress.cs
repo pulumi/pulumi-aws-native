@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
         /// </summary>
-        public static Task<GetClusterSecurityGroupIngressResult> InvokeAsync(GetClusterSecurityGroupIngressArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterSecurityGroupIngressResult> InvokeAsync(GetClusterSecurityGroupIngressArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSecurityGroupIngressResult>("aws-native:redshift:getClusterSecurityGroupIngress", args ?? new GetClusterSecurityGroupIngressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
         /// </summary>
-        public static Output<GetClusterSecurityGroupIngressResult> Invoke(GetClusterSecurityGroupIngressInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterSecurityGroupIngressResult> Invoke(GetClusterSecurityGroupIngressInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterSecurityGroupIngressResult>("aws-native:redshift:getClusterSecurityGroupIngress", args ?? new GetClusterSecurityGroupIngressInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClusterSecurityGroupIngressArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClusterSecurityGroupIngressArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class GetClusterSecurityGroupIngressInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClusterSecurityGroupIngressInvokeArgs()
         {

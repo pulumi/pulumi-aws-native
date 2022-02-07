@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::ADMChannel
         /// </summary>
-        public static Task<GetADMChannelResult> InvokeAsync(GetADMChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetADMChannelResult> InvokeAsync(GetADMChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADMChannelResult>("aws-native:pinpoint:getADMChannel", args ?? new GetADMChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::ADMChannel
         /// </summary>
-        public static Output<GetADMChannelResult> Invoke(GetADMChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetADMChannelResult> Invoke(GetADMChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetADMChannelResult>("aws-native:pinpoint:getADMChannel", args ?? new GetADMChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetADMChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetADMChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetADMChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetADMChannelInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Resource Type definition for AWS::IoT::TopicRule
         /// </summary>
-        public static Task<GetTopicRuleResult> InvokeAsync(GetTopicRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTopicRuleResult> InvokeAsync(GetTopicRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicRuleResult>("aws-native:iot:getTopicRule", args ?? new GetTopicRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::TopicRule
         /// </summary>
-        public static Output<GetTopicRuleResult> Invoke(GetTopicRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTopicRuleResult> Invoke(GetTopicRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTopicRuleResult>("aws-native:iot:getTopicRule", args ?? new GetTopicRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTopicRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("ruleName")]
-        public string? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public string RuleName { get; set; } = null!;
 
         public GetTopicRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetTopicRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         public GetTopicRuleInvokeArgs()
         {

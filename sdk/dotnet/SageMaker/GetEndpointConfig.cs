@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::EndpointConfig
         /// </summary>
-        public static Task<GetEndpointConfigResult> InvokeAsync(GetEndpointConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEndpointConfigResult> InvokeAsync(GetEndpointConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConfigResult>("aws-native:sagemaker:getEndpointConfig", args ?? new GetEndpointConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::EndpointConfig
         /// </summary>
-        public static Output<GetEndpointConfigResult> Invoke(GetEndpointConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEndpointConfigResult> Invoke(GetEndpointConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointConfigResult>("aws-native:sagemaker:getEndpointConfig", args ?? new GetEndpointConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEndpointConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEndpointConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetEndpointConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEndpointConfigInvokeArgs()
         {

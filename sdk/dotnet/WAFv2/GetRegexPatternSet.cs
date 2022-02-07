@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
         /// </summary>
-        public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
         /// </summary>
-        public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Id of the RegexPatternSet
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         /// <summary>
         /// Name of the RegexPatternSet.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         /// </summary>
-        [Input("scope")]
-        public Pulumi.AwsNative.WAFv2.RegexPatternSetScope? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Pulumi.AwsNative.WAFv2.RegexPatternSetScope Scope { get; set; }
 
         public GetRegexPatternSetArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Id of the RegexPatternSet
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// Name of the RegexPatternSet.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         /// </summary>
-        [Input("scope")]
-        public Input<Pulumi.AwsNative.WAFv2.RegexPatternSetScope>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Pulumi.AwsNative.WAFv2.RegexPatternSetScope> Scope { get; set; } = null!;
 
         public GetRegexPatternSetInvokeArgs()
         {

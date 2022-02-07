@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::CacheCluster
         /// </summary>
-        public static Task<GetCacheClusterResult> InvokeAsync(GetCacheClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCacheClusterResult> InvokeAsync(GetCacheClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheClusterResult>("aws-native:elasticache:getCacheCluster", args ?? new GetCacheClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::CacheCluster
         /// </summary>
-        public static Output<GetCacheClusterResult> Invoke(GetCacheClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCacheClusterResult> Invoke(GetCacheClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCacheClusterResult>("aws-native:elasticache:getCacheCluster", args ?? new GetCacheClusterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCacheClusterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCacheClusterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class GetCacheClusterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCacheClusterInvokeArgs()
         {

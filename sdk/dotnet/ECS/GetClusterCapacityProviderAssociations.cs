@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
         /// </summary>
-        public static Task<GetClusterCapacityProviderAssociationsResult> InvokeAsync(GetClusterCapacityProviderAssociationsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterCapacityProviderAssociationsResult> InvokeAsync(GetClusterCapacityProviderAssociationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
         /// </summary>
-        public static Output<GetClusterCapacityProviderAssociationsResult> Invoke(GetClusterCapacityProviderAssociationsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterCapacityProviderAssociationsResult> Invoke(GetClusterCapacityProviderAssociationsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClusterCapacityProviderAssociationsArgs : Pulumi.InvokeArgs
     {
-        [Input("cluster")]
-        public string? Cluster { get; set; }
+        [Input("cluster", required: true)]
+        public string Cluster { get; set; } = null!;
 
         public GetClusterCapacityProviderAssociationsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ECS
 
     public sealed class GetClusterCapacityProviderAssociationsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("cluster")]
-        public Input<string>? Cluster { get; set; }
+        [Input("cluster", required: true)]
+        public Input<string> Cluster { get; set; } = null!;
 
         public GetClusterCapacityProviderAssociationsInvokeArgs()
         {

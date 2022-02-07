@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::AccessPolicy
         /// </summary>
-        public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("aws-native:iotsitewise:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::AccessPolicy
         /// </summary>
-        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:iotsitewise:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the access policy.
         /// </summary>
-        [Input("accessPolicyId")]
-        public string? AccessPolicyId { get; set; }
+        [Input("accessPolicyId", required: true)]
+        public string AccessPolicyId { get; set; } = null!;
 
         public GetAccessPolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the access policy.
         /// </summary>
-        [Input("accessPolicyId")]
-        public Input<string>? AccessPolicyId { get; set; }
+        [Input("accessPolicyId", required: true)]
+        public Input<string> AccessPolicyId { get; set; } = null!;
 
         public GetAccessPolicyInvokeArgs()
         {

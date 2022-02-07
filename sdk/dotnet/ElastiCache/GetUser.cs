@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::User
         /// </summary>
-        public static Task<GetUserResult> InvokeAsync(GetUserArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws-native:elasticache:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::User
         /// </summary>
-        public static Output<GetUserResult> Invoke(GetUserInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws-native:elasticache:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// The ID of the user.
         /// </summary>
-        [Input("userId")]
-        public string? UserId { get; set; }
+        [Input("userId", required: true)]
+        public string UserId { get; set; } = null!;
 
         public GetUserArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// The ID of the user.
         /// </summary>
-        [Input("userId")]
-        public Input<string>? UserId { get; set; }
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
 
         public GetUserInvokeArgs()
         {

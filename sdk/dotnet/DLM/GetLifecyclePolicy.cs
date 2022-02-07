@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DLM
         /// <summary>
         /// Resource Type definition for AWS::DLM::LifecyclePolicy
         /// </summary>
-        public static Task<GetLifecyclePolicyResult> InvokeAsync(GetLifecyclePolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLifecyclePolicyResult> InvokeAsync(GetLifecyclePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLifecyclePolicyResult>("aws-native:dlm:getLifecyclePolicy", args ?? new GetLifecyclePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DLM::LifecyclePolicy
         /// </summary>
-        public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:dlm:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLifecyclePolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLifecyclePolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DLM
 
     public sealed class GetLifecyclePolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLifecyclePolicyInvokeArgs()
         {

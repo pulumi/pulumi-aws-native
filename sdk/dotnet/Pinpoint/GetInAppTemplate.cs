@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::InAppTemplate
         /// </summary>
-        public static Task<GetInAppTemplateResult> InvokeAsync(GetInAppTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInAppTemplateResult> InvokeAsync(GetInAppTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInAppTemplateResult>("aws-native:pinpoint:getInAppTemplate", args ?? new GetInAppTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::InAppTemplate
         /// </summary>
-        public static Output<GetInAppTemplateResult> Invoke(GetInAppTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInAppTemplateResult> Invoke(GetInAppTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInAppTemplateResult>("aws-native:pinpoint:getInAppTemplate", args ?? new GetInAppTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInAppTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("templateName")]
-        public string? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public string TemplateName { get; set; } = null!;
 
         public GetInAppTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetInAppTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("templateName")]
-        public Input<string>? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
 
         public GetInAppTemplateInvokeArgs()
         {

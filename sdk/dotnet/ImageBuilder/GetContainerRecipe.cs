@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ContainerRecipe
         /// </summary>
-        public static Task<GetContainerRecipeResult> InvokeAsync(GetContainerRecipeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContainerRecipeResult> InvokeAsync(GetContainerRecipeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipeResult>("aws-native:imagebuilder:getContainerRecipe", args ?? new GetContainerRecipeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ContainerRecipe
         /// </summary>
-        public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws-native:imagebuilder:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetContainerRecipeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetContainerRecipeInvokeArgs()
         {

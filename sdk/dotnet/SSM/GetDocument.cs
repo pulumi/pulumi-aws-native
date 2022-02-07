@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
         /// </summary>
-        public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws-native:ssm:getDocument", args ?? new GetDocumentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
         /// </summary>
-        public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws-native:ssm:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// A name for the Systems Manager document.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetDocumentArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// A name for the Systems Manager document.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetDocumentInvokeArgs()
         {

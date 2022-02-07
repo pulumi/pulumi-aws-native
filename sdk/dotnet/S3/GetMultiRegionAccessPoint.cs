@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
         /// </summary>
-        public static Task<GetMultiRegionAccessPointResult> InvokeAsync(GetMultiRegionAccessPointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMultiRegionAccessPointResult> InvokeAsync(GetMultiRegionAccessPointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
         /// </summary>
-        public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The name you want to assign to this Multi Region Access Point.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetMultiRegionAccessPointArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The name you want to assign to this Multi Region Access Point.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetMultiRegionAccessPointInvokeArgs()
         {

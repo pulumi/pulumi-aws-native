@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
         /// </summary>
-        public static Task<GetVPCDHCPOptionsAssociationResult> InvokeAsync(GetVPCDHCPOptionsAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCDHCPOptionsAssociationResult> InvokeAsync(GetVPCDHCPOptionsAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCDHCPOptionsAssociationResult>("aws-native:ec2:getVPCDHCPOptionsAssociation", args ?? new GetVPCDHCPOptionsAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
         /// </summary>
-        public static Output<GetVPCDHCPOptionsAssociationResult> Invoke(GetVPCDHCPOptionsAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCDHCPOptionsAssociationResult> Invoke(GetVPCDHCPOptionsAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCDHCPOptionsAssociationResult>("aws-native:ec2:getVPCDHCPOptionsAssociation", args ?? new GetVPCDHCPOptionsAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
         /// </summary>
-        [Input("dhcpOptionsId")]
-        public string? DhcpOptionsId { get; set; }
+        [Input("dhcpOptionsId", required: true)]
+        public string DhcpOptionsId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
-        public string? VpcId { get; set; }
+        [Input("vpcId", required: true)]
+        public string VpcId { get; set; } = null!;
 
         public GetVPCDHCPOptionsAssociationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
         /// </summary>
-        [Input("dhcpOptionsId")]
-        public Input<string>? DhcpOptionsId { get; set; }
+        [Input("dhcpOptionsId", required: true)]
+        public Input<string> DhcpOptionsId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         public GetVPCDHCPOptionsAssociationInvokeArgs()
         {

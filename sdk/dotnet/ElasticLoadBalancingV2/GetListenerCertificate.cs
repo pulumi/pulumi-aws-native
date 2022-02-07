@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
         /// </summary>
-        public static Task<GetListenerCertificateResult> InvokeAsync(GetListenerCertificateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetListenerCertificateResult> InvokeAsync(GetListenerCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetListenerCertificateResult>("aws-native:elasticloadbalancingv2:getListenerCertificate", args ?? new GetListenerCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
         /// </summary>
-        public static Output<GetListenerCertificateResult> Invoke(GetListenerCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetListenerCertificateResult> Invoke(GetListenerCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetListenerCertificateResult>("aws-native:elasticloadbalancingv2:getListenerCertificate", args ?? new GetListenerCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetListenerCertificateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetListenerCertificateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetListenerCertificateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetListenerCertificateInvokeArgs()
         {

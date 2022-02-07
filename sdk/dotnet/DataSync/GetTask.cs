@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::Task.
         /// </summary>
-        public static Task<GetTaskResult> InvokeAsync(GetTaskArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::Task.
         /// </summary>
-        public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The ARN of the task.
         /// </summary>
-        [Input("taskArn")]
-        public string? TaskArn { get; set; }
+        [Input("taskArn", required: true)]
+        public string TaskArn { get; set; } = null!;
 
         public GetTaskArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The ARN of the task.
         /// </summary>
-        [Input("taskArn")]
-        public Input<string>? TaskArn { get; set; }
+        [Input("taskArn", required: true)]
+        public Input<string> TaskArn { get; set; } = null!;
 
         public GetTaskInvokeArgs()
         {

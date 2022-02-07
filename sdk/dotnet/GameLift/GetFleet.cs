@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
         /// </summary>
-        public static Task<GetFleetResult> InvokeAsync(GetFleetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
         /// </summary>
-        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Unique fleet ID
         /// </summary>
-        [Input("fleetId")]
-        public string? FleetId { get; set; }
+        [Input("fleetId", required: true)]
+        public string FleetId { get; set; } = null!;
 
         public GetFleetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Unique fleet ID
         /// </summary>
-        [Input("fleetId")]
-        public Input<string>? FleetId { get; set; }
+        [Input("fleetId", required: true)]
+        public Input<string> FleetId { get; set; } = null!;
 
         public GetFleetInvokeArgs()
         {

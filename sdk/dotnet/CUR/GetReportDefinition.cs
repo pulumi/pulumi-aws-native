@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CUR
         /// <summary>
         /// The AWS::CUR::ReportDefinition resource creates a Cost &amp; Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
         /// </summary>
-        public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws-native:cur:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::CUR::ReportDefinition resource creates a Cost &amp; Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
         /// </summary>
-        public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws-native:cur:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CUR
         /// <summary>
         /// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
         /// </summary>
-        [Input("reportName")]
-        public string? ReportName { get; set; }
+        [Input("reportName", required: true)]
+        public string ReportName { get; set; } = null!;
 
         public GetReportDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CUR
         /// <summary>
         /// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
         /// </summary>
-        [Input("reportName")]
-        public Input<string>? ReportName { get; set; }
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
 
         public GetReportDefinitionInvokeArgs()
         {

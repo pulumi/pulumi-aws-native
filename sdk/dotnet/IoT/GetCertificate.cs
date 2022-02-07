@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
         /// </summary>
-        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws-native:iot:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
         /// </summary>
-        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:iot:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCertificateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCertificateInvokeArgs()
         {

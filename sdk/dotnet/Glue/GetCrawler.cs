@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Crawler
         /// </summary>
-        public static Task<GetCrawlerResult> InvokeAsync(GetCrawlerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCrawlerResult> InvokeAsync(GetCrawlerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCrawlerResult>("aws-native:glue:getCrawler", args ?? new GetCrawlerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Crawler
         /// </summary>
-        public static Output<GetCrawlerResult> Invoke(GetCrawlerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCrawlerResult> Invoke(GetCrawlerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCrawlerResult>("aws-native:glue:getCrawler", args ?? new GetCrawlerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCrawlerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCrawlerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetCrawlerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCrawlerInvokeArgs()
         {

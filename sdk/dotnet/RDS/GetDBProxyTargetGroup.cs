@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxyTargetGroup
         /// </summary>
-        public static Task<GetDBProxyTargetGroupResult> InvokeAsync(GetDBProxyTargetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBProxyTargetGroupResult> InvokeAsync(GetDBProxyTargetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBProxyTargetGroupResult>("aws-native:rds:getDBProxyTargetGroup", args ?? new GetDBProxyTargetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxyTargetGroup
         /// </summary>
-        public static Output<GetDBProxyTargetGroupResult> Invoke(GetDBProxyTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBProxyTargetGroupResult> Invoke(GetDBProxyTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBProxyTargetGroupResult>("aws-native:rds:getDBProxyTargetGroup", args ?? new GetDBProxyTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
-        [Input("targetGroupArn")]
-        public string? TargetGroupArn { get; set; }
+        [Input("targetGroupArn", required: true)]
+        public string TargetGroupArn { get; set; } = null!;
 
         public GetDBProxyTargetGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
+        [Input("targetGroupArn", required: true)]
+        public Input<string> TargetGroupArn { get; set; } = null!;
 
         public GetDBProxyTargetGroupInvokeArgs()
         {

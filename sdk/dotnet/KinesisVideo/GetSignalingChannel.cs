@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// <summary>
         /// Resource Type Definition for AWS::KinesisVideo::SignalingChannel
         /// </summary>
-        public static Task<GetSignalingChannelResult> InvokeAsync(GetSignalingChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSignalingChannelResult> InvokeAsync(GetSignalingChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalingChannelResult>("aws-native:kinesisvideo:getSignalingChannel", args ?? new GetSignalingChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::KinesisVideo::SignalingChannel
         /// </summary>
-        public static Output<GetSignalingChannelResult> Invoke(GetSignalingChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSignalingChannelResult> Invoke(GetSignalingChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSignalingChannelResult>("aws-native:kinesisvideo:getSignalingChannel", args ?? new GetSignalingChannelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// <summary>
         /// The name of the Kinesis Video Signaling Channel.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetSignalingChannelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// <summary>
         /// The name of the Kinesis Video Signaling Channel.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetSignalingChannelInvokeArgs()
         {

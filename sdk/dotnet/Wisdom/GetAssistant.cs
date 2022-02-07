@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Wisdom
         /// <summary>
         /// Definition of AWS::Wisdom::Assistant Resource Type
         /// </summary>
-        public static Task<GetAssistantResult> InvokeAsync(GetAssistantArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssistantResult> InvokeAsync(GetAssistantArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssistantResult>("aws-native:wisdom:getAssistant", args ?? new GetAssistantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Wisdom::Assistant Resource Type
         /// </summary>
-        public static Output<GetAssistantResult> Invoke(GetAssistantInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssistantResult> Invoke(GetAssistantInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssistantResult>("aws-native:wisdom:getAssistant", args ?? new GetAssistantInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAssistantArgs : Pulumi.InvokeArgs
     {
-        [Input("assistantId")]
-        public string? AssistantId { get; set; }
+        [Input("assistantId", required: true)]
+        public string AssistantId { get; set; } = null!;
 
         public GetAssistantArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAssistantInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("assistantId")]
-        public Input<string>? AssistantId { get; set; }
+        [Input("assistantId", required: true)]
+        public Input<string> AssistantId { get; set; } = null!;
 
         public GetAssistantInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::Macro
         /// </summary>
-        public static Task<GetMacroResult> InvokeAsync(GetMacroArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMacroResult> InvokeAsync(GetMacroArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMacroResult>("aws-native:cloudformation:getMacro", args ?? new GetMacroArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::Macro
         /// </summary>
-        public static Output<GetMacroResult> Invoke(GetMacroInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMacroResult> Invoke(GetMacroInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMacroResult>("aws-native:cloudformation:getMacro", args ?? new GetMacroInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMacroArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMacroArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class GetMacroInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMacroInvokeArgs()
         {

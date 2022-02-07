@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Resource schema for AWS::DataBrew::Ruleset.
         /// </summary>
-        public static Task<GetRulesetResult> InvokeAsync(GetRulesetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRulesetResult> InvokeAsync(GetRulesetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataBrew::Ruleset.
         /// </summary>
-        public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Name of the Ruleset
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetRulesetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Name of the Ruleset
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetRulesetInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// An outcome for rule evaluation.
         /// </summary>
-        public static Task<GetOutcomeResult> InvokeAsync(GetOutcomeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetOutcomeResult> InvokeAsync(GetOutcomeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeArgs(), options.WithDefaults());
 
         /// <summary>
         /// An outcome for rule evaluation.
         /// </summary>
-        public static Output<GetOutcomeResult> Invoke(GetOutcomeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetOutcomeResult> Invoke(GetOutcomeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The outcome ARN.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetOutcomeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The outcome ARN.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetOutcomeInvokeArgs()
         {

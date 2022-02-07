@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGateway
         /// </summary>
-        public static Task<GetTransitGatewayResult> InvokeAsync(GetTransitGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayResult> InvokeAsync(GetTransitGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayResult>("aws-native:ec2:getTransitGateway", args ?? new GetTransitGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGateway
         /// </summary>
-        public static Output<GetTransitGatewayResult> Invoke(GetTransitGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayResult> Invoke(GetTransitGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayResult>("aws-native:ec2:getTransitGateway", args ?? new GetTransitGatewayInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTransitGatewayArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTransitGatewayArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetTransitGatewayInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTransitGatewayInvokeArgs()
         {

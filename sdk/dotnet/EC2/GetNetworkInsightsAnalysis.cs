@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAnalysis
         /// </summary>
-        public static Task<GetNetworkInsightsAnalysisResult> InvokeAsync(GetNetworkInsightsAnalysisArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkInsightsAnalysisResult> InvokeAsync(GetNetworkInsightsAnalysisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAnalysisResult>("aws-native:ec2:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAnalysis
         /// </summary>
-        public static Output<GetNetworkInsightsAnalysisResult> Invoke(GetNetworkInsightsAnalysisInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkInsightsAnalysisResult> Invoke(GetNetworkInsightsAnalysisInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAnalysisResult>("aws-native:ec2:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkInsightsAnalysisArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsAnalysisId")]
-        public string? NetworkInsightsAnalysisId { get; set; }
+        [Input("networkInsightsAnalysisId", required: true)]
+        public string NetworkInsightsAnalysisId { get; set; } = null!;
 
         public GetNetworkInsightsAnalysisArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetNetworkInsightsAnalysisInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("networkInsightsAnalysisId")]
-        public Input<string>? NetworkInsightsAnalysisId { get; set; }
+        [Input("networkInsightsAnalysisId", required: true)]
+        public Input<string> NetworkInsightsAnalysisId { get; set; } = null!;
 
         public GetNetworkInsightsAnalysisInvokeArgs()
         {

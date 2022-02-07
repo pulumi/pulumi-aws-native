@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::UserGroup
         /// </summary>
-        public static Task<GetUserGroupResult> InvokeAsync(GetUserGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserGroupResult> InvokeAsync(GetUserGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserGroupResult>("aws-native:elasticache:getUserGroup", args ?? new GetUserGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::UserGroup
         /// </summary>
-        public static Output<GetUserGroupResult> Invoke(GetUserGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserGroupResult> Invoke(GetUserGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserGroupResult>("aws-native:elasticache:getUserGroup", args ?? new GetUserGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// The ID of the user group.
         /// </summary>
-        [Input("userGroupId")]
-        public string? UserGroupId { get; set; }
+        [Input("userGroupId", required: true)]
+        public string UserGroupId { get; set; } = null!;
 
         public GetUserGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// The ID of the user group.
         /// </summary>
-        [Input("userGroupId")]
-        public Input<string>? UserGroupId { get; set; }
+        [Input("userGroupId", required: true)]
+        public Input<string> UserGroupId { get; set; } = null!;
 
         public GetUserGroupInvokeArgs()
         {

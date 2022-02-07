@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// Resource schema for AWS::Route53::HealthCheck.
         /// </summary>
-        public static Task<GetHealthCheckResult> InvokeAsync(GetHealthCheckArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHealthCheckResult> InvokeAsync(GetHealthCheckArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHealthCheckResult>("aws-native:route53:getHealthCheck", args ?? new GetHealthCheckArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53::HealthCheck.
         /// </summary>
-        public static Output<GetHealthCheckResult> Invoke(GetHealthCheckInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHealthCheckResult> Invoke(GetHealthCheckInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHealthCheckResult>("aws-native:route53:getHealthCheck", args ?? new GetHealthCheckInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetHealthCheckArgs : Pulumi.InvokeArgs
     {
-        [Input("healthCheckId")]
-        public string? HealthCheckId { get; set; }
+        [Input("healthCheckId", required: true)]
+        public string HealthCheckId { get; set; } = null!;
 
         public GetHealthCheckArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetHealthCheckInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("healthCheckId")]
-        public Input<string>? HealthCheckId { get; set; }
+        [Input("healthCheckId", required: true)]
+        public Input<string> HealthCheckId { get; set; } = null!;
 
         public GetHealthCheckInvokeArgs()
         {

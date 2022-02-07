@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// Resource Type definition for AWS::SSM::MaintenanceWindowTask
         /// </summary>
-        public static Task<GetMaintenanceWindowTaskResult> InvokeAsync(GetMaintenanceWindowTaskArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMaintenanceWindowTaskResult> InvokeAsync(GetMaintenanceWindowTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowTaskResult>("aws-native:ssm:getMaintenanceWindowTask", args ?? new GetMaintenanceWindowTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::MaintenanceWindowTask
         /// </summary>
-        public static Output<GetMaintenanceWindowTaskResult> Invoke(GetMaintenanceWindowTaskInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMaintenanceWindowTaskResult> Invoke(GetMaintenanceWindowTaskInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowTaskResult>("aws-native:ssm:getMaintenanceWindowTask", args ?? new GetMaintenanceWindowTaskInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMaintenanceWindowTaskArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMaintenanceWindowTaskArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class GetMaintenanceWindowTaskInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMaintenanceWindowTaskInvokeArgs()
         {

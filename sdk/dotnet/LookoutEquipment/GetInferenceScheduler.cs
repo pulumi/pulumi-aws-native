@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.LookoutEquipment
         /// <summary>
         /// Resource schema for LookoutEquipment InferenceScheduler.
         /// </summary>
-        public static Task<GetInferenceSchedulerResult> InvokeAsync(GetInferenceSchedulerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInferenceSchedulerResult> InvokeAsync(GetInferenceSchedulerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInferenceSchedulerResult>("aws-native:lookoutequipment:getInferenceScheduler", args ?? new GetInferenceSchedulerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for LookoutEquipment InferenceScheduler.
         /// </summary>
-        public static Output<GetInferenceSchedulerResult> Invoke(GetInferenceSchedulerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInferenceSchedulerResult> Invoke(GetInferenceSchedulerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInferenceSchedulerResult>("aws-native:lookoutequipment:getInferenceScheduler", args ?? new GetInferenceSchedulerInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.LookoutEquipment
         /// <summary>
         /// The name of the inference scheduler being created.
         /// </summary>
-        [Input("inferenceSchedulerName")]
-        public string? InferenceSchedulerName { get; set; }
+        [Input("inferenceSchedulerName", required: true)]
+        public string InferenceSchedulerName { get; set; } = null!;
 
         public GetInferenceSchedulerArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.LookoutEquipment
         /// <summary>
         /// The name of the inference scheduler being created.
         /// </summary>
-        [Input("inferenceSchedulerName")]
-        public Input<string>? InferenceSchedulerName { get; set; }
+        [Input("inferenceSchedulerName", required: true)]
+        public Input<string> InferenceSchedulerName { get; set; } = null!;
 
         public GetInferenceSchedulerInvokeArgs()
         {

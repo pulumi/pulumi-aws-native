@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// <summary>
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
         /// </summary>
-        public static Task<GetScalableTargetResult> InvokeAsync(GetScalableTargetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScalableTargetResult> InvokeAsync(GetScalableTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalableTargetResult>("aws-native:applicationautoscaling:getScalableTarget", args ?? new GetScalableTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
         /// </summary>
-        public static Output<GetScalableTargetResult> Invoke(GetScalableTargetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScalableTargetResult> Invoke(GetScalableTargetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScalableTargetResult>("aws-native:applicationautoscaling:getScalableTarget", args ?? new GetScalableTargetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetScalableTargetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetScalableTargetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class GetScalableTargetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetScalableTargetInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSubnetGroup
         /// </summary>
-        public static Task<GetDBSubnetGroupResult> InvokeAsync(GetDBSubnetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBSubnetGroupResult> InvokeAsync(GetDBSubnetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:rds:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSubnetGroup
         /// </summary>
-        public static Output<GetDBSubnetGroupResult> Invoke(GetDBSubnetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBSubnetGroupResult> Invoke(GetDBSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:rds:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDBSubnetGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBSubnetGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBSubnetGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBSubnetGroupInvokeArgs()
         {

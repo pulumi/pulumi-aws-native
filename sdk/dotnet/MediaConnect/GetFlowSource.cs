@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowSource
         /// </summary>
-        public static Task<GetFlowSourceResult> InvokeAsync(GetFlowSourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFlowSourceResult> InvokeAsync(GetFlowSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowSource
         /// </summary>
-        public static Output<GetFlowSourceResult> Invoke(GetFlowSourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFlowSourceResult> Invoke(GetFlowSourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The ARN of the source.
         /// </summary>
-        [Input("sourceArn")]
-        public string? SourceArn { get; set; }
+        [Input("sourceArn", required: true)]
+        public string SourceArn { get; set; } = null!;
 
         public GetFlowSourceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The ARN of the source.
         /// </summary>
-        [Input("sourceArn")]
-        public Input<string>? SourceArn { get; set; }
+        [Input("sourceArn", required: true)]
+        public Input<string> SourceArn { get; set; } = null!;
 
         public GetFlowSourceInvokeArgs()
         {

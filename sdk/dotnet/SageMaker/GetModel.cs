@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Model
         /// </summary>
-        public static Task<GetModelResult> InvokeAsync(GetModelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:sagemaker:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Model
         /// </summary>
-        public static Output<GetModelResult> Invoke(GetModelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:sagemaker:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetModelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetModelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetModelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetModelInvokeArgs()
         {

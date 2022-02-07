@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
         /// </summary>
-        public static Task<GetSchemaVersionMetadataResult> InvokeAsync(GetSchemaVersionMetadataArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSchemaVersionMetadataResult> InvokeAsync(GetSchemaVersionMetadataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchemaVersionMetadataResult>("aws-native:glue:getSchemaVersionMetadata", args ?? new GetSchemaVersionMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
         /// </summary>
-        public static Output<GetSchemaVersionMetadataResult> Invoke(GetSchemaVersionMetadataInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSchemaVersionMetadataResult> Invoke(GetSchemaVersionMetadataInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSchemaVersionMetadataResult>("aws-native:glue:getSchemaVersionMetadata", args ?? new GetSchemaVersionMetadataInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Metadata key
         /// </summary>
-        [Input("key")]
-        public string? Key { get; set; }
+        [Input("key", required: true)]
+        public string Key { get; set; } = null!;
 
         /// <summary>
         /// Represents the version ID associated with the schema version.
         /// </summary>
-        [Input("schemaVersionId")]
-        public string? SchemaVersionId { get; set; }
+        [Input("schemaVersionId", required: true)]
+        public string SchemaVersionId { get; set; } = null!;
 
         /// <summary>
         /// Metadata value
         /// </summary>
-        [Input("value")]
-        public string? Value { get; set; }
+        [Input("value", required: true)]
+        public string Value { get; set; } = null!;
 
         public GetSchemaVersionMetadataArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Metadata key
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        [Input("key", required: true)]
+        public Input<string> Key { get; set; } = null!;
 
         /// <summary>
         /// Represents the version ID associated with the schema version.
         /// </summary>
-        [Input("schemaVersionId")]
-        public Input<string>? SchemaVersionId { get; set; }
+        [Input("schemaVersionId", required: true)]
+        public Input<string> SchemaVersionId { get; set; } = null!;
 
         /// <summary>
         /// Metadata value
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
 
         public GetSchemaVersionMetadataInvokeArgs()
         {

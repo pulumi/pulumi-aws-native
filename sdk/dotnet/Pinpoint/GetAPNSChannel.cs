@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::APNSChannel
         /// </summary>
-        public static Task<GetAPNSChannelResult> InvokeAsync(GetAPNSChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAPNSChannelResult> InvokeAsync(GetAPNSChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAPNSChannelResult>("aws-native:pinpoint:getAPNSChannel", args ?? new GetAPNSChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::APNSChannel
         /// </summary>
-        public static Output<GetAPNSChannelResult> Invoke(GetAPNSChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAPNSChannelResult> Invoke(GetAPNSChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAPNSChannelResult>("aws-native:pinpoint:getAPNSChannel", args ?? new GetAPNSChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAPNSChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAPNSChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetAPNSChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAPNSChannelInvokeArgs()
         {

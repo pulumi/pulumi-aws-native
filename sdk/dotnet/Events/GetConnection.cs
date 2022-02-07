@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Resource Type definition for AWS::Events::Connection.
         /// </summary>
-        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws-native:events:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::Connection.
         /// </summary>
-        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:events:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Name of the connection.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetConnectionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Name of the connection.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetConnectionInvokeArgs()
         {

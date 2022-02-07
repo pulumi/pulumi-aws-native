@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::StreamingDistribution
         /// </summary>
-        public static Task<GetStreamingDistributionResult> InvokeAsync(GetStreamingDistributionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStreamingDistributionResult> InvokeAsync(GetStreamingDistributionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingDistributionResult>("aws-native:cloudfront:getStreamingDistribution", args ?? new GetStreamingDistributionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::StreamingDistribution
         /// </summary>
-        public static Output<GetStreamingDistributionResult> Invoke(GetStreamingDistributionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStreamingDistributionResult> Invoke(GetStreamingDistributionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamingDistributionResult>("aws-native:cloudfront:getStreamingDistribution", args ?? new GetStreamingDistributionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStreamingDistributionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStreamingDistributionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetStreamingDistributionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStreamingDistributionInvokeArgs()
         {

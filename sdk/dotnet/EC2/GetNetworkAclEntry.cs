@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkAclEntry
         /// </summary>
-        public static Task<GetNetworkAclEntryResult> InvokeAsync(GetNetworkAclEntryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkAclEntryResult> InvokeAsync(GetNetworkAclEntryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclEntryResult>("aws-native:ec2:getNetworkAclEntry", args ?? new GetNetworkAclEntryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkAclEntry
         /// </summary>
-        public static Output<GetNetworkAclEntryResult> Invoke(GetNetworkAclEntryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkAclEntryResult> Invoke(GetNetworkAclEntryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkAclEntryResult>("aws-native:ec2:getNetworkAclEntry", args ?? new GetNetworkAclEntryInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkAclEntryArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetNetworkAclEntryArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetNetworkAclEntryInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetNetworkAclEntryInvokeArgs()
         {

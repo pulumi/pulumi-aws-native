@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
         /// </summary>
-        public static Task<GetLaunchTemplateConstraintResult> InvokeAsync(GetLaunchTemplateConstraintArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLaunchTemplateConstraintResult> InvokeAsync(GetLaunchTemplateConstraintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateConstraintResult>("aws-native:servicecatalog:getLaunchTemplateConstraint", args ?? new GetLaunchTemplateConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
         /// </summary>
-        public static Output<GetLaunchTemplateConstraintResult> Invoke(GetLaunchTemplateConstraintInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLaunchTemplateConstraintResult> Invoke(GetLaunchTemplateConstraintInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateConstraintResult>("aws-native:servicecatalog:getLaunchTemplateConstraint", args ?? new GetLaunchTemplateConstraintInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLaunchTemplateConstraintArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLaunchTemplateConstraintArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetLaunchTemplateConstraintInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLaunchTemplateConstraintInvokeArgs()
         {

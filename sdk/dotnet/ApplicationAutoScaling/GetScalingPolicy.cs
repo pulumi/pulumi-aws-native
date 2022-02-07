@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// <summary>
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
         /// </summary>
-        public static Task<GetScalingPolicyResult> InvokeAsync(GetScalingPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScalingPolicyResult> InvokeAsync(GetScalingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPolicyResult>("aws-native:applicationautoscaling:getScalingPolicy", args ?? new GetScalingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
         /// </summary>
-        public static Output<GetScalingPolicyResult> Invoke(GetScalingPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScalingPolicyResult> Invoke(GetScalingPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScalingPolicyResult>("aws-native:applicationautoscaling:getScalingPolicy", args ?? new GetScalingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetScalingPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetScalingPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class GetScalingPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetScalingPolicyInvokeArgs()
         {

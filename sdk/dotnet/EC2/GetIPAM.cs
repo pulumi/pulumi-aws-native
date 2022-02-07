@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAM Type
         /// </summary>
-        public static Task<GetIPAMResult> InvokeAsync(GetIPAMArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIPAMResult> InvokeAsync(GetIPAMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMResult>("aws-native:ec2:getIPAM", args ?? new GetIPAMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAM Type
         /// </summary>
-        public static Output<GetIPAMResult> Invoke(GetIPAMInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIPAMResult> Invoke(GetIPAMInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIPAMResult>("aws-native:ec2:getIPAM", args ?? new GetIPAMInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the IPAM.
         /// </summary>
-        [Input("ipamId")]
-        public string? IpamId { get; set; }
+        [Input("ipamId", required: true)]
+        public string IpamId { get; set; } = null!;
 
         public GetIPAMArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the IPAM.
         /// </summary>
-        [Input("ipamId")]
-        public Input<string>? IpamId { get; set; }
+        [Input("ipamId", required: true)]
+        public Input<string> IpamId { get; set; } = null!;
 
         public GetIPAMInvokeArgs()
         {

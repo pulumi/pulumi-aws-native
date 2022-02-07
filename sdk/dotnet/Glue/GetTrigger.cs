@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Trigger
         /// </summary>
-        public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("aws-native:glue:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Trigger
         /// </summary>
-        public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("aws-native:glue:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTriggerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTriggerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetTriggerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTriggerInvokeArgs()
         {

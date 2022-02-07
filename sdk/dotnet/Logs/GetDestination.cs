@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Resource Type definition for AWS::Logs::Destination
         /// </summary>
-        public static Task<GetDestinationResult> InvokeAsync(GetDestinationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDestinationResult> InvokeAsync(GetDestinationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDestinationResult>("aws-native:logs:getDestination", args ?? new GetDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Logs::Destination
         /// </summary>
-        public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:logs:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDestinationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDestinationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetDestinationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDestinationInvokeArgs()
         {

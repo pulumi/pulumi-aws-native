@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Resource Type definition for AWS::GameLift::Build
         /// </summary>
-        public static Task<GetBuildResult> InvokeAsync(GetBuildArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBuildResult> InvokeAsync(GetBuildArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildResult>("aws-native:gamelift:getBuild", args ?? new GetBuildArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::Build
         /// </summary>
-        public static Output<GetBuildResult> Invoke(GetBuildInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBuildResult> Invoke(GetBuildInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBuildResult>("aws-native:gamelift:getBuild", args ?? new GetBuildInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBuildArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBuildArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetBuildInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBuildInvokeArgs()
         {

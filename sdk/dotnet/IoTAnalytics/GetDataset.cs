@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Dataset
         /// </summary>
-        public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("aws-native:iotanalytics:getDataset", args ?? new GetDatasetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Dataset
         /// </summary>
-        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:iotanalytics:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDatasetArgs : Pulumi.InvokeArgs
     {
-        [Input("datasetName")]
-        public string? DatasetName { get; set; }
+        [Input("datasetName", required: true)]
+        public string DatasetName { get; set; } = null!;
 
         public GetDatasetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetDatasetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("datasetName")]
-        public Input<string>? DatasetName { get; set; }
+        [Input("datasetName", required: true)]
+        public Input<string> DatasetName { get; set; } = null!;
 
         public GetDatasetInvokeArgs()
         {

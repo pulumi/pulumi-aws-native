@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
         /// </summary>
-        public static Task<GetMonitoringScheduleResult> InvokeAsync(GetMonitoringScheduleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMonitoringScheduleResult> InvokeAsync(GetMonitoringScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
         /// </summary>
-        public static Output<GetMonitoringScheduleResult> Invoke(GetMonitoringScheduleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMonitoringScheduleResult> Invoke(GetMonitoringScheduleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of the monitoring schedule.
         /// </summary>
-        [Input("monitoringScheduleArn")]
-        public string? MonitoringScheduleArn { get; set; }
+        [Input("monitoringScheduleArn", required: true)]
+        public string MonitoringScheduleArn { get; set; } = null!;
 
         public GetMonitoringScheduleArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of the monitoring schedule.
         /// </summary>
-        [Input("monitoringScheduleArn")]
-        public Input<string>? MonitoringScheduleArn { get; set; }
+        [Input("monitoringScheduleArn", required: true)]
+        public Input<string> MonitoringScheduleArn { get; set; } = null!;
 
         public GetMonitoringScheduleInvokeArgs()
         {

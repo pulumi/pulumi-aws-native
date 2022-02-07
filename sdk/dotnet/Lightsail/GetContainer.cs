@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Container
         /// </summary>
-        public static Task<GetContainerResult> InvokeAsync(GetContainerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("aws-native:lightsail:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Container
         /// </summary>
-        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerResult>("aws-native:lightsail:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name for the container service.
         /// </summary>
-        [Input("serviceName")]
-        public string? ServiceName { get; set; }
+        [Input("serviceName", required: true)]
+        public string ServiceName { get; set; } = null!;
 
         public GetContainerArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name for the container service.
         /// </summary>
-        [Input("serviceName")]
-        public Input<string>? ServiceName { get; set; }
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         public GetContainerInvokeArgs()
         {

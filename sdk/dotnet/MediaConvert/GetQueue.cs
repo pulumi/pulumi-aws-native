@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaConvert
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::Queue
         /// </summary>
-        public static Task<GetQueueResult> InvokeAsync(GetQueueArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws-native:mediaconvert:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::Queue
         /// </summary>
-        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws-native:mediaconvert:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetQueueArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetQueueArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaConvert
 
     public sealed class GetQueueInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetQueueInvokeArgs()
         {

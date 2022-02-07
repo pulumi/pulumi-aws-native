@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Image
         /// </summary>
-        public static Task<GetImageResult> InvokeAsync(GetImageArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws-native:sagemaker:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Image
         /// </summary>
-        public static Output<GetImageResult> Invoke(GetImageInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws-native:sagemaker:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetImageArgs : Pulumi.InvokeArgs
     {
-        [Input("imageArn")]
-        public string? ImageArn { get; set; }
+        [Input("imageArn", required: true)]
+        public string ImageArn { get; set; } = null!;
 
         public GetImageArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("imageArn")]
-        public Input<string>? ImageArn { get; set; }
+        [Input("imageArn", required: true)]
+        public Input<string> ImageArn { get; set; } = null!;
 
         public GetImageInvokeArgs()
         {

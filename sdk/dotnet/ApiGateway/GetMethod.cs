@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Method
         /// </summary>
-        public static Task<GetMethodResult> InvokeAsync(GetMethodArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMethodResult> InvokeAsync(GetMethodArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Method
         /// </summary>
-        public static Output<GetMethodResult> Invoke(GetMethodInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMethodResult> Invoke(GetMethodInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The backend system that the method calls when it receives a request.
         /// </summary>
-        [Input("httpMethod")]
-        public string? HttpMethod { get; set; }
+        [Input("httpMethod", required: true)]
+        public string HttpMethod { get; set; } = null!;
 
         /// <summary>
         /// The ID of an API Gateway resource.
         /// </summary>
-        [Input("resourceId")]
-        public string? ResourceId { get; set; }
+        [Input("resourceId", required: true)]
+        public string ResourceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the RestApi resource in which API Gateway creates the method.
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetMethodArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The backend system that the method calls when it receives a request.
         /// </summary>
-        [Input("httpMethod")]
-        public Input<string>? HttpMethod { get; set; }
+        [Input("httpMethod", required: true)]
+        public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
         /// The ID of an API Gateway resource.
         /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the RestApi resource in which API Gateway creates the method.
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetMethodInvokeArgs()
         {

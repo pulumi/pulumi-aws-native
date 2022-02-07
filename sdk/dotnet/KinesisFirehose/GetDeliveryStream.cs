@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// <summary>
         /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
         /// </summary>
-        public static Task<GetDeliveryStreamResult> InvokeAsync(GetDeliveryStreamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeliveryStreamResult> InvokeAsync(GetDeliveryStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryStreamResult>("aws-native:kinesisfirehose:getDeliveryStream", args ?? new GetDeliveryStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
         /// </summary>
-        public static Output<GetDeliveryStreamResult> Invoke(GetDeliveryStreamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeliveryStreamResult> Invoke(GetDeliveryStreamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeliveryStreamResult>("aws-native:kinesisfirehose:getDeliveryStream", args ?? new GetDeliveryStreamInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeliveryStreamArgs : Pulumi.InvokeArgs
     {
-        [Input("deliveryStreamName")]
-        public string? DeliveryStreamName { get; set; }
+        [Input("deliveryStreamName", required: true)]
+        public string DeliveryStreamName { get; set; } = null!;
 
         public GetDeliveryStreamArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
     public sealed class GetDeliveryStreamInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("deliveryStreamName")]
-        public Input<string>? DeliveryStreamName { get; set; }
+        [Input("deliveryStreamName", required: true)]
+        public Input<string> DeliveryStreamName { get; set; } = null!;
 
         public GetDeliveryStreamInvokeArgs()
         {

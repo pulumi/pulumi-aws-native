@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpsWorks
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Instance
         /// </summary>
-        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws-native:opsworks:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Instance
         /// </summary>
-        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:opsworks:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInstanceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInstanceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInstanceInvokeArgs()
         {

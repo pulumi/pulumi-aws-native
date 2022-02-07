@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Rekognition
         /// <summary>
         /// The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
         /// </summary>
-        public static Task<GetCollectionResult> InvokeAsync(GetCollectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCollectionResult> InvokeAsync(GetCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCollectionResult>("aws-native:rekognition:getCollection", args ?? new GetCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
         /// </summary>
-        public static Output<GetCollectionResult> Invoke(GetCollectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCollectionResult> Invoke(GetCollectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCollectionResult>("aws-native:rekognition:getCollection", args ?? new GetCollectionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCollectionArgs : Pulumi.InvokeArgs
     {
-        [Input("collectionId")]
-        public string? CollectionId { get; set; }
+        [Input("collectionId", required: true)]
+        public string CollectionId { get; set; } = null!;
 
         public GetCollectionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class GetCollectionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("collectionId")]
-        public Input<string>? CollectionId { get; set; }
+        [Input("collectionId", required: true)]
+        public Input<string> CollectionId { get; set; } = null!;
 
         public GetCollectionInvokeArgs()
         {

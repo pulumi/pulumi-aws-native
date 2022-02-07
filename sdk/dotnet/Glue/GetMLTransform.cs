@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::MLTransform
         /// </summary>
-        public static Task<GetMLTransformResult> InvokeAsync(GetMLTransformArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMLTransformResult> InvokeAsync(GetMLTransformArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMLTransformResult>("aws-native:glue:getMLTransform", args ?? new GetMLTransformArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::MLTransform
         /// </summary>
-        public static Output<GetMLTransformResult> Invoke(GetMLTransformInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMLTransformResult> Invoke(GetMLTransformInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMLTransformResult>("aws-native:glue:getMLTransform", args ?? new GetMLTransformInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMLTransformArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMLTransformArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetMLTransformInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMLTransformInvokeArgs()
         {

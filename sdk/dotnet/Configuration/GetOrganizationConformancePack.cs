@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource schema for AWS::Config::OrganizationConformancePack.
         /// </summary>
-        public static Task<GetOrganizationConformancePackResult> InvokeAsync(GetOrganizationConformancePackArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetOrganizationConformancePackResult> InvokeAsync(GetOrganizationConformancePackArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Config::OrganizationConformancePack.
         /// </summary>
-        public static Output<GetOrganizationConformancePackResult> Invoke(GetOrganizationConformancePackInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetOrganizationConformancePackResult> Invoke(GetOrganizationConformancePackInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The name of the organization conformance pack.
         /// </summary>
-        [Input("organizationConformancePackName")]
-        public string? OrganizationConformancePackName { get; set; }
+        [Input("organizationConformancePackName", required: true)]
+        public string OrganizationConformancePackName { get; set; } = null!;
 
         public GetOrganizationConformancePackArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The name of the organization conformance pack.
         /// </summary>
-        [Input("organizationConformancePackName")]
-        public Input<string>? OrganizationConformancePackName { get; set; }
+        [Input("organizationConformancePackName", required: true)]
+        public Input<string> OrganizationConformancePackName { get; set; } = null!;
 
         public GetOrganizationConformancePackInvokeArgs()
         {

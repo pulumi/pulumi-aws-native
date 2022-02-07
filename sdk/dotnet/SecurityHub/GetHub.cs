@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SecurityHub
         /// <summary>
         /// Resource Type definition for AWS::SecurityHub::Hub
         /// </summary>
-        public static Task<GetHubResult> InvokeAsync(GetHubArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecurityHub::Hub
         /// </summary>
-        public static Output<GetHubResult> Invoke(GetHubInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetHubArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetHubArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetHubInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetHubInvokeArgs()
         {

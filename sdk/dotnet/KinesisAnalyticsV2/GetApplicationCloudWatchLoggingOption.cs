@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
         /// </summary>
-        public static Task<GetApplicationCloudWatchLoggingOptionResult> InvokeAsync(GetApplicationCloudWatchLoggingOptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationCloudWatchLoggingOptionResult> InvokeAsync(GetApplicationCloudWatchLoggingOptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationCloudWatchLoggingOptionResult>("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args ?? new GetApplicationCloudWatchLoggingOptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
         /// </summary>
-        public static Output<GetApplicationCloudWatchLoggingOptionResult> Invoke(GetApplicationCloudWatchLoggingOptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationCloudWatchLoggingOptionResult> Invoke(GetApplicationCloudWatchLoggingOptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationCloudWatchLoggingOptionResult>("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args ?? new GetApplicationCloudWatchLoggingOptionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationCloudWatchLoggingOptionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApplicationCloudWatchLoggingOptionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
     public sealed class GetApplicationCloudWatchLoggingOptionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApplicationCloudWatchLoggingOptionInvokeArgs()
         {

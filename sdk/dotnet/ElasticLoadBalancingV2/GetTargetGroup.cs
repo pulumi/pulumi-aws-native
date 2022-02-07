@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
         /// </summary>
-        public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws-native:elasticloadbalancingv2:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
         /// </summary>
-        public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws-native:elasticloadbalancingv2:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTargetGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTargetGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetTargetGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTargetGroupInvokeArgs()
         {

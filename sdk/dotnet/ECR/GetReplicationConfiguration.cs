@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ECR
         /// <summary>
         /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
         /// </summary>
-        public static Task<GetReplicationConfigurationResult> InvokeAsync(GetReplicationConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReplicationConfigurationResult> InvokeAsync(GetReplicationConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
         /// </summary>
-        public static Output<GetReplicationConfigurationResult> Invoke(GetReplicationConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReplicationConfigurationResult> Invoke(GetReplicationConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ECR
         /// <summary>
         /// The RegistryId associated with the aws account.
         /// </summary>
-        [Input("registryId")]
-        public string? RegistryId { get; set; }
+        [Input("registryId", required: true)]
+        public string RegistryId { get; set; } = null!;
 
         public GetReplicationConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ECR
         /// <summary>
         /// The RegistryId associated with the aws account.
         /// </summary>
-        [Input("registryId")]
-        public Input<string>? RegistryId { get; set; }
+        [Input("registryId", required: true)]
+        public Input<string> RegistryId { get; set; } = null!;
 
         public GetReplicationConfigurationInvokeArgs()
         {

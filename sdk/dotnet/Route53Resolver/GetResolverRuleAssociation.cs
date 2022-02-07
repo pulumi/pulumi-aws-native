@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
         /// </summary>
-        public static Task<GetResolverRuleAssociationResult> InvokeAsync(GetResolverRuleAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResolverRuleAssociationResult> InvokeAsync(GetResolverRuleAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
         /// </summary>
-        public static Output<GetResolverRuleAssociationResult> Invoke(GetResolverRuleAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResolverRuleAssociationResult> Invoke(GetResolverRuleAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Primary Identifier for Resolver Rule Association
         /// </summary>
-        [Input("resolverRuleAssociationId")]
-        public string? ResolverRuleAssociationId { get; set; }
+        [Input("resolverRuleAssociationId", required: true)]
+        public string ResolverRuleAssociationId { get; set; } = null!;
 
         public GetResolverRuleAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Primary Identifier for Resolver Rule Association
         /// </summary>
-        [Input("resolverRuleAssociationId")]
-        public Input<string>? ResolverRuleAssociationId { get; set; }
+        [Input("resolverRuleAssociationId", required: true)]
+        public Input<string> ResolverRuleAssociationId { get; set; } = null!;
 
         public GetResolverRuleAssociationInvokeArgs()
         {

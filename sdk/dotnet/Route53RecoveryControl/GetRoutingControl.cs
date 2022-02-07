@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// AWS Route53 Recovery Control Routing Control resource schema .
         /// </summary>
-        public static Task<GetRoutingControlResult> InvokeAsync(GetRoutingControlArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRoutingControlResult> InvokeAsync(GetRoutingControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoutingControlResult>("aws-native:route53recoverycontrol:getRoutingControl", args ?? new GetRoutingControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Route53 Recovery Control Routing Control resource schema .
         /// </summary>
-        public static Output<GetRoutingControlResult> Invoke(GetRoutingControlInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRoutingControlResult> Invoke(GetRoutingControlInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRoutingControlResult>("aws-native:route53recoverycontrol:getRoutingControl", args ?? new GetRoutingControlInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the routing control.
         /// </summary>
-        [Input("routingControlArn")]
-        public string? RoutingControlArn { get; set; }
+        [Input("routingControlArn", required: true)]
+        public string RoutingControlArn { get; set; } = null!;
 
         public GetRoutingControlArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the routing control.
         /// </summary>
-        [Input("routingControlArn")]
-        public Input<string>? RoutingControlArn { get; set; }
+        [Input("routingControlArn", required: true)]
+        public Input<string> RoutingControlArn { get; set; } = null!;
 
         public GetRoutingControlInvokeArgs()
         {

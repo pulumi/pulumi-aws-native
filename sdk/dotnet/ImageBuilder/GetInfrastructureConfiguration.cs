@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
-        public static Task<GetInfrastructureConfigurationResult> InvokeAsync(GetInfrastructureConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInfrastructureConfigurationResult> InvokeAsync(GetInfrastructureConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
-        public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetInfrastructureConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetInfrastructureConfigurationInvokeArgs()
         {

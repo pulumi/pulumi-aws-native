@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.FMS
         /// <summary>
         /// Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
         /// </summary>
-        public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("aws-native:fms:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
         /// </summary>
-        public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws-native:fms:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("snsTopicArn")]
-        public string? SnsTopicArn { get; set; }
+        [Input("snsTopicArn", required: true)]
+        public string SnsTopicArn { get; set; } = null!;
 
         public GetNotificationChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.FMS
 
     public sealed class GetNotificationChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("snsTopicArn")]
-        public Input<string>? SnsTopicArn { get; set; }
+        [Input("snsTopicArn", required: true)]
+        public Input<string> SnsTopicArn { get; set; } = null!;
 
         public GetNotificationChannelInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Database
         /// </summary>
-        public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("aws-native:lightsail:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Database
         /// </summary>
-        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("aws-native:lightsail:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name to use for your new Lightsail database resource.
         /// </summary>
-        [Input("relationalDatabaseName")]
-        public string? RelationalDatabaseName { get; set; }
+        [Input("relationalDatabaseName", required: true)]
+        public string RelationalDatabaseName { get; set; } = null!;
 
         public GetDatabaseArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name to use for your new Lightsail database resource.
         /// </summary>
-        [Input("relationalDatabaseName")]
-        public Input<string>? RelationalDatabaseName { get; set; }
+        [Input("relationalDatabaseName", required: true)]
+        public Input<string> RelationalDatabaseName { get; set; } = null!;
 
         public GetDatabaseInvokeArgs()
         {

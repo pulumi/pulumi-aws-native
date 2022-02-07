@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Resource Type definition for AWS::IVS::PlaybackKeyPair
         /// </summary>
-        public static Task<GetPlaybackKeyPairResult> InvokeAsync(GetPlaybackKeyPairArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPlaybackKeyPairResult> InvokeAsync(GetPlaybackKeyPairArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlaybackKeyPairResult>("aws-native:ivs:getPlaybackKeyPair", args ?? new GetPlaybackKeyPairArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IVS::PlaybackKeyPair
         /// </summary>
-        public static Output<GetPlaybackKeyPairResult> Invoke(GetPlaybackKeyPairInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPlaybackKeyPairResult> Invoke(GetPlaybackKeyPairInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPlaybackKeyPairResult>("aws-native:ivs:getPlaybackKeyPair", args ?? new GetPlaybackKeyPairInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Key-pair identifier.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetPlaybackKeyPairArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Key-pair identifier.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetPlaybackKeyPairInvokeArgs()
         {

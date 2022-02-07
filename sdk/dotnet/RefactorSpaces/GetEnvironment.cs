@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Environment Resource Type
         /// </summary>
-        public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("aws-native:refactorspaces:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Environment Resource Type
         /// </summary>
-        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:refactorspaces:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEnvironmentArgs : Pulumi.InvokeArgs
     {
-        [Input("environmentIdentifier")]
-        public string? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public string EnvironmentIdentifier { get; set; } = null!;
 
         public GetEnvironmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetEnvironmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("environmentIdentifier")]
-        public Input<string>? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
         public GetEnvironmentInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
         /// </summary>
-        public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
         /// </summary>
-        public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the Amazon Redshift event notification subscription
         /// </summary>
-        [Input("subscriptionName")]
-        public string? SubscriptionName { get; set; }
+        [Input("subscriptionName", required: true)]
+        public string SubscriptionName { get; set; } = null!;
 
         public GetEventSubscriptionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the Amazon Redshift event notification subscription
         /// </summary>
-        [Input("subscriptionName")]
-        public Input<string>? SubscriptionName { get; set; }
+        [Input("subscriptionName", required: true)]
+        public Input<string> SubscriptionName { get; set; } = null!;
 
         public GetEventSubscriptionInvokeArgs()
         {

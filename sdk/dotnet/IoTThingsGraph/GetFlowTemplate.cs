@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoTThingsGraph
         /// <summary>
         /// Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
         /// </summary>
-        public static Task<GetFlowTemplateResult> InvokeAsync(GetFlowTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFlowTemplateResult> InvokeAsync(GetFlowTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowTemplateResult>("aws-native:iotthingsgraph:getFlowTemplate", args ?? new GetFlowTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
         /// </summary>
-        public static Output<GetFlowTemplateResult> Invoke(GetFlowTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFlowTemplateResult> Invoke(GetFlowTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFlowTemplateResult>("aws-native:iotthingsgraph:getFlowTemplate", args ?? new GetFlowTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFlowTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFlowTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoTThingsGraph
 
     public sealed class GetFlowTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFlowTemplateInvokeArgs()
         {

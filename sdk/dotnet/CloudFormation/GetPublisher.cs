@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Register as a publisher in the CloudFormation Registry.
         /// </summary>
-        public static Task<GetPublisherResult> InvokeAsync(GetPublisherArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPublisherResult> InvokeAsync(GetPublisherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Register as a publisher in the CloudFormation Registry.
         /// </summary>
-        public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
-        [Input("publisherId")]
-        public string? PublisherId { get; set; }
+        [Input("publisherId", required: true)]
+        public string PublisherId { get; set; } = null!;
 
         public GetPublisherArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
-        [Input("publisherId")]
-        public Input<string>? PublisherId { get; set; }
+        [Input("publisherId", required: true)]
+        public Input<string> PublisherId { get; set; } = null!;
 
         public GetPublisherInvokeArgs()
         {

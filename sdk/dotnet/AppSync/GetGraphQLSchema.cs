@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppSync
         /// <summary>
         /// Resource Type definition for AWS::AppSync::GraphQLSchema
         /// </summary>
-        public static Task<GetGraphQLSchemaResult> InvokeAsync(GetGraphQLSchemaArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGraphQLSchemaResult> InvokeAsync(GetGraphQLSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLSchemaResult>("aws-native:appsync:getGraphQLSchema", args ?? new GetGraphQLSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::GraphQLSchema
         /// </summary>
-        public static Output<GetGraphQLSchemaResult> Invoke(GetGraphQLSchemaInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGraphQLSchemaResult> Invoke(GetGraphQLSchemaInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGraphQLSchemaResult>("aws-native:appsync:getGraphQLSchema", args ?? new GetGraphQLSchemaInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGraphQLSchemaArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGraphQLSchemaArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetGraphQLSchemaInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGraphQLSchemaInvokeArgs()
         {

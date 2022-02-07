@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Lex
         /// <summary>
         /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
-        public static Task<GetBotResult> InvokeAsync(GetBotArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
-        public static Output<GetBotResult> Invoke(GetBotInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBotArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBotArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBotInvokeArgs()
         {

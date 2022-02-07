@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
         /// </summary>
-        public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws-native:glue:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
         /// </summary>
-        public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws-native:glue:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDataCatalogEncryptionSettingsArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDataCatalogEncryptionSettingsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetDataCatalogEncryptionSettingsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDataCatalogEncryptionSettingsInvokeArgs()
         {

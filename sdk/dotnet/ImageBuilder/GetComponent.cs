@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::Component
         /// </summary>
-        public static Task<GetComponentResult> InvokeAsync(GetComponentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("aws-native:imagebuilder:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::Component
         /// </summary>
-        public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws-native:imagebuilder:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetComponentArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetComponentInvokeArgs()
         {

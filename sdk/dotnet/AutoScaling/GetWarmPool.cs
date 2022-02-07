@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// Resource schema for AWS::AutoScaling::WarmPool.
         /// </summary>
-        public static Task<GetWarmPoolResult> InvokeAsync(GetWarmPoolArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWarmPoolResult> InvokeAsync(GetWarmPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWarmPoolResult>("aws-native:autoscaling:getWarmPool", args ?? new GetWarmPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::AutoScaling::WarmPool.
         /// </summary>
-        public static Output<GetWarmPoolResult> Invoke(GetWarmPoolInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWarmPoolResult> Invoke(GetWarmPoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWarmPoolResult>("aws-native:autoscaling:getWarmPool", args ?? new GetWarmPoolInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWarmPoolArgs : Pulumi.InvokeArgs
     {
-        [Input("autoScalingGroupName")]
-        public string? AutoScalingGroupName { get; set; }
+        [Input("autoScalingGroupName", required: true)]
+        public string AutoScalingGroupName { get; set; } = null!;
 
         public GetWarmPoolArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetWarmPoolInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("autoScalingGroupName")]
-        public Input<string>? AutoScalingGroupName { get; set; }
+        [Input("autoScalingGroupName", required: true)]
+        public Input<string> AutoScalingGroupName { get; set; } = null!;
 
         public GetWarmPoolInvokeArgs()
         {

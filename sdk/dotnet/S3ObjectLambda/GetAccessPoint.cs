@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
         /// </summary>
-        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("aws-native:s3objectlambda:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
         /// </summary>
-        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3objectlambda:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The name you want to assign to this Object lambda Access Point.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetAccessPointArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The name you want to assign to this Object lambda Access Point.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetAccessPointInvokeArgs()
         {

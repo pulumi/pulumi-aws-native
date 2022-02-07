@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::LifecycleHook
         /// </summary>
-        public static Task<GetLifecycleHookResult> InvokeAsync(GetLifecycleHookArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLifecycleHookResult> InvokeAsync(GetLifecycleHookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLifecycleHookResult>("aws-native:autoscaling:getLifecycleHook", args ?? new GetLifecycleHookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::LifecycleHook
         /// </summary>
-        public static Output<GetLifecycleHookResult> Invoke(GetLifecycleHookInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLifecycleHookResult> Invoke(GetLifecycleHookInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLifecycleHookResult>("aws-native:autoscaling:getLifecycleHook", args ?? new GetLifecycleHookInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The name of the Auto Scaling group for the lifecycle hook.
         /// </summary>
-        [Input("autoScalingGroupName")]
-        public string? AutoScalingGroupName { get; set; }
+        [Input("autoScalingGroupName", required: true)]
+        public string AutoScalingGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the lifecycle hook.
         /// </summary>
-        [Input("lifecycleHookName")]
-        public string? LifecycleHookName { get; set; }
+        [Input("lifecycleHookName", required: true)]
+        public string LifecycleHookName { get; set; } = null!;
 
         public GetLifecycleHookArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The name of the Auto Scaling group for the lifecycle hook.
         /// </summary>
-        [Input("autoScalingGroupName")]
-        public Input<string>? AutoScalingGroupName { get; set; }
+        [Input("autoScalingGroupName", required: true)]
+        public Input<string> AutoScalingGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the lifecycle hook.
         /// </summary>
-        [Input("lifecycleHookName")]
-        public Input<string>? LifecycleHookName { get; set; }
+        [Input("lifecycleHookName", required: true)]
+        public Input<string> LifecycleHookName { get; set; } = null!;
 
         public GetLifecycleHookInvokeArgs()
         {

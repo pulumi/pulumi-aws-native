@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Batch
         /// <summary>
         /// Resource Type definition for AWS::Batch::ComputeEnvironment
         /// </summary>
-        public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws-native:batch:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Batch::ComputeEnvironment
         /// </summary>
-        public static Output<GetComputeEnvironmentResult> Invoke(GetComputeEnvironmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetComputeEnvironmentResult> Invoke(GetComputeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetComputeEnvironmentResult>("aws-native:batch:getComputeEnvironment", args ?? new GetComputeEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetComputeEnvironmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetComputeEnvironmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetComputeEnvironmentInvokeArgs()
         {

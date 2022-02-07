@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::Distribution
         /// </summary>
-        public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws-native:cloudfront:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::Distribution
         /// </summary>
-        public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:cloudfront:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDistributionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDistributionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetDistributionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDistributionInvokeArgs()
         {

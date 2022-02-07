@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// <summary>
         /// Schema for ResourceGroups::Group
         /// </summary>
-        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for ResourceGroups::Group
         /// </summary>
-        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// <summary>
         /// The name of the resource group
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// <summary>
         /// The name of the resource group
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetGroupInvokeArgs()
         {

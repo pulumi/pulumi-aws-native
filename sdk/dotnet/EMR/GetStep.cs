@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// Resource Type definition for AWS::EMR::Step
         /// </summary>
-        public static Task<GetStepResult> InvokeAsync(GetStepArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("aws-native:emr:getStep", args ?? new GetStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::Step
         /// </summary>
-        public static Output<GetStepResult> Invoke(GetStepInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStepResult> Invoke(GetStepInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStepResult>("aws-native:emr:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStepArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStepArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EMR
 
     public sealed class GetStepInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStepInvokeArgs()
         {

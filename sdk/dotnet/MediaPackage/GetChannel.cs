@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// Resource schema for AWS::MediaPackage::Channel
         /// </summary>
-        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:mediapackage:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaPackage::Channel
         /// </summary>
-        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:mediapackage:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The ID of the Channel.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetChannelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The ID of the Channel.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetChannelInvokeArgs()
         {

@@ -14,33 +14,33 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMAllocation Type
         /// </summary>
-        public static Task<GetIPAMAllocationResult> InvokeAsync(GetIPAMAllocationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIPAMAllocationResult> InvokeAsync(GetIPAMAllocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMAllocationResult>("aws-native:ec2:getIPAMAllocation", args ?? new GetIPAMAllocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMAllocation Type
         /// </summary>
-        public static Output<GetIPAMAllocationResult> Invoke(GetIPAMAllocationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIPAMAllocationResult> Invoke(GetIPAMAllocationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIPAMAllocationResult>("aws-native:ec2:getIPAMAllocation", args ?? new GetIPAMAllocationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIPAMAllocationArgs : Pulumi.InvokeArgs
     {
-        [Input("cidr")]
-        public string? Cidr { get; set; }
+        [Input("cidr", required: true)]
+        public string Cidr { get; set; } = null!;
 
         /// <summary>
         /// Id of the allocation.
         /// </summary>
-        [Input("ipamPoolAllocationId")]
-        public string? IpamPoolAllocationId { get; set; }
+        [Input("ipamPoolAllocationId", required: true)]
+        public string IpamPoolAllocationId { get; set; } = null!;
 
         /// <summary>
         /// Id of the IPAM Pool.
         /// </summary>
-        [Input("ipamPoolId")]
-        public string? IpamPoolId { get; set; }
+        [Input("ipamPoolId", required: true)]
+        public string IpamPoolId { get; set; } = null!;
 
         public GetIPAMAllocationArgs()
         {
@@ -49,20 +49,20 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetIPAMAllocationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("cidr")]
-        public Input<string>? Cidr { get; set; }
+        [Input("cidr", required: true)]
+        public Input<string> Cidr { get; set; } = null!;
 
         /// <summary>
         /// Id of the allocation.
         /// </summary>
-        [Input("ipamPoolAllocationId")]
-        public Input<string>? IpamPoolAllocationId { get; set; }
+        [Input("ipamPoolAllocationId", required: true)]
+        public Input<string> IpamPoolAllocationId { get; set; } = null!;
 
         /// <summary>
         /// Id of the IPAM Pool.
         /// </summary>
-        [Input("ipamPoolId")]
-        public Input<string>? IpamPoolId { get; set; }
+        [Input("ipamPoolId", required: true)]
+        public Input<string> IpamPoolId { get; set; } = null!;
 
         public GetIPAMAllocationInvokeArgs()
         {

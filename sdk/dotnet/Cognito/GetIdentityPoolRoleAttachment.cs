@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
         /// </summary>
-        public static Task<GetIdentityPoolRoleAttachmentResult> InvokeAsync(GetIdentityPoolRoleAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIdentityPoolRoleAttachmentResult> InvokeAsync(GetIdentityPoolRoleAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
         /// </summary>
-        public static Output<GetIdentityPoolRoleAttachmentResult> Invoke(GetIdentityPoolRoleAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIdentityPoolRoleAttachmentResult> Invoke(GetIdentityPoolRoleAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIdentityPoolRoleAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetIdentityPoolRoleAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetIdentityPoolRoleAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetIdentityPoolRoleAttachmentInvokeArgs()
         {

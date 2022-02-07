@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.StepFunctions
         /// <summary>
         /// Resource schema for StateMachine
         /// </summary>
-        public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws-native:stepfunctions:getStateMachine", args ?? new GetStateMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for StateMachine
         /// </summary>
-        public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws-native:stepfunctions:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStateMachineArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetStateMachineArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetStateMachineInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetStateMachineInvokeArgs()
         {

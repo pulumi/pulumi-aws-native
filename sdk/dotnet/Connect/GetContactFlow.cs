@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Resource Type definition for AWS::Connect::ContactFlow
         /// </summary>
-        public static Task<GetContactFlowResult> InvokeAsync(GetContactFlowArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContactFlowResult> InvokeAsync(GetContactFlowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowResult>("aws-native:connect:getContactFlow", args ?? new GetContactFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::ContactFlow
         /// </summary>
-        public static Output<GetContactFlowResult> Invoke(GetContactFlowInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContactFlowResult> Invoke(GetContactFlowInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactFlowResult>("aws-native:connect:getContactFlow", args ?? new GetContactFlowInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The identifier of the contact flow (ARN).
         /// </summary>
-        [Input("contactFlowArn")]
-        public string? ContactFlowArn { get; set; }
+        [Input("contactFlowArn", required: true)]
+        public string ContactFlowArn { get; set; } = null!;
 
         public GetContactFlowArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The identifier of the contact flow (ARN).
         /// </summary>
-        [Input("contactFlowArn")]
-        public Input<string>? ContactFlowArn { get; set; }
+        [Input("contactFlowArn", required: true)]
+        public Input<string> ContactFlowArn { get; set; } = null!;
 
         public GetContactFlowInvokeArgs()
         {

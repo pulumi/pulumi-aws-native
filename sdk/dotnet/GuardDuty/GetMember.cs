@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Member
         /// </summary>
-        public static Task<GetMemberResult> InvokeAsync(GetMemberArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMemberResult> InvokeAsync(GetMemberArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMemberResult>("aws-native:guardduty:getMember", args ?? new GetMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Member
         /// </summary>
-        public static Output<GetMemberResult> Invoke(GetMemberInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMemberResult> Invoke(GetMemberInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMemberResult>("aws-native:guardduty:getMember", args ?? new GetMemberInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMemberArgs : Pulumi.InvokeArgs
     {
-        [Input("memberId")]
-        public string? MemberId { get; set; }
+        [Input("memberId", required: true)]
+        public string MemberId { get; set; } = null!;
 
         public GetMemberArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetMemberInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("memberId")]
-        public Input<string>? MemberId { get; set; }
+        [Input("memberId", required: true)]
+        public Input<string> MemberId { get; set; } = null!;
 
         public GetMemberInvokeArgs()
         {

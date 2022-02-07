@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Create and manage Multicast groups.
         /// </summary>
-        public static Task<GetMulticastGroupResult> InvokeAsync(GetMulticastGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMulticastGroupResult> InvokeAsync(GetMulticastGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMulticastGroupResult>("aws-native:iotwireless:getMulticastGroup", args ?? new GetMulticastGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage Multicast groups.
         /// </summary>
-        public static Output<GetMulticastGroupResult> Invoke(GetMulticastGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMulticastGroupResult> Invoke(GetMulticastGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMulticastGroupResult>("aws-native:iotwireless:getMulticastGroup", args ?? new GetMulticastGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Multicast group id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMulticastGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Multicast group id. Returned after successful create.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMulticastGroupInvokeArgs()
         {

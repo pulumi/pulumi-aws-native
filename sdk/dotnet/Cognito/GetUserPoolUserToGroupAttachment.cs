@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
         /// </summary>
-        public static Task<GetUserPoolUserToGroupAttachmentResult> InvokeAsync(GetUserPoolUserToGroupAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserPoolUserToGroupAttachmentResult> InvokeAsync(GetUserPoolUserToGroupAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolUserToGroupAttachmentResult>("aws-native:cognito:getUserPoolUserToGroupAttachment", args ?? new GetUserPoolUserToGroupAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
         /// </summary>
-        public static Output<GetUserPoolUserToGroupAttachmentResult> Invoke(GetUserPoolUserToGroupAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserPoolUserToGroupAttachmentResult> Invoke(GetUserPoolUserToGroupAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserPoolUserToGroupAttachmentResult>("aws-native:cognito:getUserPoolUserToGroupAttachment", args ?? new GetUserPoolUserToGroupAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserPoolUserToGroupAttachmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolUserToGroupAttachmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUserToGroupAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolUserToGroupAttachmentInvokeArgs()
         {

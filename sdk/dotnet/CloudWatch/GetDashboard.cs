@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::Dashboard
         /// </summary>
-        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("aws-native:cloudwatch:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::Dashboard
         /// </summary>
-        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:cloudwatch:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDashboardArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDashboardArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDashboardInvokeArgs()
         {

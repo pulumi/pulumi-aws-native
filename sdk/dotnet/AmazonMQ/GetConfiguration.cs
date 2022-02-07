@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AmazonMQ
         /// <summary>
         /// Resource Type definition for AWS::AmazonMQ::Configuration
         /// </summary>
-        public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("aws-native:amazonmq:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AmazonMQ::Configuration
         /// </summary>
-        public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("aws-native:amazonmq:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AmazonMQ
 
     public sealed class GetConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConfigurationInvokeArgs()
         {

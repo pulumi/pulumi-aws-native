@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::ConfigurationRecorder
         /// </summary>
-        public static Task<GetConfigurationRecorderResult> InvokeAsync(GetConfigurationRecorderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationRecorderResult> InvokeAsync(GetConfigurationRecorderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationRecorderResult>("aws-native:configuration:getConfigurationRecorder", args ?? new GetConfigurationRecorderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::ConfigurationRecorder
         /// </summary>
-        public static Output<GetConfigurationRecorderResult> Invoke(GetConfigurationRecorderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationRecorderResult> Invoke(GetConfigurationRecorderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationRecorderResult>("aws-native:configuration:getConfigurationRecorder", args ?? new GetConfigurationRecorderInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigurationRecorderArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConfigurationRecorderArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetConfigurationRecorderInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConfigurationRecorderInvokeArgs()
         {

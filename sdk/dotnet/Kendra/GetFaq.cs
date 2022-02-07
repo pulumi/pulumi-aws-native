@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// A Kendra FAQ resource
         /// </summary>
-        public static Task<GetFaqResult> InvokeAsync(GetFaqArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFaqResult> InvokeAsync(GetFaqArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Kendra FAQ resource
         /// </summary>
-        public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFaqArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         /// <summary>
         /// Index ID
         /// </summary>
-        [Input("indexId")]
-        public string? IndexId { get; set; }
+        [Input("indexId", required: true)]
+        public string IndexId { get; set; } = null!;
 
         public GetFaqArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetFaqInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// Index ID
         /// </summary>
-        [Input("indexId")]
-        public Input<string>? IndexId { get; set; }
+        [Input("indexId", required: true)]
+        public Input<string> IndexId { get; set; } = null!;
 
         public GetFaqInvokeArgs()
         {

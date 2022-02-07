@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The AWS::EC2::TransitGatewayPeeringAttachment type
         /// </summary>
-        public static Task<GetTransitGatewayPeeringAttachmentResult> InvokeAsync(GetTransitGatewayPeeringAttachmentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayPeeringAttachmentResult> InvokeAsync(GetTransitGatewayPeeringAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayPeeringAttachment type
         /// </summary>
-        public static Output<GetTransitGatewayPeeringAttachmentResult> Invoke(GetTransitGatewayPeeringAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayPeeringAttachmentResult> Invoke(GetTransitGatewayPeeringAttachmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the transit gateway peering attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId { get; set; }
+        [Input("transitGatewayAttachmentId", required: true)]
+        public string TransitGatewayAttachmentId { get; set; } = null!;
 
         public GetTransitGatewayPeeringAttachmentArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the transit gateway peering attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
-        public Input<string>? TransitGatewayAttachmentId { get; set; }
+        [Input("transitGatewayAttachmentId", required: true)]
+        public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
         public GetTransitGatewayPeeringAttachmentInvokeArgs()
         {

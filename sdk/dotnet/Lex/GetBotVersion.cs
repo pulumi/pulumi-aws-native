@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Lex
         /// <summary>
         /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
-        public static Task<GetBotVersionResult> InvokeAsync(GetBotVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBotVersionResult> InvokeAsync(GetBotVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
-        public static Output<GetBotVersionResult> Invoke(GetBotVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBotVersionResult> Invoke(GetBotVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBotVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("botId")]
-        public string? BotId { get; set; }
+        [Input("botId", required: true)]
+        public string BotId { get; set; } = null!;
 
-        [Input("botVersion")]
-        public string? BotVersionValue { get; set; }
+        [Input("botVersion", required: true)]
+        public string BotVersionValue { get; set; } = null!;
 
         public GetBotVersionArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("botId")]
-        public Input<string>? BotId { get; set; }
+        [Input("botId", required: true)]
+        public Input<string> BotId { get; set; } = null!;
 
-        [Input("botVersion")]
-        public Input<string>? BotVersion { get; set; }
+        [Input("botVersion", required: true)]
+        public Input<string> BotVersion { get; set; } = null!;
 
         public GetBotVersionInvokeArgs()
         {

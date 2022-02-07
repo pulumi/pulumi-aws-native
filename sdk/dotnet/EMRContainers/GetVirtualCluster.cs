@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EMRContainers
         /// <summary>
         /// Resource Schema of AWS::EMRContainers::VirtualCluster Type
         /// </summary>
-        public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("aws-native:emrcontainers:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EMRContainers::VirtualCluster Type
         /// </summary>
-        public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws-native:emrcontainers:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EMRContainers
         /// <summary>
         /// Id of the virtual cluster.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVirtualClusterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EMRContainers
         /// <summary>
         /// Id of the virtual cluster.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVirtualClusterInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
         /// </summary>
-        public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws-native:memorydb:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
         /// </summary>
-        public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:memorydb:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the parameter group.
         /// </summary>
-        [Input("parameterGroupName")]
-        public string? ParameterGroupName { get; set; }
+        [Input("parameterGroupName", required: true)]
+        public string ParameterGroupName { get; set; } = null!;
 
         public GetParameterGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the parameter group.
         /// </summary>
-        [Input("parameterGroupName")]
-        public Input<string>? ParameterGroupName { get; set; }
+        [Input("parameterGroupName", required: true)]
+        public Input<string> ParameterGroupName { get; set; } = null!;
 
         public GetParameterGroupInvokeArgs()
         {

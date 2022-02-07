@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppConfig
         /// <summary>
         /// Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
         /// </summary>
-        public static Task<GetHostedConfigurationVersionResult> InvokeAsync(GetHostedConfigurationVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHostedConfigurationVersionResult> InvokeAsync(GetHostedConfigurationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedConfigurationVersionResult>("aws-native:appconfig:getHostedConfigurationVersion", args ?? new GetHostedConfigurationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
         /// </summary>
-        public static Output<GetHostedConfigurationVersionResult> Invoke(GetHostedConfigurationVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHostedConfigurationVersionResult> Invoke(GetHostedConfigurationVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHostedConfigurationVersionResult>("aws-native:appconfig:getHostedConfigurationVersion", args ?? new GetHostedConfigurationVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetHostedConfigurationVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetHostedConfigurationVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetHostedConfigurationVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetHostedConfigurationVersionInvokeArgs()
         {

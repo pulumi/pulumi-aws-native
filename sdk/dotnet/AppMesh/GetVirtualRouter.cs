@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppMesh
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualRouter
         /// </summary>
-        public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("aws-native:appmesh:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualRouter
         /// </summary>
-        public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("aws-native:appmesh:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVirtualRouterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVirtualRouterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppMesh
 
     public sealed class GetVirtualRouterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVirtualRouterInvokeArgs()
         {

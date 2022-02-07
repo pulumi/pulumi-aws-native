@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The API Schema for AWS Route53 Recovery Readiness Cells.
         /// </summary>
-        public static Task<GetCellResult> InvokeAsync(GetCellArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCellResult> InvokeAsync(GetCellArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCellResult>("aws-native:route53recoveryreadiness:getCell", args ?? new GetCellArgs(), options.WithDefaults());
 
         /// <summary>
         /// The API Schema for AWS Route53 Recovery Readiness Cells.
         /// </summary>
-        public static Output<GetCellResult> Invoke(GetCellInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCellResult> Invoke(GetCellInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCellResult>("aws-native:route53recoveryreadiness:getCell", args ?? new GetCellInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the cell to create.
         /// </summary>
-        [Input("cellName")]
-        public string? CellName { get; set; }
+        [Input("cellName", required: true)]
+        public string CellName { get; set; } = null!;
 
         public GetCellArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the cell to create.
         /// </summary>
-        [Input("cellName")]
-        public Input<string>? CellName { get; set; }
+        [Input("cellName", required: true)]
+        public Input<string> CellName { get; set; } = null!;
 
         public GetCellInvokeArgs()
         {

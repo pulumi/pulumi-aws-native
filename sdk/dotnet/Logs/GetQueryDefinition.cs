@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// The resource schema for AWSLogs QueryDefinition
         /// </summary>
-        public static Task<GetQueryDefinitionResult> InvokeAsync(GetQueryDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetQueryDefinitionResult> InvokeAsync(GetQueryDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema for AWSLogs QueryDefinition
         /// </summary>
-        public static Output<GetQueryDefinitionResult> Invoke(GetQueryDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetQueryDefinitionResult> Invoke(GetQueryDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Unique identifier of a query definition
         /// </summary>
-        [Input("queryDefinitionId")]
-        public string? QueryDefinitionId { get; set; }
+        [Input("queryDefinitionId", required: true)]
+        public string QueryDefinitionId { get; set; } = null!;
 
         public GetQueryDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Unique identifier of a query definition
         /// </summary>
-        [Input("queryDefinitionId")]
-        public Input<string>? QueryDefinitionId { get; set; }
+        [Input("queryDefinitionId", required: true)]
+        public Input<string> QueryDefinitionId { get; set; } = null!;
 
         public GetQueryDefinitionInvokeArgs()
         {

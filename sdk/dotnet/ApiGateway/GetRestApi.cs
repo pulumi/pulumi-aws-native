@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::RestApi
         /// </summary>
-        public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::RestApi
         /// </summary>
-        public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRestApiArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRestApiArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRestApiInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRestApiInvokeArgs()
         {

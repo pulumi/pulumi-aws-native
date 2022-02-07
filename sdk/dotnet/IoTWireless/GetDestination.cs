@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Destination's resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetDestinationResult> InvokeAsync(GetDestinationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDestinationResult> InvokeAsync(GetDestinationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDestinationResult>("aws-native:iotwireless:getDestination", args ?? new GetDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Destination's resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:iotwireless:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Unique name of destination
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetDestinationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Unique name of destination
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetDestinationInvokeArgs()
         {

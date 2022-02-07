@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
         /// </summary>
-        public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("aws-native:redshift:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
         /// </summary>
-        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:redshift:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the scheduled action. The name must be unique within an account.
         /// </summary>
-        [Input("scheduledActionName")]
-        public string? ScheduledActionName { get; set; }
+        [Input("scheduledActionName", required: true)]
+        public string ScheduledActionName { get; set; } = null!;
 
         public GetScheduledActionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the scheduled action. The name must be unique within an account.
         /// </summary>
-        [Input("scheduledActionName")]
-        public Input<string>? ScheduledActionName { get; set; }
+        [Input("scheduledActionName", required: true)]
+        public Input<string> ScheduledActionName { get; set; } = null!;
 
         public GetScheduledActionInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// Resource schema for AWS::Detective::MemberInvitation
         /// </summary>
-        public static Task<GetMemberInvitationResult> InvokeAsync(GetMemberInvitationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMemberInvitationResult> InvokeAsync(GetMemberInvitationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Detective::MemberInvitation
         /// </summary>
-        public static Output<GetMemberInvitationResult> Invoke(GetMemberInvitationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMemberInvitationResult> Invoke(GetMemberInvitationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// The ARN of the graph to which the member account will be invited
         /// </summary>
-        [Input("graphArn")]
-        public string? GraphArn { get; set; }
+        [Input("graphArn", required: true)]
+        public string GraphArn { get; set; } = null!;
 
         /// <summary>
         /// The AWS account ID to be invited to join the graph as a member
         /// </summary>
-        [Input("memberId")]
-        public string? MemberId { get; set; }
+        [Input("memberId", required: true)]
+        public string MemberId { get; set; } = null!;
 
         public GetMemberInvitationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// The ARN of the graph to which the member account will be invited
         /// </summary>
-        [Input("graphArn")]
-        public Input<string>? GraphArn { get; set; }
+        [Input("graphArn", required: true)]
+        public Input<string> GraphArn { get; set; } = null!;
 
         /// <summary>
         /// The AWS account ID to be invited to join the graph as a member
         /// </summary>
-        [Input("memberId")]
-        public Input<string>? MemberId { get; set; }
+        [Input("memberId", required: true)]
+        public Input<string> MemberId { get; set; } = null!;
 
         public GetMemberInvitationInvokeArgs()
         {

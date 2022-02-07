@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Amplify
         /// <summary>
         /// The AWS::Amplify::Branch resource creates a new branch within an app.
         /// </summary>
-        public static Task<GetBranchResult> InvokeAsync(GetBranchArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBranchResult> InvokeAsync(GetBranchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBranchResult>("aws-native:amplify:getBranch", args ?? new GetBranchArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Amplify::Branch resource creates a new branch within an app.
         /// </summary>
-        public static Output<GetBranchResult> Invoke(GetBranchInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBranchResult> Invoke(GetBranchInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBranchResult>("aws-native:amplify:getBranch", args ?? new GetBranchInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBranchArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetBranchArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetBranchInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetBranchInvokeArgs()
         {

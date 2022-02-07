@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DataPipeline
         /// <summary>
         /// Resource Type definition for AWS::DataPipeline::Pipeline
         /// </summary>
-        public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("aws-native:datapipeline:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DataPipeline::Pipeline
         /// </summary>
-        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:datapipeline:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPipelineArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPipelineArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DataPipeline
 
     public sealed class GetPipelineInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPipelineInvokeArgs()
         {

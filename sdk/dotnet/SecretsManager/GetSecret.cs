@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SecretsManager
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::Secret
         /// </summary>
-        public static Task<GetSecretResult> InvokeAsync(GetSecretArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::Secret
         /// </summary>
-        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSecretArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSecretInvokeArgs()
         {

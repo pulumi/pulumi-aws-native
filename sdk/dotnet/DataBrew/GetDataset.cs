@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Resource schema for AWS::DataBrew::Dataset.
         /// </summary>
-        public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("aws-native:databrew:getDataset", args ?? new GetDatasetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataBrew::Dataset.
         /// </summary>
-        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:databrew:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Dataset name
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetDatasetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Dataset name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetDatasetInvokeArgs()
         {

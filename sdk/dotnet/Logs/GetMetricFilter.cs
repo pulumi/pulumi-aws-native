@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Resource Type definition for AWS::Logs::MetricFilter
         /// </summary>
-        public static Task<GetMetricFilterResult> InvokeAsync(GetMetricFilterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMetricFilterResult> InvokeAsync(GetMetricFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Logs::MetricFilter
         /// </summary>
-        public static Output<GetMetricFilterResult> Invoke(GetMetricFilterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMetricFilterResult> Invoke(GetMetricFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMetricFilterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMetricFilterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetMetricFilterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMetricFilterInvokeArgs()
         {

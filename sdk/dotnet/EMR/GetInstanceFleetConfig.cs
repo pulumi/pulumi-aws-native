@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// Resource Type definition for AWS::EMR::InstanceFleetConfig
         /// </summary>
-        public static Task<GetInstanceFleetConfigResult> InvokeAsync(GetInstanceFleetConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceFleetConfigResult> InvokeAsync(GetInstanceFleetConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceFleetConfigResult>("aws-native:emr:getInstanceFleetConfig", args ?? new GetInstanceFleetConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::InstanceFleetConfig
         /// </summary>
-        public static Output<GetInstanceFleetConfigResult> Invoke(GetInstanceFleetConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceFleetConfigResult> Invoke(GetInstanceFleetConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceFleetConfigResult>("aws-native:emr:getInstanceFleetConfig", args ?? new GetInstanceFleetConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInstanceFleetConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInstanceFleetConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EMR
 
     public sealed class GetInstanceFleetConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInstanceFleetConfigInvokeArgs()
         {

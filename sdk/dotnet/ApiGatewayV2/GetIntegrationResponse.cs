@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
         /// </summary>
-        public static Task<GetIntegrationResponseResult> InvokeAsync(GetIntegrationResponseArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIntegrationResponseResult> InvokeAsync(GetIntegrationResponseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResponseResult>("aws-native:apigatewayv2:getIntegrationResponse", args ?? new GetIntegrationResponseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
         /// </summary>
-        public static Output<GetIntegrationResponseResult> Invoke(GetIntegrationResponseInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIntegrationResponseResult> Invoke(GetIntegrationResponseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIntegrationResponseResult>("aws-native:apigatewayv2:getIntegrationResponse", args ?? new GetIntegrationResponseInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIntegrationResponseArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetIntegrationResponseArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetIntegrationResponseInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetIntegrationResponseInvokeArgs()
         {

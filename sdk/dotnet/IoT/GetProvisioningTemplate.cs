@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Creates a fleet provisioning template.
         /// </summary>
-        public static Task<GetProvisioningTemplateResult> InvokeAsync(GetProvisioningTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProvisioningTemplateResult> InvokeAsync(GetProvisioningTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates a fleet provisioning template.
         /// </summary>
-        public static Output<GetProvisioningTemplateResult> Invoke(GetProvisioningTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProvisioningTemplateResult> Invoke(GetProvisioningTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetProvisioningTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("templateName")]
-        public string? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public string TemplateName { get; set; } = null!;
 
         public GetProvisioningTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetProvisioningTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("templateName")]
-        public Input<string>? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
 
         public GetProvisioningTemplateInvokeArgs()
         {

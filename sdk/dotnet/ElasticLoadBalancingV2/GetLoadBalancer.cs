@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
         /// </summary>
-        public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws-native:elasticloadbalancingv2:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
         /// </summary>
-        public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws-native:elasticloadbalancingv2:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLoadBalancerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLoadBalancerInvokeArgs()
         {

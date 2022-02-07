@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Resource Type definition for AWS::Connect::QuickConnect
         /// </summary>
-        public static Task<GetQuickConnectResult> InvokeAsync(GetQuickConnectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetQuickConnectResult> InvokeAsync(GetQuickConnectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQuickConnectResult>("aws-native:connect:getQuickConnect", args ?? new GetQuickConnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::QuickConnect
         /// </summary>
-        public static Output<GetQuickConnectResult> Invoke(GetQuickConnectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetQuickConnectResult> Invoke(GetQuickConnectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws-native:connect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the quick connect.
         /// </summary>
-        [Input("quickConnectArn")]
-        public string? QuickConnectArn { get; set; }
+        [Input("quickConnectArn", required: true)]
+        public string QuickConnectArn { get; set; } = null!;
 
         public GetQuickConnectArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the quick connect.
         /// </summary>
-        [Input("quickConnectArn")]
-        public Input<string>? QuickConnectArn { get; set; }
+        [Input("quickConnectArn", required: true)]
+        public Input<string> QuickConnectArn { get; set; } = null!;
 
         public GetQuickConnectInvokeArgs()
         {

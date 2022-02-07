@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
         /// </summary>
-        public static Task<GetJobTemplateResult> InvokeAsync(GetJobTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetJobTemplateResult> InvokeAsync(GetJobTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
         /// </summary>
-        public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetJobTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("jobTemplateId")]
-        public string? JobTemplateId { get; set; }
+        [Input("jobTemplateId", required: true)]
+        public string JobTemplateId { get; set; } = null!;
 
         public GetJobTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetJobTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("jobTemplateId")]
-        public Input<string>? JobTemplateId { get; set; }
+        [Input("jobTemplateId", required: true)]
+        public Input<string> JobTemplateId { get; set; } = null!;
 
         public GetJobTemplateInvokeArgs()
         {

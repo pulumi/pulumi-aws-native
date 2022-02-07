@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
         /// </summary>
-        public static Task<GetWebACLAssociationResult> InvokeAsync(GetWebACLAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWebACLAssociationResult> InvokeAsync(GetWebACLAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebACLAssociationResult>("aws-native:wafv2:getWebACLAssociation", args ?? new GetWebACLAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
         /// </summary>
-        public static Output<GetWebACLAssociationResult> Invoke(GetWebACLAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWebACLAssociationResult> Invoke(GetWebACLAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebACLAssociationResult>("aws-native:wafv2:getWebACLAssociation", args ?? new GetWebACLAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWebACLAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("resourceArn")]
-        public string? ResourceArn { get; set; }
+        [Input("resourceArn", required: true)]
+        public string ResourceArn { get; set; } = null!;
 
-        [Input("webACLArn")]
-        public string? WebACLArn { get; set; }
+        [Input("webACLArn", required: true)]
+        public string WebACLArn { get; set; } = null!;
 
         public GetWebACLAssociationArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class GetWebACLAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("resourceArn")]
-        public Input<string>? ResourceArn { get; set; }
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
 
-        [Input("webACLArn")]
-        public Input<string>? WebACLArn { get; set; }
+        [Input("webACLArn", required: true)]
+        public Input<string> WebACLArn { get; set; } = null!;
 
         public GetWebACLAssociationInvokeArgs()
         {

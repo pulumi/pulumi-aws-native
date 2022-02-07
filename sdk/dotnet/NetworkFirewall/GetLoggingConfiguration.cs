@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
         /// </summary>
-        public static Task<GetLoggingConfigurationResult> InvokeAsync(GetLoggingConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLoggingConfigurationResult> InvokeAsync(GetLoggingConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggingConfigurationResult>("aws-native:networkfirewall:getLoggingConfiguration", args ?? new GetLoggingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
         /// </summary>
-        public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:networkfirewall:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLoggingConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("firewallArn")]
-        public string? FirewallArn { get; set; }
+        [Input("firewallArn", required: true)]
+        public string FirewallArn { get; set; } = null!;
 
         public GetLoggingConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetLoggingConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("firewallArn")]
-        public Input<string>? FirewallArn { get; set; }
+        [Input("firewallArn", required: true)]
+        public Input<string> FirewallArn { get; set; } = null!;
 
         public GetLoggingConfigurationInvokeArgs()
         {

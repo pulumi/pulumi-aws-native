@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
         /// </summary>
-        public static Task<GetNotebookInstanceLifecycleConfigResult> InvokeAsync(GetNotebookInstanceLifecycleConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNotebookInstanceLifecycleConfigResult> InvokeAsync(GetNotebookInstanceLifecycleConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookInstanceLifecycleConfigResult>("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args ?? new GetNotebookInstanceLifecycleConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
         /// </summary>
-        public static Output<GetNotebookInstanceLifecycleConfigResult> Invoke(GetNotebookInstanceLifecycleConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNotebookInstanceLifecycleConfigResult> Invoke(GetNotebookInstanceLifecycleConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNotebookInstanceLifecycleConfigResult>("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args ?? new GetNotebookInstanceLifecycleConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNotebookInstanceLifecycleConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetNotebookInstanceLifecycleConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetNotebookInstanceLifecycleConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetNotebookInstanceLifecycleConfigInvokeArgs()
         {

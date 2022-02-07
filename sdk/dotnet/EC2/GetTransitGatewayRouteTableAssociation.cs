@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
         /// </summary>
-        public static Task<GetTransitGatewayRouteTableAssociationResult> InvokeAsync(GetTransitGatewayRouteTableAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayRouteTableAssociationResult> InvokeAsync(GetTransitGatewayRouteTableAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRouteTableAssociationResult>("aws-native:ec2:getTransitGatewayRouteTableAssociation", args ?? new GetTransitGatewayRouteTableAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
         /// </summary>
-        public static Output<GetTransitGatewayRouteTableAssociationResult> Invoke(GetTransitGatewayRouteTableAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayRouteTableAssociationResult> Invoke(GetTransitGatewayRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTableAssociationResult>("aws-native:ec2:getTransitGatewayRouteTableAssociation", args ?? new GetTransitGatewayRouteTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTransitGatewayRouteTableAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTransitGatewayRouteTableAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetTransitGatewayRouteTableAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTransitGatewayRouteTableAssociationInvokeArgs()
         {

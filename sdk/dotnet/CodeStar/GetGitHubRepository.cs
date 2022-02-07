@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CodeStar
         /// <summary>
         /// Resource Type definition for AWS::CodeStar::GitHubRepository
         /// </summary>
-        public static Task<GetGitHubRepositoryResult> InvokeAsync(GetGitHubRepositoryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGitHubRepositoryResult> InvokeAsync(GetGitHubRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGitHubRepositoryResult>("aws-native:codestar:getGitHubRepository", args ?? new GetGitHubRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeStar::GitHubRepository
         /// </summary>
-        public static Output<GetGitHubRepositoryResult> Invoke(GetGitHubRepositoryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGitHubRepositoryResult> Invoke(GetGitHubRepositoryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGitHubRepositoryResult>("aws-native:codestar:getGitHubRepository", args ?? new GetGitHubRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGitHubRepositoryArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGitHubRepositoryArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CodeStar
 
     public sealed class GetGitHubRepositoryInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGitHubRepositoryInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
         /// </summary>
-        public static Task<GetMitigationActionResult> InvokeAsync(GetMitigationActionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMitigationActionResult> InvokeAsync(GetMitigationActionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMitigationActionResult>("aws-native:iot:getMitigationAction", args ?? new GetMitigationActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
         /// </summary>
-        public static Output<GetMitigationActionResult> Invoke(GetMitigationActionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMitigationActionResult> Invoke(GetMitigationActionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMitigationActionResult>("aws-native:iot:getMitigationAction", args ?? new GetMitigationActionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A unique identifier for the mitigation action.
         /// </summary>
-        [Input("actionName")]
-        public string? ActionName { get; set; }
+        [Input("actionName", required: true)]
+        public string ActionName { get; set; } = null!;
 
         public GetMitigationActionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A unique identifier for the mitigation action.
         /// </summary>
-        [Input("actionName")]
-        public Input<string>? ActionName { get; set; }
+        [Input("actionName", required: true)]
+        public Input<string> ActionName { get; set; } = null!;
 
         public GetMitigationActionInvokeArgs()
         {

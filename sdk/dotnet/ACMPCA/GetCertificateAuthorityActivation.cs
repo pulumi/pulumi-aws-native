@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// Used to install the certificate authority certificate and update the certificate authority status.
         /// </summary>
-        public static Task<GetCertificateAuthorityActivationResult> InvokeAsync(GetCertificateAuthorityActivationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCertificateAuthorityActivationResult> InvokeAsync(GetCertificateAuthorityActivationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Used to install the certificate authority certificate and update the certificate authority status.
         /// </summary>
-        public static Output<GetCertificateAuthorityActivationResult> Invoke(GetCertificateAuthorityActivationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCertificateAuthorityActivationResult> Invoke(GetCertificateAuthorityActivationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// Arn of the Certificate Authority.
         /// </summary>
-        [Input("certificateAuthorityArn")]
-        public string? CertificateAuthorityArn { get; set; }
+        [Input("certificateAuthorityArn", required: true)]
+        public string CertificateAuthorityArn { get; set; } = null!;
 
         public GetCertificateAuthorityActivationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// Arn of the Certificate Authority.
         /// </summary>
-        [Input("certificateAuthorityArn")]
-        public Input<string>? CertificateAuthorityArn { get; set; }
+        [Input("certificateAuthorityArn", required: true)]
+        public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         public GetCertificateAuthorityActivationInvokeArgs()
         {

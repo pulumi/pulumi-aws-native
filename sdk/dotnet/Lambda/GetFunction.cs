@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Function
         /// </summary>
-        public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws-native:lambda:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Function
         /// </summary>
-        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws-native:lambda:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         /// </summary>
-        [Input("functionName")]
-        public string? FunctionName { get; set; }
+        [Input("functionName", required: true)]
+        public string FunctionName { get; set; } = null!;
 
         public GetFunctionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         /// </summary>
-        [Input("functionName")]
-        public Input<string>? FunctionName { get; set; }
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
 
         public GetFunctionInvokeArgs()
         {

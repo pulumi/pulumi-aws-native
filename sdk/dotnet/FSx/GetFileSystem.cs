@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.FSx
         /// <summary>
         /// Resource Type definition for AWS::FSx::FileSystem
         /// </summary>
-        public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws-native:fsx:getFileSystem", args ?? new GetFileSystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::FSx::FileSystem
         /// </summary>
-        public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws-native:fsx:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFileSystemArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFileSystemArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.FSx
 
     public sealed class GetFileSystemInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFileSystemInvokeArgs()
         {

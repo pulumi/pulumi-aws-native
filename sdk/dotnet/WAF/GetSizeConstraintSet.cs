@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAF
         /// <summary>
         /// Resource Type definition for AWS::WAF::SizeConstraintSet
         /// </summary>
-        public static Task<GetSizeConstraintSetResult> InvokeAsync(GetSizeConstraintSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSizeConstraintSetResult> InvokeAsync(GetSizeConstraintSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSizeConstraintSetResult>("aws-native:waf:getSizeConstraintSet", args ?? new GetSizeConstraintSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::SizeConstraintSet
         /// </summary>
-        public static Output<GetSizeConstraintSetResult> Invoke(GetSizeConstraintSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSizeConstraintSetResult> Invoke(GetSizeConstraintSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSizeConstraintSetResult>("aws-native:waf:getSizeConstraintSet", args ?? new GetSizeConstraintSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSizeConstraintSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSizeConstraintSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class GetSizeConstraintSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSizeConstraintSetInvokeArgs()
         {

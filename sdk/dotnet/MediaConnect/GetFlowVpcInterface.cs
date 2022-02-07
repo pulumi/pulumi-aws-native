@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowVpcInterface
         /// </summary>
-        public static Task<GetFlowVpcInterfaceResult> InvokeAsync(GetFlowVpcInterfaceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFlowVpcInterfaceResult> InvokeAsync(GetFlowVpcInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowVpcInterface
         /// </summary>
-        public static Output<GetFlowVpcInterfaceResult> Invoke(GetFlowVpcInterfaceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFlowVpcInterfaceResult> Invoke(GetFlowVpcInterfaceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
-        [Input("flowArn")]
-        public string? FlowArn { get; set; }
+        [Input("flowArn", required: true)]
+        public string FlowArn { get; set; } = null!;
 
         /// <summary>
         /// Immutable and has to be a unique against other VpcInterfaces in this Flow.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetFlowVpcInterfaceArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
-        [Input("flowArn")]
-        public Input<string>? FlowArn { get; set; }
+        [Input("flowArn", required: true)]
+        public Input<string> FlowArn { get; set; } = null!;
 
         /// <summary>
         /// Immutable and has to be a unique against other VpcInterfaces in this Flow.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetFlowVpcInterfaceInvokeArgs()
         {

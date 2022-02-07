@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Feature.
         /// </summary>
-        public static Task<GetFeatureResult> InvokeAsync(GetFeatureArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFeatureResult> InvokeAsync(GetFeatureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Feature.
         /// </summary>
-        public static Output<GetFeatureResult> Invoke(GetFeatureInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFeatureResult> Invoke(GetFeatureInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFeatureArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetFeatureArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetFeatureInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetFeatureInvokeArgs()
         {

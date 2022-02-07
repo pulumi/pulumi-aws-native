@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
         /// </summary>
-        public static Task<GetIPSetResult> InvokeAsync(GetIPSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIPSetResult> InvokeAsync(GetIPSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIPSetResult>("aws-native:wafv2:getIPSet", args ?? new GetIPSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
         /// </summary>
-        public static Output<GetIPSetResult> Invoke(GetIPSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIPSetResult> Invoke(GetIPSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIPSetResult>("aws-native:wafv2:getIPSet", args ?? new GetIPSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIPSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
-        [Input("scope")]
-        public Pulumi.AwsNative.WAFv2.IPSetScope? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Pulumi.AwsNative.WAFv2.IPSetScope Scope { get; set; }
 
         public GetIPSetArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class GetIPSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
-        [Input("scope")]
-        public Input<Pulumi.AwsNative.WAFv2.IPSetScope>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Pulumi.AwsNative.WAFv2.IPSetScope> Scope { get; set; } = null!;
 
         public GetIPSetInvokeArgs()
         {

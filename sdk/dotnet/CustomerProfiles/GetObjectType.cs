@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// An ObjectType resource of Amazon Connect Customer Profiles
         /// </summary>
-        public static Task<GetObjectTypeResult> InvokeAsync(GetObjectTypeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetObjectTypeResult> InvokeAsync(GetObjectTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectTypeResult>("aws-native:customerprofiles:getObjectType", args ?? new GetObjectTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// An ObjectType resource of Amazon Connect Customer Profiles
         /// </summary>
-        public static Output<GetObjectTypeResult> Invoke(GetObjectTypeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetObjectTypeResult> Invoke(GetObjectTypeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetObjectTypeResult>("aws-native:customerprofiles:getObjectType", args ?? new GetObjectTypeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public string? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         /// <summary>
         /// The name of the profile object type.
         /// </summary>
-        [Input("objectTypeName")]
-        public string? ObjectTypeName { get; set; }
+        [Input("objectTypeName", required: true)]
+        public string ObjectTypeName { get; set; } = null!;
 
         public GetObjectTypeArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// The name of the profile object type.
         /// </summary>
-        [Input("objectTypeName")]
-        public Input<string>? ObjectTypeName { get; set; }
+        [Input("objectTypeName", required: true)]
+        public Input<string> ObjectTypeName { get; set; } = null!;
 
         public GetObjectTypeInvokeArgs()
         {

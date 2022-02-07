@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::DomainName
         /// </summary>
-        public static Task<GetDomainNameResult> InvokeAsync(GetDomainNameArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainNameResult> InvokeAsync(GetDomainNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameResult>("aws-native:apigatewayv2:getDomainName", args ?? new GetDomainNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::DomainName
         /// </summary>
-        public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:apigatewayv2:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDomainNameArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDomainNameArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetDomainNameInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDomainNameInvokeArgs()
         {

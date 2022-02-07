@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroup
         /// </summary>
-        public static Task<GetClusterSecurityGroupResult> InvokeAsync(GetClusterSecurityGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterSecurityGroupResult> InvokeAsync(GetClusterSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSecurityGroupResult>("aws-native:redshift:getClusterSecurityGroup", args ?? new GetClusterSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroup
         /// </summary>
-        public static Output<GetClusterSecurityGroupResult> Invoke(GetClusterSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterSecurityGroupResult> Invoke(GetClusterSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterSecurityGroupResult>("aws-native:redshift:getClusterSecurityGroup", args ?? new GetClusterSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClusterSecurityGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClusterSecurityGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class GetClusterSecurityGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClusterSecurityGroupInvokeArgs()
         {

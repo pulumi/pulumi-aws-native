@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
         /// </summary>
-        public static Task<GetAttributeGroupResult> InvokeAsync(GetAttributeGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAttributeGroupResult> InvokeAsync(GetAttributeGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttributeGroupResult>("aws-native:servicecatalogappregistry:getAttributeGroup", args ?? new GetAttributeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
         /// </summary>
-        public static Output<GetAttributeGroupResult> Invoke(GetAttributeGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAttributeGroupResult> Invoke(GetAttributeGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAttributeGroupResult>("aws-native:servicecatalogappregistry:getAttributeGroup", args ?? new GetAttributeGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAttributeGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAttributeGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetAttributeGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAttributeGroupInvokeArgs()
         {

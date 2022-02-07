@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAF
         /// <summary>
         /// Resource Type definition for AWS::WAF::IPSet
         /// </summary>
-        public static Task<GetIPSetResult> InvokeAsync(GetIPSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIPSetResult> InvokeAsync(GetIPSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIPSetResult>("aws-native:waf:getIPSet", args ?? new GetIPSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::IPSet
         /// </summary>
-        public static Output<GetIPSetResult> Invoke(GetIPSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIPSetResult> Invoke(GetIPSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIPSetResult>("aws-native:waf:getIPSet", args ?? new GetIPSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIPSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetIPSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class GetIPSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetIPSetInvokeArgs()
         {

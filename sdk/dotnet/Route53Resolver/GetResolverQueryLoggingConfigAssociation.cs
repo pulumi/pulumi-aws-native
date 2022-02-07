@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
         /// </summary>
-        public static Task<GetResolverQueryLoggingConfigAssociationResult> InvokeAsync(GetResolverQueryLoggingConfigAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResolverQueryLoggingConfigAssociationResult> InvokeAsync(GetResolverQueryLoggingConfigAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverQueryLoggingConfigAssociationResult>("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args ?? new GetResolverQueryLoggingConfigAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
         /// </summary>
-        public static Output<GetResolverQueryLoggingConfigAssociationResult> Invoke(GetResolverQueryLoggingConfigAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResolverQueryLoggingConfigAssociationResult> Invoke(GetResolverQueryLoggingConfigAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResolverQueryLoggingConfigAssociationResult>("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args ?? new GetResolverQueryLoggingConfigAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Id
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResolverQueryLoggingConfigAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Id
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResolverQueryLoggingConfigAssociationInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::Device type describes a device.
         /// </summary>
-        public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws-native:networkmanager:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::Device type describes a device.
         /// </summary>
-        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws-native:networkmanager:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the device.
         /// </summary>
-        [Input("deviceId")]
-        public string? DeviceId { get; set; }
+        [Input("deviceId", required: true)]
+        public string DeviceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public string? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public string GlobalNetworkId { get; set; } = null!;
 
         public GetDeviceArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the device.
         /// </summary>
-        [Input("deviceId")]
-        public Input<string>? DeviceId { get; set; }
+        [Input("deviceId", required: true)]
+        public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public Input<string>? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         public GetDeviceInvokeArgs()
         {

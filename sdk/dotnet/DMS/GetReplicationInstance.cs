@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DMS
         /// <summary>
         /// Resource Type definition for AWS::DMS::ReplicationInstance
         /// </summary>
-        public static Task<GetReplicationInstanceResult> InvokeAsync(GetReplicationInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReplicationInstanceResult> InvokeAsync(GetReplicationInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationInstanceResult>("aws-native:dms:getReplicationInstance", args ?? new GetReplicationInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DMS::ReplicationInstance
         /// </summary>
-        public static Output<GetReplicationInstanceResult> Invoke(GetReplicationInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReplicationInstanceResult> Invoke(GetReplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationInstanceResult>("aws-native:dms:getReplicationInstance", args ?? new GetReplicationInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReplicationInstanceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetReplicationInstanceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DMS
 
     public sealed class GetReplicationInstanceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetReplicationInstanceInvokeArgs()
         {

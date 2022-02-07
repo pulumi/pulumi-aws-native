@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetCidrBlock
         /// </summary>
-        public static Task<GetSubnetCidrBlockResult> InvokeAsync(GetSubnetCidrBlockArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubnetCidrBlockResult> InvokeAsync(GetSubnetCidrBlockArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetCidrBlock
         /// </summary>
-        public static Output<GetSubnetCidrBlockResult> Invoke(GetSubnetCidrBlockInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubnetCidrBlockResult> Invoke(GetSubnetCidrBlockInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubnetCidrBlockArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubnetCidrBlockArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSubnetCidrBlockInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubnetCidrBlockInvokeArgs()
         {

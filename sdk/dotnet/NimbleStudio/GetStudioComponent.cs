@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
         /// </summary>
-        public static Task<GetStudioComponentResult> InvokeAsync(GetStudioComponentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStudioComponentResult> InvokeAsync(GetStudioComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStudioComponentResult>("aws-native:nimblestudio:getStudioComponent", args ?? new GetStudioComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
         /// </summary>
-        public static Output<GetStudioComponentResult> Invoke(GetStudioComponentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStudioComponentResult> Invoke(GetStudioComponentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStudioComponentResult>("aws-native:nimblestudio:getStudioComponent", args ?? new GetStudioComponentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStudioComponentArgs : Pulumi.InvokeArgs
     {
-        [Input("studioComponentId")]
-        public string? StudioComponentId { get; set; }
+        [Input("studioComponentId", required: true)]
+        public string StudioComponentId { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The studioId. &lt;/p&gt;
         /// </summary>
-        [Input("studioId")]
-        public string? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public string StudioId { get; set; } = null!;
 
         public GetStudioComponentArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioComponentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("studioComponentId")]
-        public Input<string>? StudioComponentId { get; set; }
+        [Input("studioComponentId", required: true)]
+        public Input<string> StudioComponentId { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The studioId. &lt;/p&gt;
         /// </summary>
-        [Input("studioId")]
-        public Input<string>? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public Input<string> StudioId { get; set; } = null!;
 
         public GetStudioComponentInvokeArgs()
         {

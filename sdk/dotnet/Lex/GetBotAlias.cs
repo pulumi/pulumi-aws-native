@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Lex
         /// <summary>
         /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
         /// </summary>
-        public static Task<GetBotAliasResult> InvokeAsync(GetBotAliasArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBotAliasResult> InvokeAsync(GetBotAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
         /// </summary>
-        public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBotAliasArgs : Pulumi.InvokeArgs
     {
-        [Input("botAliasId")]
-        public string? BotAliasId { get; set; }
+        [Input("botAliasId", required: true)]
+        public string BotAliasId { get; set; } = null!;
 
-        [Input("botId")]
-        public string? BotId { get; set; }
+        [Input("botId", required: true)]
+        public string BotId { get; set; } = null!;
 
         public GetBotAliasArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotAliasInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("botAliasId")]
-        public Input<string>? BotAliasId { get; set; }
+        [Input("botAliasId", required: true)]
+        public Input<string> BotAliasId { get; set; } = null!;
 
-        [Input("botId")]
-        public Input<string>? BotId { get; set; }
+        [Input("botId", required: true)]
+        public Input<string> BotId { get; set; } = null!;
 
         public GetBotAliasInvokeArgs()
         {

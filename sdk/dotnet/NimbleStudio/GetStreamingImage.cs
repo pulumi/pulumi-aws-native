@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// Represents a streaming session machine image that can be used to launch a streaming session
         /// </summary>
-        public static Task<GetStreamingImageResult> InvokeAsync(GetStreamingImageArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStreamingImageResult> InvokeAsync(GetStreamingImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a streaming session machine image that can be used to launch a streaming session
         /// </summary>
-        public static Output<GetStreamingImageResult> Invoke(GetStreamingImageInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStreamingImageResult> Invoke(GetStreamingImageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStreamingImageArgs : Pulumi.InvokeArgs
     {
-        [Input("streamingImageId")]
-        public string? StreamingImageId { get; set; }
+        [Input("streamingImageId", required: true)]
+        public string StreamingImageId { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The studioId. &lt;/p&gt;
         /// </summary>
-        [Input("studioId")]
-        public string? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public string StudioId { get; set; } = null!;
 
         public GetStreamingImageArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStreamingImageInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("streamingImageId")]
-        public Input<string>? StreamingImageId { get; set; }
+        [Input("streamingImageId", required: true)]
+        public Input<string> StreamingImageId { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The studioId. &lt;/p&gt;
         /// </summary>
-        [Input("studioId")]
-        public Input<string>? StudioId { get; set; }
+        [Input("studioId", required: true)]
+        public Input<string> StudioId { get; set; } = null!;
 
         public GetStreamingImageInvokeArgs()
         {

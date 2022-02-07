@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <summary>
         /// Resource type definition for AWS::SSMIncidents::ReplicationSet
         /// </summary>
-        public static Task<GetReplicationSetResult> InvokeAsync(GetReplicationSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReplicationSetResult> InvokeAsync(GetReplicationSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSetResult>("aws-native:ssmincidents:getReplicationSet", args ?? new GetReplicationSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::SSMIncidents::ReplicationSet
         /// </summary>
-        public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws-native:ssmincidents:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <summary>
         /// The ARN of the ReplicationSet.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetReplicationSetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <summary>
         /// The ARN of the ReplicationSet.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetReplicationSetInvokeArgs()
         {

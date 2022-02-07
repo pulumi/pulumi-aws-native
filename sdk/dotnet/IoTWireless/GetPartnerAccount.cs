@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Create and manage partner account
         /// </summary>
-        public static Task<GetPartnerAccountResult> InvokeAsync(GetPartnerAccountArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPartnerAccountResult> InvokeAsync(GetPartnerAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerAccountResult>("aws-native:iotwireless:getPartnerAccount", args ?? new GetPartnerAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage partner account
         /// </summary>
-        public static Output<GetPartnerAccountResult> Invoke(GetPartnerAccountInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPartnerAccountResult> Invoke(GetPartnerAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPartnerAccountResult>("aws-native:iotwireless:getPartnerAccount", args ?? new GetPartnerAccountInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// The partner account ID to disassociate from the AWS account
         /// </summary>
-        [Input("partnerAccountId")]
-        public string? PartnerAccountId { get; set; }
+        [Input("partnerAccountId", required: true)]
+        public string PartnerAccountId { get; set; } = null!;
 
         public GetPartnerAccountArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// The partner account ID to disassociate from the AWS account
         /// </summary>
-        [Input("partnerAccountId")]
-        public Input<string>? PartnerAccountId { get; set; }
+        [Input("partnerAccountId", required: true)]
+        public Input<string> PartnerAccountId { get; set; } = null!;
 
         public GetPartnerAccountInvokeArgs()
         {

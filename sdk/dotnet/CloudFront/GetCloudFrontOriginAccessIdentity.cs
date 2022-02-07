@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
         /// </summary>
-        public static Task<GetCloudFrontOriginAccessIdentityResult> InvokeAsync(GetCloudFrontOriginAccessIdentityArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCloudFrontOriginAccessIdentityResult> InvokeAsync(GetCloudFrontOriginAccessIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFrontOriginAccessIdentityResult>("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args ?? new GetCloudFrontOriginAccessIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
         /// </summary>
-        public static Output<GetCloudFrontOriginAccessIdentityResult> Invoke(GetCloudFrontOriginAccessIdentityInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCloudFrontOriginAccessIdentityResult> Invoke(GetCloudFrontOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCloudFrontOriginAccessIdentityResult>("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args ?? new GetCloudFrontOriginAccessIdentityInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCloudFrontOriginAccessIdentityArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCloudFrontOriginAccessIdentityArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCloudFrontOriginAccessIdentityInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCloudFrontOriginAccessIdentityInvokeArgs()
         {

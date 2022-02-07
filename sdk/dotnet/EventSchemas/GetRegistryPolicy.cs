@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::RegistryPolicy
         /// </summary>
-        public static Task<GetRegistryPolicyResult> InvokeAsync(GetRegistryPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRegistryPolicyResult> InvokeAsync(GetRegistryPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::RegistryPolicy
         /// </summary>
-        public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRegistryPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRegistryPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetRegistryPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRegistryPolicyInvokeArgs()
         {

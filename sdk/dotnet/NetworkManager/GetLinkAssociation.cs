@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
         /// </summary>
-        public static Task<GetLinkAssociationResult> InvokeAsync(GetLinkAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLinkAssociationResult> InvokeAsync(GetLinkAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkAssociationResult>("aws-native:networkmanager:getLinkAssociation", args ?? new GetLinkAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
         /// </summary>
-        public static Output<GetLinkAssociationResult> Invoke(GetLinkAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLinkAssociationResult> Invoke(GetLinkAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLinkAssociationResult>("aws-native:networkmanager:getLinkAssociation", args ?? new GetLinkAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the device
         /// </summary>
-        [Input("deviceId")]
-        public string? DeviceId { get; set; }
+        [Input("deviceId", required: true)]
+        public string DeviceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public string? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the link
         /// </summary>
-        [Input("linkId")]
-        public string? LinkId { get; set; }
+        [Input("linkId", required: true)]
+        public string LinkId { get; set; } = null!;
 
         public GetLinkAssociationArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the device
         /// </summary>
-        [Input("deviceId")]
-        public Input<string>? DeviceId { get; set; }
+        [Input("deviceId", required: true)]
+        public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public Input<string>? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the link
         /// </summary>
-        [Input("linkId")]
-        public Input<string>? LinkId { get; set; }
+        [Input("linkId", required: true)]
+        public Input<string> LinkId { get; set; } = null!;
 
         public GetLinkAssociationInvokeArgs()
         {

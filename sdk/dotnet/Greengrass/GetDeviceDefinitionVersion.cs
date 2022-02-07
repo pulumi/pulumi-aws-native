@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
         /// </summary>
-        public static Task<GetDeviceDefinitionVersionResult> InvokeAsync(GetDeviceDefinitionVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeviceDefinitionVersionResult> InvokeAsync(GetDeviceDefinitionVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceDefinitionVersionResult>("aws-native:greengrass:getDeviceDefinitionVersion", args ?? new GetDeviceDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
         /// </summary>
-        public static Output<GetDeviceDefinitionVersionResult> Invoke(GetDeviceDefinitionVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeviceDefinitionVersionResult> Invoke(GetDeviceDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceDefinitionVersionResult>("aws-native:greengrass:getDeviceDefinitionVersion", args ?? new GetDeviceDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeviceDefinitionVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeviceDefinitionVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetDeviceDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeviceDefinitionVersionInvokeArgs()
         {

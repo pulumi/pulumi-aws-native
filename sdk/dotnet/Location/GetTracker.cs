@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Definition of AWS::Location::Tracker Resource Type
         /// </summary>
-        public static Task<GetTrackerResult> InvokeAsync(GetTrackerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTrackerResult> InvokeAsync(GetTrackerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::Tracker Resource Type
         /// </summary>
-        public static Output<GetTrackerResult> Invoke(GetTrackerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTrackerResult> Invoke(GetTrackerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTrackerArgs : Pulumi.InvokeArgs
     {
-        [Input("trackerName")]
-        public string? TrackerName { get; set; }
+        [Input("trackerName", required: true)]
+        public string TrackerName { get; set; } = null!;
 
         public GetTrackerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetTrackerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("trackerName")]
-        public Input<string>? TrackerName { get; set; }
+        [Input("trackerName", required: true)]
+        public Input<string> TrackerName { get; set; } = null!;
 
         public GetTrackerInvokeArgs()
         {

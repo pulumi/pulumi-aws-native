@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::EventInvokeConfig
         /// </summary>
-        public static Task<GetEventInvokeConfigResult> InvokeAsync(GetEventInvokeConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventInvokeConfigResult> InvokeAsync(GetEventInvokeConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::EventInvokeConfig
         /// </summary>
-        public static Output<GetEventInvokeConfigResult> Invoke(GetEventInvokeConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventInvokeConfigResult> Invoke(GetEventInvokeConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEventInvokeConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEventInvokeConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventInvokeConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEventInvokeConfigInvokeArgs()
         {

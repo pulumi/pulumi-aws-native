@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
         /// </summary>
-        public static Task<GetInstanceAccessControlAttributeConfigurationResult> InvokeAsync(GetInstanceAccessControlAttributeConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceAccessControlAttributeConfigurationResult> InvokeAsync(GetInstanceAccessControlAttributeConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceAccessControlAttributeConfigurationResult>("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args ?? new GetInstanceAccessControlAttributeConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
         /// </summary>
-        public static Output<GetInstanceAccessControlAttributeConfigurationResult> Invoke(GetInstanceAccessControlAttributeConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceAccessControlAttributeConfigurationResult> Invoke(GetInstanceAccessControlAttributeConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceAccessControlAttributeConfigurationResult>("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args ?? new GetInstanceAccessControlAttributeConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The ARN of the AWS SSO instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
-        public string? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public string InstanceArn { get; set; } = null!;
 
         public GetInstanceAccessControlAttributeConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The ARN of the AWS SSO instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
-        public Input<string>? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
 
         public GetInstanceAccessControlAttributeConfigurationInvokeArgs()
         {

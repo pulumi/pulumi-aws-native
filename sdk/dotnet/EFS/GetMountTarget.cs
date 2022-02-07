@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EFS
         /// <summary>
         /// Resource Type definition for AWS::EFS::MountTarget
         /// </summary>
-        public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EFS::MountTarget
         /// </summary>
-        public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMountTargetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMountTargetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EFS
 
     public sealed class GetMountTargetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMountTargetInvokeArgs()
         {

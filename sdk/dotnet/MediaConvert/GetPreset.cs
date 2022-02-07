@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaConvert
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::Preset
         /// </summary>
-        public static Task<GetPresetResult> InvokeAsync(GetPresetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPresetResult> InvokeAsync(GetPresetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPresetResult>("aws-native:mediaconvert:getPreset", args ?? new GetPresetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::Preset
         /// </summary>
-        public static Output<GetPresetResult> Invoke(GetPresetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPresetResult> Invoke(GetPresetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPresetResult>("aws-native:mediaconvert:getPreset", args ?? new GetPresetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPresetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPresetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaConvert
 
     public sealed class GetPresetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPresetInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::DirectoryConfig
         /// </summary>
-        public static Task<GetDirectoryConfigResult> InvokeAsync(GetDirectoryConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDirectoryConfigResult> InvokeAsync(GetDirectoryConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryConfigResult>("aws-native:appstream:getDirectoryConfig", args ?? new GetDirectoryConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::DirectoryConfig
         /// </summary>
-        public static Output<GetDirectoryConfigResult> Invoke(GetDirectoryConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDirectoryConfigResult> Invoke(GetDirectoryConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDirectoryConfigResult>("aws-native:appstream:getDirectoryConfig", args ?? new GetDirectoryConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDirectoryConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDirectoryConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetDirectoryConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDirectoryConfigInvokeArgs()
         {

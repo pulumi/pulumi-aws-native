@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// <summary>
         /// Resource Type definition for AWS::CodeDeploy::DeploymentGroup
         /// </summary>
-        public static Task<GetDeploymentGroupResult> InvokeAsync(GetDeploymentGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeploymentGroupResult> InvokeAsync(GetDeploymentGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentGroupResult>("aws-native:codedeploy:getDeploymentGroup", args ?? new GetDeploymentGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeDeploy::DeploymentGroup
         /// </summary>
-        public static Output<GetDeploymentGroupResult> Invoke(GetDeploymentGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeploymentGroupResult> Invoke(GetDeploymentGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeploymentGroupResult>("aws-native:codedeploy:getDeploymentGroup", args ?? new GetDeploymentGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeploymentGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeploymentGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CodeDeploy
 
     public sealed class GetDeploymentGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeploymentGroupInvokeArgs()
         {

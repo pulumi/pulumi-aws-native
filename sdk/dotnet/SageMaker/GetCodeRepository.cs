@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::CodeRepository
         /// </summary>
-        public static Task<GetCodeRepositoryResult> InvokeAsync(GetCodeRepositoryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCodeRepositoryResult> InvokeAsync(GetCodeRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodeRepositoryResult>("aws-native:sagemaker:getCodeRepository", args ?? new GetCodeRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::CodeRepository
         /// </summary>
-        public static Output<GetCodeRepositoryResult> Invoke(GetCodeRepositoryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCodeRepositoryResult> Invoke(GetCodeRepositoryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCodeRepositoryResult>("aws-native:sagemaker:getCodeRepository", args ?? new GetCodeRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCodeRepositoryArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCodeRepositoryArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetCodeRepositoryInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCodeRepositoryInvokeArgs()
         {

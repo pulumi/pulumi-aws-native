@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// <summary>
         /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
         /// </summary>
-        public static Task<GetTestGridProjectResult> InvokeAsync(GetTestGridProjectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTestGridProjectResult> InvokeAsync(GetTestGridProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
         /// </summary>
-        public static Output<GetTestGridProjectResult> Invoke(GetTestGridProjectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTestGridProjectResult> Invoke(GetTestGridProjectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTestGridProjectArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetTestGridProjectArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetTestGridProjectInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetTestGridProjectInvokeArgs()
         {

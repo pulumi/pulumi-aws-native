@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Definition of AWS::Location::PlaceIndex Resource Type
         /// </summary>
-        public static Task<GetPlaceIndexResult> InvokeAsync(GetPlaceIndexArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPlaceIndexResult> InvokeAsync(GetPlaceIndexArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlaceIndexResult>("aws-native:location:getPlaceIndex", args ?? new GetPlaceIndexArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::PlaceIndex Resource Type
         /// </summary>
-        public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws-native:location:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPlaceIndexArgs : Pulumi.InvokeArgs
     {
-        [Input("indexName")]
-        public string? IndexName { get; set; }
+        [Input("indexName", required: true)]
+        public string IndexName { get; set; } = null!;
 
         public GetPlaceIndexArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetPlaceIndexInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("indexName")]
-        public Input<string>? IndexName { get; set; }
+        [Input("indexName", required: true)]
+        public Input<string> IndexName { get; set; } = null!;
 
         public GetPlaceIndexInvokeArgs()
         {

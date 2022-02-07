@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// This resource represents a schema of Glue Schema Registry.
         /// </summary>
-        public static Task<GetSchemaResult> InvokeAsync(GetSchemaArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSchemaResult> InvokeAsync(GetSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchemaResult>("aws-native:glue:getSchema", args ?? new GetSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource represents a schema of Glue Schema Registry.
         /// </summary>
-        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:glue:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Amazon Resource Name for the Schema.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetSchemaArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Amazon Resource Name for the Schema.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetSchemaInvokeArgs()
         {

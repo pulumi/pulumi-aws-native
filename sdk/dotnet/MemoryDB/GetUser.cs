@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// Resource Type definition for AWS::MemoryDB::User
         /// </summary>
-        public static Task<GetUserResult> InvokeAsync(GetUserArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws-native:memorydb:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MemoryDB::User
         /// </summary>
-        public static Output<GetUserResult> Invoke(GetUserInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws-native:memorydb:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the user.
         /// </summary>
-        [Input("userName")]
-        public string? UserName { get; set; }
+        [Input("userName", required: true)]
+        public string UserName { get; set; } = null!;
 
         public GetUserArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the user.
         /// </summary>
-        [Input("userName")]
-        public Input<string>? UserName { get; set; }
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public GetUserInvokeArgs()
         {

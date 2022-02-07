@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
         /// </summary>
-        public static Task<GetThreatIntelSetResult> InvokeAsync(GetThreatIntelSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetThreatIntelSetResult> InvokeAsync(GetThreatIntelSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
         /// </summary>
-        public static Output<GetThreatIntelSetResult> Invoke(GetThreatIntelSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetThreatIntelSetResult> Invoke(GetThreatIntelSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetThreatIntelSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetThreatIntelSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetThreatIntelSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetThreatIntelSetInvokeArgs()
         {

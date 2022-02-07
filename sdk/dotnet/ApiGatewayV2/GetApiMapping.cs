@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::ApiMapping
         /// </summary>
-        public static Task<GetApiMappingResult> InvokeAsync(GetApiMappingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApiMappingResult> InvokeAsync(GetApiMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::ApiMapping
         /// </summary>
-        public static Output<GetApiMappingResult> Invoke(GetApiMappingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApiMappingResult> Invoke(GetApiMappingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApiMappingArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApiMappingArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiMappingInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApiMappingInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAFRegional
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::Rule
         /// </summary>
-        public static Task<GetRuleResult> InvokeAsync(GetRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws-native:wafregional:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::Rule
         /// </summary>
-        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:wafregional:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class GetRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRuleInvokeArgs()
         {

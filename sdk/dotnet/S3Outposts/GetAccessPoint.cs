@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::AccessPoint
         /// </summary>
-        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("aws-native:s3outposts:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::AccessPoint
         /// </summary>
-        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3outposts:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified AccessPoint.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAccessPointArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified AccessPoint.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAccessPointInvokeArgs()
         {

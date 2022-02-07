@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::ApplicationSettings
         /// </summary>
-        public static Task<GetApplicationSettingsResult> InvokeAsync(GetApplicationSettingsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationSettingsResult> InvokeAsync(GetApplicationSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSettingsResult>("aws-native:pinpoint:getApplicationSettings", args ?? new GetApplicationSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::ApplicationSettings
         /// </summary>
-        public static Output<GetApplicationSettingsResult> Invoke(GetApplicationSettingsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationSettingsResult> Invoke(GetApplicationSettingsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationSettingsResult>("aws-native:pinpoint:getApplicationSettings", args ?? new GetApplicationSettingsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationSettingsArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApplicationSettingsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetApplicationSettingsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApplicationSettingsInvokeArgs()
         {

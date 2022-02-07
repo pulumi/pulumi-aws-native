@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// Resource schema for AWS::MediaPackage::Asset
         /// </summary>
-        public static Task<GetAssetResult> InvokeAsync(GetAssetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaPackage::Asset
         /// </summary>
-        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The unique identifier for the Asset.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAssetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The unique identifier for the Asset.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAssetInvokeArgs()
         {

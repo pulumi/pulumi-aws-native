@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaLive
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::InputSecurityGroup
         /// </summary>
-        public static Task<GetInputSecurityGroupResult> InvokeAsync(GetInputSecurityGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInputSecurityGroupResult> InvokeAsync(GetInputSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInputSecurityGroupResult>("aws-native:medialive:getInputSecurityGroup", args ?? new GetInputSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::InputSecurityGroup
         /// </summary>
-        public static Output<GetInputSecurityGroupResult> Invoke(GetInputSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInputSecurityGroupResult> Invoke(GetInputSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInputSecurityGroupResult>("aws-native:medialive:getInputSecurityGroup", args ?? new GetInputSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInputSecurityGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInputSecurityGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaLive
 
     public sealed class GetInputSecurityGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInputSecurityGroupInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Resource Type definition for AWS::Connect::UserHierarchyGroup
         /// </summary>
-        public static Task<GetUserHierarchyGroupResult> InvokeAsync(GetUserHierarchyGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserHierarchyGroupResult> InvokeAsync(GetUserHierarchyGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::UserHierarchyGroup
         /// </summary>
-        public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user hierarchy group.
         /// </summary>
-        [Input("userHierarchyGroupArn")]
-        public string? UserHierarchyGroupArn { get; set; }
+        [Input("userHierarchyGroupArn", required: true)]
+        public string UserHierarchyGroupArn { get; set; } = null!;
 
         public GetUserHierarchyGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user hierarchy group.
         /// </summary>
-        [Input("userHierarchyGroupArn")]
-        public Input<string>? UserHierarchyGroupArn { get; set; }
+        [Input("userHierarchyGroupArn", required: true)]
+        public Input<string> UserHierarchyGroupArn { get; set; } = null!;
 
         public GetUserHierarchyGroupInvokeArgs()
         {

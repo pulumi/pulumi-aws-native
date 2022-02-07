@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Batch
         /// <summary>
         /// Resource Type definition for AWS::Batch::JobDefinition
         /// </summary>
-        public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("aws-native:batch:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Batch::JobDefinition
         /// </summary>
-        public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("aws-native:batch:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetJobDefinitionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetJobDefinitionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetJobDefinitionInvokeArgs()
         {

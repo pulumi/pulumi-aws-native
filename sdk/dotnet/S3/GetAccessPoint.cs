@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
         /// </summary>
-        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("aws-native:s3:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
         /// </summary>
-        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetAccessPointArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetAccessPointInvokeArgs()
         {

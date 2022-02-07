@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// Definition of the AWS::QuickSight::Dashboard Resource Type.
         /// </summary>
-        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("aws-native:quicksight:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::Dashboard Resource Type.
         /// </summary>
-        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:quicksight:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDashboardArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
-        [Input("dashboardId")]
-        public string? DashboardId { get; set; }
+        [Input("dashboardId", required: true)]
+        public string DashboardId { get; set; } = null!;
 
         public GetDashboardArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("dashboardId")]
-        public Input<string>? DashboardId { get; set; }
+        [Input("dashboardId", required: true)]
+        public Input<string> DashboardId { get; set; } = null!;
 
         public GetDashboardInvokeArgs()
         {

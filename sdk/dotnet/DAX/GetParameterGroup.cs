@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DAX
         /// <summary>
         /// Resource Type definition for AWS::DAX::ParameterGroup
         /// </summary>
-        public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws-native:dax:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DAX::ParameterGroup
         /// </summary>
-        public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:dax:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetParameterGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetParameterGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DAX
 
     public sealed class GetParameterGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetParameterGroupInvokeArgs()
         {

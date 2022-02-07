@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::Listener
         /// </summary>
-        public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetListenerResult> InvokeAsync(GetListenerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::Listener
         /// </summary>
-        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
-        [Input("listenerArn")]
-        public string? ListenerArn { get; set; }
+        [Input("listenerArn", required: true)]
+        public string ListenerArn { get; set; } = null!;
 
         public GetListenerArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
-        [Input("listenerArn")]
-        public Input<string>? ListenerArn { get; set; }
+        [Input("listenerArn", required: true)]
+        public Input<string> ListenerArn { get; set; } = null!;
 
         public GetListenerInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
         /// </summary>
-        public static Task<GetResolverQueryLoggingConfigResult> InvokeAsync(GetResolverQueryLoggingConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResolverQueryLoggingConfigResult> InvokeAsync(GetResolverQueryLoggingConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverQueryLoggingConfigResult>("aws-native:route53resolver:getResolverQueryLoggingConfig", args ?? new GetResolverQueryLoggingConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
         /// </summary>
-        public static Output<GetResolverQueryLoggingConfigResult> Invoke(GetResolverQueryLoggingConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResolverQueryLoggingConfigResult> Invoke(GetResolverQueryLoggingConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResolverQueryLoggingConfigResult>("aws-native:route53resolver:getResolverQueryLoggingConfig", args ?? new GetResolverQueryLoggingConfigInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// ResourceId
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResolverQueryLoggingConfigArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// ResourceId
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResolverQueryLoggingConfigInvokeArgs()
         {

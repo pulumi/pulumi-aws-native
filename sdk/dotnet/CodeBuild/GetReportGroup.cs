@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CodeBuild
         /// <summary>
         /// Resource Type definition for AWS::CodeBuild::ReportGroup
         /// </summary>
-        public static Task<GetReportGroupResult> InvokeAsync(GetReportGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReportGroupResult> InvokeAsync(GetReportGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportGroupResult>("aws-native:codebuild:getReportGroup", args ?? new GetReportGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeBuild::ReportGroup
         /// </summary>
-        public static Output<GetReportGroupResult> Invoke(GetReportGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReportGroupResult> Invoke(GetReportGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReportGroupResult>("aws-native:codebuild:getReportGroup", args ?? new GetReportGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReportGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetReportGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CodeBuild
 
     public sealed class GetReportGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetReportGroupInvokeArgs()
         {

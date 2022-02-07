@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnEndpoint
         /// </summary>
-        public static Task<GetClientVpnEndpointResult> InvokeAsync(GetClientVpnEndpointArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClientVpnEndpointResult> InvokeAsync(GetClientVpnEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnEndpointResult>("aws-native:ec2:getClientVpnEndpoint", args ?? new GetClientVpnEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnEndpoint
         /// </summary>
-        public static Output<GetClientVpnEndpointResult> Invoke(GetClientVpnEndpointInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClientVpnEndpointResult> Invoke(GetClientVpnEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClientVpnEndpointResult>("aws-native:ec2:getClientVpnEndpoint", args ?? new GetClientVpnEndpointInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClientVpnEndpointArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClientVpnEndpointArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetClientVpnEndpointInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClientVpnEndpointInvokeArgs()
         {

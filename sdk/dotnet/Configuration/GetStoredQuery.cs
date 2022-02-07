@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::StoredQuery
         /// </summary>
-        public static Task<GetStoredQueryResult> InvokeAsync(GetStoredQueryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStoredQueryResult> InvokeAsync(GetStoredQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStoredQueryResult>("aws-native:configuration:getStoredQuery", args ?? new GetStoredQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::StoredQuery
         /// </summary>
-        public static Output<GetStoredQueryResult> Invoke(GetStoredQueryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStoredQueryResult> Invoke(GetStoredQueryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStoredQueryResult>("aws-native:configuration:getStoredQuery", args ?? new GetStoredQueryInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStoredQueryArgs : Pulumi.InvokeArgs
     {
-        [Input("queryName")]
-        public string? QueryName { get; set; }
+        [Input("queryName", required: true)]
+        public string QueryName { get; set; } = null!;
 
         public GetStoredQueryArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetStoredQueryInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("queryName")]
-        public Input<string>? QueryName { get; set; }
+        [Input("queryName", required: true)]
+        public Input<string> QueryName { get; set; } = null!;
 
         public GetStoredQueryInvokeArgs()
         {

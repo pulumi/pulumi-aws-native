@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RoboMaker
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetSimulationApplicationResult> InvokeAsync(GetSimulationApplicationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSimulationApplicationResult> InvokeAsync(GetSimulationApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetSimulationApplicationResult> Invoke(GetSimulationApplicationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSimulationApplicationResult> Invoke(GetSimulationApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSimulationApplicationArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetSimulationApplicationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetSimulationApplicationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetSimulationApplicationInvokeArgs()
         {

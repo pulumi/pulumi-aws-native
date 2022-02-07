@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Contains detailed information about a report plan in AWS Backup Audit Manager.
         /// </summary>
-        public static Task<GetReportPlanResult> InvokeAsync(GetReportPlanArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReportPlanResult> InvokeAsync(GetReportPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportPlanResult>("aws-native:backup:getReportPlan", args ?? new GetReportPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains detailed information about a report plan in AWS Backup Audit Manager.
         /// </summary>
-        public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws-native:backup:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
         /// </summary>
-        [Input("reportPlanArn")]
-        public string? ReportPlanArn { get; set; }
+        [Input("reportPlanArn", required: true)]
+        public string ReportPlanArn { get; set; } = null!;
 
         public GetReportPlanArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
         /// </summary>
-        [Input("reportPlanArn")]
-        public Input<string>? ReportPlanArn { get; set; }
+        [Input("reportPlanArn", required: true)]
+        public Input<string> ReportPlanArn { get; set; } = null!;
 
         public GetReportPlanInvokeArgs()
         {

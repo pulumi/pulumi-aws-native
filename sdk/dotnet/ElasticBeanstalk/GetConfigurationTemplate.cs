@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// <summary>
         /// Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
         /// </summary>
-        public static Task<GetConfigurationTemplateResult> InvokeAsync(GetConfigurationTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationTemplateResult> InvokeAsync(GetConfigurationTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationTemplateResult>("aws-native:elasticbeanstalk:getConfigurationTemplate", args ?? new GetConfigurationTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
         /// </summary>
-        public static Output<GetConfigurationTemplateResult> Invoke(GetConfigurationTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationTemplateResult> Invoke(GetConfigurationTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationTemplateResult>("aws-native:elasticbeanstalk:getConfigurationTemplate", args ?? new GetConfigurationTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigurationTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConfigurationTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class GetConfigurationTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConfigurationTemplateInvokeArgs()
         {

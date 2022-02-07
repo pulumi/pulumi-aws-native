@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
         /// </summary>
-        public static Task<GetRealtimeLogConfigResult> InvokeAsync(GetRealtimeLogConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRealtimeLogConfigResult> InvokeAsync(GetRealtimeLogConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRealtimeLogConfigResult>("aws-native:cloudfront:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
         /// </summary>
-        public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRealtimeLogConfigResult>("aws-native:cloudfront:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRealtimeLogConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRealtimeLogConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetRealtimeLogConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRealtimeLogConfigInvokeArgs()
         {

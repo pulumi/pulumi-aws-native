@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Definition of AWS::Location::GeofenceCollection Resource Type
         /// </summary>
-        public static Task<GetGeofenceCollectionResult> InvokeAsync(GetGeofenceCollectionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGeofenceCollectionResult> InvokeAsync(GetGeofenceCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeofenceCollectionResult>("aws-native:location:getGeofenceCollection", args ?? new GetGeofenceCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::GeofenceCollection Resource Type
         /// </summary>
-        public static Output<GetGeofenceCollectionResult> Invoke(GetGeofenceCollectionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGeofenceCollectionResult> Invoke(GetGeofenceCollectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGeofenceCollectionResult>("aws-native:location:getGeofenceCollection", args ?? new GetGeofenceCollectionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGeofenceCollectionArgs : Pulumi.InvokeArgs
     {
-        [Input("collectionName")]
-        public string? CollectionName { get; set; }
+        [Input("collectionName", required: true)]
+        public string CollectionName { get; set; } = null!;
 
         public GetGeofenceCollectionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetGeofenceCollectionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("collectionName")]
-        public Input<string>? CollectionName { get; set; }
+        [Input("collectionName", required: true)]
+        public Input<string> CollectionName { get; set; } = null!;
 
         public GetGeofenceCollectionInvokeArgs()
         {

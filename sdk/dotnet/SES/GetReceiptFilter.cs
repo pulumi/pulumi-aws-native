@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// Resource Type definition for AWS::SES::ReceiptFilter
         /// </summary>
-        public static Task<GetReceiptFilterResult> InvokeAsync(GetReceiptFilterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReceiptFilterResult> InvokeAsync(GetReceiptFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReceiptFilterResult>("aws-native:ses:getReceiptFilter", args ?? new GetReceiptFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SES::ReceiptFilter
         /// </summary>
-        public static Output<GetReceiptFilterResult> Invoke(GetReceiptFilterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReceiptFilterResult> Invoke(GetReceiptFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReceiptFilterResult>("aws-native:ses:getReceiptFilter", args ?? new GetReceiptFilterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReceiptFilterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetReceiptFilterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SES
 
     public sealed class GetReceiptFilterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetReceiptFilterInvokeArgs()
         {

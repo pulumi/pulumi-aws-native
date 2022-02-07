@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::Firewall
         /// </summary>
-        public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("aws-native:networkfirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::NetworkFirewall::Firewall
         /// </summary>
-        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws-native:networkfirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFirewallArgs : Pulumi.InvokeArgs
     {
-        [Input("firewallArn")]
-        public string? FirewallArn { get; set; }
+        [Input("firewallArn", required: true)]
+        public string FirewallArn { get; set; } = null!;
 
         public GetFirewallArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("firewallArn")]
-        public Input<string>? FirewallArn { get; set; }
+        [Input("firewallArn", required: true)]
+        public Input<string> FirewallArn { get; set; } = null!;
 
         public GetFirewallInvokeArgs()
         {

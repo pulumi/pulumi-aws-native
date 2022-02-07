@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.MediaLive
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::Channel
         /// </summary>
-        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:medialive:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::Channel
         /// </summary>
-        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:medialive:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MediaLive
 
     public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetChannelInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Resource Type definition for AWS::IVS::StreamKey
         /// </summary>
-        public static Task<GetStreamKeyResult> InvokeAsync(GetStreamKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStreamKeyResult> InvokeAsync(GetStreamKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamKeyResult>("aws-native:ivs:getStreamKey", args ?? new GetStreamKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IVS::StreamKey
         /// </summary>
-        public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws-native:ivs:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetStreamKeyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetStreamKeyInvokeArgs()
         {

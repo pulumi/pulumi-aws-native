@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::StaticIp
         /// </summary>
-        public static Task<GetStaticIpResult> InvokeAsync(GetStaticIpArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStaticIpResult> InvokeAsync(GetStaticIpArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::StaticIp
         /// </summary>
-        public static Output<GetStaticIpResult> Invoke(GetStaticIpInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStaticIpResult> Invoke(GetStaticIpInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name of the static IP address.
         /// </summary>
-        [Input("staticIpName")]
-        public string? StaticIpName { get; set; }
+        [Input("staticIpName", required: true)]
+        public string StaticIpName { get; set; } = null!;
 
         public GetStaticIpArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name of the static IP address.
         /// </summary>
-        [Input("staticIpName")]
-        public Input<string>? StaticIpName { get; set; }
+        [Input("staticIpName", required: true)]
+        public Input<string> StaticIpName { get; set; } = null!;
 
         public GetStaticIpInvokeArgs()
         {

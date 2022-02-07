@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource schema for AWS::SageMaker::DeviceFleet
         /// </summary>
-        public static Task<GetDeviceFleetResult> InvokeAsync(GetDeviceFleetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeviceFleetResult> InvokeAsync(GetDeviceFleetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceFleetResult>("aws-native:sagemaker:getDeviceFleet", args ?? new GetDeviceFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::SageMaker::DeviceFleet
         /// </summary>
-        public static Output<GetDeviceFleetResult> Invoke(GetDeviceFleetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeviceFleetResult> Invoke(GetDeviceFleetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceFleetResult>("aws-native:sagemaker:getDeviceFleet", args ?? new GetDeviceFleetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the edge device fleet
         /// </summary>
-        [Input("deviceFleetName")]
-        public string? DeviceFleetName { get; set; }
+        [Input("deviceFleetName", required: true)]
+        public string DeviceFleetName { get; set; } = null!;
 
         public GetDeviceFleetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the edge device fleet
         /// </summary>
-        [Input("deviceFleetName")]
-        public Input<string>? DeviceFleetName { get; set; }
+        [Input("deviceFleetName", required: true)]
+        public Input<string> DeviceFleetName { get; set; } = null!;
 
         public GetDeviceFleetInvokeArgs()
         {

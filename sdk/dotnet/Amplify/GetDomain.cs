@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Amplify
         /// <summary>
         /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
         /// </summary>
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
         /// </summary>
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDomainArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetDomainArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetDomainInvokeArgs()
         {

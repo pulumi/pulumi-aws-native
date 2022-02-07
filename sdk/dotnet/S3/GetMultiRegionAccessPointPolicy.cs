@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The policy to be attached to a Multi Region Access Point
         /// </summary>
-        public static Task<GetMultiRegionAccessPointPolicyResult> InvokeAsync(GetMultiRegionAccessPointPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMultiRegionAccessPointPolicyResult> InvokeAsync(GetMultiRegionAccessPointPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMultiRegionAccessPointPolicyResult>("aws-native:s3:getMultiRegionAccessPointPolicy", args ?? new GetMultiRegionAccessPointPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy to be attached to a Multi Region Access Point
         /// </summary>
-        public static Output<GetMultiRegionAccessPointPolicyResult> Invoke(GetMultiRegionAccessPointPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMultiRegionAccessPointPolicyResult> Invoke(GetMultiRegionAccessPointPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointPolicyResult>("aws-native:s3:getMultiRegionAccessPointPolicy", args ?? new GetMultiRegionAccessPointPolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The name of the Multi Region Access Point to apply policy
         /// </summary>
-        [Input("mrapName")]
-        public string? MrapName { get; set; }
+        [Input("mrapName", required: true)]
+        public string MrapName { get; set; } = null!;
 
         public GetMultiRegionAccessPointPolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The name of the Multi Region Access Point to apply policy
         /// </summary>
-        [Input("mrapName")]
-        public Input<string>? MrapName { get; set; }
+        [Input("mrapName", required: true)]
+        public Input<string> MrapName { get; set; } = null!;
 
         public GetMultiRegionAccessPointPolicyInvokeArgs()
         {

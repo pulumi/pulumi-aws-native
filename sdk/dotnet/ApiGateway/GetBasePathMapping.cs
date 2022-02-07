@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::BasePathMapping
         /// </summary>
-        public static Task<GetBasePathMappingResult> InvokeAsync(GetBasePathMappingArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBasePathMappingResult> InvokeAsync(GetBasePathMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBasePathMappingResult>("aws-native:apigateway:getBasePathMapping", args ?? new GetBasePathMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::BasePathMapping
         /// </summary>
-        public static Output<GetBasePathMappingResult> Invoke(GetBasePathMappingInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBasePathMappingResult> Invoke(GetBasePathMappingInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBasePathMappingResult>("aws-native:apigateway:getBasePathMapping", args ?? new GetBasePathMappingInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The base path name that callers of the API must provide in the URL after the domain name.
         /// </summary>
-        [Input("basePath")]
-        public string? BasePath { get; set; }
+        [Input("basePath", required: true)]
+        public string BasePath { get; set; } = null!;
 
         /// <summary>
         /// The DomainName of an AWS::ApiGateway::DomainName resource.
         /// </summary>
-        [Input("domainName")]
-        public string? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         public GetBasePathMappingArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The base path name that callers of the API must provide in the URL after the domain name.
         /// </summary>
-        [Input("basePath")]
-        public Input<string>? BasePath { get; set; }
+        [Input("basePath", required: true)]
+        public Input<string> BasePath { get; set; } = null!;
 
         /// <summary>
         /// The DomainName of an AWS::ApiGateway::DomainName resource.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         public GetBasePathMappingInvokeArgs()
         {

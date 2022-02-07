@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.QLDB
         /// <summary>
         /// Resource Type definition for AWS::QLDB::Ledger
         /// </summary>
-        public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws-native:qldb:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::QLDB::Ledger
         /// </summary>
-        public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws-native:qldb:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLedgerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLedgerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.QLDB
 
     public sealed class GetLedgerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLedgerInvokeArgs()
         {

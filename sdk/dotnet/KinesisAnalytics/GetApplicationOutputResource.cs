@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KinesisAnalytics
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
         /// </summary>
-        public static Task<GetApplicationOutputResourceResult> InvokeAsync(GetApplicationOutputResourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationOutputResourceResult> InvokeAsync(GetApplicationOutputResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationOutputResourceResult>("aws-native:kinesisanalytics:getApplicationOutputResource", args ?? new GetApplicationOutputResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
         /// </summary>
-        public static Output<GetApplicationOutputResourceResult> Invoke(GetApplicationOutputResourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationOutputResourceResult> Invoke(GetApplicationOutputResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationOutputResourceResult>("aws-native:kinesisanalytics:getApplicationOutputResource", args ?? new GetApplicationOutputResourceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationOutputResourceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApplicationOutputResourceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KinesisAnalytics
 
     public sealed class GetApplicationOutputResourceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApplicationOutputResourceInvokeArgs()
         {

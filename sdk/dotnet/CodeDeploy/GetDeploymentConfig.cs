@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// <summary>
         /// Resource Type definition for AWS::CodeDeploy::DeploymentConfig
         /// </summary>
-        public static Task<GetDeploymentConfigResult> InvokeAsync(GetDeploymentConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeploymentConfigResult> InvokeAsync(GetDeploymentConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentConfigResult>("aws-native:codedeploy:getDeploymentConfig", args ?? new GetDeploymentConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeDeploy::DeploymentConfig
         /// </summary>
-        public static Output<GetDeploymentConfigResult> Invoke(GetDeploymentConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeploymentConfigResult> Invoke(GetDeploymentConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeploymentConfigResult>("aws-native:codedeploy:getDeploymentConfig", args ?? new GetDeploymentConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeploymentConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeploymentConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CodeDeploy
 
     public sealed class GetDeploymentConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeploymentConfigInvokeArgs()
         {

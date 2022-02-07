@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
         /// </summary>
-        public static Task<GetScheduledQueryResult> InvokeAsync(GetScheduledQueryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScheduledQueryResult> InvokeAsync(GetScheduledQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryResult>("aws-native:timestream:getScheduledQuery", args ?? new GetScheduledQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
         /// </summary>
-        public static Output<GetScheduledQueryResult> Invoke(GetScheduledQueryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScheduledQueryResult> Invoke(GetScheduledQueryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryResult>("aws-native:timestream:getScheduledQuery", args ?? new GetScheduledQueryInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetScheduledQueryArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetScheduledQueryArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Timestream
 
     public sealed class GetScheduledQueryInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetScheduledQueryInvokeArgs()
         {

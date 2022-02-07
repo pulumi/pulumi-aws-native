@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <summary>
         /// Resource Type definition for AWS::SSMContacts::Contact
         /// </summary>
-        public static Task<GetContactResult> InvokeAsync(GetContactArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("aws-native:ssmcontacts:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSMContacts::Contact
         /// </summary>
-        public static Output<GetContactResult> Invoke(GetContactInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactResult>("aws-native:ssmcontacts:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetContactArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetContactInvokeArgs()
         {

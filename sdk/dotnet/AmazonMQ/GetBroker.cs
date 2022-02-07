@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AmazonMQ
         /// <summary>
         /// Resource Type definition for AWS::AmazonMQ::Broker
         /// </summary>
-        public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws-native:amazonmq:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AmazonMQ::Broker
         /// </summary>
-        public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws-native:amazonmq:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBrokerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBrokerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AmazonMQ
 
     public sealed class GetBrokerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBrokerInvokeArgs()
         {

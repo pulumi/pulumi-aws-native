@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// Resource Type definition for AWS::EMR::SecurityConfiguration
         /// </summary>
-        public static Task<GetSecurityConfigurationResult> InvokeAsync(GetSecurityConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSecurityConfigurationResult> InvokeAsync(GetSecurityConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConfigurationResult>("aws-native:emr:getSecurityConfiguration", args ?? new GetSecurityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::SecurityConfiguration
         /// </summary>
-        public static Output<GetSecurityConfigurationResult> Invoke(GetSecurityConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSecurityConfigurationResult> Invoke(GetSecurityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecurityConfigurationResult>("aws-native:emr:getSecurityConfiguration", args ?? new GetSecurityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSecurityConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSecurityConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EMR
 
     public sealed class GetSecurityConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSecurityConfigurationInvokeArgs()
         {

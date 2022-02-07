@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::LaunchTemplate
         /// </summary>
-        public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws-native:ec2:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::LaunchTemplate
         /// </summary>
-        public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("aws-native:ec2:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLaunchTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLaunchTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetLaunchTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLaunchTemplateInvokeArgs()
         {

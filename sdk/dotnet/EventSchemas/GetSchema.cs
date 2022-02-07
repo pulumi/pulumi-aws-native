@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::Schema
         /// </summary>
-        public static Task<GetSchemaResult> InvokeAsync(GetSchemaArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSchemaResult> InvokeAsync(GetSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchemaResult>("aws-native:eventschemas:getSchema", args ?? new GetSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::Schema
         /// </summary>
-        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:eventschemas:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSchemaArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSchemaArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetSchemaInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSchemaInvokeArgs()
         {

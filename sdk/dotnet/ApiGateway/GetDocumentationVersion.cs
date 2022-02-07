@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A snapshot of the documentation of an API.
         /// </summary>
-        public static Task<GetDocumentationVersionResult> InvokeAsync(GetDocumentationVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDocumentationVersionResult> InvokeAsync(GetDocumentationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A snapshot of the documentation of an API.
         /// </summary>
-        public static Output<GetDocumentationVersionResult> Invoke(GetDocumentationVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDocumentationVersionResult> Invoke(GetDocumentationVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The version identifier of the API documentation snapshot.
         /// </summary>
-        [Input("documentationVersion")]
-        public string? DocumentationVersionValue { get; set; }
+        [Input("documentationVersion", required: true)]
+        public string DocumentationVersionValue { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the API.
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetDocumentationVersionArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The version identifier of the API documentation snapshot.
         /// </summary>
-        [Input("documentationVersion")]
-        public Input<string>? DocumentationVersion { get; set; }
+        [Input("documentationVersion", required: true)]
+        public Input<string> DocumentationVersion { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the API.
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetDocumentationVersionInvokeArgs()
         {

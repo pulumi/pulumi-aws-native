@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
         /// </summary>
-        public static Task<GetSubnetNetworkAclAssociationResult> InvokeAsync(GetSubnetNetworkAclAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubnetNetworkAclAssociationResult> InvokeAsync(GetSubnetNetworkAclAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetNetworkAclAssociationResult>("aws-native:ec2:getSubnetNetworkAclAssociation", args ?? new GetSubnetNetworkAclAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
         /// </summary>
-        public static Output<GetSubnetNetworkAclAssociationResult> Invoke(GetSubnetNetworkAclAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubnetNetworkAclAssociationResult> Invoke(GetSubnetNetworkAclAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetNetworkAclAssociationResult>("aws-native:ec2:getSubnetNetworkAclAssociation", args ?? new GetSubnetNetworkAclAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubnetNetworkAclAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("associationId")]
-        public string? AssociationId { get; set; }
+        [Input("associationId", required: true)]
+        public string AssociationId { get; set; } = null!;
 
         public GetSubnetNetworkAclAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSubnetNetworkAclAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("associationId")]
-        public Input<string>? AssociationId { get; set; }
+        [Input("associationId", required: true)]
+        public Input<string> AssociationId { get; set; } = null!;
 
         public GetSubnetNetworkAclAssociationInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// Resource schema for AWS::ApplicationInsights::Application
         /// </summary>
-        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:applicationinsights:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ApplicationInsights::Application
         /// </summary>
-        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:applicationinsights:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The ARN of the ApplicationInsights application.
         /// </summary>
-        [Input("applicationARN")]
-        public string? ApplicationARN { get; set; }
+        [Input("applicationARN", required: true)]
+        public string ApplicationARN { get; set; } = null!;
 
         public GetApplicationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The ARN of the ApplicationInsights application.
         /// </summary>
-        [Input("applicationARN")]
-        public Input<string>? ApplicationARN { get; set; }
+        [Input("applicationARN", required: true)]
+        public Input<string> ApplicationARN { get; set; } = null!;
 
         public GetApplicationInvokeArgs()
         {

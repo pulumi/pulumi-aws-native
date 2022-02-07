@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// Resource Type definition for AWS::MemoryDB::ACL
         /// </summary>
-        public static Task<GetACLResult> InvokeAsync(GetACLArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetACLResult> InvokeAsync(GetACLArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetACLResult>("aws-native:memorydb:getACL", args ?? new GetACLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MemoryDB::ACL
         /// </summary>
-        public static Output<GetACLResult> Invoke(GetACLInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetACLResult> Invoke(GetACLInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetACLResult>("aws-native:memorydb:getACL", args ?? new GetACLInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Input("aCLName")]
-        public string? ACLName { get; set; }
+        [Input("aCLName", required: true)]
+        public string ACLName { get; set; } = null!;
 
         public GetACLArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Input("aCLName")]
-        public Input<string>? ACLName { get; set; }
+        [Input("aCLName", required: true)]
+        public Input<string> ACLName { get; set; } = null!;
 
         public GetACLInvokeArgs()
         {

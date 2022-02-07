@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
         /// </summary>
-        public static Task<GetKeyResult> InvokeAsync(GetKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws-native:kms:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
         /// </summary>
-        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws-native:kms:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
-        [Input("keyId")]
-        public string? KeyId { get; set; }
+        [Input("keyId", required: true)]
+        public string KeyId { get; set; } = null!;
 
         public GetKeyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KMS
 
     public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("keyId")]
-        public Input<string>? KeyId { get; set; }
+        [Input("keyId", required: true)]
+        public Input<string> KeyId { get; set; } = null!;
 
         public GetKeyInvokeArgs()
         {

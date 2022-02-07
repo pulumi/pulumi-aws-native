@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
         /// </summary>
-        public static Task<GetDimensionResult> InvokeAsync(GetDimensionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDimensionResult> InvokeAsync(GetDimensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDimensionResult>("aws-native:iot:getDimension", args ?? new GetDimensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
         /// </summary>
-        public static Output<GetDimensionResult> Invoke(GetDimensionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDimensionResult> Invoke(GetDimensionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDimensionResult>("aws-native:iot:getDimension", args ?? new GetDimensionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A unique identifier for the dimension.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetDimensionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// A unique identifier for the dimension.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetDimensionInvokeArgs()
         {

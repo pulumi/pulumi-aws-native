@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
         /// </summary>
-        public static Task<GetMatchmakingConfigurationResult> InvokeAsync(GetMatchmakingConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMatchmakingConfigurationResult> InvokeAsync(GetMatchmakingConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
         /// </summary>
-        public static Output<GetMatchmakingConfigurationResult> Invoke(GetMatchmakingConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMatchmakingConfigurationResult> Invoke(GetMatchmakingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMatchmakingConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMatchmakingConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetMatchmakingConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMatchmakingConfigurationInvokeArgs()
         {

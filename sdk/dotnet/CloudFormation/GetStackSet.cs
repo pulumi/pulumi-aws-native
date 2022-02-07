@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
         /// </summary>
-        public static Task<GetStackSetResult> InvokeAsync(GetStackSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStackSetResult> InvokeAsync(GetStackSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStackSetResult>("aws-native:cloudformation:getStackSet", args ?? new GetStackSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
         /// </summary>
-        public static Output<GetStackSetResult> Invoke(GetStackSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStackSetResult> Invoke(GetStackSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStackSetResult>("aws-native:cloudformation:getStackSet", args ?? new GetStackSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The ID of the stack set that you're creating.
         /// </summary>
-        [Input("stackSetId")]
-        public string? StackSetId { get; set; }
+        [Input("stackSetId", required: true)]
+        public string StackSetId { get; set; } = null!;
 
         public GetStackSetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The ID of the stack set that you're creating.
         /// </summary>
-        [Input("stackSetId")]
-        public Input<string>? StackSetId { get; set; }
+        [Input("stackSetId", required: true)]
+        public Input<string> StackSetId { get; set; } = null!;
 
         public GetStackSetInvokeArgs()
         {

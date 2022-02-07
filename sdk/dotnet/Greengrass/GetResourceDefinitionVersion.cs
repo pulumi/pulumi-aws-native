@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Greengrass
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ResourceDefinitionVersion
         /// </summary>
-        public static Task<GetResourceDefinitionVersionResult> InvokeAsync(GetResourceDefinitionVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceDefinitionVersionResult> InvokeAsync(GetResourceDefinitionVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceDefinitionVersionResult>("aws-native:greengrass:getResourceDefinitionVersion", args ?? new GetResourceDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ResourceDefinitionVersion
         /// </summary>
-        public static Output<GetResourceDefinitionVersionResult> Invoke(GetResourceDefinitionVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceDefinitionVersionResult> Invoke(GetResourceDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceDefinitionVersionResult>("aws-native:greengrass:getResourceDefinitionVersion", args ?? new GetResourceDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourceDefinitionVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResourceDefinitionVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Greengrass
 
     public sealed class GetResourceDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResourceDefinitionVersionInvokeArgs()
         {

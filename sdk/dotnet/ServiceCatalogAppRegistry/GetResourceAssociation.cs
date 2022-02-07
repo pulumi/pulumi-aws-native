@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
         /// </summary>
-        public static Task<GetResourceAssociationResult> InvokeAsync(GetResourceAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceAssociationResult> InvokeAsync(GetResourceAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceAssociationResult>("aws-native:servicecatalogappregistry:getResourceAssociation", args ?? new GetResourceAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
         /// </summary>
-        public static Output<GetResourceAssociationResult> Invoke(GetResourceAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceAssociationResult> Invoke(GetResourceAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceAssociationResult>("aws-native:servicecatalogappregistry:getResourceAssociation", args ?? new GetResourceAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetResourceAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetResourceAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetResourceAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetResourceAssociationInvokeArgs()
         {

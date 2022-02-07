@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// Resource schema for AWS::MediaConnect::Flow
         /// </summary>
-        public static Task<GetFlowResult> InvokeAsync(GetFlowArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFlowResult> InvokeAsync(GetFlowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaConnect::Flow
         /// </summary>
-        public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
-        [Input("flowArn")]
-        public string? FlowArn { get; set; }
+        [Input("flowArn", required: true)]
+        public string FlowArn { get; set; } = null!;
 
         public GetFlowArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
-        [Input("flowArn")]
-        public Input<string>? FlowArn { get; set; }
+        [Input("flowArn", required: true)]
+        public Input<string> FlowArn { get; set; } = null!;
 
         public GetFlowInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
         /// </summary>
-        public static Task<GetModelExplainabilityJobDefinitionResult> InvokeAsync(GetModelExplainabilityJobDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelExplainabilityJobDefinitionResult> InvokeAsync(GetModelExplainabilityJobDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
         /// </summary>
-        public static Output<GetModelExplainabilityJobDefinitionResult> Invoke(GetModelExplainabilityJobDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelExplainabilityJobDefinitionResult> Invoke(GetModelExplainabilityJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
-        [Input("jobDefinitionArn")]
-        public string? JobDefinitionArn { get; set; }
+        [Input("jobDefinitionArn", required: true)]
+        public string JobDefinitionArn { get; set; } = null!;
 
         public GetModelExplainabilityJobDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
-        [Input("jobDefinitionArn")]
-        public Input<string>? JobDefinitionArn { get; set; }
+        [Input("jobDefinitionArn", required: true)]
+        public Input<string> JobDefinitionArn { get; set; } = null!;
 
         public GetModelExplainabilityJobDefinitionInvokeArgs()
         {

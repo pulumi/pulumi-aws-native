@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Resource Type definition for AWS::Connect::ContactFlowModule.
         /// </summary>
-        public static Task<GetContactFlowModuleResult> InvokeAsync(GetContactFlowModuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetContactFlowModuleResult> InvokeAsync(GetContactFlowModuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowModuleResult>("aws-native:connect:getContactFlowModule", args ?? new GetContactFlowModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::ContactFlowModule.
         /// </summary>
-        public static Output<GetContactFlowModuleResult> Invoke(GetContactFlowModuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetContactFlowModuleResult> Invoke(GetContactFlowModuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactFlowModuleResult>("aws-native:connect:getContactFlowModule", args ?? new GetContactFlowModuleInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The identifier of the contact flow module (ARN).
         /// </summary>
-        [Input("contactFlowModuleArn")]
-        public string? ContactFlowModuleArn { get; set; }
+        [Input("contactFlowModuleArn", required: true)]
+        public string ContactFlowModuleArn { get; set; } = null!;
 
         public GetContactFlowModuleArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The identifier of the contact flow module (ARN).
         /// </summary>
-        [Input("contactFlowModuleArn")]
-        public Input<string>? ContactFlowModuleArn { get; set; }
+        [Input("contactFlowModuleArn", required: true)]
+        public Input<string> ContactFlowModuleArn { get; set; } = null!;
 
         public GetContactFlowModuleInvokeArgs()
         {

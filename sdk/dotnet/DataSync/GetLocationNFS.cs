@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationNFS
         /// </summary>
-        public static Task<GetLocationNFSResult> InvokeAsync(GetLocationNFSArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationNFSResult> InvokeAsync(GetLocationNFSArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationNFSResult>("aws-native:datasync:getLocationNFS", args ?? new GetLocationNFSArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationNFS
         /// </summary>
-        public static Output<GetLocationNFSResult> Invoke(GetLocationNFSInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationNFSResult> Invoke(GetLocationNFSInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationNFSResult>("aws-native:datasync:getLocationNFS", args ?? new GetLocationNFSInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the NFS location.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationNFSArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the NFS location.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationNFSInvokeArgs()
         {

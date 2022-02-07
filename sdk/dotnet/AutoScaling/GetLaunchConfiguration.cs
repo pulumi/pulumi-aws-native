@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
         /// </summary>
-        public static Task<GetLaunchConfigurationResult> InvokeAsync(GetLaunchConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLaunchConfigurationResult> InvokeAsync(GetLaunchConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchConfigurationResult>("aws-native:autoscaling:getLaunchConfiguration", args ?? new GetLaunchConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
         /// </summary>
-        public static Output<GetLaunchConfigurationResult> Invoke(GetLaunchConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLaunchConfigurationResult> Invoke(GetLaunchConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLaunchConfigurationResult>("aws-native:autoscaling:getLaunchConfiguration", args ?? new GetLaunchConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The name of the launch configuration. This name must be unique per Region per account.
         /// </summary>
-        [Input("launchConfigurationName")]
-        public string? LaunchConfigurationName { get; set; }
+        [Input("launchConfigurationName", required: true)]
+        public string LaunchConfigurationName { get; set; } = null!;
 
         public GetLaunchConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The name of the launch configuration. This name must be unique per Region per account.
         /// </summary>
-        [Input("launchConfigurationName")]
-        public Input<string>? LaunchConfigurationName { get; set; }
+        [Input("launchConfigurationName", required: true)]
+        public Input<string> LaunchConfigurationName { get; set; } = null!;
 
         public GetLaunchConfigurationInvokeArgs()
         {

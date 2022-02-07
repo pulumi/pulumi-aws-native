@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Create and manage wireless gateways, including LoRa gateways.
         /// </summary>
-        public static Task<GetWirelessGatewayResult> InvokeAsync(GetWirelessGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWirelessGatewayResult> InvokeAsync(GetWirelessGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWirelessGatewayResult>("aws-native:iotwireless:getWirelessGateway", args ?? new GetWirelessGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage wireless gateways, including LoRa gateways.
         /// </summary>
-        public static Output<GetWirelessGatewayResult> Invoke(GetWirelessGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWirelessGatewayResult> Invoke(GetWirelessGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWirelessGatewayResult>("aws-native:iotwireless:getWirelessGateway", args ?? new GetWirelessGatewayInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Id for Wireless Gateway. Returned upon successful create.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWirelessGatewayArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Id for Wireless Gateway. Returned upon successful create.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWirelessGatewayInvokeArgs()
         {

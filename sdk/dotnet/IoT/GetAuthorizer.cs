@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Creates an authorizer.
         /// </summary>
-        public static Task<GetAuthorizerResult> InvokeAsync(GetAuthorizerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAuthorizerResult> InvokeAsync(GetAuthorizerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws-native:iot:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates an authorizer.
         /// </summary>
-        public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:iot:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAuthorizerArgs : Pulumi.InvokeArgs
     {
-        [Input("authorizerName")]
-        public string? AuthorizerName { get; set; }
+        [Input("authorizerName", required: true)]
+        public string AuthorizerName { get; set; } = null!;
 
         public GetAuthorizerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetAuthorizerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("authorizerName")]
-        public Input<string>? AuthorizerName { get; set; }
+        [Input("authorizerName", required: true)]
+        public Input<string> AuthorizerName { get; set; } = null!;
 
         public GetAuthorizerInvokeArgs()
         {

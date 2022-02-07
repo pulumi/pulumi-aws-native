@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::RequestValidator
         /// </summary>
-        public static Task<GetRequestValidatorResult> InvokeAsync(GetRequestValidatorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRequestValidatorResult> InvokeAsync(GetRequestValidatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::RequestValidator
         /// </summary>
-        public static Output<GetRequestValidatorResult> Invoke(GetRequestValidatorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRequestValidatorResult> Invoke(GetRequestValidatorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// ID of the request validator.
         /// </summary>
-        [Input("requestValidatorId")]
-        public string? RequestValidatorId { get; set; }
+        [Input("requestValidatorId", required: true)]
+        public string RequestValidatorId { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the targeted API entity.
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetRequestValidatorArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// ID of the request validator.
         /// </summary>
-        [Input("requestValidatorId")]
-        public Input<string>? RequestValidatorId { get; set; }
+        [Input("requestValidatorId", required: true)]
+        public Input<string> RequestValidatorId { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the targeted API entity.
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetRequestValidatorInvokeArgs()
         {

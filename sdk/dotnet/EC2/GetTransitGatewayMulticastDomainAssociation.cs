@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastDomainAssociation type
         /// </summary>
-        public static Task<GetTransitGatewayMulticastDomainAssociationResult> InvokeAsync(GetTransitGatewayMulticastDomainAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayMulticastDomainAssociationResult> InvokeAsync(GetTransitGatewayMulticastDomainAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastDomainAssociationResult>("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args ?? new GetTransitGatewayMulticastDomainAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastDomainAssociation type
         /// </summary>
-        public static Output<GetTransitGatewayMulticastDomainAssociationResult> Invoke(GetTransitGatewayMulticastDomainAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayMulticastDomainAssociationResult> Invoke(GetTransitGatewayMulticastDomainAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainAssociationResult>("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args ?? new GetTransitGatewayMulticastDomainAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The IDs of the subnets to associate with the transit gateway multicast domain.
         /// </summary>
-        [Input("subnetId")]
-        public string? SubnetId { get; set; }
+        [Input("subnetId", required: true)]
+        public string SubnetId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId { get; set; }
+        [Input("transitGatewayAttachmentId", required: true)]
+        public string TransitGatewayAttachmentId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
-        public string? TransitGatewayMulticastDomainId { get; set; }
+        [Input("transitGatewayMulticastDomainId", required: true)]
+        public string TransitGatewayMulticastDomainId { get; set; } = null!;
 
         public GetTransitGatewayMulticastDomainAssociationArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The IDs of the subnets to associate with the transit gateway multicast domain.
         /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
+        [Input("subnetId", required: true)]
+        public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
-        public Input<string>? TransitGatewayAttachmentId { get; set; }
+        [Input("transitGatewayAttachmentId", required: true)]
+        public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
-        public Input<string>? TransitGatewayMulticastDomainId { get; set; }
+        [Input("transitGatewayMulticastDomainId", required: true)]
+        public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;
 
         public GetTransitGatewayMulticastDomainAssociationInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::Link type describes a link.
         /// </summary>
-        public static Task<GetLinkResult> InvokeAsync(GetLinkArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("aws-native:networkmanager:getLink", args ?? new GetLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::Link type describes a link.
         /// </summary>
-        public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws-native:networkmanager:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public string? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
-        [Input("linkId")]
-        public string? LinkId { get; set; }
+        [Input("linkId", required: true)]
+        public string LinkId { get; set; } = null!;
 
         public GetLinkArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public Input<string>? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
-        [Input("linkId")]
-        public Input<string>? LinkId { get; set; }
+        [Input("linkId", required: true)]
+        public Input<string> LinkId { get; set; } = null!;
 
         public GetLinkInvokeArgs()
         {

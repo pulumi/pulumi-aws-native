@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationEFS.
         /// </summary>
-        public static Task<GetLocationEFSResult> InvokeAsync(GetLocationEFSArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationEFSResult> InvokeAsync(GetLocationEFSArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationEFSResult>("aws-native:datasync:getLocationEFS", args ?? new GetLocationEFSArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationEFS.
         /// </summary>
-        public static Output<GetLocationEFSResult> Invoke(GetLocationEFSInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationEFSResult> Invoke(GetLocationEFSInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationEFSResult>("aws-native:datasync:getLocationEFS", args ?? new GetLocationEFSInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationEFSArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationEFSInvokeArgs()
         {

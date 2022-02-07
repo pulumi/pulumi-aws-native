@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// Resource Type definition for AWS::Route53::RecordSet
         /// </summary>
-        public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("aws-native:route53:getRecordSet", args ?? new GetRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Route53::RecordSet
         /// </summary>
-        public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("aws-native:route53:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRecordSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRecordSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetRecordSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRecordSetInvokeArgs()
         {

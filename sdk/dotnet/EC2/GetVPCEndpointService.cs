@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointService
         /// </summary>
-        public static Task<GetVPCEndpointServiceResult> InvokeAsync(GetVPCEndpointServiceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCEndpointServiceResult> InvokeAsync(GetVPCEndpointServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointServiceResult>("aws-native:ec2:getVPCEndpointService", args ?? new GetVPCEndpointServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointService
         /// </summary>
-        public static Output<GetVPCEndpointServiceResult> Invoke(GetVPCEndpointServiceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCEndpointServiceResult> Invoke(GetVPCEndpointServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCEndpointServiceResult>("aws-native:ec2:getVPCEndpointService", args ?? new GetVPCEndpointServiceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPCEndpointServiceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPCEndpointServiceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCEndpointServiceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPCEndpointServiceInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::EIPAssociation
         /// </summary>
-        public static Task<GetEIPAssociationResult> InvokeAsync(GetEIPAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEIPAssociationResult> InvokeAsync(GetEIPAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEIPAssociationResult>("aws-native:ec2:getEIPAssociation", args ?? new GetEIPAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EIPAssociation
         /// </summary>
-        public static Output<GetEIPAssociationResult> Invoke(GetEIPAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEIPAssociationResult> Invoke(GetEIPAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEIPAssociationResult>("aws-native:ec2:getEIPAssociation", args ?? new GetEIPAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEIPAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEIPAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetEIPAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEIPAssociationInvokeArgs()
         {

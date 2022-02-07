@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The AWS::EC2::TransitGatewayConnect type
         /// </summary>
-        public static Task<GetTransitGatewayConnectResult> InvokeAsync(GetTransitGatewayConnectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTransitGatewayConnectResult> InvokeAsync(GetTransitGatewayConnectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayConnectResult>("aws-native:ec2:getTransitGatewayConnect", args ?? new GetTransitGatewayConnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayConnect type
         /// </summary>
-        public static Output<GetTransitGatewayConnectResult> Invoke(GetTransitGatewayConnectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTransitGatewayConnectResult> Invoke(GetTransitGatewayConnectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayConnectResult>("aws-native:ec2:getTransitGatewayConnect", args ?? new GetTransitGatewayConnectInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the Connect attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId { get; set; }
+        [Input("transitGatewayAttachmentId", required: true)]
+        public string TransitGatewayAttachmentId { get; set; } = null!;
 
         public GetTransitGatewayConnectArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the Connect attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
-        public Input<string>? TransitGatewayAttachmentId { get; set; }
+        [Input("transitGatewayAttachmentId", required: true)]
+        public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
         public GetTransitGatewayConnectInvokeArgs()
         {

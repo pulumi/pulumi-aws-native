@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// Definition of the AWS::QuickSight::DataSource Resource Type.
         /// </summary>
-        public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("aws-native:quicksight:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::DataSource Resource Type.
         /// </summary>
-        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:quicksight:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDataSourceArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
-        [Input("dataSourceId")]
-        public string? DataSourceId { get; set; }
+        [Input("dataSourceId", required: true)]
+        public string DataSourceId { get; set; } = null!;
 
         public GetDataSourceArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDataSourceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("dataSourceId")]
-        public Input<string>? DataSourceId { get; set; }
+        [Input("dataSourceId", required: true)]
+        public Input<string> DataSourceId { get; set; } = null!;
 
         public GetDataSourceInvokeArgs()
         {

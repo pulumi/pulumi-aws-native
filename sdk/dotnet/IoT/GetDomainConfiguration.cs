@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Create and manage a Domain Configuration
         /// </summary>
-        public static Task<GetDomainConfigurationResult> InvokeAsync(GetDomainConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDomainConfigurationResult> InvokeAsync(GetDomainConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainConfigurationResult>("aws-native:iot:getDomainConfiguration", args ?? new GetDomainConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage a Domain Configuration
         /// </summary>
-        public static Output<GetDomainConfigurationResult> Invoke(GetDomainConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDomainConfigurationResult> Invoke(GetDomainConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDomainConfigurationResult>("aws-native:iot:getDomainConfiguration", args ?? new GetDomainConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDomainConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("domainConfigurationName")]
-        public string? DomainConfigurationName { get; set; }
+        [Input("domainConfigurationName", required: true)]
+        public string DomainConfigurationName { get; set; } = null!;
 
         public GetDomainConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetDomainConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("domainConfigurationName")]
-        public Input<string>? DomainConfigurationName { get; set; }
+        [Input("domainConfigurationName", required: true)]
+        public Input<string> DomainConfigurationName { get; set; } = null!;
 
         public GetDomainConfigurationInvokeArgs()
         {

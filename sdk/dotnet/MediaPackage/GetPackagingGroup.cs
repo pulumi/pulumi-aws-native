@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// Resource schema for AWS::MediaPackage::PackagingGroup
         /// </summary>
-        public static Task<GetPackagingGroupResult> InvokeAsync(GetPackagingGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPackagingGroupResult> InvokeAsync(GetPackagingGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPackagingGroupResult>("aws-native:mediapackage:getPackagingGroup", args ?? new GetPackagingGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaPackage::PackagingGroup
         /// </summary>
-        public static Output<GetPackagingGroupResult> Invoke(GetPackagingGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPackagingGroupResult> Invoke(GetPackagingGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPackagingGroupResult>("aws-native:mediapackage:getPackagingGroup", args ?? new GetPackagingGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The ID of the PackagingGroup.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPackagingGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The ID of the PackagingGroup.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPackagingGroupInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
         /// </summary>
-        public static Task<GetResourceSetResult> InvokeAsync(GetResourceSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceSetResult> InvokeAsync(GetResourceSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceSetResult>("aws-native:route53recoveryreadiness:getResourceSet", args ?? new GetResourceSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
         /// </summary>
-        public static Output<GetResourceSetResult> Invoke(GetResourceSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceSetResult> Invoke(GetResourceSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceSetResult>("aws-native:route53recoveryreadiness:getResourceSet", args ?? new GetResourceSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the resource set to create.
         /// </summary>
-        [Input("resourceSetName")]
-        public string? ResourceSetName { get; set; }
+        [Input("resourceSetName", required: true)]
+        public string ResourceSetName { get; set; } = null!;
 
         public GetResourceSetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the resource set to create.
         /// </summary>
-        [Input("resourceSetName")]
-        public Input<string>? ResourceSetName { get; set; }
+        [Input("resourceSetName", required: true)]
+        public Input<string> ResourceSetName { get; set; } = null!;
 
         public GetResourceSetInvokeArgs()
         {

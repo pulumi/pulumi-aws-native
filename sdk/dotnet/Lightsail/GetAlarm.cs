@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Alarm
         /// </summary>
-        public static Task<GetAlarmResult> InvokeAsync(GetAlarmArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAlarmResult> InvokeAsync(GetAlarmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlarmResult>("aws-native:lightsail:getAlarm", args ?? new GetAlarmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Alarm
         /// </summary>
-        public static Output<GetAlarmResult> Invoke(GetAlarmInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAlarmResult> Invoke(GetAlarmInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAlarmResult>("aws-native:lightsail:getAlarm", args ?? new GetAlarmInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
         /// </summary>
-        [Input("alarmName")]
-        public string? AlarmName { get; set; }
+        [Input("alarmName", required: true)]
+        public string AlarmName { get; set; } = null!;
 
         public GetAlarmArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
         /// </summary>
-        [Input("alarmName")]
-        public Input<string>? AlarmName { get; set; }
+        [Input("alarmName", required: true)]
+        public Input<string> AlarmName { get; set; } = null!;
 
         public GetAlarmInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::InstanceProfile
         /// </summary>
-        public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::InstanceProfile
         /// </summary>
-        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInstanceProfileArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetInstanceProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInstanceProfileInvokeArgs()
         {

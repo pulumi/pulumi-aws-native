@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
         /// </summary>
-        public static Task<GetFirewallRuleGroupAssociationResult> InvokeAsync(GetFirewallRuleGroupAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFirewallRuleGroupAssociationResult> InvokeAsync(GetFirewallRuleGroupAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleGroupAssociationResult>("aws-native:route53resolver:getFirewallRuleGroupAssociation", args ?? new GetFirewallRuleGroupAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
         /// </summary>
-        public static Output<GetFirewallRuleGroupAssociationResult> Invoke(GetFirewallRuleGroupAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFirewallRuleGroupAssociationResult> Invoke(GetFirewallRuleGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleGroupAssociationResult>("aws-native:route53resolver:getFirewallRuleGroupAssociation", args ?? new GetFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Id
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFirewallRuleGroupAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Id
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFirewallRuleGroupAssociationInvokeArgs()
         {

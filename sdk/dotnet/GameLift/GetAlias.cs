@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
         /// </summary>
-        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:gamelift:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
         /// </summary>
-        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:gamelift:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Unique alias ID
         /// </summary>
-        [Input("aliasId")]
-        public string? AliasId { get; set; }
+        [Input("aliasId", required: true)]
+        public string AliasId { get; set; } = null!;
 
         public GetAliasArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Unique alias ID
         /// </summary>
-        [Input("aliasId")]
-        public Input<string>? AliasId { get; set; }
+        [Input("aliasId", required: true)]
+        public Input<string> AliasId { get; set; } = null!;
 
         public GetAliasInvokeArgs()
         {

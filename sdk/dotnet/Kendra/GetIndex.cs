@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// A Kendra index
         /// </summary>
-        public static Task<GetIndexResult> InvokeAsync(GetIndexArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIndexResult> InvokeAsync(GetIndexArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIndexResult>("aws-native:kendra:getIndex", args ?? new GetIndexArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Kendra index
         /// </summary>
-        public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws-native:kendra:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIndexArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetIndexArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class GetIndexInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetIndexInvokeArgs()
         {

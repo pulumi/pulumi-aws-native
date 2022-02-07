@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Resource Type definition for AWS::Connect::HoursOfOperation
         /// </summary>
-        public static Task<GetHoursOfOperationResult> InvokeAsync(GetHoursOfOperationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHoursOfOperationResult> InvokeAsync(GetHoursOfOperationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHoursOfOperationResult>("aws-native:connect:getHoursOfOperation", args ?? new GetHoursOfOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::HoursOfOperation
         /// </summary>
-        public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws-native:connect:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the hours of operation.
         /// </summary>
-        [Input("hoursOfOperationArn")]
-        public string? HoursOfOperationArn { get; set; }
+        [Input("hoursOfOperationArn", required: true)]
+        public string HoursOfOperationArn { get; set; } = null!;
 
         public GetHoursOfOperationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the hours of operation.
         /// </summary>
-        [Input("hoursOfOperationArn")]
-        public Input<string>? HoursOfOperationArn { get; set; }
+        [Input("hoursOfOperationArn", required: true)]
+        public Input<string> HoursOfOperationArn { get; set; } = null!;
 
         public GetHoursOfOperationInvokeArgs()
         {

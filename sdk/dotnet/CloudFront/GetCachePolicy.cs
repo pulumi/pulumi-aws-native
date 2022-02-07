@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::CachePolicy
         /// </summary>
-        public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws-native:cloudfront:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::CachePolicy
         /// </summary>
-        public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws-native:cloudfront:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCachePolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCachePolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCachePolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCachePolicyInvokeArgs()
         {

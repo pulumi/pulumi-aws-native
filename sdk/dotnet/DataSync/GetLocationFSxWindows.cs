@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationFSxWindows.
         /// </summary>
-        public static Task<GetLocationFSxWindowsResult> InvokeAsync(GetLocationFSxWindowsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationFSxWindowsResult> InvokeAsync(GetLocationFSxWindowsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationFSxWindowsResult>("aws-native:datasync:getLocationFSxWindows", args ?? new GetLocationFSxWindowsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationFSxWindows.
         /// </summary>
-        public static Output<GetLocationFSxWindowsResult> Invoke(GetLocationFSxWindowsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationFSxWindowsResult> Invoke(GetLocationFSxWindowsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationFSxWindowsResult>("aws-native:datasync:getLocationFSxWindows", args ?? new GetLocationFSxWindowsInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationFSxWindowsArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationFSxWindowsInvokeArgs()
         {

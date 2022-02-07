@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Distribution
         /// </summary>
-        public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws-native:lightsail:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Distribution
         /// </summary>
-        public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:lightsail:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name for the distribution.
         /// </summary>
-        [Input("distributionName")]
-        public string? DistributionName { get; set; }
+        [Input("distributionName", required: true)]
+        public string DistributionName { get; set; } = null!;
 
         public GetDistributionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name for the distribution.
         /// </summary>
-        [Input("distributionName")]
-        public Input<string>? DistributionName { get; set; }
+        [Input("distributionName", required: true)]
+        public Input<string> DistributionName { get; set; } = null!;
 
         public GetDistributionInvokeArgs()
         {

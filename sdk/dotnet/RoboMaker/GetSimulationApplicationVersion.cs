@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RoboMaker
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Task<GetSimulationApplicationVersionResult> InvokeAsync(GetSimulationApplicationVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSimulationApplicationVersionResult> InvokeAsync(GetSimulationApplicationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationVersionResult>("aws-native:robomaker:getSimulationApplicationVersion", args ?? new GetSimulationApplicationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
-        public static Output<GetSimulationApplicationVersionResult> Invoke(GetSimulationApplicationVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSimulationApplicationVersionResult> Invoke(GetSimulationApplicationVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationVersionResult>("aws-native:robomaker:getSimulationApplicationVersion", args ?? new GetSimulationApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSimulationApplicationVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetSimulationApplicationVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetSimulationApplicationVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetSimulationApplicationVersionInvokeArgs()
         {

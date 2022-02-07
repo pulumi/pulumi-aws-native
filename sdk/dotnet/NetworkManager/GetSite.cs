@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::Site type describes a site.
         /// </summary>
-        public static Task<GetSiteResult> InvokeAsync(GetSiteArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws-native:networkmanager:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::Site type describes a site.
         /// </summary>
-        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws-native:networkmanager:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public string? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        [Input("siteId")]
-        public string? SiteId { get; set; }
+        [Input("siteId", required: true)]
+        public string SiteId { get; set; } = null!;
 
         public GetSiteArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public Input<string>? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        [Input("siteId")]
-        public Input<string>? SiteId { get; set; }
+        [Input("siteId", required: true)]
+        public Input<string> SiteId { get; set; } = null!;
 
         public GetSiteInvokeArgs()
         {

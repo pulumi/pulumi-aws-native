@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAF
         /// <summary>
         /// Resource Type definition for AWS::WAF::SqlInjectionMatchSet
         /// </summary>
-        public static Task<GetSqlInjectionMatchSetResult> InvokeAsync(GetSqlInjectionMatchSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSqlInjectionMatchSetResult> InvokeAsync(GetSqlInjectionMatchSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlInjectionMatchSetResult>("aws-native:waf:getSqlInjectionMatchSet", args ?? new GetSqlInjectionMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::SqlInjectionMatchSet
         /// </summary>
-        public static Output<GetSqlInjectionMatchSetResult> Invoke(GetSqlInjectionMatchSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSqlInjectionMatchSetResult> Invoke(GetSqlInjectionMatchSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSqlInjectionMatchSetResult>("aws-native:waf:getSqlInjectionMatchSet", args ?? new GetSqlInjectionMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSqlInjectionMatchSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSqlInjectionMatchSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class GetSqlInjectionMatchSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSqlInjectionMatchSetInvokeArgs()
         {

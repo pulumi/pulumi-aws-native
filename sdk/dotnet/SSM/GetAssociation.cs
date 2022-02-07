@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
         /// </summary>
-        public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("aws-native:ssm:getAssociation", args ?? new GetAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
         /// </summary>
-        public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("aws-native:ssm:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// Unique identifier of the association.
         /// </summary>
-        [Input("associationId")]
-        public string? AssociationId { get; set; }
+        [Input("associationId", required: true)]
+        public string AssociationId { get; set; } = null!;
 
         public GetAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SSM
         /// <summary>
         /// Unique identifier of the association.
         /// </summary>
-        [Input("associationId")]
-        public Input<string>? AssociationId { get; set; }
+        [Input("associationId", required: true)]
+        public Input<string> AssociationId { get; set; } = null!;
 
         public GetAssociationInvokeArgs()
         {

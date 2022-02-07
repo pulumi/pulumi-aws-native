@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::Accelerator
         /// </summary>
-        public static Task<GetAcceleratorResult> InvokeAsync(GetAcceleratorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAcceleratorResult> InvokeAsync(GetAcceleratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAcceleratorResult>("aws-native:globalaccelerator:getAccelerator", args ?? new GetAcceleratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::Accelerator
         /// </summary>
-        public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws-native:globalaccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
         /// </summary>
-        [Input("acceleratorArn")]
-        public string? AcceleratorArn { get; set; }
+        [Input("acceleratorArn", required: true)]
+        public string AcceleratorArn { get; set; } = null!;
 
         public GetAcceleratorArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
         /// </summary>
-        [Input("acceleratorArn")]
-        public Input<string>? AcceleratorArn { get; set; }
+        [Input("acceleratorArn", required: true)]
+        public Input<string> AcceleratorArn { get; set; } = null!;
 
         public GetAcceleratorInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::BucketPolicy
         /// </summary>
-        public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws-native:s3outposts:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::BucketPolicy
         /// </summary>
-        public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws-native:s3outposts:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
-        [Input("bucket")]
-        public string? Bucket { get; set; }
+        [Input("bucket", required: true)]
+        public string Bucket { get; set; } = null!;
 
         public GetBucketPolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
+        [Input("bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
 
         public GetBucketPolicyInvokeArgs()
         {

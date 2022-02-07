@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CE
         /// <summary>
         /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
         /// </summary>
-        public static Task<GetAnomalyMonitorResult> InvokeAsync(GetAnomalyMonitorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAnomalyMonitorResult> InvokeAsync(GetAnomalyMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyMonitorResult>("aws-native:ce:getAnomalyMonitor", args ?? new GetAnomalyMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
         /// </summary>
-        public static Output<GetAnomalyMonitorResult> Invoke(GetAnomalyMonitorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAnomalyMonitorResult> Invoke(GetAnomalyMonitorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAnomalyMonitorResult>("aws-native:ce:getAnomalyMonitor", args ?? new GetAnomalyMonitorInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAnomalyMonitorArgs : Pulumi.InvokeArgs
     {
-        [Input("monitorArn")]
-        public string? MonitorArn { get; set; }
+        [Input("monitorArn", required: true)]
+        public string MonitorArn { get; set; } = null!;
 
         public GetAnomalyMonitorArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CE
 
     public sealed class GetAnomalyMonitorInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("monitorArn")]
-        public Input<string>? MonitorArn { get; set; }
+        [Input("monitorArn", required: true)]
+        public Input<string> MonitorArn { get; set; } = null!;
 
         public GetAnomalyMonitorInvokeArgs()
         {

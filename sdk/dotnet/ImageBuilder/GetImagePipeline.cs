@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ImagePipeline
         /// </summary>
-        public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ImagePipeline
         /// </summary>
-        public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image pipeline.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetImagePipelineArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image pipeline.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetImagePipelineInvokeArgs()
         {

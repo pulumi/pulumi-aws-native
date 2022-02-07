@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SQS
         /// <summary>
         /// Resource Type definition for AWS::SQS::QueuePolicy
         /// </summary>
-        public static Task<GetQueuePolicyResult> InvokeAsync(GetQueuePolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetQueuePolicyResult> InvokeAsync(GetQueuePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SQS::QueuePolicy
         /// </summary>
-        public static Output<GetQueuePolicyResult> Invoke(GetQueuePolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetQueuePolicyResult> Invoke(GetQueuePolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SQS
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetQueuePolicyArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SQS
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetQueuePolicyInvokeArgs()
         {

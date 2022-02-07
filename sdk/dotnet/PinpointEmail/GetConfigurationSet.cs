@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::ConfigurationSet
         /// </summary>
-        public static Task<GetConfigurationSetResult> InvokeAsync(GetConfigurationSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationSetResult> InvokeAsync(GetConfigurationSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationSetResult>("aws-native:pinpointemail:getConfigurationSet", args ?? new GetConfigurationSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::ConfigurationSet
         /// </summary>
-        public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws-native:pinpointemail:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigurationSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConfigurationSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.PinpointEmail
 
     public sealed class GetConfigurationSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConfigurationSetInvokeArgs()
         {

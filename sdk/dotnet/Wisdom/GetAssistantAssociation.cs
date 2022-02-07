@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.Wisdom
         /// <summary>
         /// Definition of AWS::Wisdom::AssistantAssociation Resource Type
         /// </summary>
-        public static Task<GetAssistantAssociationResult> InvokeAsync(GetAssistantAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssistantAssociationResult> InvokeAsync(GetAssistantAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssistantAssociationResult>("aws-native:wisdom:getAssistantAssociation", args ?? new GetAssistantAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Wisdom::AssistantAssociation Resource Type
         /// </summary>
-        public static Output<GetAssistantAssociationResult> Invoke(GetAssistantAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssistantAssociationResult> Invoke(GetAssistantAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssistantAssociationResult>("aws-native:wisdom:getAssistantAssociation", args ?? new GetAssistantAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAssistantAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("assistantAssociationId")]
-        public string? AssistantAssociationId { get; set; }
+        [Input("assistantAssociationId", required: true)]
+        public string AssistantAssociationId { get; set; } = null!;
 
-        [Input("assistantId")]
-        public string? AssistantId { get; set; }
+        [Input("assistantId", required: true)]
+        public string AssistantId { get; set; } = null!;
 
         public GetAssistantAssociationArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAssistantAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("assistantAssociationId")]
-        public Input<string>? AssistantAssociationId { get; set; }
+        [Input("assistantAssociationId", required: true)]
+        public Input<string> AssistantAssociationId { get; set; } = null!;
 
-        [Input("assistantId")]
-        public Input<string>? AssistantId { get; set; }
+        [Input("assistantId", required: true)]
+        public Input<string> AssistantId { get; set; } = null!;
 
         public GetAssistantAssociationInvokeArgs()
         {

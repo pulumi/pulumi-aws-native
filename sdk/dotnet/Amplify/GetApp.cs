@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Amplify
         /// <summary>
         /// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
         /// </summary>
-        public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("aws-native:amplify:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
         /// </summary>
-        public static Output<GetAppResult> Invoke(GetAppInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:amplify:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAppArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAppArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAppInvokeArgs()
         {

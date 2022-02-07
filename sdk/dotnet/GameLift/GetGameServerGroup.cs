@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
         /// </summary>
-        public static Task<GetGameServerGroupResult> InvokeAsync(GetGameServerGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGameServerGroupResult> InvokeAsync(GetGameServerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGameServerGroupResult>("aws-native:gamelift:getGameServerGroup", args ?? new GetGameServerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
         /// </summary>
-        public static Output<GetGameServerGroupResult> Invoke(GetGameServerGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGameServerGroupResult> Invoke(GetGameServerGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGameServerGroupResult>("aws-native:gamelift:getGameServerGroup", args ?? new GetGameServerGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// A generated unique ID for the game server group.
         /// </summary>
-        [Input("gameServerGroupArn")]
-        public string? GameServerGroupArn { get; set; }
+        [Input("gameServerGroupArn", required: true)]
+        public string GameServerGroupArn { get; set; } = null!;
 
         public GetGameServerGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// A generated unique ID for the game server group.
         /// </summary>
-        [Input("gameServerGroupArn")]
-        public Input<string>? GameServerGroupArn { get; set; }
+        [Input("gameServerGroupArn", required: true)]
+        public Input<string> GameServerGroupArn { get; set; } = null!;
 
         public GetGameServerGroupInvokeArgs()
         {

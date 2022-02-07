@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAFRegional
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::RateBasedRule
         /// </summary>
-        public static Task<GetRateBasedRuleResult> InvokeAsync(GetRateBasedRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRateBasedRuleResult> InvokeAsync(GetRateBasedRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws-native:wafregional:getRateBasedRule", args ?? new GetRateBasedRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::RateBasedRule
         /// </summary>
-        public static Output<GetRateBasedRuleResult> Invoke(GetRateBasedRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRateBasedRuleResult> Invoke(GetRateBasedRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRateBasedRuleResult>("aws-native:wafregional:getRateBasedRule", args ?? new GetRateBasedRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRateBasedRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRateBasedRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class GetRateBasedRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRateBasedRuleInvokeArgs()
         {

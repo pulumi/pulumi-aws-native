@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// Resource Type definition for SSO PermissionSet
         /// </summary>
-        public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for SSO PermissionSet
         /// </summary>
-        public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The sso instance arn that the permission set is owned.
         /// </summary>
-        [Input("instanceArn")]
-        public string? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public string InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// The permission set that the policy will be attached to
         /// </summary>
-        [Input("permissionSetArn")]
-        public string? PermissionSetArn { get; set; }
+        [Input("permissionSetArn", required: true)]
+        public string PermissionSetArn { get; set; } = null!;
 
         public GetPermissionSetArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The sso instance arn that the permission set is owned.
         /// </summary>
-        [Input("instanceArn")]
-        public Input<string>? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// The permission set that the policy will be attached to
         /// </summary>
-        [Input("permissionSetArn")]
-        public Input<string>? PermissionSetArn { get; set; }
+        [Input("permissionSetArn", required: true)]
+        public Input<string> PermissionSetArn { get; set; } = null!;
 
         public GetPermissionSetInvokeArgs()
         {

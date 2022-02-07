@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// Resource schema for AWS::Athena::WorkGroup
         /// </summary>
-        public static Task<GetWorkGroupResult> InvokeAsync(GetWorkGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWorkGroupResult> InvokeAsync(GetWorkGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkGroupResult>("aws-native:athena:getWorkGroup", args ?? new GetWorkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Athena::WorkGroup
         /// </summary>
-        public static Output<GetWorkGroupResult> Invoke(GetWorkGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWorkGroupResult> Invoke(GetWorkGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkGroupResult>("aws-native:athena:getWorkGroup", args ?? new GetWorkGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The workGroup name.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetWorkGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The workGroup name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetWorkGroupInvokeArgs()
         {

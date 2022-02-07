@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Kinesis
         /// <summary>
         /// Resource Type definition for AWS::Kinesis::Stream
         /// </summary>
-        public static Task<GetStreamResult> InvokeAsync(GetStreamArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws-native:kinesis:getStream", args ?? new GetStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Kinesis::Stream
         /// </summary>
-        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:kinesis:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Kinesis
         /// <summary>
         /// The name of the Kinesis stream.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetStreamArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Kinesis
         /// <summary>
         /// The name of the Kinesis stream.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetStreamInvokeArgs()
         {

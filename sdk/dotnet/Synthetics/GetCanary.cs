@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Synthetics
         /// <summary>
         /// Resource Type definition for AWS::Synthetics::Canary
         /// </summary>
-        public static Task<GetCanaryResult> InvokeAsync(GetCanaryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCanaryResult> InvokeAsync(GetCanaryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCanaryResult>("aws-native:synthetics:getCanary", args ?? new GetCanaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Synthetics::Canary
         /// </summary>
-        public static Output<GetCanaryResult> Invoke(GetCanaryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCanaryResult> Invoke(GetCanaryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCanaryResult>("aws-native:synthetics:getCanary", args ?? new GetCanaryInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Synthetics
         /// <summary>
         /// Name of the canary.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetCanaryArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Synthetics
         /// <summary>
         /// Name of the canary.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetCanaryInvokeArgs()
         {

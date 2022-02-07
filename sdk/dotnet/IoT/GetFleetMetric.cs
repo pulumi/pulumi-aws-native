@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An aggregated metric of certain devices in your fleet
         /// </summary>
-        public static Task<GetFleetMetricResult> InvokeAsync(GetFleetMetricArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFleetMetricResult> InvokeAsync(GetFleetMetricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricArgs(), options.WithDefaults());
 
         /// <summary>
         /// An aggregated metric of certain devices in your fleet
         /// </summary>
-        public static Output<GetFleetMetricResult> Invoke(GetFleetMetricInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFleetMetricResult> Invoke(GetFleetMetricInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name of the fleet metric
         /// </summary>
-        [Input("metricName")]
-        public string? MetricName { get; set; }
+        [Input("metricName", required: true)]
+        public string MetricName { get; set; } = null!;
 
         public GetFleetMetricArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name of the fleet metric
         /// </summary>
-        [Input("metricName")]
-        public Input<string>? MetricName { get; set; }
+        [Input("metricName", required: true)]
+        public Input<string> MetricName { get; set; } = null!;
 
         public GetFleetMetricInvokeArgs()
         {

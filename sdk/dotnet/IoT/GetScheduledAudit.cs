@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
         /// </summary>
-        public static Task<GetScheduledAuditResult> InvokeAsync(GetScheduledAuditArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScheduledAuditResult> InvokeAsync(GetScheduledAuditArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAuditResult>("aws-native:iot:getScheduledAudit", args ?? new GetScheduledAuditArgs(), options.WithDefaults());
 
         /// <summary>
         /// Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
         /// </summary>
-        public static Output<GetScheduledAuditResult> Invoke(GetScheduledAuditInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScheduledAuditResult> Invoke(GetScheduledAuditInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScheduledAuditResult>("aws-native:iot:getScheduledAudit", args ?? new GetScheduledAuditInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name you want to give to the scheduled audit.
         /// </summary>
-        [Input("scheduledAuditName")]
-        public string? ScheduledAuditName { get; set; }
+        [Input("scheduledAuditName", required: true)]
+        public string ScheduledAuditName { get; set; } = null!;
 
         public GetScheduledAuditArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name you want to give to the scheduled audit.
         /// </summary>
-        [Input("scheduledAuditName")]
-        public Input<string>? ScheduledAuditName { get; set; }
+        [Input("scheduledAuditName", required: true)]
+        public Input<string> ScheduledAuditName { get; set; } = null!;
 
         public GetScheduledAuditInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// Resource Type definition for AWS::EMR::InstanceGroupConfig
         /// </summary>
-        public static Task<GetInstanceGroupConfigResult> InvokeAsync(GetInstanceGroupConfigArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInstanceGroupConfigResult> InvokeAsync(GetInstanceGroupConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceGroupConfigResult>("aws-native:emr:getInstanceGroupConfig", args ?? new GetInstanceGroupConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::InstanceGroupConfig
         /// </summary>
-        public static Output<GetInstanceGroupConfigResult> Invoke(GetInstanceGroupConfigInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInstanceGroupConfigResult> Invoke(GetInstanceGroupConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceGroupConfigResult>("aws-native:emr:getInstanceGroupConfig", args ?? new GetInstanceGroupConfigInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetInstanceGroupConfigArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetInstanceGroupConfigArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EMR
 
     public sealed class GetInstanceGroupConfigInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetInstanceGroupConfigInvokeArgs()
         {

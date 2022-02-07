@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpsWorks
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::App
         /// </summary>
-        public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("aws-native:opsworks:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::App
         /// </summary>
-        public static Output<GetAppResult> Invoke(GetAppInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:opsworks:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAppArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAppArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAppInvokeArgs()
         {

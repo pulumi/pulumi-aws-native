@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSecurityGroupIngress
         /// </summary>
-        public static Task<GetDBSecurityGroupIngressResult> InvokeAsync(GetDBSecurityGroupIngressArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBSecurityGroupIngressResult> InvokeAsync(GetDBSecurityGroupIngressArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBSecurityGroupIngressResult>("aws-native:rds:getDBSecurityGroupIngress", args ?? new GetDBSecurityGroupIngressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSecurityGroupIngress
         /// </summary>
-        public static Output<GetDBSecurityGroupIngressResult> Invoke(GetDBSecurityGroupIngressInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBSecurityGroupIngressResult> Invoke(GetDBSecurityGroupIngressInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBSecurityGroupIngressResult>("aws-native:rds:getDBSecurityGroupIngress", args ?? new GetDBSecurityGroupIngressInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDBSecurityGroupIngressArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBSecurityGroupIngressArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBSecurityGroupIngressInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBSecurityGroupIngressInvokeArgs()
         {

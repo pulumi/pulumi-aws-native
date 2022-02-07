@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// Resource schema for AWS::Logs::LogGroup
         /// </summary>
-        public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws-native:logs:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Logs::LogGroup
         /// </summary>
-        public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws-native:logs:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         /// </summary>
-        [Input("logGroupName")]
-        public string? LogGroupName { get; set; }
+        [Input("logGroupName", required: true)]
+        public string LogGroupName { get; set; } = null!;
 
         public GetLogGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
+        [Input("logGroupName", required: true)]
+        public Input<string> LogGroupName { get; set; } = null!;
 
         public GetLogGroupInvokeArgs()
         {

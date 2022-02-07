@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::NotebookInstance
         /// </summary>
-        public static Task<GetNotebookInstanceResult> InvokeAsync(GetNotebookInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNotebookInstanceResult> InvokeAsync(GetNotebookInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookInstanceResult>("aws-native:sagemaker:getNotebookInstance", args ?? new GetNotebookInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::NotebookInstance
         /// </summary>
-        public static Output<GetNotebookInstanceResult> Invoke(GetNotebookInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNotebookInstanceResult> Invoke(GetNotebookInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNotebookInstanceResult>("aws-native:sagemaker:getNotebookInstance", args ?? new GetNotebookInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNotebookInstanceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetNotebookInstanceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetNotebookInstanceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetNotebookInstanceInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// This schema provides construct and validation rules for AWS-XRay Group resource parameters.
         /// </summary>
-        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws-native:xray:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// This schema provides construct and validation rules for AWS-XRay Group resource parameters.
         /// </summary>
-        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:xray:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The ARN of the group that was generated on creation.
         /// </summary>
-        [Input("groupARN")]
-        public string? GroupARN { get; set; }
+        [Input("groupARN", required: true)]
+        public string GroupARN { get; set; } = null!;
 
         public GetGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The ARN of the group that was generated on creation.
         /// </summary>
-        [Input("groupARN")]
-        public Input<string>? GroupARN { get; set; }
+        [Input("groupARN", required: true)]
+        public Input<string> GroupARN { get; set; } = null!;
 
         public GetGroupInvokeArgs()
         {

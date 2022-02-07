@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpsWorks
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::UserProfile
         /// </summary>
-        public static Task<GetUserProfileResult> InvokeAsync(GetUserProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserProfileResult> InvokeAsync(GetUserProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileResult>("aws-native:opsworks:getUserProfile", args ?? new GetUserProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::UserProfile
         /// </summary>
-        public static Output<GetUserProfileResult> Invoke(GetUserProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserProfileResult> Invoke(GetUserProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserProfileResult>("aws-native:opsworks:getUserProfile", args ?? new GetUserProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserProfileArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class GetUserProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserProfileInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::UserProfile
         /// </summary>
-        public static Task<GetUserProfileResult> InvokeAsync(GetUserProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserProfileResult> InvokeAsync(GetUserProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileResult>("aws-native:sagemaker:getUserProfile", args ?? new GetUserProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::UserProfile
         /// </summary>
-        public static Output<GetUserProfileResult> Invoke(GetUserProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserProfileResult> Invoke(GetUserProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserProfileResult>("aws-native:sagemaker:getUserProfile", args ?? new GetUserProfileInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
-        [Input("domainId")]
-        public string? DomainId { get; set; }
+        [Input("domainId", required: true)]
+        public string DomainId { get; set; } = null!;
 
         /// <summary>
         /// A name for the UserProfile.
         /// </summary>
-        [Input("userProfileName")]
-        public string? UserProfileName { get; set; }
+        [Input("userProfileName", required: true)]
+        public string UserProfileName { get; set; } = null!;
 
         public GetUserProfileArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
-        [Input("domainId")]
-        public Input<string>? DomainId { get; set; }
+        [Input("domainId", required: true)]
+        public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
         /// A name for the UserProfile.
         /// </summary>
-        [Input("userProfileName")]
-        public Input<string>? UserProfileName { get; set; }
+        [Input("userProfileName", required: true)]
+        public Input<string> UserProfileName { get; set; } = null!;
 
         public GetUserProfileInvokeArgs()
         {

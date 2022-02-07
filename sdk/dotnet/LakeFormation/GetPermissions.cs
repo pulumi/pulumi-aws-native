@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.LakeFormation
         /// <summary>
         /// Resource Type definition for AWS::LakeFormation::Permissions
         /// </summary>
-        public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("aws-native:lakeformation:getPermissions", args ?? new GetPermissionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LakeFormation::Permissions
         /// </summary>
-        public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPermissionsResult>("aws-native:lakeformation:getPermissions", args ?? new GetPermissionsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPermissionsArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPermissionsArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.LakeFormation
 
     public sealed class GetPermissionsInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPermissionsInvokeArgs()
         {

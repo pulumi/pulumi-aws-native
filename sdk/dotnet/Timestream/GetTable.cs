@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The AWS::Timestream::Table resource creates a Timestream Table.
         /// </summary>
-        public static Task<GetTableResult> InvokeAsync(GetTableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Timestream::Table resource creates a Timestream Table.
         /// </summary>
-        public static Output<GetTableResult> Invoke(GetTableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The name for the database which the table to be created belongs to.
         /// </summary>
-        [Input("databaseName")]
-        public string? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public string DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         /// </summary>
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetTableArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// The name for the database which the table to be created belongs to.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public GetTableInvokeArgs()
         {

@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Entitlement
         /// </summary>
-        public static Task<GetEntitlementResult> InvokeAsync(GetEntitlementArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEntitlementResult> InvokeAsync(GetEntitlementArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Entitlement
         /// </summary>
-        public static Output<GetEntitlementResult> Invoke(GetEntitlementInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEntitlementResult> Invoke(GetEntitlementInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEntitlementArgs : Pulumi.InvokeArgs
     {
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
-        [Input("stackName")]
-        public string? StackName { get; set; }
+        [Input("stackName", required: true)]
+        public string StackName { get; set; } = null!;
 
         public GetEntitlementArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetEntitlementInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
-        [Input("stackName")]
-        public Input<string>? StackName { get; set; }
+        [Input("stackName", required: true)]
+        public Input<string> StackName { get; set; } = null!;
 
         public GetEntitlementInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::CapacityReservationFleet
         /// </summary>
-        public static Task<GetCapacityReservationFleetResult> InvokeAsync(GetCapacityReservationFleetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCapacityReservationFleetResult> InvokeAsync(GetCapacityReservationFleetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationFleetResult>("aws-native:ec2:getCapacityReservationFleet", args ?? new GetCapacityReservationFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::CapacityReservationFleet
         /// </summary>
-        public static Output<GetCapacityReservationFleetResult> Invoke(GetCapacityReservationFleetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCapacityReservationFleetResult> Invoke(GetCapacityReservationFleetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationFleetResult>("aws-native:ec2:getCapacityReservationFleet", args ?? new GetCapacityReservationFleetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCapacityReservationFleetArgs : Pulumi.InvokeArgs
     {
-        [Input("capacityReservationFleetId")]
-        public string? CapacityReservationFleetId { get; set; }
+        [Input("capacityReservationFleetId", required: true)]
+        public string CapacityReservationFleetId { get; set; } = null!;
 
         public GetCapacityReservationFleetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetCapacityReservationFleetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("capacityReservationFleetId")]
-        public Input<string>? CapacityReservationFleetId { get; set; }
+        [Input("capacityReservationFleetId", required: true)]
+        public Input<string> CapacityReservationFleetId { get; set; } = null!;
 
         public GetCapacityReservationFleetInvokeArgs()
         {

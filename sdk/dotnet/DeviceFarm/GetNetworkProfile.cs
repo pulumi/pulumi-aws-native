@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// <summary>
         /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
         /// </summary>
-        public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
         /// </summary>
-        public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetNetworkProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetNetworkProfileArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DeviceFarm
 
     public sealed class GetNetworkProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetNetworkProfileInvokeArgs()
         {

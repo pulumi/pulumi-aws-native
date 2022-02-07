@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::ServerCertificate
         /// </summary>
-        public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws-native:iam:getServerCertificate", args ?? new GetServerCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::ServerCertificate
         /// </summary>
-        public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws-native:iam:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServerCertificateArgs : Pulumi.InvokeArgs
     {
-        [Input("serverCertificateName")]
-        public string? ServerCertificateName { get; set; }
+        [Input("serverCertificateName", required: true)]
+        public string ServerCertificateName { get; set; } = null!;
 
         public GetServerCertificateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetServerCertificateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("serverCertificateName")]
-        public Input<string>? ServerCertificateName { get; set; }
+        [Input("serverCertificateName", required: true)]
+        public Input<string> ServerCertificateName { get; set; } = null!;
 
         public GetServerCertificateInvokeArgs()
         {

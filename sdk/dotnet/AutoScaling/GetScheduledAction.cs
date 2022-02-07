@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::ScheduledAction
         /// </summary>
-        public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("aws-native:autoscaling:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::ScheduledAction
         /// </summary>
-        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:autoscaling:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetScheduledActionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetScheduledActionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetScheduledActionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetScheduledActionInvokeArgs()
         {

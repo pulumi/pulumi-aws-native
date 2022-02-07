@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Gateway
         /// </summary>
-        public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("aws-native:iotsitewise:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Gateway
         /// </summary>
-        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws-native:iotsitewise:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the gateway device.
         /// </summary>
-        [Input("gatewayId")]
-        public string? GatewayId { get; set; }
+        [Input("gatewayId", required: true)]
+        public string GatewayId { get; set; } = null!;
 
         public GetGatewayArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the gateway device.
         /// </summary>
-        [Input("gatewayId")]
-        public Input<string>? GatewayId { get; set; }
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
 
         public GetGatewayInvokeArgs()
         {

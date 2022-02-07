@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// AWS Route53 Recovery Control Control Panel resource schema .
         /// </summary>
-        public static Task<GetControlPanelResult> InvokeAsync(GetControlPanelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetControlPanelResult> InvokeAsync(GetControlPanelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetControlPanelResult>("aws-native:route53recoverycontrol:getControlPanel", args ?? new GetControlPanelArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Route53 Recovery Control Control Panel resource schema .
         /// </summary>
-        public static Output<GetControlPanelResult> Invoke(GetControlPanelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetControlPanelResult> Invoke(GetControlPanelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetControlPanelResult>("aws-native:route53recoverycontrol:getControlPanel", args ?? new GetControlPanelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Input("controlPanelArn")]
-        public string? ControlPanelArn { get; set; }
+        [Input("controlPanelArn", required: true)]
+        public string ControlPanelArn { get; set; } = null!;
 
         public GetControlPanelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Input("controlPanelArn")]
-        public Input<string>? ControlPanelArn { get; set; }
+        [Input("controlPanelArn", required: true)]
+        public Input<string> ControlPanelArn { get; set; } = null!;
 
         public GetControlPanelInvokeArgs()
         {

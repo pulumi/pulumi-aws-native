@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Resource Type definition for AWS::GameLift::Script
         /// </summary>
-        public static Task<GetScriptResult> InvokeAsync(GetScriptArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws-native:gamelift:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::Script
         /// </summary>
-        public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScriptResult>("aws-native:gamelift:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetScriptArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetScriptArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetScriptInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetScriptInvokeArgs()
         {

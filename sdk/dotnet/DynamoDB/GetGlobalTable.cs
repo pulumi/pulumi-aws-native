@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DynamoDB
         /// <summary>
         /// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
         /// </summary>
-        public static Task<GetGlobalTableResult> InvokeAsync(GetGlobalTableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGlobalTableResult> InvokeAsync(GetGlobalTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalTableResult>("aws-native:dynamodb:getGlobalTable", args ?? new GetGlobalTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
         /// </summary>
-        public static Output<GetGlobalTableResult> Invoke(GetGlobalTableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGlobalTableResult> Invoke(GetGlobalTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGlobalTableResult>("aws-native:dynamodb:getGlobalTable", args ?? new GetGlobalTableInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGlobalTableArgs : Pulumi.InvokeArgs
     {
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetGlobalTableArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DynamoDB
 
     public sealed class GetGlobalTableInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public GetGlobalTableInvokeArgs()
         {

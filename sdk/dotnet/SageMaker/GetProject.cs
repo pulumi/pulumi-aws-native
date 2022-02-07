@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Project
         /// </summary>
-        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("aws-native:sagemaker:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Project
         /// </summary>
-        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:sagemaker:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
-        [Input("projectArn")]
-        public string? ProjectArn { get; set; }
+        [Input("projectArn", required: true)]
+        public string ProjectArn { get; set; } = null!;
 
         public GetProjectArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("projectArn")]
-        public Input<string>? ProjectArn { get; set; }
+        [Input("projectArn", required: true)]
+        public Input<string> ProjectArn { get; set; } = null!;
 
         public GetProjectInvokeArgs()
         {

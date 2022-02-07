@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.RUM
         /// <summary>
         /// Resource Type definition for AWS::RUM::AppMonitor
         /// </summary>
-        public static Task<GetAppMonitorResult> InvokeAsync(GetAppMonitorArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAppMonitorResult> InvokeAsync(GetAppMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppMonitorResult>("aws-native:rum:getAppMonitor", args ?? new GetAppMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RUM::AppMonitor
         /// </summary>
-        public static Output<GetAppMonitorResult> Invoke(GetAppMonitorInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAppMonitorResult> Invoke(GetAppMonitorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppMonitorResult>("aws-native:rum:getAppMonitor", args ?? new GetAppMonitorInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RUM
         /// <summary>
         /// A name for the app monitor
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetAppMonitorArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.RUM
         /// <summary>
         /// A name for the app monitor
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetAppMonitorInvokeArgs()
         {

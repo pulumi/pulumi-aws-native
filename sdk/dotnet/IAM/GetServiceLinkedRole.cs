@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::ServiceLinkedRole
         /// </summary>
-        public static Task<GetServiceLinkedRoleResult> InvokeAsync(GetServiceLinkedRoleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceLinkedRoleResult> InvokeAsync(GetServiceLinkedRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceLinkedRoleResult>("aws-native:iam:getServiceLinkedRole", args ?? new GetServiceLinkedRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::ServiceLinkedRole
         /// </summary>
-        public static Output<GetServiceLinkedRoleResult> Invoke(GetServiceLinkedRoleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceLinkedRoleResult> Invoke(GetServiceLinkedRoleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceLinkedRoleResult>("aws-native:iam:getServiceLinkedRole", args ?? new GetServiceLinkedRoleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServiceLinkedRoleArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetServiceLinkedRoleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetServiceLinkedRoleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetServiceLinkedRoleInvokeArgs()
         {

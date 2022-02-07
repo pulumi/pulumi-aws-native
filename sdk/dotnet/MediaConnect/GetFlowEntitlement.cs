@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowEntitlement
         /// </summary>
-        public static Task<GetFlowEntitlementResult> InvokeAsync(GetFlowEntitlementArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFlowEntitlementResult> InvokeAsync(GetFlowEntitlementArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowEntitlementResult>("aws-native:mediaconnect:getFlowEntitlement", args ?? new GetFlowEntitlementArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowEntitlement
         /// </summary>
-        public static Output<GetFlowEntitlementResult> Invoke(GetFlowEntitlementInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFlowEntitlementResult> Invoke(GetFlowEntitlementInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFlowEntitlementResult>("aws-native:mediaconnect:getFlowEntitlement", args ?? new GetFlowEntitlementInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The ARN of the entitlement.
         /// </summary>
-        [Input("entitlementArn")]
-        public string? EntitlementArn { get; set; }
+        [Input("entitlementArn", required: true)]
+        public string EntitlementArn { get; set; } = null!;
 
         public GetFlowEntitlementArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The ARN of the entitlement.
         /// </summary>
-        [Input("entitlementArn")]
-        public Input<string>? EntitlementArn { get; set; }
+        [Input("entitlementArn", required: true)]
+        public Input<string> EntitlementArn { get; set; } = null!;
 
         public GetFlowEntitlementInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Inspector
         /// <summary>
         /// Resource Type definition for AWS::Inspector::AssessmentTemplate
         /// </summary>
-        public static Task<GetAssessmentTemplateResult> InvokeAsync(GetAssessmentTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAssessmentTemplateResult> InvokeAsync(GetAssessmentTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Inspector::AssessmentTemplate
         /// </summary>
-        public static Output<GetAssessmentTemplateResult> Invoke(GetAssessmentTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAssessmentTemplateResult> Invoke(GetAssessmentTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetAssessmentTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetAssessmentTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetAssessmentTemplateInvokeArgs()
         {

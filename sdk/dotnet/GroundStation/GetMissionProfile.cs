@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.GroundStation
         /// <summary>
         /// AWS Ground Station Mission Profile resource type for CloudFormation.
         /// </summary>
-        public static Task<GetMissionProfileResult> InvokeAsync(GetMissionProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMissionProfileResult> InvokeAsync(GetMissionProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Ground Station Mission Profile resource type for CloudFormation.
         /// </summary>
-        public static Output<GetMissionProfileResult> Invoke(GetMissionProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMissionProfileResult> Invoke(GetMissionProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMissionProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetMissionProfileArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetMissionProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetMissionProfileInvokeArgs()
         {

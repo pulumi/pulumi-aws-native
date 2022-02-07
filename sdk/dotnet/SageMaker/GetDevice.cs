@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource schema for AWS::SageMaker::Device
         /// </summary>
-        public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws-native:sagemaker:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::SageMaker::Device
         /// </summary>
-        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws-native:sagemaker:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the edge device fleet
         /// </summary>
-        [Input("deviceFleetName")]
-        public string? DeviceFleetName { get; set; }
+        [Input("deviceFleetName", required: true)]
+        public string DeviceFleetName { get; set; } = null!;
 
         public GetDeviceArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the edge device fleet
         /// </summary>
-        [Input("deviceFleetName")]
-        public Input<string>? DeviceFleetName { get; set; }
+        [Input("deviceFleetName", required: true)]
+        public Input<string> DeviceFleetName { get; set; } = null!;
 
         public GetDeviceInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
         /// </summary>
-        public static Task<GetLaunchRoleConstraintResult> InvokeAsync(GetLaunchRoleConstraintArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLaunchRoleConstraintResult> InvokeAsync(GetLaunchRoleConstraintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchRoleConstraintResult>("aws-native:servicecatalog:getLaunchRoleConstraint", args ?? new GetLaunchRoleConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
         /// </summary>
-        public static Output<GetLaunchRoleConstraintResult> Invoke(GetLaunchRoleConstraintInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLaunchRoleConstraintResult> Invoke(GetLaunchRoleConstraintInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLaunchRoleConstraintResult>("aws-native:servicecatalog:getLaunchRoleConstraint", args ?? new GetLaunchRoleConstraintInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLaunchRoleConstraintArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLaunchRoleConstraintArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetLaunchRoleConstraintInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLaunchRoleConstraintInvokeArgs()
         {

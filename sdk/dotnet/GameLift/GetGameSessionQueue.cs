@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// Resource Type definition for AWS::GameLift::GameSessionQueue
         /// </summary>
-        public static Task<GetGameSessionQueueResult> InvokeAsync(GetGameSessionQueueArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGameSessionQueueResult> InvokeAsync(GetGameSessionQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::GameSessionQueue
         /// </summary>
-        public static Output<GetGameSessionQueueResult> Invoke(GetGameSessionQueueInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGameSessionQueueResult> Invoke(GetGameSessionQueueInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGameSessionQueueArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGameSessionQueueArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetGameSessionQueueInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGameSessionQueueInvokeArgs()
         {

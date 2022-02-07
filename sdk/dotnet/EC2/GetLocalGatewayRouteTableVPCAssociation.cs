@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Describes an association between a local gateway route table and a VPC.
         /// </summary>
-        public static Task<GetLocalGatewayRouteTableVPCAssociationResult> InvokeAsync(GetLocalGatewayRouteTableVPCAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocalGatewayRouteTableVPCAssociationResult> InvokeAsync(GetLocalGatewayRouteTableVPCAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableVPCAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args ?? new GetLocalGatewayRouteTableVPCAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes an association between a local gateway route table and a VPC.
         /// </summary>
-        public static Output<GetLocalGatewayRouteTableVPCAssociationResult> Invoke(GetLocalGatewayRouteTableVPCAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocalGatewayRouteTableVPCAssociationResult> Invoke(GetLocalGatewayRouteTableVPCAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVPCAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args ?? new GetLocalGatewayRouteTableVPCAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the association.
         /// </summary>
-        [Input("localGatewayRouteTableVpcAssociationId")]
-        public string? LocalGatewayRouteTableVpcAssociationId { get; set; }
+        [Input("localGatewayRouteTableVpcAssociationId", required: true)]
+        public string LocalGatewayRouteTableVpcAssociationId { get; set; } = null!;
 
         public GetLocalGatewayRouteTableVPCAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The ID of the association.
         /// </summary>
-        [Input("localGatewayRouteTableVpcAssociationId")]
-        public Input<string>? LocalGatewayRouteTableVpcAssociationId { get; set; }
+        [Input("localGatewayRouteTableVpcAssociationId", required: true)]
+        public Input<string> LocalGatewayRouteTableVpcAssociationId { get; set; } = null!;
 
         public GetLocalGatewayRouteTableVPCAssociationInvokeArgs()
         {

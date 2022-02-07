@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppConfig
         /// <summary>
         /// Resource Type definition for AWS::AppConfig::DeploymentStrategy
         /// </summary>
-        public static Task<GetDeploymentStrategyResult> InvokeAsync(GetDeploymentStrategyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDeploymentStrategyResult> InvokeAsync(GetDeploymentStrategyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStrategyResult>("aws-native:appconfig:getDeploymentStrategy", args ?? new GetDeploymentStrategyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppConfig::DeploymentStrategy
         /// </summary>
-        public static Output<GetDeploymentStrategyResult> Invoke(GetDeploymentStrategyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDeploymentStrategyResult> Invoke(GetDeploymentStrategyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeploymentStrategyResult>("aws-native:appconfig:getDeploymentStrategy", args ?? new GetDeploymentStrategyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDeploymentStrategyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeploymentStrategyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetDeploymentStrategyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeploymentStrategyInvokeArgs()
         {

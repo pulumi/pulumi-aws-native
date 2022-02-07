@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Resource Type definition for AWS::IVS::RecordingConfiguration
         /// </summary>
-        public static Task<GetRecordingConfigurationResult> InvokeAsync(GetRecordingConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRecordingConfigurationResult> InvokeAsync(GetRecordingConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordingConfigurationResult>("aws-native:ivs:getRecordingConfiguration", args ?? new GetRecordingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IVS::RecordingConfiguration
         /// </summary>
-        public static Output<GetRecordingConfigurationResult> Invoke(GetRecordingConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRecordingConfigurationResult> Invoke(GetRecordingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRecordingConfigurationResult>("aws-native:ivs:getRecordingConfiguration", args ?? new GetRecordingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRecordingConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRecordingConfigurationInvokeArgs()
         {

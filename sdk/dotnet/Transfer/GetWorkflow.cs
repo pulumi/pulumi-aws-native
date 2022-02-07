@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Resource Type definition for AWS::Transfer::Workflow
         /// </summary>
-        public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("aws-native:transfer:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Transfer::Workflow
         /// </summary>
-        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("aws-native:transfer:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// A unique identifier for the workflow.
         /// </summary>
-        [Input("workflowId")]
-        public string? WorkflowId { get; set; }
+        [Input("workflowId", required: true)]
+        public string WorkflowId { get; set; } = null!;
 
         public GetWorkflowArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// A unique identifier for the workflow.
         /// </summary>
-        [Input("workflowId")]
-        public Input<string>? WorkflowId { get; set; }
+        [Input("workflowId", required: true)]
+        public Input<string> WorkflowId { get; set; } = null!;
 
         public GetWorkflowInvokeArgs()
         {

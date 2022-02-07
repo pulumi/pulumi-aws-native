@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::DistributionConfiguration
         /// </summary>
-        public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws-native:imagebuilder:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::DistributionConfiguration
         /// </summary>
-        public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws-native:imagebuilder:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetDistributionConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetDistributionConfigurationInvokeArgs()
         {

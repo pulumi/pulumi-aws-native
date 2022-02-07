@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <summary>
         /// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
         /// </summary>
-        public static Task<GetInputResult> InvokeAsync(GetInputArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("aws-native:iotevents:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
         /// </summary>
-        public static Output<GetInputResult> Invoke(GetInputInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws-native:iotevents:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <summary>
         /// The name of the input.
         /// </summary>
-        [Input("inputName")]
-        public string? InputName { get; set; }
+        [Input("inputName", required: true)]
+        public string InputName { get; set; } = null!;
 
         public GetInputArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <summary>
         /// The name of the input.
         /// </summary>
-        [Input("inputName")]
-        public Input<string>? InputName { get; set; }
+        [Input("inputName", required: true)]
+        public Input<string> InputName { get; set; } = null!;
 
         public GetInputInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Panorama
         /// <summary>
         /// Schema for Package CloudFormation Resource
         /// </summary>
-        public static Task<GetPackageResult> InvokeAsync(GetPackageArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for Package CloudFormation Resource
         /// </summary>
-        public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPackageArgs : Pulumi.InvokeArgs
     {
-        [Input("packageId")]
-        public string? PackageId { get; set; }
+        [Input("packageId", required: true)]
+        public string PackageId { get; set; } = null!;
 
         public GetPackageArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetPackageInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("packageId")]
-        public Input<string>? PackageId { get; set; }
+        [Input("packageId", required: true)]
+        public Input<string> PackageId { get; set; } = null!;
 
         public GetPackageInvokeArgs()
         {

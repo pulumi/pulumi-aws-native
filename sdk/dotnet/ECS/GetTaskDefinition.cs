@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// Resource Schema describing various properties for ECS TaskDefinition
         /// </summary>
-        public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws-native:ecs:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema describing various properties for ECS TaskDefinition
         /// </summary>
-        public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws-native:ecs:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS task definition
         /// </summary>
-        [Input("taskDefinitionArn")]
-        public string? TaskDefinitionArn { get; set; }
+        [Input("taskDefinitionArn", required: true)]
+        public string TaskDefinitionArn { get; set; } = null!;
 
         public GetTaskDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS task definition
         /// </summary>
-        [Input("taskDefinitionArn")]
-        public Input<string>? TaskDefinitionArn { get; set; }
+        [Input("taskDefinitionArn", required: true)]
+        public Input<string> TaskDefinitionArn { get; set; } = null!;
 
         public GetTaskDefinitionInvokeArgs()
         {

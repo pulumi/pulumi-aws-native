@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// <summary>
         /// Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
         /// </summary>
-        public static Task<GetApplicationVersionResult> InvokeAsync(GetApplicationVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationVersionResult> InvokeAsync(GetApplicationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationVersionResult>("aws-native:elasticbeanstalk:getApplicationVersion", args ?? new GetApplicationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
         /// </summary>
-        public static Output<GetApplicationVersionResult> Invoke(GetApplicationVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationVersionResult> Invoke(GetApplicationVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationVersionResult>("aws-native:elasticbeanstalk:getApplicationVersion", args ?? new GetApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApplicationVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class GetApplicationVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApplicationVersionInvokeArgs()
         {

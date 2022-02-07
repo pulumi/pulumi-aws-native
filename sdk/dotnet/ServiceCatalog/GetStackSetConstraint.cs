@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
         /// </summary>
-        public static Task<GetStackSetConstraintResult> InvokeAsync(GetStackSetConstraintArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStackSetConstraintResult> InvokeAsync(GetStackSetConstraintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStackSetConstraintResult>("aws-native:servicecatalog:getStackSetConstraint", args ?? new GetStackSetConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
         /// </summary>
-        public static Output<GetStackSetConstraintResult> Invoke(GetStackSetConstraintInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStackSetConstraintResult> Invoke(GetStackSetConstraintInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStackSetConstraintResult>("aws-native:servicecatalog:getStackSetConstraint", args ?? new GetStackSetConstraintInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetStackSetConstraintArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStackSetConstraintArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetStackSetConstraintInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStackSetConstraintInvokeArgs()
         {

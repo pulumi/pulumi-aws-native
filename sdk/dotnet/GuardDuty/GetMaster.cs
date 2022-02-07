@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Master
         /// </summary>
-        public static Task<GetMasterResult> InvokeAsync(GetMasterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetMasterResult> InvokeAsync(GetMasterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMasterResult>("aws-native:guardduty:getMaster", args ?? new GetMasterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Master
         /// </summary>
-        public static Output<GetMasterResult> Invoke(GetMasterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetMasterResult> Invoke(GetMasterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMasterResult>("aws-native:guardduty:getMaster", args ?? new GetMasterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetMasterArgs : Pulumi.InvokeArgs
     {
-        [Input("masterId")]
-        public string? MasterId { get; set; }
+        [Input("masterId", required: true)]
+        public string MasterId { get; set; } = null!;
 
         public GetMasterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetMasterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("masterId")]
-        public Input<string>? MasterId { get; set; }
+        [Input("masterId", required: true)]
+        public Input<string> MasterId { get; set; } = null!;
 
         public GetMasterInvokeArgs()
         {

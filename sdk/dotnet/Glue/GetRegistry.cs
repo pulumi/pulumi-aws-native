@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
         /// </summary>
-        public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("aws-native:glue:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
         /// </summary>
-        public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("aws-native:glue:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Amazon Resource Name for the created Registry.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRegistryArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Amazon Resource Name for the created Registry.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRegistryInvokeArgs()
         {

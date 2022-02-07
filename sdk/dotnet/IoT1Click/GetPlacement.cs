@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.IoT1Click
         /// <summary>
         /// Resource Type definition for AWS::IoT1Click::Placement
         /// </summary>
-        public static Task<GetPlacementResult> InvokeAsync(GetPlacementArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPlacementResult> InvokeAsync(GetPlacementArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementResult>("aws-native:iot1click:getPlacement", args ?? new GetPlacementArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT1Click::Placement
         /// </summary>
-        public static Output<GetPlacementResult> Invoke(GetPlacementInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPlacementResult> Invoke(GetPlacementInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPlacementResult>("aws-native:iot1click:getPlacement", args ?? new GetPlacementInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPlacementArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPlacementArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.IoT1Click
 
     public sealed class GetPlacementInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPlacementInvokeArgs()
         {

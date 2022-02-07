@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Resource Type definition for AWS::Events::EventBusPolicy
         /// </summary>
-        public static Task<GetEventBusPolicyResult> InvokeAsync(GetEventBusPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventBusPolicyResult> InvokeAsync(GetEventBusPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventBusPolicyResult>("aws-native:events:getEventBusPolicy", args ?? new GetEventBusPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::EventBusPolicy
         /// </summary>
-        public static Output<GetEventBusPolicyResult> Invoke(GetEventBusPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventBusPolicyResult> Invoke(GetEventBusPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventBusPolicyResult>("aws-native:events:getEventBusPolicy", args ?? new GetEventBusPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEventBusPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEventBusPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetEventBusPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEventBusPolicyInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource Type definition for AWS::RDS::GlobalCluster
         /// </summary>
-        public static Task<GetGlobalClusterResult> InvokeAsync(GetGlobalClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGlobalClusterResult> InvokeAsync(GetGlobalClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalClusterResult>("aws-native:rds:getGlobalCluster", args ?? new GetGlobalClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::GlobalCluster
         /// </summary>
-        public static Output<GetGlobalClusterResult> Invoke(GetGlobalClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGlobalClusterResult> Invoke(GetGlobalClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGlobalClusterResult>("aws-native:rds:getGlobalCluster", args ?? new GetGlobalClusterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         /// </summary>
-        [Input("globalClusterIdentifier")]
-        public string? GlobalClusterIdentifier { get; set; }
+        [Input("globalClusterIdentifier", required: true)]
+        public string GlobalClusterIdentifier { get; set; } = null!;
 
         public GetGlobalClusterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         /// </summary>
-        [Input("globalClusterIdentifier")]
-        public Input<string>? GlobalClusterIdentifier { get; set; }
+        [Input("globalClusterIdentifier", required: true)]
+        public Input<string> GlobalClusterIdentifier { get; set; } = null!;
 
         public GetGlobalClusterInvokeArgs()
         {

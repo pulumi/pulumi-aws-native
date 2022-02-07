@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Pipeline
         /// </summary>
-        public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("aws-native:sagemaker:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Pipeline
         /// </summary>
-        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:sagemaker:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the Pipeline.
         /// </summary>
-        [Input("pipelineName")]
-        public string? PipelineName { get; set; }
+        [Input("pipelineName", required: true)]
+        public string PipelineName { get; set; } = null!;
 
         public GetPipelineArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the Pipeline.
         /// </summary>
-        [Input("pipelineName")]
-        public Input<string>? PipelineName { get; set; }
+        [Input("pipelineName", required: true)]
+        public Input<string> PipelineName { get; set; } = null!;
 
         public GetPipelineInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::FeatureGroup
         /// </summary>
-        public static Task<GetFeatureGroupResult> InvokeAsync(GetFeatureGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFeatureGroupResult> InvokeAsync(GetFeatureGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFeatureGroupResult>("aws-native:sagemaker:getFeatureGroup", args ?? new GetFeatureGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::FeatureGroup
         /// </summary>
-        public static Output<GetFeatureGroupResult> Invoke(GetFeatureGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFeatureGroupResult> Invoke(GetFeatureGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFeatureGroupResult>("aws-native:sagemaker:getFeatureGroup", args ?? new GetFeatureGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Name of the FeatureGroup.
         /// </summary>
-        [Input("featureGroupName")]
-        public string? FeatureGroupName { get; set; }
+        [Input("featureGroupName", required: true)]
+        public string FeatureGroupName { get; set; } = null!;
 
         public GetFeatureGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Name of the FeatureGroup.
         /// </summary>
-        [Input("featureGroupName")]
-        public Input<string>? FeatureGroupName { get; set; }
+        [Input("featureGroupName", required: true)]
+        public Input<string> FeatureGroupName { get; set; } = null!;
 
         public GetFeatureGroupInvokeArgs()
         {

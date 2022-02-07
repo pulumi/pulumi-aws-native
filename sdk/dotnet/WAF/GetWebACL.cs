@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAF
         /// <summary>
         /// Resource Type definition for AWS::WAF::WebACL
         /// </summary>
-        public static Task<GetWebACLResult> InvokeAsync(GetWebACLArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWebACLResult> InvokeAsync(GetWebACLArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebACLResult>("aws-native:waf:getWebACL", args ?? new GetWebACLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::WebACL
         /// </summary>
-        public static Output<GetWebACLResult> Invoke(GetWebACLInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWebACLResult> Invoke(GetWebACLInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebACLResult>("aws-native:waf:getWebACL", args ?? new GetWebACLInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWebACLArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetWebACLArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class GetWebACLInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetWebACLInvokeArgs()
         {

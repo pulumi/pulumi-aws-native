@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// Resource Type definition for AWS::ECS::CapacityProvider.
         /// </summary>
-        public static Task<GetCapacityProviderResult> InvokeAsync(GetCapacityProviderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCapacityProviderResult> InvokeAsync(GetCapacityProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityProviderResult>("aws-native:ecs:getCapacityProvider", args ?? new GetCapacityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ECS::CapacityProvider.
         /// </summary>
-        public static Output<GetCapacityProviderResult> Invoke(GetCapacityProviderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCapacityProviderResult> Invoke(GetCapacityProviderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCapacityProviderResult>("aws-native:ecs:getCapacityProvider", args ?? new GetCapacityProviderInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCapacityProviderArgs : Pulumi.InvokeArgs
     {
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetCapacityProviderArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ECS
 
     public sealed class GetCapacityProviderInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetCapacityProviderInvokeArgs()
         {

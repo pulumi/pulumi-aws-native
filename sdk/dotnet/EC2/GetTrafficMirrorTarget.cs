@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::TrafficMirrorTarget
         /// </summary>
-        public static Task<GetTrafficMirrorTargetResult> InvokeAsync(GetTrafficMirrorTargetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTrafficMirrorTargetResult> InvokeAsync(GetTrafficMirrorTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorTargetResult>("aws-native:ec2:getTrafficMirrorTarget", args ?? new GetTrafficMirrorTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TrafficMirrorTarget
         /// </summary>
-        public static Output<GetTrafficMirrorTargetResult> Invoke(GetTrafficMirrorTargetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTrafficMirrorTargetResult> Invoke(GetTrafficMirrorTargetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorTargetResult>("aws-native:ec2:getTrafficMirrorTarget", args ?? new GetTrafficMirrorTargetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTrafficMirrorTargetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTrafficMirrorTargetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetTrafficMirrorTargetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTrafficMirrorTargetInvokeArgs()
         {

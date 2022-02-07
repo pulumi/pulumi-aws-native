@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// Resource schema for AWS::SES::ConfigurationSet.
         /// </summary>
-        public static Task<GetConfigurationSetResult> InvokeAsync(GetConfigurationSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationSetResult> InvokeAsync(GetConfigurationSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationSetResult>("aws-native:ses:getConfigurationSet", args ?? new GetConfigurationSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::SES::ConfigurationSet.
         /// </summary>
-        public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws-native:ses:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetConfigurationSetArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetConfigurationSetInvokeArgs()
         {

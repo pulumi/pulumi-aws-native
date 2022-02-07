@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// Resource schema for AWS::Route53::HostedZone.
         /// </summary>
-        public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws-native:route53:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53::HostedZone.
         /// </summary>
-        public static Output<GetHostedZoneResult> Invoke(GetHostedZoneInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetHostedZoneResult> Invoke(GetHostedZoneInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws-native:route53:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetHostedZoneArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetHostedZoneArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetHostedZoneInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetHostedZoneInvokeArgs()
         {

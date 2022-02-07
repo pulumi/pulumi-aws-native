@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::Function
         /// </summary>
-        public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws-native:cloudfront:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::Function
         /// </summary>
-        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws-native:cloudfront:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFunctionArgs : Pulumi.InvokeArgs
     {
-        [Input("functionARN")]
-        public string? FunctionARN { get; set; }
+        [Input("functionARN", required: true)]
+        public string FunctionARN { get; set; } = null!;
 
         public GetFunctionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("functionARN")]
-        public Input<string>? FunctionARN { get; set; }
+        [Input("functionARN", required: true)]
+        public Input<string> FunctionARN { get; set; } = null!;
 
         public GetFunctionInvokeArgs()
         {

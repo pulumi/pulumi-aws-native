@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource
         /// </summary>
-        public static Task<GetApplicationReferenceDataSourceResult> InvokeAsync(GetApplicationReferenceDataSourceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationReferenceDataSourceResult> InvokeAsync(GetApplicationReferenceDataSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationReferenceDataSourceResult>("aws-native:kinesisanalyticsv2:getApplicationReferenceDataSource", args ?? new GetApplicationReferenceDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource
         /// </summary>
-        public static Output<GetApplicationReferenceDataSourceResult> Invoke(GetApplicationReferenceDataSourceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationReferenceDataSourceResult> Invoke(GetApplicationReferenceDataSourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationReferenceDataSourceResult>("aws-native:kinesisanalyticsv2:getApplicationReferenceDataSource", args ?? new GetApplicationReferenceDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationReferenceDataSourceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApplicationReferenceDataSourceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
     public sealed class GetApplicationReferenceDataSourceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApplicationReferenceDataSourceInvokeArgs()
         {

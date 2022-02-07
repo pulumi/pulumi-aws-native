@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// AWS Route53 Recovery Control Cluster resource schema
         /// </summary>
-        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:route53recoverycontrol:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Route53 Recovery Control Cluster resource schema
         /// </summary>
-        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:route53recoverycontrol:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Input("clusterArn")]
-        public string? ClusterArn { get; set; }
+        [Input("clusterArn", required: true)]
+        public string ClusterArn { get; set; } = null!;
 
         public GetClusterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Input("clusterArn")]
-        public Input<string>? ClusterArn { get; set; }
+        [Input("clusterArn", required: true)]
+        public Input<string> ClusterArn { get; set; } = null!;
 
         public GetClusterInvokeArgs()
         {

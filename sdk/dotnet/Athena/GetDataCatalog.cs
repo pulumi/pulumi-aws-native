@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// Resource schema for AWS::Athena::DataCatalog
         /// </summary>
-        public static Task<GetDataCatalogResult> InvokeAsync(GetDataCatalogArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataCatalogResult> InvokeAsync(GetDataCatalogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Athena::DataCatalog
         /// </summary>
-        public static Output<GetDataCatalogResult> Invoke(GetDataCatalogInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataCatalogResult> Invoke(GetDataCatalogInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetDataCatalogArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetDataCatalogInvokeArgs()
         {

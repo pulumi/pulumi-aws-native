@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Resource Type definition for AWS::IAM::SAMLProvider
         /// </summary>
-        public static Task<GetSAMLProviderResult> InvokeAsync(GetSAMLProviderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSAMLProviderResult> InvokeAsync(GetSAMLProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSAMLProviderResult>("aws-native:iam:getSAMLProvider", args ?? new GetSAMLProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::SAMLProvider
         /// </summary>
-        public static Output<GetSAMLProviderResult> Invoke(GetSAMLProviderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSAMLProviderResult> Invoke(GetSAMLProviderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSAMLProviderResult>("aws-native:iam:getSAMLProvider", args ?? new GetSAMLProviderInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Amazon Resource Name (ARN) of the SAML provider
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetSAMLProviderArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// Amazon Resource Name (ARN) of the SAML provider
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetSAMLProviderInvokeArgs()
         {

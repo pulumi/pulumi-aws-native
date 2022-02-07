@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Macie FindingsFilter resource schema.
         /// </summary>
-        public static Task<GetFindingsFilterResult> InvokeAsync(GetFindingsFilterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFindingsFilterResult> InvokeAsync(GetFindingsFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFindingsFilterResult>("aws-native:macie:getFindingsFilter", args ?? new GetFindingsFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Macie FindingsFilter resource schema.
         /// </summary>
-        public static Output<GetFindingsFilterResult> Invoke(GetFindingsFilterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFindingsFilterResult> Invoke(GetFindingsFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFindingsFilterResult>("aws-native:macie:getFindingsFilter", args ?? new GetFindingsFilterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Findings filter ID.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFindingsFilterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Findings filter ID.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFindingsFilterInvokeArgs()
         {

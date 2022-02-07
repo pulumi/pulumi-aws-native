@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// Resource Type definition for AWS::AppFlow::ConnectorProfile
         /// </summary>
-        public static Task<GetConnectorProfileResult> InvokeAsync(GetConnectorProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConnectorProfileResult> InvokeAsync(GetConnectorProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorProfileResult>("aws-native:appflow:getConnectorProfile", args ?? new GetConnectorProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppFlow::ConnectorProfile
         /// </summary>
-        public static Output<GetConnectorProfileResult> Invoke(GetConnectorProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConnectorProfileResult> Invoke(GetConnectorProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectorProfileResult>("aws-native:appflow:getConnectorProfile", args ?? new GetConnectorProfileInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
         /// </summary>
-        [Input("connectorProfileName")]
-        public string? ConnectorProfileName { get; set; }
+        [Input("connectorProfileName", required: true)]
+        public string ConnectorProfileName { get; set; } = null!;
 
         public GetConnectorProfileArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
         /// </summary>
-        [Input("connectorProfileName")]
-        public Input<string>? ConnectorProfileName { get; set; }
+        [Input("connectorProfileName", required: true)]
+        public Input<string> ConnectorProfileName { get; set; } = null!;
 
         public GetConnectorProfileInvokeArgs()
         {

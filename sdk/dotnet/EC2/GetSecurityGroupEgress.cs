@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::SecurityGroupEgress
         /// </summary>
-        public static Task<GetSecurityGroupEgressResult> InvokeAsync(GetSecurityGroupEgressArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSecurityGroupEgressResult> InvokeAsync(GetSecurityGroupEgressArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SecurityGroupEgress
         /// </summary>
-        public static Output<GetSecurityGroupEgressResult> Invoke(GetSecurityGroupEgressInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSecurityGroupEgressResult> Invoke(GetSecurityGroupEgressInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSecurityGroupEgressArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSecurityGroupEgressArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSecurityGroupEgressInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSecurityGroupEgressInvokeArgs()
         {

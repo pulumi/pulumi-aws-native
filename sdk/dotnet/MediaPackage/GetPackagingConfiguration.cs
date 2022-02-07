@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// Resource schema for AWS::MediaPackage::PackagingConfiguration
         /// </summary>
-        public static Task<GetPackagingConfigurationResult> InvokeAsync(GetPackagingConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPackagingConfigurationResult> InvokeAsync(GetPackagingConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPackagingConfigurationResult>("aws-native:mediapackage:getPackagingConfiguration", args ?? new GetPackagingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaPackage::PackagingConfiguration
         /// </summary>
-        public static Output<GetPackagingConfigurationResult> Invoke(GetPackagingConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPackagingConfigurationResult> Invoke(GetPackagingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPackagingConfigurationResult>("aws-native:mediapackage:getPackagingConfiguration", args ?? new GetPackagingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The ID of the PackagingConfiguration.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetPackagingConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// The ID of the PackagingConfiguration.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetPackagingConfigurationInvokeArgs()
         {

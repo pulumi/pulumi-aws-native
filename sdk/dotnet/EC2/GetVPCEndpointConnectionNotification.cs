@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
         /// </summary>
-        public static Task<GetVPCEndpointConnectionNotificationResult> InvokeAsync(GetVPCEndpointConnectionNotificationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCEndpointConnectionNotificationResult> InvokeAsync(GetVPCEndpointConnectionNotificationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointConnectionNotificationResult>("aws-native:ec2:getVPCEndpointConnectionNotification", args ?? new GetVPCEndpointConnectionNotificationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
         /// </summary>
-        public static Output<GetVPCEndpointConnectionNotificationResult> Invoke(GetVPCEndpointConnectionNotificationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCEndpointConnectionNotificationResult> Invoke(GetVPCEndpointConnectionNotificationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCEndpointConnectionNotificationResult>("aws-native:ec2:getVPCEndpointConnectionNotification", args ?? new GetVPCEndpointConnectionNotificationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPCEndpointConnectionNotificationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPCEndpointConnectionNotificationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCEndpointConnectionNotificationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPCEndpointConnectionNotificationInvokeArgs()
         {

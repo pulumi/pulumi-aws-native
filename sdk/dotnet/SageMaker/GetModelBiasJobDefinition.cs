@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
         /// </summary>
-        public static Task<GetModelBiasJobDefinitionResult> InvokeAsync(GetModelBiasJobDefinitionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelBiasJobDefinitionResult> InvokeAsync(GetModelBiasJobDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelBiasJobDefinitionResult>("aws-native:sagemaker:getModelBiasJobDefinition", args ?? new GetModelBiasJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
         /// </summary>
-        public static Output<GetModelBiasJobDefinitionResult> Invoke(GetModelBiasJobDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelBiasJobDefinitionResult> Invoke(GetModelBiasJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelBiasJobDefinitionResult>("aws-native:sagemaker:getModelBiasJobDefinition", args ?? new GetModelBiasJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
-        [Input("jobDefinitionArn")]
-        public string? JobDefinitionArn { get; set; }
+        [Input("jobDefinitionArn", required: true)]
+        public string JobDefinitionArn { get; set; } = null!;
 
         public GetModelBiasJobDefinitionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
-        [Input("jobDefinitionArn")]
-        public Input<string>? JobDefinitionArn { get; set; }
+        [Input("jobDefinitionArn", required: true)]
+        public Input<string> JobDefinitionArn { get; set; } = null!;
 
         public GetModelBiasJobDefinitionInvokeArgs()
         {

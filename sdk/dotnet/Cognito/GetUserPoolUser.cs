@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUser
         /// </summary>
-        public static Task<GetUserPoolUserResult> InvokeAsync(GetUserPoolUserArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserPoolUserResult> InvokeAsync(GetUserPoolUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolUserResult>("aws-native:cognito:getUserPoolUser", args ?? new GetUserPoolUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUser
         /// </summary>
-        public static Output<GetUserPoolUserResult> Invoke(GetUserPoolUserInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserPoolUserResult> Invoke(GetUserPoolUserInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserPoolUserResult>("aws-native:cognito:getUserPoolUser", args ?? new GetUserPoolUserInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserPoolUserArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolUserArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUserInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolUserInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// <summary>
         /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
         /// </summary>
-        public static Task<GetRepositoryAssociationResult> InvokeAsync(GetRepositoryAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRepositoryAssociationResult> InvokeAsync(GetRepositoryAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
         /// </summary>
-        public static Output<GetRepositoryAssociationResult> Invoke(GetRepositoryAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRepositoryAssociationResult> Invoke(GetRepositoryAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// <summary>
         /// The Amazon Resource Name (ARN) of the repository association.
         /// </summary>
-        [Input("associationArn")]
-        public string? AssociationArn { get; set; }
+        [Input("associationArn", required: true)]
+        public string AssociationArn { get; set; } = null!;
 
         public GetRepositoryAssociationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// <summary>
         /// The Amazon Resource Name (ARN) of the repository association.
         /// </summary>
-        [Input("associationArn")]
-        public Input<string>? AssociationArn { get; set; }
+        [Input("associationArn", required: true)]
+        public Input<string> AssociationArn { get; set; } = null!;
 
         public GetRepositoryAssociationInvokeArgs()
         {

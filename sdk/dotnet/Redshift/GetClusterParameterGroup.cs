@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterParameterGroup
         /// </summary>
-        public static Task<GetClusterParameterGroupResult> InvokeAsync(GetClusterParameterGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetClusterParameterGroupResult> InvokeAsync(GetClusterParameterGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterParameterGroupResult>("aws-native:redshift:getClusterParameterGroup", args ?? new GetClusterParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterParameterGroup
         /// </summary>
-        public static Output<GetClusterParameterGroupResult> Invoke(GetClusterParameterGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetClusterParameterGroupResult> Invoke(GetClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterParameterGroupResult>("aws-native:redshift:getClusterParameterGroup", args ?? new GetClusterParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetClusterParameterGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetClusterParameterGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class GetClusterParameterGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetClusterParameterGroupInvokeArgs()
         {

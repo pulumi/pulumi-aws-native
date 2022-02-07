@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAF
         /// <summary>
         /// Resource Type definition for AWS::WAF::XssMatchSet
         /// </summary>
-        public static Task<GetXssMatchSetResult> InvokeAsync(GetXssMatchSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetXssMatchSetResult> InvokeAsync(GetXssMatchSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetXssMatchSetResult>("aws-native:waf:getXssMatchSet", args ?? new GetXssMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::XssMatchSet
         /// </summary>
-        public static Output<GetXssMatchSetResult> Invoke(GetXssMatchSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetXssMatchSetResult> Invoke(GetXssMatchSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetXssMatchSetResult>("aws-native:waf:getXssMatchSet", args ?? new GetXssMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetXssMatchSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetXssMatchSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class GetXssMatchSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetXssMatchSetInvokeArgs()
         {

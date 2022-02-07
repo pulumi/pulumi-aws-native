@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::Application
         /// </summary>
-        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:kinesisanalyticsv2:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::Application
         /// </summary>
-        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:kinesisanalyticsv2:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetApplicationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
     public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetApplicationInvokeArgs()
         {

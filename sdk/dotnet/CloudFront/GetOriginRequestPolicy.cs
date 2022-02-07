@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
         /// </summary>
-        public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws-native:cloudfront:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
         /// </summary>
-        public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws-native:cloudfront:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetOriginRequestPolicyArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetOriginRequestPolicyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginRequestPolicyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetOriginRequestPolicyInvokeArgs()
         {

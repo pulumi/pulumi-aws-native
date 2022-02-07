@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::Campaign
         /// </summary>
-        public static Task<GetCampaignResult> InvokeAsync(GetCampaignArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCampaignResult> InvokeAsync(GetCampaignArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCampaignResult>("aws-native:pinpoint:getCampaign", args ?? new GetCampaignArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::Campaign
         /// </summary>
-        public static Output<GetCampaignResult> Invoke(GetCampaignInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCampaignResult> Invoke(GetCampaignInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCampaignResult>("aws-native:pinpoint:getCampaign", args ?? new GetCampaignInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCampaignArgs : Pulumi.InvokeArgs
     {
-        [Input("campaignId")]
-        public string? CampaignId { get; set; }
+        [Input("campaignId", required: true)]
+        public string CampaignId { get; set; } = null!;
 
         public GetCampaignArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetCampaignInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("campaignId")]
-        public Input<string>? CampaignId { get; set; }
+        [Input("campaignId", required: true)]
+        public Input<string> CampaignId { get; set; } = null!;
 
         public GetCampaignInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Resource Type definition for AWS::Events::EventBus
         /// </summary>
-        public static Task<GetEventBusResult> InvokeAsync(GetEventBusArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEventBusResult> InvokeAsync(GetEventBusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::EventBus
         /// </summary>
-        public static Output<GetEventBusResult> Invoke(GetEventBusInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEventBusResult> Invoke(GetEventBusInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEventBusArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEventBusArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetEventBusInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEventBusInvokeArgs()
         {

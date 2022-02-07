@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// Resource Type definition for AWS::S3::Bucket
         /// </summary>
-        public static Task<GetBucketResult> InvokeAsync(GetBucketArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::S3::Bucket
         /// </summary>
-        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
-        [Input("bucketName")]
-        public string? BucketName { get; set; }
+        [Input("bucketName", required: true)]
+        public string BucketName { get; set; } = null!;
 
         public GetBucketArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
+        [Input("bucketName", required: true)]
+        public Input<string> BucketName { get; set; } = null!;
 
         public GetBucketInvokeArgs()
         {

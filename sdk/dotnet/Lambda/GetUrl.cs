@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Url
         /// </summary>
-        public static Task<GetUrlResult> InvokeAsync(GetUrlArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUrlResult> InvokeAsync(GetUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUrlResult>("aws-native:lambda:getUrl", args ?? new GetUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Url
         /// </summary>
-        public static Output<GetUrlResult> Invoke(GetUrlInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUrlResult> Invoke(GetUrlInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUrlResult>("aws-native:lambda:getUrl", args ?? new GetUrlInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Function URL.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetUrlArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Function URL.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetUrlInvokeArgs()
         {

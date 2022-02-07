@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource Type definition for AWS::RDS::OptionGroup
         /// </summary>
-        public static Task<GetOptionGroupResult> InvokeAsync(GetOptionGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetOptionGroupResult> InvokeAsync(GetOptionGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::OptionGroup
         /// </summary>
-        public static Output<GetOptionGroupResult> Invoke(GetOptionGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetOptionGroupResult> Invoke(GetOptionGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetOptionGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetOptionGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetOptionGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetOptionGroupInvokeArgs()
         {

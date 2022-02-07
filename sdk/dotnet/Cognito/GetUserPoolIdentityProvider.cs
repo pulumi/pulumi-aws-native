@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
         /// </summary>
-        public static Task<GetUserPoolIdentityProviderResult> InvokeAsync(GetUserPoolIdentityProviderArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetUserPoolIdentityProviderResult> InvokeAsync(GetUserPoolIdentityProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolIdentityProviderResult>("aws-native:cognito:getUserPoolIdentityProvider", args ?? new GetUserPoolIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
         /// </summary>
-        public static Output<GetUserPoolIdentityProviderResult> Invoke(GetUserPoolIdentityProviderInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetUserPoolIdentityProviderResult> Invoke(GetUserPoolIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUserPoolIdentityProviderResult>("aws-native:cognito:getUserPoolIdentityProvider", args ?? new GetUserPoolIdentityProviderInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUserPoolIdentityProviderArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolIdentityProviderArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolIdentityProviderInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolIdentityProviderInvokeArgs()
         {

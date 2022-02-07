@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Portal
         /// </summary>
-        public static Task<GetPortalResult> InvokeAsync(GetPortalArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPortalResult> InvokeAsync(GetPortalArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortalResult>("aws-native:iotsitewise:getPortal", args ?? new GetPortalArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Portal
         /// </summary>
-        public static Output<GetPortalResult> Invoke(GetPortalInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPortalResult> Invoke(GetPortalInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPortalResult>("aws-native:iotsitewise:getPortal", args ?? new GetPortalInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the portal.
         /// </summary>
-        [Input("portalId")]
-        public string? PortalId { get; set; }
+        [Input("portalId", required: true)]
+        public string PortalId { get; set; } = null!;
 
         public GetPortalArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The ID of the portal.
         /// </summary>
-        [Input("portalId")]
-        public Input<string>? PortalId { get; set; }
+        [Input("portalId", required: true)]
+        public Input<string> PortalId { get; set; } = null!;
 
         public GetPortalInvokeArgs()
         {

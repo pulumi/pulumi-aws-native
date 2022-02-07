@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// <summary>
         /// Resource Type definition for AWS::LookoutMetrics::Alert
         /// </summary>
-        public static Task<GetAlertResult> InvokeAsync(GetAlertArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAlertResult> InvokeAsync(GetAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertResult>("aws-native:lookoutmetrics:getAlert", args ?? new GetAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LookoutMetrics::Alert
         /// </summary>
-        public static Output<GetAlertResult> Invoke(GetAlertInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAlertResult> Invoke(GetAlertInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAlertResult>("aws-native:lookoutmetrics:getAlert", args ?? new GetAlertInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// <summary>
         /// ARN assigned to the alert.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAlertArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// <summary>
         /// ARN assigned to the alert.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAlertInvokeArgs()
         {

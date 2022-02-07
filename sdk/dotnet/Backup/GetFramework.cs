@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
         /// </summary>
-        public static Task<GetFrameworkResult> InvokeAsync(GetFrameworkArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFrameworkResult> InvokeAsync(GetFrameworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
         /// </summary>
-        public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
         /// </summary>
-        [Input("frameworkArn")]
-        public string? FrameworkArn { get; set; }
+        [Input("frameworkArn", required: true)]
+        public string FrameworkArn { get; set; } = null!;
 
         public GetFrameworkArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
         /// </summary>
-        [Input("frameworkArn")]
-        public Input<string>? FrameworkArn { get; set; }
+        [Input("frameworkArn", required: true)]
+        public Input<string> FrameworkArn { get; set; } = null!;
 
         public GetFrameworkInvokeArgs()
         {

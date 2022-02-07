@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Resource Type definition for AWS::Lambda::LayerVersion
         /// </summary>
-        public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws-native:lambda:getLayerVersion", args ?? new GetLayerVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::LayerVersion
         /// </summary>
-        public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws-native:lambda:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLayerVersionArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLayerVersionArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetLayerVersionInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLayerVersionInvokeArgs()
         {

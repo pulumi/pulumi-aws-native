@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// Resource schema for AWS::Detective::Graph
         /// </summary>
-        public static Task<GetGraphResult> InvokeAsync(GetGraphArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGraphResult> InvokeAsync(GetGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGraphResult>("aws-native:detective:getGraph", args ?? new GetGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Detective::Graph
         /// </summary>
-        public static Output<GetGraphResult> Invoke(GetGraphInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGraphResult> Invoke(GetGraphInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGraphResult>("aws-native:detective:getGraph", args ?? new GetGraphInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// The Detective graph ARN
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetGraphArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// The Detective graph ARN
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetGraphInvokeArgs()
         {

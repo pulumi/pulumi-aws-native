@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.AppStream
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
         /// </summary>
-        public static Task<GetApplicationFleetAssociationResult> InvokeAsync(GetApplicationFleetAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetApplicationFleetAssociationResult> InvokeAsync(GetApplicationFleetAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationFleetAssociationResult>("aws-native:appstream:getApplicationFleetAssociation", args ?? new GetApplicationFleetAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
         /// </summary>
-        public static Output<GetApplicationFleetAssociationResult> Invoke(GetApplicationFleetAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetApplicationFleetAssociationResult> Invoke(GetApplicationFleetAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationFleetAssociationResult>("aws-native:appstream:getApplicationFleetAssociation", args ?? new GetApplicationFleetAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetApplicationFleetAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationArn")]
-        public string? ApplicationArn { get; set; }
+        [Input("applicationArn", required: true)]
+        public string ApplicationArn { get; set; } = null!;
 
-        [Input("fleetName")]
-        public string? FleetName { get; set; }
+        [Input("fleetName", required: true)]
+        public string FleetName { get; set; } = null!;
 
         public GetApplicationFleetAssociationArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetApplicationFleetAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("applicationArn")]
-        public Input<string>? ApplicationArn { get; set; }
+        [Input("applicationArn", required: true)]
+        public Input<string> ApplicationArn { get; set; } = null!;
 
-        [Input("fleetName")]
-        public Input<string>? FleetName { get; set; }
+        [Input("fleetName", required: true)]
+        public Input<string> FleetName { get; set; } = null!;
 
         public GetApplicationFleetAssociationInvokeArgs()
         {

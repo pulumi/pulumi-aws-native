@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// A WAFv2 Logging Configuration Resource Provider
         /// </summary>
-        public static Task<GetLoggingConfigurationResult> InvokeAsync(GetLoggingConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLoggingConfigurationResult> InvokeAsync(GetLoggingConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggingConfigurationResult>("aws-native:wafv2:getLoggingConfiguration", args ?? new GetLoggingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// A WAFv2 Logging Configuration Resource Provider
         /// </summary>
-        public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:wafv2:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         /// </summary>
-        [Input("resourceArn")]
-        public string? ResourceArn { get; set; }
+        [Input("resourceArn", required: true)]
+        public string ResourceArn { get; set; } = null!;
 
         public GetLoggingConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         /// </summary>
-        [Input("resourceArn")]
-        public Input<string>? ResourceArn { get; set; }
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
 
         public GetLoggingConfigurationInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::ReplicationGroup
         /// </summary>
-        public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws-native:elasticache:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::ReplicationGroup
         /// </summary>
-        public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws-native:elasticache:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReplicationGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("replicationGroupId")]
-        public string? ReplicationGroupId { get; set; }
+        [Input("replicationGroupId", required: true)]
+        public string ReplicationGroupId { get; set; } = null!;
 
         public GetReplicationGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class GetReplicationGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("replicationGroupId")]
-        public Input<string>? ReplicationGroupId { get; set; }
+        [Input("replicationGroupId", required: true)]
+        public Input<string> ReplicationGroupId { get; set; } = null!;
 
         public GetReplicationGroupInvokeArgs()
         {

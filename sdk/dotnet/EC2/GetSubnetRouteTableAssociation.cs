@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
         /// </summary>
-        public static Task<GetSubnetRouteTableAssociationResult> InvokeAsync(GetSubnetRouteTableAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubnetRouteTableAssociationResult> InvokeAsync(GetSubnetRouteTableAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
         /// </summary>
-        public static Output<GetSubnetRouteTableAssociationResult> Invoke(GetSubnetRouteTableAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubnetRouteTableAssociationResult> Invoke(GetSubnetRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubnetRouteTableAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubnetRouteTableAssociationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSubnetRouteTableAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubnetRouteTableAssociationInvokeArgs()
         {

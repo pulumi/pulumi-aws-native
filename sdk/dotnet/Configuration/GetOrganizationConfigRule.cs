@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::OrganizationConfigRule
         /// </summary>
-        public static Task<GetOrganizationConfigRuleResult> InvokeAsync(GetOrganizationConfigRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetOrganizationConfigRuleResult> InvokeAsync(GetOrganizationConfigRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationConfigRuleResult>("aws-native:configuration:getOrganizationConfigRule", args ?? new GetOrganizationConfigRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::OrganizationConfigRule
         /// </summary>
-        public static Output<GetOrganizationConfigRuleResult> Invoke(GetOrganizationConfigRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetOrganizationConfigRuleResult> Invoke(GetOrganizationConfigRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOrganizationConfigRuleResult>("aws-native:configuration:getOrganizationConfigRule", args ?? new GetOrganizationConfigRuleInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetOrganizationConfigRuleArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetOrganizationConfigRuleArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetOrganizationConfigRuleInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetOrganizationConfigRuleInvokeArgs()
         {

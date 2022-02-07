@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Resource Type definition for AWS::Config::RemediationConfiguration
         /// </summary>
-        public static Task<GetRemediationConfigurationResult> InvokeAsync(GetRemediationConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRemediationConfigurationResult> InvokeAsync(GetRemediationConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationConfigurationResult>("aws-native:configuration:getRemediationConfiguration", args ?? new GetRemediationConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::RemediationConfiguration
         /// </summary>
-        public static Output<GetRemediationConfigurationResult> Invoke(GetRemediationConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRemediationConfigurationResult> Invoke(GetRemediationConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRemediationConfigurationResult>("aws-native:configuration:getRemediationConfiguration", args ?? new GetRemediationConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetRemediationConfigurationArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRemediationConfigurationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetRemediationConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRemediationConfigurationInvokeArgs()
         {

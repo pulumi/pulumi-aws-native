@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
         /// </summary>
-        public static Task<GetProfilingGroupResult> InvokeAsync(GetProfilingGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetProfilingGroupResult> InvokeAsync(GetProfilingGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
         /// </summary>
-        public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// The name of the profiling group.
         /// </summary>
-        [Input("profilingGroupName")]
-        public string? ProfilingGroupName { get; set; }
+        [Input("profilingGroupName", required: true)]
+        public string ProfilingGroupName { get; set; } = null!;
 
         public GetProfilingGroupArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// The name of the profiling group.
         /// </summary>
-        [Input("profilingGroupName")]
-        public Input<string>? ProfilingGroupName { get; set; }
+        [Input("profilingGroupName", required: true)]
+        public Input<string> ProfilingGroupName { get; set; } = null!;
 
         public GetProfilingGroupInvokeArgs()
         {

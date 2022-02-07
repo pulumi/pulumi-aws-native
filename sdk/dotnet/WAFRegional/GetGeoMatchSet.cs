@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.WAFRegional
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::GeoMatchSet
         /// </summary>
-        public static Task<GetGeoMatchSetResult> InvokeAsync(GetGeoMatchSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGeoMatchSetResult> InvokeAsync(GetGeoMatchSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeoMatchSetResult>("aws-native:wafregional:getGeoMatchSet", args ?? new GetGeoMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::GeoMatchSet
         /// </summary>
-        public static Output<GetGeoMatchSetResult> Invoke(GetGeoMatchSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGeoMatchSetResult> Invoke(GetGeoMatchSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGeoMatchSetResult>("aws-native:wafregional:getGeoMatchSet", args ?? new GetGeoMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGeoMatchSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGeoMatchSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class GetGeoMatchSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGeoMatchSetInvokeArgs()
         {

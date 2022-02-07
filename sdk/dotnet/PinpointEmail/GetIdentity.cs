@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::Identity
         /// </summary>
-        public static Task<GetIdentityResult> InvokeAsync(GetIdentityArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIdentityResult> InvokeAsync(GetIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityResult>("aws-native:pinpointemail:getIdentity", args ?? new GetIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::Identity
         /// </summary>
-        public static Output<GetIdentityResult> Invoke(GetIdentityInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIdentityResult> Invoke(GetIdentityInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIdentityResult>("aws-native:pinpointemail:getIdentity", args ?? new GetIdentityInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetIdentityArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetIdentityArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.PinpointEmail
 
     public sealed class GetIdentityInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetIdentityInvokeArgs()
         {

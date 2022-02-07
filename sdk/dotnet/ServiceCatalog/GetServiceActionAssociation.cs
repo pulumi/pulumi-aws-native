@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
         /// </summary>
-        public static Task<GetServiceActionAssociationResult> InvokeAsync(GetServiceActionAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetServiceActionAssociationResult> InvokeAsync(GetServiceActionAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceActionAssociationResult>("aws-native:servicecatalog:getServiceActionAssociation", args ?? new GetServiceActionAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
         /// </summary>
-        public static Output<GetServiceActionAssociationResult> Invoke(GetServiceActionAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetServiceActionAssociationResult> Invoke(GetServiceActionAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceActionAssociationResult>("aws-native:servicecatalog:getServiceActionAssociation", args ?? new GetServiceActionAssociationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetServiceActionAssociationArgs : Pulumi.InvokeArgs
     {
-        [Input("productId")]
-        public string? ProductId { get; set; }
+        [Input("productId", required: true)]
+        public string ProductId { get; set; } = null!;
 
-        [Input("provisioningArtifactId")]
-        public string? ProvisioningArtifactId { get; set; }
+        [Input("provisioningArtifactId", required: true)]
+        public string ProvisioningArtifactId { get; set; } = null!;
 
-        [Input("serviceActionId")]
-        public string? ServiceActionId { get; set; }
+        [Input("serviceActionId", required: true)]
+        public string ServiceActionId { get; set; } = null!;
 
         public GetServiceActionAssociationArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetServiceActionAssociationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("productId")]
-        public Input<string>? ProductId { get; set; }
+        [Input("productId", required: true)]
+        public Input<string> ProductId { get; set; } = null!;
 
-        [Input("provisioningArtifactId")]
-        public Input<string>? ProvisioningArtifactId { get; set; }
+        [Input("provisioningArtifactId", required: true)]
+        public Input<string> ProvisioningArtifactId { get; set; } = null!;
 
-        [Input("serviceActionId")]
-        public Input<string>? ServiceActionId { get; set; }
+        [Input("serviceActionId", required: true)]
+        public Input<string> ServiceActionId { get; set; } = null!;
 
         public GetServiceActionAssociationInvokeArgs()
         {

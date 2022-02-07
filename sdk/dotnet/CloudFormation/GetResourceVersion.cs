@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// A resource that has been registered in the CloudFormation Registry.
         /// </summary>
-        public static Task<GetResourceVersionResult> InvokeAsync(GetResourceVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResourceVersionResult> InvokeAsync(GetResourceVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceVersionResult>("aws-native:cloudformation:getResourceVersion", args ?? new GetResourceVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource that has been registered in the CloudFormation Registry.
         /// </summary>
-        public static Output<GetResourceVersionResult> Invoke(GetResourceVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResourceVersionResult> Invoke(GetResourceVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResourceVersionResult>("aws-native:cloudformation:getResourceVersion", args ?? new GetResourceVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetResourceVersionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetResourceVersionInvokeArgs()
         {

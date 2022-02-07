@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
         /// </summary>
-        public static Task<GetAccountAuditConfigurationResult> InvokeAsync(GetAccountAuditConfigurationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetAccountAuditConfigurationResult> InvokeAsync(GetAccountAuditConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
         /// </summary>
-        public static Output<GetAccountAuditConfigurationResult> Invoke(GetAccountAuditConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetAccountAuditConfigurationResult> Invoke(GetAccountAuditConfigurationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         /// </summary>
-        [Input("accountId")]
-        public string? AccountId { get; set; }
+        [Input("accountId", required: true)]
+        public string AccountId { get; set; } = null!;
 
         public GetAccountAuditConfigurationArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
+        [Input("accountId", required: true)]
+        public Input<string> AccountId { get; set; } = null!;
 
         public GetAccountAuditConfigurationInvokeArgs()
         {

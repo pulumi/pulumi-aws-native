@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Experiment.
         /// </summary>
-        public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("aws-native:evidently:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Experiment.
         /// </summary>
-        public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("aws-native:evidently:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetExperimentArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetExperimentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetExperimentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetExperimentInvokeArgs()
         {

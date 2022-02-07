@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
         /// </summary>
-        public static Task<GetReplicaKeyResult> InvokeAsync(GetReplicaKeyArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReplicaKeyResult> InvokeAsync(GetReplicaKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicaKeyResult>("aws-native:kms:getReplicaKey", args ?? new GetReplicaKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
         /// </summary>
-        public static Output<GetReplicaKeyResult> Invoke(GetReplicaKeyInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReplicaKeyResult> Invoke(GetReplicaKeyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicaKeyResult>("aws-native:kms:getReplicaKey", args ?? new GetReplicaKeyInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReplicaKeyArgs : Pulumi.InvokeArgs
     {
-        [Input("keyId")]
-        public string? KeyId { get; set; }
+        [Input("keyId", required: true)]
+        public string KeyId { get; set; } = null!;
 
         public GetReplicaKeyArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.KMS
 
     public sealed class GetReplicaKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("keyId")]
-        public Input<string>? KeyId { get; set; }
+        [Input("keyId", required: true)]
+        public Input<string> KeyId { get; set; } = null!;
 
         public GetReplicaKeyInvokeArgs()
         {

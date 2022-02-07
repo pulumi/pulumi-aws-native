@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Wisdom
         /// <summary>
         /// Definition of AWS::Wisdom::KnowledgeBase Resource Type
         /// </summary>
-        public static Task<GetKnowledgeBaseResult> InvokeAsync(GetKnowledgeBaseArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetKnowledgeBaseResult> InvokeAsync(GetKnowledgeBaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKnowledgeBaseResult>("aws-native:wisdom:getKnowledgeBase", args ?? new GetKnowledgeBaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Wisdom::KnowledgeBase Resource Type
         /// </summary>
-        public static Output<GetKnowledgeBaseResult> Invoke(GetKnowledgeBaseInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetKnowledgeBaseResult> Invoke(GetKnowledgeBaseInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetKnowledgeBaseResult>("aws-native:wisdom:getKnowledgeBase", args ?? new GetKnowledgeBaseInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetKnowledgeBaseArgs : Pulumi.InvokeArgs
     {
-        [Input("knowledgeBaseId")]
-        public string? KnowledgeBaseId { get; set; }
+        [Input("knowledgeBaseId", required: true)]
+        public string KnowledgeBaseId { get; set; } = null!;
 
         public GetKnowledgeBaseArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetKnowledgeBaseInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("knowledgeBaseId")]
-        public Input<string>? KnowledgeBaseId { get; set; }
+        [Input("knowledgeBaseId", required: true)]
+        public Input<string> KnowledgeBaseId { get; set; } = null!;
 
         public GetKnowledgeBaseInvokeArgs()
         {

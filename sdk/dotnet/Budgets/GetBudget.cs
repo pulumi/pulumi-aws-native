@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Budgets
         /// <summary>
         /// Resource Type definition for AWS::Budgets::Budget
         /// </summary>
-        public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("aws-native:budgets:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Budgets::Budget
         /// </summary>
-        public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("aws-native:budgets:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetBudgetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetBudgetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Budgets
 
     public sealed class GetBudgetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetBudgetInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// Resource Type definition for AWS::SES::ReceiptRuleSet
         /// </summary>
-        public static Task<GetReceiptRuleSetResult> InvokeAsync(GetReceiptRuleSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReceiptRuleSetResult> InvokeAsync(GetReceiptRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReceiptRuleSetResult>("aws-native:ses:getReceiptRuleSet", args ?? new GetReceiptRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SES::ReceiptRuleSet
         /// </summary>
-        public static Output<GetReceiptRuleSetResult> Invoke(GetReceiptRuleSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReceiptRuleSetResult> Invoke(GetReceiptRuleSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReceiptRuleSetResult>("aws-native:ses:getReceiptRuleSet", args ?? new GetReceiptRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReceiptRuleSetArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetReceiptRuleSetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SES
 
     public sealed class GetReceiptRuleSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetReceiptRuleSetInvokeArgs()
         {

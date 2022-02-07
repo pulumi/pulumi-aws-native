@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationSMB.
         /// </summary>
-        public static Task<GetLocationSMBResult> InvokeAsync(GetLocationSMBArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLocationSMBResult> InvokeAsync(GetLocationSMBArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationSMBResult>("aws-native:datasync:getLocationSMB", args ?? new GetLocationSMBArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationSMB.
         /// </summary>
-        public static Output<GetLocationSMBResult> Invoke(GetLocationSMBInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLocationSMBResult> Invoke(GetLocationSMBInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLocationSMBResult>("aws-native:datasync:getLocationSMB", args ?? new GetLocationSMBInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SMB location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public string? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public string LocationArn { get; set; } = null!;
 
         public GetLocationSMBArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SMB location that is created.
         /// </summary>
-        [Input("locationArn")]
-        public Input<string>? LocationArn { get; set; }
+        [Input("locationArn", required: true)]
+        public Input<string> LocationArn { get; set; } = null!;
 
         public GetLocationSMBInvokeArgs()
         {

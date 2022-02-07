@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMScope Type
         /// </summary>
-        public static Task<GetIPAMScopeResult> InvokeAsync(GetIPAMScopeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIPAMScopeResult> InvokeAsync(GetIPAMScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMScopeResult>("aws-native:ec2:getIPAMScope", args ?? new GetIPAMScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMScope Type
         /// </summary>
-        public static Output<GetIPAMScopeResult> Invoke(GetIPAMScopeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIPAMScopeResult> Invoke(GetIPAMScopeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIPAMScopeResult>("aws-native:ec2:getIPAMScope", args ?? new GetIPAMScopeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the IPAM scope.
         /// </summary>
-        [Input("ipamScopeId")]
-        public string? IpamScopeId { get; set; }
+        [Input("ipamScopeId", required: true)]
+        public string IpamScopeId { get; set; } = null!;
 
         public GetIPAMScopeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the IPAM scope.
         /// </summary>
-        [Input("ipamScopeId")]
-        public Input<string>? IpamScopeId { get; set; }
+        [Input("ipamScopeId", required: true)]
+        public Input<string> IpamScopeId { get; set; } = null!;
 
         public GetIPAMScopeInvokeArgs()
         {

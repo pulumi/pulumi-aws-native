@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
-        public static Task<GetCloudFormationProvisionedProductResult> InvokeAsync(GetCloudFormationProvisionedProductArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCloudFormationProvisionedProductResult> InvokeAsync(GetCloudFormationProvisionedProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
-        public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetCloudFormationProvisionedProductArgs : Pulumi.InvokeArgs
     {
-        [Input("provisionedProductId")]
-        public string? ProvisionedProductId { get; set; }
+        [Input("provisionedProductId", required: true)]
+        public string ProvisionedProductId { get; set; } = null!;
 
         public GetCloudFormationProvisionedProductArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetCloudFormationProvisionedProductInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("provisionedProductId")]
-        public Input<string>? ProvisionedProductId { get; set; }
+        [Input("provisionedProductId", required: true)]
+        public Input<string> ProvisionedProductId { get; set; } = null!;
 
         public GetCloudFormationProvisionedProductInvokeArgs()
         {

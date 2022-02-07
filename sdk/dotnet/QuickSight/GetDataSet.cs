@@ -14,24 +14,24 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// Definition of the AWS::QuickSight::DataSet Resource Type.
         /// </summary>
-        public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("aws-native:quicksight:getDataSet", args ?? new GetDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::DataSet Resource Type.
         /// </summary>
-        public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws-native:quicksight:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDataSetArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public string AwsAccountId { get; set; } = null!;
 
-        [Input("dataSetId")]
-        public string? DataSetId { get; set; }
+        [Input("dataSetId", required: true)]
+        public string DataSetId { get; set; } = null!;
 
         public GetDataSetArgs()
         {
@@ -40,11 +40,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDataSetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("awsAccountId", required: true)]
+        public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("dataSetId")]
-        public Input<string>? DataSetId { get; set; }
+        [Input("dataSetId", required: true)]
+        public Input<string> DataSetId { get; set; } = null!;
 
         public GetDataSetInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::EC2Fleet
         /// </summary>
-        public static Task<GetEC2FleetResult> InvokeAsync(GetEC2FleetArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEC2FleetResult> InvokeAsync(GetEC2FleetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEC2FleetResult>("aws-native:ec2:getEC2Fleet", args ?? new GetEC2FleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EC2Fleet
         /// </summary>
-        public static Output<GetEC2FleetResult> Invoke(GetEC2FleetInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEC2FleetResult> Invoke(GetEC2FleetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEC2FleetResult>("aws-native:ec2:getEC2Fleet", args ?? new GetEC2FleetInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetEC2FleetArgs : Pulumi.InvokeArgs
     {
-        [Input("fleetId")]
-        public string? FleetId { get; set; }
+        [Input("fleetId", required: true)]
+        public string FleetId { get; set; } = null!;
 
         public GetEC2FleetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetEC2FleetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("fleetId")]
-        public Input<string>? FleetId { get; set; }
+        [Input("fleetId", required: true)]
+        public Input<string> FleetId { get; set; } = null!;
 
         public GetEC2FleetInvokeArgs()
         {

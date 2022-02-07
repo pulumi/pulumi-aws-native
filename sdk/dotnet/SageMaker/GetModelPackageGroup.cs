@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
         /// </summary>
-        public static Task<GetModelPackageGroupResult> InvokeAsync(GetModelPackageGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetModelPackageGroupResult> InvokeAsync(GetModelPackageGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
         /// </summary>
-        public static Output<GetModelPackageGroupResult> Invoke(GetModelPackageGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetModelPackageGroupResult> Invoke(GetModelPackageGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetModelPackageGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("modelPackageGroupArn")]
-        public string? ModelPackageGroupArn { get; set; }
+        [Input("modelPackageGroupArn", required: true)]
+        public string ModelPackageGroupArn { get; set; } = null!;
 
         public GetModelPackageGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetModelPackageGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("modelPackageGroupArn")]
-        public Input<string>? ModelPackageGroupArn { get; set; }
+        [Input("modelPackageGroupArn", required: true)]
+        public Input<string> ModelPackageGroupArn { get; set; } = null!;
 
         public GetModelPackageGroupInvokeArgs()
         {

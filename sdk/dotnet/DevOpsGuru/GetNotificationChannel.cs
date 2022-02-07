@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
         /// </summary>
-        public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("aws-native:devopsguru:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
         /// </summary>
-        public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws-native:devopsguru:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// The ID of a notification channel.
         /// </summary>
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetNotificationChannelArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// The ID of a notification channel.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetNotificationChannelInvokeArgs()
         {

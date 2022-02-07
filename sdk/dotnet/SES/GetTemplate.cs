@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.SES
         /// <summary>
         /// Resource Type definition for AWS::SES::Template
         /// </summary>
-        public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SES::Template
         /// </summary>
-        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTemplateArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTemplateArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.SES
 
     public sealed class GetTemplateInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTemplateInvokeArgs()
         {

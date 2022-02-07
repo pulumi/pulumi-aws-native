@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DMS
         /// <summary>
         /// Resource Type definition for AWS::DMS::ReplicationSubnetGroup
         /// </summary>
-        public static Task<GetReplicationSubnetGroupResult> InvokeAsync(GetReplicationSubnetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetReplicationSubnetGroupResult> InvokeAsync(GetReplicationSubnetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSubnetGroupResult>("aws-native:dms:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DMS::ReplicationSubnetGroup
         /// </summary>
-        public static Output<GetReplicationSubnetGroupResult> Invoke(GetReplicationSubnetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetReplicationSubnetGroupResult> Invoke(GetReplicationSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetReplicationSubnetGroupResult>("aws-native:dms:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetReplicationSubnetGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetReplicationSubnetGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DMS
 
     public sealed class GetReplicationSubnetGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetReplicationSubnetGroupInvokeArgs()
         {

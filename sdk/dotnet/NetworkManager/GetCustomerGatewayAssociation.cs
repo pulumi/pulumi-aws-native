@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
         /// </summary>
-        public static Task<GetCustomerGatewayAssociationResult> InvokeAsync(GetCustomerGatewayAssociationArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetCustomerGatewayAssociationResult> InvokeAsync(GetCustomerGatewayAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayAssociationResult>("aws-native:networkmanager:getCustomerGatewayAssociation", args ?? new GetCustomerGatewayAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
         /// </summary>
-        public static Output<GetCustomerGatewayAssociationResult> Invoke(GetCustomerGatewayAssociationInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetCustomerGatewayAssociationResult> Invoke(GetCustomerGatewayAssociationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayAssociationResult>("aws-native:networkmanager:getCustomerGatewayAssociation", args ?? new GetCustomerGatewayAssociationInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
         /// </summary>
-        [Input("customerGatewayArn")]
-        public string? CustomerGatewayArn { get; set; }
+        [Input("customerGatewayArn", required: true)]
+        public string CustomerGatewayArn { get; set; } = null!;
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public string? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public string GlobalNetworkId { get; set; } = null!;
 
         public GetCustomerGatewayAssociationArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
         /// </summary>
-        [Input("customerGatewayArn")]
-        public Input<string>? CustomerGatewayArn { get; set; }
+        [Input("customerGatewayArn", required: true)]
+        public Input<string> CustomerGatewayArn { get; set; } = null!;
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
-        public Input<string>? GlobalNetworkId { get; set; }
+        [Input("globalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         public GetCustomerGatewayAssociationInvokeArgs()
         {

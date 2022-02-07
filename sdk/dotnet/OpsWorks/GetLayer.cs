@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.OpsWorks
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Layer
         /// </summary>
-        public static Task<GetLayerResult> InvokeAsync(GetLayerArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetLayerResult> InvokeAsync(GetLayerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLayerResult>("aws-native:opsworks:getLayer", args ?? new GetLayerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Layer
         /// </summary>
-        public static Output<GetLayerResult> Invoke(GetLayerInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetLayerResult> Invoke(GetLayerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLayerResult>("aws-native:opsworks:getLayer", args ?? new GetLayerInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetLayerArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetLayerArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class GetLayerInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetLayerInvokeArgs()
         {

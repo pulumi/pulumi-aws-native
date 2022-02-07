@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Filter
         /// </summary>
-        public static Task<GetFilterResult> InvokeAsync(GetFilterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFilterResult> InvokeAsync(GetFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFilterResult>("aws-native:guardduty:getFilter", args ?? new GetFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Filter
         /// </summary>
-        public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:guardduty:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetFilterArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetFilterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetFilterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetFilterInvokeArgs()
         {

@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Resource Type definition for AWS::Glue::Table
         /// </summary>
-        public static Task<GetTableResult> InvokeAsync(GetTableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:glue:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Table
         /// </summary>
-        public static Output<GetTableResult> Invoke(GetTableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:glue:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetTableArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTableArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetTableInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTableInvokeArgs()
         {

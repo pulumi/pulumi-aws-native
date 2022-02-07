@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMPool Type
         /// </summary>
-        public static Task<GetIPAMPoolResult> InvokeAsync(GetIPAMPoolArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetIPAMPoolResult> InvokeAsync(GetIPAMPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMPoolResult>("aws-native:ec2:getIPAMPool", args ?? new GetIPAMPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMPool Type
         /// </summary>
-        public static Output<GetIPAMPoolResult> Invoke(GetIPAMPoolInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetIPAMPoolResult> Invoke(GetIPAMPoolInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIPAMPoolResult>("aws-native:ec2:getIPAMPool", args ?? new GetIPAMPoolInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the IPAM Pool.
         /// </summary>
-        [Input("ipamPoolId")]
-        public string? IpamPoolId { get; set; }
+        [Input("ipamPoolId", required: true)]
+        public string IpamPoolId { get; set; } = null!;
 
         public GetIPAMPoolArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Id of the IPAM Pool.
         /// </summary>
-        [Input("ipamPoolId")]
-        public Input<string>? IpamPoolId { get; set; }
+        [Input("ipamPoolId", required: true)]
+        public Input<string> IpamPoolId { get; set; } = null!;
 
         public GetIPAMPoolInvokeArgs()
         {

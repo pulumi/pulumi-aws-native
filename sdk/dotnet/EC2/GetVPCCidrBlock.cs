@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCCidrBlock
         /// </summary>
-        public static Task<GetVPCCidrBlockResult> InvokeAsync(GetVPCCidrBlockArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVPCCidrBlockResult> InvokeAsync(GetVPCCidrBlockArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVPCCidrBlockResult>("aws-native:ec2:getVPCCidrBlock", args ?? new GetVPCCidrBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCCidrBlock
         /// </summary>
-        public static Output<GetVPCCidrBlockResult> Invoke(GetVPCCidrBlockInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVPCCidrBlockResult> Invoke(GetVPCCidrBlockInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVPCCidrBlockResult>("aws-native:ec2:getVPCCidrBlock", args ?? new GetVPCCidrBlockInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetVPCCidrBlockArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVPCCidrBlockArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCCidrBlockInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVPCCidrBlockInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Test and Publish a resource that has been registered in the CloudFormation Registry.
         /// </summary>
-        public static Task<GetPublicTypeVersionResult> InvokeAsync(GetPublicTypeVersionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPublicTypeVersionResult> InvokeAsync(GetPublicTypeVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Test and Publish a resource that has been registered in the CloudFormation Registry.
         /// </summary>
-        public static Output<GetPublicTypeVersionResult> Invoke(GetPublicTypeVersionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPublicTypeVersionResult> Invoke(GetPublicTypeVersionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
         /// </summary>
-        [Input("publicTypeArn")]
-        public string? PublicTypeArn { get; set; }
+        [Input("publicTypeArn", required: true)]
+        public string PublicTypeArn { get; set; } = null!;
 
         public GetPublicTypeVersionArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
         /// </summary>
-        [Input("publicTypeArn")]
-        public Input<string>? PublicTypeArn { get; set; }
+        [Input("publicTypeArn", required: true)]
+        public Input<string> PublicTypeArn { get; set; } = null!;
 
         public GetPublicTypeVersionInvokeArgs()
         {

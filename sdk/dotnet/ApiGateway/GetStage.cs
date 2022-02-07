@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Stage
         /// </summary>
-        public static Task<GetStageResult> InvokeAsync(GetStageArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetStageResult> InvokeAsync(GetStageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStageResult>("aws-native:apigateway:getStage", args ?? new GetStageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Stage
         /// </summary>
-        public static Output<GetStageResult> Invoke(GetStageInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:apigateway:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The ID of the RestApi resource that you're deploying with this stage.
         /// </summary>
-        [Input("restApiId")]
-        public string? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         /// <summary>
         /// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
         /// </summary>
-        [Input("stageName")]
-        public string? StageName { get; set; }
+        [Input("stageName", required: true)]
+        public string StageName { get; set; } = null!;
 
         public GetStageArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The ID of the RestApi resource that you're deploying with this stage.
         /// </summary>
-        [Input("restApiId")]
-        public Input<string>? RestApiId { get; set; }
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
         /// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
         /// </summary>
-        [Input("stageName")]
-        public Input<string>? StageName { get; set; }
+        [Input("stageName", required: true)]
+        public Input<string> StageName { get; set; } = null!;
 
         public GetStageInvokeArgs()
         {

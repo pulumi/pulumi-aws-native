@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// Permission set on private certificate authority
         /// </summary>
-        public static Task<GetPermissionResult> InvokeAsync(GetPermissionArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetPermissionResult> InvokeAsync(GetPermissionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionResult>("aws-native:acmpca:getPermission", args ?? new GetPermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Permission set on private certificate authority
         /// </summary>
-        public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:acmpca:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
         /// </summary>
-        [Input("certificateAuthorityArn")]
-        public string? CertificateAuthorityArn { get; set; }
+        [Input("certificateAuthorityArn", required: true)]
+        public string CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
         /// The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
         /// </summary>
-        [Input("principal")]
-        public string? Principal { get; set; }
+        [Input("principal", required: true)]
+        public string Principal { get; set; } = null!;
 
         public GetPermissionArgs()
         {
@@ -49,14 +49,14 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
         /// </summary>
-        [Input("certificateAuthorityArn")]
-        public Input<string>? CertificateAuthorityArn { get; set; }
+        [Input("certificateAuthorityArn", required: true)]
+        public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
         /// The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
         /// </summary>
-        [Input("principal")]
-        public Input<string>? Principal { get; set; }
+        [Input("principal", required: true)]
+        public Input<string> Principal { get; set; } = null!;
 
         public GetPermissionInvokeArgs()
         {

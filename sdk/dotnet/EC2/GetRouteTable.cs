@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Resource Type definition for AWS::EC2::RouteTable
         /// </summary>
-        public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws-native:ec2:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::RouteTable
         /// </summary>
-        public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws-native:ec2:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The route table ID.
         /// </summary>
-        [Input("routeTableId")]
-        public string? RouteTableId { get; set; }
+        [Input("routeTableId", required: true)]
+        public string RouteTableId { get; set; } = null!;
 
         public GetRouteTableArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The route table ID.
         /// </summary>
-        [Input("routeTableId")]
-        public Input<string>? RouteTableId { get; set; }
+        [Input("routeTableId", required: true)]
+        public Input<string> RouteTableId { get; set; } = null!;
 
         public GetRouteTableInvokeArgs()
         {

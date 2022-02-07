@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::Bucket
         /// </summary>
-        public static Task<GetBucketResult> InvokeAsync(GetBucketArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws-native:s3outposts:getBucket", args ?? new GetBucketArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::Bucket
         /// </summary>
-        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:s3outposts:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetBucketArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetBucketInvokeArgs()
         {

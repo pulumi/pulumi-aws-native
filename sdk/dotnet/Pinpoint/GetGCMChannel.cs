@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::GCMChannel
         /// </summary>
-        public static Task<GetGCMChannelResult> InvokeAsync(GetGCMChannelArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetGCMChannelResult> InvokeAsync(GetGCMChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGCMChannelResult>("aws-native:pinpoint:getGCMChannel", args ?? new GetGCMChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::GCMChannel
         /// </summary>
-        public static Output<GetGCMChannelResult> Invoke(GetGCMChannelInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetGCMChannelResult> Invoke(GetGCMChannelInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGCMChannelResult>("aws-native:pinpoint:getGCMChannel", args ?? new GetGCMChannelInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGCMChannelArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetGCMChannelArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GetGCMChannelInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetGCMChannelInvokeArgs()
         {

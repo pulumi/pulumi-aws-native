@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// An entity type for fraud detector.
         /// </summary>
-        public static Task<GetEntityTypeResult> InvokeAsync(GetEntityTypeArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetEntityTypeResult> InvokeAsync(GetEntityTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityTypeResult>("aws-native:frauddetector:getEntityType", args ?? new GetEntityTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// An entity type for fraud detector.
         /// </summary>
-        public static Output<GetEntityTypeResult> Invoke(GetEntityTypeInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetEntityTypeResult> Invoke(GetEntityTypeInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEntityTypeResult>("aws-native:frauddetector:getEntityType", args ?? new GetEntityTypeInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The entity type ARN.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetEntityTypeArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The entity type ARN.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetEntityTypeInvokeArgs()
         {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// A resource schema for a Variable in Amazon Fraud Detector.
         /// </summary>
-        public static Task<GetVariableResult> InvokeAsync(GetVariableArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("aws-native:frauddetector:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource schema for a Variable in Amazon Fraud Detector.
         /// </summary>
-        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVariableResult>("aws-native:frauddetector:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The ARN of the variable.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetVariableArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The ARN of the variable.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetVariableInvokeArgs()
         {

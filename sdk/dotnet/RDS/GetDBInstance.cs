@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBInstance
         /// </summary>
-        public static Task<GetDBInstanceResult> InvokeAsync(GetDBInstanceArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBInstanceResult> InvokeAsync(GetDBInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:rds:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBInstance
         /// </summary>
-        public static Output<GetDBInstanceResult> Invoke(GetDBInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBInstanceResult> Invoke(GetDBInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:rds:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDBInstanceArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBInstanceArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBInstanceInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBInstanceInvokeArgs()
         {

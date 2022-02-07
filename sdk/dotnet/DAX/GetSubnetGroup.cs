@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.DAX
         /// <summary>
         /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
-        public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
-        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetSubnetGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubnetGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.DAX
 
     public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubnetGroupInvokeArgs()
         {

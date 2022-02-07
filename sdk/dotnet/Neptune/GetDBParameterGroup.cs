@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// Resource Type definition for AWS::Neptune::DBParameterGroup
         /// </summary>
-        public static Task<GetDBParameterGroupResult> InvokeAsync(GetDBParameterGroupArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDBParameterGroupResult> InvokeAsync(GetDBParameterGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBParameterGroupResult>("aws-native:neptune:getDBParameterGroup", args ?? new GetDBParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Neptune::DBParameterGroup
         /// </summary>
-        public static Output<GetDBParameterGroupResult> Invoke(GetDBParameterGroupInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDBParameterGroupResult> Invoke(GetDBParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBParameterGroupResult>("aws-native:neptune:getDBParameterGroup", args ?? new GetDBParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDBParameterGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBParameterGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Neptune
 
     public sealed class GetDBParameterGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBParameterGroupInvokeArgs()
         {

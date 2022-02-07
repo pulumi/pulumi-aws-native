@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Resource Type definition for AWS::Route53Resolver::ResolverRule
         /// </summary>
-        public static Task<GetResolverRuleResult> InvokeAsync(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetResolverRuleResult> InvokeAsync(GetResolverRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws-native:route53resolver:getResolverRule", args ?? new GetResolverRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Route53Resolver::ResolverRule
         /// </summary>
-        public static Output<GetResolverRuleResult> Invoke(GetResolverRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetResolverRuleResult> Invoke(GetResolverRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetResolverRuleResult>("aws-native:route53resolver:getResolverRule", args ?? new GetResolverRuleInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// The ID of the endpoint that the rule is associated with.
         /// </summary>
-        [Input("resolverRuleId")]
-        public string? ResolverRuleId { get; set; }
+        [Input("resolverRuleId", required: true)]
+        public string ResolverRuleId { get; set; } = null!;
 
         public GetResolverRuleArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// The ID of the endpoint that the rule is associated with.
         /// </summary>
-        [Input("resolverRuleId")]
-        public Input<string>? ResolverRuleId { get; set; }
+        [Input("resolverRuleId", required: true)]
+        public Input<string> ResolverRuleId { get; set; } = null!;
 
         public GetResolverRuleInvokeArgs()
         {

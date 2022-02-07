@@ -14,21 +14,21 @@ namespace Pulumi.AwsNative.AppConfig
         /// <summary>
         /// Resource Type definition for AWS::AppConfig::ConfigurationProfile
         /// </summary>
-        public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("aws-native:appconfig:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppConfig::ConfigurationProfile
         /// </summary>
-        public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("aws-native:appconfig:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetConfigurationProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetConfigurationProfileArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetConfigurationProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetConfigurationProfileInvokeArgs()
         {

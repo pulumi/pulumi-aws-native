@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.InspectorV2
         /// <summary>
         /// Inspector Filter resource schema
         /// </summary>
-        public static Task<GetFilterResult> InvokeAsync(GetFilterArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetFilterResult> InvokeAsync(GetFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Inspector Filter resource schema
         /// </summary>
-        public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.InspectorV2
         /// <summary>
         /// Findings filter ARN.
         /// </summary>
-        [Input("arn")]
-        public string? Arn { get; set; }
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetFilterArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.InspectorV2
         /// <summary>
         /// Findings filter ARN.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetFilterInvokeArgs()
         {

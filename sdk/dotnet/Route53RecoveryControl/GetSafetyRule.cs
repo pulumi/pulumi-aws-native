@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
         /// </summary>
-        public static Task<GetSafetyRuleResult> InvokeAsync(GetSafetyRuleArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetSafetyRuleResult> InvokeAsync(GetSafetyRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSafetyRuleResult>("aws-native:route53recoverycontrol:getSafetyRule", args ?? new GetSafetyRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
         /// </summary>
-        public static Output<GetSafetyRuleResult> Invoke(GetSafetyRuleInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetSafetyRuleResult> Invoke(GetSafetyRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSafetyRuleResult>("aws-native:route53recoverycontrol:getSafetyRule", args ?? new GetSafetyRuleInvokeArgs(), options.WithDefaults());
     }
 
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the safety rule.
         /// </summary>
-        [Input("safetyRuleArn")]
-        public string? SafetyRuleArn { get; set; }
+        [Input("safetyRuleArn", required: true)]
+        public string SafetyRuleArn { get; set; } = null!;
 
         public GetSafetyRuleArgs()
         {
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The Amazon Resource Name (ARN) of the safety rule.
         /// </summary>
-        [Input("safetyRuleArn")]
-        public Input<string>? SafetyRuleArn { get; set; }
+        [Input("safetyRuleArn", required: true)]
+        public Input<string> SafetyRuleArn { get; set; } = null!;
 
         public GetSafetyRuleInvokeArgs()
         {

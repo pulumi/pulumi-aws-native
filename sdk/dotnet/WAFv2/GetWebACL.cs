@@ -14,27 +14,27 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
         /// </summary>
-        public static Task<GetWebACLResult> InvokeAsync(GetWebACLArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetWebACLResult> InvokeAsync(GetWebACLArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebACLResult>("aws-native:wafv2:getWebACL", args ?? new GetWebACLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
         /// </summary>
-        public static Output<GetWebACLResult> Invoke(GetWebACLInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetWebACLResult> Invoke(GetWebACLInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetWebACLResult>("aws-native:wafv2:getWebACL", args ?? new GetWebACLInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetWebACLArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public string? Id { get; set; }
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
-        [Input("scope")]
-        public Pulumi.AwsNative.WAFv2.WebACLScope? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Pulumi.AwsNative.WAFv2.WebACLScope Scope { get; set; }
 
         public GetWebACLArgs()
         {
@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class GetWebACLInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
-        [Input("scope")]
-        public Input<Pulumi.AwsNative.WAFv2.WebACLScope>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Pulumi.AwsNative.WAFv2.WebACLScope> Scope { get; set; } = null!;
 
         public GetWebACLInvokeArgs()
         {
