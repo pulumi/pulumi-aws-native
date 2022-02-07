@@ -21,8 +21,8 @@ func LookupWebACLAssociation(ctx *pulumi.Context, args *LookupWebACLAssociationA
 }
 
 type LookupWebACLAssociationArgs struct {
-	ResourceArn *string `pulumi:"resourceArn"`
-	WebACLArn   *string `pulumi:"webACLArn"`
+	ResourceArn string `pulumi:"resourceArn"`
+	WebACLArn   string `pulumi:"webACLArn"`
 }
 
 type LookupWebACLAssociationResult struct {
@@ -38,8 +38,8 @@ func LookupWebACLAssociationOutput(ctx *pulumi.Context, args LookupWebACLAssocia
 }
 
 type LookupWebACLAssociationOutputArgs struct {
-	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
-	WebACLArn   pulumi.StringPtrInput `pulumi:"webACLArn"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	WebACLArn   pulumi.StringInput `pulumi:"webACLArn"`
 }
 
 func (LookupWebACLAssociationOutputArgs) ElementType() reflect.Type {

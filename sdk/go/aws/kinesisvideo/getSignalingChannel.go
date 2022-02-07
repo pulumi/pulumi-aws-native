@@ -22,7 +22,7 @@ func LookupSignalingChannel(ctx *pulumi.Context, args *LookupSignalingChannelArg
 
 type LookupSignalingChannelArgs struct {
 	// The name of the Kinesis Video Signaling Channel.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupSignalingChannelResult struct {
@@ -47,7 +47,7 @@ func LookupSignalingChannelOutput(ctx *pulumi.Context, args LookupSignalingChann
 
 type LookupSignalingChannelOutputArgs struct {
 	// The name of the Kinesis Video Signaling Channel.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupSignalingChannelOutputArgs) ElementType() reflect.Type {

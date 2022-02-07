@@ -21,7 +21,7 @@ func LookupIdentityPoolRoleAttachment(ctx *pulumi.Context, args *LookupIdentityP
 }
 
 type LookupIdentityPoolRoleAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupIdentityPoolRoleAttachmentResult struct {
@@ -40,7 +40,7 @@ func LookupIdentityPoolRoleAttachmentOutput(ctx *pulumi.Context, args LookupIden
 }
 
 type LookupIdentityPoolRoleAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupIdentityPoolRoleAttachmentOutputArgs) ElementType() reflect.Type {

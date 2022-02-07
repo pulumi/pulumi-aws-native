@@ -21,7 +21,7 @@ func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pul
 }
 
 type LookupDatastoreArgs struct {
-	DatastoreName *string `pulumi:"datastoreName"`
+	DatastoreName string `pulumi:"datastoreName"`
 }
 
 type LookupDatastoreResult struct {
@@ -43,7 +43,7 @@ func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, 
 }
 
 type LookupDatastoreOutputArgs struct {
-	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
+	DatastoreName pulumi.StringInput `pulumi:"datastoreName"`
 }
 
 func (LookupDatastoreOutputArgs) ElementType() reflect.Type {

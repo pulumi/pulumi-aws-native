@@ -22,7 +22,7 @@ func LookupPrefixList(ctx *pulumi.Context, args *LookupPrefixListArgs, opts ...p
 
 type LookupPrefixListArgs struct {
 	// Id of Prefix List.
-	PrefixListId *string `pulumi:"prefixListId"`
+	PrefixListId string `pulumi:"prefixListId"`
 }
 
 type LookupPrefixListResult struct {
@@ -57,7 +57,7 @@ func LookupPrefixListOutput(ctx *pulumi.Context, args LookupPrefixListOutputArgs
 
 type LookupPrefixListOutputArgs struct {
 	// Id of Prefix List.
-	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
+	PrefixListId pulumi.StringInput `pulumi:"prefixListId"`
 }
 
 func (LookupPrefixListOutputArgs) ElementType() reflect.Type {

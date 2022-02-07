@@ -22,7 +22,7 @@ func LookupMultiRegionAccessPointPolicy(ctx *pulumi.Context, args *LookupMultiRe
 
 type LookupMultiRegionAccessPointPolicyArgs struct {
 	// The name of the Multi Region Access Point to apply policy
-	MrapName *string `pulumi:"mrapName"`
+	MrapName string `pulumi:"mrapName"`
 }
 
 type LookupMultiRegionAccessPointPolicyResult struct {
@@ -43,7 +43,7 @@ func LookupMultiRegionAccessPointPolicyOutput(ctx *pulumi.Context, args LookupMu
 
 type LookupMultiRegionAccessPointPolicyOutputArgs struct {
 	// The name of the Multi Region Access Point to apply policy
-	MrapName pulumi.StringPtrInput `pulumi:"mrapName"`
+	MrapName pulumi.StringInput `pulumi:"mrapName"`
 }
 
 func (LookupMultiRegionAccessPointPolicyOutputArgs) ElementType() reflect.Type {

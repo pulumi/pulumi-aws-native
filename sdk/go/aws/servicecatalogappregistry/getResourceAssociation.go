@@ -21,7 +21,7 @@ func LookupResourceAssociation(ctx *pulumi.Context, args *LookupResourceAssociat
 }
 
 type LookupResourceAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResourceAssociationResult struct {
@@ -46,7 +46,7 @@ func LookupResourceAssociationOutput(ctx *pulumi.Context, args LookupResourceAss
 }
 
 type LookupResourceAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResourceAssociationOutputArgs) ElementType() reflect.Type {

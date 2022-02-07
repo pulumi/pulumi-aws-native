@@ -21,7 +21,7 @@ func LookupResourceDefinition(ctx *pulumi.Context, args *LookupResourceDefinitio
 }
 
 type LookupResourceDefinitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResourceDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupResourceDefinitionOutput(ctx *pulumi.Context, args LookupResourceDefi
 }
 
 type LookupResourceDefinitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResourceDefinitionOutputArgs) ElementType() reflect.Type {

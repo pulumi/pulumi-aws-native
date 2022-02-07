@@ -22,7 +22,7 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 
 type LookupResourcePolicyArgs struct {
 	// A name for resource policy
-	PolicyName *string `pulumi:"policyName"`
+	PolicyName string `pulumi:"policyName"`
 }
 
 type LookupResourcePolicyResult struct {
@@ -41,7 +41,7 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 
 type LookupResourcePolicyOutputArgs struct {
 	// A name for resource policy
-	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
 
 func (LookupResourcePolicyOutputArgs) ElementType() reflect.Type {

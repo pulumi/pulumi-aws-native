@@ -21,7 +21,7 @@ func LookupApplicationReferenceDataSource(ctx *pulumi.Context, args *LookupAppli
 }
 
 type LookupApplicationReferenceDataSourceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupApplicationReferenceDataSourceResult struct {
@@ -39,7 +39,7 @@ func LookupApplicationReferenceDataSourceOutput(ctx *pulumi.Context, args Lookup
 }
 
 type LookupApplicationReferenceDataSourceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApplicationReferenceDataSourceOutputArgs) ElementType() reflect.Type {

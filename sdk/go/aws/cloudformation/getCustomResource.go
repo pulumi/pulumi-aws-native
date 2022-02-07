@@ -21,7 +21,7 @@ func LookupCustomResource(ctx *pulumi.Context, args *LookupCustomResourceArgs, o
 }
 
 type LookupCustomResourceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCustomResourceResult struct {
@@ -38,7 +38,7 @@ func LookupCustomResourceOutput(ctx *pulumi.Context, args LookupCustomResourceOu
 }
 
 type LookupCustomResourceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCustomResourceOutputArgs) ElementType() reflect.Type {

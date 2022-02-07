@@ -21,7 +21,7 @@ func LookupCollection(ctx *pulumi.Context, args *LookupCollectionArgs, opts ...p
 }
 
 type LookupCollectionArgs struct {
-	CollectionId *string `pulumi:"collectionId"`
+	CollectionId string `pulumi:"collectionId"`
 }
 
 type LookupCollectionResult struct {
@@ -40,7 +40,7 @@ func LookupCollectionOutput(ctx *pulumi.Context, args LookupCollectionOutputArgs
 }
 
 type LookupCollectionOutputArgs struct {
-	CollectionId pulumi.StringPtrInput `pulumi:"collectionId"`
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
 }
 
 func (LookupCollectionOutputArgs) ElementType() reflect.Type {

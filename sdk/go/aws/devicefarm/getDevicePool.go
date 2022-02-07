@@ -21,7 +21,7 @@ func LookupDevicePool(ctx *pulumi.Context, args *LookupDevicePoolArgs, opts ...p
 }
 
 type LookupDevicePoolArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupDevicePoolResult struct {
@@ -43,7 +43,7 @@ func LookupDevicePoolOutput(ctx *pulumi.Context, args LookupDevicePoolOutputArgs
 }
 
 type LookupDevicePoolOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupDevicePoolOutputArgs) ElementType() reflect.Type {

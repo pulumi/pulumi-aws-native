@@ -21,11 +21,11 @@ func LookupIPAMAllocation(ctx *pulumi.Context, args *LookupIPAMAllocationArgs, o
 }
 
 type LookupIPAMAllocationArgs struct {
-	Cidr *string `pulumi:"cidr"`
+	Cidr string `pulumi:"cidr"`
 	// Id of the allocation.
-	IpamPoolAllocationId *string `pulumi:"ipamPoolAllocationId"`
+	IpamPoolAllocationId string `pulumi:"ipamPoolAllocationId"`
 	// Id of the IPAM Pool.
-	IpamPoolId *string `pulumi:"ipamPoolId"`
+	IpamPoolId string `pulumi:"ipamPoolId"`
 }
 
 type LookupIPAMAllocationResult struct {
@@ -43,11 +43,11 @@ func LookupIPAMAllocationOutput(ctx *pulumi.Context, args LookupIPAMAllocationOu
 }
 
 type LookupIPAMAllocationOutputArgs struct {
-	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	Cidr pulumi.StringInput `pulumi:"cidr"`
 	// Id of the allocation.
-	IpamPoolAllocationId pulumi.StringPtrInput `pulumi:"ipamPoolAllocationId"`
+	IpamPoolAllocationId pulumi.StringInput `pulumi:"ipamPoolAllocationId"`
 	// Id of the IPAM Pool.
-	IpamPoolId pulumi.StringPtrInput `pulumi:"ipamPoolId"`
+	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
 }
 
 func (LookupIPAMAllocationOutputArgs) ElementType() reflect.Type {

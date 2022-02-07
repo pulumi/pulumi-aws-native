@@ -22,7 +22,7 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 
 type LookupFleetArgs struct {
 	// Unique fleet ID
-	FleetId *string `pulumi:"fleetId"`
+	FleetId string `pulumi:"fleetId"`
 }
 
 type LookupFleetResult struct {
@@ -64,7 +64,7 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 
 type LookupFleetOutputArgs struct {
 	// Unique fleet ID
-	FleetId pulumi.StringPtrInput `pulumi:"fleetId"`
+	FleetId pulumi.StringInput `pulumi:"fleetId"`
 }
 
 func (LookupFleetOutputArgs) ElementType() reflect.Type {

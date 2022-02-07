@@ -22,7 +22,7 @@ func LookupCustomMetric(ctx *pulumi.Context, args *LookupCustomMetricArgs, opts 
 
 type LookupCustomMetricArgs struct {
 	// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
-	MetricName *string `pulumi:"metricName"`
+	MetricName string `pulumi:"metricName"`
 }
 
 type LookupCustomMetricResult struct {
@@ -45,7 +45,7 @@ func LookupCustomMetricOutput(ctx *pulumi.Context, args LookupCustomMetricOutput
 
 type LookupCustomMetricOutputArgs struct {
 	// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 }
 
 func (LookupCustomMetricOutputArgs) ElementType() reflect.Type {

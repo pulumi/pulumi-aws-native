@@ -21,7 +21,7 @@ func LookupBaiduChannel(ctx *pulumi.Context, args *LookupBaiduChannelArgs, opts 
 }
 
 type LookupBaiduChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupBaiduChannelResult struct {
@@ -41,7 +41,7 @@ func LookupBaiduChannelOutput(ctx *pulumi.Context, args LookupBaiduChannelOutput
 }
 
 type LookupBaiduChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupBaiduChannelOutputArgs) ElementType() reflect.Type {

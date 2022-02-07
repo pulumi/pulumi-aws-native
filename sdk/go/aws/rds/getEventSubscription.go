@@ -21,7 +21,7 @@ func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionA
 }
 
 type LookupEventSubscriptionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEventSubscriptionResult struct {
@@ -42,7 +42,7 @@ func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscrip
 }
 
 type LookupEventSubscriptionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEventSubscriptionOutputArgs) ElementType() reflect.Type {

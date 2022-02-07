@@ -21,9 +21,9 @@ func LookupPackageVersion(ctx *pulumi.Context, args *LookupPackageVersionArgs, o
 }
 
 type LookupPackageVersionArgs struct {
-	PackageId      *string `pulumi:"packageId"`
-	PackageVersion *string `pulumi:"packageVersion"`
-	PatchVersion   *string `pulumi:"patchVersion"`
+	PackageId      string `pulumi:"packageId"`
+	PackageVersion string `pulumi:"packageVersion"`
+	PatchVersion   string `pulumi:"patchVersion"`
 }
 
 type LookupPackageVersionResult struct {
@@ -47,9 +47,9 @@ func LookupPackageVersionOutput(ctx *pulumi.Context, args LookupPackageVersionOu
 }
 
 type LookupPackageVersionOutputArgs struct {
-	PackageId      pulumi.StringPtrInput `pulumi:"packageId"`
-	PackageVersion pulumi.StringPtrInput `pulumi:"packageVersion"`
-	PatchVersion   pulumi.StringPtrInput `pulumi:"patchVersion"`
+	PackageId      pulumi.StringInput `pulumi:"packageId"`
+	PackageVersion pulumi.StringInput `pulumi:"packageVersion"`
+	PatchVersion   pulumi.StringInput `pulumi:"patchVersion"`
 }
 
 func (LookupPackageVersionOutputArgs) ElementType() reflect.Type {

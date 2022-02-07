@@ -21,7 +21,7 @@ func LookupTagOption(ctx *pulumi.Context, args *LookupTagOptionArgs, opts ...pul
 }
 
 type LookupTagOptionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTagOptionResult struct {
@@ -39,7 +39,7 @@ func LookupTagOptionOutput(ctx *pulumi.Context, args LookupTagOptionOutputArgs, 
 }
 
 type LookupTagOptionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTagOptionOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupDeliveryStream(ctx *pulumi.Context, args *LookupDeliveryStreamArgs, o
 }
 
 type LookupDeliveryStreamArgs struct {
-	DeliveryStreamName *string `pulumi:"deliveryStreamName"`
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
 }
 
 type LookupDeliveryStreamResult struct {
@@ -47,7 +47,7 @@ func LookupDeliveryStreamOutput(ctx *pulumi.Context, args LookupDeliveryStreamOu
 }
 
 type LookupDeliveryStreamOutputArgs struct {
-	DeliveryStreamName pulumi.StringPtrInput `pulumi:"deliveryStreamName"`
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
 }
 
 func (LookupDeliveryStreamOutputArgs) ElementType() reflect.Type {

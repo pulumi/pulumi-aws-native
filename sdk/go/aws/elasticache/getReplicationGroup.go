@@ -21,7 +21,7 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArg
 }
 
 type LookupReplicationGroupArgs struct {
-	ReplicationGroupId *string `pulumi:"replicationGroupId"`
+	ReplicationGroupId string `pulumi:"replicationGroupId"`
 }
 
 type LookupReplicationGroupResult struct {
@@ -69,7 +69,7 @@ func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGro
 }
 
 type LookupReplicationGroupOutputArgs struct {
-	ReplicationGroupId pulumi.StringPtrInput `pulumi:"replicationGroupId"`
+	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`
 }
 
 func (LookupReplicationGroupOutputArgs) ElementType() reflect.Type {

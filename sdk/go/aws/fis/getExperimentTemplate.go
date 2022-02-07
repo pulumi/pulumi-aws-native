@@ -21,7 +21,7 @@ func LookupExperimentTemplate(ctx *pulumi.Context, args *LookupExperimentTemplat
 }
 
 type LookupExperimentTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupExperimentTemplateResult struct {
@@ -43,7 +43,7 @@ func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTe
 }
 
 type LookupExperimentTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupExperimentTemplateOutputArgs) ElementType() reflect.Type {

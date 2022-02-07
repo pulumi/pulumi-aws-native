@@ -22,7 +22,7 @@ func LookupLicense(ctx *pulumi.Context, args *LookupLicenseArgs, opts ...pulumi.
 
 type LookupLicenseArgs struct {
 	// Amazon Resource Name is a unique name for each resource.
-	LicenseArn *string `pulumi:"licenseArn"`
+	LicenseArn string `pulumi:"licenseArn"`
 }
 
 type LookupLicenseResult struct {
@@ -58,7 +58,7 @@ func LookupLicenseOutput(ctx *pulumi.Context, args LookupLicenseOutputArgs, opts
 
 type LookupLicenseOutputArgs struct {
 	// Amazon Resource Name is a unique name for each resource.
-	LicenseArn pulumi.StringPtrInput `pulumi:"licenseArn"`
+	LicenseArn pulumi.StringInput `pulumi:"licenseArn"`
 }
 
 func (LookupLicenseOutputArgs) ElementType() reflect.Type {

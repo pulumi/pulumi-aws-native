@@ -21,7 +21,7 @@ func LookupApiGatewayManagedOverrides(ctx *pulumi.Context, args *LookupApiGatewa
 }
 
 type LookupApiGatewayManagedOverridesArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupApiGatewayManagedOverridesResult struct {
@@ -41,7 +41,7 @@ func LookupApiGatewayManagedOverridesOutput(ctx *pulumi.Context, args LookupApiG
 }
 
 type LookupApiGatewayManagedOverridesOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApiGatewayManagedOverridesOutputArgs) ElementType() reflect.Type {

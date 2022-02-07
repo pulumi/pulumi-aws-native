@@ -21,7 +21,7 @@ func LookupVirtualMFADevice(ctx *pulumi.Context, args *LookupVirtualMFADeviceArg
 }
 
 type LookupVirtualMFADeviceArgs struct {
-	SerialNumber *string `pulumi:"serialNumber"`
+	SerialNumber string `pulumi:"serialNumber"`
 }
 
 type LookupVirtualMFADeviceResult struct {
@@ -40,7 +40,7 @@ func LookupVirtualMFADeviceOutput(ctx *pulumi.Context, args LookupVirtualMFADevi
 }
 
 type LookupVirtualMFADeviceOutputArgs struct {
-	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
+	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
 }
 
 func (LookupVirtualMFADeviceOutputArgs) ElementType() reflect.Type {

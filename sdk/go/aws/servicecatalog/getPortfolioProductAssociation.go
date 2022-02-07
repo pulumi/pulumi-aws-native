@@ -21,7 +21,7 @@ func LookupPortfolioProductAssociation(ctx *pulumi.Context, args *LookupPortfoli
 }
 
 type LookupPortfolioProductAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPortfolioProductAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupPortfolioProductAssociationOutput(ctx *pulumi.Context, args LookupPor
 }
 
 type LookupPortfolioProductAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPortfolioProductAssociationOutputArgs) ElementType() reflect.Type {

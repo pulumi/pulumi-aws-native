@@ -22,7 +22,7 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 
 type LookupAppArgs struct {
 	// Amazon Resource Name (ARN) of the App.
-	AppArn *string `pulumi:"appArn"`
+	AppArn string `pulumi:"appArn"`
 }
 
 type LookupAppResult struct {
@@ -50,7 +50,7 @@ func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulu
 
 type LookupAppOutputArgs struct {
 	// Amazon Resource Name (ARN) of the App.
-	AppArn pulumi.StringPtrInput `pulumi:"appArn"`
+	AppArn pulumi.StringInput `pulumi:"appArn"`
 }
 
 func (LookupAppOutputArgs) ElementType() reflect.Type {

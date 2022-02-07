@@ -22,7 +22,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 type LookupWorkspaceArgs struct {
 	// Workspace arn.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupWorkspaceResult struct {
@@ -51,7 +51,7 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 type LookupWorkspaceOutputArgs struct {
 	// Workspace arn.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {

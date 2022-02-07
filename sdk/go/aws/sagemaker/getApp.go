@@ -22,13 +22,13 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 
 type LookupAppArgs struct {
 	// The name of the app.
-	AppName *string `pulumi:"appName"`
+	AppName string `pulumi:"appName"`
 	// The type of app.
-	AppType *AppType `pulumi:"appType"`
+	AppType AppType `pulumi:"appType"`
 	// The domain ID.
-	DomainId *string `pulumi:"domainId"`
+	DomainId string `pulumi:"domainId"`
 	// The user profile name.
-	UserProfileName *string `pulumi:"userProfileName"`
+	UserProfileName string `pulumi:"userProfileName"`
 }
 
 type LookupAppResult struct {
@@ -49,13 +49,13 @@ func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulu
 
 type LookupAppOutputArgs struct {
 	// The name of the app.
-	AppName pulumi.StringPtrInput `pulumi:"appName"`
+	AppName pulumi.StringInput `pulumi:"appName"`
 	// The type of app.
-	AppType AppTypePtrInput `pulumi:"appType"`
+	AppType AppTypeInput `pulumi:"appType"`
 	// The domain ID.
-	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
+	DomainId pulumi.StringInput `pulumi:"domainId"`
 	// The user profile name.
-	UserProfileName pulumi.StringPtrInput `pulumi:"userProfileName"`
+	UserProfileName pulumi.StringInput `pulumi:"userProfileName"`
 }
 
 func (LookupAppOutputArgs) ElementType() reflect.Type {

@@ -22,9 +22,9 @@ func LookupRequestValidator(ctx *pulumi.Context, args *LookupRequestValidatorArg
 
 type LookupRequestValidatorArgs struct {
 	// ID of the request validator.
-	RequestValidatorId *string `pulumi:"requestValidatorId"`
+	RequestValidatorId string `pulumi:"requestValidatorId"`
 	// The identifier of the targeted API entity.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupRequestValidatorResult struct {
@@ -47,9 +47,9 @@ func LookupRequestValidatorOutput(ctx *pulumi.Context, args LookupRequestValidat
 
 type LookupRequestValidatorOutputArgs struct {
 	// ID of the request validator.
-	RequestValidatorId pulumi.StringPtrInput `pulumi:"requestValidatorId"`
+	RequestValidatorId pulumi.StringInput `pulumi:"requestValidatorId"`
 	// The identifier of the targeted API entity.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupRequestValidatorOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupApplicationCloudWatchLoggingOption(ctx *pulumi.Context, args *LookupA
 }
 
 type LookupApplicationCloudWatchLoggingOptionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupApplicationCloudWatchLoggingOptionResult struct {
@@ -39,7 +39,7 @@ func LookupApplicationCloudWatchLoggingOptionOutput(ctx *pulumi.Context, args Lo
 }
 
 type LookupApplicationCloudWatchLoggingOptionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApplicationCloudWatchLoggingOptionOutputArgs) ElementType() reflect.Type {

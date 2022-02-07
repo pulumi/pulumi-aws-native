@@ -22,7 +22,7 @@ func LookupGatewayResponse(ctx *pulumi.Context, args *LookupGatewayResponseArgs,
 
 type LookupGatewayResponseArgs struct {
 	// A Cloudformation auto generated ID.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGatewayResponseResult struct {
@@ -47,7 +47,7 @@ func LookupGatewayResponseOutput(ctx *pulumi.Context, args LookupGatewayResponse
 
 type LookupGatewayResponseOutputArgs struct {
 	// A Cloudformation auto generated ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGatewayResponseOutputArgs) ElementType() reflect.Type {

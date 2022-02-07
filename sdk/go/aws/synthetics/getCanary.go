@@ -22,7 +22,7 @@ func LookupCanary(ctx *pulumi.Context, args *LookupCanaryArgs, opts ...pulumi.In
 
 type LookupCanaryArgs struct {
 	// Name of the canary.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupCanaryResult struct {
@@ -68,7 +68,7 @@ func LookupCanaryOutput(ctx *pulumi.Context, args LookupCanaryOutputArgs, opts .
 
 type LookupCanaryOutputArgs struct {
 	// Name of the canary.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupCanaryOutputArgs) ElementType() reflect.Type {

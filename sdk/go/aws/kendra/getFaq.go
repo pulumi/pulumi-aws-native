@@ -21,9 +21,9 @@ func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupFaqArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Index ID
-	IndexId *string `pulumi:"indexId"`
+	IndexId string `pulumi:"indexId"`
 }
 
 type LookupFaqResult struct {
@@ -43,9 +43,9 @@ func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulu
 }
 
 type LookupFaqOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// Index ID
-	IndexId pulumi.StringPtrInput `pulumi:"indexId"`
+	IndexId pulumi.StringInput `pulumi:"indexId"`
 }
 
 func (LookupFaqOutputArgs) ElementType() reflect.Type {

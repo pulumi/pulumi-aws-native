@@ -21,7 +21,7 @@ func LookupDevEndpoint(ctx *pulumi.Context, args *LookupDevEndpointArgs, opts ..
 }
 
 type LookupDevEndpointArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDevEndpointResult struct {
@@ -52,7 +52,7 @@ func LookupDevEndpointOutput(ctx *pulumi.Context, args LookupDevEndpointOutputAr
 }
 
 type LookupDevEndpointOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDevEndpointOutputArgs) ElementType() reflect.Type {

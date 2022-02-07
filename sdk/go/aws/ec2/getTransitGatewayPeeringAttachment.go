@@ -22,7 +22,7 @@ func LookupTransitGatewayPeeringAttachment(ctx *pulumi.Context, args *LookupTran
 
 type LookupTransitGatewayPeeringAttachmentArgs struct {
 	// The ID of the transit gateway peering attachment.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 }
 
 type LookupTransitGatewayPeeringAttachmentResult struct {
@@ -49,7 +49,7 @@ func LookupTransitGatewayPeeringAttachmentOutput(ctx *pulumi.Context, args Looku
 
 type LookupTransitGatewayPeeringAttachmentOutputArgs struct {
 	// The ID of the transit gateway peering attachment.
-	TransitGatewayAttachmentId pulumi.StringPtrInput `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
 }
 
 func (LookupTransitGatewayPeeringAttachmentOutputArgs) ElementType() reflect.Type {

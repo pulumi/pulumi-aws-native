@@ -21,7 +21,7 @@ func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.In
 }
 
 type LookupBudgetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupBudgetResult struct {
@@ -39,7 +39,7 @@ func LookupBudgetOutput(ctx *pulumi.Context, args LookupBudgetOutputArgs, opts .
 }
 
 type LookupBudgetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupBudgetOutputArgs) ElementType() reflect.Type {

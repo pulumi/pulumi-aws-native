@@ -22,7 +22,7 @@ func LookupIPAMPool(ctx *pulumi.Context, args *LookupIPAMPoolArgs, opts ...pulum
 
 type LookupIPAMPoolArgs struct {
 	// Id of the IPAM Pool.
-	IpamPoolId *string `pulumi:"ipamPoolId"`
+	IpamPoolId string `pulumi:"ipamPoolId"`
 }
 
 type LookupIPAMPoolResult struct {
@@ -70,7 +70,7 @@ func LookupIPAMPoolOutput(ctx *pulumi.Context, args LookupIPAMPoolOutputArgs, op
 
 type LookupIPAMPoolOutputArgs struct {
 	// Id of the IPAM Pool.
-	IpamPoolId pulumi.StringPtrInput `pulumi:"ipamPoolId"`
+	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
 }
 
 func (LookupIPAMPoolOutputArgs) ElementType() reflect.Type {

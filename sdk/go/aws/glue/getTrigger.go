@@ -21,7 +21,7 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 }
 
 type LookupTriggerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTriggerResult struct {
@@ -45,7 +45,7 @@ func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts
 }
 
 type LookupTriggerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTriggerOutputArgs) ElementType() reflect.Type {

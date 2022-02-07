@@ -21,7 +21,7 @@ func LookupSqlInjectionMatchSet(ctx *pulumi.Context, args *LookupSqlInjectionMat
 }
 
 type LookupSqlInjectionMatchSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSqlInjectionMatchSetResult struct {
@@ -39,7 +39,7 @@ func LookupSqlInjectionMatchSetOutput(ctx *pulumi.Context, args LookupSqlInjecti
 }
 
 type LookupSqlInjectionMatchSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSqlInjectionMatchSetOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupIPSet(ctx *pulumi.Context, args *LookupIPSetArgs, opts ...pulumi.Invo
 }
 
 type LookupIPSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupIPSetResult struct {
@@ -41,7 +41,7 @@ func LookupIPSetOutput(ctx *pulumi.Context, args LookupIPSetOutputArgs, opts ...
 }
 
 type LookupIPSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupIPSetOutputArgs) ElementType() reflect.Type {

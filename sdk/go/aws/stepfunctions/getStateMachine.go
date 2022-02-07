@@ -21,7 +21,7 @@ func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts 
 }
 
 type LookupStateMachineArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupStateMachineResult struct {
@@ -45,7 +45,7 @@ func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutput
 }
 
 type LookupStateMachineOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupStateMachineOutputArgs) ElementType() reflect.Type {

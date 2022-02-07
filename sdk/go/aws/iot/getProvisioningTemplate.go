@@ -21,7 +21,7 @@ func LookupProvisioningTemplate(ctx *pulumi.Context, args *LookupProvisioningTem
 }
 
 type LookupProvisioningTemplateArgs struct {
-	TemplateName *string `pulumi:"templateName"`
+	TemplateName string `pulumi:"templateName"`
 }
 
 type LookupProvisioningTemplateResult struct {
@@ -44,7 +44,7 @@ func LookupProvisioningTemplateOutput(ctx *pulumi.Context, args LookupProvisioni
 }
 
 type LookupProvisioningTemplateOutputArgs struct {
-	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
 func (LookupProvisioningTemplateOutputArgs) ElementType() reflect.Type {

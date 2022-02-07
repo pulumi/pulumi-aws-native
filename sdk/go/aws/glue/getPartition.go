@@ -21,7 +21,7 @@ func LookupPartition(ctx *pulumi.Context, args *LookupPartitionArgs, opts ...pul
 }
 
 type LookupPartitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPartitionResult struct {
@@ -39,7 +39,7 @@ func LookupPartitionOutput(ctx *pulumi.Context, args LookupPartitionOutputArgs, 
 }
 
 type LookupPartitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPartitionOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupMaintenanceWindowTarget(ctx *pulumi.Context, args *LookupMaintenanceW
 }
 
 type LookupMaintenanceWindowTargetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMaintenanceWindowTargetResult struct {
@@ -43,7 +43,7 @@ func LookupMaintenanceWindowTargetOutput(ctx *pulumi.Context, args LookupMainten
 }
 
 type LookupMaintenanceWindowTargetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMaintenanceWindowTargetOutputArgs) ElementType() reflect.Type {

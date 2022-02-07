@@ -22,7 +22,7 @@ func LookupConformancePack(ctx *pulumi.Context, args *LookupConformancePackArgs,
 
 type LookupConformancePackArgs struct {
 	// Name of the conformance pack which will be assigned as the unique identifier.
-	ConformancePackName *string `pulumi:"conformancePackName"`
+	ConformancePackName string `pulumi:"conformancePackName"`
 }
 
 type LookupConformancePackResult struct {
@@ -45,7 +45,7 @@ func LookupConformancePackOutput(ctx *pulumi.Context, args LookupConformancePack
 
 type LookupConformancePackOutputArgs struct {
 	// Name of the conformance pack which will be assigned as the unique identifier.
-	ConformancePackName pulumi.StringPtrInput `pulumi:"conformancePackName"`
+	ConformancePackName pulumi.StringInput `pulumi:"conformancePackName"`
 }
 
 func (LookupConformancePackOutputArgs) ElementType() reflect.Type {

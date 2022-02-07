@@ -21,7 +21,7 @@ func LookupNotificationRule(ctx *pulumi.Context, args *LookupNotificationRuleArg
 }
 
 type LookupNotificationRuleArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupNotificationRuleResult struct {
@@ -46,7 +46,7 @@ func LookupNotificationRuleOutput(ctx *pulumi.Context, args LookupNotificationRu
 }
 
 type LookupNotificationRuleOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupNotificationRuleOutputArgs) ElementType() reflect.Type {

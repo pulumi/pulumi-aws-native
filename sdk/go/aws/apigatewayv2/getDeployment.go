@@ -21,7 +21,7 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 }
 
 type LookupDeploymentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDeploymentResult struct {
@@ -40,7 +40,7 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 }
 
 type LookupDeploymentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDeploymentOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 type LookupClusterArgs struct {
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
 type LookupClusterResult struct {
@@ -134,7 +134,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 type LookupClusterOutputArgs struct {
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-	ClusterIdentifier pulumi.StringPtrInput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {

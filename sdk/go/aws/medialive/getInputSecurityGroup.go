@@ -21,7 +21,7 @@ func LookupInputSecurityGroup(ctx *pulumi.Context, args *LookupInputSecurityGrou
 }
 
 type LookupInputSecurityGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupInputSecurityGroupResult struct {
@@ -41,7 +41,7 @@ func LookupInputSecurityGroupOutput(ctx *pulumi.Context, args LookupInputSecurit
 }
 
 type LookupInputSecurityGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupInputSecurityGroupOutputArgs) ElementType() reflect.Type {

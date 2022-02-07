@@ -22,7 +22,7 @@ func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts 
 
 type LookupResponsePlanArgs struct {
 	// The ARN of the response plan.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupResponsePlanResult struct {
@@ -51,7 +51,7 @@ func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutput
 
 type LookupResponsePlanOutputArgs struct {
 	// The ARN of the response plan.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupResponsePlanOutputArgs) ElementType() reflect.Type {

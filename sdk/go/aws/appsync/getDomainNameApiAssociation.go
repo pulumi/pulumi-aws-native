@@ -21,7 +21,7 @@ func LookupDomainNameApiAssociation(ctx *pulumi.Context, args *LookupDomainNameA
 }
 
 type LookupDomainNameApiAssociationArgs struct {
-	ApiAssociationIdentifier *string `pulumi:"apiAssociationIdentifier"`
+	ApiAssociationIdentifier string `pulumi:"apiAssociationIdentifier"`
 }
 
 type LookupDomainNameApiAssociationResult struct {
@@ -39,7 +39,7 @@ func LookupDomainNameApiAssociationOutput(ctx *pulumi.Context, args LookupDomain
 }
 
 type LookupDomainNameApiAssociationOutputArgs struct {
-	ApiAssociationIdentifier pulumi.StringPtrInput `pulumi:"apiAssociationIdentifier"`
+	ApiAssociationIdentifier pulumi.StringInput `pulumi:"apiAssociationIdentifier"`
 }
 
 func (LookupDomainNameApiAssociationOutputArgs) ElementType() reflect.Type {

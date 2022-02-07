@@ -21,9 +21,9 @@ func LookupApplicationEntitlementAssociation(ctx *pulumi.Context, args *LookupAp
 }
 
 type LookupApplicationEntitlementAssociationArgs struct {
-	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
-	EntitlementName       *string `pulumi:"entitlementName"`
-	StackName             *string `pulumi:"stackName"`
+	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	EntitlementName       string `pulumi:"entitlementName"`
+	StackName             string `pulumi:"stackName"`
 }
 
 type LookupApplicationEntitlementAssociationResult struct {
@@ -39,9 +39,9 @@ func LookupApplicationEntitlementAssociationOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupApplicationEntitlementAssociationOutputArgs struct {
-	ApplicationIdentifier pulumi.StringPtrInput `pulumi:"applicationIdentifier"`
-	EntitlementName       pulumi.StringPtrInput `pulumi:"entitlementName"`
-	StackName             pulumi.StringPtrInput `pulumi:"stackName"`
+	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	EntitlementName       pulumi.StringInput `pulumi:"entitlementName"`
+	StackName             pulumi.StringInput `pulumi:"stackName"`
 }
 
 func (LookupApplicationEntitlementAssociationOutputArgs) ElementType() reflect.Type {

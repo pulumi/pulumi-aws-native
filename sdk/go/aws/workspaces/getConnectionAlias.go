@@ -21,7 +21,7 @@ func LookupConnectionAlias(ctx *pulumi.Context, args *LookupConnectionAliasArgs,
 }
 
 type LookupConnectionAliasArgs struct {
-	AliasId *string `pulumi:"aliasId"`
+	AliasId string `pulumi:"aliasId"`
 }
 
 type LookupConnectionAliasResult struct {
@@ -40,7 +40,7 @@ func LookupConnectionAliasOutput(ctx *pulumi.Context, args LookupConnectionAlias
 }
 
 type LookupConnectionAliasOutputArgs struct {
-	AliasId pulumi.StringPtrInput `pulumi:"aliasId"`
+	AliasId pulumi.StringInput `pulumi:"aliasId"`
 }
 
 func (LookupConnectionAliasOutputArgs) ElementType() reflect.Type {

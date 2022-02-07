@@ -21,7 +21,7 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 }
 
 type LookupAuthorizerArgs struct {
-	AuthorizerName *string `pulumi:"authorizerName"`
+	AuthorizerName string `pulumi:"authorizerName"`
 }
 
 type LookupAuthorizerResult struct {
@@ -43,7 +43,7 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 }
 
 type LookupAuthorizerOutputArgs struct {
-	AuthorizerName pulumi.StringPtrInput `pulumi:"authorizerName"`
+	AuthorizerName pulumi.StringInput `pulumi:"authorizerName"`
 }
 
 func (LookupAuthorizerOutputArgs) ElementType() reflect.Type {

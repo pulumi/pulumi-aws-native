@@ -22,7 +22,7 @@ func LookupSession(ctx *pulumi.Context, args *LookupSessionArgs, opts ...pulumi.
 
 type LookupSessionArgs struct {
 	// AWS account ID of customer
-	AwsAccountId *string `pulumi:"awsAccountId"`
+	AwsAccountId string `pulumi:"awsAccountId"`
 }
 
 type LookupSessionResult struct {
@@ -47,7 +47,7 @@ func LookupSessionOutput(ctx *pulumi.Context, args LookupSessionOutputArgs, opts
 
 type LookupSessionOutputArgs struct {
 	// AWS account ID of customer
-	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
 }
 
 func (LookupSessionOutputArgs) ElementType() reflect.Type {

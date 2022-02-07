@@ -22,7 +22,7 @@ func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArg
 
 type LookupReportDefinitionArgs struct {
 	// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
-	ReportName *string `pulumi:"reportName"`
+	ReportName string `pulumi:"reportName"`
 }
 
 type LookupReportDefinitionResult struct {
@@ -53,7 +53,7 @@ func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefiniti
 
 type LookupReportDefinitionOutputArgs struct {
 	// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
-	ReportName pulumi.StringPtrInput `pulumi:"reportName"`
+	ReportName pulumi.StringInput `pulumi:"reportName"`
 }
 
 func (LookupReportDefinitionOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 
 type LookupJobArgs struct {
 	// Job name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupJobResult struct {
@@ -69,7 +69,7 @@ func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulu
 
 type LookupJobOutputArgs struct {
 	// Job name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupJobOutputArgs) ElementType() reflect.Type {

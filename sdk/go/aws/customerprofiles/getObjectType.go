@@ -22,9 +22,9 @@ func LookupObjectType(ctx *pulumi.Context, args *LookupObjectTypeArgs, opts ...p
 
 type LookupObjectTypeArgs struct {
 	// The unique name of the domain.
-	DomainName *string `pulumi:"domainName"`
+	DomainName string `pulumi:"domainName"`
 	// The name of the profile object type.
-	ObjectTypeName *string `pulumi:"objectTypeName"`
+	ObjectTypeName string `pulumi:"objectTypeName"`
 }
 
 type LookupObjectTypeResult struct {
@@ -61,9 +61,9 @@ func LookupObjectTypeOutput(ctx *pulumi.Context, args LookupObjectTypeOutputArgs
 
 type LookupObjectTypeOutputArgs struct {
 	// The unique name of the domain.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The name of the profile object type.
-	ObjectTypeName pulumi.StringPtrInput `pulumi:"objectTypeName"`
+	ObjectTypeName pulumi.StringInput `pulumi:"objectTypeName"`
 }
 
 func (LookupObjectTypeOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupAPNSChannel(ctx *pulumi.Context, args *LookupAPNSChannelArgs, opts ..
 }
 
 type LookupAPNSChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAPNSChannelResult struct {
@@ -46,7 +46,7 @@ func LookupAPNSChannelOutput(ctx *pulumi.Context, args LookupAPNSChannelOutputAr
 }
 
 type LookupAPNSChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAPNSChannelOutputArgs) ElementType() reflect.Type {

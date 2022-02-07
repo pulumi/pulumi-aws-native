@@ -21,7 +21,7 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEnvironmentResult struct {
@@ -42,7 +42,7 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 }
 
 type LookupEnvironmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {

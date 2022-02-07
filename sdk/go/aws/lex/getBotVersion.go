@@ -21,8 +21,8 @@ func LookupBotVersion(ctx *pulumi.Context, args *LookupBotVersionArgs, opts ...p
 }
 
 type LookupBotVersionArgs struct {
-	BotId      *string `pulumi:"botId"`
-	BotVersion *string `pulumi:"botVersion"`
+	BotId      string `pulumi:"botId"`
+	BotVersion string `pulumi:"botVersion"`
 }
 
 type LookupBotVersionResult struct {
@@ -40,8 +40,8 @@ func LookupBotVersionOutput(ctx *pulumi.Context, args LookupBotVersionOutputArgs
 }
 
 type LookupBotVersionOutputArgs struct {
-	BotId      pulumi.StringPtrInput `pulumi:"botId"`
-	BotVersion pulumi.StringPtrInput `pulumi:"botVersion"`
+	BotId      pulumi.StringInput `pulumi:"botId"`
+	BotVersion pulumi.StringInput `pulumi:"botVersion"`
 }
 
 func (LookupBotVersionOutputArgs) ElementType() reflect.Type {

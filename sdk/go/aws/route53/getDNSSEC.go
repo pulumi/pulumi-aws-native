@@ -22,7 +22,7 @@ func LookupDNSSEC(ctx *pulumi.Context, args *LookupDNSSECArgs, opts ...pulumi.In
 
 type LookupDNSSECArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
-	HostedZoneId *string `pulumi:"hostedZoneId"`
+	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
 type LookupDNSSECResult struct {
@@ -39,7 +39,7 @@ func LookupDNSSECOutput(ctx *pulumi.Context, args LookupDNSSECOutputArgs, opts .
 
 type LookupDNSSECOutputArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
-	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
 func (LookupDNSSECOutputArgs) ElementType() reflect.Type {

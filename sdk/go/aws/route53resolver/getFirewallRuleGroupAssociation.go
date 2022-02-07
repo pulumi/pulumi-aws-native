@@ -22,7 +22,7 @@ func LookupFirewallRuleGroupAssociation(ctx *pulumi.Context, args *LookupFirewal
 
 type LookupFirewallRuleGroupAssociationArgs struct {
 	// Id
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFirewallRuleGroupAssociationResult struct {
@@ -63,7 +63,7 @@ func LookupFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupFi
 
 type LookupFirewallRuleGroupAssociationOutputArgs struct {
 	// Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFirewallRuleGroupAssociationOutputArgs) ElementType() reflect.Type {

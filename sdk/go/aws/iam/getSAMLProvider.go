@@ -22,7 +22,7 @@ func LookupSAMLProvider(ctx *pulumi.Context, args *LookupSAMLProviderArgs, opts 
 
 type LookupSAMLProviderArgs struct {
 	// Amazon Resource Name (ARN) of the SAML provider
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupSAMLProviderResult struct {
@@ -43,7 +43,7 @@ func LookupSAMLProviderOutput(ctx *pulumi.Context, args LookupSAMLProviderOutput
 
 type LookupSAMLProviderOutputArgs struct {
 	// Amazon Resource Name (ARN) of the SAML provider
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupSAMLProviderOutputArgs) ElementType() reflect.Type {

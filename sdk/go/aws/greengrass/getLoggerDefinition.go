@@ -21,7 +21,7 @@ func LookupLoggerDefinition(ctx *pulumi.Context, args *LookupLoggerDefinitionArg
 }
 
 type LookupLoggerDefinitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLoggerDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupLoggerDefinitionOutput(ctx *pulumi.Context, args LookupLoggerDefiniti
 }
 
 type LookupLoggerDefinitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLoggerDefinitionOutputArgs) ElementType() reflect.Type {

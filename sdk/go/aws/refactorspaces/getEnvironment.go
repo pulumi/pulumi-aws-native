@@ -21,7 +21,7 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
 }
 
 type LookupEnvironmentResult struct {
@@ -42,7 +42,7 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 }
 
 type LookupEnvironmentOutputArgs struct {
-	EnvironmentIdentifier pulumi.StringPtrInput `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {

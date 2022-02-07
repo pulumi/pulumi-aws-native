@@ -22,7 +22,7 @@ func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, o
 
 type LookupContactChannelArgs struct {
 	// The Amazon Resource Name (ARN) of the engagement to a contact channel.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupContactChannelResult struct {
@@ -47,7 +47,7 @@ func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOu
 
 type LookupContactChannelOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the engagement to a contact channel.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupContactChannelOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupAggregationAuthorization(ctx *pulumi.Context, args *LookupAggregation
 
 type LookupAggregationAuthorizationArgs struct {
 	// The ARN of the AggregationAuthorization.
-	AggregationAuthorizationArn *string `pulumi:"aggregationAuthorizationArn"`
+	AggregationAuthorizationArn string `pulumi:"aggregationAuthorizationArn"`
 }
 
 type LookupAggregationAuthorizationResult struct {
@@ -43,7 +43,7 @@ func LookupAggregationAuthorizationOutput(ctx *pulumi.Context, args LookupAggreg
 
 type LookupAggregationAuthorizationOutputArgs struct {
 	// The ARN of the AggregationAuthorization.
-	AggregationAuthorizationArn pulumi.StringPtrInput `pulumi:"aggregationAuthorizationArn"`
+	AggregationAuthorizationArn pulumi.StringInput `pulumi:"aggregationAuthorizationArn"`
 }
 
 func (LookupAggregationAuthorizationOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupUrl(ctx *pulumi.Context, args *LookupUrlArgs, opts ...pulumi.InvokeOp
 
 type LookupUrlArgs struct {
 	// The Amazon Resource Name (ARN) of the Function URL.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupUrlResult struct {
@@ -46,7 +46,7 @@ func LookupUrlOutput(ctx *pulumi.Context, args LookupUrlOutputArgs, opts ...pulu
 
 type LookupUrlOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the Function URL.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupUrlOutputArgs) ElementType() reflect.Type {

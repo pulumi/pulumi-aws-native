@@ -21,7 +21,7 @@ func LookupFeature(ctx *pulumi.Context, args *LookupFeatureArgs, opts ...pulumi.
 }
 
 type LookupFeatureArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupFeatureResult struct {
@@ -45,7 +45,7 @@ func LookupFeatureOutput(ctx *pulumi.Context, args LookupFeatureOutputArgs, opts
 }
 
 type LookupFeatureOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupFeatureOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupNetworkAclEntry(ctx *pulumi.Context, args *LookupNetworkAclEntryArgs,
 }
 
 type LookupNetworkAclEntryArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNetworkAclEntryResult struct {
@@ -50,7 +50,7 @@ func LookupNetworkAclEntryOutput(ctx *pulumi.Context, args LookupNetworkAclEntry
 }
 
 type LookupNetworkAclEntryOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNetworkAclEntryOutputArgs) ElementType() reflect.Type {

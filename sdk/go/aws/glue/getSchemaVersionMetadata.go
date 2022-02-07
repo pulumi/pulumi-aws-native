@@ -22,11 +22,11 @@ func LookupSchemaVersionMetadata(ctx *pulumi.Context, args *LookupSchemaVersionM
 
 type LookupSchemaVersionMetadataArgs struct {
 	// Metadata key
-	Key *string `pulumi:"key"`
+	Key string `pulumi:"key"`
 	// Represents the version ID associated with the schema version.
-	SchemaVersionId *string `pulumi:"schemaVersionId"`
+	SchemaVersionId string `pulumi:"schemaVersionId"`
 	// Metadata value
-	Value *string `pulumi:"value"`
+	Value string `pulumi:"value"`
 }
 
 type LookupSchemaVersionMetadataResult struct {
@@ -43,11 +43,11 @@ func LookupSchemaVersionMetadataOutput(ctx *pulumi.Context, args LookupSchemaVer
 
 type LookupSchemaVersionMetadataOutputArgs struct {
 	// Metadata key
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
 	// Represents the version ID associated with the schema version.
-	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
+	SchemaVersionId pulumi.StringInput `pulumi:"schemaVersionId"`
 	// Metadata value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (LookupSchemaVersionMetadataOutputArgs) ElementType() reflect.Type {

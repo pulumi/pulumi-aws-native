@@ -21,7 +21,7 @@ func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opt
 }
 
 type LookupRateBasedRuleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRateBasedRuleResult struct {
@@ -40,7 +40,7 @@ func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutp
 }
 
 type LookupRateBasedRuleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRateBasedRuleOutputArgs) ElementType() reflect.Type {

@@ -21,8 +21,8 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 }
 
 type LookupThemeArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	ThemeId      *string `pulumi:"themeId"`
+	AwsAccountId string `pulumi:"awsAccountId"`
+	ThemeId      string `pulumi:"themeId"`
 }
 
 type LookupThemeResult struct {
@@ -54,8 +54,8 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 }
 
 type LookupThemeOutputArgs struct {
-	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	ThemeId      pulumi.StringPtrInput `pulumi:"themeId"`
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+	ThemeId      pulumi.StringInput `pulumi:"themeId"`
 }
 
 func (LookupThemeOutputArgs) ElementType() reflect.Type {

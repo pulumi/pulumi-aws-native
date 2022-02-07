@@ -22,7 +22,7 @@ func LookupDetectorModel(ctx *pulumi.Context, args *LookupDetectorModelArgs, opt
 
 type LookupDetectorModelArgs struct {
 	// The name of the detector model.
-	DetectorModelName *string `pulumi:"detectorModelName"`
+	DetectorModelName string `pulumi:"detectorModelName"`
 }
 
 type LookupDetectorModelResult struct {
@@ -50,7 +50,7 @@ func LookupDetectorModelOutput(ctx *pulumi.Context, args LookupDetectorModelOutp
 
 type LookupDetectorModelOutputArgs struct {
 	// The name of the detector model.
-	DetectorModelName pulumi.StringPtrInput `pulumi:"detectorModelName"`
+	DetectorModelName pulumi.StringInput `pulumi:"detectorModelName"`
 }
 
 func (LookupDetectorModelOutputArgs) ElementType() reflect.Type {

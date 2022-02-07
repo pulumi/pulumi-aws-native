@@ -22,7 +22,7 @@ func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs,
 
 type LookupContainerRecipeArgs struct {
 	// The Amazon Resource Name (ARN) of the container recipe.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupContainerRecipeResult struct {
@@ -41,7 +41,7 @@ func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipe
 
 type LookupContainerRecipeOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the container recipe.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupContainerRecipeOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 
 type LookupSubnetGroupArgs struct {
 	// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	SubnetGroupName string `pulumi:"subnetGroupName"`
 }
 
 type LookupSubnetGroupResult struct {
@@ -47,7 +47,7 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 
 type LookupSubnetGroupOutputArgs struct {
 	// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
-	SubnetGroupName pulumi.StringPtrInput `pulumi:"subnetGroupName"`
+	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
 }
 
 func (LookupSubnetGroupOutputArgs) ElementType() reflect.Type {

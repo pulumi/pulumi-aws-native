@@ -22,7 +22,7 @@ func LookupConnectorProfile(ctx *pulumi.Context, args *LookupConnectorProfileArg
 
 type LookupConnectorProfileArgs struct {
 	// The maximum number of items to retrieve in a single batch.
-	ConnectorProfileName *string `pulumi:"connectorProfileName"`
+	ConnectorProfileName string `pulumi:"connectorProfileName"`
 }
 
 type LookupConnectorProfileResult struct {
@@ -45,7 +45,7 @@ func LookupConnectorProfileOutput(ctx *pulumi.Context, args LookupConnectorProfi
 
 type LookupConnectorProfileOutputArgs struct {
 	// The maximum number of items to retrieve in a single batch.
-	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
+	ConnectorProfileName pulumi.StringInput `pulumi:"connectorProfileName"`
 }
 
 func (LookupConnectorProfileOutputArgs) ElementType() reflect.Type {

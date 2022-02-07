@@ -22,7 +22,7 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts 
 
 type LookupAccessPolicyArgs struct {
 	// The ID of the access policy.
-	AccessPolicyId *string `pulumi:"accessPolicyId"`
+	AccessPolicyId string `pulumi:"accessPolicyId"`
 }
 
 type LookupAccessPolicyResult struct {
@@ -49,7 +49,7 @@ func LookupAccessPolicyOutput(ctx *pulumi.Context, args LookupAccessPolicyOutput
 
 type LookupAccessPolicyOutputArgs struct {
 	// The ID of the access policy.
-	AccessPolicyId pulumi.StringPtrInput `pulumi:"accessPolicyId"`
+	AccessPolicyId pulumi.StringInput `pulumi:"accessPolicyId"`
 }
 
 func (LookupAccessPolicyOutputArgs) ElementType() reflect.Type {

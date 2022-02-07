@@ -21,8 +21,8 @@ func LookupTrackerConsumer(ctx *pulumi.Context, args *LookupTrackerConsumerArgs,
 }
 
 type LookupTrackerConsumerArgs struct {
-	ConsumerArn *string `pulumi:"consumerArn"`
-	TrackerName *string `pulumi:"trackerName"`
+	ConsumerArn string `pulumi:"consumerArn"`
+	TrackerName string `pulumi:"trackerName"`
 }
 
 type LookupTrackerConsumerResult struct {
@@ -38,8 +38,8 @@ func LookupTrackerConsumerOutput(ctx *pulumi.Context, args LookupTrackerConsumer
 }
 
 type LookupTrackerConsumerOutputArgs struct {
-	ConsumerArn pulumi.StringPtrInput `pulumi:"consumerArn"`
-	TrackerName pulumi.StringPtrInput `pulumi:"trackerName"`
+	ConsumerArn pulumi.StringInput `pulumi:"consumerArn"`
+	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 
 func (LookupTrackerConsumerOutputArgs) ElementType() reflect.Type {

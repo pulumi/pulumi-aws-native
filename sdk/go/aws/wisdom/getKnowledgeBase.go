@@ -21,7 +21,7 @@ func LookupKnowledgeBase(ctx *pulumi.Context, args *LookupKnowledgeBaseArgs, opt
 }
 
 type LookupKnowledgeBaseArgs struct {
-	KnowledgeBaseId *string `pulumi:"knowledgeBaseId"`
+	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 }
 
 type LookupKnowledgeBaseResult struct {
@@ -40,7 +40,7 @@ func LookupKnowledgeBaseOutput(ctx *pulumi.Context, args LookupKnowledgeBaseOutp
 }
 
 type LookupKnowledgeBaseOutputArgs struct {
-	KnowledgeBaseId pulumi.StringPtrInput `pulumi:"knowledgeBaseId"`
+	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
 }
 
 func (LookupKnowledgeBaseOutputArgs) ElementType() reflect.Type {

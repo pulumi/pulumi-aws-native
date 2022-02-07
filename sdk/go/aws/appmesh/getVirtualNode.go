@@ -21,7 +21,7 @@ func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ..
 }
 
 type LookupVirtualNodeArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVirtualNodeResult struct {
@@ -43,7 +43,7 @@ func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputAr
 }
 
 type LookupVirtualNodeOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVirtualNodeOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupStoredQuery(ctx *pulumi.Context, args *LookupStoredQueryArgs, opts ..
 }
 
 type LookupStoredQueryArgs struct {
-	QueryName *string `pulumi:"queryName"`
+	QueryName string `pulumi:"queryName"`
 }
 
 type LookupStoredQueryResult struct {
@@ -43,7 +43,7 @@ func LookupStoredQueryOutput(ctx *pulumi.Context, args LookupStoredQueryOutputAr
 }
 
 type LookupStoredQueryOutputArgs struct {
-	QueryName pulumi.StringPtrInput `pulumi:"queryName"`
+	QueryName pulumi.StringInput `pulumi:"queryName"`
 }
 
 func (LookupStoredQueryOutputArgs) ElementType() reflect.Type {

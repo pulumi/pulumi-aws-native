@@ -21,7 +21,7 @@ func LookupSubscriptionDefinition(ctx *pulumi.Context, args *LookupSubscriptionD
 }
 
 type LookupSubscriptionDefinitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSubscriptionDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupSubscriptionDefinitionOutput(ctx *pulumi.Context, args LookupSubscrip
 }
 
 type LookupSubscriptionDefinitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSubscriptionDefinitionOutputArgs) ElementType() reflect.Type {

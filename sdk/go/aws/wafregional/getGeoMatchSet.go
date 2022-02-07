@@ -21,7 +21,7 @@ func LookupGeoMatchSet(ctx *pulumi.Context, args *LookupGeoMatchSetArgs, opts ..
 }
 
 type LookupGeoMatchSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGeoMatchSetResult struct {
@@ -39,7 +39,7 @@ func LookupGeoMatchSetOutput(ctx *pulumi.Context, args LookupGeoMatchSetOutputAr
 }
 
 type LookupGeoMatchSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGeoMatchSetOutputArgs) ElementType() reflect.Type {

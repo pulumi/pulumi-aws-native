@@ -21,7 +21,7 @@ func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pul
 }
 
 type LookupDashboardArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDashboardResult struct {
@@ -39,7 +39,7 @@ func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, 
 }
 
 type LookupDashboardOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDashboardOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupNetworkInterfacePermission(ctx *pulumi.Context, args *LookupNetworkIn
 }
 
 type LookupNetworkInterfacePermissionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNetworkInterfacePermissionResult struct {
@@ -38,7 +38,7 @@ func LookupNetworkInterfacePermissionOutput(ctx *pulumi.Context, args LookupNetw
 }
 
 type LookupNetworkInterfacePermissionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNetworkInterfacePermissionOutputArgs) ElementType() reflect.Type {

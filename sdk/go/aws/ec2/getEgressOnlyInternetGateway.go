@@ -22,7 +22,7 @@ func LookupEgressOnlyInternetGateway(ctx *pulumi.Context, args *LookupEgressOnly
 
 type LookupEgressOnlyInternetGatewayArgs struct {
 	// Service Generated ID of the EgressOnlyInternetGateway
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEgressOnlyInternetGatewayResult struct {
@@ -41,7 +41,7 @@ func LookupEgressOnlyInternetGatewayOutput(ctx *pulumi.Context, args LookupEgres
 
 type LookupEgressOnlyInternetGatewayOutputArgs struct {
 	// Service Generated ID of the EgressOnlyInternetGateway
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEgressOnlyInternetGatewayOutputArgs) ElementType() reflect.Type {

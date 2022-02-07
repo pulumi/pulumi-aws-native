@@ -22,7 +22,7 @@ func LookupAsset(ctx *pulumi.Context, args *LookupAssetArgs, opts ...pulumi.Invo
 
 type LookupAssetArgs struct {
 	// The ID of the asset
-	AssetId *string `pulumi:"assetId"`
+	AssetId string `pulumi:"assetId"`
 }
 
 type LookupAssetResult struct {
@@ -51,7 +51,7 @@ func LookupAssetOutput(ctx *pulumi.Context, args LookupAssetOutputArgs, opts ...
 
 type LookupAssetOutputArgs struct {
 	// The ID of the asset
-	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
+	AssetId pulumi.StringInput `pulumi:"assetId"`
 }
 
 func (LookupAssetOutputArgs) ElementType() reflect.Type {

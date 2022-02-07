@@ -22,7 +22,7 @@ func LookupLocationSMB(ctx *pulumi.Context, args *LookupLocationSMBArgs, opts ..
 
 type LookupLocationSMBArgs struct {
 	// The Amazon Resource Name (ARN) of the SMB location that is created.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationSMBResult struct {
@@ -52,7 +52,7 @@ func LookupLocationSMBOutput(ctx *pulumi.Context, args LookupLocationSMBOutputAr
 
 type LookupLocationSMBOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the SMB location that is created.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationSMBOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupRobotApplicationVersion(ctx *pulumi.Context, args *LookupRobotApplica
 }
 
 type LookupRobotApplicationVersionArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRobotApplicationVersionResult struct {
@@ -39,7 +39,7 @@ func LookupRobotApplicationVersionOutput(ctx *pulumi.Context, args LookupRobotAp
 }
 
 type LookupRobotApplicationVersionOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRobotApplicationVersionOutputArgs) ElementType() reflect.Type {

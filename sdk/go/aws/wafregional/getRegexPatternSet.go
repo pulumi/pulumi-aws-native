@@ -21,7 +21,7 @@ func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs,
 }
 
 type LookupRegexPatternSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRegexPatternSetResult struct {
@@ -39,7 +39,7 @@ func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSet
 }
 
 type LookupRegexPatternSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRegexPatternSetOutputArgs) ElementType() reflect.Type {

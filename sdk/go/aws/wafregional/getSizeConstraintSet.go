@@ -21,7 +21,7 @@ func LookupSizeConstraintSet(ctx *pulumi.Context, args *LookupSizeConstraintSetA
 }
 
 type LookupSizeConstraintSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSizeConstraintSetResult struct {
@@ -39,7 +39,7 @@ func LookupSizeConstraintSetOutput(ctx *pulumi.Context, args LookupSizeConstrain
 }
 
 type LookupSizeConstraintSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSizeConstraintSetOutputArgs) ElementType() reflect.Type {

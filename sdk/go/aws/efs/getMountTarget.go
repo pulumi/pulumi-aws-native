@@ -21,7 +21,7 @@ func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ..
 }
 
 type LookupMountTargetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMountTargetResult struct {
@@ -39,7 +39,7 @@ func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputAr
 }
 
 type LookupMountTargetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMountTargetOutputArgs) ElementType() reflect.Type {

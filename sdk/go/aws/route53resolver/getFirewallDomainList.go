@@ -22,7 +22,7 @@ func LookupFirewallDomainList(ctx *pulumi.Context, args *LookupFirewallDomainLis
 
 type LookupFirewallDomainListArgs struct {
 	// ResourceId
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFirewallDomainListResult struct {
@@ -59,7 +59,7 @@ func LookupFirewallDomainListOutput(ctx *pulumi.Context, args LookupFirewallDoma
 
 type LookupFirewallDomainListOutputArgs struct {
 	// ResourceId
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFirewallDomainListOutputArgs) ElementType() reflect.Type {

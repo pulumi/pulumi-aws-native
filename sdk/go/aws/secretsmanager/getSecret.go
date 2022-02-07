@@ -21,7 +21,7 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSecretResult struct {
@@ -44,7 +44,7 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 }
 
 type LookupSecretOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSecretOutputArgs) ElementType() reflect.Type {

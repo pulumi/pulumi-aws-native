@@ -21,7 +21,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 }
 
 type LookupWorkspaceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWorkspaceResult struct {
@@ -45,7 +45,7 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 }
 
 type LookupWorkspaceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {

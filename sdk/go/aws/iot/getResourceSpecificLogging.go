@@ -22,7 +22,7 @@ func LookupResourceSpecificLogging(ctx *pulumi.Context, args *LookupResourceSpec
 
 type LookupResourceSpecificLoggingArgs struct {
 	// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
-	TargetId *string `pulumi:"targetId"`
+	TargetId string `pulumi:"targetId"`
 }
 
 type LookupResourceSpecificLoggingResult struct {
@@ -43,7 +43,7 @@ func LookupResourceSpecificLoggingOutput(ctx *pulumi.Context, args LookupResourc
 
 type LookupResourceSpecificLoggingOutputArgs struct {
 	// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
-	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
 func (LookupResourceSpecificLoggingOutputArgs) ElementType() reflect.Type {

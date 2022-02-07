@@ -21,7 +21,7 @@ func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opt
 }
 
 type LookupPatchBaselineArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPatchBaselineResult struct {
@@ -50,7 +50,7 @@ func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutp
 }
 
 type LookupPatchBaselineOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPatchBaselineOutputArgs) ElementType() reflect.Type {

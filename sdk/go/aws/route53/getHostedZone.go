@@ -21,7 +21,7 @@ func LookupHostedZone(ctx *pulumi.Context, args *LookupHostedZoneArgs, opts ...p
 }
 
 type LookupHostedZoneArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupHostedZoneResult struct {
@@ -47,7 +47,7 @@ func LookupHostedZoneOutput(ctx *pulumi.Context, args LookupHostedZoneOutputArgs
 }
 
 type LookupHostedZoneOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupHostedZoneOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pul
 
 type LookupFrameworkArgs struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
-	FrameworkArn *string `pulumi:"frameworkArn"`
+	FrameworkArn string `pulumi:"frameworkArn"`
 }
 
 type LookupFrameworkResult struct {
@@ -61,7 +61,7 @@ func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, 
 
 type LookupFrameworkOutputArgs struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
-	FrameworkArn pulumi.StringPtrInput `pulumi:"frameworkArn"`
+	FrameworkArn pulumi.StringInput `pulumi:"frameworkArn"`
 }
 
 func (LookupFrameworkOutputArgs) ElementType() reflect.Type {

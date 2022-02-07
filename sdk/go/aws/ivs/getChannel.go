@@ -22,7 +22,7 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 
 type LookupChannelArgs struct {
 	// Channel ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupChannelResult struct {
@@ -57,7 +57,7 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 
 type LookupChannelOutputArgs struct {
 	// Channel ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupChannelOutputArgs) ElementType() reflect.Type {

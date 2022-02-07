@@ -22,7 +22,7 @@ func LookupLocationNFS(ctx *pulumi.Context, args *LookupLocationNFSArgs, opts ..
 
 type LookupLocationNFSArgs struct {
 	// The Amazon Resource Name (ARN) of the NFS location.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationNFSResult struct {
@@ -47,7 +47,7 @@ func LookupLocationNFSOutput(ctx *pulumi.Context, args LookupLocationNFSOutputAr
 
 type LookupLocationNFSOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the NFS location.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationNFSOutputArgs) ElementType() reflect.Type {

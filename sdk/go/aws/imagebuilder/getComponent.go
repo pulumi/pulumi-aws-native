@@ -22,7 +22,7 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 
 type LookupComponentArgs struct {
 	// The Amazon Resource Name (ARN) of the component.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupComponentResult struct {
@@ -45,7 +45,7 @@ func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, 
 
 type LookupComponentOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the component.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupComponentOutputArgs) ElementType() reflect.Type {

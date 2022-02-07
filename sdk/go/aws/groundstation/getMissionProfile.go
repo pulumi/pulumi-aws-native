@@ -21,8 +21,8 @@ func LookupMissionProfile(ctx *pulumi.Context, args *LookupMissionProfileArgs, o
 }
 
 type LookupMissionProfileArgs struct {
-	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
+	Arn string `pulumi:"arn"`
+	Id  string `pulumi:"id"`
 }
 
 type LookupMissionProfileResult struct {
@@ -52,8 +52,8 @@ func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOu
 }
 
 type LookupMissionProfileOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	Id  pulumi.StringPtrInput `pulumi:"id"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	Id  pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMissionProfileOutputArgs) ElementType() reflect.Type {

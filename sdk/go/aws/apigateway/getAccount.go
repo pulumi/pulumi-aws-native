@@ -22,7 +22,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 type LookupAccountArgs struct {
 	// Primary identifier which is manually generated.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAccountResult struct {
@@ -43,7 +43,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 
 type LookupAccountOutputArgs struct {
 	// Primary identifier which is manually generated.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAccountOutputArgs) ElementType() reflect.Type {

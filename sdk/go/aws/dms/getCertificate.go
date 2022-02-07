@@ -21,7 +21,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCertificateResult struct {
@@ -38,7 +38,7 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 }
 
 type LookupCertificateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {

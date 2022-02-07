@@ -21,7 +21,7 @@ func LookupMatchmakingConfiguration(ctx *pulumi.Context, args *LookupMatchmaking
 }
 
 type LookupMatchmakingConfigurationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMatchmakingConfigurationResult struct {
@@ -53,7 +53,7 @@ func LookupMatchmakingConfigurationOutput(ctx *pulumi.Context, args LookupMatchm
 }
 
 type LookupMatchmakingConfigurationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMatchmakingConfigurationOutputArgs) ElementType() reflect.Type {

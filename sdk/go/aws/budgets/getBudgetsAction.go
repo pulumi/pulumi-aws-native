@@ -21,8 +21,8 @@ func LookupBudgetsAction(ctx *pulumi.Context, args *LookupBudgetsActionArgs, opt
 }
 
 type LookupBudgetsActionArgs struct {
-	ActionId   *string `pulumi:"actionId"`
-	BudgetName *string `pulumi:"budgetName"`
+	ActionId   string `pulumi:"actionId"`
+	BudgetName string `pulumi:"budgetName"`
 }
 
 type LookupBudgetsActionResult struct {
@@ -45,8 +45,8 @@ func LookupBudgetsActionOutput(ctx *pulumi.Context, args LookupBudgetsActionOutp
 }
 
 type LookupBudgetsActionOutputArgs struct {
-	ActionId   pulumi.StringPtrInput `pulumi:"actionId"`
-	BudgetName pulumi.StringPtrInput `pulumi:"budgetName"`
+	ActionId   pulumi.StringInput `pulumi:"actionId"`
+	BudgetName pulumi.StringInput `pulumi:"budgetName"`
 }
 
 func (LookupBudgetsActionOutputArgs) ElementType() reflect.Type {

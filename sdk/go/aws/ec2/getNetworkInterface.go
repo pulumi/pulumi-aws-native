@@ -22,7 +22,7 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArg
 
 type LookupNetworkInterfaceArgs struct {
 	// Network interface id.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNetworkInterfaceResult struct {
@@ -61,7 +61,7 @@ func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfa
 
 type LookupNetworkInterfaceOutputArgs struct {
 	// Network interface id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNetworkInterfaceOutputArgs) ElementType() reflect.Type {

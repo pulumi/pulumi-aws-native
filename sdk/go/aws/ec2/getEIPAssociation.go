@@ -21,7 +21,7 @@ func LookupEIPAssociation(ctx *pulumi.Context, args *LookupEIPAssociationArgs, o
 }
 
 type LookupEIPAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEIPAssociationResult struct {
@@ -43,7 +43,7 @@ func LookupEIPAssociationOutput(ctx *pulumi.Context, args LookupEIPAssociationOu
 }
 
 type LookupEIPAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEIPAssociationOutputArgs) ElementType() reflect.Type {

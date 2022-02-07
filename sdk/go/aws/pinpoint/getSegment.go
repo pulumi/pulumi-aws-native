@@ -21,7 +21,7 @@ func LookupSegment(ctx *pulumi.Context, args *LookupSegmentArgs, opts ...pulumi.
 }
 
 type LookupSegmentArgs struct {
-	SegmentId *string `pulumi:"segmentId"`
+	SegmentId string `pulumi:"segmentId"`
 }
 
 type LookupSegmentResult struct {
@@ -43,7 +43,7 @@ func LookupSegmentOutput(ctx *pulumi.Context, args LookupSegmentOutputArgs, opts
 }
 
 type LookupSegmentOutputArgs struct {
-	SegmentId pulumi.StringPtrInput `pulumi:"segmentId"`
+	SegmentId pulumi.StringInput `pulumi:"segmentId"`
 }
 
 func (LookupSegmentOutputArgs) ElementType() reflect.Type {

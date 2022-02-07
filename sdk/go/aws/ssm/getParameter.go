@@ -21,7 +21,7 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 }
 
 type LookupParameterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupParameterResult struct {
@@ -46,7 +46,7 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 }
 
 type LookupParameterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupParameterOutputArgs) ElementType() reflect.Type {

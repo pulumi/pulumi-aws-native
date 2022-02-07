@@ -21,7 +21,7 @@ func LookupSubnetNetworkAclAssociation(ctx *pulumi.Context, args *LookupSubnetNe
 }
 
 type LookupSubnetNetworkAclAssociationArgs struct {
-	AssociationId *string `pulumi:"associationId"`
+	AssociationId string `pulumi:"associationId"`
 }
 
 type LookupSubnetNetworkAclAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupSubnetNetworkAclAssociationOutput(ctx *pulumi.Context, args LookupSub
 }
 
 type LookupSubnetNetworkAclAssociationOutputArgs struct {
-	AssociationId pulumi.StringPtrInput `pulumi:"associationId"`
+	AssociationId pulumi.StringInput `pulumi:"associationId"`
 }
 
 func (LookupSubnetNetworkAclAssociationOutputArgs) ElementType() reflect.Type {

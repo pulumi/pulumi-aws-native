@@ -21,7 +21,7 @@ func LookupAccessKey(ctx *pulumi.Context, args *LookupAccessKeyArgs, opts ...pul
 }
 
 type LookupAccessKeyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAccessKeyResult struct {
@@ -40,7 +40,7 @@ func LookupAccessKeyOutput(ctx *pulumi.Context, args LookupAccessKeyOutputArgs, 
 }
 
 type LookupAccessKeyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAccessKeyOutputArgs) ElementType() reflect.Type {

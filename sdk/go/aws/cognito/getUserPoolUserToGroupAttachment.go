@@ -21,7 +21,7 @@ func LookupUserPoolUserToGroupAttachment(ctx *pulumi.Context, args *LookupUserPo
 }
 
 type LookupUserPoolUserToGroupAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolUserToGroupAttachmentResult struct {
@@ -38,7 +38,7 @@ func LookupUserPoolUserToGroupAttachmentOutput(ctx *pulumi.Context, args LookupU
 }
 
 type LookupUserPoolUserToGroupAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserPoolUserToGroupAttachmentOutputArgs) ElementType() reflect.Type {

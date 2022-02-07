@@ -22,7 +22,7 @@ func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.In
 
 type LookupBucketArgs struct {
 	// The name for the bucket.
-	BucketName *string `pulumi:"bucketName"`
+	BucketName string `pulumi:"bucketName"`
 }
 
 type LookupBucketResult struct {
@@ -55,7 +55,7 @@ func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts .
 
 type LookupBucketOutputArgs struct {
 	// The name for the bucket.
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
 func (LookupBucketOutputArgs) ElementType() reflect.Type {

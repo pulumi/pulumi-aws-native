@@ -22,7 +22,7 @@ func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.In
 
 type LookupSchemaArgs struct {
 	// Amazon Resource Name for the Schema.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupSchemaResult struct {
@@ -50,7 +50,7 @@ func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts .
 
 type LookupSchemaOutputArgs struct {
 	// Amazon Resource Name for the Schema.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupSchemaOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupAcceptedPortfolioShare(ctx *pulumi.Context, args *LookupAcceptedPortf
 }
 
 type LookupAcceptedPortfolioShareArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAcceptedPortfolioShareResult struct {
@@ -38,7 +38,7 @@ func LookupAcceptedPortfolioShareOutput(ctx *pulumi.Context, args LookupAccepted
 }
 
 type LookupAcceptedPortfolioShareOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAcceptedPortfolioShareOutputArgs) ElementType() reflect.Type {

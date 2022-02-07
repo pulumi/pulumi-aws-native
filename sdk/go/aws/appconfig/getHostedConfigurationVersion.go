@@ -21,7 +21,7 @@ func LookupHostedConfigurationVersion(ctx *pulumi.Context, args *LookupHostedCon
 }
 
 type LookupHostedConfigurationVersionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupHostedConfigurationVersionResult struct {
@@ -38,7 +38,7 @@ func LookupHostedConfigurationVersionOutput(ctx *pulumi.Context, args LookupHost
 }
 
 type LookupHostedConfigurationVersionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupHostedConfigurationVersionOutputArgs) ElementType() reflect.Type {

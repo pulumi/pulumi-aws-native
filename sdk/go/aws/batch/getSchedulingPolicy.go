@@ -21,7 +21,7 @@ func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArg
 }
 
 type LookupSchedulingPolicyArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupSchedulingPolicyResult struct {
@@ -39,7 +39,7 @@ func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPoli
 }
 
 type LookupSchedulingPolicyOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupSchedulingPolicyOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupMember(ctx *pulumi.Context, args *LookupMemberArgs, opts ...pulumi.In
 }
 
 type LookupMemberArgs struct {
-	MemberId *string `pulumi:"memberId"`
+	MemberId string `pulumi:"memberId"`
 }
 
 type LookupMemberResult struct {
@@ -40,7 +40,7 @@ func LookupMemberOutput(ctx *pulumi.Context, args LookupMemberOutputArgs, opts .
 }
 
 type LookupMemberOutputArgs struct {
-	MemberId pulumi.StringPtrInput `pulumi:"memberId"`
+	MemberId pulumi.StringInput `pulumi:"memberId"`
 }
 
 func (LookupMemberOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupLayerVersionPermission(ctx *pulumi.Context, args *LookupLayerVersionP
 }
 
 type LookupLayerVersionPermissionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLayerVersionPermissionResult struct {
@@ -38,7 +38,7 @@ func LookupLayerVersionPermissionOutput(ctx *pulumi.Context, args LookupLayerVer
 }
 
 type LookupLayerVersionPermissionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLayerVersionPermissionOutputArgs) ElementType() reflect.Type {

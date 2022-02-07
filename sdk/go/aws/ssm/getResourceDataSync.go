@@ -21,7 +21,7 @@ func LookupResourceDataSync(ctx *pulumi.Context, args *LookupResourceDataSyncArg
 }
 
 type LookupResourceDataSyncArgs struct {
-	SyncName *string `pulumi:"syncName"`
+	SyncName string `pulumi:"syncName"`
 }
 
 type LookupResourceDataSyncResult struct {
@@ -38,7 +38,7 @@ func LookupResourceDataSyncOutput(ctx *pulumi.Context, args LookupResourceDataSy
 }
 
 type LookupResourceDataSyncOutputArgs struct {
-	SyncName pulumi.StringPtrInput `pulumi:"syncName"`
+	SyncName pulumi.StringInput `pulumi:"syncName"`
 }
 
 func (LookupResourceDataSyncOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.In
 }
 
 type LookupApiKeyArgs struct {
-	ApiKeyId *string `pulumi:"apiKeyId"`
+	ApiKeyId string `pulumi:"apiKeyId"`
 }
 
 type LookupApiKeyResult struct {
@@ -42,7 +42,7 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 }
 
 type LookupApiKeyOutputArgs struct {
-	ApiKeyId pulumi.StringPtrInput `pulumi:"apiKeyId"`
+	ApiKeyId pulumi.StringInput `pulumi:"apiKeyId"`
 }
 
 func (LookupApiKeyOutputArgs) ElementType() reflect.Type {

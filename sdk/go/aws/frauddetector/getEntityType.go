@@ -22,7 +22,7 @@ func LookupEntityType(ctx *pulumi.Context, args *LookupEntityTypeArgs, opts ...p
 
 type LookupEntityTypeArgs struct {
 	// The entity type ARN.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupEntityTypeResult struct {
@@ -49,7 +49,7 @@ func LookupEntityTypeOutput(ctx *pulumi.Context, args LookupEntityTypeOutputArgs
 
 type LookupEntityTypeOutputArgs struct {
 	// The entity type ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupEntityTypeOutputArgs) ElementType() reflect.Type {

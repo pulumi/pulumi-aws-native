@@ -22,7 +22,7 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 
 type LookupProjectArgs struct {
 	// The ID of the project.
-	ProjectId *string `pulumi:"projectId"`
+	ProjectId string `pulumi:"projectId"`
 }
 
 type LookupProjectResult struct {
@@ -51,7 +51,7 @@ func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts
 
 type LookupProjectOutputArgs struct {
 	// The ID of the project.
-	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
 }
 
 func (LookupProjectOutputArgs) ElementType() reflect.Type {

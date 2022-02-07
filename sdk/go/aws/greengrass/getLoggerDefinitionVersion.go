@@ -21,7 +21,7 @@ func LookupLoggerDefinitionVersion(ctx *pulumi.Context, args *LookupLoggerDefini
 }
 
 type LookupLoggerDefinitionVersionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLoggerDefinitionVersionResult struct {
@@ -38,7 +38,7 @@ func LookupLoggerDefinitionVersionOutput(ctx *pulumi.Context, args LookupLoggerD
 }
 
 type LookupLoggerDefinitionVersionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLoggerDefinitionVersionOutputArgs) ElementType() reflect.Type {

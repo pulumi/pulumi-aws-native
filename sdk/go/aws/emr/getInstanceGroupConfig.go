@@ -21,7 +21,7 @@ func LookupInstanceGroupConfig(ctx *pulumi.Context, args *LookupInstanceGroupCon
 }
 
 type LookupInstanceGroupConfigArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupInstanceGroupConfigResult struct {
@@ -40,7 +40,7 @@ func LookupInstanceGroupConfigOutput(ctx *pulumi.Context, args LookupInstanceGro
 }
 
 type LookupInstanceGroupConfigOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupInstanceGroupConfigOutputArgs) ElementType() reflect.Type {

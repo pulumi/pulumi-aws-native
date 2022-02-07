@@ -21,7 +21,7 @@ func LookupAnomalyMonitor(ctx *pulumi.Context, args *LookupAnomalyMonitorArgs, o
 }
 
 type LookupAnomalyMonitorArgs struct {
-	MonitorArn *string `pulumi:"monitorArn"`
+	MonitorArn string `pulumi:"monitorArn"`
 }
 
 type LookupAnomalyMonitorResult struct {
@@ -48,7 +48,7 @@ func LookupAnomalyMonitorOutput(ctx *pulumi.Context, args LookupAnomalyMonitorOu
 }
 
 type LookupAnomalyMonitorOutputArgs struct {
-	MonitorArn pulumi.StringPtrInput `pulumi:"monitorArn"`
+	MonitorArn pulumi.StringInput `pulumi:"monitorArn"`
 }
 
 func (LookupAnomalyMonitorOutputArgs) ElementType() reflect.Type {

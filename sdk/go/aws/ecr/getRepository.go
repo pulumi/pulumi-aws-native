@@ -22,7 +22,7 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 type LookupRepositoryArgs struct {
 	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-	RepositoryName *string `pulumi:"repositoryName"`
+	RepositoryName string `pulumi:"repositoryName"`
 }
 
 type LookupRepositoryResult struct {
@@ -49,7 +49,7 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 type LookupRepositoryOutputArgs struct {
 	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 }
 
 func (LookupRepositoryOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupInsightRule(ctx *pulumi.Context, args *LookupInsightRuleArgs, opts ..
 }
 
 type LookupInsightRuleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupInsightRuleResult struct {
@@ -42,7 +42,7 @@ func LookupInsightRuleOutput(ctx *pulumi.Context, args LookupInsightRuleOutputAr
 }
 
 type LookupInsightRuleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupInsightRuleOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context, args
 
 type LookupInstanceAccessControlAttributeConfigurationArgs struct {
 	// The ARN of the AWS SSO instance under which the operation will be executed.
-	InstanceArn *string `pulumi:"instanceArn"`
+	InstanceArn string `pulumi:"instanceArn"`
 }
 
 type LookupInstanceAccessControlAttributeConfigurationResult struct {
@@ -42,7 +42,7 @@ func LookupInstanceAccessControlAttributeConfigurationOutput(ctx *pulumi.Context
 
 type LookupInstanceAccessControlAttributeConfigurationOutputArgs struct {
 	// The ARN of the AWS SSO instance under which the operation will be executed.
-	InstanceArn pulumi.StringPtrInput `pulumi:"instanceArn"`
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 }
 
 func (LookupInstanceAccessControlAttributeConfigurationOutputArgs) ElementType() reflect.Type {

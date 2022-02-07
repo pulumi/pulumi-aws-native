@@ -22,7 +22,7 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 
 type LookupCertificateAuthorityArgs struct {
 	// The Amazon Resource Name (ARN) of the certificate authority.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupCertificateAuthorityResult struct {
@@ -46,7 +46,7 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 
 type LookupCertificateAuthorityOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the certificate authority.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupCertificateAuthorityOutputArgs) ElementType() reflect.Type {

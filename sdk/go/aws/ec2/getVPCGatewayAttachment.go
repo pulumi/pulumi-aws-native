@@ -21,7 +21,7 @@ func LookupVPCGatewayAttachment(ctx *pulumi.Context, args *LookupVPCGatewayAttac
 }
 
 type LookupVPCGatewayAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPCGatewayAttachmentResult struct {
@@ -41,7 +41,7 @@ func LookupVPCGatewayAttachmentOutput(ctx *pulumi.Context, args LookupVPCGateway
 }
 
 type LookupVPCGatewayAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPCGatewayAttachmentOutputArgs) ElementType() reflect.Type {

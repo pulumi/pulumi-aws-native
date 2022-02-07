@@ -21,7 +21,7 @@ func LookupKeyGroup(ctx *pulumi.Context, args *LookupKeyGroupArgs, opts ...pulum
 }
 
 type LookupKeyGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupKeyGroupResult struct {
@@ -40,7 +40,7 @@ func LookupKeyGroupOutput(ctx *pulumi.Context, args LookupKeyGroupOutputArgs, op
 }
 
 type LookupKeyGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupKeyGroupOutputArgs) ElementType() reflect.Type {

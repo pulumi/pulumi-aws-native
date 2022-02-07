@@ -21,7 +21,7 @@ func LookupWorkteam(ctx *pulumi.Context, args *LookupWorkteamArgs, opts ...pulum
 }
 
 type LookupWorkteamArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWorkteamResult struct {
@@ -42,7 +42,7 @@ func LookupWorkteamOutput(ctx *pulumi.Context, args LookupWorkteamOutputArgs, op
 }
 
 type LookupWorkteamOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWorkteamOutputArgs) ElementType() reflect.Type {

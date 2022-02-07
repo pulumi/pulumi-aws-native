@@ -21,7 +21,7 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 }
 
 type LookupNatGatewayArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNatGatewayResult struct {
@@ -39,7 +39,7 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 }
 
 type LookupNatGatewayOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNatGatewayOutputArgs) ElementType() reflect.Type {

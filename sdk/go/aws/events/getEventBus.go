@@ -21,7 +21,7 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 }
 
 type LookupEventBusArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEventBusResult struct {
@@ -40,7 +40,7 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 }
 
 type LookupEventBusOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEventBusOutputArgs) ElementType() reflect.Type {

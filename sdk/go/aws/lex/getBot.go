@@ -21,7 +21,7 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupBotArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupBotResult struct {
@@ -46,7 +46,7 @@ func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulu
 }
 
 type LookupBotOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupBotOutputArgs) ElementType() reflect.Type {

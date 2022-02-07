@@ -21,7 +21,7 @@ func LookupLaunchTemplateConstraint(ctx *pulumi.Context, args *LookupLaunchTempl
 }
 
 type LookupLaunchTemplateConstraintArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLaunchTemplateConstraintResult struct {
@@ -41,7 +41,7 @@ func LookupLaunchTemplateConstraintOutput(ctx *pulumi.Context, args LookupLaunch
 }
 
 type LookupLaunchTemplateConstraintOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLaunchTemplateConstraintOutputArgs) ElementType() reflect.Type {

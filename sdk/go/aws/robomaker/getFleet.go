@@ -21,7 +21,7 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 }
 
 type LookupFleetArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupFleetResult struct {
@@ -39,7 +39,7 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 }
 
 type LookupFleetOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupFleetOutputArgs) ElementType() reflect.Type {

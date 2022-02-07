@@ -21,7 +21,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	AccountId *string `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 }
 
 type LookupAccountResult struct {
@@ -39,7 +39,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 }
 
 type LookupAccountOutputArgs struct {
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
 func (LookupAccountOutputArgs) ElementType() reflect.Type {

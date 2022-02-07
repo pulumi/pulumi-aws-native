@@ -21,7 +21,7 @@ func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...p
 }
 
 type LookupAssessmentArgs struct {
-	AssessmentId *string `pulumi:"assessmentId"`
+	AssessmentId string `pulumi:"assessmentId"`
 }
 
 type LookupAssessmentResult struct {
@@ -49,7 +49,7 @@ func LookupAssessmentOutput(ctx *pulumi.Context, args LookupAssessmentOutputArgs
 }
 
 type LookupAssessmentOutputArgs struct {
-	AssessmentId pulumi.StringPtrInput `pulumi:"assessmentId"`
+	AssessmentId pulumi.StringInput `pulumi:"assessmentId"`
 }
 
 func (LookupAssessmentOutputArgs) ElementType() reflect.Type {

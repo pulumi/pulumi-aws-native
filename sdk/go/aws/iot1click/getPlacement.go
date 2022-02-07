@@ -21,7 +21,7 @@ func LookupPlacement(ctx *pulumi.Context, args *LookupPlacementArgs, opts ...pul
 }
 
 type LookupPlacementArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPlacementResult struct {
@@ -39,7 +39,7 @@ func LookupPlacementOutput(ctx *pulumi.Context, args LookupPlacementOutputArgs, 
 }
 
 type LookupPlacementOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPlacementOutputArgs) ElementType() reflect.Type {

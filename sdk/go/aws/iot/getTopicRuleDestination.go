@@ -22,7 +22,7 @@ func LookupTopicRuleDestination(ctx *pulumi.Context, args *LookupTopicRuleDestin
 
 type LookupTopicRuleDestinationArgs struct {
 	// Amazon Resource Name (ARN).
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupTopicRuleDestinationResult struct {
@@ -45,7 +45,7 @@ func LookupTopicRuleDestinationOutput(ctx *pulumi.Context, args LookupTopicRuleD
 
 type LookupTopicRuleDestinationOutputArgs struct {
 	// Amazon Resource Name (ARN).
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupTopicRuleDestinationOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupTransitGatewayConnect(ctx *pulumi.Context, args *LookupTransitGateway
 
 type LookupTransitGatewayConnectArgs struct {
 	// The ID of the Connect attachment.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 }
 
 type LookupTransitGatewayConnectResult struct {
@@ -49,7 +49,7 @@ func LookupTransitGatewayConnectOutput(ctx *pulumi.Context, args LookupTransitGa
 
 type LookupTransitGatewayConnectOutputArgs struct {
 	// The ID of the Connect attachment.
-	TransitGatewayAttachmentId pulumi.StringPtrInput `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
 }
 
 func (LookupTransitGatewayConnectOutputArgs) ElementType() reflect.Type {

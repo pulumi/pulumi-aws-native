@@ -21,7 +21,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupApplicationResult struct {
@@ -47,7 +47,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {

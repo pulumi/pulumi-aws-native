@@ -21,7 +21,7 @@ func LookupEmailChannel(ctx *pulumi.Context, args *LookupEmailChannelArgs, opts 
 }
 
 type LookupEmailChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEmailChannelResult struct {
@@ -43,7 +43,7 @@ func LookupEmailChannelOutput(ctx *pulumi.Context, args LookupEmailChannelOutput
 }
 
 type LookupEmailChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEmailChannelOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupSubnetRouteTableAssociation(ctx *pulumi.Context, args *LookupSubnetRo
 }
 
 type LookupSubnetRouteTableAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSubnetRouteTableAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupSubnetRouteTableAssociationOutput(ctx *pulumi.Context, args LookupSub
 }
 
 type LookupSubnetRouteTableAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSubnetRouteTableAssociationOutputArgs) ElementType() reflect.Type {

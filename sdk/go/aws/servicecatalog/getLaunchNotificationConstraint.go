@@ -21,7 +21,7 @@ func LookupLaunchNotificationConstraint(ctx *pulumi.Context, args *LookupLaunchN
 }
 
 type LookupLaunchNotificationConstraintArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLaunchNotificationConstraintResult struct {
@@ -41,7 +41,7 @@ func LookupLaunchNotificationConstraintOutput(ctx *pulumi.Context, args LookupLa
 }
 
 type LookupLaunchNotificationConstraintOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLaunchNotificationConstraintOutputArgs) ElementType() reflect.Type {

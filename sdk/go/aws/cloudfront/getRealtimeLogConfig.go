@@ -21,7 +21,7 @@ func LookupRealtimeLogConfig(ctx *pulumi.Context, args *LookupRealtimeLogConfigA
 }
 
 type LookupRealtimeLogConfigArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRealtimeLogConfigResult struct {
@@ -41,7 +41,7 @@ func LookupRealtimeLogConfigOutput(ctx *pulumi.Context, args LookupRealtimeLogCo
 }
 
 type LookupRealtimeLogConfigOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRealtimeLogConfigOutputArgs) ElementType() reflect.Type {

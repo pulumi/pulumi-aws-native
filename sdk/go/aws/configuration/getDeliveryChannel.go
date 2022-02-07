@@ -21,7 +21,7 @@ func LookupDeliveryChannel(ctx *pulumi.Context, args *LookupDeliveryChannelArgs,
 }
 
 type LookupDeliveryChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDeliveryChannelResult struct {
@@ -43,7 +43,7 @@ func LookupDeliveryChannelOutput(ctx *pulumi.Context, args LookupDeliveryChannel
 }
 
 type LookupDeliveryChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDeliveryChannelOutputArgs) ElementType() reflect.Type {

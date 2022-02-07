@@ -22,7 +22,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 
 type LookupLogGroupArgs struct {
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
-	LogGroupName *string `pulumi:"logGroupName"`
+	LogGroupName string `pulumi:"logGroupName"`
 }
 
 type LookupLogGroupResult struct {
@@ -47,7 +47,7 @@ func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, op
 
 type LookupLogGroupOutputArgs struct {
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
-	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 }
 
 func (LookupLogGroupOutputArgs) ElementType() reflect.Type {

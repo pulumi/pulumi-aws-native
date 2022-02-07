@@ -22,7 +22,7 @@ func LookupAlert(ctx *pulumi.Context, args *LookupAlertArgs, opts ...pulumi.Invo
 
 type LookupAlertArgs struct {
 	// ARN assigned to the alert.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupAlertResult struct {
@@ -41,7 +41,7 @@ func LookupAlertOutput(ctx *pulumi.Context, args LookupAlertOutputArgs, opts ...
 
 type LookupAlertOutputArgs struct {
 	// ARN assigned to the alert.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupAlertOutputArgs) ElementType() reflect.Type {

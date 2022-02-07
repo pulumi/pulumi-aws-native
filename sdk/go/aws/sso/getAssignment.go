@@ -22,17 +22,17 @@ func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...p
 
 type LookupAssignmentArgs struct {
 	// The sso instance that the permission set is owned.
-	InstanceArn *string `pulumi:"instanceArn"`
+	InstanceArn string `pulumi:"instanceArn"`
 	// The permission set that the assignemt will be assigned
-	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// The assignee's identifier, user id/group id
-	PrincipalId *string `pulumi:"principalId"`
+	PrincipalId string `pulumi:"principalId"`
 	// The assignee's type, user/group
-	PrincipalType *AssignmentPrincipalType `pulumi:"principalType"`
+	PrincipalType AssignmentPrincipalType `pulumi:"principalType"`
 	// The account id to be provisioned.
-	TargetId *string `pulumi:"targetId"`
+	TargetId string `pulumi:"targetId"`
 	// The type of resource to be provsioned to, only aws account now
-	TargetType *AssignmentTargetType `pulumi:"targetType"`
+	TargetType AssignmentTargetType `pulumi:"targetType"`
 }
 
 type LookupAssignmentResult struct {
@@ -49,17 +49,17 @@ func LookupAssignmentOutput(ctx *pulumi.Context, args LookupAssignmentOutputArgs
 
 type LookupAssignmentOutputArgs struct {
 	// The sso instance that the permission set is owned.
-	InstanceArn pulumi.StringPtrInput `pulumi:"instanceArn"`
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 	// The permission set that the assignemt will be assigned
-	PermissionSetArn pulumi.StringPtrInput `pulumi:"permissionSetArn"`
+	PermissionSetArn pulumi.StringInput `pulumi:"permissionSetArn"`
 	// The assignee's identifier, user id/group id
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The assignee's type, user/group
-	PrincipalType AssignmentPrincipalTypePtrInput `pulumi:"principalType"`
+	PrincipalType AssignmentPrincipalTypeInput `pulumi:"principalType"`
 	// The account id to be provisioned.
-	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 	// The type of resource to be provsioned to, only aws account now
-	TargetType AssignmentTargetTypePtrInput `pulumi:"targetType"`
+	TargetType AssignmentTargetTypeInput `pulumi:"targetType"`
 }
 
 func (LookupAssignmentOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, o
 }
 
 type LookupStreamConsumerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupStreamConsumerResult struct {
@@ -41,7 +41,7 @@ func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOu
 }
 
 type LookupStreamConsumerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupStreamConsumerOutputArgs) ElementType() reflect.Type {

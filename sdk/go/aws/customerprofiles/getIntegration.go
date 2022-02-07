@@ -22,9 +22,9 @@ func LookupIntegration(ctx *pulumi.Context, args *LookupIntegrationArgs, opts ..
 
 type LookupIntegrationArgs struct {
 	// The unique name of the domain.
-	DomainName *string `pulumi:"domainName"`
+	DomainName string `pulumi:"domainName"`
 	// The URI of the S3 bucket or any other type of data source.
-	Uri *string `pulumi:"uri"`
+	Uri string `pulumi:"uri"`
 }
 
 type LookupIntegrationResult struct {
@@ -49,9 +49,9 @@ func LookupIntegrationOutput(ctx *pulumi.Context, args LookupIntegrationOutputAr
 
 type LookupIntegrationOutputArgs struct {
 	// The unique name of the domain.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The URI of the S3 bucket or any other type of data source.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
 func (LookupIntegrationOutputArgs) ElementType() reflect.Type {

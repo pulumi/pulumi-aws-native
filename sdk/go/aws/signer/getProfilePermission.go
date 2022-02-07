@@ -21,8 +21,8 @@ func LookupProfilePermission(ctx *pulumi.Context, args *LookupProfilePermissionA
 }
 
 type LookupProfilePermissionArgs struct {
-	ProfileName *string `pulumi:"profileName"`
-	StatementId *string `pulumi:"statementId"`
+	ProfileName string `pulumi:"profileName"`
+	StatementId string `pulumi:"statementId"`
 }
 
 type LookupProfilePermissionResult struct {
@@ -38,8 +38,8 @@ func LookupProfilePermissionOutput(ctx *pulumi.Context, args LookupProfilePermis
 }
 
 type LookupProfilePermissionOutputArgs struct {
-	ProfileName pulumi.StringPtrInput `pulumi:"profileName"`
-	StatementId pulumi.StringPtrInput `pulumi:"statementId"`
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	StatementId pulumi.StringInput `pulumi:"statementId"`
 }
 
 func (LookupProfilePermissionOutputArgs) ElementType() reflect.Type {

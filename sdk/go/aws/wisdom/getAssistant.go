@@ -21,7 +21,7 @@ func LookupAssistant(ctx *pulumi.Context, args *LookupAssistantArgs, opts ...pul
 }
 
 type LookupAssistantArgs struct {
-	AssistantId *string `pulumi:"assistantId"`
+	AssistantId string `pulumi:"assistantId"`
 }
 
 type LookupAssistantResult struct {
@@ -39,7 +39,7 @@ func LookupAssistantOutput(ctx *pulumi.Context, args LookupAssistantOutputArgs, 
 }
 
 type LookupAssistantOutputArgs struct {
-	AssistantId pulumi.StringPtrInput `pulumi:"assistantId"`
+	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 }
 
 func (LookupAssistantOutputArgs) ElementType() reflect.Type {

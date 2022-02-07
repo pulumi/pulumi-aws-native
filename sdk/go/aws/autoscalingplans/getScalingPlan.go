@@ -21,7 +21,7 @@ func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ..
 }
 
 type LookupScalingPlanArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupScalingPlanResult struct {
@@ -42,7 +42,7 @@ func LookupScalingPlanOutput(ctx *pulumi.Context, args LookupScalingPlanOutputAr
 }
 
 type LookupScalingPlanOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupScalingPlanOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupReplicationConfiguration(ctx *pulumi.Context, args *LookupReplication
 
 type LookupReplicationConfigurationArgs struct {
 	// The RegistryId associated with the aws account.
-	RegistryId *string `pulumi:"registryId"`
+	RegistryId string `pulumi:"registryId"`
 }
 
 type LookupReplicationConfigurationResult struct {
@@ -42,7 +42,7 @@ func LookupReplicationConfigurationOutput(ctx *pulumi.Context, args LookupReplic
 
 type LookupReplicationConfigurationOutputArgs struct {
 	// The RegistryId associated with the aws account.
-	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
 func (LookupReplicationConfigurationOutputArgs) ElementType() reflect.Type {

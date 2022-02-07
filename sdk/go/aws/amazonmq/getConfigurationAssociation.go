@@ -21,7 +21,7 @@ func LookupConfigurationAssociation(ctx *pulumi.Context, args *LookupConfigurati
 }
 
 type LookupConfigurationAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConfigurationAssociationResult struct {
@@ -39,7 +39,7 @@ func LookupConfigurationAssociationOutput(ctx *pulumi.Context, args LookupConfig
 }
 
 type LookupConfigurationAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConfigurationAssociationOutputArgs) ElementType() reflect.Type {

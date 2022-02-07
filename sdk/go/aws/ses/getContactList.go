@@ -22,7 +22,7 @@ func LookupContactList(ctx *pulumi.Context, args *LookupContactListArgs, opts ..
 
 type LookupContactListArgs struct {
 	// The name of the contact list.
-	ContactListName *string `pulumi:"contactListName"`
+	ContactListName string `pulumi:"contactListName"`
 }
 
 type LookupContactListResult struct {
@@ -45,7 +45,7 @@ func LookupContactListOutput(ctx *pulumi.Context, args LookupContactListOutputAr
 
 type LookupContactListOutputArgs struct {
 	// The name of the contact list.
-	ContactListName pulumi.StringPtrInput `pulumi:"contactListName"`
+	ContactListName pulumi.StringInput `pulumi:"contactListName"`
 }
 
 func (LookupContactListOutputArgs) ElementType() reflect.Type {

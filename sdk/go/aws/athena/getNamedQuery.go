@@ -22,7 +22,7 @@ func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...p
 
 type LookupNamedQueryArgs struct {
 	// The unique ID of the query.
-	NamedQueryId *string `pulumi:"namedQueryId"`
+	NamedQueryId string `pulumi:"namedQueryId"`
 }
 
 type LookupNamedQueryResult struct {
@@ -41,7 +41,7 @@ func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs
 
 type LookupNamedQueryOutputArgs struct {
 	// The unique ID of the query.
-	NamedQueryId pulumi.StringPtrInput `pulumi:"namedQueryId"`
+	NamedQueryId pulumi.StringInput `pulumi:"namedQueryId"`
 }
 
 func (LookupNamedQueryOutputArgs) ElementType() reflect.Type {

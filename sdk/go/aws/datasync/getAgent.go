@@ -22,7 +22,7 @@ func LookupAgent(ctx *pulumi.Context, args *LookupAgentArgs, opts ...pulumi.Invo
 
 type LookupAgentArgs struct {
 	// The DataSync Agent ARN.
-	AgentArn *string `pulumi:"agentArn"`
+	AgentArn string `pulumi:"agentArn"`
 }
 
 type LookupAgentResult struct {
@@ -47,7 +47,7 @@ func LookupAgentOutput(ctx *pulumi.Context, args LookupAgentOutputArgs, opts ...
 
 type LookupAgentOutputArgs struct {
 	// The DataSync Agent ARN.
-	AgentArn pulumi.StringPtrInput `pulumi:"agentArn"`
+	AgentArn pulumi.StringInput `pulumi:"agentArn"`
 }
 
 func (LookupAgentOutputArgs) ElementType() reflect.Type {

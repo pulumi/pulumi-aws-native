@@ -21,7 +21,7 @@ func LookupCapacityProvider(ctx *pulumi.Context, args *LookupCapacityProviderArg
 }
 
 type LookupCapacityProviderArgs struct {
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupCapacityProviderResult struct {
@@ -39,7 +39,7 @@ func LookupCapacityProviderOutput(ctx *pulumi.Context, args LookupCapacityProvid
 }
 
 type LookupCapacityProviderOutputArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupCapacityProviderOutputArgs) ElementType() reflect.Type {

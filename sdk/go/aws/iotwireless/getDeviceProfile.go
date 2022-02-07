@@ -22,7 +22,7 @@ func LookupDeviceProfile(ctx *pulumi.Context, args *LookupDeviceProfileArgs, opt
 
 type LookupDeviceProfileArgs struct {
 	// Service profile Id. Returned after successful create.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDeviceProfileResult struct {
@@ -49,7 +49,7 @@ func LookupDeviceProfileOutput(ctx *pulumi.Context, args LookupDeviceProfileOutp
 
 type LookupDeviceProfileOutputArgs struct {
 	// Service profile Id. Returned after successful create.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDeviceProfileOutputArgs) ElementType() reflect.Type {

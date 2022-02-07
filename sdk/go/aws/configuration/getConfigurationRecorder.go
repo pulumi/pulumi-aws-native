@@ -21,7 +21,7 @@ func LookupConfigurationRecorder(ctx *pulumi.Context, args *LookupConfigurationR
 }
 
 type LookupConfigurationRecorderArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConfigurationRecorderResult struct {
@@ -40,7 +40,7 @@ func LookupConfigurationRecorderOutput(ctx *pulumi.Context, args LookupConfigura
 }
 
 type LookupConfigurationRecorderOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConfigurationRecorderOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 
 type LookupApplicationArgs struct {
 	// The ID of the application.
-	ApplicationId *string `pulumi:"applicationId"`
+	ApplicationId string `pulumi:"applicationId"`
 }
 
 type LookupApplicationResult struct {
@@ -63,7 +63,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 
 type LookupApplicationOutputArgs struct {
 	// The ID of the application.
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {

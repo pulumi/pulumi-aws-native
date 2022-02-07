@@ -22,9 +22,9 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 
 type LookupDeploymentArgs struct {
 	// Primary Id for this resource
-	DeploymentId *string `pulumi:"deploymentId"`
+	DeploymentId string `pulumi:"deploymentId"`
 	// The ID of the RestApi resource to deploy.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDeploymentResult struct {
@@ -45,9 +45,9 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 
 type LookupDeploymentOutputArgs struct {
 	// Primary Id for this resource
-	DeploymentId pulumi.StringPtrInput `pulumi:"deploymentId"`
+	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 	// The ID of the RestApi resource to deploy.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupDeploymentOutputArgs) ElementType() reflect.Type {

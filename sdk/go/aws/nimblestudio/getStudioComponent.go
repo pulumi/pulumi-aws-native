@@ -21,9 +21,9 @@ func LookupStudioComponent(ctx *pulumi.Context, args *LookupStudioComponentArgs,
 }
 
 type LookupStudioComponentArgs struct {
-	StudioComponentId *string `pulumi:"studioComponentId"`
+	StudioComponentId string `pulumi:"studioComponentId"`
 	// <p>The studioId. </p>
-	StudioId *string `pulumi:"studioId"`
+	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStudioComponentResult struct {
@@ -52,9 +52,9 @@ func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponent
 }
 
 type LookupStudioComponentOutputArgs struct {
-	StudioComponentId pulumi.StringPtrInput `pulumi:"studioComponentId"`
+	StudioComponentId pulumi.StringInput `pulumi:"studioComponentId"`
 	// <p>The studioId. </p>
-	StudioId pulumi.StringPtrInput `pulumi:"studioId"`
+	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupStudioComponentOutputArgs) ElementType() reflect.Type {

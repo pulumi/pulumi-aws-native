@@ -21,7 +21,7 @@ func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInsta
 }
 
 type LookupReplicationInstanceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupReplicationInstanceResult struct {
@@ -50,7 +50,7 @@ func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplication
 }
 
 type LookupReplicationInstanceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupReplicationInstanceOutputArgs) ElementType() reflect.Type {

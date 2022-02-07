@@ -22,7 +22,7 @@ func LookupUserHierarchyGroup(ctx *pulumi.Context, args *LookupUserHierarchyGrou
 
 type LookupUserHierarchyGroupArgs struct {
 	// The Amazon Resource Name (ARN) for the user hierarchy group.
-	UserHierarchyGroupArn *string `pulumi:"userHierarchyGroupArn"`
+	UserHierarchyGroupArn string `pulumi:"userHierarchyGroupArn"`
 }
 
 type LookupUserHierarchyGroupResult struct {
@@ -45,7 +45,7 @@ func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarch
 
 type LookupUserHierarchyGroupOutputArgs struct {
 	// The Amazon Resource Name (ARN) for the user hierarchy group.
-	UserHierarchyGroupArn pulumi.StringPtrInput `pulumi:"userHierarchyGroupArn"`
+	UserHierarchyGroupArn pulumi.StringInput `pulumi:"userHierarchyGroupArn"`
 }
 
 func (LookupUserHierarchyGroupOutputArgs) ElementType() reflect.Type {

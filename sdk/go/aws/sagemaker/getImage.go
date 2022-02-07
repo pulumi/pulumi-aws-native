@@ -21,7 +21,7 @@ func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.Invo
 }
 
 type LookupImageArgs struct {
-	ImageArn *string `pulumi:"imageArn"`
+	ImageArn string `pulumi:"imageArn"`
 }
 
 type LookupImageResult struct {
@@ -43,7 +43,7 @@ func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...
 }
 
 type LookupImageOutputArgs struct {
-	ImageArn pulumi.StringPtrInput `pulumi:"imageArn"`
+	ImageArn pulumi.StringInput `pulumi:"imageArn"`
 }
 
 func (LookupImageOutputArgs) ElementType() reflect.Type {

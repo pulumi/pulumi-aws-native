@@ -22,7 +22,7 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 
 type LookupEnvironmentArgs struct {
 	// Unique identifier for representing FinSpace Environment
-	EnvironmentId *string `pulumi:"environmentId"`
+	EnvironmentId string `pulumi:"environmentId"`
 }
 
 type LookupEnvironmentResult struct {
@@ -60,7 +60,7 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 
 type LookupEnvironmentOutputArgs struct {
 	// Unique identifier for representing FinSpace Environment
-	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {

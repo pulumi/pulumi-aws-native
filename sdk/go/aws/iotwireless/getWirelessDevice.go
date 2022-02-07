@@ -22,7 +22,7 @@ func LookupWirelessDevice(ctx *pulumi.Context, args *LookupWirelessDeviceArgs, o
 
 type LookupWirelessDeviceArgs struct {
 	// Wireless device Id. Returned after successful create.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWirelessDeviceResult struct {
@@ -61,7 +61,7 @@ func LookupWirelessDeviceOutput(ctx *pulumi.Context, args LookupWirelessDeviceOu
 
 type LookupWirelessDeviceOutputArgs struct {
 	// Wireless device Id. Returned after successful create.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWirelessDeviceOutputArgs) ElementType() reflect.Type {

@@ -22,11 +22,11 @@ func LookupMethod(ctx *pulumi.Context, args *LookupMethodArgs, opts ...pulumi.In
 
 type LookupMethodArgs struct {
 	// The backend system that the method calls when it receives a request.
-	HttpMethod *string `pulumi:"httpMethod"`
+	HttpMethod string `pulumi:"httpMethod"`
 	// The ID of an API Gateway resource.
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId string `pulumi:"resourceId"`
 	// The ID of the RestApi resource in which API Gateway creates the method.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupMethodResult struct {
@@ -63,11 +63,11 @@ func LookupMethodOutput(ctx *pulumi.Context, args LookupMethodOutputArgs, opts .
 
 type LookupMethodOutputArgs struct {
 	// The backend system that the method calls when it receives a request.
-	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
+	HttpMethod pulumi.StringInput `pulumi:"httpMethod"`
 	// The ID of an API Gateway resource.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The ID of the RestApi resource in which API Gateway creates the method.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupMethodOutputArgs) ElementType() reflect.Type {

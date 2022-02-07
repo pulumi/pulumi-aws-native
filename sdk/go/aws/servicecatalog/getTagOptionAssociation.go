@@ -21,7 +21,7 @@ func LookupTagOptionAssociation(ctx *pulumi.Context, args *LookupTagOptionAssoci
 }
 
 type LookupTagOptionAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTagOptionAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupTagOptionAssociationOutput(ctx *pulumi.Context, args LookupTagOptionA
 }
 
 type LookupTagOptionAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTagOptionAssociationOutputArgs) ElementType() reflect.Type {

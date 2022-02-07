@@ -22,7 +22,7 @@ func LookupDeviceFleet(ctx *pulumi.Context, args *LookupDeviceFleetArgs, opts ..
 
 type LookupDeviceFleetArgs struct {
 	// The name of the edge device fleet
-	DeviceFleetName *string `pulumi:"deviceFleetName"`
+	DeviceFleetName string `pulumi:"deviceFleetName"`
 }
 
 type LookupDeviceFleetResult struct {
@@ -47,7 +47,7 @@ func LookupDeviceFleetOutput(ctx *pulumi.Context, args LookupDeviceFleetOutputAr
 
 type LookupDeviceFleetOutputArgs struct {
 	// The name of the edge device fleet
-	DeviceFleetName pulumi.StringPtrInput `pulumi:"deviceFleetName"`
+	DeviceFleetName pulumi.StringInput `pulumi:"deviceFleetName"`
 }
 
 func (LookupDeviceFleetOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupQuickConnect(ctx *pulumi.Context, args *LookupQuickConnectArgs, opts 
 
 type LookupQuickConnectArgs struct {
 	// The Amazon Resource Name (ARN) for the quick connect.
-	QuickConnectArn *string `pulumi:"quickConnectArn"`
+	QuickConnectArn string `pulumi:"quickConnectArn"`
 }
 
 type LookupQuickConnectResult struct {
@@ -51,7 +51,7 @@ func LookupQuickConnectOutput(ctx *pulumi.Context, args LookupQuickConnectOutput
 
 type LookupQuickConnectOutputArgs struct {
 	// The Amazon Resource Name (ARN) for the quick connect.
-	QuickConnectArn pulumi.StringPtrInput `pulumi:"quickConnectArn"`
+	QuickConnectArn pulumi.StringInput `pulumi:"quickConnectArn"`
 }
 
 func (LookupQuickConnectOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupConfigurationTemplate(ctx *pulumi.Context, args *LookupConfigurationT
 }
 
 type LookupConfigurationTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConfigurationTemplateResult struct {
@@ -40,7 +40,7 @@ func LookupConfigurationTemplateOutput(ctx *pulumi.Context, args LookupConfigura
 }
 
 type LookupConfigurationTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConfigurationTemplateOutputArgs) ElementType() reflect.Type {

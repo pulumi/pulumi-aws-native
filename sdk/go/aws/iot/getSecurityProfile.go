@@ -22,7 +22,7 @@ func LookupSecurityProfile(ctx *pulumi.Context, args *LookupSecurityProfileArgs,
 
 type LookupSecurityProfileArgs struct {
 	// A unique identifier for the security profile.
-	SecurityProfileName *string `pulumi:"securityProfileName"`
+	SecurityProfileName string `pulumi:"securityProfileName"`
 }
 
 type LookupSecurityProfileResult struct {
@@ -53,7 +53,7 @@ func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfile
 
 type LookupSecurityProfileOutputArgs struct {
 	// A unique identifier for the security profile.
-	SecurityProfileName pulumi.StringPtrInput `pulumi:"securityProfileName"`
+	SecurityProfileName pulumi.StringInput `pulumi:"securityProfileName"`
 }
 
 func (LookupSecurityProfileOutputArgs) ElementType() reflect.Type {

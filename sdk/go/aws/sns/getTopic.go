@@ -21,7 +21,7 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTopicResult struct {
@@ -43,7 +43,7 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 }
 
 type LookupTopicOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {

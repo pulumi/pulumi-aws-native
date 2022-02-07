@@ -22,7 +22,7 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 
 type LookupDetectorArgs struct {
 	// The ARN of the detector.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupDetectorResult struct {
@@ -59,7 +59,7 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 
 type LookupDetectorOutputArgs struct {
 	// The ARN of the detector.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupDetectorOutputArgs) ElementType() reflect.Type {

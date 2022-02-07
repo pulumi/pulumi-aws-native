@@ -22,7 +22,7 @@ func LookupAssociation(ctx *pulumi.Context, args *LookupAssociationArgs, opts ..
 
 type LookupAssociationArgs struct {
 	// Unique identifier of the association.
-	AssociationId *string `pulumi:"associationId"`
+	AssociationId string `pulumi:"associationId"`
 }
 
 type LookupAssociationResult struct {
@@ -64,7 +64,7 @@ func LookupAssociationOutput(ctx *pulumi.Context, args LookupAssociationOutputAr
 
 type LookupAssociationOutputArgs struct {
 	// Unique identifier of the association.
-	AssociationId pulumi.StringPtrInput `pulumi:"associationId"`
+	AssociationId pulumi.StringInput `pulumi:"associationId"`
 }
 
 func (LookupAssociationOutputArgs) ElementType() reflect.Type {

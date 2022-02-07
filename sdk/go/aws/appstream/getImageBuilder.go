@@ -21,7 +21,7 @@ func LookupImageBuilder(ctx *pulumi.Context, args *LookupImageBuilderArgs, opts 
 }
 
 type LookupImageBuilderArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupImageBuilderResult struct {
@@ -52,7 +52,7 @@ func LookupImageBuilderOutput(ctx *pulumi.Context, args LookupImageBuilderOutput
 }
 
 type LookupImageBuilderOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupImageBuilderOutputArgs) ElementType() reflect.Type {

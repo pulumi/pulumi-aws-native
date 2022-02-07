@@ -21,7 +21,7 @@ func LookupDBClusterParameterGroup(ctx *pulumi.Context, args *LookupDBClusterPar
 }
 
 type LookupDBClusterParameterGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDBClusterParameterGroupResult struct {
@@ -40,7 +40,7 @@ func LookupDBClusterParameterGroupOutput(ctx *pulumi.Context, args LookupDBClust
 }
 
 type LookupDBClusterParameterGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDBClusterParameterGroupOutputArgs) ElementType() reflect.Type {

@@ -21,8 +21,8 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
+	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
 }
 
 type LookupApplicationResult struct {
@@ -48,8 +48,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	ApplicationIdentifier pulumi.StringPtrInput `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier pulumi.StringPtrInput `pulumi:"environmentIdentifier"`
+	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {

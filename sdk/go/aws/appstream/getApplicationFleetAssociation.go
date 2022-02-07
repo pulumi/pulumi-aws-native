@@ -21,8 +21,8 @@ func LookupApplicationFleetAssociation(ctx *pulumi.Context, args *LookupApplicat
 }
 
 type LookupApplicationFleetAssociationArgs struct {
-	ApplicationArn *string `pulumi:"applicationArn"`
-	FleetName      *string `pulumi:"fleetName"`
+	ApplicationArn string `pulumi:"applicationArn"`
+	FleetName      string `pulumi:"fleetName"`
 }
 
 type LookupApplicationFleetAssociationResult struct {
@@ -38,8 +38,8 @@ func LookupApplicationFleetAssociationOutput(ctx *pulumi.Context, args LookupApp
 }
 
 type LookupApplicationFleetAssociationOutputArgs struct {
-	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
-	FleetName      pulumi.StringPtrInput `pulumi:"fleetName"`
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	FleetName      pulumi.StringInput `pulumi:"fleetName"`
 }
 
 func (LookupApplicationFleetAssociationOutputArgs) ElementType() reflect.Type {

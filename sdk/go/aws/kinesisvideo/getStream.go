@@ -22,7 +22,7 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 
 type LookupStreamArgs struct {
 	// The name of the Kinesis Video stream.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupStreamResult struct {
@@ -51,7 +51,7 @@ func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts .
 
 type LookupStreamOutputArgs struct {
 	// The name of the Kinesis Video stream.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupStreamOutputArgs) ElementType() reflect.Type {

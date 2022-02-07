@@ -22,7 +22,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 type LookupUserArgs struct {
 	// The Amazon Resource Name (ARN) for the user.
-	UserArn *string `pulumi:"userArn"`
+	UserArn string `pulumi:"userArn"`
 }
 
 type LookupUserResult struct {
@@ -59,7 +59,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 type LookupUserOutputArgs struct {
 	// The Amazon Resource Name (ARN) for the user.
-	UserArn pulumi.StringPtrInput `pulumi:"userArn"`
+	UserArn pulumi.StringInput `pulumi:"userArn"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {

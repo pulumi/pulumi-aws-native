@@ -22,7 +22,7 @@ func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, o
 
 type LookupVirtualClusterArgs struct {
 	// Id of the virtual cluster.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVirtualClusterResult struct {
@@ -44,7 +44,7 @@ func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOu
 
 type LookupVirtualClusterOutputArgs struct {
 	// Id of the virtual cluster.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVirtualClusterOutputArgs) ElementType() reflect.Type {

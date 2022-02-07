@@ -22,7 +22,7 @@ func LookupWirelessGateway(ctx *pulumi.Context, args *LookupWirelessGatewayArgs,
 
 type LookupWirelessGatewayArgs struct {
 	// Id for Wireless Gateway. Returned upon successful create.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWirelessGatewayResult struct {
@@ -57,7 +57,7 @@ func LookupWirelessGatewayOutput(ctx *pulumi.Context, args LookupWirelessGateway
 
 type LookupWirelessGatewayOutputArgs struct {
 	// Id for Wireless Gateway. Returned upon successful create.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWirelessGatewayOutputArgs) ElementType() reflect.Type {

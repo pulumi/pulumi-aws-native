@@ -21,7 +21,7 @@ func LookupResourceDefinitionVersion(ctx *pulumi.Context, args *LookupResourceDe
 }
 
 type LookupResourceDefinitionVersionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResourceDefinitionVersionResult struct {
@@ -38,7 +38,7 @@ func LookupResourceDefinitionVersionOutput(ctx *pulumi.Context, args LookupResou
 }
 
 type LookupResourceDefinitionVersionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResourceDefinitionVersionOutputArgs) ElementType() reflect.Type {

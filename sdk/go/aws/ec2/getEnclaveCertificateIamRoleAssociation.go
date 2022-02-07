@@ -22,9 +22,9 @@ func LookupEnclaveCertificateIamRoleAssociation(ctx *pulumi.Context, args *Looku
 
 type LookupEnclaveCertificateIamRoleAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
-	CertificateArn *string `pulumi:"certificateArn"`
+	CertificateArn string `pulumi:"certificateArn"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
 }
 
 type LookupEnclaveCertificateIamRoleAssociationResult struct {
@@ -47,9 +47,9 @@ func LookupEnclaveCertificateIamRoleAssociationOutput(ctx *pulumi.Context, args 
 
 type LookupEnclaveCertificateIamRoleAssociationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
-	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (LookupEnclaveCertificateIamRoleAssociationOutputArgs) ElementType() reflect.Type {

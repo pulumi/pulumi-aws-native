@@ -22,7 +22,7 @@ func LookupInferenceScheduler(ctx *pulumi.Context, args *LookupInferenceSchedule
 
 type LookupInferenceSchedulerArgs struct {
 	// The name of the inference scheduler being created.
-	InferenceSchedulerName *string `pulumi:"inferenceSchedulerName"`
+	InferenceSchedulerName string `pulumi:"inferenceSchedulerName"`
 }
 
 type LookupInferenceSchedulerResult struct {
@@ -53,7 +53,7 @@ func LookupInferenceSchedulerOutput(ctx *pulumi.Context, args LookupInferenceSch
 
 type LookupInferenceSchedulerOutputArgs struct {
 	// The name of the inference scheduler being created.
-	InferenceSchedulerName pulumi.StringPtrInput `pulumi:"inferenceSchedulerName"`
+	InferenceSchedulerName pulumi.StringInput `pulumi:"inferenceSchedulerName"`
 }
 
 func (LookupInferenceSchedulerOutputArgs) ElementType() reflect.Type {

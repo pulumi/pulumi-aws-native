@@ -22,7 +22,7 @@ func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.
 
 type LookupContactArgs struct {
 	// The Amazon Resource Name (ARN) of the contact.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupContactResult struct {
@@ -43,7 +43,7 @@ func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts
 
 type LookupContactOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the contact.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupContactOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupReceiptRuleSet(ctx *pulumi.Context, args *LookupReceiptRuleSetArgs, o
 }
 
 type LookupReceiptRuleSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupReceiptRuleSetResult struct {
@@ -38,7 +38,7 @@ func LookupReceiptRuleSetOutput(ctx *pulumi.Context, args LookupReceiptRuleSetOu
 }
 
 type LookupReceiptRuleSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupReceiptRuleSetOutputArgs) ElementType() reflect.Type {

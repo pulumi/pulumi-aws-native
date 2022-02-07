@@ -21,7 +21,7 @@ func LookupThingPrincipalAttachment(ctx *pulumi.Context, args *LookupThingPrinci
 }
 
 type LookupThingPrincipalAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupThingPrincipalAttachmentResult struct {
@@ -38,7 +38,7 @@ func LookupThingPrincipalAttachmentOutput(ctx *pulumi.Context, args LookupThingP
 }
 
 type LookupThingPrincipalAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupThingPrincipalAttachmentOutputArgs) ElementType() reflect.Type {

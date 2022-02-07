@@ -21,7 +21,7 @@ func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ..
 }
 
 type LookupCachePolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCachePolicyResult struct {
@@ -40,7 +40,7 @@ func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputAr
 }
 
 type LookupCachePolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCachePolicyOutputArgs) ElementType() reflect.Type {

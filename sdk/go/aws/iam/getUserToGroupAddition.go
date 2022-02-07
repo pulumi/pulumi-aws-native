@@ -21,7 +21,7 @@ func LookupUserToGroupAddition(ctx *pulumi.Context, args *LookupUserToGroupAddit
 }
 
 type LookupUserToGroupAdditionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserToGroupAdditionResult struct {
@@ -40,7 +40,7 @@ func LookupUserToGroupAdditionOutput(ctx *pulumi.Context, args LookupUserToGroup
 }
 
 type LookupUserToGroupAdditionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserToGroupAdditionOutputArgs) ElementType() reflect.Type {

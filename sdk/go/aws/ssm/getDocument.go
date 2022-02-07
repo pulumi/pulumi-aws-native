@@ -22,7 +22,7 @@ func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulum
 
 type LookupDocumentArgs struct {
 	// A name for the Systems Manager document.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupDocumentResult struct {
@@ -41,7 +41,7 @@ func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, op
 
 type LookupDocumentOutputArgs struct {
 	// A name for the Systems Manager document.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupDocumentOutputArgs) ElementType() reflect.Type {

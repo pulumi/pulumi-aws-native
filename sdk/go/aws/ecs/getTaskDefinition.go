@@ -22,7 +22,7 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, o
 
 type LookupTaskDefinitionArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
-	TaskDefinitionArn *string `pulumi:"taskDefinitionArn"`
+	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
 }
 
 type LookupTaskDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 
 type LookupTaskDefinitionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
-	TaskDefinitionArn pulumi.StringPtrInput `pulumi:"taskDefinitionArn"`
+	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
 }
 
 func (LookupTaskDefinitionOutputArgs) ElementType() reflect.Type {

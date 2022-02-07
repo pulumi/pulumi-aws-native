@@ -22,7 +22,7 @@ func LookupFilter(ctx *pulumi.Context, args *LookupFilterArgs, opts ...pulumi.In
 
 type LookupFilterArgs struct {
 	// Findings filter ARN.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupFilterResult struct {
@@ -49,7 +49,7 @@ func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts .
 
 type LookupFilterOutputArgs struct {
 	// Findings filter ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupFilterOutputArgs) ElementType() reflect.Type {

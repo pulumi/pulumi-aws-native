@@ -22,9 +22,9 @@ func LookupPreparedStatement(ctx *pulumi.Context, args *LookupPreparedStatementA
 
 type LookupPreparedStatementArgs struct {
 	// The name of the prepared statement.
-	StatementName *string `pulumi:"statementName"`
+	StatementName string `pulumi:"statementName"`
 	// The name of the workgroup to which the prepared statement belongs.
-	WorkGroup *string `pulumi:"workGroup"`
+	WorkGroup string `pulumi:"workGroup"`
 }
 
 type LookupPreparedStatementResult struct {
@@ -45,9 +45,9 @@ func LookupPreparedStatementOutput(ctx *pulumi.Context, args LookupPreparedState
 
 type LookupPreparedStatementOutputArgs struct {
 	// The name of the prepared statement.
-	StatementName pulumi.StringPtrInput `pulumi:"statementName"`
+	StatementName pulumi.StringInput `pulumi:"statementName"`
 	// The name of the workgroup to which the prepared statement belongs.
-	WorkGroup pulumi.StringPtrInput `pulumi:"workGroup"`
+	WorkGroup pulumi.StringInput `pulumi:"workGroup"`
 }
 
 func (LookupPreparedStatementOutputArgs) ElementType() reflect.Type {

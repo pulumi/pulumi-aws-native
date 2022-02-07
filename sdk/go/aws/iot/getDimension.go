@@ -22,7 +22,7 @@ func LookupDimension(ctx *pulumi.Context, args *LookupDimensionArgs, opts ...pul
 
 type LookupDimensionArgs struct {
 	// A unique identifier for the dimension.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupDimensionResult struct {
@@ -45,7 +45,7 @@ func LookupDimensionOutput(ctx *pulumi.Context, args LookupDimensionOutputArgs, 
 
 type LookupDimensionOutputArgs struct {
 	// A unique identifier for the dimension.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupDimensionOutputArgs) ElementType() reflect.Type {

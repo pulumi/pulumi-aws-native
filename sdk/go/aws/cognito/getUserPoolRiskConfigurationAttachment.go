@@ -21,7 +21,7 @@ func LookupUserPoolRiskConfigurationAttachment(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupUserPoolRiskConfigurationAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolRiskConfigurationAttachmentResult struct {
@@ -41,7 +41,7 @@ func LookupUserPoolRiskConfigurationAttachmentOutput(ctx *pulumi.Context, args L
 }
 
 type LookupUserPoolRiskConfigurationAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserPoolRiskConfigurationAttachmentOutputArgs) ElementType() reflect.Type {

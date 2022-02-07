@@ -22,7 +22,7 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 type LookupDatabaseArgs struct {
 	// The name to use for your new Lightsail database resource.
-	RelationalDatabaseName *string `pulumi:"relationalDatabaseName"`
+	RelationalDatabaseName string `pulumi:"relationalDatabaseName"`
 }
 
 type LookupDatabaseResult struct {
@@ -52,7 +52,7 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 type LookupDatabaseOutputArgs struct {
 	// The name to use for your new Lightsail database resource.
-	RelationalDatabaseName pulumi.StringPtrInput `pulumi:"relationalDatabaseName"`
+	RelationalDatabaseName pulumi.StringInput `pulumi:"relationalDatabaseName"`
 }
 
 func (LookupDatabaseOutputArgs) ElementType() reflect.Type {

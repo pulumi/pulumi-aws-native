@@ -21,7 +21,7 @@ func LookupConfigRule(ctx *pulumi.Context, args *LookupConfigRuleArgs, opts ...p
 }
 
 type LookupConfigRuleArgs struct {
-	ConfigRuleId *string `pulumi:"configRuleId"`
+	ConfigRuleId string `pulumi:"configRuleId"`
 }
 
 type LookupConfigRuleResult struct {
@@ -45,7 +45,7 @@ func LookupConfigRuleOutput(ctx *pulumi.Context, args LookupConfigRuleOutputArgs
 }
 
 type LookupConfigRuleOutputArgs struct {
-	ConfigRuleId pulumi.StringPtrInput `pulumi:"configRuleId"`
+	ConfigRuleId pulumi.StringInput `pulumi:"configRuleId"`
 }
 
 func (LookupConfigRuleOutputArgs) ElementType() reflect.Type {

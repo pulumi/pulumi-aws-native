@@ -22,7 +22,7 @@ func LookupFlowSource(ctx *pulumi.Context, args *LookupFlowSourceArgs, opts ...p
 
 type LookupFlowSourceArgs struct {
 	// The ARN of the source.
-	SourceArn *string `pulumi:"sourceArn"`
+	SourceArn string `pulumi:"sourceArn"`
 }
 
 type LookupFlowSourceResult struct {
@@ -67,7 +67,7 @@ func LookupFlowSourceOutput(ctx *pulumi.Context, args LookupFlowSourceOutputArgs
 
 type LookupFlowSourceOutputArgs struct {
 	// The ARN of the source.
-	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
 }
 
 func (LookupFlowSourceOutputArgs) ElementType() reflect.Type {

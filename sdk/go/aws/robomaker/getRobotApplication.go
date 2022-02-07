@@ -21,7 +21,7 @@ func LookupRobotApplication(ctx *pulumi.Context, args *LookupRobotApplicationArg
 }
 
 type LookupRobotApplicationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRobotApplicationResult struct {
@@ -42,7 +42,7 @@ func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicati
 }
 
 type LookupRobotApplicationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRobotApplicationOutputArgs) ElementType() reflect.Type {

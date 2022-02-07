@@ -22,7 +22,7 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 
 type LookupAccessPointArgs struct {
 	// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupAccessPointResult struct {
@@ -48,7 +48,7 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 
 type LookupAccessPointOutputArgs struct {
 	// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupAccessPointOutputArgs) ElementType() reflect.Type {

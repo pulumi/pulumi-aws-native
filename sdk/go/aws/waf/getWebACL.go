@@ -21,7 +21,7 @@ func LookupWebACL(ctx *pulumi.Context, args *LookupWebACLArgs, opts ...pulumi.In
 }
 
 type LookupWebACLArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWebACLResult struct {
@@ -40,7 +40,7 @@ func LookupWebACLOutput(ctx *pulumi.Context, args LookupWebACLOutputArgs, opts .
 }
 
 type LookupWebACLOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWebACLOutputArgs) ElementType() reflect.Type {

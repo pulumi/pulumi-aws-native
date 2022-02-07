@@ -22,7 +22,7 @@ func LookupAnalyzer(ctx *pulumi.Context, args *LookupAnalyzerArgs, opts ...pulum
 
 type LookupAnalyzerArgs struct {
 	// Amazon Resource Name (ARN) of the analyzer
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupAnalyzerResult struct {
@@ -44,7 +44,7 @@ func LookupAnalyzerOutput(ctx *pulumi.Context, args LookupAnalyzerOutputArgs, op
 
 type LookupAnalyzerOutputArgs struct {
 	// Amazon Resource Name (ARN) of the analyzer
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupAnalyzerOutputArgs) ElementType() reflect.Type {

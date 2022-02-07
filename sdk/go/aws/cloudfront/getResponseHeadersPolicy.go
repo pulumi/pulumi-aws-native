@@ -21,7 +21,7 @@ func LookupResponseHeadersPolicy(ctx *pulumi.Context, args *LookupResponseHeader
 }
 
 type LookupResponseHeadersPolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResponseHeadersPolicyResult struct {
@@ -40,7 +40,7 @@ func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseH
 }
 
 type LookupResponseHeadersPolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResponseHeadersPolicyOutputArgs) ElementType() reflect.Type {

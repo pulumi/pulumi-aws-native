@@ -22,7 +22,7 @@ func LookupGraph(ctx *pulumi.Context, args *LookupGraphArgs, opts ...pulumi.Invo
 
 type LookupGraphArgs struct {
 	// The Detective graph ARN
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupGraphResult struct {
@@ -42,7 +42,7 @@ func LookupGraphOutput(ctx *pulumi.Context, args LookupGraphOutputArgs, opts ...
 
 type LookupGraphOutputArgs struct {
 	// The Detective graph ARN
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupGraphOutputArgs) ElementType() reflect.Type {

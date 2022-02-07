@@ -21,7 +21,7 @@ func LookupHealthCheck(ctx *pulumi.Context, args *LookupHealthCheckArgs, opts ..
 }
 
 type LookupHealthCheckArgs struct {
-	HealthCheckId *string `pulumi:"healthCheckId"`
+	HealthCheckId string `pulumi:"healthCheckId"`
 }
 
 type LookupHealthCheckResult struct {
@@ -42,7 +42,7 @@ func LookupHealthCheckOutput(ctx *pulumi.Context, args LookupHealthCheckOutputAr
 }
 
 type LookupHealthCheckOutputArgs struct {
-	HealthCheckId pulumi.StringPtrInput `pulumi:"healthCheckId"`
+	HealthCheckId pulumi.StringInput `pulumi:"healthCheckId"`
 }
 
 func (LookupHealthCheckOutputArgs) ElementType() reflect.Type {

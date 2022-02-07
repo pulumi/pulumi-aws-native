@@ -21,7 +21,7 @@ func LookupThreatIntelSet(ctx *pulumi.Context, args *LookupThreatIntelSetArgs, o
 }
 
 type LookupThreatIntelSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupThreatIntelSetResult struct {
@@ -41,7 +41,7 @@ func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOu
 }
 
 type LookupThreatIntelSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupThreatIntelSetOutputArgs) ElementType() reflect.Type {

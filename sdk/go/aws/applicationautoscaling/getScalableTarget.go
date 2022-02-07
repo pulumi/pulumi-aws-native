@@ -21,7 +21,7 @@ func LookupScalableTarget(ctx *pulumi.Context, args *LookupScalableTargetArgs, o
 }
 
 type LookupScalableTargetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupScalableTargetResult struct {
@@ -43,7 +43,7 @@ func LookupScalableTargetOutput(ctx *pulumi.Context, args LookupScalableTargetOu
 }
 
 type LookupScalableTargetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupScalableTargetOutputArgs) ElementType() reflect.Type {

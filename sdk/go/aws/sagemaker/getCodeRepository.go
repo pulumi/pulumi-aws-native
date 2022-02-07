@@ -21,7 +21,7 @@ func LookupCodeRepository(ctx *pulumi.Context, args *LookupCodeRepositoryArgs, o
 }
 
 type LookupCodeRepositoryArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCodeRepositoryResult struct {
@@ -40,7 +40,7 @@ func LookupCodeRepositoryOutput(ctx *pulumi.Context, args LookupCodeRepositoryOu
 }
 
 type LookupCodeRepositoryOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCodeRepositoryOutputArgs) ElementType() reflect.Type {

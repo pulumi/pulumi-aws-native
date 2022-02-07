@@ -22,7 +22,7 @@ func LookupResolverRule(ctx *pulumi.Context, args *LookupResolverRuleArgs, opts 
 
 type LookupResolverRuleArgs struct {
 	// The ID of the endpoint that the rule is associated with.
-	ResolverRuleId *string `pulumi:"resolverRuleId"`
+	ResolverRuleId string `pulumi:"resolverRuleId"`
 }
 
 type LookupResolverRuleResult struct {
@@ -51,7 +51,7 @@ func LookupResolverRuleOutput(ctx *pulumi.Context, args LookupResolverRuleOutput
 
 type LookupResolverRuleOutputArgs struct {
 	// The ID of the endpoint that the rule is associated with.
-	ResolverRuleId pulumi.StringPtrInput `pulumi:"resolverRuleId"`
+	ResolverRuleId pulumi.StringInput `pulumi:"resolverRuleId"`
 }
 
 func (LookupResolverRuleOutputArgs) ElementType() reflect.Type {

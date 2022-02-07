@@ -21,7 +21,7 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 }
 
 type LookupSubnetArgs struct {
-	SubnetId *string `pulumi:"subnetId"`
+	SubnetId string `pulumi:"subnetId"`
 }
 
 type LookupSubnetResult struct {
@@ -44,7 +44,7 @@ func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts .
 }
 
 type LookupSubnetOutputArgs struct {
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (LookupSubnetOutputArgs) ElementType() reflect.Type {

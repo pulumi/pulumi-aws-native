@@ -22,11 +22,11 @@ func LookupStudioSessionMapping(ctx *pulumi.Context, args *LookupStudioSessionMa
 
 type LookupStudioSessionMappingArgs struct {
 	// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
-	IdentityName *string `pulumi:"identityName"`
+	IdentityName string `pulumi:"identityName"`
 	// Specifies whether the identity to map to the Studio is a user or a group.
-	IdentityType *StudioSessionMappingIdentityType `pulumi:"identityType"`
+	IdentityType StudioSessionMappingIdentityType `pulumi:"identityType"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId *string `pulumi:"studioId"`
+	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStudioSessionMappingResult struct {
@@ -45,11 +45,11 @@ func LookupStudioSessionMappingOutput(ctx *pulumi.Context, args LookupStudioSess
 
 type LookupStudioSessionMappingOutputArgs struct {
 	// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
-	IdentityName pulumi.StringPtrInput `pulumi:"identityName"`
+	IdentityName pulumi.StringInput `pulumi:"identityName"`
 	// Specifies whether the identity to map to the Studio is a user or a group.
-	IdentityType StudioSessionMappingIdentityTypePtrInput `pulumi:"identityType"`
+	IdentityType StudioSessionMappingIdentityTypeInput `pulumi:"identityType"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId pulumi.StringPtrInput `pulumi:"studioId"`
+	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupStudioSessionMappingOutputArgs) ElementType() reflect.Type {

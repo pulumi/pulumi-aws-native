@@ -22,7 +22,7 @@ func LookupDataQualityJobDefinition(ctx *pulumi.Context, args *LookupDataQuality
 
 type LookupDataQualityJobDefinitionArgs struct {
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn *string `pulumi:"jobDefinitionArn"`
+	JobDefinitionArn string `pulumi:"jobDefinitionArn"`
 }
 
 type LookupDataQualityJobDefinitionResult struct {
@@ -43,7 +43,7 @@ func LookupDataQualityJobDefinitionOutput(ctx *pulumi.Context, args LookupDataQu
 
 type LookupDataQualityJobDefinitionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn pulumi.StringPtrInput `pulumi:"jobDefinitionArn"`
+	JobDefinitionArn pulumi.StringInput `pulumi:"jobDefinitionArn"`
 }
 
 func (LookupDataQualityJobDefinitionOutputArgs) ElementType() reflect.Type {

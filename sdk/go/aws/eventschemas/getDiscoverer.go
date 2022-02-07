@@ -21,7 +21,7 @@ func LookupDiscoverer(ctx *pulumi.Context, args *LookupDiscovererArgs, opts ...p
 }
 
 type LookupDiscovererArgs struct {
-	DiscovererId *string `pulumi:"discovererId"`
+	DiscovererId string `pulumi:"discovererId"`
 }
 
 type LookupDiscovererResult struct {
@@ -42,7 +42,7 @@ func LookupDiscovererOutput(ctx *pulumi.Context, args LookupDiscovererOutputArgs
 }
 
 type LookupDiscovererOutputArgs struct {
-	DiscovererId pulumi.StringPtrInput `pulumi:"discovererId"`
+	DiscovererId pulumi.StringInput `pulumi:"discovererId"`
 }
 
 func (LookupDiscovererOutputArgs) ElementType() reflect.Type {

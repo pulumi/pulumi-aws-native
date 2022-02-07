@@ -22,7 +22,7 @@ func LookupModelBiasJobDefinition(ctx *pulumi.Context, args *LookupModelBiasJobD
 
 type LookupModelBiasJobDefinitionArgs struct {
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn *string `pulumi:"jobDefinitionArn"`
+	JobDefinitionArn string `pulumi:"jobDefinitionArn"`
 }
 
 type LookupModelBiasJobDefinitionResult struct {
@@ -43,7 +43,7 @@ func LookupModelBiasJobDefinitionOutput(ctx *pulumi.Context, args LookupModelBia
 
 type LookupModelBiasJobDefinitionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn pulumi.StringPtrInput `pulumi:"jobDefinitionArn"`
+	JobDefinitionArn pulumi.StringInput `pulumi:"jobDefinitionArn"`
 }
 
 func (LookupModelBiasJobDefinitionOutputArgs) ElementType() reflect.Type {

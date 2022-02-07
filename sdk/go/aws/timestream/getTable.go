@@ -22,9 +22,9 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 
 type LookupTableArgs struct {
 	// The name for the database which the table to be created belongs to.
-	DatabaseName *string `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
-	TableName *string `pulumi:"tableName"`
+	TableName string `pulumi:"tableName"`
 }
 
 type LookupTableResult struct {
@@ -48,9 +48,9 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 
 type LookupTableOutputArgs struct {
 	// The name for the database which the table to be created belongs to.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
-	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {

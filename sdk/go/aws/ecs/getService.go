@@ -21,8 +21,8 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	Cluster    *string `pulumi:"cluster"`
-	ServiceArn *string `pulumi:"serviceArn"`
+	Cluster    string `pulumi:"cluster"`
+	ServiceArn string `pulumi:"serviceArn"`
 }
 
 type LookupServiceResult struct {
@@ -49,8 +49,8 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 }
 
 type LookupServiceOutputArgs struct {
-	Cluster    pulumi.StringPtrInput `pulumi:"cluster"`
-	ServiceArn pulumi.StringPtrInput `pulumi:"serviceArn"`
+	Cluster    pulumi.StringInput `pulumi:"cluster"`
+	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupGlobalCluster(ctx *pulumi.Context, args *LookupGlobalClusterArgs, opt
 
 type LookupGlobalClusterArgs struct {
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
-	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
 }
 
 type LookupGlobalClusterResult struct {
@@ -41,7 +41,7 @@ func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutp
 
 type LookupGlobalClusterOutputArgs struct {
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
-	GlobalClusterIdentifier pulumi.StringPtrInput `pulumi:"globalClusterIdentifier"`
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
 }
 
 func (LookupGlobalClusterOutputArgs) ElementType() reflect.Type {

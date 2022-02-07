@@ -21,7 +21,7 @@ func LookupVirtualGateway(ctx *pulumi.Context, args *LookupVirtualGatewayArgs, o
 }
 
 type LookupVirtualGatewayArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVirtualGatewayResult struct {
@@ -43,7 +43,7 @@ func LookupVirtualGatewayOutput(ctx *pulumi.Context, args LookupVirtualGatewayOu
 }
 
 type LookupVirtualGatewayOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVirtualGatewayOutputArgs) ElementType() reflect.Type {

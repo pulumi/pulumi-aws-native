@@ -21,7 +21,7 @@ func LookupSamplingRule(ctx *pulumi.Context, args *LookupSamplingRuleArgs, opts 
 }
 
 type LookupSamplingRuleArgs struct {
-	RuleARN *string `pulumi:"ruleARN"`
+	RuleARN string `pulumi:"ruleARN"`
 }
 
 type LookupSamplingRuleResult struct {
@@ -43,7 +43,7 @@ func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutput
 }
 
 type LookupSamplingRuleOutputArgs struct {
-	RuleARN pulumi.StringPtrInput `pulumi:"ruleARN"`
+	RuleARN pulumi.StringInput `pulumi:"ruleARN"`
 }
 
 func (LookupSamplingRuleOutputArgs) ElementType() reflect.Type {

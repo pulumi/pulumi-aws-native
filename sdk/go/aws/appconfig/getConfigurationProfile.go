@@ -21,7 +21,7 @@ func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationPr
 }
 
 type LookupConfigurationProfileArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConfigurationProfileResult struct {
@@ -43,7 +43,7 @@ func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurat
 }
 
 type LookupConfigurationProfileOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConfigurationProfileOutputArgs) ElementType() reflect.Type {

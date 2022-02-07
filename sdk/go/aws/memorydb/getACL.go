@@ -22,7 +22,7 @@ func LookupACL(ctx *pulumi.Context, args *LookupACLArgs, opts ...pulumi.InvokeOp
 
 type LookupACLArgs struct {
 	// The name of the acl.
-	ACLName *string `pulumi:"aCLName"`
+	ACLName string `pulumi:"aCLName"`
 }
 
 type LookupACLResult struct {
@@ -47,7 +47,7 @@ func LookupACLOutput(ctx *pulumi.Context, args LookupACLOutputArgs, opts ...pulu
 
 type LookupACLOutputArgs struct {
 	// The name of the acl.
-	ACLName pulumi.StringPtrInput `pulumi:"aCLName"`
+	ACLName pulumi.StringInput `pulumi:"aCLName"`
 }
 
 func (LookupACLOutputArgs) ElementType() reflect.Type {

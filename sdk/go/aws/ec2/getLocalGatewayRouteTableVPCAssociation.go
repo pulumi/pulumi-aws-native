@@ -22,7 +22,7 @@ func LookupLocalGatewayRouteTableVPCAssociation(ctx *pulumi.Context, args *Looku
 
 type LookupLocalGatewayRouteTableVPCAssociationArgs struct {
 	// The ID of the association.
-	LocalGatewayRouteTableVpcAssociationId *string `pulumi:"localGatewayRouteTableVpcAssociationId"`
+	LocalGatewayRouteTableVpcAssociationId string `pulumi:"localGatewayRouteTableVpcAssociationId"`
 }
 
 type LookupLocalGatewayRouteTableVPCAssociationResult struct {
@@ -47,7 +47,7 @@ func LookupLocalGatewayRouteTableVPCAssociationOutput(ctx *pulumi.Context, args 
 
 type LookupLocalGatewayRouteTableVPCAssociationOutputArgs struct {
 	// The ID of the association.
-	LocalGatewayRouteTableVpcAssociationId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableVpcAssociationId"`
+	LocalGatewayRouteTableVpcAssociationId pulumi.StringInput `pulumi:"localGatewayRouteTableVpcAssociationId"`
 }
 
 func (LookupLocalGatewayRouteTableVPCAssociationOutputArgs) ElementType() reflect.Type {

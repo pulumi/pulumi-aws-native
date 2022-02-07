@@ -22,7 +22,7 @@ func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, o
 
 type LookupSigningProfileArgs struct {
 	// The Amazon Resource Name (ARN) of the specified signing profile.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupSigningProfileResult struct {
@@ -49,7 +49,7 @@ func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOu
 
 type LookupSigningProfileOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the specified signing profile.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupSigningProfileOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 type LookupGroupArgs struct {
 	// The ARN of the group that was generated on creation.
-	GroupARN *string `pulumi:"groupARN"`
+	GroupARN string `pulumi:"groupARN"`
 }
 
 type LookupGroupResult struct {
@@ -47,7 +47,7 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 type LookupGroupOutputArgs struct {
 	// The ARN of the group that was generated on creation.
-	GroupARN pulumi.StringPtrInput `pulumi:"groupARN"`
+	GroupARN pulumi.StringInput `pulumi:"groupARN"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {

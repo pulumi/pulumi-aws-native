@@ -22,7 +22,7 @@ func LookupOutcome(ctx *pulumi.Context, args *LookupOutcomeArgs, opts ...pulumi.
 
 type LookupOutcomeArgs struct {
 	// The outcome ARN.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupOutcomeResult struct {
@@ -49,7 +49,7 @@ func LookupOutcomeOutput(ctx *pulumi.Context, args LookupOutcomeOutputArgs, opts
 
 type LookupOutcomeOutputArgs struct {
 	// The outcome ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupOutcomeOutputArgs) ElementType() reflect.Type {

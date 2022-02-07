@@ -22,7 +22,7 @@ func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.
 
 type LookupFlowLogArgs struct {
 	// The Flow Log ID
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFlowLogResult struct {
@@ -43,7 +43,7 @@ func LookupFlowLogOutput(ctx *pulumi.Context, args LookupFlowLogOutputArgs, opts
 
 type LookupFlowLogOutputArgs struct {
 	// The Flow Log ID
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFlowLogOutputArgs) ElementType() reflect.Type {

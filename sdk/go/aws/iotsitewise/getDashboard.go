@@ -22,7 +22,7 @@ func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pul
 
 type LookupDashboardArgs struct {
 	// The ID of the dashboard.
-	DashboardId *string `pulumi:"dashboardId"`
+	DashboardId string `pulumi:"dashboardId"`
 }
 
 type LookupDashboardResult struct {
@@ -51,7 +51,7 @@ func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, 
 
 type LookupDashboardOutputArgs struct {
 	// The ID of the dashboard.
-	DashboardId pulumi.StringPtrInput `pulumi:"dashboardId"`
+	DashboardId pulumi.StringInput `pulumi:"dashboardId"`
 }
 
 func (LookupDashboardOutputArgs) ElementType() reflect.Type {

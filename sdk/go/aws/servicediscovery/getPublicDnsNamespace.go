@@ -21,7 +21,7 @@ func LookupPublicDnsNamespace(ctx *pulumi.Context, args *LookupPublicDnsNamespac
 }
 
 type LookupPublicDnsNamespaceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPublicDnsNamespaceResult struct {
@@ -43,7 +43,7 @@ func LookupPublicDnsNamespaceOutput(ctx *pulumi.Context, args LookupPublicDnsNam
 }
 
 type LookupPublicDnsNamespaceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPublicDnsNamespaceOutputArgs) ElementType() reflect.Type {

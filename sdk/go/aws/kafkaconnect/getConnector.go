@@ -22,7 +22,7 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 
 type LookupConnectorArgs struct {
 	// Amazon Resource Name for the created Connector.
-	ConnectorArn *string `pulumi:"connectorArn"`
+	ConnectorArn string `pulumi:"connectorArn"`
 }
 
 type LookupConnectorResult struct {
@@ -42,7 +42,7 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 
 type LookupConnectorOutputArgs struct {
 	// Amazon Resource Name for the created Connector.
-	ConnectorArn pulumi.StringPtrInput `pulumi:"connectorArn"`
+	ConnectorArn pulumi.StringInput `pulumi:"connectorArn"`
 }
 
 func (LookupConnectorOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupApiDestination(ctx *pulumi.Context, args *LookupApiDestinationArgs, o
 
 type LookupApiDestinationArgs struct {
 	// Name of the apiDestination.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupApiDestinationResult struct {
@@ -48,7 +48,7 @@ func LookupApiDestinationOutput(ctx *pulumi.Context, args LookupApiDestinationOu
 
 type LookupApiDestinationOutputArgs struct {
 	// Name of the apiDestination.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupApiDestinationOutputArgs) ElementType() reflect.Type {

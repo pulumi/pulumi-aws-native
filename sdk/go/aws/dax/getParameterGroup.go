@@ -21,7 +21,7 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 }
 
 type LookupParameterGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupParameterGroupResult struct {
@@ -40,7 +40,7 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 }
 
 type LookupParameterGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupParameterGroupOutputArgs) ElementType() reflect.Type {

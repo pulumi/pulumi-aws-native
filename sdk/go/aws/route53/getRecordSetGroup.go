@@ -21,7 +21,7 @@ func LookupRecordSetGroup(ctx *pulumi.Context, args *LookupRecordSetGroupArgs, o
 }
 
 type LookupRecordSetGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRecordSetGroupResult struct {
@@ -40,7 +40,7 @@ func LookupRecordSetGroupOutput(ctx *pulumi.Context, args LookupRecordSetGroupOu
 }
 
 type LookupRecordSetGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRecordSetGroupOutputArgs) ElementType() reflect.Type {

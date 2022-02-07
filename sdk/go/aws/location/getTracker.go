@@ -21,7 +21,7 @@ func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.
 }
 
 type LookupTrackerArgs struct {
-	TrackerName *string `pulumi:"trackerName"`
+	TrackerName string `pulumi:"trackerName"`
 }
 
 type LookupTrackerResult struct {
@@ -41,7 +41,7 @@ func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts
 }
 
 type LookupTrackerOutputArgs struct {
-	TrackerName pulumi.StringPtrInput `pulumi:"trackerName"`
+	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 
 func (LookupTrackerOutputArgs) ElementType() reflect.Type {

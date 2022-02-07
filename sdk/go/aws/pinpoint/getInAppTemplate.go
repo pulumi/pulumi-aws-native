@@ -21,7 +21,7 @@ func LookupInAppTemplate(ctx *pulumi.Context, args *LookupInAppTemplateArgs, opt
 }
 
 type LookupInAppTemplateArgs struct {
-	TemplateName *string `pulumi:"templateName"`
+	TemplateName string `pulumi:"templateName"`
 }
 
 type LookupInAppTemplateResult struct {
@@ -43,7 +43,7 @@ func LookupInAppTemplateOutput(ctx *pulumi.Context, args LookupInAppTemplateOutp
 }
 
 type LookupInAppTemplateOutputArgs struct {
-	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
 func (LookupInAppTemplateOutputArgs) ElementType() reflect.Type {

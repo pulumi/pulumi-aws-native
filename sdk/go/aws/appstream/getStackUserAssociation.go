@@ -21,7 +21,7 @@ func LookupStackUserAssociation(ctx *pulumi.Context, args *LookupStackUserAssoci
 }
 
 type LookupStackUserAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupStackUserAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupStackUserAssociationOutput(ctx *pulumi.Context, args LookupStackUserA
 }
 
 type LookupStackUserAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupStackUserAssociationOutputArgs) ElementType() reflect.Type {

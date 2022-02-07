@@ -21,7 +21,7 @@ func LookupConfig(ctx *pulumi.Context, args *LookupConfigArgs, opts ...pulumi.In
 }
 
 type LookupConfigArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupConfigResult struct {
@@ -43,7 +43,7 @@ func LookupConfigOutput(ctx *pulumi.Context, args LookupConfigOutputArgs, opts .
 }
 
 type LookupConfigOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupConfigOutputArgs) ElementType() reflect.Type {

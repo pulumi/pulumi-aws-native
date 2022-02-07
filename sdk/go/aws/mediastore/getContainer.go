@@ -21,7 +21,7 @@ func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pul
 }
 
 type LookupContainerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupContainerResult struct {
@@ -45,7 +45,7 @@ func LookupContainerOutput(ctx *pulumi.Context, args LookupContainerOutputArgs, 
 }
 
 type LookupContainerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupContainerOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupPublisher(ctx *pulumi.Context, args *LookupPublisherArgs, opts ...pul
 
 type LookupPublisherArgs struct {
 	// The publisher id assigned by CloudFormation for publishing in this region.
-	PublisherId *string `pulumi:"publisherId"`
+	PublisherId string `pulumi:"publisherId"`
 }
 
 type LookupPublisherResult struct {
@@ -47,7 +47,7 @@ func LookupPublisherOutput(ctx *pulumi.Context, args LookupPublisherOutputArgs, 
 
 type LookupPublisherOutputArgs struct {
 	// The publisher id assigned by CloudFormation for publishing in this region.
-	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
+	PublisherId pulumi.StringInput `pulumi:"publisherId"`
 }
 
 func (LookupPublisherOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.Invoke
 
 type LookupTaskArgs struct {
 	// The ARN of the task.
-	TaskArn *string `pulumi:"taskArn"`
+	TaskArn string `pulumi:"taskArn"`
 }
 
 type LookupTaskResult struct {
@@ -59,7 +59,7 @@ func LookupTaskOutput(ctx *pulumi.Context, args LookupTaskOutputArgs, opts ...pu
 
 type LookupTaskOutputArgs struct {
 	// The ARN of the task.
-	TaskArn pulumi.StringPtrInput `pulumi:"taskArn"`
+	TaskArn pulumi.StringInput `pulumi:"taskArn"`
 }
 
 func (LookupTaskOutputArgs) ElementType() reflect.Type {

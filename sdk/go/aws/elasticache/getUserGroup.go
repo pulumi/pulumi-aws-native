@@ -22,7 +22,7 @@ func LookupUserGroup(ctx *pulumi.Context, args *LookupUserGroupArgs, opts ...pul
 
 type LookupUserGroupArgs struct {
 	// The ID of the user group.
-	UserGroupId *string `pulumi:"userGroupId"`
+	UserGroupId string `pulumi:"userGroupId"`
 }
 
 type LookupUserGroupResult struct {
@@ -45,7 +45,7 @@ func LookupUserGroupOutput(ctx *pulumi.Context, args LookupUserGroupOutputArgs, 
 
 type LookupUserGroupOutputArgs struct {
 	// The ID of the user group.
-	UserGroupId pulumi.StringPtrInput `pulumi:"userGroupId"`
+	UserGroupId pulumi.StringInput `pulumi:"userGroupId"`
 }
 
 func (LookupUserGroupOutputArgs) ElementType() reflect.Type {

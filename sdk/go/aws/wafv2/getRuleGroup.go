@@ -21,9 +21,9 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 }
 
 type LookupRuleGroupArgs struct {
-	Id    *string         `pulumi:"id"`
-	Name  *string         `pulumi:"name"`
-	Scope *RuleGroupScope `pulumi:"scope"`
+	Id    string         `pulumi:"id"`
+	Name  string         `pulumi:"name"`
+	Scope RuleGroupScope `pulumi:"scope"`
 }
 
 type LookupRuleGroupResult struct {
@@ -53,9 +53,9 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 }
 
 type LookupRuleGroupOutputArgs struct {
-	Id    pulumi.StringPtrInput  `pulumi:"id"`
-	Name  pulumi.StringPtrInput  `pulumi:"name"`
-	Scope RuleGroupScopePtrInput `pulumi:"scope"`
+	Id    pulumi.StringInput  `pulumi:"id"`
+	Name  pulumi.StringInput  `pulumi:"name"`
+	Scope RuleGroupScopeInput `pulumi:"scope"`
 }
 
 func (LookupRuleGroupOutputArgs) ElementType() reflect.Type {

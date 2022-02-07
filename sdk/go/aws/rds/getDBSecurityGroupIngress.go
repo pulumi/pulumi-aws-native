@@ -21,7 +21,7 @@ func LookupDBSecurityGroupIngress(ctx *pulumi.Context, args *LookupDBSecurityGro
 }
 
 type LookupDBSecurityGroupIngressArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDBSecurityGroupIngressResult struct {
@@ -43,7 +43,7 @@ func LookupDBSecurityGroupIngressOutput(ctx *pulumi.Context, args LookupDBSecuri
 }
 
 type LookupDBSecurityGroupIngressOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDBSecurityGroupIngressOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupStreamKey(ctx *pulumi.Context, args *LookupStreamKeyArgs, opts ...pul
 
 type LookupStreamKeyArgs struct {
 	// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupStreamKeyResult struct {
@@ -45,7 +45,7 @@ func LookupStreamKeyOutput(ctx *pulumi.Context, args LookupStreamKeyOutputArgs, 
 
 type LookupStreamKeyOutputArgs struct {
 	// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupStreamKeyOutputArgs) ElementType() reflect.Type {

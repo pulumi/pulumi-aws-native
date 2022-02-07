@@ -21,7 +21,7 @@ func LookupOriginRequestPolicy(ctx *pulumi.Context, args *LookupOriginRequestPol
 }
 
 type LookupOriginRequestPolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupOriginRequestPolicyResult struct {
@@ -40,7 +40,7 @@ func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginReque
 }
 
 type LookupOriginRequestPolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupOriginRequestPolicyOutputArgs) ElementType() reflect.Type {

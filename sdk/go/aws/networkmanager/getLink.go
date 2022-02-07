@@ -22,9 +22,9 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 
 type LookupLinkArgs struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The ID of the link.
-	LinkId *string `pulumi:"linkId"`
+	LinkId string `pulumi:"linkId"`
 }
 
 type LookupLinkResult struct {
@@ -55,9 +55,9 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 
 type LookupLinkOutputArgs struct {
 	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput `pulumi:"globalNetworkId"`
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 	// The ID of the link.
-	LinkId pulumi.StringPtrInput `pulumi:"linkId"`
+	LinkId pulumi.StringInput `pulumi:"linkId"`
 }
 
 func (LookupLinkOutputArgs) ElementType() reflect.Type {

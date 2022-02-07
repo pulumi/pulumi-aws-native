@@ -21,7 +21,7 @@ func LookupMicrosoftAD(ctx *pulumi.Context, args *LookupMicrosoftADArgs, opts ..
 }
 
 type LookupMicrosoftADArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMicrosoftADResult struct {
@@ -41,7 +41,7 @@ func LookupMicrosoftADOutput(ctx *pulumi.Context, args LookupMicrosoftADOutputAr
 }
 
 type LookupMicrosoftADOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMicrosoftADOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupDBSecurityGroup(ctx *pulumi.Context, args *LookupDBSecurityGroupArgs,
 }
 
 type LookupDBSecurityGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDBSecurityGroupResult struct {
@@ -40,7 +40,7 @@ func LookupDBSecurityGroupOutput(ctx *pulumi.Context, args LookupDBSecurityGroup
 }
 
 type LookupDBSecurityGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDBSecurityGroupOutputArgs) ElementType() reflect.Type {

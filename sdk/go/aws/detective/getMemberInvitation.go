@@ -22,9 +22,9 @@ func LookupMemberInvitation(ctx *pulumi.Context, args *LookupMemberInvitationArg
 
 type LookupMemberInvitationArgs struct {
 	// The ARN of the graph to which the member account will be invited
-	GraphArn *string `pulumi:"graphArn"`
+	GraphArn string `pulumi:"graphArn"`
 	// The AWS account ID to be invited to join the graph as a member
-	MemberId *string `pulumi:"memberId"`
+	MemberId string `pulumi:"memberId"`
 }
 
 type LookupMemberInvitationResult struct {
@@ -47,9 +47,9 @@ func LookupMemberInvitationOutput(ctx *pulumi.Context, args LookupMemberInvitati
 
 type LookupMemberInvitationOutputArgs struct {
 	// The ARN of the graph to which the member account will be invited
-	GraphArn pulumi.StringPtrInput `pulumi:"graphArn"`
+	GraphArn pulumi.StringInput `pulumi:"graphArn"`
 	// The AWS account ID to be invited to join the graph as a member
-	MemberId pulumi.StringPtrInput `pulumi:"memberId"`
+	MemberId pulumi.StringInput `pulumi:"memberId"`
 }
 
 func (LookupMemberInvitationOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupQueuePolicy(ctx *pulumi.Context, args *LookupQueuePolicyArgs, opts ..
 
 type LookupQueuePolicyArgs struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupQueuePolicyResult struct {
@@ -45,7 +45,7 @@ func LookupQueuePolicyOutput(ctx *pulumi.Context, args LookupQueuePolicyOutputAr
 
 type LookupQueuePolicyOutputArgs struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupQueuePolicyOutputArgs) ElementType() reflect.Type {

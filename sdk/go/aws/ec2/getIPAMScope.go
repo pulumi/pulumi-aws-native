@@ -22,7 +22,7 @@ func LookupIPAMScope(ctx *pulumi.Context, args *LookupIPAMScopeArgs, opts ...pul
 
 type LookupIPAMScopeArgs struct {
 	// Id of the IPAM scope.
-	IpamScopeId *string `pulumi:"ipamScopeId"`
+	IpamScopeId string `pulumi:"ipamScopeId"`
 }
 
 type LookupIPAMScopeResult struct {
@@ -54,7 +54,7 @@ func LookupIPAMScopeOutput(ctx *pulumi.Context, args LookupIPAMScopeOutputArgs, 
 
 type LookupIPAMScopeOutputArgs struct {
 	// Id of the IPAM scope.
-	IpamScopeId pulumi.StringPtrInput `pulumi:"ipamScopeId"`
+	IpamScopeId pulumi.StringInput `pulumi:"ipamScopeId"`
 }
 
 func (LookupIPAMScopeOutputArgs) ElementType() reflect.Type {

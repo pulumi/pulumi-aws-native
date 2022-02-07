@@ -21,7 +21,7 @@ func LookupRecordSet(ctx *pulumi.Context, args *LookupRecordSetArgs, opts ...pul
 }
 
 type LookupRecordSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRecordSetResult struct {
@@ -50,7 +50,7 @@ func LookupRecordSetOutput(ctx *pulumi.Context, args LookupRecordSetOutputArgs, 
 }
 
 type LookupRecordSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRecordSetOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupCell(ctx *pulumi.Context, args *LookupCellArgs, opts ...pulumi.Invoke
 
 type LookupCellArgs struct {
 	// The name of the cell to create.
-	CellName *string `pulumi:"cellName"`
+	CellName string `pulumi:"cellName"`
 }
 
 type LookupCellResult struct {
@@ -47,7 +47,7 @@ func LookupCellOutput(ctx *pulumi.Context, args LookupCellOutputArgs, opts ...pu
 
 type LookupCellOutputArgs struct {
 	// The name of the cell to create.
-	CellName pulumi.StringPtrInput `pulumi:"cellName"`
+	CellName pulumi.StringInput `pulumi:"cellName"`
 }
 
 func (LookupCellOutputArgs) ElementType() reflect.Type {

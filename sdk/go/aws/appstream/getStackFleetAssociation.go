@@ -21,7 +21,7 @@ func LookupStackFleetAssociation(ctx *pulumi.Context, args *LookupStackFleetAsso
 }
 
 type LookupStackFleetAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupStackFleetAssociationResult struct {
@@ -40,7 +40,7 @@ func LookupStackFleetAssociationOutput(ctx *pulumi.Context, args LookupStackFlee
 }
 
 type LookupStackFleetAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupStackFleetAssociationOutputArgs) ElementType() reflect.Type {

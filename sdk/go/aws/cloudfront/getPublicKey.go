@@ -21,7 +21,7 @@ func LookupPublicKey(ctx *pulumi.Context, args *LookupPublicKeyArgs, opts ...pul
 }
 
 type LookupPublicKeyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPublicKeyResult struct {
@@ -40,7 +40,7 @@ func LookupPublicKeyOutput(ctx *pulumi.Context, args LookupPublicKeyOutputArgs, 
 }
 
 type LookupPublicKeyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPublicKeyOutputArgs) ElementType() reflect.Type {

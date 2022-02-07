@@ -21,7 +21,7 @@ func LookupInstanceFleetConfig(ctx *pulumi.Context, args *LookupInstanceFleetCon
 }
 
 type LookupInstanceFleetConfigArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupInstanceFleetConfigResult struct {
@@ -40,7 +40,7 @@ func LookupInstanceFleetConfigOutput(ctx *pulumi.Context, args LookupInstanceFle
 }
 
 type LookupInstanceFleetConfigOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupInstanceFleetConfigOutputArgs) ElementType() reflect.Type {

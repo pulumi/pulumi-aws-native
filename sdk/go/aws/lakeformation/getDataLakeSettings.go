@@ -21,7 +21,7 @@ func LookupDataLakeSettings(ctx *pulumi.Context, args *LookupDataLakeSettingsArg
 }
 
 type LookupDataLakeSettingsArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDataLakeSettingsResult struct {
@@ -40,7 +40,7 @@ func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettin
 }
 
 type LookupDataLakeSettingsOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDataLakeSettingsOutputArgs) ElementType() reflect.Type {

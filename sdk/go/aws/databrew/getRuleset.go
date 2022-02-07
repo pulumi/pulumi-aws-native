@@ -22,7 +22,7 @@ func LookupRuleset(ctx *pulumi.Context, args *LookupRulesetArgs, opts ...pulumi.
 
 type LookupRulesetArgs struct {
 	// Name of the Ruleset
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupRulesetResult struct {
@@ -44,7 +44,7 @@ func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts
 
 type LookupRulesetOutputArgs struct {
 	// Name of the Ruleset
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupRulesetOutputArgs) ElementType() reflect.Type {

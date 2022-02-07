@@ -21,7 +21,7 @@ func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opt
 }
 
 type LookupEmailTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEmailTemplateResult struct {
@@ -45,7 +45,7 @@ func LookupEmailTemplateOutput(ctx *pulumi.Context, args LookupEmailTemplateOutp
 }
 
 type LookupEmailTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEmailTemplateOutputArgs) ElementType() reflect.Type {

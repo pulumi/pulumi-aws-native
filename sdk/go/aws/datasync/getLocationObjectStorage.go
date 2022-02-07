@@ -22,7 +22,7 @@ func LookupLocationObjectStorage(ctx *pulumi.Context, args *LookupLocationObject
 
 type LookupLocationObjectStorageArgs struct {
 	// The Amazon Resource Name (ARN) of the location that is created.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationObjectStorageResult struct {
@@ -53,7 +53,7 @@ func LookupLocationObjectStorageOutput(ctx *pulumi.Context, args LookupLocationO
 
 type LookupLocationObjectStorageOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the location that is created.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationObjectStorageOutputArgs) ElementType() reflect.Type {

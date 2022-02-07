@@ -22,7 +22,7 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 
 type LookupRegistryArgs struct {
 	// Amazon Resource Name for the created Registry.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRegistryResult struct {
@@ -45,7 +45,7 @@ func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, op
 
 type LookupRegistryOutputArgs struct {
 	// Amazon Resource Name for the created Registry.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRegistryOutputArgs) ElementType() reflect.Type {

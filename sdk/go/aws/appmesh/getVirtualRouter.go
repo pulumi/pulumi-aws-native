@@ -21,7 +21,7 @@ func LookupVirtualRouter(ctx *pulumi.Context, args *LookupVirtualRouterArgs, opt
 }
 
 type LookupVirtualRouterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVirtualRouterResult struct {
@@ -43,7 +43,7 @@ func LookupVirtualRouterOutput(ctx *pulumi.Context, args LookupVirtualRouterOutp
 }
 
 type LookupVirtualRouterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVirtualRouterOutputArgs) ElementType() reflect.Type {

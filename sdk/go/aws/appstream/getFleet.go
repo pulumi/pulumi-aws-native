@@ -21,7 +21,7 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 }
 
 type LookupFleetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFleetResult struct {
@@ -56,7 +56,7 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 }
 
 type LookupFleetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFleetOutputArgs) ElementType() reflect.Type {

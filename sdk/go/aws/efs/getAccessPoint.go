@@ -21,7 +21,7 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 }
 
 type LookupAccessPointArgs struct {
-	AccessPointId *string `pulumi:"accessPointId"`
+	AccessPointId string `pulumi:"accessPointId"`
 }
 
 type LookupAccessPointResult struct {
@@ -40,7 +40,7 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 }
 
 type LookupAccessPointOutputArgs struct {
-	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
+	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
 }
 
 func (LookupAccessPointOutputArgs) ElementType() reflect.Type {

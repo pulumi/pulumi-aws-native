@@ -21,7 +21,7 @@ func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opt
 }
 
 type LookupResourceShareArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResourceShareResult struct {
@@ -45,7 +45,7 @@ func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutp
 }
 
 type LookupResourceShareOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResourceShareOutputArgs) ElementType() reflect.Type {

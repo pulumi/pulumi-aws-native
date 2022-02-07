@@ -22,7 +22,7 @@ func LookupEventSourceMapping(ctx *pulumi.Context, args *LookupEventSourceMappin
 
 type LookupEventSourceMappingArgs struct {
 	// Event Source Mapping Identifier UUID.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEventSourceMappingResult struct {
@@ -73,7 +73,7 @@ func LookupEventSourceMappingOutput(ctx *pulumi.Context, args LookupEventSourceM
 
 type LookupEventSourceMappingOutputArgs struct {
 	// Event Source Mapping Identifier UUID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEventSourceMappingOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributi
 
 type LookupDistributionConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the distribution configuration.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupDistributionConfigurationResult struct {
@@ -47,7 +47,7 @@ func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistr
 
 type LookupDistributionConfigurationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the distribution configuration.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupDistributionConfigurationOutputArgs) ElementType() reflect.Type {

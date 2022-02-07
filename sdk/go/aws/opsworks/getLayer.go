@@ -21,7 +21,7 @@ func LookupLayer(ctx *pulumi.Context, args *LookupLayerArgs, opts ...pulumi.Invo
 }
 
 type LookupLayerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLayerResult struct {
@@ -55,7 +55,7 @@ func LookupLayerOutput(ctx *pulumi.Context, args LookupLayerOutputArgs, opts ...
 }
 
 type LookupLayerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLayerOutputArgs) ElementType() reflect.Type {

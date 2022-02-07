@@ -22,7 +22,7 @@ func LookupMonitoringSchedule(ctx *pulumi.Context, args *LookupMonitoringSchedul
 
 type LookupMonitoringScheduleArgs struct {
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
-	MonitoringScheduleArn *string `pulumi:"monitoringScheduleArn"`
+	MonitoringScheduleArn string `pulumi:"monitoringScheduleArn"`
 }
 
 type LookupMonitoringScheduleResult struct {
@@ -55,7 +55,7 @@ func LookupMonitoringScheduleOutput(ctx *pulumi.Context, args LookupMonitoringSc
 
 type LookupMonitoringScheduleOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
-	MonitoringScheduleArn pulumi.StringPtrInput `pulumi:"monitoringScheduleArn"`
+	MonitoringScheduleArn pulumi.StringInput `pulumi:"monitoringScheduleArn"`
 }
 
 func (LookupMonitoringScheduleOutputArgs) ElementType() reflect.Type {

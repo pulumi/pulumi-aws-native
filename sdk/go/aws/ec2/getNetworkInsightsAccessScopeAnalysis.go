@@ -21,7 +21,7 @@ func LookupNetworkInsightsAccessScopeAnalysis(ctx *pulumi.Context, args *LookupN
 }
 
 type LookupNetworkInsightsAccessScopeAnalysisArgs struct {
-	NetworkInsightsAccessScopeAnalysisId *string `pulumi:"networkInsightsAccessScopeAnalysisId"`
+	NetworkInsightsAccessScopeAnalysisId string `pulumi:"networkInsightsAccessScopeAnalysisId"`
 }
 
 type LookupNetworkInsightsAccessScopeAnalysisResult struct {
@@ -46,7 +46,7 @@ func LookupNetworkInsightsAccessScopeAnalysisOutput(ctx *pulumi.Context, args Lo
 }
 
 type LookupNetworkInsightsAccessScopeAnalysisOutputArgs struct {
-	NetworkInsightsAccessScopeAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAccessScopeAnalysisId"`
+	NetworkInsightsAccessScopeAnalysisId pulumi.StringInput `pulumi:"networkInsightsAccessScopeAnalysisId"`
 }
 
 func (LookupNetworkInsightsAccessScopeAnalysisOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 type LookupRepositoryArgs struct {
 	// The ARN of the repository.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRepositoryResult struct {
@@ -53,7 +53,7 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 type LookupRepositoryOutputArgs struct {
 	// The ARN of the repository.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRepositoryOutputArgs) ElementType() reflect.Type {

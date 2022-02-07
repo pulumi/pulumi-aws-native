@@ -22,7 +22,7 @@ func LookupConfigurationAggregator(ctx *pulumi.Context, args *LookupConfiguratio
 
 type LookupConfigurationAggregatorArgs struct {
 	// The name of the aggregator.
-	ConfigurationAggregatorName *string `pulumi:"configurationAggregatorName"`
+	ConfigurationAggregatorName string `pulumi:"configurationAggregatorName"`
 }
 
 type LookupConfigurationAggregatorResult struct {
@@ -45,7 +45,7 @@ func LookupConfigurationAggregatorOutput(ctx *pulumi.Context, args LookupConfigu
 
 type LookupConfigurationAggregatorOutputArgs struct {
 	// The name of the aggregator.
-	ConfigurationAggregatorName pulumi.StringPtrInput `pulumi:"configurationAggregatorName"`
+	ConfigurationAggregatorName pulumi.StringInput `pulumi:"configurationAggregatorName"`
 }
 
 func (LookupConfigurationAggregatorOutputArgs) ElementType() reflect.Type {

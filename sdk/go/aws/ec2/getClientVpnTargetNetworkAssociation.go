@@ -21,7 +21,7 @@ func LookupClientVpnTargetNetworkAssociation(ctx *pulumi.Context, args *LookupCl
 }
 
 type LookupClientVpnTargetNetworkAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClientVpnTargetNetworkAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupClientVpnTargetNetworkAssociationOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupClientVpnTargetNetworkAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClientVpnTargetNetworkAssociationOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupDBProxyEndpoint(ctx *pulumi.Context, args *LookupDBProxyEndpointArgs,
 
 type LookupDBProxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName *string `pulumi:"dBProxyEndpointName"`
+	DBProxyEndpointName string `pulumi:"dBProxyEndpointName"`
 }
 
 type LookupDBProxyEndpointResult struct {
@@ -51,7 +51,7 @@ func LookupDBProxyEndpointOutput(ctx *pulumi.Context, args LookupDBProxyEndpoint
 
 type LookupDBProxyEndpointOutputArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName pulumi.StringPtrInput `pulumi:"dBProxyEndpointName"`
+	DBProxyEndpointName pulumi.StringInput `pulumi:"dBProxyEndpointName"`
 }
 
 func (LookupDBProxyEndpointOutputArgs) ElementType() reflect.Type {

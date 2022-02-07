@@ -21,7 +21,7 @@ func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArg
 }
 
 type LookupResolverEndpointArgs struct {
-	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
+	ResolverEndpointId string `pulumi:"resolverEndpointId"`
 }
 
 type LookupResolverEndpointResult struct {
@@ -44,7 +44,7 @@ func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpoi
 }
 
 type LookupResolverEndpointOutputArgs struct {
-	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
+	ResolverEndpointId pulumi.StringInput `pulumi:"resolverEndpointId"`
 }
 
 func (LookupResolverEndpointOutputArgs) ElementType() reflect.Type {

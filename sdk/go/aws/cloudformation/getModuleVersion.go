@@ -22,7 +22,7 @@ func LookupModuleVersion(ctx *pulumi.Context, args *LookupModuleVersionArgs, opt
 
 type LookupModuleVersionArgs struct {
 	// The Amazon Resource Name (ARN) of the module.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupModuleVersionResult struct {
@@ -59,7 +59,7 @@ func LookupModuleVersionOutput(ctx *pulumi.Context, args LookupModuleVersionOutp
 
 type LookupModuleVersionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the module.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupModuleVersionOutputArgs) ElementType() reflect.Type {

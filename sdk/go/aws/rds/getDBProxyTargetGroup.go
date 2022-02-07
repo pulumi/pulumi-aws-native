@@ -22,7 +22,7 @@ func LookupDBProxyTargetGroup(ctx *pulumi.Context, args *LookupDBProxyTargetGrou
 
 type LookupDBProxyTargetGroupArgs struct {
 	// The Amazon Resource Name (ARN) representing the target group.
-	TargetGroupArn *string `pulumi:"targetGroupArn"`
+	TargetGroupArn string `pulumi:"targetGroupArn"`
 }
 
 type LookupDBProxyTargetGroupResult struct {
@@ -44,7 +44,7 @@ func LookupDBProxyTargetGroupOutput(ctx *pulumi.Context, args LookupDBProxyTarge
 
 type LookupDBProxyTargetGroupOutputArgs struct {
 	// The Amazon Resource Name (ARN) representing the target group.
-	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
+	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
 }
 
 func (LookupDBProxyTargetGroupOutputArgs) ElementType() reflect.Type {

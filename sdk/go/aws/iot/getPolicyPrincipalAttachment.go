@@ -21,7 +21,7 @@ func LookupPolicyPrincipalAttachment(ctx *pulumi.Context, args *LookupPolicyPrin
 }
 
 type LookupPolicyPrincipalAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPolicyPrincipalAttachmentResult struct {
@@ -38,7 +38,7 @@ func LookupPolicyPrincipalAttachmentOutput(ctx *pulumi.Context, args LookupPolic
 }
 
 type LookupPolicyPrincipalAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPolicyPrincipalAttachmentOutputArgs) ElementType() reflect.Type {

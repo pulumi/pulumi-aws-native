@@ -22,7 +22,7 @@ func LookupPartnerAccount(ctx *pulumi.Context, args *LookupPartnerAccountArgs, o
 
 type LookupPartnerAccountArgs struct {
 	// The partner account ID to disassociate from the AWS account
-	PartnerAccountId *string `pulumi:"partnerAccountId"`
+	PartnerAccountId string `pulumi:"partnerAccountId"`
 }
 
 type LookupPartnerAccountResult struct {
@@ -55,7 +55,7 @@ func LookupPartnerAccountOutput(ctx *pulumi.Context, args LookupPartnerAccountOu
 
 type LookupPartnerAccountOutputArgs struct {
 	// The partner account ID to disassociate from the AWS account
-	PartnerAccountId pulumi.StringPtrInput `pulumi:"partnerAccountId"`
+	PartnerAccountId pulumi.StringInput `pulumi:"partnerAccountId"`
 }
 
 func (LookupPartnerAccountOutputArgs) ElementType() reflect.Type {

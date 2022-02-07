@@ -21,7 +21,7 @@ func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.In
 }
 
 type LookupBrokerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupBrokerResult struct {
@@ -57,7 +57,7 @@ func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts .
 }
 
 type LookupBrokerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupBrokerOutputArgs) ElementType() reflect.Type {

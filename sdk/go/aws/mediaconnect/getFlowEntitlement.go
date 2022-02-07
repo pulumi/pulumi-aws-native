@@ -22,7 +22,7 @@ func LookupFlowEntitlement(ctx *pulumi.Context, args *LookupFlowEntitlementArgs,
 
 type LookupFlowEntitlementArgs struct {
 	// The ARN of the entitlement.
-	EntitlementArn *string `pulumi:"entitlementArn"`
+	EntitlementArn string `pulumi:"entitlementArn"`
 }
 
 type LookupFlowEntitlementResult struct {
@@ -51,7 +51,7 @@ func LookupFlowEntitlementOutput(ctx *pulumi.Context, args LookupFlowEntitlement
 
 type LookupFlowEntitlementOutputArgs struct {
 	// The ARN of the entitlement.
-	EntitlementArn pulumi.StringPtrInput `pulumi:"entitlementArn"`
+	EntitlementArn pulumi.StringInput `pulumi:"entitlementArn"`
 }
 
 func (LookupFlowEntitlementOutputArgs) ElementType() reflect.Type {

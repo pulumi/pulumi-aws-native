@@ -22,7 +22,7 @@ func LookupStackSet(ctx *pulumi.Context, args *LookupStackSetArgs, opts ...pulum
 
 type LookupStackSetArgs struct {
 	// The ID of the stack set that you're creating.
-	StackSetId *string `pulumi:"stackSetId"`
+	StackSetId string `pulumi:"stackSetId"`
 }
 
 type LookupStackSetResult struct {
@@ -61,7 +61,7 @@ func LookupStackSetOutput(ctx *pulumi.Context, args LookupStackSetOutputArgs, op
 
 type LookupStackSetOutputArgs struct {
 	// The ID of the stack set that you're creating.
-	StackSetId pulumi.StringPtrInput `pulumi:"stackSetId"`
+	StackSetId pulumi.StringInput `pulumi:"stackSetId"`
 }
 
 func (LookupStackSetOutputArgs) ElementType() reflect.Type {

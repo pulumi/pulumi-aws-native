@@ -21,7 +21,7 @@ func LookupNetworkInterfaceAttachment(ctx *pulumi.Context, args *LookupNetworkIn
 }
 
 type LookupNetworkInterfaceAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNetworkInterfaceAttachmentResult struct {
@@ -42,7 +42,7 @@ func LookupNetworkInterfaceAttachmentOutput(ctx *pulumi.Context, args LookupNetw
 }
 
 type LookupNetworkInterfaceAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNetworkInterfaceAttachmentOutputArgs) ElementType() reflect.Type {

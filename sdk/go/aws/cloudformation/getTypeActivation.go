@@ -22,7 +22,7 @@ func LookupTypeActivation(ctx *pulumi.Context, args *LookupTypeActivationArgs, o
 
 type LookupTypeActivationArgs struct {
 	// The Amazon Resource Name (ARN) of the extension.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupTypeActivationResult struct {
@@ -47,7 +47,7 @@ func LookupTypeActivationOutput(ctx *pulumi.Context, args LookupTypeActivationOu
 
 type LookupTypeActivationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the extension.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupTypeActivationOutputArgs) ElementType() reflect.Type {

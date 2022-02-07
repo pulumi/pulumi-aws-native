@@ -22,7 +22,7 @@ func LookupRepositoryAssociation(ctx *pulumi.Context, args *LookupRepositoryAsso
 
 type LookupRepositoryAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the repository association.
-	AssociationArn *string `pulumi:"associationArn"`
+	AssociationArn string `pulumi:"associationArn"`
 }
 
 type LookupRepositoryAssociationResult struct {
@@ -41,7 +41,7 @@ func LookupRepositoryAssociationOutput(ctx *pulumi.Context, args LookupRepositor
 
 type LookupRepositoryAssociationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the repository association.
-	AssociationArn pulumi.StringPtrInput `pulumi:"associationArn"`
+	AssociationArn pulumi.StringInput `pulumi:"associationArn"`
 }
 
 func (LookupRepositoryAssociationOutputArgs) ElementType() reflect.Type {

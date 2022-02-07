@@ -21,8 +21,8 @@ func LookupAnalysis(ctx *pulumi.Context, args *LookupAnalysisArgs, opts ...pulum
 }
 
 type LookupAnalysisArgs struct {
-	AnalysisId   *string `pulumi:"analysisId"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
+	AnalysisId   string `pulumi:"analysisId"`
+	AwsAccountId string `pulumi:"awsAccountId"`
 }
 
 type LookupAnalysisResult struct {
@@ -60,8 +60,8 @@ func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, op
 }
 
 type LookupAnalysisOutputArgs struct {
-	AnalysisId   pulumi.StringPtrInput `pulumi:"analysisId"`
-	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
+	AnalysisId   pulumi.StringInput `pulumi:"analysisId"`
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
 }
 
 func (LookupAnalysisOutputArgs) ElementType() reflect.Type {

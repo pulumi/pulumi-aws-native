@@ -22,7 +22,7 @@ func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulum
 
 type LookupVariableArgs struct {
 	// The ARN of the variable.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupVariableResult struct {
@@ -57,7 +57,7 @@ func LookupVariableOutput(ctx *pulumi.Context, args LookupVariableOutputArgs, op
 
 type LookupVariableOutputArgs struct {
 	// The ARN of the variable.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupVariableOutputArgs) ElementType() reflect.Type {

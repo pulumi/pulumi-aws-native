@@ -22,7 +22,7 @@ func LookupRuleGroupsNamespace(ctx *pulumi.Context, args *LookupRuleGroupsNamesp
 
 type LookupRuleGroupsNamespaceArgs struct {
 	// The RuleGroupsNamespace ARN.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRuleGroupsNamespaceResult struct {
@@ -47,7 +47,7 @@ func LookupRuleGroupsNamespaceOutput(ctx *pulumi.Context, args LookupRuleGroupsN
 
 type LookupRuleGroupsNamespaceOutputArgs struct {
 	// The RuleGroupsNamespace ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRuleGroupsNamespaceOutputArgs) ElementType() reflect.Type {

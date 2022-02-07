@@ -21,7 +21,7 @@ func LookupVPNConnection(ctx *pulumi.Context, args *LookupVPNConnectionArgs, opt
 }
 
 type LookupVPNConnectionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPNConnectionResult struct {
@@ -39,7 +39,7 @@ func LookupVPNConnectionOutput(ctx *pulumi.Context, args LookupVPNConnectionOutp
 }
 
 type LookupVPNConnectionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPNConnectionOutputArgs) ElementType() reflect.Type {

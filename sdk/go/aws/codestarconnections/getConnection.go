@@ -22,7 +22,7 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 type LookupConnectionArgs struct {
 	// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
-	ConnectionArn *string `pulumi:"connectionArn"`
+	ConnectionArn string `pulumi:"connectionArn"`
 }
 
 type LookupConnectionResult struct {
@@ -47,7 +47,7 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 type LookupConnectionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
-	ConnectionArn pulumi.StringPtrInput `pulumi:"connectionArn"`
+	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
 }
 
 func (LookupConnectionOutputArgs) ElementType() reflect.Type {

@@ -21,8 +21,8 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 }
 
 type LookupStreamArgs struct {
-	Id         *string `pulumi:"id"`
-	LedgerName *string `pulumi:"ledgerName"`
+	Id         string `pulumi:"id"`
+	LedgerName string `pulumi:"ledgerName"`
 }
 
 type LookupStreamResult struct {
@@ -42,8 +42,8 @@ func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts .
 }
 
 type LookupStreamOutputArgs struct {
-	Id         pulumi.StringPtrInput `pulumi:"id"`
-	LedgerName pulumi.StringPtrInput `pulumi:"ledgerName"`
+	Id         pulumi.StringInput `pulumi:"id"`
+	LedgerName pulumi.StringInput `pulumi:"ledgerName"`
 }
 
 func (LookupStreamOutputArgs) ElementType() reflect.Type {

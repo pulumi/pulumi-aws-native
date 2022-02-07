@@ -22,7 +22,7 @@ func LookupHoursOfOperation(ctx *pulumi.Context, args *LookupHoursOfOperationArg
 
 type LookupHoursOfOperationArgs struct {
 	// The Amazon Resource Name (ARN) for the hours of operation.
-	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
+	HoursOfOperationArn string `pulumi:"hoursOfOperationArn"`
 }
 
 type LookupHoursOfOperationResult struct {
@@ -53,7 +53,7 @@ func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperati
 
 type LookupHoursOfOperationOutputArgs struct {
 	// The Amazon Resource Name (ARN) for the hours of operation.
-	HoursOfOperationArn pulumi.StringPtrInput `pulumi:"hoursOfOperationArn"`
+	HoursOfOperationArn pulumi.StringInput `pulumi:"hoursOfOperationArn"`
 }
 
 func (LookupHoursOfOperationOutputArgs) ElementType() reflect.Type {

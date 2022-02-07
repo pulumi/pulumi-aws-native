@@ -21,7 +21,7 @@ func LookupImageVersion(ctx *pulumi.Context, args *LookupImageVersionArgs, opts 
 }
 
 type LookupImageVersionArgs struct {
-	ImageVersionArn *string `pulumi:"imageVersionArn"`
+	ImageVersionArn string `pulumi:"imageVersionArn"`
 }
 
 type LookupImageVersionResult struct {
@@ -41,7 +41,7 @@ func LookupImageVersionOutput(ctx *pulumi.Context, args LookupImageVersionOutput
 }
 
 type LookupImageVersionOutputArgs struct {
-	ImageVersionArn pulumi.StringPtrInput `pulumi:"imageVersionArn"`
+	ImageVersionArn pulumi.StringInput `pulumi:"imageVersionArn"`
 }
 
 func (LookupImageVersionOutputArgs) ElementType() reflect.Type {

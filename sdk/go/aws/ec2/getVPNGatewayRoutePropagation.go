@@ -21,7 +21,7 @@ func LookupVPNGatewayRoutePropagation(ctx *pulumi.Context, args *LookupVPNGatewa
 }
 
 type LookupVPNGatewayRoutePropagationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPNGatewayRoutePropagationResult struct {
@@ -42,7 +42,7 @@ func LookupVPNGatewayRoutePropagationOutput(ctx *pulumi.Context, args LookupVPNG
 }
 
 type LookupVPNGatewayRoutePropagationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPNGatewayRoutePropagationOutputArgs) ElementType() reflect.Type {

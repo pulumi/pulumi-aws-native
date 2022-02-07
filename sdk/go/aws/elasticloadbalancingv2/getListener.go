@@ -21,7 +21,7 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 }
 
 type LookupListenerArgs struct {
-	ListenerArn *string `pulumi:"listenerArn"`
+	ListenerArn string `pulumi:"listenerArn"`
 }
 
 type LookupListenerResult struct {
@@ -44,7 +44,7 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 }
 
 type LookupListenerOutputArgs struct {
-	ListenerArn pulumi.StringPtrInput `pulumi:"listenerArn"`
+	ListenerArn pulumi.StringInput `pulumi:"listenerArn"`
 }
 
 func (LookupListenerOutputArgs) ElementType() reflect.Type {

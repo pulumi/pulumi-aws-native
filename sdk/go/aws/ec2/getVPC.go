@@ -22,7 +22,7 @@ func LookupVPC(ctx *pulumi.Context, args *LookupVPCArgs, opts ...pulumi.InvokeOp
 
 type LookupVPCArgs struct {
 	// The Id for the model.
-	VpcId *string `pulumi:"vpcId"`
+	VpcId string `pulumi:"vpcId"`
 }
 
 type LookupVPCResult struct {
@@ -63,7 +63,7 @@ func LookupVPCOutput(ctx *pulumi.Context, args LookupVPCOutputArgs, opts ...pulu
 
 type LookupVPCOutputArgs struct {
 	// The Id for the model.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (LookupVPCOutputArgs) ElementType() reflect.Type {

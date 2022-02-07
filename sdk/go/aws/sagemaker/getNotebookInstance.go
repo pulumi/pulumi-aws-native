@@ -21,7 +21,7 @@ func LookupNotebookInstance(ctx *pulumi.Context, args *LookupNotebookInstanceArg
 }
 
 type LookupNotebookInstanceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNotebookInstanceResult struct {
@@ -47,7 +47,7 @@ func LookupNotebookInstanceOutput(ctx *pulumi.Context, args LookupNotebookInstan
 }
 
 type LookupNotebookInstanceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNotebookInstanceOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 
 type LookupFunctionArgs struct {
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
-	FunctionName *string `pulumi:"functionName"`
+	FunctionName string `pulumi:"functionName"`
 }
 
 type LookupFunctionResult struct {
@@ -78,7 +78,7 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 
 type LookupFunctionOutputArgs struct {
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
-	FunctionName pulumi.StringPtrInput `pulumi:"functionName"`
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
 }
 
 func (LookupFunctionOutputArgs) ElementType() reflect.Type {

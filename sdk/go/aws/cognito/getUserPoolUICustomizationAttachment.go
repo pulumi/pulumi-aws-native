@@ -21,7 +21,7 @@ func LookupUserPoolUICustomizationAttachment(ctx *pulumi.Context, args *LookupUs
 }
 
 type LookupUserPoolUICustomizationAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolUICustomizationAttachmentResult struct {
@@ -39,7 +39,7 @@ func LookupUserPoolUICustomizationAttachmentOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupUserPoolUICustomizationAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserPoolUICustomizationAttachmentOutputArgs) ElementType() reflect.Type {

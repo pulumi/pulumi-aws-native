@@ -22,9 +22,9 @@ func LookupVPCDHCPOptionsAssociation(ctx *pulumi.Context, args *LookupVPCDHCPOpt
 
 type LookupVPCDHCPOptionsAssociationArgs struct {
 	// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
-	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 	// The ID of the VPC.
-	VpcId *string `pulumi:"vpcId"`
+	VpcId string `pulumi:"vpcId"`
 }
 
 type LookupVPCDHCPOptionsAssociationResult struct {
@@ -43,9 +43,9 @@ func LookupVPCDHCPOptionsAssociationOutput(ctx *pulumi.Context, args LookupVPCDH
 
 type LookupVPCDHCPOptionsAssociationOutputArgs struct {
 	// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
-	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId pulumi.StringInput `pulumi:"dhcpOptionsId"`
 	// The ID of the VPC.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (LookupVPCDHCPOptionsAssociationOutputArgs) ElementType() reflect.Type {

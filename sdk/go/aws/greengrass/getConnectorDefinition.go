@@ -21,7 +21,7 @@ func LookupConnectorDefinition(ctx *pulumi.Context, args *LookupConnectorDefinit
 }
 
 type LookupConnectorDefinitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConnectorDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupConnectorDefinitionOutput(ctx *pulumi.Context, args LookupConnectorDe
 }
 
 type LookupConnectorDefinitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConnectorDefinitionOutputArgs) ElementType() reflect.Type {

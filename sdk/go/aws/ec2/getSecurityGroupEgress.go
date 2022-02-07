@@ -21,7 +21,7 @@ func LookupSecurityGroupEgress(ctx *pulumi.Context, args *LookupSecurityGroupEgr
 }
 
 type LookupSecurityGroupEgressArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSecurityGroupEgressResult struct {
@@ -39,7 +39,7 @@ func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGro
 }
 
 type LookupSecurityGroupEgressOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSecurityGroupEgressOutputArgs) ElementType() reflect.Type {

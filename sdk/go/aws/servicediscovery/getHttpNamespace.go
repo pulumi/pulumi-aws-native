@@ -21,7 +21,7 @@ func LookupHttpNamespace(ctx *pulumi.Context, args *LookupHttpNamespaceArgs, opt
 }
 
 type LookupHttpNamespaceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupHttpNamespaceResult struct {
@@ -41,7 +41,7 @@ func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutp
 }
 
 type LookupHttpNamespaceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupHttpNamespaceOutputArgs) ElementType() reflect.Type {

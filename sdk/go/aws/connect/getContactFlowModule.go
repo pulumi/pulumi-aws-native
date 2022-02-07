@@ -22,7 +22,7 @@ func LookupContactFlowModule(ctx *pulumi.Context, args *LookupContactFlowModuleA
 
 type LookupContactFlowModuleArgs struct {
 	// The identifier of the contact flow module (ARN).
-	ContactFlowModuleArn *string `pulumi:"contactFlowModuleArn"`
+	ContactFlowModuleArn string `pulumi:"contactFlowModuleArn"`
 }
 
 type LookupContactFlowModuleResult struct {
@@ -55,7 +55,7 @@ func LookupContactFlowModuleOutput(ctx *pulumi.Context, args LookupContactFlowMo
 
 type LookupContactFlowModuleOutputArgs struct {
 	// The identifier of the contact flow module (ARN).
-	ContactFlowModuleArn pulumi.StringPtrInput `pulumi:"contactFlowModuleArn"`
+	ContactFlowModuleArn pulumi.StringInput `pulumi:"contactFlowModuleArn"`
 }
 
 func (LookupContactFlowModuleOutputArgs) ElementType() reflect.Type {

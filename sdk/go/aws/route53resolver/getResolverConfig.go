@@ -22,7 +22,7 @@ func LookupResolverConfig(ctx *pulumi.Context, args *LookupResolverConfigArgs, o
 
 type LookupResolverConfigArgs struct {
 	// Id
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResolverConfigResult struct {
@@ -45,7 +45,7 @@ func LookupResolverConfigOutput(ctx *pulumi.Context, args LookupResolverConfigOu
 
 type LookupResolverConfigOutputArgs struct {
 	// Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResolverConfigOutputArgs) ElementType() reflect.Type {

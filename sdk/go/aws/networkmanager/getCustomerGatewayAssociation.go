@@ -22,9 +22,9 @@ func LookupCustomerGatewayAssociation(ctx *pulumi.Context, args *LookupCustomerG
 
 type LookupCustomerGatewayAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the customer gateway.
-	CustomerGatewayArn *string `pulumi:"customerGatewayArn"`
+	CustomerGatewayArn string `pulumi:"customerGatewayArn"`
 	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 }
 
 type LookupCustomerGatewayAssociationResult struct {
@@ -41,9 +41,9 @@ func LookupCustomerGatewayAssociationOutput(ctx *pulumi.Context, args LookupCust
 
 type LookupCustomerGatewayAssociationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the customer gateway.
-	CustomerGatewayArn pulumi.StringPtrInput `pulumi:"customerGatewayArn"`
+	CustomerGatewayArn pulumi.StringInput `pulumi:"customerGatewayArn"`
 	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput `pulumi:"globalNetworkId"`
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 }
 
 func (LookupCustomerGatewayAssociationOutputArgs) ElementType() reflect.Type {

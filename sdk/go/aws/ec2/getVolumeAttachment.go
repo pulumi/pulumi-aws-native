@@ -21,7 +21,7 @@ func LookupVolumeAttachment(ctx *pulumi.Context, args *LookupVolumeAttachmentArg
 }
 
 type LookupVolumeAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVolumeAttachmentResult struct {
@@ -38,7 +38,7 @@ func LookupVolumeAttachmentOutput(ctx *pulumi.Context, args LookupVolumeAttachme
 }
 
 type LookupVolumeAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVolumeAttachmentOutputArgs) ElementType() reflect.Type {

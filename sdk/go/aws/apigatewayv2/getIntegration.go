@@ -21,7 +21,7 @@ func LookupIntegration(ctx *pulumi.Context, args *LookupIntegrationArgs, opts ..
 }
 
 type LookupIntegrationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupIntegrationResult struct {
@@ -55,7 +55,7 @@ func LookupIntegrationOutput(ctx *pulumi.Context, args LookupIntegrationOutputAr
 }
 
 type LookupIntegrationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupIntegrationOutputArgs) ElementType() reflect.Type {

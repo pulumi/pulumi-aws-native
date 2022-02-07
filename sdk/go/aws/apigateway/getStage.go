@@ -22,9 +22,9 @@ func LookupStage(ctx *pulumi.Context, args *LookupStageArgs, opts ...pulumi.Invo
 
 type LookupStageArgs struct {
 	// The ID of the RestApi resource that you're deploying with this stage.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-	StageName *string `pulumi:"stageName"`
+	StageName string `pulumi:"stageName"`
 }
 
 type LookupStageResult struct {
@@ -65,9 +65,9 @@ func LookupStageOutput(ctx *pulumi.Context, args LookupStageOutputArgs, opts ...
 
 type LookupStageOutputArgs struct {
 	// The ID of the RestApi resource that you're deploying with this stage.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-	StageName pulumi.StringPtrInput `pulumi:"stageName"`
+	StageName pulumi.StringInput `pulumi:"stageName"`
 }
 
 func (LookupStageOutputArgs) ElementType() reflect.Type {

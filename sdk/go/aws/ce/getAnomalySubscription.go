@@ -21,7 +21,7 @@ func LookupAnomalySubscription(ctx *pulumi.Context, args *LookupAnomalySubscript
 }
 
 type LookupAnomalySubscriptionArgs struct {
-	SubscriptionArn *string `pulumi:"subscriptionArn"`
+	SubscriptionArn string `pulumi:"subscriptionArn"`
 }
 
 type LookupAnomalySubscriptionResult struct {
@@ -50,7 +50,7 @@ func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubs
 }
 
 type LookupAnomalySubscriptionOutputArgs struct {
-	SubscriptionArn pulumi.StringPtrInput `pulumi:"subscriptionArn"`
+	SubscriptionArn pulumi.StringInput `pulumi:"subscriptionArn"`
 }
 
 func (LookupAnomalySubscriptionOutputArgs) ElementType() reflect.Type {

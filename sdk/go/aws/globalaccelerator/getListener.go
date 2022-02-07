@@ -22,7 +22,7 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 
 type LookupListenerArgs struct {
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `pulumi:"listenerArn"`
+	ListenerArn string `pulumi:"listenerArn"`
 }
 
 type LookupListenerResult struct {
@@ -46,7 +46,7 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 
 type LookupListenerOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn pulumi.StringPtrInput `pulumi:"listenerArn"`
+	ListenerArn pulumi.StringInput `pulumi:"listenerArn"`
 }
 
 func (LookupListenerOutputArgs) ElementType() reflect.Type {

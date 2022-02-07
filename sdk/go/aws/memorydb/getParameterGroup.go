@@ -22,7 +22,7 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 
 type LookupParameterGroupArgs struct {
 	// The name of the parameter group.
-	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	ParameterGroupName string `pulumi:"parameterGroupName"`
 }
 
 type LookupParameterGroupResult struct {
@@ -43,7 +43,7 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 
 type LookupParameterGroupOutputArgs struct {
 	// The name of the parameter group.
-	ParameterGroupName pulumi.StringPtrInput `pulumi:"parameterGroupName"`
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 }
 
 func (LookupParameterGroupOutputArgs) ElementType() reflect.Type {

@@ -22,11 +22,11 @@ func LookupLinkAssociation(ctx *pulumi.Context, args *LookupLinkAssociationArgs,
 
 type LookupLinkAssociationArgs struct {
 	// The ID of the device
-	DeviceId *string `pulumi:"deviceId"`
+	DeviceId string `pulumi:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The ID of the link
-	LinkId *string `pulumi:"linkId"`
+	LinkId string `pulumi:"linkId"`
 }
 
 type LookupLinkAssociationResult struct {
@@ -43,11 +43,11 @@ func LookupLinkAssociationOutput(ctx *pulumi.Context, args LookupLinkAssociation
 
 type LookupLinkAssociationOutputArgs struct {
 	// The ID of the device
-	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
+	DeviceId pulumi.StringInput `pulumi:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput `pulumi:"globalNetworkId"`
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 	// The ID of the link
-	LinkId pulumi.StringPtrInput `pulumi:"linkId"`
+	LinkId pulumi.StringInput `pulumi:"linkId"`
 }
 
 func (LookupLinkAssociationOutputArgs) ElementType() reflect.Type {

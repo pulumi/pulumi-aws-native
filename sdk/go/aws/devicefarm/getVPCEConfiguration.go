@@ -21,7 +21,7 @@ func LookupVPCEConfiguration(ctx *pulumi.Context, args *LookupVPCEConfigurationA
 }
 
 type LookupVPCEConfigurationArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupVPCEConfigurationResult struct {
@@ -43,7 +43,7 @@ func LookupVPCEConfigurationOutput(ctx *pulumi.Context, args LookupVPCEConfigura
 }
 
 type LookupVPCEConfigurationOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupVPCEConfigurationOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...p
 }
 
 type LookupPlaceIndexArgs struct {
-	IndexName *string `pulumi:"indexName"`
+	IndexName string `pulumi:"indexName"`
 }
 
 type LookupPlaceIndexResult struct {
@@ -41,7 +41,7 @@ func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs
 }
 
 type LookupPlaceIndexOutputArgs struct {
-	IndexName pulumi.StringPtrInput `pulumi:"indexName"`
+	IndexName pulumi.StringInput `pulumi:"indexName"`
 }
 
 func (LookupPlaceIndexOutputArgs) ElementType() reflect.Type {

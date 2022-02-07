@@ -21,7 +21,7 @@ func LookupNotebookInstanceLifecycleConfig(ctx *pulumi.Context, args *LookupNote
 }
 
 type LookupNotebookInstanceLifecycleConfigArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNotebookInstanceLifecycleConfigResult struct {
@@ -40,7 +40,7 @@ func LookupNotebookInstanceLifecycleConfigOutput(ctx *pulumi.Context, args Looku
 }
 
 type LookupNotebookInstanceLifecycleConfigOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNotebookInstanceLifecycleConfigOutputArgs) ElementType() reflect.Type {

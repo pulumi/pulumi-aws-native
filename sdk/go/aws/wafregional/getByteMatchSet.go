@@ -21,7 +21,7 @@ func LookupByteMatchSet(ctx *pulumi.Context, args *LookupByteMatchSetArgs, opts 
 }
 
 type LookupByteMatchSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupByteMatchSetResult struct {
@@ -39,7 +39,7 @@ func LookupByteMatchSetOutput(ctx *pulumi.Context, args LookupByteMatchSetOutput
 }
 
 type LookupByteMatchSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupByteMatchSetOutputArgs) ElementType() reflect.Type {

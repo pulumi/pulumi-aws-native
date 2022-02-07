@@ -21,7 +21,7 @@ func LookupVPCEndpointServicePermissions(ctx *pulumi.Context, args *LookupVPCEnd
 }
 
 type LookupVPCEndpointServicePermissionsArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPCEndpointServicePermissionsResult struct {
@@ -39,7 +39,7 @@ func LookupVPCEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupV
 }
 
 type LookupVPCEndpointServicePermissionsOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPCEndpointServicePermissionsOutputArgs) ElementType() reflect.Type {

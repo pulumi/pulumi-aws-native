@@ -21,7 +21,7 @@ func LookupRegistryPolicy(ctx *pulumi.Context, args *LookupRegistryPolicyArgs, o
 }
 
 type LookupRegistryPolicyArgs struct {
-	RegistryId *string `pulumi:"registryId"`
+	RegistryId string `pulumi:"registryId"`
 }
 
 type LookupRegistryPolicyResult struct {
@@ -40,7 +40,7 @@ func LookupRegistryPolicyOutput(ctx *pulumi.Context, args LookupRegistryPolicyOu
 }
 
 type LookupRegistryPolicyOutputArgs struct {
-	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
 func (LookupRegistryPolicyOutputArgs) ElementType() reflect.Type {

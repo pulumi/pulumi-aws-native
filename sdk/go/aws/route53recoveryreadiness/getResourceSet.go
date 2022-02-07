@@ -22,7 +22,7 @@ func LookupResourceSet(ctx *pulumi.Context, args *LookupResourceSetArgs, opts ..
 
 type LookupResourceSetArgs struct {
 	// The name of the resource set to create.
-	ResourceSetName *string `pulumi:"resourceSetName"`
+	ResourceSetName string `pulumi:"resourceSetName"`
 }
 
 type LookupResourceSetResult struct {
@@ -45,7 +45,7 @@ func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputAr
 
 type LookupResourceSetOutputArgs struct {
 	// The name of the resource set to create.
-	ResourceSetName pulumi.StringPtrInput `pulumi:"resourceSetName"`
+	ResourceSetName pulumi.StringInput `pulumi:"resourceSetName"`
 }
 
 func (LookupResourceSetOutputArgs) ElementType() reflect.Type {

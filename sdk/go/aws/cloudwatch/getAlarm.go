@@ -21,7 +21,7 @@ func LookupAlarm(ctx *pulumi.Context, args *LookupAlarmArgs, opts ...pulumi.Invo
 }
 
 type LookupAlarmArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAlarmResult struct {
@@ -59,7 +59,7 @@ func LookupAlarmOutput(ctx *pulumi.Context, args LookupAlarmOutputArgs, opts ...
 }
 
 type LookupAlarmOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAlarmOutputArgs) ElementType() reflect.Type {

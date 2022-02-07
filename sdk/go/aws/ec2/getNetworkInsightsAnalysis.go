@@ -21,7 +21,7 @@ func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsig
 }
 
 type LookupNetworkInsightsAnalysisArgs struct {
-	NetworkInsightsAnalysisId *string `pulumi:"networkInsightsAnalysisId"`
+	NetworkInsightsAnalysisId string `pulumi:"networkInsightsAnalysisId"`
 }
 
 type LookupNetworkInsightsAnalysisResult struct {
@@ -48,7 +48,7 @@ func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetwork
 }
 
 type LookupNetworkInsightsAnalysisOutputArgs struct {
-	NetworkInsightsAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAnalysisId"`
+	NetworkInsightsAnalysisId pulumi.StringInput `pulumi:"networkInsightsAnalysisId"`
 }
 
 func (LookupNetworkInsightsAnalysisOutputArgs) ElementType() reflect.Type {

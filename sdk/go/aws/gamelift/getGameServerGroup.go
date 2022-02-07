@@ -22,7 +22,7 @@ func LookupGameServerGroup(ctx *pulumi.Context, args *LookupGameServerGroupArgs,
 
 type LookupGameServerGroupArgs struct {
 	// A generated unique ID for the game server group.
-	GameServerGroupArn *string `pulumi:"gameServerGroupArn"`
+	GameServerGroupArn string `pulumi:"gameServerGroupArn"`
 }
 
 type LookupGameServerGroupResult struct {
@@ -65,7 +65,7 @@ func LookupGameServerGroupOutput(ctx *pulumi.Context, args LookupGameServerGroup
 
 type LookupGameServerGroupOutputArgs struct {
 	// A generated unique ID for the game server group.
-	GameServerGroupArn pulumi.StringPtrInput `pulumi:"gameServerGroupArn"`
+	GameServerGroupArn pulumi.StringInput `pulumi:"gameServerGroupArn"`
 }
 
 func (LookupGameServerGroupOutputArgs) ElementType() reflect.Type {

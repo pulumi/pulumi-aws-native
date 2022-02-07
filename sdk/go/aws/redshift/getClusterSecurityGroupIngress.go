@@ -21,7 +21,7 @@ func LookupClusterSecurityGroupIngress(ctx *pulumi.Context, args *LookupClusterS
 }
 
 type LookupClusterSecurityGroupIngressArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClusterSecurityGroupIngressResult struct {
@@ -38,7 +38,7 @@ func LookupClusterSecurityGroupIngressOutput(ctx *pulumi.Context, args LookupClu
 }
 
 type LookupClusterSecurityGroupIngressOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClusterSecurityGroupIngressOutputArgs) ElementType() reflect.Type {

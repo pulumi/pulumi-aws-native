@@ -22,7 +22,7 @@ func LookupGatewayRouteTableAssociation(ctx *pulumi.Context, args *LookupGateway
 
 type LookupGatewayRouteTableAssociationArgs struct {
 	// The ID of the gateway.
-	GatewayId *string `pulumi:"gatewayId"`
+	GatewayId string `pulumi:"gatewayId"`
 }
 
 type LookupGatewayRouteTableAssociationResult struct {
@@ -43,7 +43,7 @@ func LookupGatewayRouteTableAssociationOutput(ctx *pulumi.Context, args LookupGa
 
 type LookupGatewayRouteTableAssociationOutputArgs struct {
 	// The ID of the gateway.
-	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
 }
 
 func (LookupGatewayRouteTableAssociationOutputArgs) ElementType() reflect.Type {

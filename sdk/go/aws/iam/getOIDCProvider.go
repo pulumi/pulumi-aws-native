@@ -22,7 +22,7 @@ func LookupOIDCProvider(ctx *pulumi.Context, args *LookupOIDCProviderArgs, opts 
 
 type LookupOIDCProviderArgs struct {
 	// Amazon Resource Name (ARN) of the OIDC provider
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupOIDCProviderResult struct {
@@ -44,7 +44,7 @@ func LookupOIDCProviderOutput(ctx *pulumi.Context, args LookupOIDCProviderOutput
 
 type LookupOIDCProviderOutputArgs struct {
 	// Amazon Resource Name (ARN) of the OIDC provider
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupOIDCProviderOutputArgs) ElementType() reflect.Type {

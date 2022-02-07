@@ -21,7 +21,7 @@ func LookupCustomActionType(ctx *pulumi.Context, args *LookupCustomActionTypeArg
 }
 
 type LookupCustomActionTypeArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCustomActionTypeResult struct {
@@ -39,7 +39,7 @@ func LookupCustomActionTypeOutput(ctx *pulumi.Context, args LookupCustomActionTy
 }
 
 type LookupCustomActionTypeOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCustomActionTypeOutputArgs) ElementType() reflect.Type {

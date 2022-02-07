@@ -22,7 +22,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 type LookupServiceArgs struct {
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
-	ServiceArn *string `pulumi:"serviceArn"`
+	ServiceArn string `pulumi:"serviceArn"`
 }
 
 type LookupServiceResult struct {
@@ -50,7 +50,7 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 
 type LookupServiceOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
-	ServiceArn pulumi.StringPtrInput `pulumi:"serviceArn"`
+	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 }
 
 type LookupVolumeArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVolumeResult struct {
@@ -40,7 +40,7 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 }
 
 type LookupVolumeOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVolumeOutputArgs) ElementType() reflect.Type {

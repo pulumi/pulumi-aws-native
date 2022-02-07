@@ -22,11 +22,11 @@ func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs,
 
 type LookupRegexPatternSetArgs struct {
 	// Id of the RegexPatternSet
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Name of the RegexPatternSet.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
-	Scope *RegexPatternSetScope `pulumi:"scope"`
+	Scope RegexPatternSetScope `pulumi:"scope"`
 }
 
 type LookupRegexPatternSetResult struct {
@@ -51,11 +51,11 @@ func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSet
 
 type LookupRegexPatternSetOutputArgs struct {
 	// Id of the RegexPatternSet
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the RegexPatternSet.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
-	Scope RegexPatternSetScopePtrInput `pulumi:"scope"`
+	Scope RegexPatternSetScopeInput `pulumi:"scope"`
 }
 
 func (LookupRegexPatternSetOutputArgs) ElementType() reflect.Type {

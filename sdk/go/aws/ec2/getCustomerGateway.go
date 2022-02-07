@@ -21,7 +21,7 @@ func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs,
 }
 
 type LookupCustomerGatewayArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCustomerGatewayResult struct {
@@ -39,7 +39,7 @@ func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGateway
 }
 
 type LookupCustomerGatewayOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCustomerGatewayOutputArgs) ElementType() reflect.Type {

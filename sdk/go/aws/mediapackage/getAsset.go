@@ -22,7 +22,7 @@ func LookupAsset(ctx *pulumi.Context, args *LookupAssetArgs, opts ...pulumi.Invo
 
 type LookupAssetArgs struct {
 	// The unique identifier for the Asset.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAssetResult struct {
@@ -57,7 +57,7 @@ func LookupAssetOutput(ctx *pulumi.Context, args LookupAssetOutputArgs, opts ...
 
 type LookupAssetOutputArgs struct {
 	// The unique identifier for the Asset.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAssetOutputArgs) ElementType() reflect.Type {

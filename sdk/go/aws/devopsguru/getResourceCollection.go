@@ -22,7 +22,7 @@ func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectio
 
 type LookupResourceCollectionArgs struct {
 	// The type of ResourceCollection
-	ResourceCollectionType *ResourceCollectionType `pulumi:"resourceCollectionType"`
+	ResourceCollectionType ResourceCollectionType `pulumi:"resourceCollectionType"`
 }
 
 type LookupResourceCollectionResult struct {
@@ -42,7 +42,7 @@ func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceColl
 
 type LookupResourceCollectionOutputArgs struct {
 	// The type of ResourceCollection
-	ResourceCollectionType ResourceCollectionTypePtrInput `pulumi:"resourceCollectionType"`
+	ResourceCollectionType ResourceCollectionTypeInput `pulumi:"resourceCollectionType"`
 }
 
 func (LookupResourceCollectionOutputArgs) ElementType() reflect.Type {

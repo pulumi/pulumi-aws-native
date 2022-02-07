@@ -22,7 +22,7 @@ func LookupControlPanel(ctx *pulumi.Context, args *LookupControlPanelArgs, opts 
 
 type LookupControlPanelArgs struct {
 	// The Amazon Resource Name (ARN) of the cluster.
-	ControlPanelArn *string `pulumi:"controlPanelArn"`
+	ControlPanelArn string `pulumi:"controlPanelArn"`
 }
 
 type LookupControlPanelResult struct {
@@ -49,7 +49,7 @@ func LookupControlPanelOutput(ctx *pulumi.Context, args LookupControlPanelOutput
 
 type LookupControlPanelOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the cluster.
-	ControlPanelArn pulumi.StringPtrInput `pulumi:"controlPanelArn"`
+	ControlPanelArn pulumi.StringInput `pulumi:"controlPanelArn"`
 }
 
 func (LookupControlPanelOutputArgs) ElementType() reflect.Type {

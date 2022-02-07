@@ -22,7 +22,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 type LookupClusterArgs struct {
 	// The Amazon Resource Name (ARN) of the cluster.
-	ClusterArn *string `pulumi:"clusterArn"`
+	ClusterArn string `pulumi:"clusterArn"`
 }
 
 type LookupClusterResult struct {
@@ -45,7 +45,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 type LookupClusterOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the cluster.
-	ClusterArn pulumi.StringPtrInput `pulumi:"clusterArn"`
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {

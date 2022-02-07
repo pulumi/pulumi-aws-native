@@ -21,7 +21,7 @@ func LookupMesh(ctx *pulumi.Context, args *LookupMeshArgs, opts ...pulumi.Invoke
 }
 
 type LookupMeshArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMeshResult struct {
@@ -44,7 +44,7 @@ func LookupMeshOutput(ctx *pulumi.Context, args LookupMeshOutputArgs, opts ...pu
 }
 
 type LookupMeshOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMeshOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 
 type LookupPipelineArgs struct {
 	// The name of the Pipeline.
-	PipelineName *string `pulumi:"pipelineName"`
+	PipelineName string `pulumi:"pipelineName"`
 }
 
 type LookupPipelineResult struct {
@@ -48,7 +48,7 @@ func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, op
 
 type LookupPipelineOutputArgs struct {
 	// The name of the Pipeline.
-	PipelineName pulumi.StringPtrInput `pulumi:"pipelineName"`
+	PipelineName pulumi.StringInput `pulumi:"pipelineName"`
 }
 
 func (LookupPipelineOutputArgs) ElementType() reflect.Type {

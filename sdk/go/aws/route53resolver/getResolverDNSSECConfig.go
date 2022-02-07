@@ -22,7 +22,7 @@ func LookupResolverDNSSECConfig(ctx *pulumi.Context, args *LookupResolverDNSSECC
 
 type LookupResolverDNSSECConfigArgs struct {
 	// Id
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResolverDNSSECConfigResult struct {
@@ -45,7 +45,7 @@ func LookupResolverDNSSECConfigOutput(ctx *pulumi.Context, args LookupResolverDN
 
 type LookupResolverDNSSECConfigOutputArgs struct {
 	// Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResolverDNSSECConfigOutputArgs) ElementType() reflect.Type {

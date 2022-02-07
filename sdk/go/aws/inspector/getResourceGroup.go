@@ -21,7 +21,7 @@ func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opt
 }
 
 type LookupResourceGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResourceGroupResult struct {
@@ -39,7 +39,7 @@ func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutp
 }
 
 type LookupResourceGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResourceGroupOutputArgs) ElementType() reflect.Type {

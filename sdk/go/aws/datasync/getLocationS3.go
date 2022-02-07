@@ -22,7 +22,7 @@ func LookupLocationS3(ctx *pulumi.Context, args *LookupLocationS3Args, opts ...p
 
 type LookupLocationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationS3Result struct {
@@ -45,7 +45,7 @@ func LookupLocationS3Output(ctx *pulumi.Context, args LookupLocationS3OutputArgs
 
 type LookupLocationS3OutputArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationS3OutputArgs) ElementType() reflect.Type {

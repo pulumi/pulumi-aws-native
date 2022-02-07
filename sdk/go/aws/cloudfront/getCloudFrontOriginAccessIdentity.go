@@ -21,7 +21,7 @@ func LookupCloudFrontOriginAccessIdentity(ctx *pulumi.Context, args *LookupCloud
 }
 
 type LookupCloudFrontOriginAccessIdentityArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCloudFrontOriginAccessIdentityResult struct {
@@ -40,7 +40,7 @@ func LookupCloudFrontOriginAccessIdentityOutput(ctx *pulumi.Context, args Lookup
 }
 
 type LookupCloudFrontOriginAccessIdentityOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCloudFrontOriginAccessIdentityOutputArgs) ElementType() reflect.Type {

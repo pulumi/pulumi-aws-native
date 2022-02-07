@@ -22,7 +22,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 type LookupUserArgs struct {
 	// The name of the user.
-	UserName *string `pulumi:"userName"`
+	UserName string `pulumi:"userName"`
 }
 
 type LookupUserResult struct {
@@ -45,7 +45,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 type LookupUserOutputArgs struct {
 	// The name of the user.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
+	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {

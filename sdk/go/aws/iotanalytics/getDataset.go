@@ -21,7 +21,7 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
-	DatasetName *string `pulumi:"datasetName"`
+	DatasetName string `pulumi:"datasetName"`
 }
 
 type LookupDatasetResult struct {
@@ -45,7 +45,7 @@ func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts
 }
 
 type LookupDatasetOutputArgs struct {
-	DatasetName pulumi.StringPtrInput `pulumi:"datasetName"`
+	DatasetName pulumi.StringInput `pulumi:"datasetName"`
 }
 
 func (LookupDatasetOutputArgs) ElementType() reflect.Type {

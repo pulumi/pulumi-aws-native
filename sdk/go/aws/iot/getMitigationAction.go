@@ -22,7 +22,7 @@ func LookupMitigationAction(ctx *pulumi.Context, args *LookupMitigationActionArg
 
 type LookupMitigationActionArgs struct {
 	// A unique identifier for the mitigation action.
-	ActionName *string `pulumi:"actionName"`
+	ActionName string `pulumi:"actionName"`
 }
 
 type LookupMitigationActionResult struct {
@@ -45,7 +45,7 @@ func LookupMitigationActionOutput(ctx *pulumi.Context, args LookupMitigationActi
 
 type LookupMitigationActionOutputArgs struct {
 	// A unique identifier for the mitigation action.
-	ActionName pulumi.StringPtrInput `pulumi:"actionName"`
+	ActionName pulumi.StringInput `pulumi:"actionName"`
 }
 
 func (LookupMitigationActionOutputArgs) ElementType() reflect.Type {

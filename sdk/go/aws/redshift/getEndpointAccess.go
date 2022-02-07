@@ -22,7 +22,7 @@ func LookupEndpointAccess(ctx *pulumi.Context, args *LookupEndpointAccessArgs, o
 
 type LookupEndpointAccessArgs struct {
 	// The name of the endpoint.
-	EndpointName *string `pulumi:"endpointName"`
+	EndpointName string `pulumi:"endpointName"`
 }
 
 type LookupEndpointAccessResult struct {
@@ -53,7 +53,7 @@ func LookupEndpointAccessOutput(ctx *pulumi.Context, args LookupEndpointAccessOu
 
 type LookupEndpointAccessOutputArgs struct {
 	// The name of the endpoint.
-	EndpointName pulumi.StringPtrInput `pulumi:"endpointName"`
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
 }
 
 func (LookupEndpointAccessOutputArgs) ElementType() reflect.Type {

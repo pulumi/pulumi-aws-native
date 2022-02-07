@@ -21,7 +21,7 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
-	ServerId *string `pulumi:"serverId"`
+	ServerId string `pulumi:"serverId"`
 }
 
 type LookupServerResult struct {
@@ -49,7 +49,7 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 }
 
 type LookupServerOutputArgs struct {
-	ServerId pulumi.StringPtrInput `pulumi:"serverId"`
+	ServerId pulumi.StringInput `pulumi:"serverId"`
 }
 
 func (LookupServerOutputArgs) ElementType() reflect.Type {

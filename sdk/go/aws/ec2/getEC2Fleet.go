@@ -21,7 +21,7 @@ func LookupEC2Fleet(ctx *pulumi.Context, args *LookupEC2FleetArgs, opts ...pulum
 }
 
 type LookupEC2FleetArgs struct {
-	FleetId *string `pulumi:"fleetId"`
+	FleetId string `pulumi:"fleetId"`
 }
 
 type LookupEC2FleetResult struct {
@@ -41,7 +41,7 @@ func LookupEC2FleetOutput(ctx *pulumi.Context, args LookupEC2FleetOutputArgs, op
 }
 
 type LookupEC2FleetOutputArgs struct {
-	FleetId pulumi.StringPtrInput `pulumi:"fleetId"`
+	FleetId pulumi.StringInput `pulumi:"fleetId"`
 }
 
 func (LookupEC2FleetOutputArgs) ElementType() reflect.Type {

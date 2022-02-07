@@ -22,7 +22,7 @@ func LookupOrganizationConformancePack(ctx *pulumi.Context, args *LookupOrganiza
 
 type LookupOrganizationConformancePackArgs struct {
 	// The name of the organization conformance pack.
-	OrganizationConformancePackName *string `pulumi:"organizationConformancePackName"`
+	OrganizationConformancePackName string `pulumi:"organizationConformancePackName"`
 }
 
 type LookupOrganizationConformancePackResult struct {
@@ -47,7 +47,7 @@ func LookupOrganizationConformancePackOutput(ctx *pulumi.Context, args LookupOrg
 
 type LookupOrganizationConformancePackOutputArgs struct {
 	// The name of the organization conformance pack.
-	OrganizationConformancePackName pulumi.StringPtrInput `pulumi:"organizationConformancePackName"`
+	OrganizationConformancePackName pulumi.StringInput `pulumi:"organizationConformancePackName"`
 }
 
 func (LookupOrganizationConformancePackOutputArgs) ElementType() reflect.Type {

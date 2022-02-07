@@ -22,9 +22,9 @@ func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.Invo
 
 type LookupAddonArgs struct {
 	// Name of Addon
-	AddonName *string `pulumi:"addonName"`
+	AddonName string `pulumi:"addonName"`
 	// Name of Cluster
-	ClusterName *string `pulumi:"clusterName"`
+	ClusterName string `pulumi:"clusterName"`
 }
 
 type LookupAddonResult struct {
@@ -49,9 +49,9 @@ func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...
 
 type LookupAddonOutputArgs struct {
 	// Name of Addon
-	AddonName pulumi.StringPtrInput `pulumi:"addonName"`
+	AddonName pulumi.StringInput `pulumi:"addonName"`
 	// Name of Cluster
-	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 }
 
 func (LookupAddonOutputArgs) ElementType() reflect.Type {

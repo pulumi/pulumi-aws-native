@@ -21,7 +21,7 @@ func LookupMacro(ctx *pulumi.Context, args *LookupMacroArgs, opts ...pulumi.Invo
 }
 
 type LookupMacroArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMacroResult struct {
@@ -42,7 +42,7 @@ func LookupMacroOutput(ctx *pulumi.Context, args LookupMacroOutputArgs, opts ...
 }
 
 type LookupMacroOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMacroOutputArgs) ElementType() reflect.Type {

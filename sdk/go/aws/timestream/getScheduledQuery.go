@@ -21,7 +21,7 @@ func LookupScheduledQuery(ctx *pulumi.Context, args *LookupScheduledQueryArgs, o
 }
 
 type LookupScheduledQueryArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupScheduledQueryResult struct {
@@ -55,7 +55,7 @@ func LookupScheduledQueryOutput(ctx *pulumi.Context, args LookupScheduledQueryOu
 }
 
 type LookupScheduledQueryOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupScheduledQueryOutputArgs) ElementType() reflect.Type {

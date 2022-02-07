@@ -21,7 +21,7 @@ func LookupAssessmentTemplate(ctx *pulumi.Context, args *LookupAssessmentTemplat
 }
 
 type LookupAssessmentTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAssessmentTemplateResult struct {
@@ -39,7 +39,7 @@ func LookupAssessmentTemplateOutput(ctx *pulumi.Context, args LookupAssessmentTe
 }
 
 type LookupAssessmentTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAssessmentTemplateOutputArgs) ElementType() reflect.Type {

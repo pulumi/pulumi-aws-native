@@ -21,7 +21,7 @@ func LookupSubnetCidrBlock(ctx *pulumi.Context, args *LookupSubnetCidrBlockArgs,
 }
 
 type LookupSubnetCidrBlockArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSubnetCidrBlockResult struct {
@@ -38,7 +38,7 @@ func LookupSubnetCidrBlockOutput(ctx *pulumi.Context, args LookupSubnetCidrBlock
 }
 
 type LookupSubnetCidrBlockOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSubnetCidrBlockOutputArgs) ElementType() reflect.Type {

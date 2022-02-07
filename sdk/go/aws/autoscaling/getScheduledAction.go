@@ -21,7 +21,7 @@ func LookupScheduledAction(ctx *pulumi.Context, args *LookupScheduledActionArgs,
 }
 
 type LookupScheduledActionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupScheduledActionResult struct {
@@ -45,7 +45,7 @@ func LookupScheduledActionOutput(ctx *pulumi.Context, args LookupScheduledAction
 }
 
 type LookupScheduledActionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupScheduledActionOutputArgs) ElementType() reflect.Type {

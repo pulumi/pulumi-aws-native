@@ -22,7 +22,7 @@ func LookupResolverQueryLoggingConfigAssociation(ctx *pulumi.Context, args *Look
 
 type LookupResolverQueryLoggingConfigAssociationArgs struct {
 	// Id
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResolverQueryLoggingConfigAssociationResult struct {
@@ -49,7 +49,7 @@ func LookupResolverQueryLoggingConfigAssociationOutput(ctx *pulumi.Context, args
 
 type LookupResolverQueryLoggingConfigAssociationOutputArgs struct {
 	// Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResolverQueryLoggingConfigAssociationOutputArgs) ElementType() reflect.Type {

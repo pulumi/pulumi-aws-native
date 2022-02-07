@@ -22,7 +22,7 @@ func LookupResourceVersion(ctx *pulumi.Context, args *LookupResourceVersionArgs,
 
 type LookupResourceVersionArgs struct {
 	// The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupResourceVersionResult struct {
@@ -57,7 +57,7 @@ func LookupResourceVersionOutput(ctx *pulumi.Context, args LookupResourceVersion
 
 type LookupResourceVersionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupResourceVersionOutputArgs) ElementType() reflect.Type {

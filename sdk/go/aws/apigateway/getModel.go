@@ -22,9 +22,9 @@ func LookupModel(ctx *pulumi.Context, args *LookupModelArgs, opts ...pulumi.Invo
 
 type LookupModelArgs struct {
 	// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The ID of a REST API with which to associate this model.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupModelResult struct {
@@ -45,9 +45,9 @@ func LookupModelOutput(ctx *pulumi.Context, args LookupModelOutputArgs, opts ...
 
 type LookupModelOutputArgs struct {
 	// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of a REST API with which to associate this model.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupModelOutputArgs) ElementType() reflect.Type {

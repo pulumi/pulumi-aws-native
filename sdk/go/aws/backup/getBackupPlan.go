@@ -21,7 +21,7 @@ func LookupBackupPlan(ctx *pulumi.Context, args *LookupBackupPlanArgs, opts ...p
 }
 
 type LookupBackupPlanArgs struct {
-	BackupPlanId *string `pulumi:"backupPlanId"`
+	BackupPlanId string `pulumi:"backupPlanId"`
 }
 
 type LookupBackupPlanResult struct {
@@ -42,7 +42,7 @@ func LookupBackupPlanOutput(ctx *pulumi.Context, args LookupBackupPlanOutputArgs
 }
 
 type LookupBackupPlanOutputArgs struct {
-	BackupPlanId pulumi.StringPtrInput `pulumi:"backupPlanId"`
+	BackupPlanId pulumi.StringInput `pulumi:"backupPlanId"`
 }
 
 func (LookupBackupPlanOutputArgs) ElementType() reflect.Type {

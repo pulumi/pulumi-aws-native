@@ -21,7 +21,7 @@ func LookupStep(ctx *pulumi.Context, args *LookupStepArgs, opts ...pulumi.Invoke
 }
 
 type LookupStepArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupStepResult struct {
@@ -38,7 +38,7 @@ func LookupStepOutput(ctx *pulumi.Context, args LookupStepOutputArgs, opts ...pu
 }
 
 type LookupStepOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupStepOutputArgs) ElementType() reflect.Type {

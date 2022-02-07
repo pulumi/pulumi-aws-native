@@ -22,7 +22,7 @@ func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, o
 
 type LookupReplicationSetArgs struct {
 	// The ARN of the ReplicationSet.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupReplicationSetResult struct {
@@ -44,7 +44,7 @@ func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOu
 
 type LookupReplicationSetOutputArgs struct {
 	// The ARN of the ReplicationSet.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupReplicationSetOutputArgs) ElementType() reflect.Type {

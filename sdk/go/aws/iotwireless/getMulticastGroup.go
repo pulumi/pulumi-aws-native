@@ -22,7 +22,7 @@ func LookupMulticastGroup(ctx *pulumi.Context, args *LookupMulticastGroupArgs, o
 
 type LookupMulticastGroupArgs struct {
 	// Multicast group id. Returned after successful create.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMulticastGroupResult struct {
@@ -57,7 +57,7 @@ func LookupMulticastGroupOutput(ctx *pulumi.Context, args LookupMulticastGroupOu
 
 type LookupMulticastGroupOutputArgs struct {
 	// Multicast group id. Returned after successful create.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMulticastGroupOutputArgs) ElementType() reflect.Type {

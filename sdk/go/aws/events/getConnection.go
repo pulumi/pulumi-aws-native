@@ -22,7 +22,7 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 type LookupConnectionArgs struct {
 	// Name of the connection.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupConnectionResult struct {
@@ -47,7 +47,7 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 type LookupConnectionOutputArgs struct {
 	// Name of the connection.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupConnectionOutputArgs) ElementType() reflect.Type {

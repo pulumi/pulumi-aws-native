@@ -21,7 +21,7 @@ func LookupAttributeGroup(ctx *pulumi.Context, args *LookupAttributeGroupArgs, o
 }
 
 type LookupAttributeGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAttributeGroupResult struct {
@@ -45,7 +45,7 @@ func LookupAttributeGroupOutput(ctx *pulumi.Context, args LookupAttributeGroupOu
 }
 
 type LookupAttributeGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAttributeGroupOutputArgs) ElementType() reflect.Type {

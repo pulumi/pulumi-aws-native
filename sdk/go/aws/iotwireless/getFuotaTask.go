@@ -22,7 +22,7 @@ func LookupFuotaTask(ctx *pulumi.Context, args *LookupFuotaTaskArgs, opts ...pul
 
 type LookupFuotaTaskArgs struct {
 	// FUOTA task id. Returned after successful create.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFuotaTaskResult struct {
@@ -65,7 +65,7 @@ func LookupFuotaTaskOutput(ctx *pulumi.Context, args LookupFuotaTaskOutputArgs, 
 
 type LookupFuotaTaskOutputArgs struct {
 	// FUOTA task id. Returned after successful create.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFuotaTaskOutputArgs) ElementType() reflect.Type {

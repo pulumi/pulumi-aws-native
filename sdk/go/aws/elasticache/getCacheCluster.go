@@ -21,7 +21,7 @@ func LookupCacheCluster(ctx *pulumi.Context, args *LookupCacheClusterArgs, opts 
 }
 
 type LookupCacheClusterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCacheClusterResult struct {
@@ -58,7 +58,7 @@ func LookupCacheClusterOutput(ctx *pulumi.Context, args LookupCacheClusterOutput
 }
 
 type LookupCacheClusterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCacheClusterOutputArgs) ElementType() reflect.Type {

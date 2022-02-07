@@ -22,7 +22,7 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 type LookupDatabaseArgs struct {
 	// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
-	DatabaseName *string `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
 }
 
 type LookupDatabaseResult struct {
@@ -44,7 +44,7 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 type LookupDatabaseOutputArgs struct {
 	// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 }
 
 func (LookupDatabaseOutputArgs) ElementType() reflect.Type {

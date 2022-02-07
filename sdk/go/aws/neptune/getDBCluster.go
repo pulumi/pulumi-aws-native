@@ -21,7 +21,7 @@ func LookupDBCluster(ctx *pulumi.Context, args *LookupDBClusterArgs, opts ...pul
 }
 
 type LookupDBClusterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDBClusterResult struct {
@@ -52,7 +52,7 @@ func LookupDBClusterOutput(ctx *pulumi.Context, args LookupDBClusterOutputArgs, 
 }
 
 type LookupDBClusterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDBClusterOutputArgs) ElementType() reflect.Type {

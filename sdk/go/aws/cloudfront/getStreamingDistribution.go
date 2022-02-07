@@ -21,7 +21,7 @@ func LookupStreamingDistribution(ctx *pulumi.Context, args *LookupStreamingDistr
 }
 
 type LookupStreamingDistributionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupStreamingDistributionResult struct {
@@ -41,7 +41,7 @@ func LookupStreamingDistributionOutput(ctx *pulumi.Context, args LookupStreaming
 }
 
 type LookupStreamingDistributionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupStreamingDistributionOutputArgs) ElementType() reflect.Type {

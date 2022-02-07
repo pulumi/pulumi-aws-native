@@ -22,7 +22,7 @@ func LookupFeatureGroup(ctx *pulumi.Context, args *LookupFeatureGroupArgs, opts 
 
 type LookupFeatureGroupArgs struct {
 	// The Name of the FeatureGroup.
-	FeatureGroupName *string `pulumi:"featureGroupName"`
+	FeatureGroupName string `pulumi:"featureGroupName"`
 }
 
 type LookupFeatureGroupResult struct {
@@ -39,7 +39,7 @@ func LookupFeatureGroupOutput(ctx *pulumi.Context, args LookupFeatureGroupOutput
 
 type LookupFeatureGroupOutputArgs struct {
 	// The Name of the FeatureGroup.
-	FeatureGroupName pulumi.StringPtrInput `pulumi:"featureGroupName"`
+	FeatureGroupName pulumi.StringInput `pulumi:"featureGroupName"`
 }
 
 func (LookupFeatureGroupOutputArgs) ElementType() reflect.Type {

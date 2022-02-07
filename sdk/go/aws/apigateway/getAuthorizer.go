@@ -21,9 +21,9 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 }
 
 type LookupAuthorizerArgs struct {
-	AuthorizerId *string `pulumi:"authorizerId"`
+	AuthorizerId string `pulumi:"authorizerId"`
 	// The identifier of the API.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupAuthorizerResult struct {
@@ -58,9 +58,9 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 }
 
 type LookupAuthorizerOutputArgs struct {
-	AuthorizerId pulumi.StringPtrInput `pulumi:"authorizerId"`
+	AuthorizerId pulumi.StringInput `pulumi:"authorizerId"`
 	// The identifier of the API.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupAuthorizerOutputArgs) ElementType() reflect.Type {

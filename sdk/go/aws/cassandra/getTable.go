@@ -22,9 +22,9 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 
 type LookupTableArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName *string `pulumi:"keyspaceName"`
+	KeyspaceName string `pulumi:"keyspaceName"`
 	// Name for Cassandra table
-	TableName *string `pulumi:"tableName"`
+	TableName string `pulumi:"tableName"`
 }
 
 type LookupTableResult struct {
@@ -51,9 +51,9 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 
 type LookupTableOutputArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName pulumi.StringPtrInput `pulumi:"keyspaceName"`
+	KeyspaceName pulumi.StringInput `pulumi:"keyspaceName"`
 	// Name for Cassandra table
-	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {

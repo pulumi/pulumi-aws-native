@@ -21,7 +21,7 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 }
 
 type LookupBucketPolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupBucketPolicyResult struct {
@@ -39,7 +39,7 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 }
 
 type LookupBucketPolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupBucketPolicyOutputArgs) ElementType() reflect.Type {

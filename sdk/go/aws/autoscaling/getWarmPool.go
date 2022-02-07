@@ -21,7 +21,7 @@ func LookupWarmPool(ctx *pulumi.Context, args *LookupWarmPoolArgs, opts ...pulum
 }
 
 type LookupWarmPoolArgs struct {
-	AutoScalingGroupName *string `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
 }
 
 type LookupWarmPoolResult struct {
@@ -41,7 +41,7 @@ func LookupWarmPoolOutput(ctx *pulumi.Context, args LookupWarmPoolOutputArgs, op
 }
 
 type LookupWarmPoolOutputArgs struct {
-	AutoScalingGroupName pulumi.StringPtrInput `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName pulumi.StringInput `pulumi:"autoScalingGroupName"`
 }
 
 func (LookupWarmPoolOutputArgs) ElementType() reflect.Type {

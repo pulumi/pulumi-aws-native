@@ -22,7 +22,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 
 type LookupDomainArgs struct {
 	// The unique name of the domain.
-	DomainName *string `pulumi:"domainName"`
+	DomainName string `pulumi:"domainName"`
 }
 
 type LookupDomainResult struct {
@@ -51,7 +51,7 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 
 type LookupDomainOutputArgs struct {
 	// The unique name of the domain.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
 func (LookupDomainOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupDestination(ctx *pulumi.Context, args *LookupDestinationArgs, opts ..
 }
 
 type LookupDestinationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDestinationResult struct {
@@ -42,7 +42,7 @@ func LookupDestinationOutput(ctx *pulumi.Context, args LookupDestinationOutputAr
 }
 
 type LookupDestinationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDestinationOutputArgs) ElementType() reflect.Type {

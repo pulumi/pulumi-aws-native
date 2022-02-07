@@ -21,7 +21,7 @@ func LookupADMChannel(ctx *pulumi.Context, args *LookupADMChannelArgs, opts ...p
 }
 
 type LookupADMChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupADMChannelResult struct {
@@ -41,7 +41,7 @@ func LookupADMChannelOutput(ctx *pulumi.Context, args LookupADMChannelOutputArgs
 }
 
 type LookupADMChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupADMChannelOutputArgs) ElementType() reflect.Type {

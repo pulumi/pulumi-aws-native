@@ -21,7 +21,7 @@ func LookupPrivateDnsNamespace(ctx *pulumi.Context, args *LookupPrivateDnsNamesp
 }
 
 type LookupPrivateDnsNamespaceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPrivateDnsNamespaceResult struct {
@@ -43,7 +43,7 @@ func LookupPrivateDnsNamespaceOutput(ctx *pulumi.Context, args LookupPrivateDnsN
 }
 
 type LookupPrivateDnsNamespaceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPrivateDnsNamespaceOutputArgs) ElementType() reflect.Type {

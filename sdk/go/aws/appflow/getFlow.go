@@ -22,7 +22,7 @@ func LookupFlow(ctx *pulumi.Context, args *LookupFlowArgs, opts ...pulumi.Invoke
 
 type LookupFlowArgs struct {
 	// Name of the flow.
-	FlowName *string `pulumi:"flowName"`
+	FlowName string `pulumi:"flowName"`
 }
 
 type LookupFlowResult struct {
@@ -53,7 +53,7 @@ func LookupFlowOutput(ctx *pulumi.Context, args LookupFlowOutputArgs, opts ...pu
 
 type LookupFlowOutputArgs struct {
 	// Name of the flow.
-	FlowName pulumi.StringPtrInput `pulumi:"flowName"`
+	FlowName pulumi.StringInput `pulumi:"flowName"`
 }
 
 func (LookupFlowOutputArgs) ElementType() reflect.Type {

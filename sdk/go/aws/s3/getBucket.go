@@ -22,7 +22,7 @@ func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.In
 
 type LookupBucketArgs struct {
 	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-	BucketName *string `pulumi:"bucketName"`
+	BucketName string `pulumi:"bucketName"`
 }
 
 type LookupBucketResult struct {
@@ -81,7 +81,7 @@ func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts .
 
 type LookupBucketOutputArgs struct {
 	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
 func (LookupBucketOutputArgs) ElementType() reflect.Type {

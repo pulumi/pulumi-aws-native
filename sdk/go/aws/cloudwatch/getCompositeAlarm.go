@@ -22,7 +22,7 @@ func LookupCompositeAlarm(ctx *pulumi.Context, args *LookupCompositeAlarmArgs, o
 
 type LookupCompositeAlarmArgs struct {
 	// The name of the Composite Alarm
-	AlarmName *string `pulumi:"alarmName"`
+	AlarmName string `pulumi:"alarmName"`
 }
 
 type LookupCompositeAlarmResult struct {
@@ -53,7 +53,7 @@ func LookupCompositeAlarmOutput(ctx *pulumi.Context, args LookupCompositeAlarmOu
 
 type LookupCompositeAlarmOutputArgs struct {
 	// The name of the Composite Alarm
-	AlarmName pulumi.StringPtrInput `pulumi:"alarmName"`
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
 }
 
 func (LookupCompositeAlarmOutputArgs) ElementType() reflect.Type {

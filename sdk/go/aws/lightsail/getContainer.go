@@ -22,7 +22,7 @@ func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pul
 
 type LookupContainerArgs struct {
 	// The name for the container service.
-	ServiceName *string `pulumi:"serviceName"`
+	ServiceName string `pulumi:"serviceName"`
 }
 
 type LookupContainerResult struct {
@@ -54,7 +54,7 @@ func LookupContainerOutput(ctx *pulumi.Context, args LookupContainerOutputArgs, 
 
 type LookupContainerOutputArgs struct {
 	// The name for the container service.
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
 func (LookupContainerOutputArgs) ElementType() reflect.Type {

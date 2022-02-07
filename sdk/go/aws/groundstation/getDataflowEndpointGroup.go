@@ -21,7 +21,7 @@ func LookupDataflowEndpointGroup(ctx *pulumi.Context, args *LookupDataflowEndpoi
 }
 
 type LookupDataflowEndpointGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDataflowEndpointGroupResult struct {
@@ -41,7 +41,7 @@ func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowE
 }
 
 type LookupDataflowEndpointGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDataflowEndpointGroupOutputArgs) ElementType() reflect.Type {

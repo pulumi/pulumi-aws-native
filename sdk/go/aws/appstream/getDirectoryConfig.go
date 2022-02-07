@@ -21,7 +21,7 @@ func LookupDirectoryConfig(ctx *pulumi.Context, args *LookupDirectoryConfigArgs,
 }
 
 type LookupDirectoryConfigArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDirectoryConfigResult struct {
@@ -40,7 +40,7 @@ func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfig
 }
 
 type LookupDirectoryConfigOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDirectoryConfigOutputArgs) ElementType() reflect.Type {

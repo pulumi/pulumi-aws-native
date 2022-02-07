@@ -22,7 +22,7 @@ func LookupWorkGroup(ctx *pulumi.Context, args *LookupWorkGroupArgs, opts ...pul
 
 type LookupWorkGroupArgs struct {
 	// The workGroup name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupWorkGroupResult struct {
@@ -53,7 +53,7 @@ func LookupWorkGroupOutput(ctx *pulumi.Context, args LookupWorkGroupOutputArgs, 
 
 type LookupWorkGroupOutputArgs struct {
 	// The workGroup name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupWorkGroupOutputArgs) ElementType() reflect.Type {

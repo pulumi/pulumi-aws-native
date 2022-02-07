@@ -22,7 +22,7 @@ func LookupModuleDefaultVersion(ctx *pulumi.Context, args *LookupModuleDefaultVe
 
 type LookupModuleDefaultVersionArgs struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupModuleDefaultVersionResult struct {
@@ -39,7 +39,7 @@ func LookupModuleDefaultVersionOutput(ctx *pulumi.Context, args LookupModuleDefa
 
 type LookupModuleDefaultVersionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupModuleDefaultVersionOutputArgs) ElementType() reflect.Type {

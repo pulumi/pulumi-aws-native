@@ -22,7 +22,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 type LookupUserArgs struct {
 	// The ID of the user.
-	UserId *string `pulumi:"userId"`
+	UserId string `pulumi:"userId"`
 }
 
 type LookupUserResult struct {
@@ -43,7 +43,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 type LookupUserOutputArgs struct {
 	// The ID of the user.
-	UserId pulumi.StringPtrInput `pulumi:"userId"`
+	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {

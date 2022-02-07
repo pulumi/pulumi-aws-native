@@ -21,7 +21,7 @@ func LookupReplicaKey(ctx *pulumi.Context, args *LookupReplicaKeyArgs, opts ...p
 }
 
 type LookupReplicaKeyArgs struct {
-	KeyId *string `pulumi:"keyId"`
+	KeyId string `pulumi:"keyId"`
 }
 
 type LookupReplicaKeyResult struct {
@@ -47,7 +47,7 @@ func LookupReplicaKeyOutput(ctx *pulumi.Context, args LookupReplicaKeyOutputArgs
 }
 
 type LookupReplicaKeyOutputArgs struct {
-	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
 func (LookupReplicaKeyOutputArgs) ElementType() reflect.Type {

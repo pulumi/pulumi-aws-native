@@ -22,9 +22,9 @@ func LookupLocalGatewayRoute(ctx *pulumi.Context, args *LookupLocalGatewayRouteA
 
 type LookupLocalGatewayRouteArgs struct {
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
+	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 }
 
 type LookupLocalGatewayRouteResult struct {
@@ -45,9 +45,9 @@ func LookupLocalGatewayRouteOutput(ctx *pulumi.Context, args LookupLocalGatewayR
 
 type LookupLocalGatewayRouteOutputArgs struct {
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
+	LocalGatewayRouteTableId pulumi.StringInput `pulumi:"localGatewayRouteTableId"`
 }
 
 func (LookupLocalGatewayRouteOutputArgs) ElementType() reflect.Type {

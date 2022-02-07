@@ -22,9 +22,9 @@ func LookupTransitGatewayRegistration(ctx *pulumi.Context, args *LookupTransitGa
 
 type LookupTransitGatewayRegistrationArgs struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The Amazon Resource Name (ARN) of the transit gateway.
-	TransitGatewayArn *string `pulumi:"transitGatewayArn"`
+	TransitGatewayArn string `pulumi:"transitGatewayArn"`
 }
 
 type LookupTransitGatewayRegistrationResult struct {
@@ -41,9 +41,9 @@ func LookupTransitGatewayRegistrationOutput(ctx *pulumi.Context, args LookupTran
 
 type LookupTransitGatewayRegistrationOutputArgs struct {
 	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput `pulumi:"globalNetworkId"`
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 	// The Amazon Resource Name (ARN) of the transit gateway.
-	TransitGatewayArn pulumi.StringPtrInput `pulumi:"transitGatewayArn"`
+	TransitGatewayArn pulumi.StringInput `pulumi:"transitGatewayArn"`
 }
 
 func (LookupTransitGatewayRegistrationOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 
 type LookupApplicationArgs struct {
 	// The ARN of the ApplicationInsights application.
-	ApplicationARN *string `pulumi:"applicationARN"`
+	ApplicationARN string `pulumi:"applicationARN"`
 }
 
 type LookupApplicationResult struct {
@@ -57,7 +57,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 
 type LookupApplicationOutputArgs struct {
 	// The ARN of the ApplicationInsights application.
-	ApplicationARN pulumi.StringPtrInput `pulumi:"applicationARN"`
+	ApplicationARN pulumi.StringInput `pulumi:"applicationARN"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {

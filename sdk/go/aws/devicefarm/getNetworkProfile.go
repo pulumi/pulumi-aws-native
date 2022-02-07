@@ -21,7 +21,7 @@ func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, o
 }
 
 type LookupNetworkProfileArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupNetworkProfileResult struct {
@@ -49,7 +49,7 @@ func LookupNetworkProfileOutput(ctx *pulumi.Context, args LookupNetworkProfileOu
 }
 
 type LookupNetworkProfileOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupNetworkProfileOutputArgs) ElementType() reflect.Type {

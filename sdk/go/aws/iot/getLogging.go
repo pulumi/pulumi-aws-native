@@ -22,7 +22,7 @@ func LookupLogging(ctx *pulumi.Context, args *LookupLoggingArgs, opts ...pulumi.
 
 type LookupLoggingArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId *string `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 }
 
 type LookupLoggingResult struct {
@@ -43,7 +43,7 @@ func LookupLoggingOutput(ctx *pulumi.Context, args LookupLoggingOutputArgs, opts
 
 type LookupLoggingOutputArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
 func (LookupLoggingOutputArgs) ElementType() reflect.Type {

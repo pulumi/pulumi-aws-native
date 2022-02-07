@@ -21,7 +21,7 @@ func LookupCampaign(ctx *pulumi.Context, args *LookupCampaignArgs, opts ...pulum
 }
 
 type LookupCampaignArgs struct {
-	CampaignId *string `pulumi:"campaignId"`
+	CampaignId string `pulumi:"campaignId"`
 }
 
 type LookupCampaignResult struct {
@@ -54,7 +54,7 @@ func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, op
 }
 
 type LookupCampaignOutputArgs struct {
-	CampaignId pulumi.StringPtrInput `pulumi:"campaignId"`
+	CampaignId pulumi.StringInput `pulumi:"campaignId"`
 }
 
 func (LookupCampaignOutputArgs) ElementType() reflect.Type {

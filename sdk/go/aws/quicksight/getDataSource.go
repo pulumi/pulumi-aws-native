@@ -21,8 +21,8 @@ func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...p
 }
 
 type LookupDataSourceArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	DataSourceId *string `pulumi:"dataSourceId"`
+	AwsAccountId string `pulumi:"awsAccountId"`
+	DataSourceId string `pulumi:"dataSourceId"`
 }
 
 type LookupDataSourceResult struct {
@@ -65,8 +65,8 @@ func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs
 }
 
 type LookupDataSourceOutputArgs struct {
-	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	DataSourceId pulumi.StringPtrInput `pulumi:"dataSourceId"`
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
 }
 
 func (LookupDataSourceOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...p
 }
 
 type LookupFileSystemArgs struct {
-	FileSystemId *string `pulumi:"fileSystemId"`
+	FileSystemId string `pulumi:"fileSystemId"`
 }
 
 type LookupFileSystemResult struct {
@@ -45,7 +45,7 @@ func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs
 }
 
 type LookupFileSystemOutputArgs struct {
-	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
 }
 
 func (LookupFileSystemOutputArgs) ElementType() reflect.Type {

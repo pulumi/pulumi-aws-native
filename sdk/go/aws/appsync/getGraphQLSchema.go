@@ -21,7 +21,7 @@ func LookupGraphQLSchema(ctx *pulumi.Context, args *LookupGraphQLSchemaArgs, opt
 }
 
 type LookupGraphQLSchemaArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGraphQLSchemaResult struct {
@@ -40,7 +40,7 @@ func LookupGraphQLSchemaOutput(ctx *pulumi.Context, args LookupGraphQLSchemaOutp
 }
 
 type LookupGraphQLSchemaOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGraphQLSchemaOutputArgs) ElementType() reflect.Type {

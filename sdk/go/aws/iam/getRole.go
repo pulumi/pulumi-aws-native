@@ -22,7 +22,7 @@ func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.Invoke
 
 type LookupRoleArgs struct {
 	// A name for the IAM role, up to 64 characters in length.
-	RoleName *string `pulumi:"roleName"`
+	RoleName string `pulumi:"roleName"`
 }
 
 type LookupRoleResult struct {
@@ -57,7 +57,7 @@ func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pu
 
 type LookupRoleOutputArgs struct {
 	// A name for the IAM role, up to 64 characters in length.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	RoleName pulumi.StringInput `pulumi:"roleName"`
 }
 
 func (LookupRoleOutputArgs) ElementType() reflect.Type {

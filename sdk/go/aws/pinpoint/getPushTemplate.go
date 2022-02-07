@@ -21,7 +21,7 @@ func LookupPushTemplate(ctx *pulumi.Context, args *LookupPushTemplateArgs, opts 
 }
 
 type LookupPushTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPushTemplateResult struct {
@@ -47,7 +47,7 @@ func LookupPushTemplateOutput(ctx *pulumi.Context, args LookupPushTemplateOutput
 }
 
 type LookupPushTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPushTemplateOutputArgs) ElementType() reflect.Type {

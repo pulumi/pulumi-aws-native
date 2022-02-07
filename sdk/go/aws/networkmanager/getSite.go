@@ -22,9 +22,9 @@ func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.Invoke
 
 type LookupSiteArgs struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The ID of the site.
-	SiteId *string `pulumi:"siteId"`
+	SiteId string `pulumi:"siteId"`
 }
 
 type LookupSiteResult struct {
@@ -51,9 +51,9 @@ func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pu
 
 type LookupSiteOutputArgs struct {
 	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput `pulumi:"globalNetworkId"`
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 	// The ID of the site.
-	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
+	SiteId pulumi.StringInput `pulumi:"siteId"`
 }
 
 func (LookupSiteOutputArgs) ElementType() reflect.Type {

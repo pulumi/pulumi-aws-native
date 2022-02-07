@@ -21,7 +21,7 @@ func LookupDeviceDefinitionVersion(ctx *pulumi.Context, args *LookupDeviceDefini
 }
 
 type LookupDeviceDefinitionVersionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDeviceDefinitionVersionResult struct {
@@ -38,7 +38,7 @@ func LookupDeviceDefinitionVersionOutput(ctx *pulumi.Context, args LookupDeviceD
 }
 
 type LookupDeviceDefinitionVersionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDeviceDefinitionVersionOutputArgs) ElementType() reflect.Type {

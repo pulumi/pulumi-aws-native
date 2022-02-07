@@ -22,7 +22,7 @@ func LookupAccessPointPolicy(ctx *pulumi.Context, args *LookupAccessPointPolicyA
 
 type LookupAccessPointPolicyArgs struct {
 	// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
-	ObjectLambdaAccessPoint *string `pulumi:"objectLambdaAccessPoint"`
+	ObjectLambdaAccessPoint string `pulumi:"objectLambdaAccessPoint"`
 }
 
 type LookupAccessPointPolicyResult struct {
@@ -41,7 +41,7 @@ func LookupAccessPointPolicyOutput(ctx *pulumi.Context, args LookupAccessPointPo
 
 type LookupAccessPointPolicyOutputArgs struct {
 	// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
-	ObjectLambdaAccessPoint pulumi.StringPtrInput `pulumi:"objectLambdaAccessPoint"`
+	ObjectLambdaAccessPoint pulumi.StringInput `pulumi:"objectLambdaAccessPoint"`
 }
 
 func (LookupAccessPointPolicyOutputArgs) ElementType() reflect.Type {

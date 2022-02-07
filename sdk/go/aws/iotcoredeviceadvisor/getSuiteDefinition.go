@@ -22,7 +22,7 @@ func LookupSuiteDefinition(ctx *pulumi.Context, args *LookupSuiteDefinitionArgs,
 
 type LookupSuiteDefinitionArgs struct {
 	// The unique identifier for the suite definition.
-	SuiteDefinitionId *string `pulumi:"suiteDefinitionId"`
+	SuiteDefinitionId string `pulumi:"suiteDefinitionId"`
 }
 
 type LookupSuiteDefinitionResult struct {
@@ -48,7 +48,7 @@ func LookupSuiteDefinitionOutput(ctx *pulumi.Context, args LookupSuiteDefinition
 
 type LookupSuiteDefinitionOutputArgs struct {
 	// The unique identifier for the suite definition.
-	SuiteDefinitionId pulumi.StringPtrInput `pulumi:"suiteDefinitionId"`
+	SuiteDefinitionId pulumi.StringInput `pulumi:"suiteDefinitionId"`
 }
 
 func (LookupSuiteDefinitionOutputArgs) ElementType() reflect.Type {

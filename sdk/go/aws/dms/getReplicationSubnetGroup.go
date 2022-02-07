@@ -21,7 +21,7 @@ func LookupReplicationSubnetGroup(ctx *pulumi.Context, args *LookupReplicationSu
 }
 
 type LookupReplicationSubnetGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupReplicationSubnetGroupResult struct {
@@ -40,7 +40,7 @@ func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicat
 }
 
 type LookupReplicationSubnetGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupReplicationSubnetGroupOutputArgs) ElementType() reflect.Type {

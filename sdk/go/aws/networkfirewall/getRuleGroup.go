@@ -21,7 +21,7 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 }
 
 type LookupRuleGroupArgs struct {
-	RuleGroupArn *string `pulumi:"ruleGroupArn"`
+	RuleGroupArn string `pulumi:"ruleGroupArn"`
 }
 
 type LookupRuleGroupResult struct {
@@ -42,7 +42,7 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 }
 
 type LookupRuleGroupOutputArgs struct {
-	RuleGroupArn pulumi.StringPtrInput `pulumi:"ruleGroupArn"`
+	RuleGroupArn pulumi.StringInput `pulumi:"ruleGroupArn"`
 }
 
 func (LookupRuleGroupOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupIdentity(ctx *pulumi.Context, args *LookupIdentityArgs, opts ...pulum
 }
 
 type LookupIdentityArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupIdentityResult struct {
@@ -48,7 +48,7 @@ func LookupIdentityOutput(ctx *pulumi.Context, args LookupIdentityOutputArgs, op
 }
 
 type LookupIdentityOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupIdentityOutputArgs) ElementType() reflect.Type {

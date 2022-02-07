@@ -21,8 +21,8 @@ func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...p
 }
 
 type LookupDataSourceArgs struct {
-	Id      *string `pulumi:"id"`
-	IndexId *string `pulumi:"indexId"`
+	Id      string `pulumi:"id"`
+	IndexId string `pulumi:"indexId"`
 }
 
 type LookupDataSourceResult struct {
@@ -48,8 +48,8 @@ func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs
 }
 
 type LookupDataSourceOutputArgs struct {
-	Id      pulumi.StringPtrInput `pulumi:"id"`
-	IndexId pulumi.StringPtrInput `pulumi:"indexId"`
+	Id      pulumi.StringInput `pulumi:"id"`
+	IndexId pulumi.StringInput `pulumi:"indexId"`
 }
 
 func (LookupDataSourceOutputArgs) ElementType() reflect.Type {

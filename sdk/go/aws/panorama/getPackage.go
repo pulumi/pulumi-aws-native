@@ -21,7 +21,7 @@ func LookupPackage(ctx *pulumi.Context, args *LookupPackageArgs, opts ...pulumi.
 }
 
 type LookupPackageArgs struct {
-	PackageId *string `pulumi:"packageId"`
+	PackageId string `pulumi:"packageId"`
 }
 
 type LookupPackageResult struct {
@@ -42,7 +42,7 @@ func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts
 }
 
 type LookupPackageOutputArgs struct {
-	PackageId pulumi.StringPtrInput `pulumi:"packageId"`
+	PackageId pulumi.StringInput `pulumi:"packageId"`
 }
 
 func (LookupPackageOutputArgs) ElementType() reflect.Type {

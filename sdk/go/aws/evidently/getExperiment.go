@@ -21,7 +21,7 @@ func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...p
 }
 
 type LookupExperimentArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupExperimentResult struct {
@@ -46,7 +46,7 @@ func LookupExperimentOutput(ctx *pulumi.Context, args LookupExperimentOutputArgs
 }
 
 type LookupExperimentOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupExperimentOutputArgs) ElementType() reflect.Type {

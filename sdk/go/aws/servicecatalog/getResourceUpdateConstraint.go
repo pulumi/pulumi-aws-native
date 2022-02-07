@@ -21,7 +21,7 @@ func LookupResourceUpdateConstraint(ctx *pulumi.Context, args *LookupResourceUpd
 }
 
 type LookupResourceUpdateConstraintArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResourceUpdateConstraintResult struct {
@@ -41,7 +41,7 @@ func LookupResourceUpdateConstraintOutput(ctx *pulumi.Context, args LookupResour
 }
 
 type LookupResourceUpdateConstraintOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResourceUpdateConstraintOutputArgs) ElementType() reflect.Type {

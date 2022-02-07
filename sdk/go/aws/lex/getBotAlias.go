@@ -21,8 +21,8 @@ func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulum
 }
 
 type LookupBotAliasArgs struct {
-	BotAliasId *string `pulumi:"botAliasId"`
-	BotId      *string `pulumi:"botId"`
+	BotAliasId string `pulumi:"botAliasId"`
+	BotId      string `pulumi:"botId"`
 }
 
 type LookupBotAliasResult struct {
@@ -48,8 +48,8 @@ func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, op
 }
 
 type LookupBotAliasOutputArgs struct {
-	BotAliasId pulumi.StringPtrInput `pulumi:"botAliasId"`
-	BotId      pulumi.StringPtrInput `pulumi:"botId"`
+	BotAliasId pulumi.StringInput `pulumi:"botAliasId"`
+	BotId      pulumi.StringInput `pulumi:"botId"`
 }
 
 func (LookupBotAliasOutputArgs) ElementType() reflect.Type {

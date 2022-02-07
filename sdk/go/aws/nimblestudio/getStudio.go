@@ -21,7 +21,7 @@ func LookupStudio(ctx *pulumi.Context, args *LookupStudioArgs, opts ...pulumi.In
 }
 
 type LookupStudioArgs struct {
-	StudioId *string `pulumi:"studioId"`
+	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStudioResult struct {
@@ -51,7 +51,7 @@ func LookupStudioOutput(ctx *pulumi.Context, args LookupStudioOutputArgs, opts .
 }
 
 type LookupStudioOutputArgs struct {
-	StudioId pulumi.StringPtrInput `pulumi:"studioId"`
+	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupStudioOutputArgs) ElementType() reflect.Type {

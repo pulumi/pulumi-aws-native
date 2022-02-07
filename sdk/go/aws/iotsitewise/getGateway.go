@@ -22,7 +22,7 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 
 type LookupGatewayArgs struct {
 	// The ID of the gateway device.
-	GatewayId *string `pulumi:"gatewayId"`
+	GatewayId string `pulumi:"gatewayId"`
 }
 
 type LookupGatewayResult struct {
@@ -47,7 +47,7 @@ func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts
 
 type LookupGatewayOutputArgs struct {
 	// The ID of the gateway device.
-	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
 }
 
 func (LookupGatewayOutputArgs) ElementType() reflect.Type {

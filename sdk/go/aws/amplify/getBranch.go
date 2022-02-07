@@ -21,7 +21,7 @@ func LookupBranch(ctx *pulumi.Context, args *LookupBranchArgs, opts ...pulumi.In
 }
 
 type LookupBranchArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupBranchResult struct {
@@ -47,7 +47,7 @@ func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts .
 }
 
 type LookupBranchOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupBranchOutputArgs) ElementType() reflect.Type {

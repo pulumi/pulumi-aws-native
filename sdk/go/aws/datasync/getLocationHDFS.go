@@ -22,7 +22,7 @@ func LookupLocationHDFS(ctx *pulumi.Context, args *LookupLocationHDFSArgs, opts 
 
 type LookupLocationHDFSArgs struct {
 	// The Amazon Resource Name (ARN) of the HDFS location.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationHDFSResult struct {
@@ -62,7 +62,7 @@ func LookupLocationHDFSOutput(ctx *pulumi.Context, args LookupLocationHDFSOutput
 
 type LookupLocationHDFSOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the HDFS location.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationHDFSOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupRecoveryGroup(ctx *pulumi.Context, args *LookupRecoveryGroupArgs, opt
 
 type LookupRecoveryGroupArgs struct {
 	// The name of the recovery group to create.
-	RecoveryGroupName *string `pulumi:"recoveryGroupName"`
+	RecoveryGroupName string `pulumi:"recoveryGroupName"`
 }
 
 type LookupRecoveryGroupResult struct {
@@ -45,7 +45,7 @@ func LookupRecoveryGroupOutput(ctx *pulumi.Context, args LookupRecoveryGroupOutp
 
 type LookupRecoveryGroupOutputArgs struct {
 	// The name of the recovery group to create.
-	RecoveryGroupName pulumi.StringPtrInput `pulumi:"recoveryGroupName"`
+	RecoveryGroupName pulumi.StringInput `pulumi:"recoveryGroupName"`
 }
 
 func (LookupRecoveryGroupOutputArgs) ElementType() reflect.Type {

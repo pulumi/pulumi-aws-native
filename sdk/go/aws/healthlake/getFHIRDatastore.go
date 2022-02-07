@@ -21,7 +21,7 @@ func LookupFHIRDatastore(ctx *pulumi.Context, args *LookupFHIRDatastoreArgs, opt
 }
 
 type LookupFHIRDatastoreArgs struct {
-	DatastoreId *string `pulumi:"datastoreId"`
+	DatastoreId string `pulumi:"datastoreId"`
 }
 
 type LookupFHIRDatastoreResult struct {
@@ -43,7 +43,7 @@ func LookupFHIRDatastoreOutput(ctx *pulumi.Context, args LookupFHIRDatastoreOutp
 }
 
 type LookupFHIRDatastoreOutputArgs struct {
-	DatastoreId pulumi.StringPtrInput `pulumi:"datastoreId"`
+	DatastoreId pulumi.StringInput `pulumi:"datastoreId"`
 }
 
 func (LookupFHIRDatastoreOutputArgs) ElementType() reflect.Type {

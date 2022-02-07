@@ -22,9 +22,9 @@ func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.In
 
 type LookupDeviceArgs struct {
 	// The ID of the device.
-	DeviceId *string `pulumi:"deviceId"`
+	DeviceId string `pulumi:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 }
 
 type LookupDeviceResult struct {
@@ -61,9 +61,9 @@ func LookupDeviceOutput(ctx *pulumi.Context, args LookupDeviceOutputArgs, opts .
 
 type LookupDeviceOutputArgs struct {
 	// The ID of the device.
-	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
+	DeviceId pulumi.StringInput `pulumi:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput `pulumi:"globalNetworkId"`
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 }
 
 func (LookupDeviceOutputArgs) ElementType() reflect.Type {

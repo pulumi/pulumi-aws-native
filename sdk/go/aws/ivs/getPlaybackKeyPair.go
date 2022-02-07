@@ -22,7 +22,7 @@ func LookupPlaybackKeyPair(ctx *pulumi.Context, args *LookupPlaybackKeyPairArgs,
 
 type LookupPlaybackKeyPairArgs struct {
 	// Key-pair identifier.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupPlaybackKeyPairResult struct {
@@ -45,7 +45,7 @@ func LookupPlaybackKeyPairOutput(ctx *pulumi.Context, args LookupPlaybackKeyPair
 
 type LookupPlaybackKeyPairOutputArgs struct {
 	// Key-pair identifier.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupPlaybackKeyPairOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupConfigurationSetEventDestination(ctx *pulumi.Context, args *LookupCon
 }
 
 type LookupConfigurationSetEventDestinationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConfigurationSetEventDestinationResult struct {
@@ -39,7 +39,7 @@ func LookupConfigurationSetEventDestinationOutput(ctx *pulumi.Context, args Look
 }
 
 type LookupConfigurationSetEventDestinationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConfigurationSetEventDestinationOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 }
 
 type LookupDomainArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupDomainResult struct {
@@ -45,7 +45,7 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 }
 
 type LookupDomainOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupDomainOutputArgs) ElementType() reflect.Type {

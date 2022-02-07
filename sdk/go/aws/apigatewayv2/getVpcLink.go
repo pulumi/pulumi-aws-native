@@ -21,7 +21,7 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 }
 
 type LookupVpcLinkArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVpcLinkResult struct {
@@ -40,7 +40,7 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 }
 
 type LookupVpcLinkOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVpcLinkOutputArgs) ElementType() reflect.Type {

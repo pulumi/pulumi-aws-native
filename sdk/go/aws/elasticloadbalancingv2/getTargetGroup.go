@@ -21,7 +21,7 @@ func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ..
 }
 
 type LookupTargetGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTargetGroupResult struct {
@@ -53,7 +53,7 @@ func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputAr
 }
 
 type LookupTargetGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTargetGroupOutputArgs) ElementType() reflect.Type {

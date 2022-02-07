@@ -22,7 +22,7 @@ func LookupResiliencyPolicy(ctx *pulumi.Context, args *LookupResiliencyPolicyArg
 
 type LookupResiliencyPolicyArgs struct {
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
-	PolicyArn *string `pulumi:"policyArn"`
+	PolicyArn string `pulumi:"policyArn"`
 }
 
 type LookupResiliencyPolicyResult struct {
@@ -51,7 +51,7 @@ func LookupResiliencyPolicyOutput(ctx *pulumi.Context, args LookupResiliencyPoli
 
 type LookupResiliencyPolicyOutputArgs struct {
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
-	PolicyArn pulumi.StringPtrInput `pulumi:"policyArn"`
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
 }
 
 func (LookupResiliencyPolicyOutputArgs) ElementType() reflect.Type {

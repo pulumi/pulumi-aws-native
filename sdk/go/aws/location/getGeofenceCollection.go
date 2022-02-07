@@ -21,7 +21,7 @@ func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectio
 }
 
 type LookupGeofenceCollectionArgs struct {
-	CollectionName *string `pulumi:"collectionName"`
+	CollectionName string `pulumi:"collectionName"`
 }
 
 type LookupGeofenceCollectionResult struct {
@@ -42,7 +42,7 @@ func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceColl
 }
 
 type LookupGeofenceCollectionOutputArgs struct {
-	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
+	CollectionName pulumi.StringInput `pulumi:"collectionName"`
 }
 
 func (LookupGeofenceCollectionOutputArgs) ElementType() reflect.Type {

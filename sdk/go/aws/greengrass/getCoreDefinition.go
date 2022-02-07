@@ -21,7 +21,7 @@ func LookupCoreDefinition(ctx *pulumi.Context, args *LookupCoreDefinitionArgs, o
 }
 
 type LookupCoreDefinitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCoreDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupCoreDefinitionOutput(ctx *pulumi.Context, args LookupCoreDefinitionOu
 }
 
 type LookupCoreDefinitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCoreDefinitionOutputArgs) ElementType() reflect.Type {

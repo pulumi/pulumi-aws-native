@@ -22,7 +22,7 @@ func LookupScheduledAction(ctx *pulumi.Context, args *LookupScheduledActionArgs,
 
 type LookupScheduledActionArgs struct {
 	// The name of the scheduled action. The name must be unique within an account.
-	ScheduledActionName *string `pulumi:"scheduledActionName"`
+	ScheduledActionName string `pulumi:"scheduledActionName"`
 }
 
 type LookupScheduledActionResult struct {
@@ -57,7 +57,7 @@ func LookupScheduledActionOutput(ctx *pulumi.Context, args LookupScheduledAction
 
 type LookupScheduledActionOutputArgs struct {
 	// The name of the scheduled action. The name must be unique within an account.
-	ScheduledActionName pulumi.StringPtrInput `pulumi:"scheduledActionName"`
+	ScheduledActionName pulumi.StringInput `pulumi:"scheduledActionName"`
 }
 
 func (LookupScheduledActionOutputArgs) ElementType() reflect.Type {

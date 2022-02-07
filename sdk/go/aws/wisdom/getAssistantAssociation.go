@@ -21,8 +21,8 @@ func LookupAssistantAssociation(ctx *pulumi.Context, args *LookupAssistantAssoci
 }
 
 type LookupAssistantAssociationArgs struct {
-	AssistantAssociationId *string `pulumi:"assistantAssociationId"`
-	AssistantId            *string `pulumi:"assistantId"`
+	AssistantAssociationId string `pulumi:"assistantAssociationId"`
+	AssistantId            string `pulumi:"assistantId"`
 }
 
 type LookupAssistantAssociationResult struct {
@@ -41,8 +41,8 @@ func LookupAssistantAssociationOutput(ctx *pulumi.Context, args LookupAssistantA
 }
 
 type LookupAssistantAssociationOutputArgs struct {
-	AssistantAssociationId pulumi.StringPtrInput `pulumi:"assistantAssociationId"`
-	AssistantId            pulumi.StringPtrInput `pulumi:"assistantId"`
+	AssistantAssociationId pulumi.StringInput `pulumi:"assistantAssociationId"`
+	AssistantId            pulumi.StringInput `pulumi:"assistantId"`
 }
 
 func (LookupAssistantAssociationOutputArgs) ElementType() reflect.Type {

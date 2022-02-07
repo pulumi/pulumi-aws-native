@@ -21,7 +21,7 @@ func LookupRemediationConfiguration(ctx *pulumi.Context, args *LookupRemediation
 }
 
 type LookupRemediationConfigurationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRemediationConfigurationResult struct {
@@ -47,7 +47,7 @@ func LookupRemediationConfigurationOutput(ctx *pulumi.Context, args LookupRemedi
 }
 
 type LookupRemediationConfigurationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRemediationConfigurationOutputArgs) ElementType() reflect.Type {

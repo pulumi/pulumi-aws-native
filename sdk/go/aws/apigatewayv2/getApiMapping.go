@@ -21,7 +21,7 @@ func LookupApiMapping(ctx *pulumi.Context, args *LookupApiMappingArgs, opts ...p
 }
 
 type LookupApiMappingArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupApiMappingResult struct {
@@ -40,7 +40,7 @@ func LookupApiMappingOutput(ctx *pulumi.Context, args LookupApiMappingOutputArgs
 }
 
 type LookupApiMappingOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApiMappingOutputArgs) ElementType() reflect.Type {

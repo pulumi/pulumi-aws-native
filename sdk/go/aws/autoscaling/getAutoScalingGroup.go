@@ -21,7 +21,7 @@ func LookupAutoScalingGroup(ctx *pulumi.Context, args *LookupAutoScalingGroupArg
 }
 
 type LookupAutoScalingGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAutoScalingGroupResult struct {
@@ -64,7 +64,7 @@ func LookupAutoScalingGroupOutput(ctx *pulumi.Context, args LookupAutoScalingGro
 }
 
 type LookupAutoScalingGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAutoScalingGroupOutputArgs) ElementType() reflect.Type {

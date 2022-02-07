@@ -22,7 +22,7 @@ func LookupImagePipeline(ctx *pulumi.Context, args *LookupImagePipelineArgs, opt
 
 type LookupImagePipelineArgs struct {
 	// The Amazon Resource Name (ARN) of the image pipeline.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupImagePipelineResult struct {
@@ -61,7 +61,7 @@ func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutp
 
 type LookupImagePipelineOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the image pipeline.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupImagePipelineOutputArgs) ElementType() reflect.Type {

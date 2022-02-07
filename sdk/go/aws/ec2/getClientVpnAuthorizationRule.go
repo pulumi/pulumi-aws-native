@@ -21,7 +21,7 @@ func LookupClientVpnAuthorizationRule(ctx *pulumi.Context, args *LookupClientVpn
 }
 
 type LookupClientVpnAuthorizationRuleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClientVpnAuthorizationRuleResult struct {
@@ -38,7 +38,7 @@ func LookupClientVpnAuthorizationRuleOutput(ctx *pulumi.Context, args LookupClie
 }
 
 type LookupClientVpnAuthorizationRuleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClientVpnAuthorizationRuleOutputArgs) ElementType() reflect.Type {

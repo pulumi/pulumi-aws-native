@@ -22,7 +22,7 @@ func LookupSafetyRule(ctx *pulumi.Context, args *LookupSafetyRuleArgs, opts ...p
 
 type LookupSafetyRuleArgs struct {
 	// The Amazon Resource Name (ARN) of the safety rule.
-	SafetyRuleArn *string `pulumi:"safetyRuleArn"`
+	SafetyRuleArn string `pulumi:"safetyRuleArn"`
 }
 
 type LookupSafetyRuleResult struct {
@@ -46,7 +46,7 @@ func LookupSafetyRuleOutput(ctx *pulumi.Context, args LookupSafetyRuleOutputArgs
 
 type LookupSafetyRuleOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the safety rule.
-	SafetyRuleArn pulumi.StringPtrInput `pulumi:"safetyRuleArn"`
+	SafetyRuleArn pulumi.StringInput `pulumi:"safetyRuleArn"`
 }
 
 func (LookupSafetyRuleOutputArgs) ElementType() reflect.Type {

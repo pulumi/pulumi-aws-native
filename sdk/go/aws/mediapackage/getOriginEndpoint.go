@@ -22,7 +22,7 @@ func LookupOriginEndpoint(ctx *pulumi.Context, args *LookupOriginEndpointArgs, o
 
 type LookupOriginEndpointArgs struct {
 	// The ID of the OriginEndpoint.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupOriginEndpointResult struct {
@@ -64,7 +64,7 @@ func LookupOriginEndpointOutput(ctx *pulumi.Context, args LookupOriginEndpointOu
 
 type LookupOriginEndpointOutputArgs struct {
 	// The ID of the OriginEndpoint.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupOriginEndpointOutputArgs) ElementType() reflect.Type {

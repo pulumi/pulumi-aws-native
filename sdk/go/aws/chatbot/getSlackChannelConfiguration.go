@@ -22,7 +22,7 @@ func LookupSlackChannelConfiguration(ctx *pulumi.Context, args *LookupSlackChann
 
 type LookupSlackChannelConfigurationArgs struct {
 	// Amazon Resource Name (ARN) of the configuration
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupSlackChannelConfigurationResult struct {
@@ -53,7 +53,7 @@ func LookupSlackChannelConfigurationOutput(ctx *pulumi.Context, args LookupSlack
 
 type LookupSlackChannelConfigurationOutputArgs struct {
 	// Amazon Resource Name (ARN) of the configuration
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupSlackChannelConfigurationOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupDestination(ctx *pulumi.Context, args *LookupDestinationArgs, opts ..
 
 type LookupDestinationArgs struct {
 	// Unique name of destination
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupDestinationResult struct {
@@ -51,7 +51,7 @@ func LookupDestinationOutput(ctx *pulumi.Context, args LookupDestinationOutputAr
 
 type LookupDestinationOutputArgs struct {
 	// Unique name of destination
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupDestinationOutputArgs) ElementType() reflect.Type {

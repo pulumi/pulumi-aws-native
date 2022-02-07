@@ -22,7 +22,7 @@ func LookupRecipe(ctx *pulumi.Context, args *LookupRecipeArgs, opts ...pulumi.In
 
 type LookupRecipeArgs struct {
 	// Recipe name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupRecipeResult struct {
@@ -42,7 +42,7 @@ func LookupRecipeOutput(ctx *pulumi.Context, args LookupRecipeOutputArgs, opts .
 
 type LookupRecipeOutputArgs struct {
 	// Recipe name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupRecipeOutputArgs) ElementType() reflect.Type {

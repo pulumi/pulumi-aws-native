@@ -21,7 +21,7 @@ func LookupScript(ctx *pulumi.Context, args *LookupScriptArgs, opts ...pulumi.In
 }
 
 type LookupScriptArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupScriptResult struct {
@@ -43,7 +43,7 @@ func LookupScriptOutput(ctx *pulumi.Context, args LookupScriptOutputArgs, opts .
 }
 
 type LookupScriptOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupScriptOutputArgs) ElementType() reflect.Type {

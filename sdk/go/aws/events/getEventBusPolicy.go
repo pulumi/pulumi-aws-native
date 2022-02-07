@@ -21,7 +21,7 @@ func LookupEventBusPolicy(ctx *pulumi.Context, args *LookupEventBusPolicyArgs, o
 }
 
 type LookupEventBusPolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEventBusPolicyResult struct {
@@ -42,7 +42,7 @@ func LookupEventBusPolicyOutput(ctx *pulumi.Context, args LookupEventBusPolicyOu
 }
 
 type LookupEventBusPolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEventBusPolicyOutputArgs) ElementType() reflect.Type {

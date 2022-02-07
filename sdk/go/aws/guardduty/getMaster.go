@@ -21,7 +21,7 @@ func LookupMaster(ctx *pulumi.Context, args *LookupMasterArgs, opts ...pulumi.In
 }
 
 type LookupMasterArgs struct {
-	MasterId *string `pulumi:"masterId"`
+	MasterId string `pulumi:"masterId"`
 }
 
 type LookupMasterResult struct {
@@ -37,7 +37,7 @@ func LookupMasterOutput(ctx *pulumi.Context, args LookupMasterOutputArgs, opts .
 }
 
 type LookupMasterOutputArgs struct {
-	MasterId pulumi.StringPtrInput `pulumi:"masterId"`
+	MasterId pulumi.StringInput `pulumi:"masterId"`
 }
 
 func (LookupMasterOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.In
 }
 
 type LookupDeviceArgs struct {
-	DeviceId *string `pulumi:"deviceId"`
+	DeviceId string `pulumi:"deviceId"`
 }
 
 type LookupDeviceResult struct {
@@ -39,7 +39,7 @@ func LookupDeviceOutput(ctx *pulumi.Context, args LookupDeviceOutputArgs, opts .
 }
 
 type LookupDeviceOutputArgs struct {
-	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
+	DeviceId pulumi.StringInput `pulumi:"deviceId"`
 }
 
 func (LookupDeviceOutputArgs) ElementType() reflect.Type {

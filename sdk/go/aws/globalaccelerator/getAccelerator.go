@@ -22,7 +22,7 @@ func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ..
 
 type LookupAcceleratorArgs struct {
 	// The Amazon Resource Name (ARN) of the accelerator.
-	AcceleratorArn *string `pulumi:"acceleratorArn"`
+	AcceleratorArn string `pulumi:"acceleratorArn"`
 }
 
 type LookupAcceleratorResult struct {
@@ -52,7 +52,7 @@ func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputAr
 
 type LookupAcceleratorOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the accelerator.
-	AcceleratorArn pulumi.StringPtrInput `pulumi:"acceleratorArn"`
+	AcceleratorArn pulumi.StringInput `pulumi:"acceleratorArn"`
 }
 
 func (LookupAcceleratorOutputArgs) ElementType() reflect.Type {

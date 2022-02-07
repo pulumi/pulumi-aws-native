@@ -22,7 +22,7 @@ func LookupAlarm(ctx *pulumi.Context, args *LookupAlarmArgs, opts ...pulumi.Invo
 
 type LookupAlarmArgs struct {
 	// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
-	AlarmName *string `pulumi:"alarmName"`
+	AlarmName string `pulumi:"alarmName"`
 }
 
 type LookupAlarmResult struct {
@@ -58,7 +58,7 @@ func LookupAlarmOutput(ctx *pulumi.Context, args LookupAlarmOutputArgs, opts ...
 
 type LookupAlarmOutputArgs struct {
 	// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
-	AlarmName pulumi.StringPtrInput `pulumi:"alarmName"`
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
 }
 
 func (LookupAlarmOutputArgs) ElementType() reflect.Type {

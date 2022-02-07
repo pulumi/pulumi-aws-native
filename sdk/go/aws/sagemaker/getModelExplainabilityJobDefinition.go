@@ -22,7 +22,7 @@ func LookupModelExplainabilityJobDefinition(ctx *pulumi.Context, args *LookupMod
 
 type LookupModelExplainabilityJobDefinitionArgs struct {
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn *string `pulumi:"jobDefinitionArn"`
+	JobDefinitionArn string `pulumi:"jobDefinitionArn"`
 }
 
 type LookupModelExplainabilityJobDefinitionResult struct {
@@ -43,7 +43,7 @@ func LookupModelExplainabilityJobDefinitionOutput(ctx *pulumi.Context, args Look
 
 type LookupModelExplainabilityJobDefinitionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn pulumi.StringPtrInput `pulumi:"jobDefinitionArn"`
+	JobDefinitionArn pulumi.StringInput `pulumi:"jobDefinitionArn"`
 }
 
 func (LookupModelExplainabilityJobDefinitionOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupFilter(ctx *pulumi.Context, args *LookupFilterArgs, opts ...pulumi.In
 }
 
 type LookupFilterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFilterResult struct {
@@ -42,7 +42,7 @@ func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts .
 }
 
 type LookupFilterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFilterOutputArgs) ElementType() reflect.Type {

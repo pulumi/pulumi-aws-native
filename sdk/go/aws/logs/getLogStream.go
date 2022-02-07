@@ -21,7 +21,7 @@ func LookupLogStream(ctx *pulumi.Context, args *LookupLogStreamArgs, opts ...pul
 }
 
 type LookupLogStreamArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLogStreamResult struct {
@@ -38,7 +38,7 @@ func LookupLogStreamOutput(ctx *pulumi.Context, args LookupLogStreamOutputArgs, 
 }
 
 type LookupLogStreamOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLogStreamOutputArgs) ElementType() reflect.Type {

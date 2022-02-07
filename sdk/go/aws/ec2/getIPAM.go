@@ -22,7 +22,7 @@ func LookupIPAM(ctx *pulumi.Context, args *LookupIPAMArgs, opts ...pulumi.Invoke
 
 type LookupIPAMArgs struct {
 	// Id of the IPAM.
-	IpamId *string `pulumi:"ipamId"`
+	IpamId string `pulumi:"ipamId"`
 }
 
 type LookupIPAMResult struct {
@@ -54,7 +54,7 @@ func LookupIPAMOutput(ctx *pulumi.Context, args LookupIPAMOutputArgs, opts ...pu
 
 type LookupIPAMOutputArgs struct {
 	// Id of the IPAM.
-	IpamId pulumi.StringPtrInput `pulumi:"ipamId"`
+	IpamId pulumi.StringInput `pulumi:"ipamId"`
 }
 
 func (LookupIPAMOutputArgs) ElementType() reflect.Type {

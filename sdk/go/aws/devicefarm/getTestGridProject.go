@@ -21,7 +21,7 @@ func LookupTestGridProject(ctx *pulumi.Context, args *LookupTestGridProjectArgs,
 }
 
 type LookupTestGridProjectArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupTestGridProjectResult struct {
@@ -41,7 +41,7 @@ func LookupTestGridProjectOutput(ctx *pulumi.Context, args LookupTestGridProject
 }
 
 type LookupTestGridProjectOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupTestGridProjectOutputArgs) ElementType() reflect.Type {

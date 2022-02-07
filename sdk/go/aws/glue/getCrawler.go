@@ -21,7 +21,7 @@ func LookupCrawler(ctx *pulumi.Context, args *LookupCrawlerArgs, opts ...pulumi.
 }
 
 type LookupCrawlerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCrawlerResult struct {
@@ -50,7 +50,7 @@ func LookupCrawlerOutput(ctx *pulumi.Context, args LookupCrawlerOutputArgs, opts
 }
 
 type LookupCrawlerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCrawlerOutputArgs) ElementType() reflect.Type {

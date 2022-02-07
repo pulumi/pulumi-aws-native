@@ -22,7 +22,7 @@ func LookupCustomDataIdentifier(ctx *pulumi.Context, args *LookupCustomDataIdent
 
 type LookupCustomDataIdentifierArgs struct {
 	// Custom data identifier ID.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCustomDataIdentifierResult struct {
@@ -43,7 +43,7 @@ func LookupCustomDataIdentifierOutput(ctx *pulumi.Context, args LookupCustomData
 
 type LookupCustomDataIdentifierOutputArgs struct {
 	// Custom data identifier ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCustomDataIdentifierOutputArgs) ElementType() reflect.Type {

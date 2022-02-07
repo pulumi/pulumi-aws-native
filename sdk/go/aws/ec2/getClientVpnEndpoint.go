@@ -21,7 +21,7 @@ func LookupClientVpnEndpoint(ctx *pulumi.Context, args *LookupClientVpnEndpointA
 }
 
 type LookupClientVpnEndpointArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClientVpnEndpointResult struct {
@@ -50,7 +50,7 @@ func LookupClientVpnEndpointOutput(ctx *pulumi.Context, args LookupClientVpnEndp
 }
 
 type LookupClientVpnEndpointOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClientVpnEndpointOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 }
 
 type LookupAliasArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAliasResult struct {
@@ -42,7 +42,7 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 }
 
 type LookupAliasOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAliasOutputArgs) ElementType() reflect.Type {

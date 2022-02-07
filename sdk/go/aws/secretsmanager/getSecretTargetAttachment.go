@@ -21,7 +21,7 @@ func LookupSecretTargetAttachment(ctx *pulumi.Context, args *LookupSecretTargetA
 }
 
 type LookupSecretTargetAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSecretTargetAttachmentResult struct {
@@ -41,7 +41,7 @@ func LookupSecretTargetAttachmentOutput(ctx *pulumi.Context, args LookupSecretTa
 }
 
 type LookupSecretTargetAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSecretTargetAttachmentOutputArgs) ElementType() reflect.Type {

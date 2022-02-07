@@ -21,7 +21,7 @@ func LookupMetricFilter(ctx *pulumi.Context, args *LookupMetricFilterArgs, opts 
 }
 
 type LookupMetricFilterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMetricFilterResult struct {
@@ -40,7 +40,7 @@ func LookupMetricFilterOutput(ctx *pulumi.Context, args LookupMetricFilterOutput
 }
 
 type LookupMetricFilterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMetricFilterOutputArgs) ElementType() reflect.Type {

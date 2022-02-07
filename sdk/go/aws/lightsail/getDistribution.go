@@ -22,7 +22,7 @@ func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts 
 
 type LookupDistributionArgs struct {
 	// The name for the distribution.
-	DistributionName *string `pulumi:"distributionName"`
+	DistributionName string `pulumi:"distributionName"`
 }
 
 type LookupDistributionResult struct {
@@ -60,7 +60,7 @@ func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutput
 
 type LookupDistributionOutputArgs struct {
 	// The name for the distribution.
-	DistributionName pulumi.StringPtrInput `pulumi:"distributionName"`
+	DistributionName pulumi.StringInput `pulumi:"distributionName"`
 }
 
 func (LookupDistributionOutputArgs) ElementType() reflect.Type {

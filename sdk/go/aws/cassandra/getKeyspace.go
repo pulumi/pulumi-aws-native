@@ -22,7 +22,7 @@ func LookupKeyspace(ctx *pulumi.Context, args *LookupKeyspaceArgs, opts ...pulum
 
 type LookupKeyspaceArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName *string `pulumi:"keyspaceName"`
+	KeyspaceName string `pulumi:"keyspaceName"`
 }
 
 type LookupKeyspaceResult struct {
@@ -40,7 +40,7 @@ func LookupKeyspaceOutput(ctx *pulumi.Context, args LookupKeyspaceOutputArgs, op
 
 type LookupKeyspaceOutputArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName pulumi.StringPtrInput `pulumi:"keyspaceName"`
+	KeyspaceName pulumi.StringInput `pulumi:"keyspaceName"`
 }
 
 func (LookupKeyspaceOutputArgs) ElementType() reflect.Type {

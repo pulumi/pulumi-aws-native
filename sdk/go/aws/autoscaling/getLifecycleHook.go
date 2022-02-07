@@ -22,9 +22,9 @@ func LookupLifecycleHook(ctx *pulumi.Context, args *LookupLifecycleHookArgs, opt
 
 type LookupLifecycleHookArgs struct {
 	// The name of the Auto Scaling group for the lifecycle hook.
-	AutoScalingGroupName *string `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
 	// The name of the lifecycle hook.
-	LifecycleHookName *string `pulumi:"lifecycleHookName"`
+	LifecycleHookName string `pulumi:"lifecycleHookName"`
 }
 
 type LookupLifecycleHookResult struct {
@@ -53,9 +53,9 @@ func LookupLifecycleHookOutput(ctx *pulumi.Context, args LookupLifecycleHookOutp
 
 type LookupLifecycleHookOutputArgs struct {
 	// The name of the Auto Scaling group for the lifecycle hook.
-	AutoScalingGroupName pulumi.StringPtrInput `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName pulumi.StringInput `pulumi:"autoScalingGroupName"`
 	// The name of the lifecycle hook.
-	LifecycleHookName pulumi.StringPtrInput `pulumi:"lifecycleHookName"`
+	LifecycleHookName pulumi.StringInput `pulumi:"lifecycleHookName"`
 }
 
 func (LookupLifecycleHookOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupFleetMetric(ctx *pulumi.Context, args *LookupFleetMetricArgs, opts ..
 
 type LookupFleetMetricArgs struct {
 	// The name of the fleet metric
-	MetricName *string `pulumi:"metricName"`
+	MetricName string `pulumi:"metricName"`
 }
 
 type LookupFleetMetricResult struct {
@@ -64,7 +64,7 @@ func LookupFleetMetricOutput(ctx *pulumi.Context, args LookupFleetMetricOutputAr
 
 type LookupFleetMetricOutputArgs struct {
 	// The name of the fleet metric
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 }
 
 func (LookupFleetMetricOutputArgs) ElementType() reflect.Type {

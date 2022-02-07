@@ -21,7 +21,7 @@ func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupMapArgs struct {
-	MapName *string `pulumi:"mapName"`
+	MapName string `pulumi:"mapName"`
 }
 
 type LookupMapResult struct {
@@ -42,7 +42,7 @@ func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulu
 }
 
 type LookupMapOutputArgs struct {
-	MapName pulumi.StringPtrInput `pulumi:"mapName"`
+	MapName pulumi.StringInput `pulumi:"mapName"`
 }
 
 func (LookupMapOutputArgs) ElementType() reflect.Type {

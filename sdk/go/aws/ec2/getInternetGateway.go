@@ -22,7 +22,7 @@ func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs,
 
 type LookupInternetGatewayArgs struct {
 	// ID of internet gateway.
-	InternetGatewayId *string `pulumi:"internetGatewayId"`
+	InternetGatewayId string `pulumi:"internetGatewayId"`
 }
 
 type LookupInternetGatewayResult struct {
@@ -43,7 +43,7 @@ func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGateway
 
 type LookupInternetGatewayOutputArgs struct {
 	// ID of internet gateway.
-	InternetGatewayId pulumi.StringPtrInput `pulumi:"internetGatewayId"`
+	InternetGatewayId pulumi.StringInput `pulumi:"internetGatewayId"`
 }
 
 func (LookupInternetGatewayOutputArgs) ElementType() reflect.Type {

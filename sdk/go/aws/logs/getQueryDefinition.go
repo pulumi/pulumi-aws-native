@@ -22,7 +22,7 @@ func LookupQueryDefinition(ctx *pulumi.Context, args *LookupQueryDefinitionArgs,
 
 type LookupQueryDefinitionArgs struct {
 	// Unique identifier of a query definition
-	QueryDefinitionId *string `pulumi:"queryDefinitionId"`
+	QueryDefinitionId string `pulumi:"queryDefinitionId"`
 }
 
 type LookupQueryDefinitionResult struct {
@@ -47,7 +47,7 @@ func LookupQueryDefinitionOutput(ctx *pulumi.Context, args LookupQueryDefinition
 
 type LookupQueryDefinitionOutputArgs struct {
 	// Unique identifier of a query definition
-	QueryDefinitionId pulumi.StringPtrInput `pulumi:"queryDefinitionId"`
+	QueryDefinitionId pulumi.StringInput `pulumi:"queryDefinitionId"`
 }
 
 func (LookupQueryDefinitionOutputArgs) ElementType() reflect.Type {

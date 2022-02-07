@@ -21,7 +21,7 @@ func LookupDHCPOptions(ctx *pulumi.Context, args *LookupDHCPOptionsArgs, opts ..
 }
 
 type LookupDHCPOptionsArgs struct {
-	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 }
 
 type LookupDHCPOptionsResult struct {
@@ -40,7 +40,7 @@ func LookupDHCPOptionsOutput(ctx *pulumi.Context, args LookupDHCPOptionsOutputAr
 }
 
 type LookupDHCPOptionsOutputArgs struct {
-	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId pulumi.StringInput `pulumi:"dhcpOptionsId"`
 }
 
 func (LookupDHCPOptionsOutputArgs) ElementType() reflect.Type {

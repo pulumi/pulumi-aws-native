@@ -21,7 +21,7 @@ func LookupJobTemplate(ctx *pulumi.Context, args *LookupJobTemplateArgs, opts ..
 }
 
 type LookupJobTemplateArgs struct {
-	JobTemplateId *string `pulumi:"jobTemplateId"`
+	JobTemplateId string `pulumi:"jobTemplateId"`
 }
 
 type LookupJobTemplateResult struct {
@@ -39,7 +39,7 @@ func LookupJobTemplateOutput(ctx *pulumi.Context, args LookupJobTemplateOutputAr
 }
 
 type LookupJobTemplateOutputArgs struct {
-	JobTemplateId pulumi.StringPtrInput `pulumi:"jobTemplateId"`
+	JobTemplateId pulumi.StringInput `pulumi:"jobTemplateId"`
 }
 
 func (LookupJobTemplateOutputArgs) ElementType() reflect.Type {

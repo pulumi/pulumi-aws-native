@@ -21,7 +21,7 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupAppArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAppResult struct {
@@ -40,7 +40,7 @@ func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulu
 }
 
 type LookupAppOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAppOutputArgs) ElementType() reflect.Type {

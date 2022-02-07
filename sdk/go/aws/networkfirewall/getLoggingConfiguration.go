@@ -21,7 +21,7 @@ func LookupLoggingConfiguration(ctx *pulumi.Context, args *LookupLoggingConfigur
 }
 
 type LookupLoggingConfigurationArgs struct {
-	FirewallArn *string `pulumi:"firewallArn"`
+	FirewallArn string `pulumi:"firewallArn"`
 }
 
 type LookupLoggingConfigurationResult struct {
@@ -38,7 +38,7 @@ func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingCon
 }
 
 type LookupLoggingConfigurationOutputArgs struct {
-	FirewallArn pulumi.StringPtrInput `pulumi:"firewallArn"`
+	FirewallArn pulumi.StringInput `pulumi:"firewallArn"`
 }
 
 func (LookupLoggingConfigurationOutputArgs) ElementType() reflect.Type {

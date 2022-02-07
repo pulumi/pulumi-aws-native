@@ -21,7 +21,7 @@ func LookupFunctionDefinition(ctx *pulumi.Context, args *LookupFunctionDefinitio
 }
 
 type LookupFunctionDefinitionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFunctionDefinitionResult struct {
@@ -42,7 +42,7 @@ func LookupFunctionDefinitionOutput(ctx *pulumi.Context, args LookupFunctionDefi
 }
 
 type LookupFunctionDefinitionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFunctionDefinitionOutputArgs) ElementType() reflect.Type {

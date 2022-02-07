@@ -21,7 +21,7 @@ func LookupSkill(ctx *pulumi.Context, args *LookupSkillArgs, opts ...pulumi.Invo
 }
 
 type LookupSkillArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSkillResult struct {
@@ -40,7 +40,7 @@ func LookupSkillOutput(ctx *pulumi.Context, args LookupSkillOutputArgs, opts ...
 }
 
 type LookupSkillOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSkillOutputArgs) ElementType() reflect.Type {

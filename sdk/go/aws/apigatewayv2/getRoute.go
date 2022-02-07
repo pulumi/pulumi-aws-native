@@ -21,7 +21,7 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRouteResult struct {
@@ -49,7 +49,7 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 }
 
 type LookupRouteOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRouteOutputArgs) ElementType() reflect.Type {

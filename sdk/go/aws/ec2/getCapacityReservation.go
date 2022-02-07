@@ -21,7 +21,7 @@ func LookupCapacityReservation(ctx *pulumi.Context, args *LookupCapacityReservat
 }
 
 type LookupCapacityReservationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCapacityReservationResult struct {
@@ -43,7 +43,7 @@ func LookupCapacityReservationOutput(ctx *pulumi.Context, args LookupCapacityRes
 }
 
 type LookupCapacityReservationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCapacityReservationOutputArgs) ElementType() reflect.Type {

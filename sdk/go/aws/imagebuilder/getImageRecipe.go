@@ -22,7 +22,7 @@ func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ..
 
 type LookupImageRecipeArgs struct {
 	// The Amazon Resource Name (ARN) of the image recipe.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupImageRecipeResult struct {
@@ -43,7 +43,7 @@ func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputAr
 
 type LookupImageRecipeOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the image recipe.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupImageRecipeOutputArgs) ElementType() reflect.Type {

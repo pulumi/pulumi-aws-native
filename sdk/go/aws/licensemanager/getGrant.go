@@ -22,7 +22,7 @@ func LookupGrant(ctx *pulumi.Context, args *LookupGrantArgs, opts ...pulumi.Invo
 
 type LookupGrantArgs struct {
 	// Arn of the grant.
-	GrantArn *string `pulumi:"grantArn"`
+	GrantArn string `pulumi:"grantArn"`
 }
 
 type LookupGrantResult struct {
@@ -50,7 +50,7 @@ func LookupGrantOutput(ctx *pulumi.Context, args LookupGrantOutputArgs, opts ...
 
 type LookupGrantOutputArgs struct {
 	// Arn of the grant.
-	GrantArn pulumi.StringPtrInput `pulumi:"grantArn"`
+	GrantArn pulumi.StringInput `pulumi:"grantArn"`
 }
 
 func (LookupGrantOutputArgs) ElementType() reflect.Type {

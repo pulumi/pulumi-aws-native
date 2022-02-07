@@ -21,7 +21,7 @@ func LookupArchive(ctx *pulumi.Context, args *LookupArchiveArgs, opts ...pulumi.
 }
 
 type LookupArchiveArgs struct {
-	ArchiveName *string `pulumi:"archiveName"`
+	ArchiveName string `pulumi:"archiveName"`
 }
 
 type LookupArchiveResult struct {
@@ -41,7 +41,7 @@ func LookupArchiveOutput(ctx *pulumi.Context, args LookupArchiveOutputArgs, opts
 }
 
 type LookupArchiveOutputArgs struct {
-	ArchiveName pulumi.StringPtrInput `pulumi:"archiveName"`
+	ArchiveName pulumi.StringInput `pulumi:"archiveName"`
 }
 
 func (LookupArchiveOutputArgs) ElementType() reflect.Type {

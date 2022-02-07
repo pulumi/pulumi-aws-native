@@ -21,7 +21,7 @@ func LookupMatchmakingRuleSet(ctx *pulumi.Context, args *LookupMatchmakingRuleSe
 }
 
 type LookupMatchmakingRuleSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMatchmakingRuleSetResult struct {
@@ -40,7 +40,7 @@ func LookupMatchmakingRuleSetOutput(ctx *pulumi.Context, args LookupMatchmakingR
 }
 
 type LookupMatchmakingRuleSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMatchmakingRuleSetOutputArgs) ElementType() reflect.Type {

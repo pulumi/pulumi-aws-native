@@ -21,7 +21,7 @@ func LookupLifecyclePolicy(ctx *pulumi.Context, args *LookupLifecyclePolicyArgs,
 }
 
 type LookupLifecyclePolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLifecyclePolicyResult struct {
@@ -44,7 +44,7 @@ func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicy
 }
 
 type LookupLifecyclePolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLifecyclePolicyOutputArgs) ElementType() reflect.Type {

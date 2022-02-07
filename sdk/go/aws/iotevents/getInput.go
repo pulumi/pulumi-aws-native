@@ -22,7 +22,7 @@ func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.Invo
 
 type LookupInputArgs struct {
 	// The name of the input.
-	InputName *string `pulumi:"inputName"`
+	InputName string `pulumi:"inputName"`
 }
 
 type LookupInputResult struct {
@@ -46,7 +46,7 @@ func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...
 
 type LookupInputOutputArgs struct {
 	// The name of the input.
-	InputName pulumi.StringPtrInput `pulumi:"inputName"`
+	InputName pulumi.StringInput `pulumi:"inputName"`
 }
 
 func (LookupInputOutputArgs) ElementType() reflect.Type {

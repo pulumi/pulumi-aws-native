@@ -22,7 +22,7 @@ func LookupTransitGatewayMulticastDomain(ctx *pulumi.Context, args *LookupTransi
 
 type LookupTransitGatewayMulticastDomainArgs struct {
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId *string `pulumi:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 type LookupTransitGatewayMulticastDomainResult struct {
@@ -51,7 +51,7 @@ func LookupTransitGatewayMulticastDomainOutput(ctx *pulumi.Context, args LookupT
 
 type LookupTransitGatewayMulticastDomainOutputArgs struct {
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId pulumi.StringPtrInput `pulumi:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId pulumi.StringInput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 func (LookupTransitGatewayMulticastDomainOutputArgs) ElementType() reflect.Type {

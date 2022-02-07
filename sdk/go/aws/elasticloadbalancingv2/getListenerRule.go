@@ -21,7 +21,7 @@ func LookupListenerRule(ctx *pulumi.Context, args *LookupListenerRuleArgs, opts 
 }
 
 type LookupListenerRuleArgs struct {
-	RuleArn *string `pulumi:"ruleArn"`
+	RuleArn string `pulumi:"ruleArn"`
 }
 
 type LookupListenerRuleResult struct {
@@ -42,7 +42,7 @@ func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutput
 }
 
 type LookupListenerRuleOutputArgs struct {
-	RuleArn pulumi.StringPtrInput `pulumi:"ruleArn"`
+	RuleArn pulumi.StringInput `pulumi:"ruleArn"`
 }
 
 func (LookupListenerRuleOutputArgs) ElementType() reflect.Type {

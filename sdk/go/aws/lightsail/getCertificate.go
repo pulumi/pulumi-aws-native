@@ -22,7 +22,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 type LookupCertificateArgs struct {
 	// The name for the certificate.
-	CertificateName *string `pulumi:"certificateName"`
+	CertificateName string `pulumi:"certificateName"`
 }
 
 type LookupCertificateResult struct {
@@ -44,7 +44,7 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 type LookupCertificateOutputArgs struct {
 	// The name for the certificate.
-	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {

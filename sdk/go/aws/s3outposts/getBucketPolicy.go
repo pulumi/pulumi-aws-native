@@ -22,7 +22,7 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 
 type LookupBucketPolicyArgs struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
-	Bucket *string `pulumi:"bucket"`
+	Bucket string `pulumi:"bucket"`
 }
 
 type LookupBucketPolicyResult struct {
@@ -41,7 +41,7 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 
 type LookupBucketPolicyOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
-	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 
 func (LookupBucketPolicyOutputArgs) ElementType() reflect.Type {

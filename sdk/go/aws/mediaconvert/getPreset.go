@@ -21,7 +21,7 @@ func LookupPreset(ctx *pulumi.Context, args *LookupPresetArgs, opts ...pulumi.In
 }
 
 type LookupPresetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPresetResult struct {
@@ -43,7 +43,7 @@ func LookupPresetOutput(ctx *pulumi.Context, args LookupPresetOutputArgs, opts .
 }
 
 type LookupPresetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPresetOutputArgs) ElementType() reflect.Type {

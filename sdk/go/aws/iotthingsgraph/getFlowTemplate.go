@@ -21,7 +21,7 @@ func LookupFlowTemplate(ctx *pulumi.Context, args *LookupFlowTemplateArgs, opts 
 }
 
 type LookupFlowTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupFlowTemplateResult struct {
@@ -40,7 +40,7 @@ func LookupFlowTemplateOutput(ctx *pulumi.Context, args LookupFlowTemplateOutput
 }
 
 type LookupFlowTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFlowTemplateOutputArgs) ElementType() reflect.Type {

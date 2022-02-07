@@ -21,9 +21,9 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 }
 
 type LookupThemeArgs struct {
-	AppId           *string `pulumi:"appId"`
-	EnvironmentName *string `pulumi:"environmentName"`
-	Id              *string `pulumi:"id"`
+	AppId           string `pulumi:"appId"`
+	EnvironmentName string `pulumi:"environmentName"`
+	Id              string `pulumi:"id"`
 }
 
 type LookupThemeResult struct {
@@ -47,9 +47,9 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 }
 
 type LookupThemeOutputArgs struct {
-	AppId           pulumi.StringPtrInput `pulumi:"appId"`
-	EnvironmentName pulumi.StringPtrInput `pulumi:"environmentName"`
-	Id              pulumi.StringPtrInput `pulumi:"id"`
+	AppId           pulumi.StringInput `pulumi:"appId"`
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
+	Id              pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupThemeOutputArgs) ElementType() reflect.Type {

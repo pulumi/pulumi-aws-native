@@ -21,7 +21,7 @@ func LookupTopicRule(ctx *pulumi.Context, args *LookupTopicRuleArgs, opts ...pul
 }
 
 type LookupTopicRuleArgs struct {
-	RuleName *string `pulumi:"ruleName"`
+	RuleName string `pulumi:"ruleName"`
 }
 
 type LookupTopicRuleResult struct {
@@ -40,7 +40,7 @@ func LookupTopicRuleOutput(ctx *pulumi.Context, args LookupTopicRuleOutputArgs, 
 }
 
 type LookupTopicRuleOutputArgs struct {
-	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
 func (LookupTopicRuleOutputArgs) ElementType() reflect.Type {

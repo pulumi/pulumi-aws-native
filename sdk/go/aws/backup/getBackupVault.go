@@ -21,7 +21,7 @@ func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ..
 }
 
 type LookupBackupVaultArgs struct {
-	BackupVaultName *string `pulumi:"backupVaultName"`
+	BackupVaultName string `pulumi:"backupVaultName"`
 }
 
 type LookupBackupVaultResult struct {
@@ -42,7 +42,7 @@ func LookupBackupVaultOutput(ctx *pulumi.Context, args LookupBackupVaultOutputAr
 }
 
 type LookupBackupVaultOutputArgs struct {
-	BackupVaultName pulumi.StringPtrInput `pulumi:"backupVaultName"`
+	BackupVaultName pulumi.StringInput `pulumi:"backupVaultName"`
 }
 
 func (LookupBackupVaultOutputArgs) ElementType() reflect.Type {

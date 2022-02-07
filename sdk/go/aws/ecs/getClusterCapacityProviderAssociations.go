@@ -21,7 +21,7 @@ func LookupClusterCapacityProviderAssociations(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupClusterCapacityProviderAssociationsArgs struct {
-	Cluster *string `pulumi:"cluster"`
+	Cluster string `pulumi:"cluster"`
 }
 
 type LookupClusterCapacityProviderAssociationsResult struct {
@@ -39,7 +39,7 @@ func LookupClusterCapacityProviderAssociationsOutput(ctx *pulumi.Context, args L
 }
 
 type LookupClusterCapacityProviderAssociationsOutputArgs struct {
-	Cluster pulumi.StringPtrInput `pulumi:"cluster"`
+	Cluster pulumi.StringInput `pulumi:"cluster"`
 }
 
 func (LookupClusterCapacityProviderAssociationsOutputArgs) ElementType() reflect.Type {

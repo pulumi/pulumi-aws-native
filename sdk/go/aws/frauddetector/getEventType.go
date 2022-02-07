@@ -22,7 +22,7 @@ func LookupEventType(ctx *pulumi.Context, args *LookupEventTypeArgs, opts ...pul
 
 type LookupEventTypeArgs struct {
 	// The ARN of the event type.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupEventTypeResult struct {
@@ -52,7 +52,7 @@ func LookupEventTypeOutput(ctx *pulumi.Context, args LookupEventTypeOutputArgs, 
 
 type LookupEventTypeOutputArgs struct {
 	// The ARN of the event type.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupEventTypeOutputArgs) ElementType() reflect.Type {

@@ -21,9 +21,9 @@ func LookupWebACL(ctx *pulumi.Context, args *LookupWebACLArgs, opts ...pulumi.In
 }
 
 type LookupWebACLArgs struct {
-	Id    *string      `pulumi:"id"`
-	Name  *string      `pulumi:"name"`
-	Scope *WebACLScope `pulumi:"scope"`
+	Id    string      `pulumi:"id"`
+	Name  string      `pulumi:"name"`
+	Scope WebACLScope `pulumi:"scope"`
 }
 
 type LookupWebACLResult struct {
@@ -51,9 +51,9 @@ func LookupWebACLOutput(ctx *pulumi.Context, args LookupWebACLOutputArgs, opts .
 }
 
 type LookupWebACLOutputArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Scope WebACLScopePtrInput   `pulumi:"scope"`
+	Id    pulumi.StringInput `pulumi:"id"`
+	Name  pulumi.StringInput `pulumi:"name"`
+	Scope WebACLScopeInput   `pulumi:"scope"`
 }
 
 func (LookupWebACLOutputArgs) ElementType() reflect.Type {

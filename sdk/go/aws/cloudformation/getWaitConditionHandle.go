@@ -21,7 +21,7 @@ func LookupWaitConditionHandle(ctx *pulumi.Context, args *LookupWaitConditionHan
 }
 
 type LookupWaitConditionHandleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWaitConditionHandleResult struct {
@@ -38,7 +38,7 @@ func LookupWaitConditionHandleOutput(ctx *pulumi.Context, args LookupWaitConditi
 }
 
 type LookupWaitConditionHandleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWaitConditionHandleOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 
 type LookupRouteTableArgs struct {
 	// The route table ID.
-	RouteTableId *string `pulumi:"routeTableId"`
+	RouteTableId string `pulumi:"routeTableId"`
 }
 
 type LookupRouteTableResult struct {
@@ -43,7 +43,7 @@ func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs
 
 type LookupRouteTableOutputArgs struct {
 	// The route table ID.
-	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 }
 
 func (LookupRouteTableOutputArgs) ElementType() reflect.Type {

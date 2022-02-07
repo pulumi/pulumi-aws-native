@@ -21,7 +21,7 @@ func LookupApiCache(ctx *pulumi.Context, args *LookupApiCacheArgs, opts ...pulum
 }
 
 type LookupApiCacheArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupApiCacheResult struct {
@@ -43,7 +43,7 @@ func LookupApiCacheOutput(ctx *pulumi.Context, args LookupApiCacheOutputArgs, op
 }
 
 type LookupApiCacheOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApiCacheOutputArgs) ElementType() reflect.Type {

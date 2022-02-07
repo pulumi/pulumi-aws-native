@@ -22,7 +22,7 @@ func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastr
 
 type LookupInfrastructureConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupInfrastructureConfigurationResult struct {
@@ -65,7 +65,7 @@ func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInf
 
 type LookupInfrastructureConfigurationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupInfrastructureConfigurationOutputArgs) ElementType() reflect.Type {

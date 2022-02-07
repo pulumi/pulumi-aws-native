@@ -21,7 +21,7 @@ func LookupCloudFormationProvisionedProduct(ctx *pulumi.Context, args *LookupClo
 }
 
 type LookupCloudFormationProvisionedProductArgs struct {
-	ProvisionedProductId *string `pulumi:"provisionedProductId"`
+	ProvisionedProductId string `pulumi:"provisionedProductId"`
 }
 
 type LookupCloudFormationProvisionedProductResult struct {
@@ -52,7 +52,7 @@ func LookupCloudFormationProvisionedProductOutput(ctx *pulumi.Context, args Look
 }
 
 type LookupCloudFormationProvisionedProductOutputArgs struct {
-	ProvisionedProductId pulumi.StringPtrInput `pulumi:"provisionedProductId"`
+	ProvisionedProductId pulumi.StringInput `pulumi:"provisionedProductId"`
 }
 
 func (LookupCloudFormationProvisionedProductOutputArgs) ElementType() reflect.Type {

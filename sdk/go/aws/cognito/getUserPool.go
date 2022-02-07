@@ -21,7 +21,7 @@ func LookupUserPool(ctx *pulumi.Context, args *LookupUserPoolArgs, opts ...pulum
 }
 
 type LookupUserPoolArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolResult struct {
@@ -63,7 +63,7 @@ func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, op
 }
 
 type LookupUserPoolOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserPoolOutputArgs) ElementType() reflect.Type {

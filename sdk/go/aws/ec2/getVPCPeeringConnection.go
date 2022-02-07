@@ -21,7 +21,7 @@ func LookupVPCPeeringConnection(ctx *pulumi.Context, args *LookupVPCPeeringConne
 }
 
 type LookupVPCPeeringConnectionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPCPeeringConnectionResult struct {
@@ -39,7 +39,7 @@ func LookupVPCPeeringConnectionOutput(ctx *pulumi.Context, args LookupVPCPeering
 }
 
 type LookupVPCPeeringConnectionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPCPeeringConnectionOutputArgs) ElementType() reflect.Type {

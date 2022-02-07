@@ -21,7 +21,7 @@ func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.In
 }
 
 type LookupLedgerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLedgerResult struct {
@@ -42,7 +42,7 @@ func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts .
 }
 
 type LookupLedgerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLedgerOutputArgs) ElementType() reflect.Type {

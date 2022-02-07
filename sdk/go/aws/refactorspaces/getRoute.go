@@ -21,9 +21,9 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
-	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
-	RouteIdentifier       *string `pulumi:"routeIdentifier"`
+	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	RouteIdentifier       string `pulumi:"routeIdentifier"`
 }
 
 type LookupRouteResult struct {
@@ -44,9 +44,9 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 }
 
 type LookupRouteOutputArgs struct {
-	ApplicationIdentifier pulumi.StringPtrInput `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier pulumi.StringPtrInput `pulumi:"environmentIdentifier"`
-	RouteIdentifier       pulumi.StringPtrInput `pulumi:"routeIdentifier"`
+	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
+	RouteIdentifier       pulumi.StringInput `pulumi:"routeIdentifier"`
 }
 
 func (LookupRouteOutputArgs) ElementType() reflect.Type {

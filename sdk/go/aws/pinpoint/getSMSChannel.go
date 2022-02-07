@@ -21,7 +21,7 @@ func LookupSMSChannel(ctx *pulumi.Context, args *LookupSMSChannelArgs, opts ...p
 }
 
 type LookupSMSChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSMSChannelResult struct {
@@ -41,7 +41,7 @@ func LookupSMSChannelOutput(ctx *pulumi.Context, args LookupSMSChannelOutputArgs
 }
 
 type LookupSMSChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSMSChannelOutputArgs) ElementType() reflect.Type {

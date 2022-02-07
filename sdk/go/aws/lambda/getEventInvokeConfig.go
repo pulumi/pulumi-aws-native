@@ -21,7 +21,7 @@ func LookupEventInvokeConfig(ctx *pulumi.Context, args *LookupEventInvokeConfigA
 }
 
 type LookupEventInvokeConfigArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEventInvokeConfigResult struct {
@@ -41,7 +41,7 @@ func LookupEventInvokeConfigOutput(ctx *pulumi.Context, args LookupEventInvokeCo
 }
 
 type LookupEventInvokeConfigOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEventInvokeConfigOutputArgs) ElementType() reflect.Type {

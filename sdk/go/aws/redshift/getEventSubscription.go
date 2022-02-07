@@ -22,7 +22,7 @@ func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionA
 
 type LookupEventSubscriptionArgs struct {
 	// The name of the Amazon Redshift event notification subscription
-	SubscriptionName *string `pulumi:"subscriptionName"`
+	SubscriptionName string `pulumi:"subscriptionName"`
 }
 
 type LookupEventSubscriptionResult struct {
@@ -65,7 +65,7 @@ func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscrip
 
 type LookupEventSubscriptionOutputArgs struct {
 	// The name of the Amazon Redshift event notification subscription
-	SubscriptionName pulumi.StringPtrInput `pulumi:"subscriptionName"`
+	SubscriptionName pulumi.StringInput `pulumi:"subscriptionName"`
 }
 
 func (LookupEventSubscriptionOutputArgs) ElementType() reflect.Type {

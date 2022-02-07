@@ -21,7 +21,7 @@ func LookupRotationSchedule(ctx *pulumi.Context, args *LookupRotationScheduleArg
 }
 
 type LookupRotationScheduleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRotationScheduleResult struct {
@@ -41,7 +41,7 @@ func LookupRotationScheduleOutput(ctx *pulumi.Context, args LookupRotationSchedu
 }
 
 type LookupRotationScheduleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRotationScheduleOutputArgs) ElementType() reflect.Type {

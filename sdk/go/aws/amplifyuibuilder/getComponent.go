@@ -21,9 +21,9 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 }
 
 type LookupComponentArgs struct {
-	AppId           *string `pulumi:"appId"`
-	EnvironmentName *string `pulumi:"environmentName"`
-	Id              *string `pulumi:"id"`
+	AppId           string `pulumi:"appId"`
+	EnvironmentName string `pulumi:"environmentName"`
+	Id              string `pulumi:"id"`
 }
 
 type LookupComponentResult struct {
@@ -53,9 +53,9 @@ func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, 
 }
 
 type LookupComponentOutputArgs struct {
-	AppId           pulumi.StringPtrInput `pulumi:"appId"`
-	EnvironmentName pulumi.StringPtrInput `pulumi:"environmentName"`
-	Id              pulumi.StringPtrInput `pulumi:"id"`
+	AppId           pulumi.StringInput `pulumi:"appId"`
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
+	Id              pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupComponentOutputArgs) ElementType() reflect.Type {

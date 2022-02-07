@@ -22,7 +22,7 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 
 type LookupInstanceArgs struct {
 	// The names to use for your new Lightsail instance.
-	InstanceName *string `pulumi:"instanceName"`
+	InstanceName string `pulumi:"instanceName"`
 }
 
 type LookupInstanceResult struct {
@@ -66,7 +66,7 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 
 type LookupInstanceOutputArgs struct {
 	// The names to use for your new Lightsail instance.
-	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
+	InstanceName pulumi.StringInput `pulumi:"instanceName"`
 }
 
 func (LookupInstanceOutputArgs) ElementType() reflect.Type {

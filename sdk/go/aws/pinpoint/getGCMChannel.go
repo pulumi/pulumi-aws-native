@@ -21,7 +21,7 @@ func LookupGCMChannel(ctx *pulumi.Context, args *LookupGCMChannelArgs, opts ...p
 }
 
 type LookupGCMChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGCMChannelResult struct {
@@ -40,7 +40,7 @@ func LookupGCMChannelOutput(ctx *pulumi.Context, args LookupGCMChannelOutputArgs
 }
 
 type LookupGCMChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGCMChannelOutputArgs) ElementType() reflect.Type {

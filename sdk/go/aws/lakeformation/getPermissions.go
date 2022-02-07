@@ -21,7 +21,7 @@ func LookupPermissions(ctx *pulumi.Context, args *LookupPermissionsArgs, opts ..
 }
 
 type LookupPermissionsArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPermissionsResult struct {
@@ -42,7 +42,7 @@ func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputAr
 }
 
 type LookupPermissionsOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPermissionsOutputArgs) ElementType() reflect.Type {

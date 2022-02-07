@@ -21,7 +21,7 @@ func LookupVPCEndpointConnectionNotification(ctx *pulumi.Context, args *LookupVP
 }
 
 type LookupVPCEndpointConnectionNotificationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPCEndpointConnectionNotificationResult struct {
@@ -40,7 +40,7 @@ func LookupVPCEndpointConnectionNotificationOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupVPCEndpointConnectionNotificationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPCEndpointConnectionNotificationOutputArgs) ElementType() reflect.Type {

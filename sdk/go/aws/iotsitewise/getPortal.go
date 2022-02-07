@@ -22,7 +22,7 @@ func LookupPortal(ctx *pulumi.Context, args *LookupPortalArgs, opts ...pulumi.In
 
 type LookupPortalArgs struct {
 	// The ID of the portal.
-	PortalId *string `pulumi:"portalId"`
+	PortalId string `pulumi:"portalId"`
 }
 
 type LookupPortalResult struct {
@@ -59,7 +59,7 @@ func LookupPortalOutput(ctx *pulumi.Context, args LookupPortalOutputArgs, opts .
 
 type LookupPortalOutputArgs struct {
 	// The ID of the portal.
-	PortalId pulumi.StringPtrInput `pulumi:"portalId"`
+	PortalId pulumi.StringInput `pulumi:"portalId"`
 }
 
 func (LookupPortalOutputArgs) ElementType() reflect.Type {

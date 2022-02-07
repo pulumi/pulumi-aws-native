@@ -22,9 +22,9 @@ func LookupFargateProfile(ctx *pulumi.Context, args *LookupFargateProfileArgs, o
 
 type LookupFargateProfileArgs struct {
 	// Name of the Cluster
-	ClusterName *string `pulumi:"clusterName"`
+	ClusterName string `pulumi:"clusterName"`
 	// Name of FargateProfile
-	FargateProfileName *string `pulumi:"fargateProfileName"`
+	FargateProfileName string `pulumi:"fargateProfileName"`
 }
 
 type LookupFargateProfileResult struct {
@@ -44,9 +44,9 @@ func LookupFargateProfileOutput(ctx *pulumi.Context, args LookupFargateProfileOu
 
 type LookupFargateProfileOutputArgs struct {
 	// Name of the Cluster
-	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Name of FargateProfile
-	FargateProfileName pulumi.StringPtrInput `pulumi:"fargateProfileName"`
+	FargateProfileName pulumi.StringInput `pulumi:"fargateProfileName"`
 }
 
 func (LookupFargateProfileOutputArgs) ElementType() reflect.Type {

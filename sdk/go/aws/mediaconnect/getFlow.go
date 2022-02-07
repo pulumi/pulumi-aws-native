@@ -22,7 +22,7 @@ func LookupFlow(ctx *pulumi.Context, args *LookupFlowArgs, opts ...pulumi.Invoke
 
 type LookupFlowArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-	FlowArn *string `pulumi:"flowArn"`
+	FlowArn string `pulumi:"flowArn"`
 }
 
 type LookupFlowResult struct {
@@ -47,7 +47,7 @@ func LookupFlowOutput(ctx *pulumi.Context, args LookupFlowOutputArgs, opts ...pu
 
 type LookupFlowOutputArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-	FlowArn pulumi.StringPtrInput `pulumi:"flowArn"`
+	FlowArn pulumi.StringInput `pulumi:"flowArn"`
 }
 
 func (LookupFlowOutputArgs) ElementType() reflect.Type {

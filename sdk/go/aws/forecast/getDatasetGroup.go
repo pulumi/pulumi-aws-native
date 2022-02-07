@@ -22,7 +22,7 @@ func LookupDatasetGroup(ctx *pulumi.Context, args *LookupDatasetGroupArgs, opts 
 
 type LookupDatasetGroupArgs struct {
 	// The Amazon Resource Name (ARN) of the dataset group to delete.
-	DatasetGroupArn *string `pulumi:"datasetGroupArn"`
+	DatasetGroupArn string `pulumi:"datasetGroupArn"`
 }
 
 type LookupDatasetGroupResult struct {
@@ -47,7 +47,7 @@ func LookupDatasetGroupOutput(ctx *pulumi.Context, args LookupDatasetGroupOutput
 
 type LookupDatasetGroupOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the dataset group to delete.
-	DatasetGroupArn pulumi.StringPtrInput `pulumi:"datasetGroupArn"`
+	DatasetGroupArn pulumi.StringInput `pulumi:"datasetGroupArn"`
 }
 
 func (LookupDatasetGroupOutputArgs) ElementType() reflect.Type {

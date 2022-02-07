@@ -21,7 +21,7 @@ func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pul
 }
 
 type LookupPortfolioArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPortfolioResult struct {
@@ -44,7 +44,7 @@ func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, 
 }
 
 type LookupPortfolioOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPortfolioOutputArgs) ElementType() reflect.Type {

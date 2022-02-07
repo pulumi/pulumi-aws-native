@@ -22,7 +22,7 @@ func LookupAppMonitor(ctx *pulumi.Context, args *LookupAppMonitorArgs, opts ...p
 
 type LookupAppMonitorArgs struct {
 	// A name for the app monitor
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupAppMonitorResult struct {
@@ -45,7 +45,7 @@ func LookupAppMonitorOutput(ctx *pulumi.Context, args LookupAppMonitorOutputArgs
 
 type LookupAppMonitorOutputArgs struct {
 	// A name for the app monitor
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupAppMonitorOutputArgs) ElementType() reflect.Type {

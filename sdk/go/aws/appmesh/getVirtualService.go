@@ -21,7 +21,7 @@ func LookupVirtualService(ctx *pulumi.Context, args *LookupVirtualServiceArgs, o
 }
 
 type LookupVirtualServiceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVirtualServiceResult struct {
@@ -43,7 +43,7 @@ func LookupVirtualServiceOutput(ctx *pulumi.Context, args LookupVirtualServiceOu
 }
 
 type LookupVirtualServiceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVirtualServiceOutputArgs) ElementType() reflect.Type {

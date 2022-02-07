@@ -22,7 +22,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 type LookupClusterArgs struct {
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
-	ClusterName *string `pulumi:"clusterName"`
+	ClusterName string `pulumi:"clusterName"`
 }
 
 type LookupClusterResult struct {
@@ -46,7 +46,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 type LookupClusterOutputArgs struct {
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
-	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {

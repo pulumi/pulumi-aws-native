@@ -22,9 +22,9 @@ func LookupKeySigningKey(ctx *pulumi.Context, args *LookupKeySigningKeyArgs, opt
 
 type LookupKeySigningKeyArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
-	HostedZoneId *string `pulumi:"hostedZoneId"`
+	HostedZoneId string `pulumi:"hostedZoneId"`
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupKeySigningKeyResult struct {
@@ -43,9 +43,9 @@ func LookupKeySigningKeyOutput(ctx *pulumi.Context, args LookupKeySigningKeyOutp
 
 type LookupKeySigningKeyOutputArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
-	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupKeySigningKeyOutputArgs) ElementType() reflect.Type {

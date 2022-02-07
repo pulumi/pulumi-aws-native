@@ -21,7 +21,7 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 }
 
 type LookupLoadBalancerArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLoadBalancerResult struct {
@@ -57,7 +57,7 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 }
 
 type LookupLoadBalancerOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {

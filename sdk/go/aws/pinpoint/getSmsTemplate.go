@@ -21,7 +21,7 @@ func LookupSmsTemplate(ctx *pulumi.Context, args *LookupSmsTemplateArgs, opts ..
 }
 
 type LookupSmsTemplateArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSmsTemplateResult struct {
@@ -43,7 +43,7 @@ func LookupSmsTemplateOutput(ctx *pulumi.Context, args LookupSmsTemplateOutputAr
 }
 
 type LookupSmsTemplateOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSmsTemplateOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupOptionGroup(ctx *pulumi.Context, args *LookupOptionGroupArgs, opts ..
 }
 
 type LookupOptionGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupOptionGroupResult struct {
@@ -39,7 +39,7 @@ func LookupOptionGroupOutput(ctx *pulumi.Context, args LookupOptionGroupOutputAr
 }
 
 type LookupOptionGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupOptionGroupOutputArgs) ElementType() reflect.Type {

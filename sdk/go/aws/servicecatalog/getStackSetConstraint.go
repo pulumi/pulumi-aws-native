@@ -21,7 +21,7 @@ func LookupStackSetConstraint(ctx *pulumi.Context, args *LookupStackSetConstrain
 }
 
 type LookupStackSetConstraintArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupStackSetConstraintResult struct {
@@ -45,7 +45,7 @@ func LookupStackSetConstraintOutput(ctx *pulumi.Context, args LookupStackSetCons
 }
 
 type LookupStackSetConstraintOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupStackSetConstraintOutputArgs) ElementType() reflect.Type {

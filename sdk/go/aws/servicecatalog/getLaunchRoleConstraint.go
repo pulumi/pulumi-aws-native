@@ -21,7 +21,7 @@ func LookupLaunchRoleConstraint(ctx *pulumi.Context, args *LookupLaunchRoleConst
 }
 
 type LookupLaunchRoleConstraintArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupLaunchRoleConstraintResult struct {
@@ -42,7 +42,7 @@ func LookupLaunchRoleConstraintOutput(ctx *pulumi.Context, args LookupLaunchRole
 }
 
 type LookupLaunchRoleConstraintOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupLaunchRoleConstraintOutputArgs) ElementType() reflect.Type {

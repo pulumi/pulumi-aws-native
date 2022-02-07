@@ -22,7 +22,7 @@ func LookupDataCatalog(ctx *pulumi.Context, args *LookupDataCatalogArgs, opts ..
 
 type LookupDataCatalogArgs struct {
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupDataCatalogResult struct {
@@ -47,7 +47,7 @@ func LookupDataCatalogOutput(ctx *pulumi.Context, args LookupDataCatalogOutputAr
 
 type LookupDataCatalogOutputArgs struct {
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupDataCatalogOutputArgs) ElementType() reflect.Type {

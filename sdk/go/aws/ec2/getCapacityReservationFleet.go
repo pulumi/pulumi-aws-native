@@ -21,7 +21,7 @@ func LookupCapacityReservationFleet(ctx *pulumi.Context, args *LookupCapacityRes
 }
 
 type LookupCapacityReservationFleetArgs struct {
-	CapacityReservationFleetId *string `pulumi:"capacityReservationFleetId"`
+	CapacityReservationFleetId string `pulumi:"capacityReservationFleetId"`
 }
 
 type LookupCapacityReservationFleetResult struct {
@@ -41,7 +41,7 @@ func LookupCapacityReservationFleetOutput(ctx *pulumi.Context, args LookupCapaci
 }
 
 type LookupCapacityReservationFleetOutputArgs struct {
-	CapacityReservationFleetId pulumi.StringPtrInput `pulumi:"capacityReservationFleetId"`
+	CapacityReservationFleetId pulumi.StringInput `pulumi:"capacityReservationFleetId"`
 }
 
 func (LookupCapacityReservationFleetOutputArgs) ElementType() reflect.Type {

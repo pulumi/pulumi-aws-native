@@ -21,7 +21,7 @@ func LookupDocumentationPart(ctx *pulumi.Context, args *LookupDocumentationPartA
 }
 
 type LookupDocumentationPartArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDocumentationPartResult struct {
@@ -39,7 +39,7 @@ func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentation
 }
 
 type LookupDocumentationPartOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDocumentationPartOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupReadinessCheck(ctx *pulumi.Context, args *LookupReadinessCheckArgs, o
 
 type LookupReadinessCheckArgs struct {
 	// Name of the ReadinessCheck to create.
-	ReadinessCheckName *string `pulumi:"readinessCheckName"`
+	ReadinessCheckName string `pulumi:"readinessCheckName"`
 }
 
 type LookupReadinessCheckResult struct {
@@ -45,7 +45,7 @@ func LookupReadinessCheckOutput(ctx *pulumi.Context, args LookupReadinessCheckOu
 
 type LookupReadinessCheckOutputArgs struct {
 	// Name of the ReadinessCheck to create.
-	ReadinessCheckName pulumi.StringPtrInput `pulumi:"readinessCheckName"`
+	ReadinessCheckName pulumi.StringInput `pulumi:"readinessCheckName"`
 }
 
 func (LookupReadinessCheckOutputArgs) ElementType() reflect.Type {

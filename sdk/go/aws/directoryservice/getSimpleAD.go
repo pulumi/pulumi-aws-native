@@ -21,7 +21,7 @@ func LookupSimpleAD(ctx *pulumi.Context, args *LookupSimpleADArgs, opts ...pulum
 }
 
 type LookupSimpleADArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSimpleADResult struct {
@@ -41,7 +41,7 @@ func LookupSimpleADOutput(ctx *pulumi.Context, args LookupSimpleADOutputArgs, op
 }
 
 type LookupSimpleADOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSimpleADOutputArgs) ElementType() reflect.Type {

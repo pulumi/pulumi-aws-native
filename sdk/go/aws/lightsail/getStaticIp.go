@@ -22,7 +22,7 @@ func LookupStaticIp(ctx *pulumi.Context, args *LookupStaticIpArgs, opts ...pulum
 
 type LookupStaticIpArgs struct {
 	// The name of the static IP address.
-	StaticIpName *string `pulumi:"staticIpName"`
+	StaticIpName string `pulumi:"staticIpName"`
 }
 
 type LookupStaticIpResult struct {
@@ -46,7 +46,7 @@ func LookupStaticIpOutput(ctx *pulumi.Context, args LookupStaticIpOutputArgs, op
 
 type LookupStaticIpOutputArgs struct {
 	// The name of the static IP address.
-	StaticIpName pulumi.StringPtrInput `pulumi:"staticIpName"`
+	StaticIpName pulumi.StringInput `pulumi:"staticIpName"`
 }
 
 func (LookupStaticIpOutputArgs) ElementType() reflect.Type {

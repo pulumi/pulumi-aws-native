@@ -21,8 +21,8 @@ func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pul
 }
 
 type LookupDashboardArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	DashboardId  *string `pulumi:"dashboardId"`
+	AwsAccountId string `pulumi:"awsAccountId"`
+	DashboardId  string `pulumi:"dashboardId"`
 }
 
 type LookupDashboardResult struct {
@@ -53,8 +53,8 @@ func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, 
 }
 
 type LookupDashboardOutputArgs struct {
-	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	DashboardId  pulumi.StringPtrInput `pulumi:"dashboardId"`
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+	DashboardId  pulumi.StringInput `pulumi:"dashboardId"`
 }
 
 func (LookupDashboardOutputArgs) ElementType() reflect.Type {

@@ -22,9 +22,9 @@ func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opt
 
 type LookupPermissionSetArgs struct {
 	// The sso instance arn that the permission set is owned.
-	InstanceArn *string `pulumi:"instanceArn"`
+	InstanceArn string `pulumi:"instanceArn"`
 	// The permission set that the policy will be attached to
-	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	PermissionSetArn string `pulumi:"permissionSetArn"`
 }
 
 type LookupPermissionSetResult struct {
@@ -53,9 +53,9 @@ func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutp
 
 type LookupPermissionSetOutputArgs struct {
 	// The sso instance arn that the permission set is owned.
-	InstanceArn pulumi.StringPtrInput `pulumi:"instanceArn"`
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 	// The permission set that the policy will be attached to
-	PermissionSetArn pulumi.StringPtrInput `pulumi:"permissionSetArn"`
+	PermissionSetArn pulumi.StringInput `pulumi:"permissionSetArn"`
 }
 
 func (LookupPermissionSetOutputArgs) ElementType() reflect.Type {

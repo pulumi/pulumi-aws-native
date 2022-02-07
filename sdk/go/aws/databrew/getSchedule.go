@@ -22,7 +22,7 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 
 type LookupScheduleArgs struct {
 	// Schedule Name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupScheduleResult struct {
@@ -42,7 +42,7 @@ func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, op
 
 type LookupScheduleOutputArgs struct {
 	// Schedule Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupScheduleOutputArgs) ElementType() reflect.Type {

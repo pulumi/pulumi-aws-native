@@ -22,7 +22,7 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, o
 
 type LookupTaskDefinitionArgs struct {
 	// The ID of the new wireless gateway task definition
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTaskDefinitionResult struct {
@@ -55,7 +55,7 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 
 type LookupTaskDefinitionOutputArgs struct {
 	// The ID of the new wireless gateway task definition
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTaskDefinitionOutputArgs) ElementType() reflect.Type {

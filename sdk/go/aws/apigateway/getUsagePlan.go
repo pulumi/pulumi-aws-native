@@ -22,7 +22,7 @@ func LookupUsagePlan(ctx *pulumi.Context, args *LookupUsagePlanArgs, opts ...pul
 
 type LookupUsagePlanArgs struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUsagePlanResult struct {
@@ -53,7 +53,7 @@ func LookupUsagePlanOutput(ctx *pulumi.Context, args LookupUsagePlanOutputArgs, 
 
 type LookupUsagePlanOutputArgs struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUsagePlanOutputArgs) ElementType() reflect.Type {

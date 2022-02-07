@@ -21,7 +21,7 @@ func LookupClientVpnRoute(ctx *pulumi.Context, args *LookupClientVpnRouteArgs, o
 }
 
 type LookupClientVpnRouteArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClientVpnRouteResult struct {
@@ -38,7 +38,7 @@ func LookupClientVpnRouteOutput(ctx *pulumi.Context, args LookupClientVpnRouteOu
 }
 
 type LookupClientVpnRouteOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClientVpnRouteOutputArgs) ElementType() reflect.Type {

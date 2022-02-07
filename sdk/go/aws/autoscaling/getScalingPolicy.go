@@ -21,7 +21,7 @@ func LookupScalingPolicy(ctx *pulumi.Context, args *LookupScalingPolicyArgs, opt
 }
 
 type LookupScalingPolicyArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupScalingPolicyResult struct {
@@ -49,7 +49,7 @@ func LookupScalingPolicyOutput(ctx *pulumi.Context, args LookupScalingPolicyOutp
 }
 
 type LookupScalingPolicyOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupScalingPolicyOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 }
 
 type LookupFunctionArgs struct {
-	FunctionARN *string `pulumi:"functionARN"`
+	FunctionARN string `pulumi:"functionARN"`
 }
 
 type LookupFunctionResult struct {
@@ -42,7 +42,7 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 }
 
 type LookupFunctionOutputArgs struct {
-	FunctionARN pulumi.StringPtrInput `pulumi:"functionARN"`
+	FunctionARN pulumi.StringInput `pulumi:"functionARN"`
 }
 
 func (LookupFunctionOutputArgs) ElementType() reflect.Type {

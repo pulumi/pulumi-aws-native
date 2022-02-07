@@ -22,9 +22,9 @@ func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...p
 
 type LookupPermissionArgs struct {
 	// The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
-	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
+	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
-	Principal *string `pulumi:"principal"`
+	Principal string `pulumi:"principal"`
 }
 
 type LookupPermissionResult struct {
@@ -41,9 +41,9 @@ func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs
 
 type LookupPermissionOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
-	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
+	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
 	// The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
-	Principal pulumi.StringPtrInput `pulumi:"principal"`
+	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
 func (LookupPermissionOutputArgs) ElementType() reflect.Type {

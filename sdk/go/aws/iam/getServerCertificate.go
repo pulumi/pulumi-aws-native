@@ -21,7 +21,7 @@ func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateA
 }
 
 type LookupServerCertificateArgs struct {
-	ServerCertificateName *string `pulumi:"serverCertificateName"`
+	ServerCertificateName string `pulumi:"serverCertificateName"`
 }
 
 type LookupServerCertificateResult struct {
@@ -41,7 +41,7 @@ func LookupServerCertificateOutput(ctx *pulumi.Context, args LookupServerCertifi
 }
 
 type LookupServerCertificateOutputArgs struct {
-	ServerCertificateName pulumi.StringPtrInput `pulumi:"serverCertificateName"`
+	ServerCertificateName pulumi.StringInput `pulumi:"serverCertificateName"`
 }
 
 func (LookupServerCertificateOutputArgs) ElementType() reflect.Type {

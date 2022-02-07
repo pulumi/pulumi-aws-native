@@ -22,7 +22,7 @@ func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts 
 
 type LookupCostCategoryArgs struct {
 	// Cost category ARN
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupCostCategoryResult struct {
@@ -49,7 +49,7 @@ func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutput
 
 type LookupCostCategoryOutputArgs struct {
 	// Cost category ARN
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupCostCategoryOutputArgs) ElementType() reflect.Type {

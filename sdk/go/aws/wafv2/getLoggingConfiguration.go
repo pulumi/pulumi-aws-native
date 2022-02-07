@@ -22,7 +22,7 @@ func LookupLoggingConfiguration(ctx *pulumi.Context, args *LookupLoggingConfigur
 
 type LookupLoggingConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
-	ResourceArn *string `pulumi:"resourceArn"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 type LookupLoggingConfigurationResult struct {
@@ -47,7 +47,7 @@ func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingCon
 
 type LookupLoggingConfigurationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
-	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (LookupLoggingConfigurationOutputArgs) ElementType() reflect.Type {

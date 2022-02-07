@@ -21,7 +21,7 @@ func LookupAPNSSandboxChannel(ctx *pulumi.Context, args *LookupAPNSSandboxChanne
 }
 
 type LookupAPNSSandboxChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAPNSSandboxChannelResult struct {
@@ -46,7 +46,7 @@ func LookupAPNSSandboxChannelOutput(ctx *pulumi.Context, args LookupAPNSSandboxC
 }
 
 type LookupAPNSSandboxChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAPNSSandboxChannelOutputArgs) ElementType() reflect.Type {

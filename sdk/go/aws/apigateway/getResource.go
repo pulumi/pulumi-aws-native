@@ -22,9 +22,9 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 type LookupResourceArgs struct {
 	// A unique primary identifier for a Resource
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId string `pulumi:"resourceId"`
 	// The ID of the RestApi resource in which you want to create this resource..
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupResourceResult struct {
@@ -43,9 +43,9 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 type LookupResourceOutputArgs struct {
 	// A unique primary identifier for a Resource
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The ID of the RestApi resource in which you want to create this resource..
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupResourceOutputArgs) ElementType() reflect.Type {

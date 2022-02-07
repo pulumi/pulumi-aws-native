@@ -21,7 +21,7 @@ func LookupClusterSecurityGroup(ctx *pulumi.Context, args *LookupClusterSecurity
 }
 
 type LookupClusterSecurityGroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClusterSecurityGroupResult struct {
@@ -39,7 +39,7 @@ func LookupClusterSecurityGroupOutput(ctx *pulumi.Context, args LookupClusterSec
 }
 
 type LookupClusterSecurityGroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClusterSecurityGroupOutputArgs) ElementType() reflect.Type {

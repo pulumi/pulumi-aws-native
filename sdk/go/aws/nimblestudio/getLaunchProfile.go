@@ -21,9 +21,9 @@ func LookupLaunchProfile(ctx *pulumi.Context, args *LookupLaunchProfileArgs, opt
 }
 
 type LookupLaunchProfileArgs struct {
-	LaunchProfileId *string `pulumi:"launchProfileId"`
+	LaunchProfileId string `pulumi:"launchProfileId"`
 	// <p>The studio ID. </p>
-	StudioId *string `pulumi:"studioId"`
+	StudioId string `pulumi:"studioId"`
 }
 
 type LookupLaunchProfileResult struct {
@@ -51,9 +51,9 @@ func LookupLaunchProfileOutput(ctx *pulumi.Context, args LookupLaunchProfileOutp
 }
 
 type LookupLaunchProfileOutputArgs struct {
-	LaunchProfileId pulumi.StringPtrInput `pulumi:"launchProfileId"`
+	LaunchProfileId pulumi.StringInput `pulumi:"launchProfileId"`
 	// <p>The studio ID. </p>
-	StudioId pulumi.StringPtrInput `pulumi:"studioId"`
+	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupLaunchProfileOutputArgs) ElementType() reflect.Type {

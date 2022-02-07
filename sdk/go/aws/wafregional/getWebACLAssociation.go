@@ -21,7 +21,7 @@ func LookupWebACLAssociation(ctx *pulumi.Context, args *LookupWebACLAssociationA
 }
 
 type LookupWebACLAssociationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWebACLAssociationResult struct {
@@ -38,7 +38,7 @@ func LookupWebACLAssociationOutput(ctx *pulumi.Context, args LookupWebACLAssocia
 }
 
 type LookupWebACLAssociationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWebACLAssociationOutputArgs) ElementType() reflect.Type {

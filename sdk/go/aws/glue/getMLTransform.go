@@ -21,7 +21,7 @@ func LookupMLTransform(ctx *pulumi.Context, args *LookupMLTransformArgs, opts ..
 }
 
 type LookupMLTransformArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupMLTransformResult struct {
@@ -50,7 +50,7 @@ func LookupMLTransformOutput(ctx *pulumi.Context, args LookupMLTransformOutputAr
 }
 
 type LookupMLTransformOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupMLTransformOutputArgs) ElementType() reflect.Type {

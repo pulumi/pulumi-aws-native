@@ -22,7 +22,7 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 
 type LookupAliasArgs struct {
 	// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
-	AliasName *string `pulumi:"aliasName"`
+	AliasName string `pulumi:"aliasName"`
 }
 
 type LookupAliasResult struct {
@@ -41,7 +41,7 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 
 type LookupAliasOutputArgs struct {
 	// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
-	AliasName pulumi.StringPtrInput `pulumi:"aliasName"`
+	AliasName pulumi.StringInput `pulumi:"aliasName"`
 }
 
 func (LookupAliasOutputArgs) ElementType() reflect.Type {

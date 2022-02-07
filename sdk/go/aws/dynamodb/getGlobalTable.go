@@ -21,7 +21,7 @@ func LookupGlobalTable(ctx *pulumi.Context, args *LookupGlobalTableArgs, opts ..
 }
 
 type LookupGlobalTableArgs struct {
-	TableName *string `pulumi:"tableName"`
+	TableName string `pulumi:"tableName"`
 }
 
 type LookupGlobalTableResult struct {
@@ -48,7 +48,7 @@ func LookupGlobalTableOutput(ctx *pulumi.Context, args LookupGlobalTableOutputAr
 }
 
 type LookupGlobalTableOutputArgs struct {
-	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (LookupGlobalTableOutputArgs) ElementType() reflect.Type {

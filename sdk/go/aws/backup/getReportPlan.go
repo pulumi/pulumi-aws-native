@@ -22,7 +22,7 @@ func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...p
 
 type LookupReportPlanArgs struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
-	ReportPlanArn *string `pulumi:"reportPlanArn"`
+	ReportPlanArn string `pulumi:"reportPlanArn"`
 }
 
 type LookupReportPlanResult struct {
@@ -49,7 +49,7 @@ func LookupReportPlanOutput(ctx *pulumi.Context, args LookupReportPlanOutputArgs
 
 type LookupReportPlanOutputArgs struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
-	ReportPlanArn pulumi.StringPtrInput `pulumi:"reportPlanArn"`
+	ReportPlanArn pulumi.StringInput `pulumi:"reportPlanArn"`
 }
 
 func (LookupReportPlanOutputArgs) ElementType() reflect.Type {

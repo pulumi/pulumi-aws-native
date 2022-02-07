@@ -22,9 +22,9 @@ func LookupPrimaryTaskSet(ctx *pulumi.Context, args *LookupPrimaryTaskSetArgs, o
 
 type LookupPrimaryTaskSetArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
-	Cluster *string `pulumi:"cluster"`
+	Cluster string `pulumi:"cluster"`
 	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
-	Service *string `pulumi:"service"`
+	Service string `pulumi:"service"`
 }
 
 type LookupPrimaryTaskSetResult struct {
@@ -43,9 +43,9 @@ func LookupPrimaryTaskSetOutput(ctx *pulumi.Context, args LookupPrimaryTaskSetOu
 
 type LookupPrimaryTaskSetOutputArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
-	Cluster pulumi.StringPtrInput `pulumi:"cluster"`
+	Cluster pulumi.StringInput `pulumi:"cluster"`
 	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
-	Service pulumi.StringPtrInput `pulumi:"service"`
+	Service pulumi.StringInput `pulumi:"service"`
 }
 
 func (LookupPrimaryTaskSetOutputArgs) ElementType() reflect.Type {

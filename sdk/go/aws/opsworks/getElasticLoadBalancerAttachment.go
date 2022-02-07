@@ -21,7 +21,7 @@ func LookupElasticLoadBalancerAttachment(ctx *pulumi.Context, args *LookupElasti
 }
 
 type LookupElasticLoadBalancerAttachmentArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupElasticLoadBalancerAttachmentResult struct {
@@ -40,7 +40,7 @@ func LookupElasticLoadBalancerAttachmentOutput(ctx *pulumi.Context, args LookupE
 }
 
 type LookupElasticLoadBalancerAttachmentOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupElasticLoadBalancerAttachmentOutputArgs) ElementType() reflect.Type {

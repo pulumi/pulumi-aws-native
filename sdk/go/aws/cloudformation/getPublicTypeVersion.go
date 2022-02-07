@@ -22,7 +22,7 @@ func LookupPublicTypeVersion(ctx *pulumi.Context, args *LookupPublicTypeVersionA
 
 type LookupPublicTypeVersionArgs struct {
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
-	PublicTypeArn *string `pulumi:"publicTypeArn"`
+	PublicTypeArn string `pulumi:"publicTypeArn"`
 }
 
 type LookupPublicTypeVersionResult struct {
@@ -45,7 +45,7 @@ func LookupPublicTypeVersionOutput(ctx *pulumi.Context, args LookupPublicTypeVer
 
 type LookupPublicTypeVersionOutputArgs struct {
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
-	PublicTypeArn pulumi.StringPtrInput `pulumi:"publicTypeArn"`
+	PublicTypeArn pulumi.StringInput `pulumi:"publicTypeArn"`
 }
 
 func (LookupPublicTypeVersionOutputArgs) ElementType() reflect.Type {

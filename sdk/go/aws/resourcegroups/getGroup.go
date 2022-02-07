@@ -22,7 +22,7 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 type LookupGroupArgs struct {
 	// The name of the resource group
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupGroupResult struct {
@@ -47,7 +47,7 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 type LookupGroupOutputArgs struct {
 	// The name of the resource group
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupRobot(ctx *pulumi.Context, args *LookupRobotArgs, opts ...pulumi.Invo
 }
 
 type LookupRobotArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRobotResult struct {
@@ -39,7 +39,7 @@ func LookupRobotOutput(ctx *pulumi.Context, args LookupRobotOutputArgs, opts ...
 }
 
 type LookupRobotOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRobotOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupVoiceChannel(ctx *pulumi.Context, args *LookupVoiceChannelArgs, opts 
 }
 
 type LookupVoiceChannelArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVoiceChannelResult struct {
@@ -39,7 +39,7 @@ func LookupVoiceChannelOutput(ctx *pulumi.Context, args LookupVoiceChannelOutput
 }
 
 type LookupVoiceChannelOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVoiceChannelOutputArgs) ElementType() reflect.Type {

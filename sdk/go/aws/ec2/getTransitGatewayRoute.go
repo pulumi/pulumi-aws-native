@@ -21,7 +21,7 @@ func LookupTransitGatewayRoute(ctx *pulumi.Context, args *LookupTransitGatewayRo
 }
 
 type LookupTransitGatewayRouteArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTransitGatewayRouteResult struct {
@@ -38,7 +38,7 @@ func LookupTransitGatewayRouteOutput(ctx *pulumi.Context, args LookupTransitGate
 }
 
 type LookupTransitGatewayRouteOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTransitGatewayRouteOutputArgs) ElementType() reflect.Type {

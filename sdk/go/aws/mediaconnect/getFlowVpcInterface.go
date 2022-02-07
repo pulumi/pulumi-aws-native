@@ -22,9 +22,9 @@ func LookupFlowVpcInterface(ctx *pulumi.Context, args *LookupFlowVpcInterfaceArg
 
 type LookupFlowVpcInterfaceArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-	FlowArn *string `pulumi:"flowArn"`
+	FlowArn string `pulumi:"flowArn"`
 	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupFlowVpcInterfaceResult struct {
@@ -49,9 +49,9 @@ func LookupFlowVpcInterfaceOutput(ctx *pulumi.Context, args LookupFlowVpcInterfa
 
 type LookupFlowVpcInterfaceOutputArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-	FlowArn pulumi.StringPtrInput `pulumi:"flowArn"`
+	FlowArn pulumi.StringInput `pulumi:"flowArn"`
 	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupFlowVpcInterfaceOutputArgs) ElementType() reflect.Type {

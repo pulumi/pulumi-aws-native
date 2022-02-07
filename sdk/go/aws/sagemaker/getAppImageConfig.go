@@ -22,7 +22,7 @@ func LookupAppImageConfig(ctx *pulumi.Context, args *LookupAppImageConfigArgs, o
 
 type LookupAppImageConfigArgs struct {
 	// The Name of the AppImageConfig.
-	AppImageConfigName *string `pulumi:"appImageConfigName"`
+	AppImageConfigName string `pulumi:"appImageConfigName"`
 }
 
 type LookupAppImageConfigResult struct {
@@ -43,7 +43,7 @@ func LookupAppImageConfigOutput(ctx *pulumi.Context, args LookupAppImageConfigOu
 
 type LookupAppImageConfigOutputArgs struct {
 	// The Name of the AppImageConfig.
-	AppImageConfigName pulumi.StringPtrInput `pulumi:"appImageConfigName"`
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
 }
 
 func (LookupAppImageConfigOutputArgs) ElementType() reflect.Type {

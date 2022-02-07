@@ -22,7 +22,7 @@ func LookupPackagingConfiguration(ctx *pulumi.Context, args *LookupPackagingConf
 
 type LookupPackagingConfigurationArgs struct {
 	// The ID of the PackagingConfiguration.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPackagingConfigurationResult struct {
@@ -53,7 +53,7 @@ func LookupPackagingConfigurationOutput(ctx *pulumi.Context, args LookupPackagin
 
 type LookupPackagingConfigurationOutputArgs struct {
 	// The ID of the PackagingConfiguration.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPackagingConfigurationOutputArgs) ElementType() reflect.Type {

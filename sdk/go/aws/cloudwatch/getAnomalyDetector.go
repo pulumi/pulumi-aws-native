@@ -21,7 +21,7 @@ func LookupAnomalyDetector(ctx *pulumi.Context, args *LookupAnomalyDetectorArgs,
 }
 
 type LookupAnomalyDetectorArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAnomalyDetectorResult struct {
@@ -39,7 +39,7 @@ func LookupAnomalyDetectorOutput(ctx *pulumi.Context, args LookupAnomalyDetector
 }
 
 type LookupAnomalyDetectorOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAnomalyDetectorOutputArgs) ElementType() reflect.Type {

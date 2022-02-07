@@ -21,7 +21,7 @@ func LookupAppBlock(ctx *pulumi.Context, args *LookupAppBlockArgs, opts ...pulum
 }
 
 type LookupAppBlockArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupAppBlockResult struct {
@@ -39,7 +39,7 @@ func LookupAppBlockOutput(ctx *pulumi.Context, args LookupAppBlockOutputArgs, op
 }
 
 type LookupAppBlockOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupAppBlockOutputArgs) ElementType() reflect.Type {

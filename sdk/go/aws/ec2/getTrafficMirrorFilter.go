@@ -21,7 +21,7 @@ func LookupTrafficMirrorFilter(ctx *pulumi.Context, args *LookupTrafficMirrorFil
 }
 
 type LookupTrafficMirrorFilterArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupTrafficMirrorFilterResult struct {
@@ -40,7 +40,7 @@ func LookupTrafficMirrorFilterOutput(ctx *pulumi.Context, args LookupTrafficMirr
 }
 
 type LookupTrafficMirrorFilterOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupTrafficMirrorFilterOutputArgs) ElementType() reflect.Type {

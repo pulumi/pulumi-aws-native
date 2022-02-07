@@ -21,7 +21,7 @@ func LookupSimulationApplicationVersion(ctx *pulumi.Context, args *LookupSimulat
 }
 
 type LookupSimulationApplicationVersionArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupSimulationApplicationVersionResult struct {
@@ -39,7 +39,7 @@ func LookupSimulationApplicationVersionOutput(ctx *pulumi.Context, args LookupSi
 }
 
 type LookupSimulationApplicationVersionOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupSimulationApplicationVersionOutputArgs) ElementType() reflect.Type {

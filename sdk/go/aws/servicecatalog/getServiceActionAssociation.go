@@ -21,9 +21,9 @@ func LookupServiceActionAssociation(ctx *pulumi.Context, args *LookupServiceActi
 }
 
 type LookupServiceActionAssociationArgs struct {
-	ProductId              *string `pulumi:"productId"`
-	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
-	ServiceActionId        *string `pulumi:"serviceActionId"`
+	ProductId              string `pulumi:"productId"`
+	ProvisioningArtifactId string `pulumi:"provisioningArtifactId"`
+	ServiceActionId        string `pulumi:"serviceActionId"`
 }
 
 type LookupServiceActionAssociationResult struct {
@@ -39,9 +39,9 @@ func LookupServiceActionAssociationOutput(ctx *pulumi.Context, args LookupServic
 }
 
 type LookupServiceActionAssociationOutputArgs struct {
-	ProductId              pulumi.StringPtrInput `pulumi:"productId"`
-	ProvisioningArtifactId pulumi.StringPtrInput `pulumi:"provisioningArtifactId"`
-	ServiceActionId        pulumi.StringPtrInput `pulumi:"serviceActionId"`
+	ProductId              pulumi.StringInput `pulumi:"productId"`
+	ProvisioningArtifactId pulumi.StringInput `pulumi:"provisioningArtifactId"`
+	ServiceActionId        pulumi.StringInput `pulumi:"serviceActionId"`
 }
 
 func (LookupServiceActionAssociationOutputArgs) ElementType() reflect.Type {

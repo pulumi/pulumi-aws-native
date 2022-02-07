@@ -22,7 +22,7 @@ func LookupResolverQueryLoggingConfig(ctx *pulumi.Context, args *LookupResolverQ
 
 type LookupResolverQueryLoggingConfigArgs struct {
 	// ResourceId
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupResolverQueryLoggingConfigResult struct {
@@ -55,7 +55,7 @@ func LookupResolverQueryLoggingConfigOutput(ctx *pulumi.Context, args LookupReso
 
 type LookupResolverQueryLoggingConfigOutputArgs struct {
 	// ResourceId
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupResolverQueryLoggingConfigOutputArgs) ElementType() reflect.Type {

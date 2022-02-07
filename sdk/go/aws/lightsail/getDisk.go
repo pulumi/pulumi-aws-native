@@ -22,7 +22,7 @@ func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.Invoke
 
 type LookupDiskArgs struct {
 	// The names to use for your new Lightsail disk.
-	DiskName *string `pulumi:"diskName"`
+	DiskName string `pulumi:"diskName"`
 }
 
 type LookupDiskResult struct {
@@ -61,7 +61,7 @@ func LookupDiskOutput(ctx *pulumi.Context, args LookupDiskOutputArgs, opts ...pu
 
 type LookupDiskOutputArgs struct {
 	// The names to use for your new Lightsail disk.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
+	DiskName pulumi.StringInput `pulumi:"diskName"`
 }
 
 func (LookupDiskOutputArgs) ElementType() reflect.Type {

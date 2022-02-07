@@ -21,7 +21,7 @@ func LookupVersion(ctx *pulumi.Context, args *LookupVersionArgs, opts ...pulumi.
 }
 
 type LookupVersionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVersionResult struct {
@@ -42,7 +42,7 @@ func LookupVersionOutput(ctx *pulumi.Context, args LookupVersionOutputArgs, opts
 }
 
 type LookupVersionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVersionOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupRoutingControl(ctx *pulumi.Context, args *LookupRoutingControlArgs, o
 
 type LookupRoutingControlArgs struct {
 	// The Amazon Resource Name (ARN) of the routing control.
-	RoutingControlArn *string `pulumi:"routingControlArn"`
+	RoutingControlArn string `pulumi:"routingControlArn"`
 }
 
 type LookupRoutingControlResult struct {
@@ -45,7 +45,7 @@ func LookupRoutingControlOutput(ctx *pulumi.Context, args LookupRoutingControlOu
 
 type LookupRoutingControlOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the routing control.
-	RoutingControlArn pulumi.StringPtrInput `pulumi:"routingControlArn"`
+	RoutingControlArn pulumi.StringInput `pulumi:"routingControlArn"`
 }
 
 func (LookupRoutingControlOutputArgs) ElementType() reflect.Type {

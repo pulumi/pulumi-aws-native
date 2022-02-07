@@ -22,7 +22,7 @@ func LookupCarrierGateway(ctx *pulumi.Context, args *LookupCarrierGatewayArgs, o
 
 type LookupCarrierGatewayArgs struct {
 	// The ID of the carrier gateway.
-	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
+	CarrierGatewayId string `pulumi:"carrierGatewayId"`
 }
 
 type LookupCarrierGatewayResult struct {
@@ -47,7 +47,7 @@ func LookupCarrierGatewayOutput(ctx *pulumi.Context, args LookupCarrierGatewayOu
 
 type LookupCarrierGatewayOutputArgs struct {
 	// The ID of the carrier gateway.
-	CarrierGatewayId pulumi.StringPtrInput `pulumi:"carrierGatewayId"`
+	CarrierGatewayId pulumi.StringInput `pulumi:"carrierGatewayId"`
 }
 
 func (LookupCarrierGatewayOutputArgs) ElementType() reflect.Type {

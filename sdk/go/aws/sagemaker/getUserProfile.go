@@ -22,9 +22,9 @@ func LookupUserProfile(ctx *pulumi.Context, args *LookupUserProfileArgs, opts ..
 
 type LookupUserProfileArgs struct {
 	// The ID of the associated Domain.
-	DomainId *string `pulumi:"domainId"`
+	DomainId string `pulumi:"domainId"`
 	// A name for the UserProfile.
-	UserProfileName *string `pulumi:"userProfileName"`
+	UserProfileName string `pulumi:"userProfileName"`
 }
 
 type LookupUserProfileResult struct {
@@ -45,9 +45,9 @@ func LookupUserProfileOutput(ctx *pulumi.Context, args LookupUserProfileOutputAr
 
 type LookupUserProfileOutputArgs struct {
 	// The ID of the associated Domain.
-	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
+	DomainId pulumi.StringInput `pulumi:"domainId"`
 	// A name for the UserProfile.
-	UserProfileName pulumi.StringPtrInput `pulumi:"userProfileName"`
+	UserProfileName pulumi.StringInput `pulumi:"userProfileName"`
 }
 
 func (LookupUserProfileOutputArgs) ElementType() reflect.Type {

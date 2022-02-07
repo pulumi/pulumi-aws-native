@@ -22,11 +22,11 @@ func LookupTransitGatewayMulticastGroupMember(ctx *pulumi.Context, args *LookupT
 
 type LookupTransitGatewayMulticastGroupMemberArgs struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress *string `pulumi:"groupIpAddress"`
+	GroupIpAddress string `pulumi:"groupIpAddress"`
 	// The ID of the transit gateway attachment.
-	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId *string `pulumi:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 type LookupTransitGatewayMulticastGroupMemberResult struct {
@@ -59,11 +59,11 @@ func LookupTransitGatewayMulticastGroupMemberOutput(ctx *pulumi.Context, args Lo
 
 type LookupTransitGatewayMulticastGroupMemberOutputArgs struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress pulumi.StringPtrInput `pulumi:"groupIpAddress"`
+	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
 	// The ID of the transit gateway attachment.
-	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId pulumi.StringPtrInput `pulumi:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId pulumi.StringInput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 func (LookupTransitGatewayMulticastGroupMemberOutputArgs) ElementType() reflect.Type {

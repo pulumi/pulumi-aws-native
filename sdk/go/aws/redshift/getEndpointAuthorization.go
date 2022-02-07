@@ -22,9 +22,9 @@ func LookupEndpointAuthorization(ctx *pulumi.Context, args *LookupEndpointAuthor
 
 type LookupEndpointAuthorizationArgs struct {
 	// The target AWS account ID to grant or revoke access for.
-	Account *string `pulumi:"account"`
+	Account string `pulumi:"account"`
 	// The cluster identifier.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
 type LookupEndpointAuthorizationResult struct {
@@ -59,9 +59,9 @@ func LookupEndpointAuthorizationOutput(ctx *pulumi.Context, args LookupEndpointA
 
 type LookupEndpointAuthorizationOutputArgs struct {
 	// The target AWS account ID to grant or revoke access for.
-	Account pulumi.StringPtrInput `pulumi:"account"`
+	Account pulumi.StringInput `pulumi:"account"`
 	// The cluster identifier.
-	ClusterIdentifier pulumi.StringPtrInput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
 func (LookupEndpointAuthorizationOutputArgs) ElementType() reflect.Type {

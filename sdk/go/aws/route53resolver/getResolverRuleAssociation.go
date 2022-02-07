@@ -22,7 +22,7 @@ func LookupResolverRuleAssociation(ctx *pulumi.Context, args *LookupResolverRule
 
 type LookupResolverRuleAssociationArgs struct {
 	// Primary Identifier for Resolver Rule Association
-	ResolverRuleAssociationId *string `pulumi:"resolverRuleAssociationId"`
+	ResolverRuleAssociationId string `pulumi:"resolverRuleAssociationId"`
 }
 
 type LookupResolverRuleAssociationResult struct {
@@ -41,7 +41,7 @@ func LookupResolverRuleAssociationOutput(ctx *pulumi.Context, args LookupResolve
 
 type LookupResolverRuleAssociationOutputArgs struct {
 	// Primary Identifier for Resolver Rule Association
-	ResolverRuleAssociationId pulumi.StringPtrInput `pulumi:"resolverRuleAssociationId"`
+	ResolverRuleAssociationId pulumi.StringInput `pulumi:"resolverRuleAssociationId"`
 }
 
 func (LookupResolverRuleAssociationOutputArgs) ElementType() reflect.Type {

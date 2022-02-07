@@ -21,7 +21,7 @@ func LookupServiceLinkedRole(ctx *pulumi.Context, args *LookupServiceLinkedRoleA
 }
 
 type LookupServiceLinkedRoleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupServiceLinkedRoleResult struct {
@@ -39,7 +39,7 @@ func LookupServiceLinkedRoleOutput(ctx *pulumi.Context, args LookupServiceLinked
 }
 
 type LookupServiceLinkedRoleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupServiceLinkedRoleOutputArgs) ElementType() reflect.Type {

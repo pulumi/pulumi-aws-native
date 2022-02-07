@@ -22,9 +22,9 @@ func LookupLoadBalancerTlsCertificate(ctx *pulumi.Context, args *LookupLoadBalan
 
 type LookupLoadBalancerTlsCertificateArgs struct {
 	// The SSL/TLS certificate name.
-	CertificateName *string `pulumi:"certificateName"`
+	CertificateName string `pulumi:"certificateName"`
 	// The name of your load balancer.
-	LoadBalancerName *string `pulumi:"loadBalancerName"`
+	LoadBalancerName string `pulumi:"loadBalancerName"`
 }
 
 type LookupLoadBalancerTlsCertificateResult struct {
@@ -46,9 +46,9 @@ func LookupLoadBalancerTlsCertificateOutput(ctx *pulumi.Context, args LookupLoad
 
 type LookupLoadBalancerTlsCertificateOutputArgs struct {
 	// The SSL/TLS certificate name.
-	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
 	// The name of your load balancer.
-	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
+	LoadBalancerName pulumi.StringInput `pulumi:"loadBalancerName"`
 }
 
 func (LookupLoadBalancerTlsCertificateOutputArgs) ElementType() reflect.Type {

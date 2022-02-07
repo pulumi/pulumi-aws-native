@@ -21,7 +21,7 @@ func LookupClassifier(ctx *pulumi.Context, args *LookupClassifierArgs, opts ...p
 }
 
 type LookupClassifierArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupClassifierResult struct {
@@ -42,7 +42,7 @@ func LookupClassifierOutput(ctx *pulumi.Context, args LookupClassifierOutputArgs
 }
 
 type LookupClassifierOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupClassifierOutputArgs) ElementType() reflect.Type {

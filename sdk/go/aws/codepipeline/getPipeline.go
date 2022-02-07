@@ -21,7 +21,7 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 }
 
 type LookupPipelineArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupPipelineResult struct {
@@ -46,7 +46,7 @@ func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, op
 }
 
 type LookupPipelineOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPipelineOutputArgs) ElementType() reflect.Type {

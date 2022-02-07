@@ -22,7 +22,7 @@ func LookupLaunchConfiguration(ctx *pulumi.Context, args *LookupLaunchConfigurat
 
 type LookupLaunchConfigurationArgs struct {
 	// The name of the launch configuration. This name must be unique per Region per account.
-	LaunchConfigurationName *string `pulumi:"launchConfigurationName"`
+	LaunchConfigurationName string `pulumi:"launchConfigurationName"`
 }
 
 type LookupLaunchConfigurationResult struct {
@@ -39,7 +39,7 @@ func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfi
 
 type LookupLaunchConfigurationOutputArgs struct {
 	// The name of the launch configuration. This name must be unique per Region per account.
-	LaunchConfigurationName pulumi.StringPtrInput `pulumi:"launchConfigurationName"`
+	LaunchConfigurationName pulumi.StringInput `pulumi:"launchConfigurationName"`
 }
 
 func (LookupLaunchConfigurationOutputArgs) ElementType() reflect.Type {

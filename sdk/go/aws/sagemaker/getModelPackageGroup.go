@@ -21,7 +21,7 @@ func LookupModelPackageGroup(ctx *pulumi.Context, args *LookupModelPackageGroupA
 }
 
 type LookupModelPackageGroupArgs struct {
-	ModelPackageGroupArn *string `pulumi:"modelPackageGroupArn"`
+	ModelPackageGroupArn string `pulumi:"modelPackageGroupArn"`
 }
 
 type LookupModelPackageGroupResult struct {
@@ -45,7 +45,7 @@ func LookupModelPackageGroupOutput(ctx *pulumi.Context, args LookupModelPackageG
 }
 
 type LookupModelPackageGroupOutputArgs struct {
-	ModelPackageGroupArn pulumi.StringPtrInput `pulumi:"modelPackageGroupArn"`
+	ModelPackageGroupArn pulumi.StringInput `pulumi:"modelPackageGroupArn"`
 }
 
 func (LookupModelPackageGroupOutputArgs) ElementType() reflect.Type {

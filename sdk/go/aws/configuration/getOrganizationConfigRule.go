@@ -21,7 +21,7 @@ func LookupOrganizationConfigRule(ctx *pulumi.Context, args *LookupOrganizationC
 }
 
 type LookupOrganizationConfigRuleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupOrganizationConfigRuleResult struct {
@@ -41,7 +41,7 @@ func LookupOrganizationConfigRuleOutput(ctx *pulumi.Context, args LookupOrganiza
 }
 
 type LookupOrganizationConfigRuleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupOrganizationConfigRuleOutputArgs) ElementType() reflect.Type {

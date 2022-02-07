@@ -22,7 +22,7 @@ func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.In
 
 type LookupBucketArgs struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupBucketResult struct {
@@ -45,7 +45,7 @@ func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts .
 
 type LookupBucketOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupBucketOutputArgs) ElementType() reflect.Type {

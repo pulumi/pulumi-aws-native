@@ -21,9 +21,9 @@ func LookupStreamingImage(ctx *pulumi.Context, args *LookupStreamingImageArgs, o
 }
 
 type LookupStreamingImageArgs struct {
-	StreamingImageId *string `pulumi:"streamingImageId"`
+	StreamingImageId string `pulumi:"streamingImageId"`
 	// <p>The studioId. </p>
-	StudioId *string `pulumi:"studioId"`
+	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStreamingImageResult struct {
@@ -51,9 +51,9 @@ func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOu
 }
 
 type LookupStreamingImageOutputArgs struct {
-	StreamingImageId pulumi.StringPtrInput `pulumi:"streamingImageId"`
+	StreamingImageId pulumi.StringInput `pulumi:"streamingImageId"`
 	// <p>The studioId. </p>
-	StudioId pulumi.StringPtrInput `pulumi:"studioId"`
+	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupStreamingImageOutputArgs) ElementType() reflect.Type {

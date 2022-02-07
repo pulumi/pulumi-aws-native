@@ -22,7 +22,7 @@ func LookupLocationEFS(ctx *pulumi.Context, args *LookupLocationEFSArgs, opts ..
 
 type LookupLocationEFSArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationEFSResult struct {
@@ -45,7 +45,7 @@ func LookupLocationEFSOutput(ctx *pulumi.Context, args LookupLocationEFSOutputAr
 
 type LookupLocationEFSOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationEFSOutputArgs) ElementType() reflect.Type {

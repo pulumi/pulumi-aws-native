@@ -21,7 +21,7 @@ func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChan
 }
 
 type LookupNotificationChannelArgs struct {
-	SnsTopicArn *string `pulumi:"snsTopicArn"`
+	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
 type LookupNotificationChannelResult struct {
@@ -39,7 +39,7 @@ func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificatio
 }
 
 type LookupNotificationChannelOutputArgs struct {
-	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
+	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 }
 
 func (LookupNotificationChannelOutputArgs) ElementType() reflect.Type {

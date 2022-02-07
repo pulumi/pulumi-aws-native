@@ -21,7 +21,7 @@ func LookupNodegroup(ctx *pulumi.Context, args *LookupNodegroupArgs, opts ...pul
 }
 
 type LookupNodegroupArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNodegroupResult struct {
@@ -48,7 +48,7 @@ func LookupNodegroupOutput(ctx *pulumi.Context, args LookupNodegroupOutputArgs, 
 }
 
 type LookupNodegroupOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNodegroupOutputArgs) ElementType() reflect.Type {

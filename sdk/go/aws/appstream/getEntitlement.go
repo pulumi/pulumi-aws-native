@@ -21,8 +21,8 @@ func LookupEntitlement(ctx *pulumi.Context, args *LookupEntitlementArgs, opts ..
 }
 
 type LookupEntitlementArgs struct {
-	Name      *string `pulumi:"name"`
-	StackName *string `pulumi:"stackName"`
+	Name      string `pulumi:"name"`
+	StackName string `pulumi:"stackName"`
 }
 
 type LookupEntitlementResult struct {
@@ -43,8 +43,8 @@ func LookupEntitlementOutput(ctx *pulumi.Context, args LookupEntitlementOutputAr
 }
 
 type LookupEntitlementOutputArgs struct {
-	Name      pulumi.StringPtrInput `pulumi:"name"`
-	StackName pulumi.StringPtrInput `pulumi:"stackName"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	StackName pulumi.StringInput `pulumi:"stackName"`
 }
 
 func (LookupEntitlementOutputArgs) ElementType() reflect.Type {

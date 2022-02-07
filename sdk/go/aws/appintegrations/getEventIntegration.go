@@ -22,7 +22,7 @@ func LookupEventIntegration(ctx *pulumi.Context, args *LookupEventIntegrationArg
 
 type LookupEventIntegrationArgs struct {
 	// The name of the event integration.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupEventIntegrationResult struct {
@@ -47,7 +47,7 @@ func LookupEventIntegrationOutput(ctx *pulumi.Context, args LookupEventIntegrati
 
 type LookupEventIntegrationOutputArgs struct {
 	// The name of the event integration.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupEventIntegrationOutputArgs) ElementType() reflect.Type {

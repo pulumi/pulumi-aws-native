@@ -22,7 +22,7 @@ func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulum
 
 type LookupWorkflowArgs struct {
 	// A unique identifier for the workflow.
-	WorkflowId *string `pulumi:"workflowId"`
+	WorkflowId string `pulumi:"workflowId"`
 }
 
 type LookupWorkflowResult struct {
@@ -45,7 +45,7 @@ func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, op
 
 type LookupWorkflowOutputArgs struct {
 	// A unique identifier for the workflow.
-	WorkflowId pulumi.StringPtrInput `pulumi:"workflowId"`
+	WorkflowId pulumi.StringInput `pulumi:"workflowId"`
 }
 
 func (LookupWorkflowOutputArgs) ElementType() reflect.Type {

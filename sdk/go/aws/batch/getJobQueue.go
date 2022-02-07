@@ -21,7 +21,7 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 }
 
 type LookupJobQueueArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupJobQueueResult struct {
@@ -42,7 +42,7 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 }
 
 type LookupJobQueueOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupJobQueueOutputArgs) ElementType() reflect.Type {

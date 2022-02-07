@@ -21,7 +21,7 @@ func LookupNode(ctx *pulumi.Context, args *LookupNodeArgs, opts ...pulumi.Invoke
 }
 
 type LookupNodeArgs struct {
-	NodeId *string `pulumi:"nodeId"`
+	NodeId string `pulumi:"nodeId"`
 }
 
 type LookupNodeResult struct {
@@ -42,7 +42,7 @@ func LookupNodeOutput(ctx *pulumi.Context, args LookupNodeOutputArgs, opts ...pu
 }
 
 type LookupNodeOutputArgs struct {
-	NodeId pulumi.StringPtrInput `pulumi:"nodeId"`
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
 }
 
 func (LookupNodeOutputArgs) ElementType() reflect.Type {

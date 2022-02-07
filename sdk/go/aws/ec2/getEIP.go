@@ -21,7 +21,7 @@ func LookupEIP(ctx *pulumi.Context, args *LookupEIPArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupEIPArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupEIPResult struct {
@@ -42,7 +42,7 @@ func LookupEIPOutput(ctx *pulumi.Context, args LookupEIPOutputArgs, opts ...pulu
 }
 
 type LookupEIPOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupEIPOutputArgs) ElementType() reflect.Type {

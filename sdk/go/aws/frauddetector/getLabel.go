@@ -22,7 +22,7 @@ func LookupLabel(ctx *pulumi.Context, args *LookupLabelArgs, opts ...pulumi.Invo
 
 type LookupLabelArgs struct {
 	// The label ARN.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupLabelResult struct {
@@ -49,7 +49,7 @@ func LookupLabelOutput(ctx *pulumi.Context, args LookupLabelOutputArgs, opts ...
 
 type LookupLabelOutputArgs struct {
 	// The label ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupLabelOutputArgs) ElementType() reflect.Type {

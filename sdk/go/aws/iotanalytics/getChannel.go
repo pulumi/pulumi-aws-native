@@ -21,7 +21,7 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
-	ChannelName *string `pulumi:"channelName"`
+	ChannelName string `pulumi:"channelName"`
 }
 
 type LookupChannelResult struct {
@@ -41,7 +41,7 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 }
 
 type LookupChannelOutputArgs struct {
-	ChannelName pulumi.StringPtrInput `pulumi:"channelName"`
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
 }
 
 func (LookupChannelOutputArgs) ElementType() reflect.Type {

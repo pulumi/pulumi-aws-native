@@ -21,7 +21,7 @@ func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts 
 }
 
 type LookupDistributionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDistributionResult struct {
@@ -41,7 +41,7 @@ func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutput
 }
 
 type LookupDistributionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDistributionOutputArgs) ElementType() reflect.Type {

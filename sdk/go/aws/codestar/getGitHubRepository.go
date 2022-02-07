@@ -21,7 +21,7 @@ func LookupGitHubRepository(ctx *pulumi.Context, args *LookupGitHubRepositoryArg
 }
 
 type LookupGitHubRepositoryArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGitHubRepositoryResult struct {
@@ -46,7 +46,7 @@ func LookupGitHubRepositoryOutput(ctx *pulumi.Context, args LookupGitHubReposito
 }
 
 type LookupGitHubRepositoryOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGitHubRepositoryOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupSchemaVersion(ctx *pulumi.Context, args *LookupSchemaVersionArgs, opt
 
 type LookupSchemaVersionArgs struct {
 	// Represents the version ID associated with the schema version.
-	VersionId *string `pulumi:"versionId"`
+	VersionId string `pulumi:"versionId"`
 }
 
 type LookupSchemaVersionResult struct {
@@ -41,7 +41,7 @@ func LookupSchemaVersionOutput(ctx *pulumi.Context, args LookupSchemaVersionOutp
 
 type LookupSchemaVersionOutputArgs struct {
 	// Represents the version ID associated with the schema version.
-	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	VersionId pulumi.StringInput `pulumi:"versionId"`
 }
 
 func (LookupSchemaVersionOutputArgs) ElementType() reflect.Type {

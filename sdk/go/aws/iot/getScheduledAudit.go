@@ -22,7 +22,7 @@ func LookupScheduledAudit(ctx *pulumi.Context, args *LookupScheduledAuditArgs, o
 
 type LookupScheduledAuditArgs struct {
 	// The name you want to give to the scheduled audit.
-	ScheduledAuditName *string `pulumi:"scheduledAuditName"`
+	ScheduledAuditName string `pulumi:"scheduledAuditName"`
 }
 
 type LookupScheduledAuditResult struct {
@@ -51,7 +51,7 @@ func LookupScheduledAuditOutput(ctx *pulumi.Context, args LookupScheduledAuditOu
 
 type LookupScheduledAuditOutputArgs struct {
 	// The name you want to give to the scheduled audit.
-	ScheduledAuditName pulumi.StringPtrInput `pulumi:"scheduledAuditName"`
+	ScheduledAuditName pulumi.StringInput `pulumi:"scheduledAuditName"`
 }
 
 func (LookupScheduledAuditOutputArgs) ElementType() reflect.Type {

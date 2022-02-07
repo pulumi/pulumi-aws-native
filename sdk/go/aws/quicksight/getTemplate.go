@@ -21,8 +21,8 @@ func LookupTemplate(ctx *pulumi.Context, args *LookupTemplateArgs, opts ...pulum
 }
 
 type LookupTemplateArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	TemplateId   *string `pulumi:"templateId"`
+	AwsAccountId string `pulumi:"awsAccountId"`
+	TemplateId   string `pulumi:"templateId"`
 }
 
 type LookupTemplateResult struct {
@@ -46,8 +46,8 @@ func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, op
 }
 
 type LookupTemplateOutputArgs struct {
-	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	TemplateId   pulumi.StringPtrInput `pulumi:"templateId"`
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+	TemplateId   pulumi.StringInput `pulumi:"templateId"`
 }
 
 func (LookupTemplateOutputArgs) ElementType() reflect.Type {

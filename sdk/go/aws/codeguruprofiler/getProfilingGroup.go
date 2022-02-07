@@ -22,7 +22,7 @@ func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, o
 
 type LookupProfilingGroupArgs struct {
 	// The name of the profiling group.
-	ProfilingGroupName *string `pulumi:"profilingGroupName"`
+	ProfilingGroupName string `pulumi:"profilingGroupName"`
 }
 
 type LookupProfilingGroupResult struct {
@@ -47,7 +47,7 @@ func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOu
 
 type LookupProfilingGroupOutputArgs struct {
 	// The name of the profiling group.
-	ProfilingGroupName pulumi.StringPtrInput `pulumi:"profilingGroupName"`
+	ProfilingGroupName pulumi.StringInput `pulumi:"profilingGroupName"`
 }
 
 func (LookupProfilingGroupOutputArgs) ElementType() reflect.Type {

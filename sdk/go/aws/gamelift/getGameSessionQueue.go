@@ -21,7 +21,7 @@ func LookupGameSessionQueue(ctx *pulumi.Context, args *LookupGameSessionQueueArg
 }
 
 type LookupGameSessionQueueArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGameSessionQueueResult struct {
@@ -47,7 +47,7 @@ func LookupGameSessionQueueOutput(ctx *pulumi.Context, args LookupGameSessionQue
 }
 
 type LookupGameSessionQueueOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGameSessionQueueOutputArgs) ElementType() reflect.Type {

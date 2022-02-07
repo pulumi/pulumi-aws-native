@@ -21,7 +21,7 @@ func LookupSourceCredential(ctx *pulumi.Context, args *LookupSourceCredentialArg
 }
 
 type LookupSourceCredentialArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSourceCredentialResult struct {
@@ -41,7 +41,7 @@ func LookupSourceCredentialOutput(ctx *pulumi.Context, args LookupSourceCredenti
 }
 
 type LookupSourceCredentialOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSourceCredentialOutputArgs) ElementType() reflect.Type {

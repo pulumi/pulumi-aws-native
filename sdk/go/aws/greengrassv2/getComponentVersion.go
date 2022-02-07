@@ -21,7 +21,7 @@ func LookupComponentVersion(ctx *pulumi.Context, args *LookupComponentVersionArg
 }
 
 type LookupComponentVersionArgs struct {
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupComponentVersionResult struct {
@@ -41,7 +41,7 @@ func LookupComponentVersionOutput(ctx *pulumi.Context, args LookupComponentVersi
 }
 
 type LookupComponentVersionOutputArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupComponentVersionOutputArgs) ElementType() reflect.Type {

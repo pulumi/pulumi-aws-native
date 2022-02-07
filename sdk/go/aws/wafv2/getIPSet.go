@@ -21,9 +21,9 @@ func LookupIPSet(ctx *pulumi.Context, args *LookupIPSetArgs, opts ...pulumi.Invo
 }
 
 type LookupIPSetArgs struct {
-	Id    *string     `pulumi:"id"`
-	Name  *string     `pulumi:"name"`
-	Scope *IPSetScope `pulumi:"scope"`
+	Id    string     `pulumi:"id"`
+	Name  string     `pulumi:"name"`
+	Scope IPSetScope `pulumi:"scope"`
 }
 
 type LookupIPSetResult struct {
@@ -46,9 +46,9 @@ func LookupIPSetOutput(ctx *pulumi.Context, args LookupIPSetOutputArgs, opts ...
 }
 
 type LookupIPSetOutputArgs struct {
-	Id    pulumi.StringPtrInput `pulumi:"id"`
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Scope IPSetScopePtrInput    `pulumi:"scope"`
+	Id    pulumi.StringInput `pulumi:"id"`
+	Name  pulumi.StringInput `pulumi:"name"`
+	Scope IPSetScopeInput    `pulumi:"scope"`
 }
 
 func (LookupIPSetOutputArgs) ElementType() reflect.Type {

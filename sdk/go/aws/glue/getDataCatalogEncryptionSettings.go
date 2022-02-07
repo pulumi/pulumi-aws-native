@@ -21,7 +21,7 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 }
 
 type LookupDataCatalogEncryptionSettingsArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDataCatalogEncryptionSettingsResult struct {
@@ -39,7 +39,7 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 }
 
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDataCatalogEncryptionSettingsOutputArgs) ElementType() reflect.Type {

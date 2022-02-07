@@ -22,7 +22,7 @@ func LookupGlobalNetwork(ctx *pulumi.Context, args *LookupGlobalNetworkArgs, opt
 
 type LookupGlobalNetworkArgs struct {
 	// The ID of the global network.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGlobalNetworkResult struct {
@@ -47,7 +47,7 @@ func LookupGlobalNetworkOutput(ctx *pulumi.Context, args LookupGlobalNetworkOutp
 
 type LookupGlobalNetworkOutputArgs struct {
 	// The ID of the global network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGlobalNetworkOutputArgs) ElementType() reflect.Type {

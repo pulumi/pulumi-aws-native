@@ -22,7 +22,7 @@ func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChan
 
 type LookupNotificationChannelArgs struct {
 	// The ID of a notification channel.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupNotificationChannelResult struct {
@@ -41,7 +41,7 @@ func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificatio
 
 type LookupNotificationChannelOutputArgs struct {
 	// The ID of a notification channel.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupNotificationChannelOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupGraphQLApi(ctx *pulumi.Context, args *LookupGraphQLApiArgs, opts ...p
 }
 
 type LookupGraphQLApiArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupGraphQLApiResult struct {
@@ -50,7 +50,7 @@ func LookupGraphQLApiOutput(ctx *pulumi.Context, args LookupGraphQLApiOutputArgs
 }
 
 type LookupGraphQLApiOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupGraphQLApiOutputArgs) ElementType() reflect.Type {

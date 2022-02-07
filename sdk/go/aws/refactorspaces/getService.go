@@ -21,9 +21,9 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
-	ServiceIdentifier     *string `pulumi:"serviceIdentifier"`
+	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	ServiceIdentifier     string `pulumi:"serviceIdentifier"`
 }
 
 type LookupServiceResult struct {
@@ -43,9 +43,9 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 }
 
 type LookupServiceOutputArgs struct {
-	ApplicationIdentifier pulumi.StringPtrInput `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier pulumi.StringPtrInput `pulumi:"environmentIdentifier"`
-	ServiceIdentifier     pulumi.StringPtrInput `pulumi:"serviceIdentifier"`
+	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
+	ServiceIdentifier     pulumi.StringInput `pulumi:"serviceIdentifier"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {

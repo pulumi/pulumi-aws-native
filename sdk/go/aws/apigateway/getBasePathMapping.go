@@ -22,9 +22,9 @@ func LookupBasePathMapping(ctx *pulumi.Context, args *LookupBasePathMappingArgs,
 
 type LookupBasePathMappingArgs struct {
 	// The base path name that callers of the API must provide in the URL after the domain name.
-	BasePath *string `pulumi:"basePath"`
+	BasePath string `pulumi:"basePath"`
 	// The DomainName of an AWS::ApiGateway::DomainName resource.
-	DomainName *string `pulumi:"domainName"`
+	DomainName string `pulumi:"domainName"`
 }
 
 type LookupBasePathMappingResult struct {
@@ -46,9 +46,9 @@ func LookupBasePathMappingOutput(ctx *pulumi.Context, args LookupBasePathMapping
 
 type LookupBasePathMappingOutputArgs struct {
 	// The base path name that callers of the API must provide in the URL after the domain name.
-	BasePath pulumi.StringPtrInput `pulumi:"basePath"`
+	BasePath pulumi.StringInput `pulumi:"basePath"`
 	// The DomainName of an AWS::ApiGateway::DomainName resource.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
 func (LookupBasePathMappingOutputArgs) ElementType() reflect.Type {

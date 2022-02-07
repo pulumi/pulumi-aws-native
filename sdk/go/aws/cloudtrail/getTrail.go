@@ -21,7 +21,7 @@ func LookupTrail(ctx *pulumi.Context, args *LookupTrailArgs, opts ...pulumi.Invo
 }
 
 type LookupTrailArgs struct {
-	TrailName *string `pulumi:"trailName"`
+	TrailName string `pulumi:"trailName"`
 }
 
 type LookupTrailResult struct {
@@ -66,7 +66,7 @@ func LookupTrailOutput(ctx *pulumi.Context, args LookupTrailOutputArgs, opts ...
 }
 
 type LookupTrailOutputArgs struct {
-	TrailName pulumi.StringPtrInput `pulumi:"trailName"`
+	TrailName pulumi.StringInput `pulumi:"trailName"`
 }
 
 func (LookupTrailOutputArgs) ElementType() reflect.Type {

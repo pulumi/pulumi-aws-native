@@ -21,7 +21,7 @@ func LookupVPCEndpointService(ctx *pulumi.Context, args *LookupVPCEndpointServic
 }
 
 type LookupVPCEndpointServiceArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPCEndpointServiceResult struct {
@@ -42,7 +42,7 @@ func LookupVPCEndpointServiceOutput(ctx *pulumi.Context, args LookupVPCEndpointS
 }
 
 type LookupVPCEndpointServiceOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPCEndpointServiceOutputArgs) ElementType() reflect.Type {

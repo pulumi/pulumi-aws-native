@@ -21,7 +21,7 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 }
 
 type LookupRuleArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRuleResult struct {
@@ -39,7 +39,7 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 }
 
 type LookupRuleOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRuleOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 }
 
 type LookupRestApiArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRestApiResult struct {
@@ -54,7 +54,7 @@ func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts
 }
 
 type LookupRestApiOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRestApiOutputArgs) ElementType() reflect.Type {

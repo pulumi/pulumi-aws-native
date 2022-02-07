@@ -22,7 +22,7 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 
 type LookupLoadBalancerArgs struct {
 	// The name of your load balancer.
-	LoadBalancerName *string `pulumi:"loadBalancerName"`
+	LoadBalancerName string `pulumi:"loadBalancerName"`
 }
 
 type LookupLoadBalancerResult struct {
@@ -50,7 +50,7 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 
 type LookupLoadBalancerOutputArgs struct {
 	// The name of your load balancer.
-	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
+	LoadBalancerName pulumi.StringInput `pulumi:"loadBalancerName"`
 }
 
 func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {

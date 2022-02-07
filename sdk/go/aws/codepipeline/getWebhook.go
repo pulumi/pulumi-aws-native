@@ -21,7 +21,7 @@ func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.
 }
 
 type LookupWebhookArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupWebhookResult struct {
@@ -46,7 +46,7 @@ func LookupWebhookOutput(ctx *pulumi.Context, args LookupWebhookOutputArgs, opts
 }
 
 type LookupWebhookOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupWebhookOutputArgs) ElementType() reflect.Type {

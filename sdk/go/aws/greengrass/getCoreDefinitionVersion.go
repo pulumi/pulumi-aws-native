@@ -21,7 +21,7 @@ func LookupCoreDefinitionVersion(ctx *pulumi.Context, args *LookupCoreDefinition
 }
 
 type LookupCoreDefinitionVersionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCoreDefinitionVersionResult struct {
@@ -38,7 +38,7 @@ func LookupCoreDefinitionVersionOutput(ctx *pulumi.Context, args LookupCoreDefin
 }
 
 type LookupCoreDefinitionVersionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCoreDefinitionVersionOutputArgs) ElementType() reflect.Type {

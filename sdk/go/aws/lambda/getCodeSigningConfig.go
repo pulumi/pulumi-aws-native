@@ -22,7 +22,7 @@ func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigA
 
 type LookupCodeSigningConfigArgs struct {
 	// A unique Arn for CodeSigningConfig resource
-	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
+	CodeSigningConfigArn string `pulumi:"codeSigningConfigArn"`
 }
 
 type LookupCodeSigningConfigResult struct {
@@ -49,7 +49,7 @@ func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningCo
 
 type LookupCodeSigningConfigOutputArgs struct {
 	// A unique Arn for CodeSigningConfig resource
-	CodeSigningConfigArn pulumi.StringPtrInput `pulumi:"codeSigningConfigArn"`
+	CodeSigningConfigArn pulumi.StringInput `pulumi:"codeSigningConfigArn"`
 }
 
 func (LookupCodeSigningConfigOutputArgs) ElementType() reflect.Type {

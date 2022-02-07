@@ -22,7 +22,7 @@ func LookupDBProxy(ctx *pulumi.Context, args *LookupDBProxyArgs, opts ...pulumi.
 
 type LookupDBProxyArgs struct {
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName *string `pulumi:"dBProxyName"`
+	DBProxyName string `pulumi:"dBProxyName"`
 }
 
 type LookupDBProxyResult struct {
@@ -57,7 +57,7 @@ func LookupDBProxyOutput(ctx *pulumi.Context, args LookupDBProxyOutputArgs, opts
 
 type LookupDBProxyOutputArgs struct {
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringPtrInput `pulumi:"dBProxyName"`
+	DBProxyName pulumi.StringInput `pulumi:"dBProxyName"`
 }
 
 func (LookupDBProxyOutputArgs) ElementType() reflect.Type {

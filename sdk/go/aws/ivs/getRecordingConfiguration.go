@@ -22,7 +22,7 @@ func LookupRecordingConfiguration(ctx *pulumi.Context, args *LookupRecordingConf
 
 type LookupRecordingConfigurationArgs struct {
 	// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRecordingConfigurationResult struct {
@@ -45,7 +45,7 @@ func LookupRecordingConfigurationOutput(ctx *pulumi.Context, args LookupRecordin
 
 type LookupRecordingConfigurationOutputArgs struct {
 	// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRecordingConfigurationOutputArgs) ElementType() reflect.Type {

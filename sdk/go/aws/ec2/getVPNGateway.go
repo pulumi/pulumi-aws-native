@@ -21,7 +21,7 @@ func LookupVPNGateway(ctx *pulumi.Context, args *LookupVPNGatewayArgs, opts ...p
 }
 
 type LookupVPNGatewayArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPNGatewayResult struct {
@@ -39,7 +39,7 @@ func LookupVPNGatewayOutput(ctx *pulumi.Context, args LookupVPNGatewayOutputArgs
 }
 
 type LookupVPNGatewayOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPNGatewayOutputArgs) ElementType() reflect.Type {

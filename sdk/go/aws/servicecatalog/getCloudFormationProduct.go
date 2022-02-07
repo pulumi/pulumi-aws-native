@@ -21,7 +21,7 @@ func LookupCloudFormationProduct(ctx *pulumi.Context, args *LookupCloudFormation
 }
 
 type LookupCloudFormationProductArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCloudFormationProductResult struct {
@@ -52,7 +52,7 @@ func LookupCloudFormationProductOutput(ctx *pulumi.Context, args LookupCloudForm
 }
 
 type LookupCloudFormationProductOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCloudFormationProductOutputArgs) ElementType() reflect.Type {

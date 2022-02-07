@@ -22,7 +22,7 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 
 type LookupAccessPointArgs struct {
 	// The name you want to assign to this Object lambda Access Point.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupAccessPointResult struct {
@@ -47,7 +47,7 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 
 type LookupAccessPointOutputArgs struct {
 	// The name you want to assign to this Object lambda Access Point.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupAccessPointOutputArgs) ElementType() reflect.Type {

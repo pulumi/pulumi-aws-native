@@ -21,7 +21,7 @@ func LookupVPCCidrBlock(ctx *pulumi.Context, args *LookupVPCCidrBlockArgs, opts 
 }
 
 type LookupVPCCidrBlockArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVPCCidrBlockResult struct {
@@ -38,7 +38,7 @@ func LookupVPCCidrBlockOutput(ctx *pulumi.Context, args LookupVPCCidrBlockOutput
 }
 
 type LookupVPCCidrBlockOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVPCCidrBlockOutputArgs) ElementType() reflect.Type {

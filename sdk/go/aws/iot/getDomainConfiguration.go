@@ -21,7 +21,7 @@ func LookupDomainConfiguration(ctx *pulumi.Context, args *LookupDomainConfigurat
 }
 
 type LookupDomainConfigurationArgs struct {
-	DomainConfigurationName *string `pulumi:"domainConfigurationName"`
+	DomainConfigurationName string `pulumi:"domainConfigurationName"`
 }
 
 type LookupDomainConfigurationResult struct {
@@ -43,7 +43,7 @@ func LookupDomainConfigurationOutput(ctx *pulumi.Context, args LookupDomainConfi
 }
 
 type LookupDomainConfigurationOutputArgs struct {
-	DomainConfigurationName pulumi.StringPtrInput `pulumi:"domainConfigurationName"`
+	DomainConfigurationName pulumi.StringInput `pulumi:"domainConfigurationName"`
 }
 
 func (LookupDomainConfigurationOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupXssMatchSet(ctx *pulumi.Context, args *LookupXssMatchSetArgs, opts ..
 }
 
 type LookupXssMatchSetArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupXssMatchSetResult struct {
@@ -39,7 +39,7 @@ func LookupXssMatchSetOutput(ctx *pulumi.Context, args LookupXssMatchSetOutputAr
 }
 
 type LookupXssMatchSetOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupXssMatchSetOutputArgs) ElementType() reflect.Type {

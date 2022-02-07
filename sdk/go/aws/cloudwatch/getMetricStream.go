@@ -22,7 +22,7 @@ func LookupMetricStream(ctx *pulumi.Context, args *LookupMetricStreamArgs, opts 
 
 type LookupMetricStreamArgs struct {
 	// Name of the metric stream.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 type LookupMetricStreamResult struct {
@@ -57,7 +57,7 @@ func LookupMetricStreamOutput(ctx *pulumi.Context, args LookupMetricStreamOutput
 
 type LookupMetricStreamOutputArgs struct {
 	// Name of the metric stream.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupMetricStreamOutputArgs) ElementType() reflect.Type {

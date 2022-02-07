@@ -21,7 +21,7 @@ func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs,
 }
 
 type LookupDedicatedIpPoolArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDedicatedIpPoolResult struct {
@@ -39,7 +39,7 @@ func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPool
 }
 
 type LookupDedicatedIpPoolOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDedicatedIpPoolOutputArgs) ElementType() reflect.Type {

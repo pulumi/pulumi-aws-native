@@ -21,7 +21,7 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 }
 
 type LookupConnectionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupConnectionResult struct {
@@ -39,7 +39,7 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 }
 
 type LookupConnectionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConnectionOutputArgs) ElementType() reflect.Type {

@@ -21,7 +21,7 @@ func LookupSecurityConfiguration(ctx *pulumi.Context, args *LookupSecurityConfig
 }
 
 type LookupSecurityConfigurationArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSecurityConfigurationResult struct {
@@ -39,7 +39,7 @@ func LookupSecurityConfigurationOutput(ctx *pulumi.Context, args LookupSecurityC
 }
 
 type LookupSecurityConfigurationOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSecurityConfigurationOutputArgs) ElementType() reflect.Type {

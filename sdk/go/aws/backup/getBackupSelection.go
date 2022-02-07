@@ -21,7 +21,7 @@ func LookupBackupSelection(ctx *pulumi.Context, args *LookupBackupSelectionArgs,
 }
 
 type LookupBackupSelectionArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupBackupSelectionResult struct {
@@ -39,7 +39,7 @@ func LookupBackupSelectionOutput(ctx *pulumi.Context, args LookupBackupSelection
 }
 
 type LookupBackupSelectionOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupBackupSelectionOutputArgs) ElementType() reflect.Type {

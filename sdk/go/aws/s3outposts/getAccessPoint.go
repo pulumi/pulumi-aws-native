@@ -22,7 +22,7 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 
 type LookupAccessPointArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AccessPoint.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupAccessPointResult struct {
@@ -43,7 +43,7 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 
 type LookupAccessPointOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AccessPoint.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupAccessPointOutputArgs) ElementType() reflect.Type {

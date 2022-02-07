@@ -22,7 +22,7 @@ func LookupHost(ctx *pulumi.Context, args *LookupHostArgs, opts ...pulumi.Invoke
 
 type LookupHostArgs struct {
 	// Id of the host created.
-	HostId *string `pulumi:"hostId"`
+	HostId string `pulumi:"hostId"`
 }
 
 type LookupHostResult struct {
@@ -45,7 +45,7 @@ func LookupHostOutput(ctx *pulumi.Context, args LookupHostOutputArgs, opts ...pu
 
 type LookupHostOutputArgs struct {
 	// Id of the host created.
-	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	HostId pulumi.StringInput `pulumi:"hostId"`
 }
 
 func (LookupHostOutputArgs) ElementType() reflect.Type {

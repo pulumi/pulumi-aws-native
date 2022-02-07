@@ -22,7 +22,7 @@ func LookupLocationFSxWindows(ctx *pulumi.Context, args *LookupLocationFSxWindow
 
 type LookupLocationFSxWindowsArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
-	LocationArn *string `pulumi:"locationArn"`
+	LocationArn string `pulumi:"locationArn"`
 }
 
 type LookupLocationFSxWindowsResult struct {
@@ -45,7 +45,7 @@ func LookupLocationFSxWindowsOutput(ctx *pulumi.Context, args LookupLocationFSxW
 
 type LookupLocationFSxWindowsOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
-	LocationArn pulumi.StringPtrInput `pulumi:"locationArn"`
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 }
 
 func (LookupLocationFSxWindowsOutputArgs) ElementType() reflect.Type {

@@ -22,7 +22,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 type LookupClusterArgs struct {
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
-	ClusterName *string `pulumi:"clusterName"`
+	ClusterName string `pulumi:"clusterName"`
 }
 
 type LookupClusterResult struct {
@@ -83,7 +83,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 type LookupClusterOutputArgs struct {
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
-	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {

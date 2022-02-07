@@ -22,7 +22,7 @@ func LookupEndpointGroup(ctx *pulumi.Context, args *LookupEndpointGroupArgs, opt
 
 type LookupEndpointGroupArgs struct {
 	// The Amazon Resource Name (ARN) of the endpoint group
-	EndpointGroupArn *string `pulumi:"endpointGroupArn"`
+	EndpointGroupArn string `pulumi:"endpointGroupArn"`
 }
 
 type LookupEndpointGroupResult struct {
@@ -55,7 +55,7 @@ func LookupEndpointGroupOutput(ctx *pulumi.Context, args LookupEndpointGroupOutp
 
 type LookupEndpointGroupOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the endpoint group
-	EndpointGroupArn pulumi.StringPtrInput `pulumi:"endpointGroupArn"`
+	EndpointGroupArn pulumi.StringInput `pulumi:"endpointGroupArn"`
 }
 
 func (LookupEndpointGroupOutputArgs) ElementType() reflect.Type {

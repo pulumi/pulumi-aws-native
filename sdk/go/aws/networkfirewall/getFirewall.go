@@ -21,7 +21,7 @@ func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulum
 }
 
 type LookupFirewallArgs struct {
-	FirewallArn *string `pulumi:"firewallArn"`
+	FirewallArn string `pulumi:"firewallArn"`
 }
 
 type LookupFirewallResult struct {
@@ -47,7 +47,7 @@ func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, op
 }
 
 type LookupFirewallOutputArgs struct {
-	FirewallArn pulumi.StringPtrInput `pulumi:"firewallArn"`
+	FirewallArn pulumi.StringInput `pulumi:"firewallArn"`
 }
 
 func (LookupFirewallOutputArgs) ElementType() reflect.Type {

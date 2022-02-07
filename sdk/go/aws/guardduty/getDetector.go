@@ -21,7 +21,7 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 }
 
 type LookupDetectorArgs struct {
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDetectorResult struct {
@@ -41,7 +41,7 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 }
 
 type LookupDetectorOutputArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDetectorOutputArgs) ElementType() reflect.Type {

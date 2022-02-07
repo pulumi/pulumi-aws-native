@@ -21,7 +21,7 @@ func LookupRouteCalculator(ctx *pulumi.Context, args *LookupRouteCalculatorArgs,
 }
 
 type LookupRouteCalculatorArgs struct {
-	CalculatorName *string `pulumi:"calculatorName"`
+	CalculatorName string `pulumi:"calculatorName"`
 }
 
 type LookupRouteCalculatorResult struct {
@@ -41,7 +41,7 @@ func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculator
 }
 
 type LookupRouteCalculatorOutputArgs struct {
-	CalculatorName pulumi.StringPtrInput `pulumi:"calculatorName"`
+	CalculatorName pulumi.StringInput `pulumi:"calculatorName"`
 }
 
 func (LookupRouteCalculatorOutputArgs) ElementType() reflect.Type {

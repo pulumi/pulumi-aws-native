@@ -22,9 +22,9 @@ func LookupDocumentationVersion(ctx *pulumi.Context, args *LookupDocumentationVe
 
 type LookupDocumentationVersionArgs struct {
 	// The version identifier of the API documentation snapshot.
-	DocumentationVersion *string `pulumi:"documentationVersion"`
+	DocumentationVersion string `pulumi:"documentationVersion"`
 	// The identifier of the API.
-	RestApiId *string `pulumi:"restApiId"`
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDocumentationVersionResult struct {
@@ -43,9 +43,9 @@ func LookupDocumentationVersionOutput(ctx *pulumi.Context, args LookupDocumentat
 
 type LookupDocumentationVersionOutputArgs struct {
 	// The version identifier of the API documentation snapshot.
-	DocumentationVersion pulumi.StringPtrInput `pulumi:"documentationVersion"`
+	DocumentationVersion pulumi.StringInput `pulumi:"documentationVersion"`
 	// The identifier of the API.
-	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupDocumentationVersionOutputArgs) ElementType() reflect.Type {
