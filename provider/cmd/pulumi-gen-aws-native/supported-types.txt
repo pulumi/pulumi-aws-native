@@ -27,6 +27,7 @@ AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::Service
 AWS::AppStream::AppBlock
@@ -386,6 +387,7 @@ AWS::ResilienceHub::ResiliencyPolicy
 AWS::ResourceGroups::Group
 AWS::RoboMaker::Fleet
 AWS::RoboMaker::Robot
+AWS::RoboMaker::RobotApplication
 AWS::RoboMaker::RobotApplicationVersion
 AWS::RoboMaker::SimulationApplication
 AWS::RoboMaker::SimulationApplicationVersion
@@ -423,6 +425,7 @@ AWS::S3Outposts::BucketPolicy
 AWS::S3Outposts::Endpoint
 AWS::SES::ConfigurationSet
 AWS::SES::ContactList
+AWS::SES::Template
 AWS::SSM::Association
 AWS::SSM::Document
 AWS::SSM::ResourceDataSync

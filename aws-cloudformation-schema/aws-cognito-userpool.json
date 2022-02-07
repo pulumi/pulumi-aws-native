@@ -260,6 +260,9 @@
         "SnsCallerArn" : {
           "type" : "string"
         },
+        "SnsRegion" : {
+          "type" : "string"
+        },
         "ExternalId" : {
           "type" : "string"
         }
