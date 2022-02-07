@@ -580,14 +580,14 @@ func (ctx *context) gatherInvoke() error {
 		return nil
 	}
 
-	pi, ok := ctx.resourceSpec.Extras["primaryIdentifier"]
-	if !ok {
-		return nil
-	}
+	primaryIdentifier := readPropNames(ctx.resourceSpec, "primaryIdentifier")
+
 	inputs := map[string]pschema.PropertySpec{}
-	for _, r := range pi.([]interface{}) {
-		n := strings.TrimPrefix(r.(string), "/properties/")
+	inputNames := make([]string, len(primaryIdentifier))
+	for i, r := range primaryIdentifier {
+		n := strings.TrimPrefix(r, "/properties/")
 		sdkName := ToSdkName(n)
+		inputNames[i] = sdkName
 		s, ok := ctx.resourceSpec.Properties[n]
 		if !ok {
 			fmt.Printf("Unable to find primary identifier %q for resource %s, skipping\n", n, resourceTypeName)
@@ -603,7 +603,6 @@ func (ctx *context) gatherInvoke() error {
 
 	writeOnlyProperties := readPropNames(ctx.resourceSpec, "writeOnlyProperties")
 	createOnlyProperties := readPropNames(ctx.resourceSpec, "createOnlyProperties")
-	primaryIdentifier := readPropNames(ctx.resourceSpec, "primaryIdentifier")
 	nonOutputProperties := codegen.NewStringSet(append(writeOnlyProperties, createOnlyProperties...)...)
 
 	outputs := map[string]pschema.PropertySpec{}
@@ -623,6 +622,7 @@ func (ctx *context) gatherInvoke() error {
 		Description: ctx.resourceSpec.Description,
 		Inputs: &pschema.ObjectTypeSpec{
 			Properties: inputs,
+			Required:   inputNames,
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Properties: outputs,
