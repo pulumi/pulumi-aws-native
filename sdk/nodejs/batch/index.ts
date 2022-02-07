@@ -6,6 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./computeEnvironment";
+export * from "./getComputeEnvironment";
+export * from "./getJobDefinition";
+export * from "./getJobQueue";
+export * from "./getSchedulingPolicy";
 export * from "./jobDefinition";
 export * from "./jobQueue";
 export * from "./schedulingPolicy";

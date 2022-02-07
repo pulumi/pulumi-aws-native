@@ -6,6 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./fleet";
+export * from "./getFleet";
+export * from "./getRobot";
+export * from "./getRobotApplication";
+export * from "./getRobotApplicationVersion";
+export * from "./getSimulationApplication";
+export * from "./getSimulationApplicationVersion";
 export * from "./robot";
 export * from "./robotApplication";
 export * from "./robotApplicationVersion";

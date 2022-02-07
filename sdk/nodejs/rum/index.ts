@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./appMonitor";
+export * from "./getAppMonitor";
 
 // Export enums:
 export * from "../types/enums/rum";

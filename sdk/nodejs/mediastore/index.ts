@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./container";
+export * from "./getContainer";
 
 // Import resources to register:
 import { Container } from "./container";

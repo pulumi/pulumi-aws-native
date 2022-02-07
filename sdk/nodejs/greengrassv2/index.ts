@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./componentVersion";
+export * from "./getComponentVersion";
 
 // Export enums:
 export * from "../types/enums/greengrassv2";

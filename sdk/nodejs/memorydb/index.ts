@@ -7,6 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./acl";
 export * from "./cluster";
+export * from "./getACL";
+export * from "./getCluster";
+export * from "./getParameterGroup";
+export * from "./getSubnetGroup";
+export * from "./getUser";
 export * from "./parameterGroup";
 export * from "./subnetGroup";
 export * from "./user";

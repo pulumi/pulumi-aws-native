@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./connectionAlias";
+export * from "./getConnectionAlias";
+export * from "./getWorkspace";
 export * from "./workspace";
 
 // Export enums:

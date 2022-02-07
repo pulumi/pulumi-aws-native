@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./customActionType";
+export * from "./getCustomActionType";
+export * from "./getPipeline";
+export * from "./getWebhook";
 export * from "./pipeline";
 export * from "./webhook";
 

@@ -10,6 +10,13 @@ export * from "./asset";
 export * from "./assetModel";
 export * from "./dashboard";
 export * from "./gateway";
+export * from "./getAccessPolicy";
+export * from "./getAsset";
+export * from "./getAssetModel";
+export * from "./getDashboard";
+export * from "./getGateway";
+export * from "./getPortal";
+export * from "./getProject";
 export * from "./portal";
 export * from "./project";
 

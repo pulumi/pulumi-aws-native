@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./connector";
+export * from "./getConnector";
 
 // Export enums:
 export * from "../types/enums/kafkaconnect";

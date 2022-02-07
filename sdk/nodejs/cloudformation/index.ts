@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./customResource";
+export * from "./getCustomResource";
+export * from "./getMacro";
+export * from "./getModuleDefaultVersion";
+export * from "./getModuleVersion";
+export * from "./getPublicTypeVersion";
+export * from "./getPublisher";
+export * from "./getResourceDefaultVersion";
+export * from "./getResourceVersion";
+export * from "./getStack";
+export * from "./getStackSet";
+export * from "./getTypeActivation";
+export * from "./getWaitCondition";
+export * from "./getWaitConditionHandle";
 export * from "./macro";
 export * from "./moduleDefaultVersion";
 export * from "./moduleVersion";

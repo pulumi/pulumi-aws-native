@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./customDataIdentifier";
 export * from "./findingsFilter";
+export * from "./getCustomDataIdentifier";
+export * from "./getFindingsFilter";
+export * from "./getSession";
 export * from "./session";
 
 // Export enums:

@@ -9,6 +9,10 @@ export * from "./application";
 export * from "./applicationVersion";
 export * from "./configurationTemplate";
 export * from "./environment";
+export * from "./getApplication";
+export * from "./getApplicationVersion";
+export * from "./getConfigurationTemplate";
+export * from "./getEnvironment";
 
 // Import resources to register:
 import { Application } from "./application";

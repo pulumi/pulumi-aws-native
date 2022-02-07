@@ -6,6 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./discoverer";
+export * from "./getDiscoverer";
+export * from "./getRegistry";
+export * from "./getRegistryPolicy";
+export * from "./getSchema";
 export * from "./registry";
 export * from "./registryPolicy";
 export * from "./schema";

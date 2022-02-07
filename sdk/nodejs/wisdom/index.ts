@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./assistant";
 export * from "./assistantAssociation";
+export * from "./getAssistant";
+export * from "./getAssistantAssociation";
+export * from "./getKnowledgeBase";
 export * from "./knowledgeBase";
 
 // Export enums:

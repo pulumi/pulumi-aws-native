@@ -7,6 +7,14 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./association";
 export * from "./document";
+export * from "./getAssociation";
+export * from "./getDocument";
+export * from "./getMaintenanceWindow";
+export * from "./getMaintenanceWindowTarget";
+export * from "./getMaintenanceWindowTask";
+export * from "./getParameter";
+export * from "./getPatchBaseline";
+export * from "./getResourceDataSync";
 export * from "./maintenanceWindow";
 export * from "./maintenanceWindowTarget";
 export * from "./maintenanceWindowTask";

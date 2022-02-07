@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./fileSystem";
+export * from "./getFileSystem";
 
 // Import resources to register:
 import { FileSystem } from "./fileSystem";

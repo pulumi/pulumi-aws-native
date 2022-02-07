@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./applicationInstance";
+export * from "./getApplicationInstance";
+export * from "./getPackage";
+export * from "./getPackageVersion";
 export * from "./package";
 export * from "./packageVersion";
 

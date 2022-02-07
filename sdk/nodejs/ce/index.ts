@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./anomalyMonitor";
 export * from "./anomalySubscription";
 export * from "./costCategory";
+export * from "./getAnomalyMonitor";
+export * from "./getAnomalySubscription";
+export * from "./getCostCategory";
 
 // Export enums:
 export * from "../types/enums/ce";

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getResourcePolicy";
+export * from "./getRotationSchedule";
+export * from "./getSecret";
+export * from "./getSecretTargetAttachment";
 export * from "./resourcePolicy";
 export * from "./rotationSchedule";
 export * from "./secret";

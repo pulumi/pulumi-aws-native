@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./domain";
+export * from "./getDomain";
+export * from "./getIntegration";
+export * from "./getObjectType";
 export * from "./integration";
 export * from "./objectType";
 

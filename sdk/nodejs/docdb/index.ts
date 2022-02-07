@@ -9,6 +9,10 @@ export * from "./dbcluster";
 export * from "./dbclusterParameterGroup";
 export * from "./dbinstance";
 export * from "./dbsubnetGroup";
+export * from "./getDBCluster";
+export * from "./getDBClusterParameterGroup";
+export * from "./getDBInstance";
+export * from "./getDBSubnetGroup";
 
 // Import resources to register:
 import { DBCluster } from "./dbcluster";

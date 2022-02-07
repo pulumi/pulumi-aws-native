@@ -5,6 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getIdentityPool";
+export * from "./getIdentityPoolRoleAttachment";
+export * from "./getUserPool";
+export * from "./getUserPoolClient";
+export * from "./getUserPoolDomain";
+export * from "./getUserPoolGroup";
+export * from "./getUserPoolIdentityProvider";
+export * from "./getUserPoolResourceServer";
+export * from "./getUserPoolRiskConfigurationAttachment";
+export * from "./getUserPoolUICustomizationAttachment";
+export * from "./getUserPoolUser";
+export * from "./getUserPoolUserToGroupAttachment";
 export * from "./identityPool";
 export * from "./identityPoolRoleAttachment";
 export * from "./userPool";

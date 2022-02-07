@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./dataSource";
 export * from "./faq";
+export * from "./getDataSource";
+export * from "./getFaq";
+export * from "./getIndex";
 export * from "./index_";
 
 // Export enums:

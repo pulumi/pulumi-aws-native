@@ -7,6 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./experiment";
 export * from "./feature";
+export * from "./getExperiment";
+export * from "./getFeature";
+export * from "./getLaunch";
+export * from "./getProject";
 export * from "./launch";
 export * from "./project";
 

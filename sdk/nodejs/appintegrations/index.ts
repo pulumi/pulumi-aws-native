@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./eventIntegration";
+export * from "./getEventIntegration";
 
 // Import resources to register:
 import { EventIntegration } from "./eventIntegration";

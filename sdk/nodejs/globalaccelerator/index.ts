@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./accelerator";
 export * from "./endpointGroup";
+export * from "./getAccelerator";
+export * from "./getEndpointGroup";
+export * from "./getListener";
 export * from "./listener";
 
 // Export enums:

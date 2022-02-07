@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./accessPoint";
 export * from "./fileSystem";
+export * from "./getAccessPoint";
+export * from "./getFileSystem";
+export * from "./getMountTarget";
 export * from "./mountTarget";
 
 // Import resources to register:

@@ -10,6 +10,10 @@ export * from "./flowEntitlement";
 export * from "./flowOutput";
 export * from "./flowSource";
 export * from "./flowVpcInterface";
+export * from "./getFlow";
+export * from "./getFlowEntitlement";
+export * from "./getFlowSource";
+export * from "./getFlowVpcInterface";
 
 // Export enums:
 export * from "../types/enums/mediaconnect";

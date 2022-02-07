@@ -6,6 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./devicePool";
+export * from "./getDevicePool";
+export * from "./getInstanceProfile";
+export * from "./getNetworkProfile";
+export * from "./getProject";
+export * from "./getTestGridProject";
+export * from "./getVPCEConfiguration";
 export * from "./instanceProfile";
 export * from "./networkProfile";
 export * from "./project";

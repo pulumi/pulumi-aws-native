@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alias";
+export * from "./getAlias";
+export * from "./getKey";
+export * from "./getReplicaKey";
 export * from "./key";
 export * from "./replicaKey";
 

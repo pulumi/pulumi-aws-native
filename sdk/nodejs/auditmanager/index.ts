@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./assessment";
+export * from "./getAssessment";
 
 // Export enums:
 export * from "../types/enums/auditmanager";

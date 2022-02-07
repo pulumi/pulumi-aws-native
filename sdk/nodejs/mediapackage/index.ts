@@ -7,6 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./asset";
 export * from "./channel";
+export * from "./getAsset";
+export * from "./getChannel";
+export * from "./getOriginEndpoint";
+export * from "./getPackagingConfiguration";
+export * from "./getPackagingGroup";
 export * from "./originEndpoint";
 export * from "./packagingConfiguration";
 export * from "./packagingGroup";

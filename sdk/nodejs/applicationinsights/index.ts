@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./application";
+export * from "./getApplication";
 
 // Export enums:
 export * from "../types/enums/applicationinsights";

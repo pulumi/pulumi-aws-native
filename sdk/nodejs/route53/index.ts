@@ -6,6 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./dnssec";
+export * from "./getDNSSEC";
+export * from "./getHealthCheck";
+export * from "./getHostedZone";
+export * from "./getKeySigningKey";
+export * from "./getRecordSet";
+export * from "./getRecordSetGroup";
 export * from "./healthCheck";
 export * from "./hostedZone";
 export * from "./keySigningKey";

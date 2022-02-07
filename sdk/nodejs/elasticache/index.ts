@@ -6,6 +6,15 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cacheCluster";
+export * from "./getCacheCluster";
+export * from "./getGlobalReplicationGroup";
+export * from "./getParameterGroup";
+export * from "./getReplicationGroup";
+export * from "./getSecurityGroup";
+export * from "./getSecurityGroupIngress";
+export * from "./getSubnetGroup";
+export * from "./getUser";
+export * from "./getUserGroup";
 export * from "./globalReplicationGroup";
 export * from "./parameterGroup";
 export * from "./replicationGroup";

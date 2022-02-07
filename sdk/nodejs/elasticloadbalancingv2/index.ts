@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getListener";
+export * from "./getListenerCertificate";
+export * from "./getListenerRule";
+export * from "./getLoadBalancer";
+export * from "./getTargetGroup";
 export * from "./listener";
 export * from "./listenerCertificate";
 export * from "./listenerRule";

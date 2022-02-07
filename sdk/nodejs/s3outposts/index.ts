@@ -9,6 +9,10 @@ export * from "./accessPoint";
 export * from "./bucket";
 export * from "./bucketPolicy";
 export * from "./endpoint";
+export * from "./getAccessPoint";
+export * from "./getBucket";
+export * from "./getBucketPolicy";
+export * from "./getEndpoint";
 
 // Export enums:
 export * from "../types/enums/s3outposts";

@@ -6,6 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cell";
+export * from "./getCell";
+export * from "./getReadinessCheck";
+export * from "./getRecoveryGroup";
+export * from "./getResourceSet";
 export * from "./readinessCheck";
 export * from "./recoveryGroup";
 export * from "./resourceSet";

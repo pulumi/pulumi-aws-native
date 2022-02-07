@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./channel";
+export * from "./getChannel";
+export * from "./getInput";
+export * from "./getInputSecurityGroup";
 export * from "./input";
 export * from "./inputSecurityGroup";
 

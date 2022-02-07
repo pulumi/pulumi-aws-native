@@ -6,6 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./geofenceCollection";
+export * from "./getGeofenceCollection";
+export * from "./getMap";
+export * from "./getPlaceIndex";
+export * from "./getRouteCalculator";
+export * from "./getTracker";
+export * from "./getTrackerConsumer";
 export * from "./map";
 export * from "./placeIndex";
 export * from "./routeCalculator";

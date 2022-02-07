@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./application";
 export * from "./applicationOutputResource";
 export * from "./applicationReferenceDataSource";
+export * from "./getApplication";
+export * from "./getApplicationOutputResource";
+export * from "./getApplicationReferenceDataSource";
 
 // Import resources to register:
 import { Application } from "./application";

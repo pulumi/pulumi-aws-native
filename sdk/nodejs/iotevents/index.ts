@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./detectorModel";
+export * from "./getDetectorModel";
+export * from "./getInput";
 export * from "./input";
 
 // Export enums:

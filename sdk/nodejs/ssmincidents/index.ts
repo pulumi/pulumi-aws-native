@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getReplicationSet";
+export * from "./getResponsePlan";
 export * from "./replicationSet";
 export * from "./responsePlan";
 

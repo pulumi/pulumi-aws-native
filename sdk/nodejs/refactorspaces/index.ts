@@ -7,6 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./application";
 export * from "./environment";
+export * from "./getApplication";
+export * from "./getEnvironment";
+export * from "./getRoute";
+export * from "./getService";
 export * from "./route";
 export * from "./service";
 

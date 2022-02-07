@@ -6,6 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./autoScalingGroup";
+export * from "./getAutoScalingGroup";
+export * from "./getLaunchConfiguration";
+export * from "./getLifecycleHook";
+export * from "./getScalingPolicy";
+export * from "./getScheduledAction";
+export * from "./getWarmPool";
 export * from "./launchConfiguration";
 export * from "./lifecycleHook";
 export * from "./scalingPolicy";

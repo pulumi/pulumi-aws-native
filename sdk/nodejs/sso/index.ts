@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./assignment";
+export * from "./getAssignment";
+export * from "./getInstanceAccessControlAttributeConfiguration";
+export * from "./getPermissionSet";
 export * from "./instanceAccessControlAttributeConfiguration";
 export * from "./permissionSet";
 

@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
 export * from "./bot";
 export * from "./botAlias";
 export * from "./botVersion";
+export * from "./getBot";
+export * from "./getBotAlias";
+export * from "./getBotVersion";
+export * from "./getResourcePolicy";
 export * from "./resourcePolicy";
 
 // Export enums:

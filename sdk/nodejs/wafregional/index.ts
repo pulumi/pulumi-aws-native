@@ -7,6 +7,17 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./byteMatchSet";
 export * from "./geoMatchSet";
+export * from "./getByteMatchSet";
+export * from "./getGeoMatchSet";
+export * from "./getIPSet";
+export * from "./getRateBasedRule";
+export * from "./getRegexPatternSet";
+export * from "./getRule";
+export * from "./getSizeConstraintSet";
+export * from "./getSqlInjectionMatchSet";
+export * from "./getWebACL";
+export * from "./getWebACLAssociation";
+export * from "./getXssMatchSet";
 export * from "./ipset";
 export * from "./rateBasedRule";
 export * from "./regexPatternSet";

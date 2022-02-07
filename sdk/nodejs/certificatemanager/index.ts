@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./account";
 export * from "./certificate";
+export * from "./getAccount";
+export * from "./getCertificate";
 
 // Import resources to register:
 import { Account } from "./account";

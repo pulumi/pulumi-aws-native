@@ -7,6 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./detector";
 export * from "./filter";
+export * from "./getDetector";
+export * from "./getFilter";
+export * from "./getIPSet";
+export * from "./getMaster";
+export * from "./getMember";
+export * from "./getThreatIntelSet";
 export * from "./ipset";
 export * from "./master";
 export * from "./member";

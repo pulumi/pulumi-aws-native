@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./connectorProfile";
 export * from "./flow";
+export * from "./getConnectorProfile";
+export * from "./getFlow";
 
 // Export enums:
 export * from "../types/enums/appflow";

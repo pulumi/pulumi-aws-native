@@ -6,6 +6,15 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./agent";
+export * from "./getAgent";
+export * from "./getLocationEFS";
+export * from "./getLocationFSxWindows";
+export * from "./getLocationHDFS";
+export * from "./getLocationNFS";
+export * from "./getLocationObjectStorage";
+export * from "./getLocationS3";
+export * from "./getLocationSMB";
+export * from "./getTask";
 export * from "./locationEFS";
 export * from "./locationFSxWindows";
 export * from "./locationHDFS";

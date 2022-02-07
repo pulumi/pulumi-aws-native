@@ -9,6 +9,11 @@ export * from "./backupPlan";
 export * from "./backupSelection";
 export * from "./backupVault";
 export * from "./framework";
+export * from "./getBackupPlan";
+export * from "./getBackupSelection";
+export * from "./getBackupVault";
+export * from "./getFramework";
+export * from "./getReportPlan";
 export * from "./reportPlan";
 
 // Import resources to register:

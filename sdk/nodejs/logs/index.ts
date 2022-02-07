@@ -6,6 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./destination";
+export * from "./getDestination";
+export * from "./getLogGroup";
+export * from "./getLogStream";
+export * from "./getMetricFilter";
+export * from "./getQueryDefinition";
+export * from "./getResourcePolicy";
+export * from "./getSubscriptionFilter";
 export * from "./logGroup";
 export * from "./logStream";
 export * from "./metricFilter";

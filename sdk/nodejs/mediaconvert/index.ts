@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getJobTemplate";
+export * from "./getPreset";
+export * from "./getQueue";
 export * from "./jobTemplate";
 export * from "./preset";
 export * from "./queue";
