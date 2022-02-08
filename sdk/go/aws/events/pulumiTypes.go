@@ -3831,6 +3831,241 @@ func (o RuleRunCommandTargetArrayOutput) Index(i pulumi.IntInput) RuleRunCommand
 	}).(RuleRunCommandTargetOutput)
 }
 
+type RuleSageMakerPipelineParameter struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// RuleSageMakerPipelineParameterInput is an input type that accepts RuleSageMakerPipelineParameterArgs and RuleSageMakerPipelineParameterOutput values.
+// You can construct a concrete instance of `RuleSageMakerPipelineParameterInput` via:
+//
+//          RuleSageMakerPipelineParameterArgs{...}
+type RuleSageMakerPipelineParameterInput interface {
+	pulumi.Input
+
+	ToRuleSageMakerPipelineParameterOutput() RuleSageMakerPipelineParameterOutput
+	ToRuleSageMakerPipelineParameterOutputWithContext(context.Context) RuleSageMakerPipelineParameterOutput
+}
+
+type RuleSageMakerPipelineParameterArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RuleSageMakerPipelineParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSageMakerPipelineParameter)(nil)).Elem()
+}
+
+func (i RuleSageMakerPipelineParameterArgs) ToRuleSageMakerPipelineParameterOutput() RuleSageMakerPipelineParameterOutput {
+	return i.ToRuleSageMakerPipelineParameterOutputWithContext(context.Background())
+}
+
+func (i RuleSageMakerPipelineParameterArgs) ToRuleSageMakerPipelineParameterOutputWithContext(ctx context.Context) RuleSageMakerPipelineParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSageMakerPipelineParameterOutput)
+}
+
+// RuleSageMakerPipelineParameterArrayInput is an input type that accepts RuleSageMakerPipelineParameterArray and RuleSageMakerPipelineParameterArrayOutput values.
+// You can construct a concrete instance of `RuleSageMakerPipelineParameterArrayInput` via:
+//
+//          RuleSageMakerPipelineParameterArray{ RuleSageMakerPipelineParameterArgs{...} }
+type RuleSageMakerPipelineParameterArrayInput interface {
+	pulumi.Input
+
+	ToRuleSageMakerPipelineParameterArrayOutput() RuleSageMakerPipelineParameterArrayOutput
+	ToRuleSageMakerPipelineParameterArrayOutputWithContext(context.Context) RuleSageMakerPipelineParameterArrayOutput
+}
+
+type RuleSageMakerPipelineParameterArray []RuleSageMakerPipelineParameterInput
+
+func (RuleSageMakerPipelineParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSageMakerPipelineParameter)(nil)).Elem()
+}
+
+func (i RuleSageMakerPipelineParameterArray) ToRuleSageMakerPipelineParameterArrayOutput() RuleSageMakerPipelineParameterArrayOutput {
+	return i.ToRuleSageMakerPipelineParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSageMakerPipelineParameterArray) ToRuleSageMakerPipelineParameterArrayOutputWithContext(ctx context.Context) RuleSageMakerPipelineParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSageMakerPipelineParameterArrayOutput)
+}
+
+type RuleSageMakerPipelineParameterOutput struct{ *pulumi.OutputState }
+
+func (RuleSageMakerPipelineParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSageMakerPipelineParameter)(nil)).Elem()
+}
+
+func (o RuleSageMakerPipelineParameterOutput) ToRuleSageMakerPipelineParameterOutput() RuleSageMakerPipelineParameterOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParameterOutput) ToRuleSageMakerPipelineParameterOutputWithContext(ctx context.Context) RuleSageMakerPipelineParameterOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSageMakerPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleSageMakerPipelineParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSageMakerPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RuleSageMakerPipelineParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSageMakerPipelineParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSageMakerPipelineParameter)(nil)).Elem()
+}
+
+func (o RuleSageMakerPipelineParameterArrayOutput) ToRuleSageMakerPipelineParameterArrayOutput() RuleSageMakerPipelineParameterArrayOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParameterArrayOutput) ToRuleSageMakerPipelineParameterArrayOutputWithContext(ctx context.Context) RuleSageMakerPipelineParameterArrayOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParameterArrayOutput) Index(i pulumi.IntInput) RuleSageMakerPipelineParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSageMakerPipelineParameter {
+		return vs[0].([]RuleSageMakerPipelineParameter)[vs[1].(int)]
+	}).(RuleSageMakerPipelineParameterOutput)
+}
+
+type RuleSageMakerPipelineParameters struct {
+	PipelineParameterList []RuleSageMakerPipelineParameter `pulumi:"pipelineParameterList"`
+}
+
+// RuleSageMakerPipelineParametersInput is an input type that accepts RuleSageMakerPipelineParametersArgs and RuleSageMakerPipelineParametersOutput values.
+// You can construct a concrete instance of `RuleSageMakerPipelineParametersInput` via:
+//
+//          RuleSageMakerPipelineParametersArgs{...}
+type RuleSageMakerPipelineParametersInput interface {
+	pulumi.Input
+
+	ToRuleSageMakerPipelineParametersOutput() RuleSageMakerPipelineParametersOutput
+	ToRuleSageMakerPipelineParametersOutputWithContext(context.Context) RuleSageMakerPipelineParametersOutput
+}
+
+type RuleSageMakerPipelineParametersArgs struct {
+	PipelineParameterList RuleSageMakerPipelineParameterArrayInput `pulumi:"pipelineParameterList"`
+}
+
+func (RuleSageMakerPipelineParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSageMakerPipelineParameters)(nil)).Elem()
+}
+
+func (i RuleSageMakerPipelineParametersArgs) ToRuleSageMakerPipelineParametersOutput() RuleSageMakerPipelineParametersOutput {
+	return i.ToRuleSageMakerPipelineParametersOutputWithContext(context.Background())
+}
+
+func (i RuleSageMakerPipelineParametersArgs) ToRuleSageMakerPipelineParametersOutputWithContext(ctx context.Context) RuleSageMakerPipelineParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSageMakerPipelineParametersOutput)
+}
+
+func (i RuleSageMakerPipelineParametersArgs) ToRuleSageMakerPipelineParametersPtrOutput() RuleSageMakerPipelineParametersPtrOutput {
+	return i.ToRuleSageMakerPipelineParametersPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSageMakerPipelineParametersArgs) ToRuleSageMakerPipelineParametersPtrOutputWithContext(ctx context.Context) RuleSageMakerPipelineParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSageMakerPipelineParametersOutput).ToRuleSageMakerPipelineParametersPtrOutputWithContext(ctx)
+}
+
+// RuleSageMakerPipelineParametersPtrInput is an input type that accepts RuleSageMakerPipelineParametersArgs, RuleSageMakerPipelineParametersPtr and RuleSageMakerPipelineParametersPtrOutput values.
+// You can construct a concrete instance of `RuleSageMakerPipelineParametersPtrInput` via:
+//
+//          RuleSageMakerPipelineParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleSageMakerPipelineParametersPtrInput interface {
+	pulumi.Input
+
+	ToRuleSageMakerPipelineParametersPtrOutput() RuleSageMakerPipelineParametersPtrOutput
+	ToRuleSageMakerPipelineParametersPtrOutputWithContext(context.Context) RuleSageMakerPipelineParametersPtrOutput
+}
+
+type ruleSageMakerPipelineParametersPtrType RuleSageMakerPipelineParametersArgs
+
+func RuleSageMakerPipelineParametersPtr(v *RuleSageMakerPipelineParametersArgs) RuleSageMakerPipelineParametersPtrInput {
+	return (*ruleSageMakerPipelineParametersPtrType)(v)
+}
+
+func (*ruleSageMakerPipelineParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSageMakerPipelineParameters)(nil)).Elem()
+}
+
+func (i *ruleSageMakerPipelineParametersPtrType) ToRuleSageMakerPipelineParametersPtrOutput() RuleSageMakerPipelineParametersPtrOutput {
+	return i.ToRuleSageMakerPipelineParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSageMakerPipelineParametersPtrType) ToRuleSageMakerPipelineParametersPtrOutputWithContext(ctx context.Context) RuleSageMakerPipelineParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSageMakerPipelineParametersPtrOutput)
+}
+
+type RuleSageMakerPipelineParametersOutput struct{ *pulumi.OutputState }
+
+func (RuleSageMakerPipelineParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSageMakerPipelineParameters)(nil)).Elem()
+}
+
+func (o RuleSageMakerPipelineParametersOutput) ToRuleSageMakerPipelineParametersOutput() RuleSageMakerPipelineParametersOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParametersOutput) ToRuleSageMakerPipelineParametersOutputWithContext(ctx context.Context) RuleSageMakerPipelineParametersOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParametersOutput) ToRuleSageMakerPipelineParametersPtrOutput() RuleSageMakerPipelineParametersPtrOutput {
+	return o.ToRuleSageMakerPipelineParametersPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSageMakerPipelineParametersOutput) ToRuleSageMakerPipelineParametersPtrOutputWithContext(ctx context.Context) RuleSageMakerPipelineParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSageMakerPipelineParameters) *RuleSageMakerPipelineParameters {
+		return &v
+	}).(RuleSageMakerPipelineParametersPtrOutput)
+}
+
+func (o RuleSageMakerPipelineParametersOutput) PipelineParameterList() RuleSageMakerPipelineParameterArrayOutput {
+	return o.ApplyT(func(v RuleSageMakerPipelineParameters) []RuleSageMakerPipelineParameter {
+		return v.PipelineParameterList
+	}).(RuleSageMakerPipelineParameterArrayOutput)
+}
+
+type RuleSageMakerPipelineParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSageMakerPipelineParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSageMakerPipelineParameters)(nil)).Elem()
+}
+
+func (o RuleSageMakerPipelineParametersPtrOutput) ToRuleSageMakerPipelineParametersPtrOutput() RuleSageMakerPipelineParametersPtrOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParametersPtrOutput) ToRuleSageMakerPipelineParametersPtrOutputWithContext(ctx context.Context) RuleSageMakerPipelineParametersPtrOutput {
+	return o
+}
+
+func (o RuleSageMakerPipelineParametersPtrOutput) Elem() RuleSageMakerPipelineParametersOutput {
+	return o.ApplyT(func(v *RuleSageMakerPipelineParameters) RuleSageMakerPipelineParameters {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSageMakerPipelineParameters
+		return ret
+	}).(RuleSageMakerPipelineParametersOutput)
+}
+
+func (o RuleSageMakerPipelineParametersPtrOutput) PipelineParameterList() RuleSageMakerPipelineParameterArrayOutput {
+	return o.ApplyT(func(v *RuleSageMakerPipelineParameters) []RuleSageMakerPipelineParameter {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineParameterList
+	}).(RuleSageMakerPipelineParameterArrayOutput)
+}
+
 type RuleSqsParameters struct {
 	MessageGroupId string `pulumi:"messageGroupId"`
 }
@@ -4065,21 +4300,22 @@ func (o RuleTagArrayOutput) Index(i pulumi.IntInput) RuleTagOutput {
 }
 
 type RuleTarget struct {
-	Arn                    string                      `pulumi:"arn"`
-	BatchParameters        *RuleBatchParameters        `pulumi:"batchParameters"`
-	DeadLetterConfig       *RuleDeadLetterConfig       `pulumi:"deadLetterConfig"`
-	EcsParameters          *RuleEcsParameters          `pulumi:"ecsParameters"`
-	HttpParameters         *RuleHttpParameters         `pulumi:"httpParameters"`
-	Id                     string                      `pulumi:"id"`
-	Input                  *string                     `pulumi:"input"`
-	InputPath              *string                     `pulumi:"inputPath"`
-	InputTransformer       *RuleInputTransformer       `pulumi:"inputTransformer"`
-	KinesisParameters      *RuleKinesisParameters      `pulumi:"kinesisParameters"`
-	RedshiftDataParameters *RuleRedshiftDataParameters `pulumi:"redshiftDataParameters"`
-	RetryPolicy            *RuleRetryPolicy            `pulumi:"retryPolicy"`
-	RoleArn                *string                     `pulumi:"roleArn"`
-	RunCommandParameters   *RuleRunCommandParameters   `pulumi:"runCommandParameters"`
-	SqsParameters          *RuleSqsParameters          `pulumi:"sqsParameters"`
+	Arn                         string                           `pulumi:"arn"`
+	BatchParameters             *RuleBatchParameters             `pulumi:"batchParameters"`
+	DeadLetterConfig            *RuleDeadLetterConfig            `pulumi:"deadLetterConfig"`
+	EcsParameters               *RuleEcsParameters               `pulumi:"ecsParameters"`
+	HttpParameters              *RuleHttpParameters              `pulumi:"httpParameters"`
+	Id                          string                           `pulumi:"id"`
+	Input                       *string                          `pulumi:"input"`
+	InputPath                   *string                          `pulumi:"inputPath"`
+	InputTransformer            *RuleInputTransformer            `pulumi:"inputTransformer"`
+	KinesisParameters           *RuleKinesisParameters           `pulumi:"kinesisParameters"`
+	RedshiftDataParameters      *RuleRedshiftDataParameters      `pulumi:"redshiftDataParameters"`
+	RetryPolicy                 *RuleRetryPolicy                 `pulumi:"retryPolicy"`
+	RoleArn                     *string                          `pulumi:"roleArn"`
+	RunCommandParameters        *RuleRunCommandParameters        `pulumi:"runCommandParameters"`
+	SageMakerPipelineParameters *RuleSageMakerPipelineParameters `pulumi:"sageMakerPipelineParameters"`
+	SqsParameters               *RuleSqsParameters               `pulumi:"sqsParameters"`
 }
 
 // RuleTargetInput is an input type that accepts RuleTargetArgs and RuleTargetOutput values.
@@ -4094,21 +4330,22 @@ type RuleTargetInput interface {
 }
 
 type RuleTargetArgs struct {
-	Arn                    pulumi.StringInput                 `pulumi:"arn"`
-	BatchParameters        RuleBatchParametersPtrInput        `pulumi:"batchParameters"`
-	DeadLetterConfig       RuleDeadLetterConfigPtrInput       `pulumi:"deadLetterConfig"`
-	EcsParameters          RuleEcsParametersPtrInput          `pulumi:"ecsParameters"`
-	HttpParameters         RuleHttpParametersPtrInput         `pulumi:"httpParameters"`
-	Id                     pulumi.StringInput                 `pulumi:"id"`
-	Input                  pulumi.StringPtrInput              `pulumi:"input"`
-	InputPath              pulumi.StringPtrInput              `pulumi:"inputPath"`
-	InputTransformer       RuleInputTransformerPtrInput       `pulumi:"inputTransformer"`
-	KinesisParameters      RuleKinesisParametersPtrInput      `pulumi:"kinesisParameters"`
-	RedshiftDataParameters RuleRedshiftDataParametersPtrInput `pulumi:"redshiftDataParameters"`
-	RetryPolicy            RuleRetryPolicyPtrInput            `pulumi:"retryPolicy"`
-	RoleArn                pulumi.StringPtrInput              `pulumi:"roleArn"`
-	RunCommandParameters   RuleRunCommandParametersPtrInput   `pulumi:"runCommandParameters"`
-	SqsParameters          RuleSqsParametersPtrInput          `pulumi:"sqsParameters"`
+	Arn                         pulumi.StringInput                      `pulumi:"arn"`
+	BatchParameters             RuleBatchParametersPtrInput             `pulumi:"batchParameters"`
+	DeadLetterConfig            RuleDeadLetterConfigPtrInput            `pulumi:"deadLetterConfig"`
+	EcsParameters               RuleEcsParametersPtrInput               `pulumi:"ecsParameters"`
+	HttpParameters              RuleHttpParametersPtrInput              `pulumi:"httpParameters"`
+	Id                          pulumi.StringInput                      `pulumi:"id"`
+	Input                       pulumi.StringPtrInput                   `pulumi:"input"`
+	InputPath                   pulumi.StringPtrInput                   `pulumi:"inputPath"`
+	InputTransformer            RuleInputTransformerPtrInput            `pulumi:"inputTransformer"`
+	KinesisParameters           RuleKinesisParametersPtrInput           `pulumi:"kinesisParameters"`
+	RedshiftDataParameters      RuleRedshiftDataParametersPtrInput      `pulumi:"redshiftDataParameters"`
+	RetryPolicy                 RuleRetryPolicyPtrInput                 `pulumi:"retryPolicy"`
+	RoleArn                     pulumi.StringPtrInput                   `pulumi:"roleArn"`
+	RunCommandParameters        RuleRunCommandParametersPtrInput        `pulumi:"runCommandParameters"`
+	SageMakerPipelineParameters RuleSageMakerPipelineParametersPtrInput `pulumi:"sageMakerPipelineParameters"`
+	SqsParameters               RuleSqsParametersPtrInput               `pulumi:"sqsParameters"`
 }
 
 func (RuleTargetArgs) ElementType() reflect.Type {
@@ -4218,6 +4455,10 @@ func (o RuleTargetOutput) RunCommandParameters() RuleRunCommandParametersPtrOutp
 	return o.ApplyT(func(v RuleTarget) *RuleRunCommandParameters { return v.RunCommandParameters }).(RuleRunCommandParametersPtrOutput)
 }
 
+func (o RuleTargetOutput) SageMakerPipelineParameters() RuleSageMakerPipelineParametersPtrOutput {
+	return o.ApplyT(func(v RuleTarget) *RuleSageMakerPipelineParameters { return v.SageMakerPipelineParameters }).(RuleSageMakerPipelineParametersPtrOutput)
+}
+
 func (o RuleTargetOutput) SqsParameters() RuleSqsParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleSqsParameters { return v.SqsParameters }).(RuleSqsParametersPtrOutput)
 }
@@ -4294,6 +4535,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleRunCommandParametersPtrInput)(nil)).Elem(), RuleRunCommandParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleRunCommandTargetInput)(nil)).Elem(), RuleRunCommandTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleRunCommandTargetArrayInput)(nil)).Elem(), RuleRunCommandTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSageMakerPipelineParameterInput)(nil)).Elem(), RuleSageMakerPipelineParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSageMakerPipelineParameterArrayInput)(nil)).Elem(), RuleSageMakerPipelineParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSageMakerPipelineParametersInput)(nil)).Elem(), RuleSageMakerPipelineParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSageMakerPipelineParametersPtrInput)(nil)).Elem(), RuleSageMakerPipelineParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSqsParametersInput)(nil)).Elem(), RuleSqsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSqsParametersPtrInput)(nil)).Elem(), RuleSqsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTagInput)(nil)).Elem(), RuleTagArgs{})
@@ -4352,6 +4597,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleRunCommandParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleRunCommandTargetOutput{})
 	pulumi.RegisterOutputType(RuleRunCommandTargetArrayOutput{})
+	pulumi.RegisterOutputType(RuleSageMakerPipelineParameterOutput{})
+	pulumi.RegisterOutputType(RuleSageMakerPipelineParameterArrayOutput{})
+	pulumi.RegisterOutputType(RuleSageMakerPipelineParametersOutput{})
+	pulumi.RegisterOutputType(RuleSageMakerPipelineParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleSqsParametersOutput{})
 	pulumi.RegisterOutputType(RuleSqsParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleTagOutput{})

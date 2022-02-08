@@ -34,6 +34,8 @@ type LookupIntegrationResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
 	ObjectTypeName *string `pulumi:"objectTypeName"`
+	// The mapping between 3rd party event types and ObjectType names
+	ObjectTypeNames []IntegrationObjectTypeMapping `pulumi:"objectTypeNames"`
 	// The tags (keys and values) associated with the integration
 	Tags []IntegrationTag `pulumi:"tags"`
 }
@@ -85,6 +87,11 @@ func (o LookupIntegrationResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 // The name of the ObjectType defined for the 3rd party data in Profile Service
 func (o LookupIntegrationResultOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.ObjectTypeName }).(pulumi.StringPtrOutput)
+}
+
+// The mapping between 3rd party event types and ObjectType names
+func (o LookupIntegrationResultOutput) ObjectTypeNames() IntegrationObjectTypeMappingArrayOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) []IntegrationObjectTypeMapping { return v.ObjectTypeNames }).(IntegrationObjectTypeMappingArrayOutput)
 }
 
 // The tags (keys and values) associated with the integration

@@ -8,6 +8,102 @@ using Pulumi;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
+    /// The name of robot software suite.
+    /// </summary>
+    [EnumType]
+    public readonly struct RobotApplicationRobotSoftwareSuiteName : IEquatable<RobotApplicationRobotSoftwareSuiteName>
+    {
+        private readonly string _value;
+
+        private RobotApplicationRobotSoftwareSuiteName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RobotApplicationRobotSoftwareSuiteName Ros { get; } = new RobotApplicationRobotSoftwareSuiteName("ROS");
+        public static RobotApplicationRobotSoftwareSuiteName Ros2 { get; } = new RobotApplicationRobotSoftwareSuiteName("ROS2");
+        public static RobotApplicationRobotSoftwareSuiteName General { get; } = new RobotApplicationRobotSoftwareSuiteName("General");
+
+        public static bool operator ==(RobotApplicationRobotSoftwareSuiteName left, RobotApplicationRobotSoftwareSuiteName right) => left.Equals(right);
+        public static bool operator !=(RobotApplicationRobotSoftwareSuiteName left, RobotApplicationRobotSoftwareSuiteName right) => !left.Equals(right);
+
+        public static explicit operator string(RobotApplicationRobotSoftwareSuiteName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RobotApplicationRobotSoftwareSuiteName other && Equals(other);
+        public bool Equals(RobotApplicationRobotSoftwareSuiteName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The version of robot software suite.
+    /// </summary>
+    [EnumType]
+    public readonly struct RobotApplicationRobotSoftwareSuiteVersion : IEquatable<RobotApplicationRobotSoftwareSuiteVersion>
+    {
+        private readonly string _value;
+
+        private RobotApplicationRobotSoftwareSuiteVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RobotApplicationRobotSoftwareSuiteVersion Kinetic { get; } = new RobotApplicationRobotSoftwareSuiteVersion("Kinetic");
+        public static RobotApplicationRobotSoftwareSuiteVersion Melodic { get; } = new RobotApplicationRobotSoftwareSuiteVersion("Melodic");
+        public static RobotApplicationRobotSoftwareSuiteVersion Dashing { get; } = new RobotApplicationRobotSoftwareSuiteVersion("Dashing");
+
+        public static bool operator ==(RobotApplicationRobotSoftwareSuiteVersion left, RobotApplicationRobotSoftwareSuiteVersion right) => left.Equals(right);
+        public static bool operator !=(RobotApplicationRobotSoftwareSuiteVersion left, RobotApplicationRobotSoftwareSuiteVersion right) => !left.Equals(right);
+
+        public static explicit operator string(RobotApplicationRobotSoftwareSuiteVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RobotApplicationRobotSoftwareSuiteVersion other && Equals(other);
+        public bool Equals(RobotApplicationRobotSoftwareSuiteVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The architecture of robot application.
+    /// </summary>
+    [EnumType]
+    public readonly struct RobotApplicationSourceConfigArchitecture : IEquatable<RobotApplicationSourceConfigArchitecture>
+    {
+        private readonly string _value;
+
+        private RobotApplicationSourceConfigArchitecture(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RobotApplicationSourceConfigArchitecture X8664 { get; } = new RobotApplicationSourceConfigArchitecture("X86_64");
+        public static RobotApplicationSourceConfigArchitecture Arm64 { get; } = new RobotApplicationSourceConfigArchitecture("ARM64");
+        public static RobotApplicationSourceConfigArchitecture Armhf { get; } = new RobotApplicationSourceConfigArchitecture("ARMHF");
+
+        public static bool operator ==(RobotApplicationSourceConfigArchitecture left, RobotApplicationSourceConfigArchitecture right) => left.Equals(right);
+        public static bool operator !=(RobotApplicationSourceConfigArchitecture left, RobotApplicationSourceConfigArchitecture right) => !left.Equals(right);
+
+        public static explicit operator string(RobotApplicationSourceConfigArchitecture value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RobotApplicationSourceConfigArchitecture other && Equals(other);
+        public bool Equals(RobotApplicationSourceConfigArchitecture other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The target architecture of the robot.
     /// </summary>
     [EnumType]

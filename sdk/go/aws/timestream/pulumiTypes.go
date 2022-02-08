@@ -113,6 +113,514 @@ func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
 	}).(DatabaseTagOutput)
 }
 
+// The properties that determine whether magnetic store writes are enabled.
+type MagneticStoreWritePropertiesProperties struct {
+	// Boolean flag indicating whether magnetic store writes are enabled.
+	EnableMagneticStoreWrites bool `pulumi:"enableMagneticStoreWrites"`
+	// Location to store information about records that were asynchronously rejected during magnetic store writes.
+	MagneticStoreRejectedDataLocation *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties `pulumi:"magneticStoreRejectedDataLocation"`
+}
+
+// MagneticStoreWritePropertiesPropertiesInput is an input type that accepts MagneticStoreWritePropertiesPropertiesArgs and MagneticStoreWritePropertiesPropertiesOutput values.
+// You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesInput` via:
+//
+//          MagneticStoreWritePropertiesPropertiesArgs{...}
+type MagneticStoreWritePropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToMagneticStoreWritePropertiesPropertiesOutput() MagneticStoreWritePropertiesPropertiesOutput
+	ToMagneticStoreWritePropertiesPropertiesOutputWithContext(context.Context) MagneticStoreWritePropertiesPropertiesOutput
+}
+
+// The properties that determine whether magnetic store writes are enabled.
+type MagneticStoreWritePropertiesPropertiesArgs struct {
+	// Boolean flag indicating whether magnetic store writes are enabled.
+	EnableMagneticStoreWrites pulumi.BoolInput `pulumi:"enableMagneticStoreWrites"`
+	// Location to store information about records that were asynchronously rejected during magnetic store writes.
+	MagneticStoreRejectedDataLocation MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput `pulumi:"magneticStoreRejectedDataLocation"`
+}
+
+func (MagneticStoreWritePropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MagneticStoreWritePropertiesProperties)(nil)).Elem()
+}
+
+func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesOutput() MagneticStoreWritePropertiesPropertiesOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesOutput)
+}
+
+func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesOutput).ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// MagneticStoreWritePropertiesPropertiesPtrInput is an input type that accepts MagneticStoreWritePropertiesPropertiesArgs, MagneticStoreWritePropertiesPropertiesPtr and MagneticStoreWritePropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesPtrInput` via:
+//
+//          MagneticStoreWritePropertiesPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MagneticStoreWritePropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMagneticStoreWritePropertiesPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesPtrOutput
+	ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(context.Context) MagneticStoreWritePropertiesPropertiesPtrOutput
+}
+
+type magneticStoreWritePropertiesPropertiesPtrType MagneticStoreWritePropertiesPropertiesArgs
+
+func MagneticStoreWritePropertiesPropertiesPtr(v *MagneticStoreWritePropertiesPropertiesArgs) MagneticStoreWritePropertiesPropertiesPtrInput {
+	return (*magneticStoreWritePropertiesPropertiesPtrType)(v)
+}
+
+func (*magneticStoreWritePropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MagneticStoreWritePropertiesProperties)(nil)).Elem()
+}
+
+func (i *magneticStoreWritePropertiesPropertiesPtrType) ToMagneticStoreWritePropertiesPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *magneticStoreWritePropertiesPropertiesPtrType) ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesPtrOutput)
+}
+
+// The properties that determine whether magnetic store writes are enabled.
+type MagneticStoreWritePropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MagneticStoreWritePropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MagneticStoreWritePropertiesProperties)(nil)).Elem()
+}
+
+func (o MagneticStoreWritePropertiesPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesOutput() MagneticStoreWritePropertiesPropertiesOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return o.ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MagneticStoreWritePropertiesPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MagneticStoreWritePropertiesProperties) *MagneticStoreWritePropertiesProperties {
+		return &v
+	}).(MagneticStoreWritePropertiesPropertiesPtrOutput)
+}
+
+// Boolean flag indicating whether magnetic store writes are enabled.
+func (o MagneticStoreWritePropertiesPropertiesOutput) EnableMagneticStoreWrites() pulumi.BoolOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesProperties) bool { return v.EnableMagneticStoreWrites }).(pulumi.BoolOutput)
+}
+
+// Location to store information about records that were asynchronously rejected during magnetic store writes.
+func (o MagneticStoreWritePropertiesPropertiesOutput) MagneticStoreRejectedDataLocation() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties {
+		return v.MagneticStoreRejectedDataLocation
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput)
+}
+
+type MagneticStoreWritePropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MagneticStoreWritePropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MagneticStoreWritePropertiesProperties)(nil)).Elem()
+}
+
+func (o MagneticStoreWritePropertiesPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesPtrOutput) Elem() MagneticStoreWritePropertiesPropertiesOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesProperties) MagneticStoreWritePropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MagneticStoreWritePropertiesProperties
+		return ret
+	}).(MagneticStoreWritePropertiesPropertiesOutput)
+}
+
+// Boolean flag indicating whether magnetic store writes are enabled.
+func (o MagneticStoreWritePropertiesPropertiesPtrOutput) EnableMagneticStoreWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableMagneticStoreWrites
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Location to store information about records that were asynchronously rejected during magnetic store writes.
+func (o MagneticStoreWritePropertiesPropertiesPtrOutput) MagneticStoreRejectedDataLocation() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MagneticStoreRejectedDataLocation
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput)
+}
+
+// Location to store information about records that were asynchronously rejected during magnetic store writes.
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties struct {
+	// S3 configuration for location to store rejections from magnetic store writes
+	S3Configuration *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties `pulumi:"s3Configuration"`
+}
+
+// MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput values.
+// You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput` via:
+//
+//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{...}
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput interface {
+	pulumi.Input
+
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutputWithContext(context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput
+}
+
+// Location to store information about records that were asynchronously rejected during magnetic store writes.
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs struct {
+	// S3 configuration for location to store rejections from magnetic store writes
+	S3Configuration MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput `pulumi:"s3Configuration"`
+}
+
+func (MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties)(nil)).Elem()
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutputWithContext(context.Background())
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput)
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput).ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx)
+}
+
+// MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs, MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtr and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput values.
+// You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput` via:
+//
+//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput
+}
+
+type magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrType MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs
+
+func MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtr(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput {
+	return (*magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrType)(v)
+}
+
+func (*magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties)(nil)).Elem()
+}
+
+func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrType) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrType) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput)
+}
+
+// Location to store information about records that were asynchronously rejected during magnetic store writes.
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties)(nil)).Elem()
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return o.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties {
+		return &v
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput)
+}
+
+// S3 configuration for location to store rejections from magnetic store writes
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) S3Configuration() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
+		return v.S3Configuration
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties)(nil)).Elem()
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) Elem() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties
+		return ret
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput)
+}
+
+// S3 configuration for location to store rejections from magnetic store writes
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) S3Configuration() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.S3Configuration
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+// S3 configuration for location to store rejections from magnetic store writes
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties struct {
+	// The bucket name used to store the data.
+	BucketName string `pulumi:"bucketName"`
+	// Either SSE_KMS or SSE_S3.
+	EncryptionOption string `pulumi:"encryptionOption"`
+	// Must be provided if SSE_KMS is specified as the encryption option
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// String used to prefix all data in the bucket.
+	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
+}
+
+// MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput` via:
+//
+//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{...}
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutputWithContext(context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput
+}
+
+// S3 configuration for location to store rejections from magnetic store writes
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs struct {
+	// The bucket name used to store the data.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Either SSE_KMS or SSE_S3.
+	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
+	// Must be provided if SSE_KMS is specified as the encryption option
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// String used to prefix all data in the bucket.
+	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
+}
+
+func (MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput)
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput).ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs, MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtr and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput` via:
+//
+//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput
+	ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput
+}
+
+type magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrType MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs
+
+func MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtr(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput {
+	return (*magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrType)(v)
+}
+
+func (*magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrType) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrType) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+// S3 configuration for location to store rejections from magnetic store writes
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
+		return &v
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+// The bucket name used to store the data.
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+// Either SSE_KMS or SSE_S3.
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) EncryptionOption() pulumi.StringOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) string {
+		return v.EncryptionOption
+	}).(pulumi.StringOutput)
+}
+
+// Must be provided if SSE_KMS is specified as the encryption option
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *string {
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// String used to prefix all data in the bucket.
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *string {
+		return v.ObjectKeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) Elem() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties
+		return ret
+	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput)
+}
+
+// The bucket name used to store the data.
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Either SSE_KMS or SSE_S3.
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Must be provided if SSE_KMS is specified as the encryption option
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// String used to prefix all data in the bucket.
+func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectKeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // The retention duration of the memory store and the magnetic store.
 type RetentionPropertiesProperties struct {
 	// The duration for which data must be stored in the magnetic store.
@@ -1617,6 +2125,12 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesPtrInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPropertiesPropertiesInput)(nil)).Elem(), RetentionPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPropertiesPropertiesPtrInput)(nil)).Elem(), RetentionPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionMappingInput)(nil)).Elem(), ScheduledQueryDimensionMappingArgs{})
@@ -1642,6 +2156,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
 	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
+	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput{})
+	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RetentionPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(RetentionPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryDimensionMappingOutput{})

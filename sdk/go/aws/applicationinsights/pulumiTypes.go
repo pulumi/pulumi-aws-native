@@ -1045,16 +1045,16 @@ func (o ApplicationHAClusterPrometheusExporterPtrOutput) PrometheusPort() pulumi
 // The HANA DB Prometheus Exporter settings.
 type ApplicationHANAPrometheusExporter struct {
 	// A flag which indicates agreeing to install SAP HANA DB client.
-	AgreeToInstallHANADBClient *bool `pulumi:"agreeToInstallHANADBClient"`
+	AgreeToInstallHANADBClient bool `pulumi:"agreeToInstallHANADBClient"`
 	// The HANA DB port.
-	HANAPort *string `pulumi:"hANAPort"`
+	HANAPort string `pulumi:"hANAPort"`
 	// HANA DB SID.
-	HANASID *string `pulumi:"hANASID"`
+	HANASID string `pulumi:"hANASID"`
 	// The secret name which manages the HANA DB credentials e.g. {
 	//   "username": "<>",
 	//   "password": "<>"
 	// }.
-	HANASecretName *string `pulumi:"hANASecretName"`
+	HANASecretName string `pulumi:"hANASecretName"`
 	// Prometheus exporter port.
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
@@ -1073,16 +1073,16 @@ type ApplicationHANAPrometheusExporterInput interface {
 // The HANA DB Prometheus Exporter settings.
 type ApplicationHANAPrometheusExporterArgs struct {
 	// A flag which indicates agreeing to install SAP HANA DB client.
-	AgreeToInstallHANADBClient pulumi.BoolPtrInput `pulumi:"agreeToInstallHANADBClient"`
+	AgreeToInstallHANADBClient pulumi.BoolInput `pulumi:"agreeToInstallHANADBClient"`
 	// The HANA DB port.
-	HANAPort pulumi.StringPtrInput `pulumi:"hANAPort"`
+	HANAPort pulumi.StringInput `pulumi:"hANAPort"`
 	// HANA DB SID.
-	HANASID pulumi.StringPtrInput `pulumi:"hANASID"`
+	HANASID pulumi.StringInput `pulumi:"hANASID"`
 	// The secret name which manages the HANA DB credentials e.g. {
 	//   "username": "<>",
 	//   "password": "<>"
 	// }.
-	HANASecretName pulumi.StringPtrInput `pulumi:"hANASecretName"`
+	HANASecretName pulumi.StringInput `pulumi:"hANASecretName"`
 	// Prometheus exporter port.
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
@@ -1166,26 +1166,26 @@ func (o ApplicationHANAPrometheusExporterOutput) ToApplicationHANAPrometheusExpo
 }
 
 // A flag which indicates agreeing to install SAP HANA DB client.
-func (o ApplicationHANAPrometheusExporterOutput) AgreeToInstallHANADBClient() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) *bool { return v.AgreeToInstallHANADBClient }).(pulumi.BoolPtrOutput)
+func (o ApplicationHANAPrometheusExporterOutput) AgreeToInstallHANADBClient() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) bool { return v.AgreeToInstallHANADBClient }).(pulumi.BoolOutput)
 }
 
 // The HANA DB port.
-func (o ApplicationHANAPrometheusExporterOutput) HANAPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) *string { return v.HANAPort }).(pulumi.StringPtrOutput)
+func (o ApplicationHANAPrometheusExporterOutput) HANAPort() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANAPort }).(pulumi.StringOutput)
 }
 
 // HANA DB SID.
-func (o ApplicationHANAPrometheusExporterOutput) HANASID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) *string { return v.HANASID }).(pulumi.StringPtrOutput)
+func (o ApplicationHANAPrometheusExporterOutput) HANASID() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANASID }).(pulumi.StringOutput)
 }
 
 // The secret name which manages the HANA DB credentials e.g. {
 //   "username": "<>",
 //   "password": "<>"
 // }.
-func (o ApplicationHANAPrometheusExporterOutput) HANASecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) *string { return v.HANASecretName }).(pulumi.StringPtrOutput)
+func (o ApplicationHANAPrometheusExporterOutput) HANASecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANASecretName }).(pulumi.StringOutput)
 }
 
 // Prometheus exporter port.
@@ -1223,7 +1223,7 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) AgreeToInstallHANADBClient()
 		if v == nil {
 			return nil
 		}
-		return v.AgreeToInstallHANADBClient
+		return &v.AgreeToInstallHANADBClient
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1233,7 +1233,7 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HANAPort() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return v.HANAPort
+		return &v.HANAPort
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1243,7 +1243,7 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HANASID() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.HANASID
+		return &v.HANASID
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1256,7 +1256,7 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HANASecretName() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return v.HANASecretName
+		return &v.HANASecretName
 	}).(pulumi.StringPtrOutput)
 }
 

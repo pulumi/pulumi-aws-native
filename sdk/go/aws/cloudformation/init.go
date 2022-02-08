@@ -23,6 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:cloudformation:CustomResource":
 		r = &CustomResource{}
+	case "aws-native:cloudformation:HookDefaultVersion":
+		r = &HookDefaultVersion{}
+	case "aws-native:cloudformation:HookTypeConfig":
+		r = &HookTypeConfig{}
+	case "aws-native:cloudformation:HookVersion":
+		r = &HookVersion{}
 	case "aws-native:cloudformation:Macro":
 		r = &Macro{}
 	case "aws-native:cloudformation:ModuleDefaultVersion":

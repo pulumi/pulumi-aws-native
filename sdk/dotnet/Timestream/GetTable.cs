@@ -69,6 +69,10 @@ namespace Pulumi.AwsNative.Timestream
     {
         public readonly string? Arn;
         /// <summary>
+        /// The properties that determine whether magnetic store writes are enabled.
+        /// </summary>
+        public readonly Outputs.MagneticStoreWritePropertiesProperties? MagneticStoreWriteProperties;
+        /// <summary>
         /// The table name exposed as a read-only attribute.
         /// </summary>
         public readonly string? Name;
@@ -85,6 +89,8 @@ namespace Pulumi.AwsNative.Timestream
         private GetTableResult(
             string? arn,
 
+            Outputs.MagneticStoreWritePropertiesProperties? magneticStoreWriteProperties,
+
             string? name,
 
             Outputs.RetentionPropertiesProperties? retentionProperties,
@@ -92,6 +98,7 @@ namespace Pulumi.AwsNative.Timestream
             ImmutableArray<Outputs.TableTag> tags)
         {
             Arn = arn;
+            MagneticStoreWriteProperties = magneticStoreWriteProperties;
             Name = name;
             RetentionProperties = retentionProperties;
             Tags = tags;

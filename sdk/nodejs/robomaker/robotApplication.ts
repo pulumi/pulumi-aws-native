@@ -6,9 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::RoboMaker::RobotApplication
- *
- * @deprecated RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class RobotApplication extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class RobotApplication extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RobotApplication {
-        pulumi.log.warn("RobotApplication is deprecated: RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new RobotApplication(name, undefined as any, { ...opts, id: id });
     }
 
@@ -39,11 +36,24 @@ export class RobotApplication extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The revision ID of robot application.
+     */
     public readonly currentRevisionId!: pulumi.Output<string | undefined>;
+    /**
+     * The URI of the Docker image for the robot application.
+     */
+    public readonly environment!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the robot application.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly robotSoftwareSuite!: pulumi.Output<outputs.robomaker.RobotApplicationRobotSoftwareSuite>;
-    public readonly sources!: pulumi.Output<outputs.robomaker.RobotApplicationSourceConfig[]>;
-    public readonly tags!: pulumi.Output<any | undefined>;
+    /**
+     * The sources of the robot application.
+     */
+    public readonly sources!: pulumi.Output<outputs.robomaker.RobotApplicationSourceConfig[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.robomaker.RobotApplicationTags | undefined>;
 
     /**
      * Create a RobotApplication resource with the given unique name, arguments, and options.
@@ -52,19 +62,15 @@ export class RobotApplication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RobotApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RobotApplication is deprecated: RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.robotSoftwareSuite === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'robotSoftwareSuite'");
             }
-            if ((!args || args.sources === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sources'");
-            }
             resourceInputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["robotSoftwareSuite"] = args ? args.robotSoftwareSuite : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
@@ -73,6 +79,7 @@ export class RobotApplication extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currentRevisionId"] = undefined /*out*/;
+            resourceInputs["environment"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["robotSoftwareSuite"] = undefined /*out*/;
             resourceInputs["sources"] = undefined /*out*/;
@@ -87,9 +94,22 @@ export class RobotApplication extends pulumi.CustomResource {
  * The set of arguments for constructing a RobotApplication resource.
  */
 export interface RobotApplicationArgs {
+    /**
+     * The revision ID of robot application.
+     */
     currentRevisionId?: pulumi.Input<string>;
+    /**
+     * The URI of the Docker image for the robot application.
+     */
+    environment?: pulumi.Input<string>;
+    /**
+     * The name of the robot application.
+     */
     name?: pulumi.Input<string>;
     robotSoftwareSuite: pulumi.Input<inputs.robomaker.RobotApplicationRobotSoftwareSuiteArgs>;
-    sources: pulumi.Input<pulumi.Input<inputs.robomaker.RobotApplicationSourceConfigArgs>[]>;
-    tags?: any;
+    /**
+     * The sources of the robot application.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.robomaker.RobotApplicationSourceConfigArgs>[]>;
+    tags?: pulumi.Input<inputs.robomaker.RobotApplicationTagsArgs>;
 }

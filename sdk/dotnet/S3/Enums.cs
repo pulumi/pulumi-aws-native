@@ -465,6 +465,7 @@ namespace Pulumi.AwsNative.S3
 
         public static BucketOwnershipControlsRuleObjectOwnership ObjectWriter { get; } = new BucketOwnershipControlsRuleObjectOwnership("ObjectWriter");
         public static BucketOwnershipControlsRuleObjectOwnership BucketOwnerPreferred { get; } = new BucketOwnershipControlsRuleObjectOwnership("BucketOwnerPreferred");
+        public static BucketOwnershipControlsRuleObjectOwnership BucketOwnerEnforced { get; } = new BucketOwnershipControlsRuleObjectOwnership("BucketOwnerEnforced");
 
         public static bool operator ==(BucketOwnershipControlsRuleObjectOwnership left, BucketOwnershipControlsRuleObjectOwnership right) => left.Equals(right);
         public static bool operator !=(BucketOwnershipControlsRuleObjectOwnership left, BucketOwnershipControlsRuleObjectOwnership right) => !left.Equals(right);

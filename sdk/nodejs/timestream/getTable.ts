@@ -34,6 +34,10 @@ export interface GetTableArgs {
 export interface GetTableResult {
     readonly arn?: string;
     /**
+     * The properties that determine whether magnetic store writes are enabled.
+     */
+    readonly magneticStoreWriteProperties?: outputs.timestream.MagneticStoreWritePropertiesProperties;
+    /**
      * The table name exposed as a read-only attribute.
      */
     readonly name?: string;

@@ -6,13 +6,16 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getService";
+export * from "./getVpcConnector";
 export * from "./service";
+export * from "./vpcConnector";
 
 // Export enums:
 export * from "../types/enums/apprunner";
 
 // Import resources to register:
 import { Service } from "./service";
+import { VpcConnector } from "./vpcConnector";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +23,8 @@ const _module = {
         switch (type) {
             case "aws-native:apprunner:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "aws-native:apprunner:VpcConnector":
+                return new VpcConnector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

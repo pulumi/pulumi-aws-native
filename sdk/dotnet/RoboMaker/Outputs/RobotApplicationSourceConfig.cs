@@ -13,13 +13,22 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
     [OutputType]
     public sealed class RobotApplicationSourceConfig
     {
-        public readonly string Architecture;
+        /// <summary>
+        /// The architecture of robot application.
+        /// </summary>
+        public readonly Pulumi.AwsNative.RoboMaker.RobotApplicationSourceConfigArchitecture Architecture;
+        /// <summary>
+        /// The Arn of the S3Bucket that stores the robot application source.
+        /// </summary>
         public readonly string S3Bucket;
+        /// <summary>
+        /// The s3 key of robot application source.
+        /// </summary>
         public readonly string S3Key;
 
         [OutputConstructor]
         private RobotApplicationSourceConfig(
-            string architecture,
+            Pulumi.AwsNative.RoboMaker.RobotApplicationSourceConfigArchitecture architecture,
 
             string s3Bucket,
 

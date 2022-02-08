@@ -38,11 +38,11 @@ export class LocationHDFS extends pulumi.CustomResource {
     /**
      * ARN(s) of the agent(s) to use for an HDFS location.
      */
-    public readonly agentArns!: pulumi.Output<string[] | undefined>;
+    public readonly agentArns!: pulumi.Output<string[]>;
     /**
      * The authentication mode used to determine identity of user.
      */
-    public readonly authenticationType!: pulumi.Output<enums.datasync.LocationHDFSAuthenticationType | undefined>;
+    public readonly authenticationType!: pulumi.Output<enums.datasync.LocationHDFSAuthenticationType>;
     /**
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
@@ -74,7 +74,7 @@ export class LocationHDFS extends pulumi.CustomResource {
     /**
      * An array of Name Node(s) of the HDFS location.
      */
-    public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHDFSNameNode[] | undefined>;
+    public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHDFSNameNode[]>;
     public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHDFSQopConfiguration | undefined>;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.
@@ -100,10 +100,19 @@ export class LocationHDFS extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LocationHDFSArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LocationHDFSArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.agentArns === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'agentArns'");
+            }
+            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'authenticationType'");
+            }
+            if ((!args || args.nameNodes === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'nameNodes'");
+            }
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["blockSize"] = args ? args.blockSize : undefined;
@@ -148,11 +157,11 @@ export interface LocationHDFSArgs {
     /**
      * ARN(s) of the agent(s) to use for an HDFS location.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The authentication mode used to determine identity of user.
      */
-    authenticationType?: pulumi.Input<enums.datasync.LocationHDFSAuthenticationType>;
+    authenticationType: pulumi.Input<enums.datasync.LocationHDFSAuthenticationType>;
     /**
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
@@ -176,7 +185,7 @@ export interface LocationHDFSArgs {
     /**
      * An array of Name Node(s) of the HDFS location.
      */
-    nameNodes?: pulumi.Input<pulumi.Input<inputs.datasync.LocationHDFSNameNodeArgs>[]>;
+    nameNodes: pulumi.Input<pulumi.Input<inputs.datasync.LocationHDFSNameNodeArgs>[]>;
     qopConfiguration?: pulumi.Input<inputs.datasync.LocationHDFSQopConfigurationArgs>;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.

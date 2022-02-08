@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class BucketNoncurrentVersionTransition
     {
         /// <summary>
+        /// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        /// </summary>
+        public readonly int? NewerNoncurrentVersions;
+        /// <summary>
         /// The class of storage used to store the object.
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketNoncurrentVersionTransitionStorageClass StorageClass;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private BucketNoncurrentVersionTransition(
+            int? newerNoncurrentVersions,
+
             Pulumi.AwsNative.S3.BucketNoncurrentVersionTransitionStorageClass storageClass,
 
             int transitionInDays)
         {
+            NewerNoncurrentVersions = newerNoncurrentVersions;
             StorageClass = storageClass;
             TransitionInDays = transitionInDays;
         }

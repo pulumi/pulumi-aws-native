@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'HookVersionLoggingConfigArgs',
     'ManagedExecutionPropertiesArgs',
     'ResourceVersionLoggingConfigArgs',
     'StackSetAutoDeploymentArgs',
@@ -21,6 +22,45 @@ __all__ = [
     'StackTagArgs',
     'TypeActivationLoggingConfigArgs',
 ]
+
+@pulumi.input_type
+class HookVersionLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 log_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+        :param pulumi.Input[str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_role_arn is not None:
+            pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+        """
+        return pulumi.get(self, "log_role_arn")
+
+    @log_role_arn.setter
+    def log_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_role_arn", value)
+
 
 @pulumi.input_type
 class ManagedExecutionPropertiesArgs:

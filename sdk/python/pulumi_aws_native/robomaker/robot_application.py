@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RobotApplicationArgs', 'RobotApplication']
@@ -16,19 +17,27 @@ __all__ = ['RobotApplicationArgs', 'RobotApplication']
 class RobotApplicationArgs:
     def __init__(__self__, *,
                  robot_software_suite: pulumi.Input['RobotApplicationRobotSoftwareSuiteArgs'],
-                 sources: pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]],
                  current_revision_id: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]] = None,
+                 tags: Optional[pulumi.Input['RobotApplicationTagsArgs']] = None):
         """
         The set of arguments for constructing a RobotApplication resource.
+        :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
+        :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
+        :param pulumi.Input[str] name: The name of the robot application.
+        :param pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]] sources: The sources of the robot application.
         """
         pulumi.set(__self__, "robot_software_suite", robot_software_suite)
-        pulumi.set(__self__, "sources", sources)
         if current_revision_id is not None:
             pulumi.set(__self__, "current_revision_id", current_revision_id)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -42,17 +51,11 @@ class RobotApplicationArgs:
         pulumi.set(self, "robot_software_suite", value)
 
     @property
-    @pulumi.getter
-    def sources(self) -> pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]:
-        return pulumi.get(self, "sources")
-
-    @sources.setter
-    def sources(self, value: pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]):
-        pulumi.set(self, "sources", value)
-
-    @property
     @pulumi.getter(name="currentRevisionId")
     def current_revision_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The revision ID of robot application.
+        """
         return pulumi.get(self, "current_revision_id")
 
     @current_revision_id.setter
@@ -61,7 +64,22 @@ class RobotApplicationArgs:
 
     @property
     @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the Docker image for the robot application.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the robot application.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -70,35 +88,47 @@ class RobotApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]]:
+        """
+        The sources of the robot application.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]]):
+        pulumi.set(self, "sources", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['RobotApplicationTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input['RobotApplicationTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class RobotApplication(pulumi.CustomResource):
-    warnings.warn("""RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_revision_id: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['RobotApplicationTagsArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::RoboMaker::RobotApplication
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
+        :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
+        :param pulumi.Input[str] name: The name of the robot application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]] sources: The sources of the robot application.
         """
         ...
     @overload
@@ -107,7 +137,7 @@ class RobotApplication(pulumi.CustomResource):
                  args: RobotApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::RoboMaker::RobotApplication
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param RobotApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -125,12 +155,12 @@ class RobotApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_revision_id: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['RobotApplicationTagsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""RobotApplication is deprecated: RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -143,12 +173,11 @@ class RobotApplication(pulumi.CustomResource):
             __props__ = RobotApplicationArgs.__new__(RobotApplicationArgs)
 
             __props__.__dict__["current_revision_id"] = current_revision_id
+            __props__.__dict__["environment"] = environment
             __props__.__dict__["name"] = name
             if robot_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'robot_software_suite'")
             __props__.__dict__["robot_software_suite"] = robot_software_suite
-            if sources is None and not opts.urn:
-                raise TypeError("Missing required property 'sources'")
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -176,6 +205,7 @@ class RobotApplication(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["current_revision_id"] = None
+        __props__.__dict__["environment"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["robot_software_suite"] = None
         __props__.__dict__["sources"] = None
@@ -190,11 +220,25 @@ class RobotApplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="currentRevisionId")
     def current_revision_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The revision ID of robot application.
+        """
         return pulumi.get(self, "current_revision_id")
 
     @property
     @pulumi.getter
+    def environment(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URI of the Docker image for the robot application.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the robot application.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -204,11 +248,14 @@ class RobotApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Sequence['outputs.RobotApplicationSourceConfig']]:
+    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.RobotApplicationSourceConfig']]]:
+        """
+        The sources of the robot application.
+        """
         return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional['outputs.RobotApplicationTags']]:
         return pulumi.get(self, "tags")
 

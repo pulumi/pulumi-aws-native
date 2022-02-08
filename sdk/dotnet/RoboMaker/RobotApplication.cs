@@ -10,29 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
-    /// Resource Type definition for AWS::RoboMaker::RobotApplication
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
-    [Obsolete(@"RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:robomaker:RobotApplication")]
     public partial class RobotApplication : Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The revision ID of robot application.
+        /// </summary>
         [Output("currentRevisionId")]
         public Output<string?> CurrentRevisionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The URI of the Docker image for the robot application.
+        /// </summary>
+        [Output("environment")]
+        public Output<string?> Environment { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the robot application.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("robotSoftwareSuite")]
         public Output<Outputs.RobotApplicationRobotSoftwareSuite> RobotSoftwareSuite { get; private set; } = null!;
 
+        /// <summary>
+        /// The sources of the robot application.
+        /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.RobotApplicationSourceConfig>> Sources { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<Outputs.RobotApplicationTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,17 +93,33 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class RobotApplicationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The revision ID of robot application.
+        /// </summary>
         [Input("currentRevisionId")]
         public Input<string>? CurrentRevisionId { get; set; }
 
+        /// <summary>
+        /// The URI of the Docker image for the robot application.
+        /// </summary>
+        [Input("environment")]
+        public Input<string>? Environment { get; set; }
+
+        /// <summary>
+        /// The name of the robot application.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("robotSoftwareSuite", required: true)]
         public Input<Inputs.RobotApplicationRobotSoftwareSuiteArgs> RobotSoftwareSuite { get; set; } = null!;
 
-        [Input("sources", required: true)]
+        [Input("sources")]
         private InputList<Inputs.RobotApplicationSourceConfigArgs>? _sources;
+
+        /// <summary>
+        /// The sources of the robot application.
+        /// </summary>
         public InputList<Inputs.RobotApplicationSourceConfigArgs> Sources
         {
             get => _sources ?? (_sources = new InputList<Inputs.RobotApplicationSourceConfigArgs>());
@@ -97,7 +127,7 @@ namespace Pulumi.AwsNative.RoboMaker
         }
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public Input<Inputs.RobotApplicationTagsArgs>? Tags { get; set; }
 
         public RobotApplicationArgs()
         {

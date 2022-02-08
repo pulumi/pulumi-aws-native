@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,7 +18,7 @@ type LocationHDFS struct {
 	// ARN(s) of the agent(s) to use for an HDFS location.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// The authentication mode used to determine identity of user.
-	AuthenticationType LocationHDFSAuthenticationTypePtrOutput `pulumi:"authenticationType"`
+	AuthenticationType LocationHDFSAuthenticationTypeOutput `pulumi:"authenticationType"`
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
 	BlockSize pulumi.IntPtrOutput `pulumi:"blockSize"`
 	// The Base64 string representation of the Keytab file.
@@ -49,9 +50,18 @@ type LocationHDFS struct {
 func NewLocationHDFS(ctx *pulumi.Context,
 	name string, args *LocationHDFSArgs, opts ...pulumi.ResourceOption) (*LocationHDFS, error) {
 	if args == nil {
-		args = &LocationHDFSArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgentArns == nil {
+		return nil, errors.New("invalid value for required argument 'AgentArns'")
+	}
+	if args.AuthenticationType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
+	}
+	if args.NameNodes == nil {
+		return nil, errors.New("invalid value for required argument 'NameNodes'")
+	}
 	var resource LocationHDFS
 	err := ctx.RegisterResource("aws-native:datasync:LocationHDFS", name, args, &resource, opts...)
 	if err != nil {
@@ -87,7 +97,7 @@ type locationHDFSArgs struct {
 	// ARN(s) of the agent(s) to use for an HDFS location.
 	AgentArns []string `pulumi:"agentArns"`
 	// The authentication mode used to determine identity of user.
-	AuthenticationType *LocationHDFSAuthenticationType `pulumi:"authenticationType"`
+	AuthenticationType LocationHDFSAuthenticationType `pulumi:"authenticationType"`
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
 	BlockSize *int `pulumi:"blockSize"`
 	// The Base64 string representation of the Keytab file.
@@ -116,7 +126,7 @@ type LocationHDFSArgs struct {
 	// ARN(s) of the agent(s) to use for an HDFS location.
 	AgentArns pulumi.StringArrayInput
 	// The authentication mode used to determine identity of user.
-	AuthenticationType LocationHDFSAuthenticationTypePtrInput
+	AuthenticationType LocationHDFSAuthenticationTypeInput
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
 	BlockSize pulumi.IntPtrInput
 	// The Base64 string representation of the Keytab file.

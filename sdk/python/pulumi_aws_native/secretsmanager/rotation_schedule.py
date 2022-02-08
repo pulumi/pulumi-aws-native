@@ -17,6 +17,7 @@ class RotationScheduleArgs:
     def __init__(__self__, *,
                  secret_id: pulumi.Input[str],
                  hosted_rotation_lambda: Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']] = None,
+                 rotate_immediately_on_update: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']] = None):
         """
@@ -25,6 +26,8 @@ class RotationScheduleArgs:
         pulumi.set(__self__, "secret_id", secret_id)
         if hosted_rotation_lambda is not None:
             pulumi.set(__self__, "hosted_rotation_lambda", hosted_rotation_lambda)
+        if rotate_immediately_on_update is not None:
+            pulumi.set(__self__, "rotate_immediately_on_update", rotate_immediately_on_update)
         if rotation_lambda_arn is not None:
             pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
         if rotation_rules is not None:
@@ -47,6 +50,15 @@ class RotationScheduleArgs:
     @hosted_rotation_lambda.setter
     def hosted_rotation_lambda(self, value: Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']]):
         pulumi.set(self, "hosted_rotation_lambda", value)
+
+    @property
+    @pulumi.getter(name="rotateImmediatelyOnUpdate")
+    def rotate_immediately_on_update(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "rotate_immediately_on_update")
+
+    @rotate_immediately_on_update.setter
+    def rotate_immediately_on_update(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotate_immediately_on_update", value)
 
     @property
     @pulumi.getter(name="rotationLambdaARN")
@@ -78,6 +90,7 @@ class RotationSchedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_rotation_lambda: Optional[pulumi.Input[pulumi.InputType['RotationScheduleHostedRotationLambdaArgs']]] = None,
+                 rotate_immediately_on_update: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['RotationScheduleRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
@@ -113,6 +126,7 @@ class RotationSchedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_rotation_lambda: Optional[pulumi.Input[pulumi.InputType['RotationScheduleHostedRotationLambdaArgs']]] = None,
+                 rotate_immediately_on_update: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['RotationScheduleRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
@@ -130,6 +144,7 @@ class RotationSchedule(pulumi.CustomResource):
             __props__ = RotationScheduleArgs.__new__(RotationScheduleArgs)
 
             __props__.__dict__["hosted_rotation_lambda"] = hosted_rotation_lambda
+            __props__.__dict__["rotate_immediately_on_update"] = rotate_immediately_on_update
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
             __props__.__dict__["rotation_rules"] = rotation_rules
             if secret_id is None and not opts.urn:
@@ -158,6 +173,7 @@ class RotationSchedule(pulumi.CustomResource):
         __props__ = RotationScheduleArgs.__new__(RotationScheduleArgs)
 
         __props__.__dict__["hosted_rotation_lambda"] = None
+        __props__.__dict__["rotate_immediately_on_update"] = None
         __props__.__dict__["rotation_lambda_arn"] = None
         __props__.__dict__["rotation_rules"] = None
         __props__.__dict__["secret_id"] = None
@@ -167,6 +183,11 @@ class RotationSchedule(pulumi.CustomResource):
     @pulumi.getter(name="hostedRotationLambda")
     def hosted_rotation_lambda(self) -> pulumi.Output[Optional['outputs.RotationScheduleHostedRotationLambda']]:
         return pulumi.get(self, "hosted_rotation_lambda")
+
+    @property
+    @pulumi.getter(name="rotateImmediatelyOnUpdate")
+    def rotate_immediately_on_update(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "rotate_immediately_on_update")
 
     @property
     @pulumi.getter(name="rotationLambdaARN")

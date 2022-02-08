@@ -2204,6 +2204,7 @@ type BucketOwnershipControlsRuleObjectOwnership string
 const (
 	BucketOwnershipControlsRuleObjectOwnershipObjectWriter         = BucketOwnershipControlsRuleObjectOwnership("ObjectWriter")
 	BucketOwnershipControlsRuleObjectOwnershipBucketOwnerPreferred = BucketOwnershipControlsRuleObjectOwnership("BucketOwnerPreferred")
+	BucketOwnershipControlsRuleObjectOwnershipBucketOwnerEnforced  = BucketOwnershipControlsRuleObjectOwnership("BucketOwnerEnforced")
 )
 
 func (BucketOwnershipControlsRuleObjectOwnership) ElementType() reflect.Type {

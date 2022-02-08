@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         [Input("automaticallyAfterDays")]
         public Input<int>? AutomaticallyAfterDays { get; set; }
 
+        [Input("duration")]
+        public Input<string>? Duration { get; set; }
+
+        [Input("scheduleExpression")]
+        public Input<string>? ScheduleExpression { get; set; }
+
         public RotationScheduleRotationRulesArgs()
         {
         }

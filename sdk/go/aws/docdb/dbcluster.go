@@ -20,6 +20,7 @@ type DBCluster struct {
 	AvailabilityZones           pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	BackupRetentionPeriod       pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
 	ClusterResourceId           pulumi.StringOutput      `pulumi:"clusterResourceId"`
+	CopyTagsToSnapshot          pulumi.BoolPtrOutput     `pulumi:"copyTagsToSnapshot"`
 	DBClusterIdentifier         pulumi.StringPtrOutput   `pulumi:"dBClusterIdentifier"`
 	DBClusterParameterGroupName pulumi.StringPtrOutput   `pulumi:"dBClusterParameterGroupName"`
 	DBSubnetGroupName           pulumi.StringPtrOutput   `pulumi:"dBSubnetGroupName"`
@@ -87,6 +88,7 @@ func (DBClusterState) ElementType() reflect.Type {
 type dbclusterArgs struct {
 	AvailabilityZones           []string       `pulumi:"availabilityZones"`
 	BackupRetentionPeriod       *int           `pulumi:"backupRetentionPeriod"`
+	CopyTagsToSnapshot          *bool          `pulumi:"copyTagsToSnapshot"`
 	DBClusterIdentifier         *string        `pulumi:"dBClusterIdentifier"`
 	DBClusterParameterGroupName *string        `pulumi:"dBClusterParameterGroupName"`
 	DBSubnetGroupName           *string        `pulumi:"dBSubnetGroupName"`
@@ -109,6 +111,7 @@ type dbclusterArgs struct {
 type DBClusterArgs struct {
 	AvailabilityZones           pulumi.StringArrayInput
 	BackupRetentionPeriod       pulumi.IntPtrInput
+	CopyTagsToSnapshot          pulumi.BoolPtrInput
 	DBClusterIdentifier         pulumi.StringPtrInput
 	DBClusterParameterGroupName pulumi.StringPtrInput
 	DBSubnetGroupName           pulumi.StringPtrInput

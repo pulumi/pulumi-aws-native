@@ -106,6 +106,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("placement")]
         public Input<Inputs.LaunchTemplatePlacementArgs>? Placement { get; set; }
 
+        [Input("privateDnsNameOptions")]
+        public Input<Inputs.LaunchTemplatePrivateDnsNameOptionsArgs>? PrivateDnsNameOptions { get; set; }
+
         [Input("ramDiskId")]
         public Input<string>? RamDiskId { get; set; }
 

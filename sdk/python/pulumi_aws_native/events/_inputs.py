@@ -36,6 +36,8 @@ __all__ = [
     'RuleRetryPolicyArgs',
     'RuleRunCommandParametersArgs',
     'RuleRunCommandTargetArgs',
+    'RuleSageMakerPipelineParametersArgs',
+    'RuleSageMakerPipelineParameterArgs',
     'RuleSqsParametersArgs',
     'RuleTagArgs',
     'RuleTargetArgs',
@@ -1035,6 +1037,50 @@ class RuleRunCommandTargetArgs:
 
 
 @pulumi.input_type
+class RuleSageMakerPipelineParametersArgs:
+    def __init__(__self__, *,
+                 pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]] = None):
+        if pipeline_parameter_list is not None:
+            pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
+
+    @property
+    @pulumi.getter(name="pipelineParameterList")
+    def pipeline_parameter_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]]:
+        return pulumi.get(self, "pipeline_parameter_list")
+
+    @pipeline_parameter_list.setter
+    def pipeline_parameter_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]]):
+        pulumi.set(self, "pipeline_parameter_list", value)
+
+
+@pulumi.input_type
+class RuleSageMakerPipelineParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class RuleSqsParametersArgs:
     def __init__(__self__, *,
                  message_group_id: pulumi.Input[str]):
@@ -1096,6 +1142,7 @@ class RuleTargetArgs:
                  retry_policy: Optional[pulumi.Input['RuleRetryPolicyArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  run_command_parameters: Optional[pulumi.Input['RuleRunCommandParametersArgs']] = None,
+                 sage_maker_pipeline_parameters: Optional[pulumi.Input['RuleSageMakerPipelineParametersArgs']] = None,
                  sqs_parameters: Optional[pulumi.Input['RuleSqsParametersArgs']] = None):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -1123,6 +1170,8 @@ class RuleTargetArgs:
             pulumi.set(__self__, "role_arn", role_arn)
         if run_command_parameters is not None:
             pulumi.set(__self__, "run_command_parameters", run_command_parameters)
+        if sage_maker_pipeline_parameters is not None:
+            pulumi.set(__self__, "sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
         if sqs_parameters is not None:
             pulumi.set(__self__, "sqs_parameters", sqs_parameters)
 
@@ -1251,6 +1300,15 @@ class RuleTargetArgs:
     @run_command_parameters.setter
     def run_command_parameters(self, value: Optional[pulumi.Input['RuleRunCommandParametersArgs']]):
         pulumi.set(self, "run_command_parameters", value)
+
+    @property
+    @pulumi.getter(name="sageMakerPipelineParameters")
+    def sage_maker_pipeline_parameters(self) -> Optional[pulumi.Input['RuleSageMakerPipelineParametersArgs']]:
+        return pulumi.get(self, "sage_maker_pipeline_parameters")
+
+    @sage_maker_pipeline_parameters.setter
+    def sage_maker_pipeline_parameters(self, value: Optional[pulumi.Input['RuleSageMakerPipelineParametersArgs']]):
+        pulumi.set(self, "sage_maker_pipeline_parameters", value)
 
     @property
     @pulumi.getter(name="sqsParameters")

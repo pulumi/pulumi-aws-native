@@ -5,6 +5,9 @@
 from enum import Enum
 
 __all__ = [
+    'RobotApplicationRobotSoftwareSuiteName',
+    'RobotApplicationRobotSoftwareSuiteVersion',
+    'RobotApplicationSourceConfigArchitecture',
     'RobotArchitecture',
     'SimulationApplicationRenderingEngineName',
     'SimulationApplicationRobotSoftwareSuiteName',
@@ -13,6 +16,33 @@ __all__ = [
     'SimulationApplicationSimulationSoftwareSuiteVersion',
     'SimulationApplicationSourceConfigArchitecture',
 ]
+
+
+class RobotApplicationRobotSoftwareSuiteName(str, Enum):
+    """
+    The name of robot software suite.
+    """
+    ROS = "ROS"
+    ROS2 = "ROS2"
+    GENERAL = "General"
+
+
+class RobotApplicationRobotSoftwareSuiteVersion(str, Enum):
+    """
+    The version of robot software suite.
+    """
+    KINETIC = "Kinetic"
+    MELODIC = "Melodic"
+    DASHING = "Dashing"
+
+
+class RobotApplicationSourceConfigArchitecture(str, Enum):
+    """
+    The architecture of robot application.
+    """
+    X8664 = "X86_64"
+    ARM64 = "ARM64"
+    ARMHF = "ARMHF"
 
 
 class RobotArchitecture(str, Enum):

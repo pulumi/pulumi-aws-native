@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     {
         public readonly string? ExternalId;
         public readonly string? SnsCallerArn;
+        public readonly string? SnsRegion;
 
         [OutputConstructor]
         private UserPoolSmsConfiguration(
             string? externalId,
 
-            string? snsCallerArn)
+            string? snsCallerArn,
+
+            string? snsRegion)
         {
             ExternalId = externalId;
             SnsCallerArn = snsCallerArn;
+            SnsRegion = snsRegion;
         }
     }
 }

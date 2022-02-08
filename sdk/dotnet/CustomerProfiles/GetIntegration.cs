@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? ObjectTypeName;
         /// <summary>
+        /// The mapping between 3rd party event types and ObjectType names
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IntegrationObjectTypeMapping> ObjectTypeNames;
+        /// <summary>
         /// The tags (keys and values) associated with the integration
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationTag> Tags;
@@ -92,11 +96,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? objectTypeName,
 
+            ImmutableArray<Outputs.IntegrationObjectTypeMapping> objectTypeNames,
+
             ImmutableArray<Outputs.IntegrationTag> tags)
         {
             CreatedAt = createdAt;
             LastUpdatedAt = lastUpdatedAt;
             ObjectTypeName = objectTypeName;
+            ObjectTypeNames = objectTypeNames;
             Tags = tags;
         }
     }

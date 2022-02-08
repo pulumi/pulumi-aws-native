@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::RoboMaker::RobotApplication
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getRobotApplication(args: GetRobotApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotApplicationResult> {
     if (!opts) {
@@ -15,20 +15,30 @@ export function getRobotApplication(args: GetRobotApplicationArgs, opts?: pulumi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:robomaker:getRobotApplication", {
-        "id": args.id,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetRobotApplicationArgs {
-    id: string;
+    arn: string;
 }
 
 export interface GetRobotApplicationResult {
     readonly arn?: string;
+    /**
+     * The revision ID of robot application.
+     */
     readonly currentRevisionId?: string;
-    readonly id?: string;
+    /**
+     * The URI of the Docker image for the robot application.
+     */
+    readonly environment?: string;
+    readonly robotSoftwareSuite?: outputs.robomaker.RobotApplicationRobotSoftwareSuite;
+    /**
+     * The sources of the robot application.
+     */
     readonly sources?: outputs.robomaker.RobotApplicationSourceConfig[];
-    readonly tags?: any;
+    readonly tags?: outputs.robomaker.RobotApplicationTags;
 }
 
 export function getRobotApplicationOutput(args: GetRobotApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotApplicationResult> {
@@ -36,5 +46,5 @@ export function getRobotApplicationOutput(args: GetRobotApplicationOutputArgs, o
 }
 
 export interface GetRobotApplicationOutputArgs {
-    id: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

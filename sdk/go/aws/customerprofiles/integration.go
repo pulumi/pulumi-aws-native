@@ -23,7 +23,9 @@ type Integration struct {
 	// The time of this integration got last updated at
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
-	ObjectTypeName pulumi.StringOutput `pulumi:"objectTypeName"`
+	ObjectTypeName pulumi.StringPtrOutput `pulumi:"objectTypeName"`
+	// The mapping between 3rd party event types and ObjectType names
+	ObjectTypeNames IntegrationObjectTypeMappingArrayOutput `pulumi:"objectTypeNames"`
 	// The tags (keys and values) associated with the integration
 	Tags IntegrationTagArrayOutput `pulumi:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
@@ -39,9 +41,6 @@ func NewIntegration(ctx *pulumi.Context,
 
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
-	if args.ObjectTypeName == nil {
-		return nil, errors.New("invalid value for required argument 'ObjectTypeName'")
 	}
 	var resource Integration
 	err := ctx.RegisterResource("aws-native:customerprofiles:Integration", name, args, &resource, opts...)
@@ -79,7 +78,9 @@ type integrationArgs struct {
 	DomainName     string                     `pulumi:"domainName"`
 	FlowDefinition *IntegrationFlowDefinition `pulumi:"flowDefinition"`
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
-	ObjectTypeName string `pulumi:"objectTypeName"`
+	ObjectTypeName *string `pulumi:"objectTypeName"`
+	// The mapping between 3rd party event types and ObjectType names
+	ObjectTypeNames []IntegrationObjectTypeMapping `pulumi:"objectTypeNames"`
 	// The tags (keys and values) associated with the integration
 	Tags []IntegrationTag `pulumi:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
@@ -92,7 +93,9 @@ type IntegrationArgs struct {
 	DomainName     pulumi.StringInput
 	FlowDefinition IntegrationFlowDefinitionPtrInput
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
-	ObjectTypeName pulumi.StringInput
+	ObjectTypeName pulumi.StringPtrInput
+	// The mapping between 3rd party event types and ObjectType names
+	ObjectTypeNames IntegrationObjectTypeMappingArrayInput
 	// The tags (keys and values) associated with the integration
 	Tags IntegrationTagArrayInput
 	// The URI of the S3 bucket or any other type of data source.

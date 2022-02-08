@@ -131,9 +131,15 @@ class RotationScheduleHostedRotationLambdaArgs:
 @pulumi.input_type
 class RotationScheduleRotationRulesArgs:
     def __init__(__self__, *,
-                 automatically_after_days: Optional[pulumi.Input[int]] = None):
+                 automatically_after_days: Optional[pulumi.Input[int]] = None,
+                 duration: Optional[pulumi.Input[str]] = None,
+                 schedule_expression: Optional[pulumi.Input[str]] = None):
         if automatically_after_days is not None:
             pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
@@ -143,6 +149,24 @@ class RotationScheduleRotationRulesArgs:
     @automatically_after_days.setter
     def automatically_after_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "automatically_after_days", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression", value)
 
 
 @pulumi.input_type

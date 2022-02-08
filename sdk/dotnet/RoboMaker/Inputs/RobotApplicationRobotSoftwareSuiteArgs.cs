@@ -10,13 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker.Inputs
 {
 
+    /// <summary>
+    /// The robot software suite used by the robot application.
+    /// </summary>
     public sealed class RobotApplicationRobotSoftwareSuiteArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of robot software suite.
+        /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.RobotApplicationRobotSoftwareSuiteName> Name { get; set; } = null!;
 
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        /// <summary>
+        /// The version of robot software suite.
+        /// </summary>
+        [Input("version")]
+        public Input<Pulumi.AwsNative.RoboMaker.RobotApplicationRobotSoftwareSuiteVersion>? Version { get; set; }
 
         public RobotApplicationRobotSoftwareSuiteArgs()
         {

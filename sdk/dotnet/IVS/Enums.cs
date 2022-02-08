@@ -100,4 +100,35 @@ namespace Pulumi.AwsNative.IVS
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecordingConfigurationThumbnailConfigurationRecordingMode : IEquatable<RecordingConfigurationThumbnailConfigurationRecordingMode>
+    {
+        private readonly string _value;
+
+        private RecordingConfigurationThumbnailConfigurationRecordingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordingConfigurationThumbnailConfigurationRecordingMode Interval { get; } = new RecordingConfigurationThumbnailConfigurationRecordingMode("INTERVAL");
+        public static RecordingConfigurationThumbnailConfigurationRecordingMode Disabled { get; } = new RecordingConfigurationThumbnailConfigurationRecordingMode("DISABLED");
+
+        public static bool operator ==(RecordingConfigurationThumbnailConfigurationRecordingMode left, RecordingConfigurationThumbnailConfigurationRecordingMode right) => left.Equals(right);
+        public static bool operator !=(RecordingConfigurationThumbnailConfigurationRecordingMode left, RecordingConfigurationThumbnailConfigurationRecordingMode right) => !left.Equals(right);
+
+        public static explicit operator string(RecordingConfigurationThumbnailConfigurationRecordingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordingConfigurationThumbnailConfigurationRecordingMode other && Equals(other);
+        public bool Equals(RecordingConfigurationThumbnailConfigurationRecordingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

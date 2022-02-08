@@ -2109,6 +2109,146 @@ func (o BucketEncryptionConfigurationPtrOutput) ReplicaKmsKeyID() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+type BucketEventBridgeConfiguration struct {
+	// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+	EventBridgeEnabled bool `pulumi:"eventBridgeEnabled"`
+}
+
+// BucketEventBridgeConfigurationInput is an input type that accepts BucketEventBridgeConfigurationArgs and BucketEventBridgeConfigurationOutput values.
+// You can construct a concrete instance of `BucketEventBridgeConfigurationInput` via:
+//
+//          BucketEventBridgeConfigurationArgs{...}
+type BucketEventBridgeConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketEventBridgeConfigurationOutput() BucketEventBridgeConfigurationOutput
+	ToBucketEventBridgeConfigurationOutputWithContext(context.Context) BucketEventBridgeConfigurationOutput
+}
+
+// Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+type BucketEventBridgeConfigurationArgs struct {
+	// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+	EventBridgeEnabled pulumi.BoolInput `pulumi:"eventBridgeEnabled"`
+}
+
+func (BucketEventBridgeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketEventBridgeConfiguration)(nil)).Elem()
+}
+
+func (i BucketEventBridgeConfigurationArgs) ToBucketEventBridgeConfigurationOutput() BucketEventBridgeConfigurationOutput {
+	return i.ToBucketEventBridgeConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketEventBridgeConfigurationArgs) ToBucketEventBridgeConfigurationOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEventBridgeConfigurationOutput)
+}
+
+func (i BucketEventBridgeConfigurationArgs) ToBucketEventBridgeConfigurationPtrOutput() BucketEventBridgeConfigurationPtrOutput {
+	return i.ToBucketEventBridgeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketEventBridgeConfigurationArgs) ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEventBridgeConfigurationOutput).ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketEventBridgeConfigurationPtrInput is an input type that accepts BucketEventBridgeConfigurationArgs, BucketEventBridgeConfigurationPtr and BucketEventBridgeConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketEventBridgeConfigurationPtrInput` via:
+//
+//          BucketEventBridgeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketEventBridgeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketEventBridgeConfigurationPtrOutput() BucketEventBridgeConfigurationPtrOutput
+	ToBucketEventBridgeConfigurationPtrOutputWithContext(context.Context) BucketEventBridgeConfigurationPtrOutput
+}
+
+type bucketEventBridgeConfigurationPtrType BucketEventBridgeConfigurationArgs
+
+func BucketEventBridgeConfigurationPtr(v *BucketEventBridgeConfigurationArgs) BucketEventBridgeConfigurationPtrInput {
+	return (*bucketEventBridgeConfigurationPtrType)(v)
+}
+
+func (*bucketEventBridgeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketEventBridgeConfiguration)(nil)).Elem()
+}
+
+func (i *bucketEventBridgeConfigurationPtrType) ToBucketEventBridgeConfigurationPtrOutput() BucketEventBridgeConfigurationPtrOutput {
+	return i.ToBucketEventBridgeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketEventBridgeConfigurationPtrType) ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEventBridgeConfigurationPtrOutput)
+}
+
+// Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+type BucketEventBridgeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketEventBridgeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketEventBridgeConfiguration)(nil)).Elem()
+}
+
+func (o BucketEventBridgeConfigurationOutput) ToBucketEventBridgeConfigurationOutput() BucketEventBridgeConfigurationOutput {
+	return o
+}
+
+func (o BucketEventBridgeConfigurationOutput) ToBucketEventBridgeConfigurationOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationOutput {
+	return o
+}
+
+func (o BucketEventBridgeConfigurationOutput) ToBucketEventBridgeConfigurationPtrOutput() BucketEventBridgeConfigurationPtrOutput {
+	return o.ToBucketEventBridgeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketEventBridgeConfigurationOutput) ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketEventBridgeConfiguration) *BucketEventBridgeConfiguration {
+		return &v
+	}).(BucketEventBridgeConfigurationPtrOutput)
+}
+
+// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+func (o BucketEventBridgeConfigurationOutput) EventBridgeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BucketEventBridgeConfiguration) bool { return v.EventBridgeEnabled }).(pulumi.BoolOutput)
+}
+
+type BucketEventBridgeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketEventBridgeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketEventBridgeConfiguration)(nil)).Elem()
+}
+
+func (o BucketEventBridgeConfigurationPtrOutput) ToBucketEventBridgeConfigurationPtrOutput() BucketEventBridgeConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketEventBridgeConfigurationPtrOutput) ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketEventBridgeConfigurationPtrOutput) Elem() BucketEventBridgeConfigurationOutput {
+	return o.ApplyT(func(v *BucketEventBridgeConfiguration) BucketEventBridgeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketEventBridgeConfiguration
+		return ret
+	}).(BucketEventBridgeConfigurationOutput)
+}
+
+// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+func (o BucketEventBridgeConfigurationPtrOutput) EventBridgeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketEventBridgeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EventBridgeEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
 type BucketFilterRule struct {
 	Name  string `pulumi:"name"`
@@ -3168,8 +3308,169 @@ func (o BucketMetricsConfigurationArrayOutput) Index(i pulumi.IntInput) BucketMe
 	}).(BucketMetricsConfigurationOutput)
 }
 
+// Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+type BucketNoncurrentVersionExpiration struct {
+	// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
+	// Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+	NoncurrentDays int `pulumi:"noncurrentDays"`
+}
+
+// BucketNoncurrentVersionExpirationInput is an input type that accepts BucketNoncurrentVersionExpirationArgs and BucketNoncurrentVersionExpirationOutput values.
+// You can construct a concrete instance of `BucketNoncurrentVersionExpirationInput` via:
+//
+//          BucketNoncurrentVersionExpirationArgs{...}
+type BucketNoncurrentVersionExpirationInput interface {
+	pulumi.Input
+
+	ToBucketNoncurrentVersionExpirationOutput() BucketNoncurrentVersionExpirationOutput
+	ToBucketNoncurrentVersionExpirationOutputWithContext(context.Context) BucketNoncurrentVersionExpirationOutput
+}
+
+// Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+type BucketNoncurrentVersionExpirationArgs struct {
+	// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
+	// Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+	NoncurrentDays pulumi.IntInput `pulumi:"noncurrentDays"`
+}
+
+func (BucketNoncurrentVersionExpirationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNoncurrentVersionExpiration)(nil)).Elem()
+}
+
+func (i BucketNoncurrentVersionExpirationArgs) ToBucketNoncurrentVersionExpirationOutput() BucketNoncurrentVersionExpirationOutput {
+	return i.ToBucketNoncurrentVersionExpirationOutputWithContext(context.Background())
+}
+
+func (i BucketNoncurrentVersionExpirationArgs) ToBucketNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionExpirationOutput)
+}
+
+func (i BucketNoncurrentVersionExpirationArgs) ToBucketNoncurrentVersionExpirationPtrOutput() BucketNoncurrentVersionExpirationPtrOutput {
+	return i.ToBucketNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNoncurrentVersionExpirationArgs) ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionExpirationOutput).ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx)
+}
+
+// BucketNoncurrentVersionExpirationPtrInput is an input type that accepts BucketNoncurrentVersionExpirationArgs, BucketNoncurrentVersionExpirationPtr and BucketNoncurrentVersionExpirationPtrOutput values.
+// You can construct a concrete instance of `BucketNoncurrentVersionExpirationPtrInput` via:
+//
+//          BucketNoncurrentVersionExpirationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketNoncurrentVersionExpirationPtrInput interface {
+	pulumi.Input
+
+	ToBucketNoncurrentVersionExpirationPtrOutput() BucketNoncurrentVersionExpirationPtrOutput
+	ToBucketNoncurrentVersionExpirationPtrOutputWithContext(context.Context) BucketNoncurrentVersionExpirationPtrOutput
+}
+
+type bucketNoncurrentVersionExpirationPtrType BucketNoncurrentVersionExpirationArgs
+
+func BucketNoncurrentVersionExpirationPtr(v *BucketNoncurrentVersionExpirationArgs) BucketNoncurrentVersionExpirationPtrInput {
+	return (*bucketNoncurrentVersionExpirationPtrType)(v)
+}
+
+func (*bucketNoncurrentVersionExpirationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNoncurrentVersionExpiration)(nil)).Elem()
+}
+
+func (i *bucketNoncurrentVersionExpirationPtrType) ToBucketNoncurrentVersionExpirationPtrOutput() BucketNoncurrentVersionExpirationPtrOutput {
+	return i.ToBucketNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNoncurrentVersionExpirationPtrType) ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionExpirationPtrOutput)
+}
+
+// Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+type BucketNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
+
+func (BucketNoncurrentVersionExpirationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNoncurrentVersionExpiration)(nil)).Elem()
+}
+
+func (o BucketNoncurrentVersionExpirationOutput) ToBucketNoncurrentVersionExpirationOutput() BucketNoncurrentVersionExpirationOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionExpirationOutput) ToBucketNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionExpirationOutput) ToBucketNoncurrentVersionExpirationPtrOutput() BucketNoncurrentVersionExpirationPtrOutput {
+	return o.ToBucketNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNoncurrentVersionExpirationOutput) ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNoncurrentVersionExpiration) *BucketNoncurrentVersionExpiration {
+		return &v
+	}).(BucketNoncurrentVersionExpirationPtrOutput)
+}
+
+// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+func (o BucketNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketNoncurrentVersionExpiration) *int { return v.NewerNoncurrentVersions }).(pulumi.IntPtrOutput)
+}
+
+// Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+func (o BucketNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketNoncurrentVersionExpiration) int { return v.NoncurrentDays }).(pulumi.IntOutput)
+}
+
+type BucketNoncurrentVersionExpirationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNoncurrentVersionExpirationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNoncurrentVersionExpiration)(nil)).Elem()
+}
+
+func (o BucketNoncurrentVersionExpirationPtrOutput) ToBucketNoncurrentVersionExpirationPtrOutput() BucketNoncurrentVersionExpirationPtrOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionExpirationPtrOutput) ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationPtrOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionExpirationPtrOutput) Elem() BucketNoncurrentVersionExpirationOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionExpiration) BucketNoncurrentVersionExpiration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNoncurrentVersionExpiration
+		return ret
+	}).(BucketNoncurrentVersionExpirationOutput)
+}
+
+// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+func (o BucketNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionExpiration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NewerNoncurrentVersions
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+func (o BucketNoncurrentVersionExpirationPtrOutput) NoncurrentDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionExpiration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NoncurrentDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
 type BucketNoncurrentVersionTransition struct {
+	// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// The class of storage used to store the object.
 	StorageClass BucketNoncurrentVersionTransitionStorageClass `pulumi:"storageClass"`
 	// Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
@@ -3189,6 +3490,8 @@ type BucketNoncurrentVersionTransitionInput interface {
 
 // Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
 type BucketNoncurrentVersionTransitionArgs struct {
+	// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// The class of storage used to store the object.
 	StorageClass BucketNoncurrentVersionTransitionStorageClassInput `pulumi:"storageClass"`
 	// Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
@@ -3298,6 +3601,11 @@ func (o BucketNoncurrentVersionTransitionOutput) ToBucketNoncurrentVersionTransi
 	}).(BucketNoncurrentVersionTransitionPtrOutput)
 }
 
+// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+func (o BucketNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketNoncurrentVersionTransition) *int { return v.NewerNoncurrentVersions }).(pulumi.IntPtrOutput)
+}
+
 // The class of storage used to store the object.
 func (o BucketNoncurrentVersionTransitionOutput) StorageClass() BucketNoncurrentVersionTransitionStorageClassOutput {
 	return o.ApplyT(func(v BucketNoncurrentVersionTransition) BucketNoncurrentVersionTransitionStorageClass {
@@ -3332,6 +3640,16 @@ func (o BucketNoncurrentVersionTransitionPtrOutput) Elem() BucketNoncurrentVersi
 		var ret BucketNoncurrentVersionTransition
 		return ret
 	}).(BucketNoncurrentVersionTransitionOutput)
+}
+
+// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+func (o BucketNoncurrentVersionTransitionPtrOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionTransition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NewerNoncurrentVersions
+	}).(pulumi.IntPtrOutput)
 }
 
 // The class of storage used to store the object.
@@ -3376,9 +3694,10 @@ func (o BucketNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) B
 
 // Describes the notification configuration for an Amazon S3 bucket.
 type BucketNotificationConfiguration struct {
-	LambdaConfigurations []BucketLambdaConfiguration `pulumi:"lambdaConfigurations"`
-	QueueConfigurations  []BucketQueueConfiguration  `pulumi:"queueConfigurations"`
-	TopicConfigurations  []BucketTopicConfiguration  `pulumi:"topicConfigurations"`
+	EventBridgeConfiguration *BucketEventBridgeConfiguration `pulumi:"eventBridgeConfiguration"`
+	LambdaConfigurations     []BucketLambdaConfiguration     `pulumi:"lambdaConfigurations"`
+	QueueConfigurations      []BucketQueueConfiguration      `pulumi:"queueConfigurations"`
+	TopicConfigurations      []BucketTopicConfiguration      `pulumi:"topicConfigurations"`
 }
 
 // BucketNotificationConfigurationInput is an input type that accepts BucketNotificationConfigurationArgs and BucketNotificationConfigurationOutput values.
@@ -3394,9 +3713,10 @@ type BucketNotificationConfigurationInput interface {
 
 // Describes the notification configuration for an Amazon S3 bucket.
 type BucketNotificationConfigurationArgs struct {
-	LambdaConfigurations BucketLambdaConfigurationArrayInput `pulumi:"lambdaConfigurations"`
-	QueueConfigurations  BucketQueueConfigurationArrayInput  `pulumi:"queueConfigurations"`
-	TopicConfigurations  BucketTopicConfigurationArrayInput  `pulumi:"topicConfigurations"`
+	EventBridgeConfiguration BucketEventBridgeConfigurationPtrInput `pulumi:"eventBridgeConfiguration"`
+	LambdaConfigurations     BucketLambdaConfigurationArrayInput    `pulumi:"lambdaConfigurations"`
+	QueueConfigurations      BucketQueueConfigurationArrayInput     `pulumi:"queueConfigurations"`
+	TopicConfigurations      BucketTopicConfigurationArrayInput     `pulumi:"topicConfigurations"`
 }
 
 func (BucketNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -3477,6 +3797,12 @@ func (o BucketNotificationConfigurationOutput) ToBucketNotificationConfiguration
 	}).(BucketNotificationConfigurationPtrOutput)
 }
 
+func (o BucketNotificationConfigurationOutput) EventBridgeConfiguration() BucketEventBridgeConfigurationPtrOutput {
+	return o.ApplyT(func(v BucketNotificationConfiguration) *BucketEventBridgeConfiguration {
+		return v.EventBridgeConfiguration
+	}).(BucketEventBridgeConfigurationPtrOutput)
+}
+
 func (o BucketNotificationConfigurationOutput) LambdaConfigurations() BucketLambdaConfigurationArrayOutput {
 	return o.ApplyT(func(v BucketNotificationConfiguration) []BucketLambdaConfiguration { return v.LambdaConfigurations }).(BucketLambdaConfigurationArrayOutput)
 }
@@ -3511,6 +3837,15 @@ func (o BucketNotificationConfigurationPtrOutput) Elem() BucketNotificationConfi
 		var ret BucketNotificationConfiguration
 		return ret
 	}).(BucketNotificationConfigurationOutput)
+}
+
+func (o BucketNotificationConfigurationPtrOutput) EventBridgeConfiguration() BucketEventBridgeConfigurationPtrOutput {
+	return o.ApplyT(func(v *BucketNotificationConfiguration) *BucketEventBridgeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridgeConfiguration
+	}).(BucketEventBridgeConfigurationPtrOutput)
 }
 
 func (o BucketNotificationConfigurationPtrOutput) LambdaConfigurations() BucketLambdaConfigurationArrayOutput {
@@ -6182,9 +6517,12 @@ type BucketRule struct {
 	ExpirationInDays                  *int                                  `pulumi:"expirationInDays"`
 	ExpiredObjectDeleteMarker         *bool                                 `pulumi:"expiredObjectDeleteMarker"`
 	Id                                *string                               `pulumi:"id"`
+	NoncurrentVersionExpiration       *BucketNoncurrentVersionExpiration    `pulumi:"noncurrentVersionExpiration"`
 	NoncurrentVersionExpirationInDays *int                                  `pulumi:"noncurrentVersionExpirationInDays"`
 	NoncurrentVersionTransition       *BucketNoncurrentVersionTransition    `pulumi:"noncurrentVersionTransition"`
 	NoncurrentVersionTransitions      []BucketNoncurrentVersionTransition   `pulumi:"noncurrentVersionTransitions"`
+	ObjectSizeGreaterThan             *string                               `pulumi:"objectSizeGreaterThan"`
+	ObjectSizeLessThan                *string                               `pulumi:"objectSizeLessThan"`
 	Prefix                            *string                               `pulumi:"prefix"`
 	Status                            BucketRuleStatus                      `pulumi:"status"`
 	TagFilters                        []BucketTagFilter                     `pulumi:"tagFilters"`
@@ -6210,9 +6548,12 @@ type BucketRuleArgs struct {
 	ExpirationInDays                  pulumi.IntPtrInput                           `pulumi:"expirationInDays"`
 	ExpiredObjectDeleteMarker         pulumi.BoolPtrInput                          `pulumi:"expiredObjectDeleteMarker"`
 	Id                                pulumi.StringPtrInput                        `pulumi:"id"`
+	NoncurrentVersionExpiration       BucketNoncurrentVersionExpirationPtrInput    `pulumi:"noncurrentVersionExpiration"`
 	NoncurrentVersionExpirationInDays pulumi.IntPtrInput                           `pulumi:"noncurrentVersionExpirationInDays"`
 	NoncurrentVersionTransition       BucketNoncurrentVersionTransitionPtrInput    `pulumi:"noncurrentVersionTransition"`
 	NoncurrentVersionTransitions      BucketNoncurrentVersionTransitionArrayInput  `pulumi:"noncurrentVersionTransitions"`
+	ObjectSizeGreaterThan             pulumi.StringPtrInput                        `pulumi:"objectSizeGreaterThan"`
+	ObjectSizeLessThan                pulumi.StringPtrInput                        `pulumi:"objectSizeLessThan"`
 	Prefix                            pulumi.StringPtrInput                        `pulumi:"prefix"`
 	Status                            BucketRuleStatusInput                        `pulumi:"status"`
 	TagFilters                        BucketTagFilterArrayInput                    `pulumi:"tagFilters"`
@@ -6292,6 +6633,10 @@ func (o BucketRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+func (o BucketRuleOutput) NoncurrentVersionExpiration() BucketNoncurrentVersionExpirationPtrOutput {
+	return o.ApplyT(func(v BucketRule) *BucketNoncurrentVersionExpiration { return v.NoncurrentVersionExpiration }).(BucketNoncurrentVersionExpirationPtrOutput)
+}
+
 func (o BucketRuleOutput) NoncurrentVersionExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketRule) *int { return v.NoncurrentVersionExpirationInDays }).(pulumi.IntPtrOutput)
 }
@@ -6302,6 +6647,14 @@ func (o BucketRuleOutput) NoncurrentVersionTransition() BucketNoncurrentVersionT
 
 func (o BucketRuleOutput) NoncurrentVersionTransitions() BucketNoncurrentVersionTransitionArrayOutput {
 	return o.ApplyT(func(v BucketRule) []BucketNoncurrentVersionTransition { return v.NoncurrentVersionTransitions }).(BucketNoncurrentVersionTransitionArrayOutput)
+}
+
+func (o BucketRuleOutput) ObjectSizeGreaterThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRule) *string { return v.ObjectSizeGreaterThan }).(pulumi.StringPtrOutput)
+}
+
+func (o BucketRuleOutput) ObjectSizeLessThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRule) *string { return v.ObjectSizeLessThan }).(pulumi.StringPtrOutput)
 }
 
 func (o BucketRuleOutput) Prefix() pulumi.StringPtrOutput {
@@ -10489,6 +10842,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketEncryptionPtrInput)(nil)).Elem(), BucketEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketEncryptionConfigurationInput)(nil)).Elem(), BucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketEncryptionConfigurationPtrInput)(nil)).Elem(), BucketEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketEventBridgeConfigurationInput)(nil)).Elem(), BucketEventBridgeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketEventBridgeConfigurationPtrInput)(nil)).Elem(), BucketEventBridgeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterRuleInput)(nil)).Elem(), BucketFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterRuleArrayInput)(nil)).Elem(), BucketFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationInput)(nil)).Elem(), BucketIntelligentTieringConfigurationArgs{})
@@ -10505,6 +10860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsPtrInput)(nil)).Elem(), BucketMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsConfigurationInput)(nil)).Elem(), BucketMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsConfigurationArrayInput)(nil)).Elem(), BucketMetricsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionExpirationInput)(nil)).Elem(), BucketNoncurrentVersionExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionExpirationPtrInput)(nil)).Elem(), BucketNoncurrentVersionExpirationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionInput)(nil)).Elem(), BucketNoncurrentVersionTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionPtrInput)(nil)).Elem(), BucketNoncurrentVersionTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionArrayInput)(nil)).Elem(), BucketNoncurrentVersionTransitionArray{})
@@ -10634,6 +10991,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(BucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketEventBridgeConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketEventBridgeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketFilterRuleOutput{})
 	pulumi.RegisterOutputType(BucketFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationOutput{})
@@ -10650,6 +11009,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketMetricsPtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricsConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketMetricsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketNoncurrentVersionExpirationOutput{})
+	pulumi.RegisterOutputType(BucketNoncurrentVersionExpirationPtrOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionPtrOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionArrayOutput{})

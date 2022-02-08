@@ -165,6 +165,7 @@ class BucketOwnershipControlsRuleObjectOwnership(str, Enum):
     """
     OBJECT_WRITER = "ObjectWriter"
     BUCKET_OWNER_PREFERRED = "BucketOwnerPreferred"
+    BUCKET_OWNER_ENFORCED = "BucketOwnerEnforced"
 
 
 class BucketRedirectAllRequestsToProtocol(str, Enum):

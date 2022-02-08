@@ -11,6 +11,9 @@ from ._enums import *
 
 __all__ = [
     'DatabaseTagArgs',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesArgs',
     'RetentionPropertiesPropertiesArgs',
     'ScheduledQueryDimensionMappingArgs',
     'ScheduledQueryErrorReportConfigurationArgs',
@@ -57,6 +60,139 @@ class DatabaseTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 encryption_option: pulumi.Input[str],
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 object_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        S3 configuration for location to store rejections from magnetic store writes
+        :param pulumi.Input[str] bucket_name: The bucket name used to store the data.
+        :param pulumi.Input[str] encryption_option: Either SSE_KMS or SSE_S3.
+        :param pulumi.Input[str] kms_key_id: Must be provided if SSE_KMS is specified as the encryption option
+        :param pulumi.Input[str] object_key_prefix: String used to prefix all data in the bucket.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "encryption_option", encryption_option)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if object_key_prefix is not None:
+            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The bucket name used to store the data.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="encryptionOption")
+    def encryption_option(self) -> pulumi.Input[str]:
+        """
+        Either SSE_KMS or SSE_S3.
+        """
+        return pulumi.get(self, "encryption_option")
+
+    @encryption_option.setter
+    def encryption_option(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_option", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Must be provided if SSE_KMS is specified as the encryption option
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="objectKeyPrefix")
+    def object_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        String used to prefix all data in the bucket.
+        """
+        return pulumi.get(self, "object_key_prefix")
+
+    @object_key_prefix.setter
+    def object_key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_key_prefix", value)
+
+
+@pulumi.input_type
+class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_configuration: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']] = None):
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for location to store rejections from magnetic store writes
+        """
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]:
+        """
+        S3 configuration for location to store rejections from magnetic store writes
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+@pulumi.input_type
+class MagneticStoreWritePropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 enable_magnetic_store_writes: pulumi.Input[bool],
+                 magnetic_store_rejected_data_location: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']] = None):
+        """
+        The properties that determine whether magnetic store writes are enabled.
+        :param pulumi.Input[bool] enable_magnetic_store_writes: Boolean flag indicating whether magnetic store writes are enabled.
+        :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs'] magnetic_store_rejected_data_location: Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+        pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
+        if magnetic_store_rejected_data_location is not None:
+            pulumi.set(__self__, "magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
+
+    @property
+    @pulumi.getter(name="enableMagneticStoreWrites")
+    def enable_magnetic_store_writes(self) -> pulumi.Input[bool]:
+        """
+        Boolean flag indicating whether magnetic store writes are enabled.
+        """
+        return pulumi.get(self, "enable_magnetic_store_writes")
+
+    @enable_magnetic_store_writes.setter
+    def enable_magnetic_store_writes(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable_magnetic_store_writes", value)
+
+    @property
+    @pulumi.getter(name="magneticStoreRejectedDataLocation")
+    def magnetic_store_rejected_data_location(self) -> Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]:
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+        return pulumi.get(self, "magnetic_store_rejected_data_location")
+
+    @magnetic_store_rejected_data_location.setter
+    def magnetic_store_rejected_data_location(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]):
+        pulumi.set(self, "magnetic_store_rejected_data_location", value)
 
 
 @pulumi.input_type

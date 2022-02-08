@@ -51,7 +51,11 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The name of the ObjectType defined for the 3rd party data in Profile Service
      */
-    public readonly objectTypeName!: pulumi.Output<string>;
+    public readonly objectTypeName!: pulumi.Output<string | undefined>;
+    /**
+     * The mapping between 3rd party event types and ObjectType names
+     */
+    public readonly objectTypeNames!: pulumi.Output<outputs.customerprofiles.IntegrationObjectTypeMapping[] | undefined>;
     /**
      * The tags (keys and values) associated with the integration
      */
@@ -75,12 +79,10 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.objectTypeName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'objectTypeName'");
-            }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["flowDefinition"] = args ? args.flowDefinition : undefined;
             resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
+            resourceInputs["objectTypeNames"] = args ? args.objectTypeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -91,6 +93,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["flowDefinition"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
+            resourceInputs["objectTypeNames"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         }
@@ -111,7 +114,11 @@ export interface IntegrationArgs {
     /**
      * The name of the ObjectType defined for the 3rd party data in Profile Service
      */
-    objectTypeName: pulumi.Input<string>;
+    objectTypeName?: pulumi.Input<string>;
+    /**
+     * The mapping between 3rd party event types and ObjectType names
+     */
+    objectTypeNames?: pulumi.Input<pulumi.Input<inputs.customerprofiles.IntegrationObjectTypeMappingArgs>[]>;
     /**
      * The tags (keys and values) associated with the integration
      */

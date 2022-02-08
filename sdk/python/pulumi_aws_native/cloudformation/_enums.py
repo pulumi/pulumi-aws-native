@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'HookTypeConfigConfigurationAlias',
+    'HookVersionVisibility',
     'ModuleVersionVisibility',
     'PublicTypeVersionType',
     'PublisherIdentityProvider',
@@ -18,6 +20,27 @@ __all__ = [
     'TypeActivationType',
     'TypeActivationVersionBump',
 ]
+
+
+class HookTypeConfigConfigurationAlias(str, Enum):
+    """
+    An alias by which to refer to this extension configuration data.
+    """
+    DEFAULT = "default"
+
+
+class HookVersionVisibility(str, Enum):
+    """
+    The scope at which the type is visible and usable in CloudFormation operations.
+
+    Valid values include:
+
+    PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+
+    PUBLIC: The type is publically visible and usable within any Amazon account.
+    """
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
 
 
 class ModuleVersionVisibility(str, Enum):

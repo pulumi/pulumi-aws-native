@@ -14,11 +14,20 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
     public sealed class RotationScheduleRotationRules
     {
         public readonly int? AutomaticallyAfterDays;
+        public readonly string? Duration;
+        public readonly string? ScheduleExpression;
 
         [OutputConstructor]
-        private RotationScheduleRotationRules(int? automaticallyAfterDays)
+        private RotationScheduleRotationRules(
+            int? automaticallyAfterDays,
+
+            string? duration,
+
+            string? scheduleExpression)
         {
             AutomaticallyAfterDays = automaticallyAfterDays;
+            Duration = duration;
+            ScheduleExpression = scheduleExpression;
         }
     }
 }

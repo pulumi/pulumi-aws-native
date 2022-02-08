@@ -756,22 +756,43 @@ class ReceiptRuleWorkmailActionArgs:
 @pulumi.input_type
 class TemplateArgs:
     def __init__(__self__, *,
+                 subject_part: pulumi.Input[str],
                  html_part: Optional[pulumi.Input[str]] = None,
-                 subject_part: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  text_part: Optional[pulumi.Input[str]] = None):
+        """
+        The content of the email, composed of a subject line, an HTML part, and a text-only part
+        :param pulumi.Input[str] subject_part: The subject line of the email.
+        :param pulumi.Input[str] html_part: The HTML body of the email.
+        :param pulumi.Input[str] template_name: The name of the template.
+        :param pulumi.Input[str] text_part: The email body that is visible to recipients whose email clients do not display HTML content.
+        """
+        pulumi.set(__self__, "subject_part", subject_part)
         if html_part is not None:
             pulumi.set(__self__, "html_part", html_part)
-        if subject_part is not None:
-            pulumi.set(__self__, "subject_part", subject_part)
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
         if text_part is not None:
             pulumi.set(__self__, "text_part", text_part)
 
     @property
+    @pulumi.getter(name="subjectPart")
+    def subject_part(self) -> pulumi.Input[str]:
+        """
+        The subject line of the email.
+        """
+        return pulumi.get(self, "subject_part")
+
+    @subject_part.setter
+    def subject_part(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject_part", value)
+
+    @property
     @pulumi.getter(name="htmlPart")
     def html_part(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTML body of the email.
+        """
         return pulumi.get(self, "html_part")
 
     @html_part.setter
@@ -779,17 +800,11 @@ class TemplateArgs:
         pulumi.set(self, "html_part", value)
 
     @property
-    @pulumi.getter(name="subjectPart")
-    def subject_part(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subject_part")
-
-    @subject_part.setter
-    def subject_part(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subject_part", value)
-
-    @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the template.
+        """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
@@ -799,6 +814,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="textPart")
     def text_part(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email body that is visible to recipients whose email clients do not display HTML content.
+        """
         return pulumi.get(self, "text_part")
 
     @text_part.setter

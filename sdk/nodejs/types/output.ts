@@ -1823,6 +1823,35 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    export interface DataIntegrationScheduleConfig {
+        /**
+         * The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+         */
+        firstExecutionFrom: string;
+        /**
+         * The name of the object to pull from the data source.
+         */
+        object: string;
+        /**
+         * How often the data should be pulled from data source.
+         */
+        scheduleExpression: string;
+    }
+
+    /**
+     * A label for tagging DataIntegration resources
+     */
+    export interface DataIntegrationTag {
+        /**
+         * A key to identify the tag.
+         */
+        key: string;
+        /**
+         * Corresponding tag value for the key.
+         */
+        value: string;
+    }
+
     export interface EventIntegrationAssociation {
         /**
          * The metadata associated with the client.
@@ -2075,22 +2104,22 @@ export namespace applicationinsights {
         /**
          * A flag which indicates agreeing to install SAP HANA DB client.
          */
-        agreeToInstallHANADBClient?: boolean;
+        agreeToInstallHANADBClient: boolean;
         /**
          * The HANA DB port.
          */
-        hANAPort?: string;
+        hANAPort: string;
         /**
          * HANA DB SID.
          */
-        hANASID?: string;
+        hANASID: string;
         /**
          * The secret name which manages the HANA DB credentials e.g. {
          *   "username": "<>",
          *   "password": "<>"
          * }.
          */
-        hANASecretName?: string;
+        hANASecretName: string;
         /**
          * Prometheus exporter port.
          */
@@ -3127,6 +3156,11 @@ export namespace apprunner {
     }
 
     export interface ServiceTag {
+        key?: string;
+        value?: string;
+    }
+
+    export interface VpcConnectorTag {
         key?: string;
         value?: string;
     }
@@ -4434,6 +4468,17 @@ export namespace cloud9 {
 }
 
 export namespace cloudformation {
+    export interface HookVersionLoggingConfig {
+        /**
+         * The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+         */
+        logGroupName?: string;
+        /**
+         * The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+         */
+        logRoleArn?: string;
+    }
+
     /**
      * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
      */
@@ -5858,6 +5903,7 @@ export namespace cognito {
     export interface UserPoolSmsConfiguration {
         externalId?: string;
         snsCallerArn?: string;
+        snsRegion?: string;
     }
 
     export interface UserPoolStringAttributeConstraints {
@@ -6912,6 +6958,11 @@ export namespace customerprofiles {
 
     export interface IntegrationMarketoSourceProperties {
         object: string;
+    }
+
+    export interface IntegrationObjectTypeMapping {
+        key: string;
+        value: string;
     }
 
     export interface IntegrationS3SourceProperties {
@@ -8354,13 +8405,44 @@ export namespace dms {
     }
 
     export interface EndpointS3Settings {
+        addColumnName?: boolean;
         bucketFolder?: string;
         bucketName?: string;
+        cannedAclForObjects?: string;
+        cdcInsertsAndUpdates?: boolean;
+        cdcInsertsOnly?: boolean;
+        cdcMaxBatchInterval?: number;
+        cdcMinFileSize?: number;
+        cdcPath?: string;
         compressionType?: string;
         csvDelimiter?: string;
+        csvNoSupValue?: string;
+        csvNullValue?: string;
         csvRowDelimiter?: string;
+        dataFormat?: string;
+        dataPageSize?: number;
+        datePartitionDelimiter?: string;
+        datePartitionEnabled?: boolean;
+        datePartitionSequence?: string;
+        datePartitionTimezone?: string;
+        dictPageSizeLimit?: number;
+        enableStatistics?: boolean;
+        encodingType?: string;
+        encryptionMode?: string;
         externalTableDefinition?: string;
+        ignoreHeaderRows?: number;
+        includeOpForFullLoad?: boolean;
+        maxFileSize?: number;
+        parquetTimestampInMillisecond?: boolean;
+        parquetVersion?: string;
+        preserveTransactions?: boolean;
+        rfc4180?: boolean;
+        rowGroupLength?: number;
+        serverSideEncryptionKmsKeyId?: string;
         serviceAccessRoleArn?: string;
+        timestampColumnName?: string;
+        useCsvNoSupValue?: boolean;
+        useTaskStartTimeForFullLoadTimestamp?: boolean;
     }
 
     export interface EndpointSybaseSettings {
@@ -9070,6 +9152,7 @@ export namespace ec2 {
         monitoring?: outputs.ec2.LaunchTemplateMonitoring;
         networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
         placement?: outputs.ec2.LaunchTemplatePlacement;
+        privateDnsNameOptions?: outputs.ec2.LaunchTemplatePrivateDnsNameOptions;
         ramDiskId?: string;
         securityGroupIds?: string[];
         securityGroups?: string[];
@@ -9162,6 +9245,7 @@ export namespace ec2 {
         httpProtocolIpv6?: string;
         httpPutResponseHopLimit?: number;
         httpTokens?: string;
+        instanceMetadataTags?: string;
     }
 
     export interface LaunchTemplateMonitoring {
@@ -9200,6 +9284,12 @@ export namespace ec2 {
         partitionNumber?: number;
         spreadDomain?: string;
         tenancy?: string;
+    }
+
+    export interface LaunchTemplatePrivateDnsNameOptions {
+        enableResourceNameDnsAAAARecord?: boolean;
+        enableResourceNameDnsARecord?: boolean;
+        hostnameType?: string;
     }
 
     export interface LaunchTemplatePrivateIpAdd {
@@ -11768,6 +11858,15 @@ export namespace events {
         values: string[];
     }
 
+    export interface RuleSageMakerPipelineParameter {
+        name: string;
+        value: string;
+    }
+
+    export interface RuleSageMakerPipelineParameters {
+        pipelineParameterList?: outputs.events.RuleSageMakerPipelineParameter[];
+    }
+
     export interface RuleSqsParameters {
         messageGroupId: string;
     }
@@ -11792,6 +11891,7 @@ export namespace events {
         retryPolicy?: outputs.events.RuleRetryPolicy;
         roleArn?: string;
         runCommandParameters?: outputs.events.RuleRunCommandParameters;
+        sageMakerPipelineParameters?: outputs.events.RuleSageMakerPipelineParameters;
         sqsParameters?: outputs.events.RuleSqsParameters;
     }
 
@@ -13679,7 +13779,16 @@ export namespace groundstation {
 
 export namespace guardduty {
     export interface DetectorCFNDataSourceConfigurations {
+        kubernetes?: outputs.guardduty.DetectorCFNKubernetesConfiguration;
         s3Logs?: outputs.guardduty.DetectorCFNS3LogsConfiguration;
+    }
+
+    export interface DetectorCFNKubernetesAuditLogsConfiguration {
+        enable?: boolean;
+    }
+
+    export interface DetectorCFNKubernetesConfiguration {
+        auditLogs?: outputs.guardduty.DetectorCFNKubernetesAuditLogsConfiguration;
     }
 
     export interface DetectorCFNS3LogsConfiguration {
@@ -16491,6 +16600,20 @@ export namespace ivs {
     export interface RecordingConfigurationTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * Recording Thumbnail Configuration.
+     */
+    export interface RecordingConfigurationThumbnailConfiguration {
+        /**
+         * Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+         */
+        recordingMode: enums.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode;
+        /**
+         * Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+         */
+        targetIntervalSeconds?: number;
     }
 
     export interface StreamKeyTag {
@@ -21984,6 +22107,7 @@ export namespace msk {
     }
 
     export interface ClusterEBSStorageInfo {
+        provisionedThroughput?: outputs.msk.ClusterProvisionedThroughput;
         volumeSize?: number;
     }
 
@@ -22029,6 +22153,11 @@ export namespace msk {
     export interface ClusterPrometheus {
         jmxExporter?: outputs.msk.ClusterJmxExporter;
         nodeExporter?: outputs.msk.ClusterNodeExporter;
+    }
+
+    export interface ClusterProvisionedThroughput {
+        enabled?: boolean;
+        volumeThroughput?: number;
     }
 
     export interface ClusterPublicAccess {
@@ -25228,15 +25357,39 @@ export namespace robomaker {
     export interface FleetTags {
     }
 
+    /**
+     * The robot software suite used by the robot application.
+     */
     export interface RobotApplicationRobotSoftwareSuite {
-        name: string;
-        version: string;
+        /**
+         * The name of robot software suite.
+         */
+        name: enums.robomaker.RobotApplicationRobotSoftwareSuiteName;
+        /**
+         * The version of robot software suite.
+         */
+        version?: enums.robomaker.RobotApplicationRobotSoftwareSuiteVersion;
     }
 
     export interface RobotApplicationSourceConfig {
-        architecture: string;
+        /**
+         * The architecture of robot application.
+         */
+        architecture: enums.robomaker.RobotApplicationSourceConfigArchitecture;
+        /**
+         * The Arn of the S3Bucket that stores the robot application source.
+         */
         s3Bucket: string;
+        /**
+         * The s3 key of robot application source.
+         */
         s3Key: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RobotApplicationTags {
     }
 
     /**
@@ -25441,7 +25594,6 @@ export namespace route53 {
 
     export interface RecordSetGroupRecordSet {
         aliasTarget?: outputs.route53.RecordSetGroupAliasTarget;
-        comment?: string;
         failover?: string;
         geoLocation?: outputs.route53.RecordSetGroupGeoLocation;
         healthCheckId?: string;
@@ -25973,6 +26125,16 @@ export namespace s3 {
     }
 
     /**
+     * Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+     */
+    export interface BucketEventBridgeConfiguration {
+        /**
+         * Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+         */
+        eventBridgeEnabled: boolean;
+    }
+
+    /**
      * Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
      */
     export interface BucketFilterRule {
@@ -26077,9 +26239,27 @@ export namespace s3 {
     }
 
     /**
+     * Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+     */
+    export interface BucketNoncurrentVersionExpiration {
+        /**
+         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         */
+        newerNoncurrentVersions?: number;
+        /**
+         * Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+         */
+        noncurrentDays: number;
+    }
+
+    /**
      * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
      */
     export interface BucketNoncurrentVersionTransition {
+        /**
+         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         */
+        newerNoncurrentVersions?: number;
         /**
          * The class of storage used to store the object.
          */
@@ -26094,6 +26274,7 @@ export namespace s3 {
      * Describes the notification configuration for an Amazon S3 bucket.
      */
     export interface BucketNotificationConfiguration {
+        eventBridgeConfiguration?: outputs.s3.BucketEventBridgeConfiguration;
         lambdaConfigurations?: outputs.s3.BucketLambdaConfiguration[];
         queueConfigurations?: outputs.s3.BucketQueueConfiguration[];
         topicConfigurations?: outputs.s3.BucketTopicConfiguration[];
@@ -26329,9 +26510,12 @@ export namespace s3 {
         expirationInDays?: number;
         expiredObjectDeleteMarker?: boolean;
         id?: string;
+        noncurrentVersionExpiration?: outputs.s3.BucketNoncurrentVersionExpiration;
         noncurrentVersionExpirationInDays?: number;
         noncurrentVersionTransition?: outputs.s3.BucketNoncurrentVersionTransition;
         noncurrentVersionTransitions?: outputs.s3.BucketNoncurrentVersionTransition[];
+        objectSizeGreaterThan?: string;
+        objectSizeLessThan?: string;
         prefix?: string;
         status: enums.s3.BucketRuleStatus;
         tagFilters?: outputs.s3.BucketTagFilter[];
@@ -28582,6 +28766,8 @@ export namespace secretsmanager {
 
     export interface RotationScheduleRotationRules {
         automaticallyAfterDays?: number;
+        duration?: string;
+        scheduleExpression?: string;
     }
 
     export interface SecretGenerateSecretString {
@@ -28846,10 +29032,25 @@ export namespace ses {
         topicArn?: string;
     }
 
+    /**
+     * The content of the email, composed of a subject line, an HTML part, and a text-only part
+     */
     export interface Template {
+        /**
+         * The HTML body of the email.
+         */
         htmlPart?: string;
-        subjectPart?: string;
+        /**
+         * The subject line of the email.
+         */
+        subjectPart: string;
+        /**
+         * The name of the template.
+         */
         templateName?: string;
+        /**
+         * The email body that is visible to recipients whose email clients do not display HTML content.
+         */
         textPart?: string;
     }
 
@@ -28883,7 +29084,13 @@ export namespace sns {
 
 export namespace sqs {
     export interface QueueTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -29400,6 +29607,52 @@ export namespace timestream {
     export interface DatabaseTag {
         key?: string;
         value?: string;
+    }
+
+    /**
+     * The properties that determine whether magnetic store writes are enabled.
+     */
+    export interface MagneticStoreWritePropertiesProperties {
+        /**
+         * Boolean flag indicating whether magnetic store writes are enabled.
+         */
+        enableMagneticStoreWrites: boolean;
+        /**
+         * Location to store information about records that were asynchronously rejected during magnetic store writes.
+         */
+        magneticStoreRejectedDataLocation?: outputs.timestream.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties;
+    }
+
+    /**
+     * Location to store information about records that were asynchronously rejected during magnetic store writes.
+     */
+    export interface MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties {
+        /**
+         * S3 configuration for location to store rejections from magnetic store writes
+         */
+        s3Configuration?: outputs.timestream.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties;
+    }
+
+    /**
+     * S3 configuration for location to store rejections from magnetic store writes
+     */
+    export interface MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
+        /**
+         * The bucket name used to store the data.
+         */
+        bucketName: string;
+        /**
+         * Either SSE_KMS or SSE_S3.
+         */
+        encryptionOption: string;
+        /**
+         * Must be provided if SSE_KMS is specified as the encryption option
+         */
+        kmsKeyId?: string;
+        /**
+         * String used to prefix all data in the bucket.
+         */
+        objectKeyPrefix?: string;
     }
 
     /**

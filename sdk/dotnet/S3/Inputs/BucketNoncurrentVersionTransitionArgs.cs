@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketNoncurrentVersionTransitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        /// </summary>
+        [Input("newerNoncurrentVersions")]
+        public Input<int>? NewerNoncurrentVersions { get; set; }
+
+        /// <summary>
         /// The class of storage used to store the object.
         /// </summary>
         [Input("storageClass", required: true)]

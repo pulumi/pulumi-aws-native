@@ -23,7 +23,8 @@ type RecordingConfiguration struct {
 	// Recording Configuration State.
 	State RecordingConfigurationStateEnumOutput `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags RecordingConfigurationTagArrayOutput `pulumi:"tags"`
+	Tags                   RecordingConfigurationTagArrayOutput                  `pulumi:"tags"`
+	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrOutput `pulumi:"thumbnailConfiguration"`
 }
 
 // NewRecordingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +73,8 @@ type recordingConfigurationArgs struct {
 	// Recording Configuration Name.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []RecordingConfigurationTag `pulumi:"tags"`
+	Tags                   []RecordingConfigurationTag                   `pulumi:"tags"`
+	ThumbnailConfiguration *RecordingConfigurationThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 }
 
 // The set of arguments for constructing a RecordingConfiguration resource.
@@ -81,7 +83,8 @@ type RecordingConfigurationArgs struct {
 	// Recording Configuration Name.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags RecordingConfigurationTagArrayInput
+	Tags                   RecordingConfigurationTagArrayInput
+	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrInput
 }
 
 func (RecordingConfigurationArgs) ElementType() reflect.Type {

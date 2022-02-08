@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.SecretsManager
         [Output("hostedRotationLambda")]
         public Output<Outputs.RotationScheduleHostedRotationLambda?> HostedRotationLambda { get; private set; } = null!;
 
+        [Output("rotateImmediatelyOnUpdate")]
+        public Output<bool?> RotateImmediatelyOnUpdate { get; private set; } = null!;
+
         [Output("rotationLambdaARN")]
         public Output<string?> RotationLambdaARN { get; private set; } = null!;
 
@@ -75,6 +78,9 @@ namespace Pulumi.AwsNative.SecretsManager
     {
         [Input("hostedRotationLambda")]
         public Input<Inputs.RotationScheduleHostedRotationLambdaArgs>? HostedRotationLambda { get; set; }
+
+        [Input("rotateImmediatelyOnUpdate")]
+        public Input<bool>? RotateImmediatelyOnUpdate { get; set; }
 
         [Input("rotationLambdaARN")]
         public Input<string>? RotationLambdaARN { get; set; }

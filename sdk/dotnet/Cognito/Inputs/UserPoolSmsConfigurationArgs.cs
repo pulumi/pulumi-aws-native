@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("snsCallerArn")]
         public Input<string>? SnsCallerArn { get; set; }
 
+        [Input("snsRegion")]
+        public Input<string>? SnsRegion { get; set; }
+
         public UserPoolSmsConfigurationArgs()
         {
         }

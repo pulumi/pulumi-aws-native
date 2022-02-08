@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRotationScheduleResult:
-    def __init__(__self__, hosted_rotation_lambda=None, id=None, rotation_lambda_arn=None, rotation_rules=None):
+    def __init__(__self__, hosted_rotation_lambda=None, id=None, rotate_immediately_on_update=None, rotation_lambda_arn=None, rotation_rules=None):
         if hosted_rotation_lambda and not isinstance(hosted_rotation_lambda, dict):
             raise TypeError("Expected argument 'hosted_rotation_lambda' to be a dict")
         pulumi.set(__self__, "hosted_rotation_lambda", hosted_rotation_lambda)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if rotate_immediately_on_update and not isinstance(rotate_immediately_on_update, bool):
+            raise TypeError("Expected argument 'rotate_immediately_on_update' to be a bool")
+        pulumi.set(__self__, "rotate_immediately_on_update", rotate_immediately_on_update)
         if rotation_lambda_arn and not isinstance(rotation_lambda_arn, str):
             raise TypeError("Expected argument 'rotation_lambda_arn' to be a str")
         pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
@@ -41,6 +44,11 @@ class GetRotationScheduleResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="rotateImmediatelyOnUpdate")
+    def rotate_immediately_on_update(self) -> Optional[bool]:
+        return pulumi.get(self, "rotate_immediately_on_update")
 
     @property
     @pulumi.getter(name="rotationLambdaARN")
@@ -61,6 +69,7 @@ class AwaitableGetRotationScheduleResult(GetRotationScheduleResult):
         return GetRotationScheduleResult(
             hosted_rotation_lambda=self.hosted_rotation_lambda,
             id=self.id,
+            rotate_immediately_on_update=self.rotate_immediately_on_update,
             rotation_lambda_arn=self.rotation_lambda_arn,
             rotation_rules=self.rotation_rules)
 
@@ -81,6 +90,7 @@ def get_rotation_schedule(id: Optional[str] = None,
     return AwaitableGetRotationScheduleResult(
         hosted_rotation_lambda=__ret__.hosted_rotation_lambda,
         id=__ret__.id,
+        rotate_immediately_on_update=__ret__.rotate_immediately_on_update,
         rotation_lambda_arn=__ret__.rotation_lambda_arn,
         rotation_rules=__ret__.rotation_rules)
 

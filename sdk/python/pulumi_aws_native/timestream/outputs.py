@@ -12,6 +12,9 @@ from ._enums import *
 
 __all__ = [
     'DatabaseTag',
+    'MagneticStoreWritePropertiesProperties',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties',
     'RetentionPropertiesProperties',
     'ScheduledQueryDimensionMapping',
     'ScheduledQueryErrorReportConfiguration',
@@ -53,6 +56,179 @@ class DatabaseTag(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MagneticStoreWritePropertiesProperties(dict):
+    """
+    The properties that determine whether magnetic store writes are enabled.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableMagneticStoreWrites":
+            suggest = "enable_magnetic_store_writes"
+        elif key == "magneticStoreRejectedDataLocation":
+            suggest = "magnetic_store_rejected_data_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MagneticStoreWritePropertiesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MagneticStoreWritePropertiesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MagneticStoreWritePropertiesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_magnetic_store_writes: bool,
+                 magnetic_store_rejected_data_location: Optional['outputs.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties'] = None):
+        """
+        The properties that determine whether magnetic store writes are enabled.
+        :param bool enable_magnetic_store_writes: Boolean flag indicating whether magnetic store writes are enabled.
+        :param 'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties' magnetic_store_rejected_data_location: Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+        pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
+        if magnetic_store_rejected_data_location is not None:
+            pulumi.set(__self__, "magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
+
+    @property
+    @pulumi.getter(name="enableMagneticStoreWrites")
+    def enable_magnetic_store_writes(self) -> bool:
+        """
+        Boolean flag indicating whether magnetic store writes are enabled.
+        """
+        return pulumi.get(self, "enable_magnetic_store_writes")
+
+    @property
+    @pulumi.getter(name="magneticStoreRejectedDataLocation")
+    def magnetic_store_rejected_data_location(self) -> Optional['outputs.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties']:
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+        return pulumi.get(self, "magnetic_store_rejected_data_location")
+
+
+@pulumi.output_type
+class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties(dict):
+    """
+    Location to store information about records that were asynchronously rejected during magnetic store writes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_configuration: Optional['outputs.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties'] = None):
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        :param 'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties' s3_configuration: S3 configuration for location to store rejections from magnetic store writes
+        """
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties']:
+        """
+        S3 configuration for location to store rejections from magnetic store writes
+        """
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties(dict):
+    """
+    S3 configuration for location to store rejections from magnetic store writes
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "encryptionOption":
+            suggest = "encryption_option"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "objectKeyPrefix":
+            suggest = "object_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 encryption_option: str,
+                 kms_key_id: Optional[str] = None,
+                 object_key_prefix: Optional[str] = None):
+        """
+        S3 configuration for location to store rejections from magnetic store writes
+        :param str bucket_name: The bucket name used to store the data.
+        :param str encryption_option: Either SSE_KMS or SSE_S3.
+        :param str kms_key_id: Must be provided if SSE_KMS is specified as the encryption option
+        :param str object_key_prefix: String used to prefix all data in the bucket.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "encryption_option", encryption_option)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if object_key_prefix is not None:
+            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        The bucket name used to store the data.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="encryptionOption")
+    def encryption_option(self) -> str:
+        """
+        Either SSE_KMS or SSE_S3.
+        """
+        return pulumi.get(self, "encryption_option")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        Must be provided if SSE_KMS is specified as the encryption option
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="objectKeyPrefix")
+    def object_key_prefix(self) -> Optional[str]:
+        """
+        String used to prefix all data in the bucket.
+        """
+        return pulumi.get(self, "object_key_prefix")
 
 
 @pulumi.output_type

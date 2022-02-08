@@ -3056,13 +3056,44 @@ func (o EndpointRedshiftSettingsPtrOutput) SecretsManagerSecretId() pulumi.Strin
 }
 
 type EndpointS3Settings struct {
-	BucketFolder            *string `pulumi:"bucketFolder"`
-	BucketName              *string `pulumi:"bucketName"`
-	CompressionType         *string `pulumi:"compressionType"`
-	CsvDelimiter            *string `pulumi:"csvDelimiter"`
-	CsvRowDelimiter         *string `pulumi:"csvRowDelimiter"`
-	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
-	ServiceAccessRoleArn    *string `pulumi:"serviceAccessRoleArn"`
+	AddColumnName                        *bool   `pulumi:"addColumnName"`
+	BucketFolder                         *string `pulumi:"bucketFolder"`
+	BucketName                           *string `pulumi:"bucketName"`
+	CannedAclForObjects                  *string `pulumi:"cannedAclForObjects"`
+	CdcInsertsAndUpdates                 *bool   `pulumi:"cdcInsertsAndUpdates"`
+	CdcInsertsOnly                       *bool   `pulumi:"cdcInsertsOnly"`
+	CdcMaxBatchInterval                  *int    `pulumi:"cdcMaxBatchInterval"`
+	CdcMinFileSize                       *int    `pulumi:"cdcMinFileSize"`
+	CdcPath                              *string `pulumi:"cdcPath"`
+	CompressionType                      *string `pulumi:"compressionType"`
+	CsvDelimiter                         *string `pulumi:"csvDelimiter"`
+	CsvNoSupValue                        *string `pulumi:"csvNoSupValue"`
+	CsvNullValue                         *string `pulumi:"csvNullValue"`
+	CsvRowDelimiter                      *string `pulumi:"csvRowDelimiter"`
+	DataFormat                           *string `pulumi:"dataFormat"`
+	DataPageSize                         *int    `pulumi:"dataPageSize"`
+	DatePartitionDelimiter               *string `pulumi:"datePartitionDelimiter"`
+	DatePartitionEnabled                 *bool   `pulumi:"datePartitionEnabled"`
+	DatePartitionSequence                *string `pulumi:"datePartitionSequence"`
+	DatePartitionTimezone                *string `pulumi:"datePartitionTimezone"`
+	DictPageSizeLimit                    *int    `pulumi:"dictPageSizeLimit"`
+	EnableStatistics                     *bool   `pulumi:"enableStatistics"`
+	EncodingType                         *string `pulumi:"encodingType"`
+	EncryptionMode                       *string `pulumi:"encryptionMode"`
+	ExternalTableDefinition              *string `pulumi:"externalTableDefinition"`
+	IgnoreHeaderRows                     *int    `pulumi:"ignoreHeaderRows"`
+	IncludeOpForFullLoad                 *bool   `pulumi:"includeOpForFullLoad"`
+	MaxFileSize                          *int    `pulumi:"maxFileSize"`
+	ParquetTimestampInMillisecond        *bool   `pulumi:"parquetTimestampInMillisecond"`
+	ParquetVersion                       *string `pulumi:"parquetVersion"`
+	PreserveTransactions                 *bool   `pulumi:"preserveTransactions"`
+	Rfc4180                              *bool   `pulumi:"rfc4180"`
+	RowGroupLength                       *int    `pulumi:"rowGroupLength"`
+	ServerSideEncryptionKmsKeyId         *string `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn                 *string `pulumi:"serviceAccessRoleArn"`
+	TimestampColumnName                  *string `pulumi:"timestampColumnName"`
+	UseCsvNoSupValue                     *bool   `pulumi:"useCsvNoSupValue"`
+	UseTaskStartTimeForFullLoadTimestamp *bool   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
 // EndpointS3SettingsInput is an input type that accepts EndpointS3SettingsArgs and EndpointS3SettingsOutput values.
@@ -3077,13 +3108,44 @@ type EndpointS3SettingsInput interface {
 }
 
 type EndpointS3SettingsArgs struct {
-	BucketFolder            pulumi.StringPtrInput `pulumi:"bucketFolder"`
-	BucketName              pulumi.StringPtrInput `pulumi:"bucketName"`
-	CompressionType         pulumi.StringPtrInput `pulumi:"compressionType"`
-	CsvDelimiter            pulumi.StringPtrInput `pulumi:"csvDelimiter"`
-	CsvRowDelimiter         pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
-	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
-	ServiceAccessRoleArn    pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	AddColumnName                        pulumi.BoolPtrInput   `pulumi:"addColumnName"`
+	BucketFolder                         pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	BucketName                           pulumi.StringPtrInput `pulumi:"bucketName"`
+	CannedAclForObjects                  pulumi.StringPtrInput `pulumi:"cannedAclForObjects"`
+	CdcInsertsAndUpdates                 pulumi.BoolPtrInput   `pulumi:"cdcInsertsAndUpdates"`
+	CdcInsertsOnly                       pulumi.BoolPtrInput   `pulumi:"cdcInsertsOnly"`
+	CdcMaxBatchInterval                  pulumi.IntPtrInput    `pulumi:"cdcMaxBatchInterval"`
+	CdcMinFileSize                       pulumi.IntPtrInput    `pulumi:"cdcMinFileSize"`
+	CdcPath                              pulumi.StringPtrInput `pulumi:"cdcPath"`
+	CompressionType                      pulumi.StringPtrInput `pulumi:"compressionType"`
+	CsvDelimiter                         pulumi.StringPtrInput `pulumi:"csvDelimiter"`
+	CsvNoSupValue                        pulumi.StringPtrInput `pulumi:"csvNoSupValue"`
+	CsvNullValue                         pulumi.StringPtrInput `pulumi:"csvNullValue"`
+	CsvRowDelimiter                      pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
+	DataFormat                           pulumi.StringPtrInput `pulumi:"dataFormat"`
+	DataPageSize                         pulumi.IntPtrInput    `pulumi:"dataPageSize"`
+	DatePartitionDelimiter               pulumi.StringPtrInput `pulumi:"datePartitionDelimiter"`
+	DatePartitionEnabled                 pulumi.BoolPtrInput   `pulumi:"datePartitionEnabled"`
+	DatePartitionSequence                pulumi.StringPtrInput `pulumi:"datePartitionSequence"`
+	DatePartitionTimezone                pulumi.StringPtrInput `pulumi:"datePartitionTimezone"`
+	DictPageSizeLimit                    pulumi.IntPtrInput    `pulumi:"dictPageSizeLimit"`
+	EnableStatistics                     pulumi.BoolPtrInput   `pulumi:"enableStatistics"`
+	EncodingType                         pulumi.StringPtrInput `pulumi:"encodingType"`
+	EncryptionMode                       pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	ExternalTableDefinition              pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
+	IgnoreHeaderRows                     pulumi.IntPtrInput    `pulumi:"ignoreHeaderRows"`
+	IncludeOpForFullLoad                 pulumi.BoolPtrInput   `pulumi:"includeOpForFullLoad"`
+	MaxFileSize                          pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	ParquetTimestampInMillisecond        pulumi.BoolPtrInput   `pulumi:"parquetTimestampInMillisecond"`
+	ParquetVersion                       pulumi.StringPtrInput `pulumi:"parquetVersion"`
+	PreserveTransactions                 pulumi.BoolPtrInput   `pulumi:"preserveTransactions"`
+	Rfc4180                              pulumi.BoolPtrInput   `pulumi:"rfc4180"`
+	RowGroupLength                       pulumi.IntPtrInput    `pulumi:"rowGroupLength"`
+	ServerSideEncryptionKmsKeyId         pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn                 pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	TimestampColumnName                  pulumi.StringPtrInput `pulumi:"timestampColumnName"`
+	UseCsvNoSupValue                     pulumi.BoolPtrInput   `pulumi:"useCsvNoSupValue"`
+	UseTaskStartTimeForFullLoadTimestamp pulumi.BoolPtrInput   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
 func (EndpointS3SettingsArgs) ElementType() reflect.Type {
@@ -3163,12 +3225,40 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx c
 	}).(EndpointS3SettingsPtrOutput)
 }
 
+func (o EndpointS3SettingsOutput) AddColumnName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.AddColumnName }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CannedAclForObjects() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CannedAclForObjects }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CdcInsertsAndUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.CdcInsertsAndUpdates }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CdcInsertsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.CdcInsertsOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CdcMaxBatchInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.CdcMaxBatchInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CdcMinFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.CdcMinFileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CdcPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CdcPath }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsOutput) CompressionType() pulumi.StringPtrOutput {
@@ -3179,16 +3269,112 @@ func (o EndpointS3SettingsOutput) CsvDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvDelimiter }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointS3SettingsOutput) CsvNoSupValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvNoSupValue }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) CsvNullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvNullValue }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointS3SettingsOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvRowDelimiter }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DataPageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.DataPageSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DatePartitionDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.DatePartitionDelimiter }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.DatePartitionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DatePartitionSequence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.DatePartitionSequence }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DatePartitionTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.DatePartitionTimezone }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) DictPageSizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.DictPageSizeLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) EnableStatistics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.EnableStatistics }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointS3SettingsOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.IgnoreHeaderRows }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.IncludeOpForFullLoad }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.ParquetTimestampInMillisecond }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) ParquetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ParquetVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) PreserveTransactions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.PreserveTransactions }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) Rfc4180() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.Rfc4180 }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) RowGroupLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.RowGroupLength }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointS3SettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) TimestampColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.TimestampColumnName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.UseCsvNoSupValue }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.UseTaskStartTimeForFullLoadTimestamp }).(pulumi.BoolPtrOutput)
 }
 
 type EndpointS3SettingsPtrOutput struct{ *pulumi.OutputState }
@@ -3215,6 +3401,15 @@ func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
 	}).(EndpointS3SettingsOutput)
 }
 
+func (o EndpointS3SettingsPtrOutput) AddColumnName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AddColumnName
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -3230,6 +3425,60 @@ func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CannedAclForObjects() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAclForObjects
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CdcInsertsAndUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CdcInsertsAndUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CdcInsertsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CdcInsertsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CdcMaxBatchInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CdcMaxBatchInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CdcMinFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CdcMinFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CdcPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CdcPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3251,12 +3500,120 @@ func (o EndpointS3SettingsPtrOutput) CsvDelimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointS3SettingsPtrOutput) CsvNoSupValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvNoSupValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) CsvNullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvNullValue
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointS3SettingsPtrOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
 			return nil
 		}
 		return v.CsvRowDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DataPageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataPageSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DatePartitionDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatePartitionDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DatePartitionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DatePartitionSequence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatePartitionSequence
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DatePartitionTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatePartitionTimezone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) DictPageSizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DictPageSizeLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) EnableStatistics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableStatistics
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncodingType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3269,6 +3626,87 @@ func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointS3SettingsPtrOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreHeaderRows
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOpForFullLoad
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ParquetTimestampInMillisecond
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) ParquetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParquetVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) PreserveTransactions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveTransactions
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) Rfc4180() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Rfc4180
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) RowGroupLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RowGroupLength
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -3276,6 +3714,33 @@ func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutp
 		}
 		return v.ServiceAccessRoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) TimestampColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseCsvNoSupValue
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseTaskStartTimeForFullLoadTimestamp
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EndpointSybaseSettings struct {

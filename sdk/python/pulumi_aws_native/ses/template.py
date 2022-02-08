@@ -32,12 +32,7 @@ class TemplateInitArgs:
         pulumi.set(self, "template", value)
 
 
-warnings.warn("""Template is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Template(pulumi.CustomResource):
-    warnings.warn("""Template is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -76,7 +71,6 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Template is deprecated: Template is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

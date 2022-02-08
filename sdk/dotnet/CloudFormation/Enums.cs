@@ -8,6 +8,73 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
+    /// An alias by which to refer to this extension configuration data.
+    /// </summary>
+    [EnumType]
+    public readonly struct HookTypeConfigConfigurationAlias : IEquatable<HookTypeConfigConfigurationAlias>
+    {
+        private readonly string _value;
+
+        private HookTypeConfigConfigurationAlias(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HookTypeConfigConfigurationAlias Default { get; } = new HookTypeConfigConfigurationAlias("default");
+
+        public static bool operator ==(HookTypeConfigConfigurationAlias left, HookTypeConfigConfigurationAlias right) => left.Equals(right);
+        public static bool operator !=(HookTypeConfigConfigurationAlias left, HookTypeConfigConfigurationAlias right) => !left.Equals(right);
+
+        public static explicit operator string(HookTypeConfigConfigurationAlias value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HookTypeConfigConfigurationAlias other && Equals(other);
+        public bool Equals(HookTypeConfigConfigurationAlias other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope at which the type is visible and usable in CloudFormation operations.
+    /// 
+    /// Valid values include:
+    /// 
+    /// PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+    /// 
+    /// PUBLIC: The type is publically visible and usable within any Amazon account.
+    /// </summary>
+    [EnumType]
+    public readonly struct HookVersionVisibility : IEquatable<HookVersionVisibility>
+    {
+        private readonly string _value;
+
+        private HookVersionVisibility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HookVersionVisibility Public { get; } = new HookVersionVisibility("PUBLIC");
+        public static HookVersionVisibility Private { get; } = new HookVersionVisibility("PRIVATE");
+
+        public static bool operator ==(HookVersionVisibility left, HookVersionVisibility right) => left.Equals(right);
+        public static bool operator !=(HookVersionVisibility left, HookVersionVisibility right) => !left.Equals(right);
+
+        public static explicit operator string(HookVersionVisibility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HookVersionVisibility other && Equals(other);
+        public bool Equals(HookVersionVisibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The scope at which the type is visible and usable in CloudFormation operations.
     /// 
     /// The only allowed value at present is:

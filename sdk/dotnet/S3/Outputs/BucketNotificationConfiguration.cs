@@ -16,18 +16,22 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketNotificationConfiguration
     {
+        public readonly Outputs.BucketEventBridgeConfiguration? EventBridgeConfiguration;
         public readonly ImmutableArray<Outputs.BucketLambdaConfiguration> LambdaConfigurations;
         public readonly ImmutableArray<Outputs.BucketQueueConfiguration> QueueConfigurations;
         public readonly ImmutableArray<Outputs.BucketTopicConfiguration> TopicConfigurations;
 
         [OutputConstructor]
         private BucketNotificationConfiguration(
+            Outputs.BucketEventBridgeConfiguration? eventBridgeConfiguration,
+
             ImmutableArray<Outputs.BucketLambdaConfiguration> lambdaConfigurations,
 
             ImmutableArray<Outputs.BucketQueueConfiguration> queueConfigurations,
 
             ImmutableArray<Outputs.BucketTopicConfiguration> topicConfigurations)
         {
+            EventBridgeConfiguration = eventBridgeConfiguration;
             LambdaConfigurations = lambdaConfigurations;
             QueueConfigurations = queueConfigurations;
             TopicConfigurations = topicConfigurations;

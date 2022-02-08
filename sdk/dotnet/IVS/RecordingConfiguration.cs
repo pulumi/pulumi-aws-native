@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.IVS
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RecordingConfigurationTag>> Tags { get; private set; } = null!;
 
+        [Output("thumbnailConfiguration")]
+        public Output<Outputs.RecordingConfigurationThumbnailConfiguration?> ThumbnailConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a RecordingConfiguration resource with the given unique name, arguments, and options.
@@ -107,6 +110,9 @@ namespace Pulumi.AwsNative.IVS
             get => _tags ?? (_tags = new InputList<Inputs.RecordingConfigurationTagArgs>());
             set => _tags = value;
         }
+
+        [Input("thumbnailConfiguration")]
+        public Input<Inputs.RecordingConfigurationThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }
 
         public RecordingConfigurationArgs()
         {

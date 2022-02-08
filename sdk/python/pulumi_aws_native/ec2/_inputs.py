@@ -101,6 +101,7 @@ __all__ = [
     'LaunchTemplateNetworkInterfaceCountArgs',
     'LaunchTemplateNetworkInterfaceArgs',
     'LaunchTemplatePlacementArgs',
+    'LaunchTemplatePrivateDnsNameOptionsArgs',
     'LaunchTemplatePrivateIpAddArgs',
     'LaunchTemplateSpotOptionsArgs',
     'LaunchTemplateTagSpecificationArgs',
@@ -3025,6 +3026,7 @@ class LaunchTemplateDataArgs:
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
+                 private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3076,6 +3078,8 @@ class LaunchTemplateDataArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
+        if private_dns_name_options is not None:
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if security_group_ids is not None:
@@ -3293,6 +3297,15 @@ class LaunchTemplateDataArgs:
     @placement.setter
     def placement(self, value: Optional[pulumi.Input['LaunchTemplatePlacementArgs']]):
         pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]:
+        return pulumi.get(self, "private_dns_name_options")
+
+    @private_dns_name_options.setter
+    def private_dns_name_options(self, value: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]):
+        pulumi.set(self, "private_dns_name_options", value)
 
     @property
     @pulumi.getter(name="ramDiskId")
@@ -3934,7 +3947,8 @@ class LaunchTemplateMetadataOptionsArgs:
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
-                 http_tokens: Optional[pulumi.Input[str]] = None):
+                 http_tokens: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
         if http_protocol_ipv6 is not None:
@@ -3943,6 +3957,8 @@ class LaunchTemplateMetadataOptionsArgs:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
             pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -3979,6 +3995,15 @@ class LaunchTemplateMetadataOptionsArgs:
     @http_tokens.setter
     def http_tokens(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_tokens", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataTags")
+    def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_metadata_tags")
+
+    @instance_metadata_tags.setter
+    def instance_metadata_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_metadata_tags", value)
 
 
 @pulumi.input_type
@@ -4311,6 +4336,47 @@ class LaunchTemplatePlacementArgs:
     @tenancy.setter
     def tenancy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenancy", value)
+
+
+@pulumi.input_type
+class LaunchTemplatePrivateDnsNameOptionsArgs:
+    def __init__(__self__, *,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 hostname_type: Optional[pulumi.Input[str]] = None):
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @enable_resource_name_dns_a_record.setter
+    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hostname_type")
+
+    @hostname_type.setter
+    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_type", value)
 
 
 @pulumi.input_type

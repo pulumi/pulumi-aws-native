@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'HookVersionLoggingConfig',
     'ManagedExecutionProperties',
     'ResourceVersionLoggingConfig',
     'StackSetAutoDeployment',
@@ -22,6 +23,56 @@ __all__ = [
     'StackTag',
     'TypeActivationLoggingConfig',
 ]
+
+@pulumi.output_type
+class HookVersionLoggingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logRoleArn":
+            suggest = "log_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HookVersionLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HookVersionLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HookVersionLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: Optional[str] = None,
+                 log_role_arn: Optional[str] = None):
+        """
+        :param str log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+        :param str log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_role_arn is not None:
+            pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+        """
+        return pulumi.get(self, "log_role_arn")
+
 
 @pulumi.output_type
 class ManagedExecutionProperties(dict):

@@ -13,6 +13,7 @@ __all__ = [
     'FleetTagsArgs',
     'RobotApplicationRobotSoftwareSuiteArgs',
     'RobotApplicationSourceConfigArgs',
+    'RobotApplicationTagsArgs',
     'RobotTagsArgs',
     'SimulationApplicationRenderingEngineArgs',
     'SimulationApplicationRobotSoftwareSuiteArgs',
@@ -33,52 +34,75 @@ class FleetTagsArgs:
 @pulumi.input_type
 class RobotApplicationRobotSoftwareSuiteArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 version: pulumi.Input[str]):
+                 name: pulumi.Input['RobotApplicationRobotSoftwareSuiteName'],
+                 version: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']] = None):
+        """
+        The robot software suite used by the robot application.
+        :param pulumi.Input['RobotApplicationRobotSoftwareSuiteName'] name: The name of robot software suite.
+        :param pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion'] version: The version of robot software suite.
+        """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['RobotApplicationRobotSoftwareSuiteName']:
+        """
+        The name of robot software suite.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['RobotApplicationRobotSoftwareSuiteName']):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input[str]:
+    def version(self) -> Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]:
+        """
+        The version of robot software suite.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[str]):
+    def version(self, value: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class RobotApplicationSourceConfigArgs:
     def __init__(__self__, *,
-                 architecture: pulumi.Input[str],
+                 architecture: pulumi.Input['RobotApplicationSourceConfigArchitecture'],
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input['RobotApplicationSourceConfigArchitecture'] architecture: The architecture of robot application.
+        :param pulumi.Input[str] s3_bucket: The Arn of the S3Bucket that stores the robot application source.
+        :param pulumi.Input[str] s3_key: The s3 key of robot application source.
+        """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter
-    def architecture(self) -> pulumi.Input[str]:
+    def architecture(self) -> pulumi.Input['RobotApplicationSourceConfigArchitecture']:
+        """
+        The architecture of robot application.
+        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: pulumi.Input[str]):
+    def architecture(self, value: pulumi.Input['RobotApplicationSourceConfigArchitecture']):
         pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[str]:
+        """
+        The Arn of the S3Bucket that stores the robot application source.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -88,11 +112,23 @@ class RobotApplicationSourceConfigArgs:
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> pulumi.Input[str]:
+        """
+        The s3 key of robot application source.
+        """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
     def s3_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_key", value)
+
+
+@pulumi.input_type
+class RobotApplicationTagsArgs:
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
 
 
 @pulumi.input_type

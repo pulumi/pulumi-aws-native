@@ -923,7 +923,8 @@ func (o ClusterConnectivityInfoPtrOutput) PublicAccess() ClusterPublicAccessPtrO
 }
 
 type ClusterEBSStorageInfo struct {
-	VolumeSize *int `pulumi:"volumeSize"`
+	ProvisionedThroughput *ClusterProvisionedThroughput `pulumi:"provisionedThroughput"`
+	VolumeSize            *int                          `pulumi:"volumeSize"`
 }
 
 // ClusterEBSStorageInfoInput is an input type that accepts ClusterEBSStorageInfoArgs and ClusterEBSStorageInfoOutput values.
@@ -938,7 +939,8 @@ type ClusterEBSStorageInfoInput interface {
 }
 
 type ClusterEBSStorageInfoArgs struct {
-	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	ProvisionedThroughput ClusterProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
+	VolumeSize            pulumi.IntPtrInput                   `pulumi:"volumeSize"`
 }
 
 func (ClusterEBSStorageInfoArgs) ElementType() reflect.Type {
@@ -1018,6 +1020,10 @@ func (o ClusterEBSStorageInfoOutput) ToClusterEBSStorageInfoPtrOutputWithContext
 	}).(ClusterEBSStorageInfoPtrOutput)
 }
 
+func (o ClusterEBSStorageInfoOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v ClusterEBSStorageInfo) *ClusterProvisionedThroughput { return v.ProvisionedThroughput }).(ClusterProvisionedThroughputPtrOutput)
+}
+
 func (o ClusterEBSStorageInfoOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterEBSStorageInfo) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
@@ -1044,6 +1050,15 @@ func (o ClusterEBSStorageInfoPtrOutput) Elem() ClusterEBSStorageInfoOutput {
 		var ret ClusterEBSStorageInfo
 		return ret
 	}).(ClusterEBSStorageInfoOutput)
+}
+
+func (o ClusterEBSStorageInfoPtrOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v *ClusterEBSStorageInfo) *ClusterProvisionedThroughput {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedThroughput
+	}).(ClusterProvisionedThroughputPtrOutput)
 }
 
 func (o ClusterEBSStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
@@ -2445,6 +2460,154 @@ func (o ClusterPrometheusPtrOutput) NodeExporter() ClusterNodeExporterPtrOutput 
 	}).(ClusterNodeExporterPtrOutput)
 }
 
+type ClusterProvisionedThroughput struct {
+	Enabled          *bool `pulumi:"enabled"`
+	VolumeThroughput *int  `pulumi:"volumeThroughput"`
+}
+
+// ClusterProvisionedThroughputInput is an input type that accepts ClusterProvisionedThroughputArgs and ClusterProvisionedThroughputOutput values.
+// You can construct a concrete instance of `ClusterProvisionedThroughputInput` via:
+//
+//          ClusterProvisionedThroughputArgs{...}
+type ClusterProvisionedThroughputInput interface {
+	pulumi.Input
+
+	ToClusterProvisionedThroughputOutput() ClusterProvisionedThroughputOutput
+	ToClusterProvisionedThroughputOutputWithContext(context.Context) ClusterProvisionedThroughputOutput
+}
+
+type ClusterProvisionedThroughputArgs struct {
+	Enabled          pulumi.BoolPtrInput `pulumi:"enabled"`
+	VolumeThroughput pulumi.IntPtrInput  `pulumi:"volumeThroughput"`
+}
+
+func (ClusterProvisionedThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterProvisionedThroughput)(nil)).Elem()
+}
+
+func (i ClusterProvisionedThroughputArgs) ToClusterProvisionedThroughputOutput() ClusterProvisionedThroughputOutput {
+	return i.ToClusterProvisionedThroughputOutputWithContext(context.Background())
+}
+
+func (i ClusterProvisionedThroughputArgs) ToClusterProvisionedThroughputOutputWithContext(ctx context.Context) ClusterProvisionedThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProvisionedThroughputOutput)
+}
+
+func (i ClusterProvisionedThroughputArgs) ToClusterProvisionedThroughputPtrOutput() ClusterProvisionedThroughputPtrOutput {
+	return i.ToClusterProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterProvisionedThroughputArgs) ToClusterProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProvisionedThroughputOutput).ToClusterProvisionedThroughputPtrOutputWithContext(ctx)
+}
+
+// ClusterProvisionedThroughputPtrInput is an input type that accepts ClusterProvisionedThroughputArgs, ClusterProvisionedThroughputPtr and ClusterProvisionedThroughputPtrOutput values.
+// You can construct a concrete instance of `ClusterProvisionedThroughputPtrInput` via:
+//
+//          ClusterProvisionedThroughputArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterProvisionedThroughputPtrInput interface {
+	pulumi.Input
+
+	ToClusterProvisionedThroughputPtrOutput() ClusterProvisionedThroughputPtrOutput
+	ToClusterProvisionedThroughputPtrOutputWithContext(context.Context) ClusterProvisionedThroughputPtrOutput
+}
+
+type clusterProvisionedThroughputPtrType ClusterProvisionedThroughputArgs
+
+func ClusterProvisionedThroughputPtr(v *ClusterProvisionedThroughputArgs) ClusterProvisionedThroughputPtrInput {
+	return (*clusterProvisionedThroughputPtrType)(v)
+}
+
+func (*clusterProvisionedThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterProvisionedThroughput)(nil)).Elem()
+}
+
+func (i *clusterProvisionedThroughputPtrType) ToClusterProvisionedThroughputPtrOutput() ClusterProvisionedThroughputPtrOutput {
+	return i.ToClusterProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterProvisionedThroughputPtrType) ToClusterProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProvisionedThroughputPtrOutput)
+}
+
+type ClusterProvisionedThroughputOutput struct{ *pulumi.OutputState }
+
+func (ClusterProvisionedThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterProvisionedThroughput)(nil)).Elem()
+}
+
+func (o ClusterProvisionedThroughputOutput) ToClusterProvisionedThroughputOutput() ClusterProvisionedThroughputOutput {
+	return o
+}
+
+func (o ClusterProvisionedThroughputOutput) ToClusterProvisionedThroughputOutputWithContext(ctx context.Context) ClusterProvisionedThroughputOutput {
+	return o
+}
+
+func (o ClusterProvisionedThroughputOutput) ToClusterProvisionedThroughputPtrOutput() ClusterProvisionedThroughputPtrOutput {
+	return o.ToClusterProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterProvisionedThroughputOutput) ToClusterProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterProvisionedThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterProvisionedThroughput) *ClusterProvisionedThroughput {
+		return &v
+	}).(ClusterProvisionedThroughputPtrOutput)
+}
+
+func (o ClusterProvisionedThroughputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterProvisionedThroughput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterProvisionedThroughputOutput) VolumeThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterProvisionedThroughput) *int { return v.VolumeThroughput }).(pulumi.IntPtrOutput)
+}
+
+type ClusterProvisionedThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterProvisionedThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterProvisionedThroughput)(nil)).Elem()
+}
+
+func (o ClusterProvisionedThroughputPtrOutput) ToClusterProvisionedThroughputPtrOutput() ClusterProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o ClusterProvisionedThroughputPtrOutput) ToClusterProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o ClusterProvisionedThroughputPtrOutput) Elem() ClusterProvisionedThroughputOutput {
+	return o.ApplyT(func(v *ClusterProvisionedThroughput) ClusterProvisionedThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterProvisionedThroughput
+		return ret
+	}).(ClusterProvisionedThroughputOutput)
+}
+
+func (o ClusterProvisionedThroughputPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterProvisionedThroughput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterProvisionedThroughputPtrOutput) VolumeThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterProvisionedThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
 type ClusterPublicAccess struct {
 	Type *string `pulumi:"type"`
 }
@@ -3470,6 +3633,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPtrInput)(nil)).Elem(), ClusterOpenMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrometheusInput)(nil)).Elem(), ClusterPrometheusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrometheusPtrInput)(nil)).Elem(), ClusterPrometheusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProvisionedThroughputInput)(nil)).Elem(), ClusterProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProvisionedThroughputPtrInput)(nil)).Elem(), ClusterProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPublicAccessInput)(nil)).Elem(), ClusterPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPublicAccessPtrInput)(nil)).Elem(), ClusterPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3Input)(nil)).Elem(), ClusterS3Args{})
@@ -3518,6 +3683,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPrometheusOutput{})
 	pulumi.RegisterOutputType(ClusterPrometheusPtrOutput{})
+	pulumi.RegisterOutputType(ClusterProvisionedThroughputOutput{})
+	pulumi.RegisterOutputType(ClusterProvisionedThroughputPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPublicAccessOutput{})
 	pulumi.RegisterOutputType(ClusterPublicAccessPtrOutput{})
 	pulumi.RegisterOutputType(ClusterS3Output{})

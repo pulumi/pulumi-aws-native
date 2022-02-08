@@ -154,6 +154,7 @@ export type BucketNoncurrentVersionTransitionStorageClass = (typeof BucketNoncur
 export const BucketOwnershipControlsRuleObjectOwnership = {
     ObjectWriter: "ObjectWriter",
     BucketOwnerPreferred: "BucketOwnerPreferred",
+    BucketOwnerEnforced: "BucketOwnerEnforced",
 } as const;
 
 /**

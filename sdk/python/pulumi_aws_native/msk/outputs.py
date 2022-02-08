@@ -27,6 +27,7 @@ __all__ = [
     'ClusterNodeExporter',
     'ClusterOpenMonitoring',
     'ClusterPrometheus',
+    'ClusterProvisionedThroughput',
     'ClusterPublicAccess',
     'ClusterS3',
     'ClusterSasl',
@@ -280,7 +281,9 @@ class ClusterEBSStorageInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "volumeSize":
+        if key == "provisionedThroughput":
+            suggest = "provisioned_throughput"
+        elif key == "volumeSize":
             suggest = "volume_size"
 
         if suggest:
@@ -295,9 +298,17 @@ class ClusterEBSStorageInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provisioned_throughput: Optional['outputs.ClusterProvisionedThroughput'] = None,
                  volume_size: Optional[int] = None):
+        if provisioned_throughput is not None:
+            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> Optional['outputs.ClusterProvisionedThroughput']:
+        return pulumi.get(self, "provisioned_throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -600,6 +611,44 @@ class ClusterPrometheus(dict):
     @pulumi.getter(name="nodeExporter")
     def node_exporter(self) -> Optional['outputs.ClusterNodeExporter']:
         return pulumi.get(self, "node_exporter")
+
+
+@pulumi.output_type
+class ClusterProvisionedThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeThroughput":
+            suggest = "volume_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterProvisionedThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterProvisionedThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterProvisionedThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 volume_throughput: Optional[int] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if volume_throughput is not None:
+            pulumi.set(__self__, "volume_throughput", volume_throughput)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="volumeThroughput")
+    def volume_throughput(self) -> Optional[int]:
+        return pulumi.get(self, "volume_throughput")
 
 
 @pulumi.output_type

@@ -27,6 +27,7 @@ type LookupDBClusterArgs struct {
 type LookupDBClusterResult struct {
 	BackupRetentionPeriod       *int           `pulumi:"backupRetentionPeriod"`
 	ClusterResourceId           *string        `pulumi:"clusterResourceId"`
+	CopyTagsToSnapshot          *bool          `pulumi:"copyTagsToSnapshot"`
 	DBClusterParameterGroupName *string        `pulumi:"dBClusterParameterGroupName"`
 	DeletionProtection          *bool          `pulumi:"deletionProtection"`
 	EnableCloudwatchLogsExports []string       `pulumi:"enableCloudwatchLogsExports"`
@@ -78,6 +79,10 @@ func (o LookupDBClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput
 
 func (o LookupDBClusterResultOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDBClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDBClusterResultOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {

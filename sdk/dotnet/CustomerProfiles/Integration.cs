@@ -40,7 +40,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The name of the ObjectType defined for the 3rd party data in Profile Service
         /// </summary>
         [Output("objectTypeName")]
-        public Output<string> ObjectTypeName { get; private set; } = null!;
+        public Output<string?> ObjectTypeName { get; private set; } = null!;
+
+        /// <summary>
+        /// The mapping between 3rd party event types and ObjectType names
+        /// </summary>
+        [Output("objectTypeNames")]
+        public Output<ImmutableArray<Outputs.IntegrationObjectTypeMapping>> ObjectTypeNames { get; private set; } = null!;
 
         /// <summary>
         /// The tags (keys and values) associated with the integration
@@ -111,8 +117,20 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The name of the ObjectType defined for the 3rd party data in Profile Service
         /// </summary>
-        [Input("objectTypeName", required: true)]
-        public Input<string> ObjectTypeName { get; set; } = null!;
+        [Input("objectTypeName")]
+        public Input<string>? ObjectTypeName { get; set; }
+
+        [Input("objectTypeNames")]
+        private InputList<Inputs.IntegrationObjectTypeMappingArgs>? _objectTypeNames;
+
+        /// <summary>
+        /// The mapping between 3rd party event types and ObjectType names
+        /// </summary>
+        public InputList<Inputs.IntegrationObjectTypeMappingArgs> ObjectTypeNames
+        {
+            get => _objectTypeNames ?? (_objectTypeNames = new InputList<Inputs.IntegrationObjectTypeMappingArgs>());
+            set => _objectTypeNames = value;
+        }
 
         [Input("tags")]
         private InputList<Inputs.IntegrationTagArgs>? _tags;

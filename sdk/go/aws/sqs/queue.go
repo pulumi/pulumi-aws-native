@@ -11,27 +11,43 @@ import (
 )
 
 // Resource Type definition for AWS::SQS::Queue
-//
-// Deprecated: Queue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Queue struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput    `pulumi:"arn"`
-	ContentBasedDeduplication     pulumi.BoolPtrOutput   `pulumi:"contentBasedDeduplication"`
-	DeduplicationScope            pulumi.StringPtrOutput `pulumi:"deduplicationScope"`
-	DelaySeconds                  pulumi.IntPtrOutput    `pulumi:"delaySeconds"`
-	FifoQueue                     pulumi.BoolPtrOutput   `pulumi:"fifoQueue"`
-	FifoThroughputLimit           pulumi.StringPtrOutput `pulumi:"fifoThroughputLimit"`
-	KmsDataKeyReusePeriodSeconds  pulumi.IntPtrOutput    `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	KmsMasterKeyId                pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
-	MaximumMessageSize            pulumi.IntPtrOutput    `pulumi:"maximumMessageSize"`
-	MessageRetentionPeriod        pulumi.IntPtrOutput    `pulumi:"messageRetentionPeriod"`
-	QueueName                     pulumi.StringPtrOutput `pulumi:"queueName"`
-	ReceiveMessageWaitTimeSeconds pulumi.IntPtrOutput    `pulumi:"receiveMessageWaitTimeSeconds"`
-	RedriveAllowPolicy            pulumi.AnyOutput       `pulumi:"redriveAllowPolicy"`
-	RedrivePolicy                 pulumi.AnyOutput       `pulumi:"redrivePolicy"`
-	Tags                          QueueTagArrayOutput    `pulumi:"tags"`
-	VisibilityTimeout             pulumi.IntPtrOutput    `pulumi:"visibilityTimeout"`
+	// Amazon Resource Name (ARN) of the queue.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message.
+	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
+	// Specifies whether message deduplication occurs at the message group or queue level. Valid values are messageGroup and queue.
+	DeduplicationScope pulumi.StringPtrOutput `pulumi:"deduplicationScope"`
+	// The time in seconds for which the delivery of all messages in the queue is delayed. You can specify an integer value of 0 to 900 (15 minutes). The default value is 0.
+	DelaySeconds pulumi.IntPtrOutput `pulumi:"delaySeconds"`
+	// If set to true, creates a FIFO queue. If you don't specify this property, Amazon SQS creates a standard queue.
+	FifoQueue pulumi.BoolPtrOutput `pulumi:"fifoQueue"`
+	// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are perQueue and perMessageGroupId. The perMessageGroupId value is allowed only when the value for DeduplicationScope is messageGroup.
+	FifoThroughputLimit pulumi.StringPtrOutput `pulumi:"fifoThroughputLimit"`
+	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrOutput `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK. To use the AWS managed CMK for Amazon SQS, specify the (default) alias alias/aws/sqs.
+	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	// The limit of how many bytes that a message can contain before Amazon SQS rejects it. You can specify an integer value from 1,024 bytes (1 KiB) to 262,144 bytes (256 KiB). The default value is 262,144 (256 KiB).
+	MaximumMessageSize pulumi.IntPtrOutput `pulumi:"maximumMessageSize"`
+	// The number of seconds that Amazon SQS retains a message. You can specify an integer value from 60 seconds (1 minute) to 1,209,600 seconds (14 days). The default value is 345,600 seconds (4 days).
+	MessageRetentionPeriod pulumi.IntPtrOutput `pulumi:"messageRetentionPeriod"`
+	// A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the .fifo suffix.
+	QueueName pulumi.StringPtrOutput `pulumi:"queueName"`
+	// URL of the source queue.
+	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
+	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
+	ReceiveMessageWaitTimeSeconds pulumi.IntPtrOutput `pulumi:"receiveMessageWaitTimeSeconds"`
+	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	RedriveAllowPolicy pulumi.AnyOutput `pulumi:"redriveAllowPolicy"`
+	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+	RedrivePolicy pulumi.AnyOutput `pulumi:"redrivePolicy"`
+	// The tags that you attach to this queue.
+	Tags QueueTagArrayOutput `pulumi:"tags"`
+	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
+	VisibilityTimeout pulumi.IntPtrOutput `pulumi:"visibilityTimeout"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -73,40 +89,70 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	ContentBasedDeduplication     *bool       `pulumi:"contentBasedDeduplication"`
-	DeduplicationScope            *string     `pulumi:"deduplicationScope"`
-	DelaySeconds                  *int        `pulumi:"delaySeconds"`
-	FifoQueue                     *bool       `pulumi:"fifoQueue"`
-	FifoThroughputLimit           *string     `pulumi:"fifoThroughputLimit"`
-	KmsDataKeyReusePeriodSeconds  *int        `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	KmsMasterKeyId                *string     `pulumi:"kmsMasterKeyId"`
-	MaximumMessageSize            *int        `pulumi:"maximumMessageSize"`
-	MessageRetentionPeriod        *int        `pulumi:"messageRetentionPeriod"`
-	QueueName                     *string     `pulumi:"queueName"`
-	ReceiveMessageWaitTimeSeconds *int        `pulumi:"receiveMessageWaitTimeSeconds"`
-	RedriveAllowPolicy            interface{} `pulumi:"redriveAllowPolicy"`
-	RedrivePolicy                 interface{} `pulumi:"redrivePolicy"`
-	Tags                          []QueueTag  `pulumi:"tags"`
-	VisibilityTimeout             *int        `pulumi:"visibilityTimeout"`
+	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message.
+	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
+	// Specifies whether message deduplication occurs at the message group or queue level. Valid values are messageGroup and queue.
+	DeduplicationScope *string `pulumi:"deduplicationScope"`
+	// The time in seconds for which the delivery of all messages in the queue is delayed. You can specify an integer value of 0 to 900 (15 minutes). The default value is 0.
+	DelaySeconds *int `pulumi:"delaySeconds"`
+	// If set to true, creates a FIFO queue. If you don't specify this property, Amazon SQS creates a standard queue.
+	FifoQueue *bool `pulumi:"fifoQueue"`
+	// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are perQueue and perMessageGroupId. The perMessageGroupId value is allowed only when the value for DeduplicationScope is messageGroup.
+	FifoThroughputLimit *string `pulumi:"fifoThroughputLimit"`
+	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
+	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK. To use the AWS managed CMK for Amazon SQS, specify the (default) alias alias/aws/sqs.
+	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The limit of how many bytes that a message can contain before Amazon SQS rejects it. You can specify an integer value from 1,024 bytes (1 KiB) to 262,144 bytes (256 KiB). The default value is 262,144 (256 KiB).
+	MaximumMessageSize *int `pulumi:"maximumMessageSize"`
+	// The number of seconds that Amazon SQS retains a message. You can specify an integer value from 60 seconds (1 minute) to 1,209,600 seconds (14 days). The default value is 345,600 seconds (4 days).
+	MessageRetentionPeriod *int `pulumi:"messageRetentionPeriod"`
+	// A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the .fifo suffix.
+	QueueName *string `pulumi:"queueName"`
+	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
+	ReceiveMessageWaitTimeSeconds *int `pulumi:"receiveMessageWaitTimeSeconds"`
+	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	RedriveAllowPolicy interface{} `pulumi:"redriveAllowPolicy"`
+	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+	RedrivePolicy interface{} `pulumi:"redrivePolicy"`
+	// The tags that you attach to this queue.
+	Tags []QueueTag `pulumi:"tags"`
+	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
+	VisibilityTimeout *int `pulumi:"visibilityTimeout"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	ContentBasedDeduplication     pulumi.BoolPtrInput
-	DeduplicationScope            pulumi.StringPtrInput
-	DelaySeconds                  pulumi.IntPtrInput
-	FifoQueue                     pulumi.BoolPtrInput
-	FifoThroughputLimit           pulumi.StringPtrInput
-	KmsDataKeyReusePeriodSeconds  pulumi.IntPtrInput
-	KmsMasterKeyId                pulumi.StringPtrInput
-	MaximumMessageSize            pulumi.IntPtrInput
-	MessageRetentionPeriod        pulumi.IntPtrInput
-	QueueName                     pulumi.StringPtrInput
+	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message.
+	ContentBasedDeduplication pulumi.BoolPtrInput
+	// Specifies whether message deduplication occurs at the message group or queue level. Valid values are messageGroup and queue.
+	DeduplicationScope pulumi.StringPtrInput
+	// The time in seconds for which the delivery of all messages in the queue is delayed. You can specify an integer value of 0 to 900 (15 minutes). The default value is 0.
+	DelaySeconds pulumi.IntPtrInput
+	// If set to true, creates a FIFO queue. If you don't specify this property, Amazon SQS creates a standard queue.
+	FifoQueue pulumi.BoolPtrInput
+	// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are perQueue and perMessageGroupId. The perMessageGroupId value is allowed only when the value for DeduplicationScope is messageGroup.
+	FifoThroughputLimit pulumi.StringPtrInput
+	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput
+	// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK. To use the AWS managed CMK for Amazon SQS, specify the (default) alias alias/aws/sqs.
+	KmsMasterKeyId pulumi.StringPtrInput
+	// The limit of how many bytes that a message can contain before Amazon SQS rejects it. You can specify an integer value from 1,024 bytes (1 KiB) to 262,144 bytes (256 KiB). The default value is 262,144 (256 KiB).
+	MaximumMessageSize pulumi.IntPtrInput
+	// The number of seconds that Amazon SQS retains a message. You can specify an integer value from 60 seconds (1 minute) to 1,209,600 seconds (14 days). The default value is 345,600 seconds (4 days).
+	MessageRetentionPeriod pulumi.IntPtrInput
+	// A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the .fifo suffix.
+	QueueName pulumi.StringPtrInput
+	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
 	ReceiveMessageWaitTimeSeconds pulumi.IntPtrInput
-	RedriveAllowPolicy            pulumi.Input
-	RedrivePolicy                 pulumi.Input
-	Tags                          QueueTagArrayInput
-	VisibilityTimeout             pulumi.IntPtrInput
+	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	RedriveAllowPolicy pulumi.Input
+	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+	RedrivePolicy pulumi.Input
+	// The tags that you attach to this queue.
+	Tags QueueTagArrayInput
+	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
+	VisibilityTimeout pulumi.IntPtrInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {

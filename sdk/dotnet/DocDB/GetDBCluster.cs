@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.DocDB
     {
         public readonly int? BackupRetentionPeriod;
         public readonly string? ClusterResourceId;
+        public readonly bool? CopyTagsToSnapshot;
         public readonly string? DBClusterParameterGroupName;
         public readonly bool? DeletionProtection;
         public readonly ImmutableArray<string> EnableCloudwatchLogsExports;
@@ -69,6 +70,8 @@ namespace Pulumi.AwsNative.DocDB
             int? backupRetentionPeriod,
 
             string? clusterResourceId,
+
+            bool? copyTagsToSnapshot,
 
             string? dBClusterParameterGroupName,
 
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.DocDB
         {
             BackupRetentionPeriod = backupRetentionPeriod;
             ClusterResourceId = clusterResourceId;
+            CopyTagsToSnapshot = copyTagsToSnapshot;
             DBClusterParameterGroupName = dBClusterParameterGroupName;
             DeletionProtection = deletionProtection;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;

@@ -777,6 +777,106 @@ func (o IntegrationMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationObjectTypeMapping struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// IntegrationObjectTypeMappingInput is an input type that accepts IntegrationObjectTypeMappingArgs and IntegrationObjectTypeMappingOutput values.
+// You can construct a concrete instance of `IntegrationObjectTypeMappingInput` via:
+//
+//          IntegrationObjectTypeMappingArgs{...}
+type IntegrationObjectTypeMappingInput interface {
+	pulumi.Input
+
+	ToIntegrationObjectTypeMappingOutput() IntegrationObjectTypeMappingOutput
+	ToIntegrationObjectTypeMappingOutputWithContext(context.Context) IntegrationObjectTypeMappingOutput
+}
+
+type IntegrationObjectTypeMappingArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IntegrationObjectTypeMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationObjectTypeMapping)(nil)).Elem()
+}
+
+func (i IntegrationObjectTypeMappingArgs) ToIntegrationObjectTypeMappingOutput() IntegrationObjectTypeMappingOutput {
+	return i.ToIntegrationObjectTypeMappingOutputWithContext(context.Background())
+}
+
+func (i IntegrationObjectTypeMappingArgs) ToIntegrationObjectTypeMappingOutputWithContext(ctx context.Context) IntegrationObjectTypeMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationObjectTypeMappingOutput)
+}
+
+// IntegrationObjectTypeMappingArrayInput is an input type that accepts IntegrationObjectTypeMappingArray and IntegrationObjectTypeMappingArrayOutput values.
+// You can construct a concrete instance of `IntegrationObjectTypeMappingArrayInput` via:
+//
+//          IntegrationObjectTypeMappingArray{ IntegrationObjectTypeMappingArgs{...} }
+type IntegrationObjectTypeMappingArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationObjectTypeMappingArrayOutput() IntegrationObjectTypeMappingArrayOutput
+	ToIntegrationObjectTypeMappingArrayOutputWithContext(context.Context) IntegrationObjectTypeMappingArrayOutput
+}
+
+type IntegrationObjectTypeMappingArray []IntegrationObjectTypeMappingInput
+
+func (IntegrationObjectTypeMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationObjectTypeMapping)(nil)).Elem()
+}
+
+func (i IntegrationObjectTypeMappingArray) ToIntegrationObjectTypeMappingArrayOutput() IntegrationObjectTypeMappingArrayOutput {
+	return i.ToIntegrationObjectTypeMappingArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationObjectTypeMappingArray) ToIntegrationObjectTypeMappingArrayOutputWithContext(ctx context.Context) IntegrationObjectTypeMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationObjectTypeMappingArrayOutput)
+}
+
+type IntegrationObjectTypeMappingOutput struct{ *pulumi.OutputState }
+
+func (IntegrationObjectTypeMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationObjectTypeMapping)(nil)).Elem()
+}
+
+func (o IntegrationObjectTypeMappingOutput) ToIntegrationObjectTypeMappingOutput() IntegrationObjectTypeMappingOutput {
+	return o
+}
+
+func (o IntegrationObjectTypeMappingOutput) ToIntegrationObjectTypeMappingOutputWithContext(ctx context.Context) IntegrationObjectTypeMappingOutput {
+	return o
+}
+
+func (o IntegrationObjectTypeMappingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationObjectTypeMapping) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o IntegrationObjectTypeMappingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationObjectTypeMapping) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IntegrationObjectTypeMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationObjectTypeMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationObjectTypeMapping)(nil)).Elem()
+}
+
+func (o IntegrationObjectTypeMappingArrayOutput) ToIntegrationObjectTypeMappingArrayOutput() IntegrationObjectTypeMappingArrayOutput {
+	return o
+}
+
+func (o IntegrationObjectTypeMappingArrayOutput) ToIntegrationObjectTypeMappingArrayOutputWithContext(ctx context.Context) IntegrationObjectTypeMappingArrayOutput {
+	return o
+}
+
+func (o IntegrationObjectTypeMappingArrayOutput) Index(i pulumi.IntInput) IntegrationObjectTypeMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationObjectTypeMapping {
+		return vs[0].([]IntegrationObjectTypeMapping)[vs[1].(int)]
+	}).(IntegrationObjectTypeMappingOutput)
+}
+
 type IntegrationS3SourceProperties struct {
 	BucketName   string  `pulumi:"bucketName"`
 	BucketPrefix *string `pulumi:"bucketPrefix"`
@@ -3153,6 +3253,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationIncrementalPullConfigPtrInput)(nil)).Elem(), IntegrationIncrementalPullConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMarketoSourcePropertiesInput)(nil)).Elem(), IntegrationMarketoSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMarketoSourcePropertiesPtrInput)(nil)).Elem(), IntegrationMarketoSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationObjectTypeMappingInput)(nil)).Elem(), IntegrationObjectTypeMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationObjectTypeMappingArrayInput)(nil)).Elem(), IntegrationObjectTypeMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationS3SourcePropertiesInput)(nil)).Elem(), IntegrationS3SourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationS3SourcePropertiesPtrInput)(nil)).Elem(), IntegrationS3SourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationSalesforceSourcePropertiesInput)(nil)).Elem(), IntegrationSalesforceSourcePropertiesArgs{})
@@ -3197,6 +3299,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationIncrementalPullConfigPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationMarketoSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationMarketoSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationObjectTypeMappingOutput{})
+	pulumi.RegisterOutputType(IntegrationObjectTypeMappingArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationS3SourcePropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationS3SourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationSalesforceSourcePropertiesOutput{})

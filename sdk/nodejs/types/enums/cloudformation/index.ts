@@ -2,6 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const HookTypeConfigConfigurationAlias = {
+    Default: "default",
+} as const;
+
+/**
+ * An alias by which to refer to this extension configuration data.
+ */
+export type HookTypeConfigConfigurationAlias = (typeof HookTypeConfigConfigurationAlias)[keyof typeof HookTypeConfigConfigurationAlias];
+
+export const HookVersionVisibility = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+/**
+ * The scope at which the type is visible and usable in CloudFormation operations.
+ *
+ * Valid values include:
+ *
+ * PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+ *
+ * PUBLIC: The type is publically visible and usable within any Amazon account.
+ */
+export type HookVersionVisibility = (typeof HookVersionVisibility)[keyof typeof HookVersionVisibility];
+
 export const ModuleVersionVisibility = {
     Private: "PRIVATE",
 } as const;

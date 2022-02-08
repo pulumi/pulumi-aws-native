@@ -705,6 +705,7 @@ _utilities.register(
   "mod": "appintegrations",
   "fqn": "pulumi_aws_native.appintegrations",
   "classes": {
+   "aws-native:appintegrations:DataIntegration": "DataIntegration",
    "aws-native:appintegrations:EventIntegration": "EventIntegration"
   }
  },
@@ -744,7 +745,8 @@ _utilities.register(
   "mod": "apprunner",
   "fqn": "pulumi_aws_native.apprunner",
   "classes": {
-   "aws-native:apprunner:Service": "Service"
+   "aws-native:apprunner:Service": "Service",
+   "aws-native:apprunner:VpcConnector": "VpcConnector"
   }
  },
  {
@@ -921,6 +923,9 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cloudformation",
   "classes": {
    "aws-native:cloudformation:CustomResource": "CustomResource",
+   "aws-native:cloudformation:HookDefaultVersion": "HookDefaultVersion",
+   "aws-native:cloudformation:HookTypeConfig": "HookTypeConfig",
+   "aws-native:cloudformation:HookVersion": "HookVersion",
    "aws-native:cloudformation:Macro": "Macro",
    "aws-native:cloudformation:ModuleDefaultVersion": "ModuleDefaultVersion",
    "aws-native:cloudformation:ModuleVersion": "ModuleVersion",

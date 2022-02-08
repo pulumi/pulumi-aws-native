@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         public readonly Outputs.RuleRetryPolicy? RetryPolicy;
         public readonly string? RoleArn;
         public readonly Outputs.RuleRunCommandParameters? RunCommandParameters;
+        public readonly Outputs.RuleSageMakerPipelineParameters? SageMakerPipelineParameters;
         public readonly Outputs.RuleSqsParameters? SqsParameters;
 
         [OutputConstructor]
@@ -59,6 +60,8 @@ namespace Pulumi.AwsNative.Events.Outputs
 
             Outputs.RuleRunCommandParameters? runCommandParameters,
 
+            Outputs.RuleSageMakerPipelineParameters? sageMakerPipelineParameters,
+
             Outputs.RuleSqsParameters? sqsParameters)
         {
             Arn = arn;
@@ -75,6 +78,7 @@ namespace Pulumi.AwsNative.Events.Outputs
             RetryPolicy = retryPolicy;
             RoleArn = roleArn;
             RunCommandParameters = runCommandParameters;
+            SageMakerPipelineParameters = sageMakerPipelineParameters;
             SqsParameters = sqsParameters;
         }
     }

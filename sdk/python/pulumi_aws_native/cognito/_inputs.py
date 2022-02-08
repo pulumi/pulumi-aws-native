@@ -1265,11 +1265,14 @@ class UserPoolSchemaAttributeArgs:
 class UserPoolSmsConfigurationArgs:
     def __init__(__self__, *,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 sns_caller_arn: Optional[pulumi.Input[str]] = None):
+                 sns_caller_arn: Optional[pulumi.Input[str]] = None,
+                 sns_region: Optional[pulumi.Input[str]] = None):
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if sns_caller_arn is not None:
             pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
+        if sns_region is not None:
+            pulumi.set(__self__, "sns_region", sns_region)
 
     @property
     @pulumi.getter(name="externalId")
@@ -1288,6 +1291,15 @@ class UserPoolSmsConfigurationArgs:
     @sns_caller_arn.setter
     def sns_caller_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sns_caller_arn", value)
+
+    @property
+    @pulumi.getter(name="snsRegion")
+    def sns_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sns_region")
+
+    @sns_region.setter
+    def sns_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sns_region", value)
 
 
 @pulumi.input_type

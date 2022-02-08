@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./customResource";
 export * from "./getCustomResource";
+export * from "./getHookDefaultVersion";
+export * from "./getHookTypeConfig";
+export * from "./getHookVersion";
 export * from "./getMacro";
 export * from "./getModuleDefaultVersion";
 export * from "./getModuleVersion";
@@ -19,6 +22,9 @@ export * from "./getStackSet";
 export * from "./getTypeActivation";
 export * from "./getWaitCondition";
 export * from "./getWaitConditionHandle";
+export * from "./hookDefaultVersion";
+export * from "./hookTypeConfig";
+export * from "./hookVersion";
 export * from "./macro";
 export * from "./moduleDefaultVersion";
 export * from "./moduleVersion";
@@ -37,6 +43,9 @@ export * from "../types/enums/cloudformation";
 
 // Import resources to register:
 import { CustomResource } from "./customResource";
+import { HookDefaultVersion } from "./hookDefaultVersion";
+import { HookTypeConfig } from "./hookTypeConfig";
+import { HookVersion } from "./hookVersion";
 import { Macro } from "./macro";
 import { ModuleDefaultVersion } from "./moduleDefaultVersion";
 import { ModuleVersion } from "./moduleVersion";
@@ -56,6 +65,12 @@ const _module = {
         switch (type) {
             case "aws-native:cloudformation:CustomResource":
                 return new CustomResource(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:HookDefaultVersion":
+                return new HookDefaultVersion(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:HookTypeConfig":
+                return new HookTypeConfig(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:HookVersion":
+                return new HookVersion(name, <any>undefined, { urn })
             case "aws-native:cloudformation:Macro":
                 return new Macro(name, <any>undefined, { urn })
             case "aws-native:cloudformation:ModuleDefaultVersion":

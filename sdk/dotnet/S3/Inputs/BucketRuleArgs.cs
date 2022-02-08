@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("noncurrentVersionExpiration")]
+        public Input<Inputs.BucketNoncurrentVersionExpirationArgs>? NoncurrentVersionExpiration { get; set; }
+
         [Input("noncurrentVersionExpirationInDays")]
         public Input<int>? NoncurrentVersionExpirationInDays { get; set; }
 
@@ -43,6 +46,12 @@ namespace Pulumi.AwsNative.S3.Inputs
             get => _noncurrentVersionTransitions ?? (_noncurrentVersionTransitions = new InputList<Inputs.BucketNoncurrentVersionTransitionArgs>());
             set => _noncurrentVersionTransitions = value;
         }
+
+        [Input("objectSizeGreaterThan")]
+        public Input<string>? ObjectSizeGreaterThan { get; set; }
+
+        [Input("objectSizeLessThan")]
+        public Input<string>? ObjectSizeLessThan { get; set; }
 
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

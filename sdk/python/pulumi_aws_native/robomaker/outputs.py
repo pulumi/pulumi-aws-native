@@ -13,6 +13,7 @@ __all__ = [
     'FleetTags',
     'RobotApplicationRobotSoftwareSuite',
     'RobotApplicationSourceConfig',
+    'RobotApplicationTags',
     'RobotTags',
     'SimulationApplicationRenderingEngine',
     'SimulationApplicationRobotSoftwareSuite',
@@ -35,20 +36,35 @@ class FleetTags(dict):
 
 @pulumi.output_type
 class RobotApplicationRobotSoftwareSuite(dict):
+    """
+    The robot software suite used by the robot application.
+    """
     def __init__(__self__, *,
-                 name: str,
-                 version: str):
+                 name: 'RobotApplicationRobotSoftwareSuiteName',
+                 version: Optional['RobotApplicationRobotSoftwareSuiteVersion'] = None):
+        """
+        The robot software suite used by the robot application.
+        :param 'RobotApplicationRobotSoftwareSuiteName' name: The name of robot software suite.
+        :param 'RobotApplicationRobotSoftwareSuiteVersion' version: The version of robot software suite.
+        """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> 'RobotApplicationRobotSoftwareSuiteName':
+        """
+        The name of robot software suite.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional['RobotApplicationRobotSoftwareSuiteVersion']:
+        """
+        The version of robot software suite.
+        """
         return pulumi.get(self, "version")
 
 
@@ -74,27 +90,53 @@ class RobotApplicationSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 architecture: str,
+                 architecture: 'RobotApplicationSourceConfigArchitecture',
                  s3_bucket: str,
                  s3_key: str):
+        """
+        :param 'RobotApplicationSourceConfigArchitecture' architecture: The architecture of robot application.
+        :param str s3_bucket: The Arn of the S3Bucket that stores the robot application source.
+        :param str s3_key: The s3 key of robot application source.
+        """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter
-    def architecture(self) -> str:
+    def architecture(self) -> 'RobotApplicationSourceConfigArchitecture':
+        """
+        The architecture of robot application.
+        """
         return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
+        """
+        The Arn of the S3Bucket that stores the robot application source.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> str:
+        """
+        The s3 key of robot application source.
+        """
         return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class RobotApplicationTags(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
 
 
 @pulumi.output_type

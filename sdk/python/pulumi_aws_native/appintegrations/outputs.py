@@ -10,11 +10,105 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DataIntegrationScheduleConfig',
+    'DataIntegrationTag',
     'EventIntegrationAssociation',
     'EventIntegrationEventFilter',
     'EventIntegrationMetadata',
     'EventIntegrationTag',
 ]
+
+@pulumi.output_type
+class DataIntegrationScheduleConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstExecutionFrom":
+            suggest = "first_execution_from"
+        elif key == "scheduleExpression":
+            suggest = "schedule_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataIntegrationScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataIntegrationScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataIntegrationScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 first_execution_from: str,
+                 object: str,
+                 schedule_expression: str):
+        """
+        :param str first_execution_from: The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+        :param str object: The name of the object to pull from the data source.
+        :param str schedule_expression: How often the data should be pulled from data source.
+        """
+        pulumi.set(__self__, "first_execution_from", first_execution_from)
+        pulumi.set(__self__, "object", object)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="firstExecutionFrom")
+    def first_execution_from(self) -> str:
+        """
+        The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+        """
+        return pulumi.get(self, "first_execution_from")
+
+    @property
+    @pulumi.getter
+    def object(self) -> str:
+        """
+        The name of the object to pull from the data source.
+        """
+        return pulumi.get(self, "object")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        """
+        How often the data should be pulled from data source.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+
+@pulumi.output_type
+class DataIntegrationTag(dict):
+    """
+    A label for tagging DataIntegration resources
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A label for tagging DataIntegration resources
+        :param str key: A key to identify the tag.
+        :param str value: Corresponding tag value for the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        A key to identify the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Corresponding tag value for the key.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class EventIntegrationAssociation(dict):

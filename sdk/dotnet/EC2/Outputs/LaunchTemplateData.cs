@@ -36,6 +36,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly Outputs.LaunchTemplateMonitoring? Monitoring;
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
         public readonly Outputs.LaunchTemplatePlacement? Placement;
+        public readonly Outputs.LaunchTemplatePrivateDnsNameOptions? PrivateDnsNameOptions;
         public readonly string? RamDiskId;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -90,6 +91,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             Outputs.LaunchTemplatePlacement? placement,
 
+            Outputs.LaunchTemplatePrivateDnsNameOptions? privateDnsNameOptions,
+
             string? ramDiskId,
 
             ImmutableArray<string> securityGroupIds,
@@ -123,6 +126,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             Monitoring = monitoring;
             NetworkInterfaces = networkInterfaces;
             Placement = placement;
+            PrivateDnsNameOptions = privateDnsNameOptions;
             RamDiskId = ramDiskId;
             SecurityGroupIds = securityGroupIds;
             SecurityGroups = securityGroups;

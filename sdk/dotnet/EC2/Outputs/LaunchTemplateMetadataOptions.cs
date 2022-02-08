@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? HttpProtocolIpv6;
         public readonly int? HttpPutResponseHopLimit;
         public readonly string? HttpTokens;
+        public readonly string? InstanceMetadataTags;
 
         [OutputConstructor]
         private LaunchTemplateMetadataOptions(
@@ -26,12 +27,15 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? httpPutResponseHopLimit,
 
-            string? httpTokens)
+            string? httpTokens,
+
+            string? instanceMetadataTags)
         {
             HttpEndpoint = httpEndpoint;
             HttpProtocolIpv6 = httpProtocolIpv6;
             HttpPutResponseHopLimit = httpPutResponseHopLimit;
             HttpTokens = httpTokens;
+            InstanceMetadataTags = instanceMetadataTags;
         }
     }
 }

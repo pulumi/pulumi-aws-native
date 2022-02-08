@@ -289,25 +289,118 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ExternalTableDefinition" : {
+        "TimestampColumnName" : {
           "type" : "string"
+        },
+        "EnableStatistics" : {
+          "type" : "boolean"
+        },
+        "DatePartitionSequence" : {
+          "type" : "string"
+        },
+        "IncludeOpForFullLoad" : {
+          "type" : "boolean"
+        },
+        "CsvNullValue" : {
+          "type" : "string"
+        },
+        "CdcInsertsAndUpdates" : {
+          "type" : "boolean"
         },
         "BucketName" : {
           "type" : "string"
         },
-        "BucketFolder" : {
+        "ServerSideEncryptionKmsKeyId" : {
           "type" : "string"
         },
-        "CsvRowDelimiter" : {
+        "UseTaskStartTimeForFullLoadTimestamp" : {
+          "type" : "boolean"
+        },
+        "DataFormat" : {
           "type" : "string"
         },
         "CsvDelimiter" : {
           "type" : "string"
         },
+        "IgnoreHeaderRows" : {
+          "type" : "integer"
+        },
+        "CannedAclForObjects" : {
+          "type" : "string"
+        },
+        "Rfc4180" : {
+          "type" : "boolean"
+        },
         "ServiceAccessRoleArn" : {
           "type" : "string"
         },
+        "ParquetTimestampInMillisecond" : {
+          "type" : "boolean"
+        },
+        "PreserveTransactions" : {
+          "type" : "boolean"
+        },
+        "BucketFolder" : {
+          "type" : "string"
+        },
+        "DatePartitionDelimiter" : {
+          "type" : "string"
+        },
+        "EncodingType" : {
+          "type" : "string"
+        },
+        "ParquetVersion" : {
+          "type" : "string"
+        },
+        "AddColumnName" : {
+          "type" : "boolean"
+        },
+        "CdcMinFileSize" : {
+          "type" : "integer"
+        },
+        "ExternalTableDefinition" : {
+          "type" : "string"
+        },
+        "UseCsvNoSupValue" : {
+          "type" : "boolean"
+        },
+        "MaxFileSize" : {
+          "type" : "integer"
+        },
+        "CsvNoSupValue" : {
+          "type" : "string"
+        },
+        "CdcPath" : {
+          "type" : "string"
+        },
+        "CsvRowDelimiter" : {
+          "type" : "string"
+        },
+        "RowGroupLength" : {
+          "type" : "integer"
+        },
+        "CdcMaxBatchInterval" : {
+          "type" : "integer"
+        },
+        "DataPageSize" : {
+          "type" : "integer"
+        },
+        "DictPageSizeLimit" : {
+          "type" : "integer"
+        },
+        "DatePartitionEnabled" : {
+          "type" : "boolean"
+        },
         "CompressionType" : {
+          "type" : "string"
+        },
+        "DatePartitionTimezone" : {
+          "type" : "string"
+        },
+        "CdcInsertsOnly" : {
+          "type" : "boolean"
+        },
+        "EncryptionMode" : {
           "type" : "string"
         }
       }

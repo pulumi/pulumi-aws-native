@@ -4569,6 +4569,7 @@ func (o UserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) UserPoolSch
 type UserPoolSmsConfiguration struct {
 	ExternalId   *string `pulumi:"externalId"`
 	SnsCallerArn *string `pulumi:"snsCallerArn"`
+	SnsRegion    *string `pulumi:"snsRegion"`
 }
 
 // UserPoolSmsConfigurationInput is an input type that accepts UserPoolSmsConfigurationArgs and UserPoolSmsConfigurationOutput values.
@@ -4585,6 +4586,7 @@ type UserPoolSmsConfigurationInput interface {
 type UserPoolSmsConfigurationArgs struct {
 	ExternalId   pulumi.StringPtrInput `pulumi:"externalId"`
 	SnsCallerArn pulumi.StringPtrInput `pulumi:"snsCallerArn"`
+	SnsRegion    pulumi.StringPtrInput `pulumi:"snsRegion"`
 }
 
 func (UserPoolSmsConfigurationArgs) ElementType() reflect.Type {
@@ -4672,6 +4674,10 @@ func (o UserPoolSmsConfigurationOutput) SnsCallerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) *string { return v.SnsCallerArn }).(pulumi.StringPtrOutput)
 }
 
+func (o UserPoolSmsConfigurationOutput) SnsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolSmsConfiguration) *string { return v.SnsRegion }).(pulumi.StringPtrOutput)
+}
+
 type UserPoolSmsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolSmsConfigurationPtrOutput) ElementType() reflect.Type {
@@ -4711,6 +4717,15 @@ func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.SnsCallerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolSmsConfigurationPtrOutput) SnsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnsRegion
 	}).(pulumi.StringPtrOutput)
 }
 

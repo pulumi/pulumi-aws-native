@@ -2,6 +2,39 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const RobotApplicationRobotSoftwareSuiteName = {
+    Ros: "ROS",
+    Ros2: "ROS2",
+    General: "General",
+} as const;
+
+/**
+ * The name of robot software suite.
+ */
+export type RobotApplicationRobotSoftwareSuiteName = (typeof RobotApplicationRobotSoftwareSuiteName)[keyof typeof RobotApplicationRobotSoftwareSuiteName];
+
+export const RobotApplicationRobotSoftwareSuiteVersion = {
+    Kinetic: "Kinetic",
+    Melodic: "Melodic",
+    Dashing: "Dashing",
+} as const;
+
+/**
+ * The version of robot software suite.
+ */
+export type RobotApplicationRobotSoftwareSuiteVersion = (typeof RobotApplicationRobotSoftwareSuiteVersion)[keyof typeof RobotApplicationRobotSoftwareSuiteVersion];
+
+export const RobotApplicationSourceConfigArchitecture = {
+    X8664: "X86_64",
+    Arm64: "ARM64",
+    Armhf: "ARMHF",
+} as const;
+
+/**
+ * The architecture of robot application.
+ */
+export type RobotApplicationSourceConfigArchitecture = (typeof RobotApplicationSourceConfigArchitecture)[keyof typeof RobotApplicationSourceConfigArchitecture];
+
 export const RobotArchitecture = {
     X8664: "X86_64",
     Arm64: "ARM64",

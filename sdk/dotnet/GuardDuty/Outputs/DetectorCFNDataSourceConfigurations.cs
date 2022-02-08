@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCFNDataSourceConfigurations
     {
+        public readonly Outputs.DetectorCFNKubernetesConfiguration? Kubernetes;
         public readonly Outputs.DetectorCFNS3LogsConfiguration? S3Logs;
 
         [OutputConstructor]
-        private DetectorCFNDataSourceConfigurations(Outputs.DetectorCFNS3LogsConfiguration? s3Logs)
+        private DetectorCFNDataSourceConfigurations(
+            Outputs.DetectorCFNKubernetesConfiguration? kubernetes,
+
+            Outputs.DetectorCFNS3LogsConfiguration? s3Logs)
         {
+            Kubernetes = kubernetes;
             S3Logs = s3Logs;
         }
     }

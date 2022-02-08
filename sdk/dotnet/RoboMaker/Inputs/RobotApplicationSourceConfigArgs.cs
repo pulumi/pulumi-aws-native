@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
 
     public sealed class RobotApplicationSourceConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The architecture of robot application.
+        /// </summary>
         [Input("architecture", required: true)]
-        public Input<string> Architecture { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.RobotApplicationSourceConfigArchitecture> Architecture { get; set; } = null!;
 
+        /// <summary>
+        /// The Arn of the S3Bucket that stores the robot application source.
+        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The s3 key of robot application source.
+        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 

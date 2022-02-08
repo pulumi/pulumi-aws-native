@@ -17,21 +17,26 @@ __all__ = ['IntegrationArgs', 'Integration']
 class IntegrationArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
-                 object_type_name: pulumi.Input[str],
                  flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
+                 object_type_name: Optional[pulumi.Input[str]] = None,
+                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "object_type_name", object_type_name)
         if flow_definition is not None:
             pulumi.set(__self__, "flow_definition", flow_definition)
+        if object_type_name is not None:
+            pulumi.set(__self__, "object_type_name", object_type_name)
+        if object_type_names is not None:
+            pulumi.set(__self__, "object_type_names", object_type_names)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if uri is not None:
@@ -50,18 +55,6 @@ class IntegrationArgs:
         pulumi.set(self, "domain_name", value)
 
     @property
-    @pulumi.getter(name="objectTypeName")
-    def object_type_name(self) -> pulumi.Input[str]:
-        """
-        The name of the ObjectType defined for the 3rd party data in Profile Service
-        """
-        return pulumi.get(self, "object_type_name")
-
-    @object_type_name.setter
-    def object_type_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object_type_name", value)
-
-    @property
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]:
         return pulumi.get(self, "flow_definition")
@@ -69,6 +62,30 @@ class IntegrationArgs:
     @flow_definition.setter
     def flow_definition(self, value: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]):
         pulumi.set(self, "flow_definition", value)
+
+    @property
+    @pulumi.getter(name="objectTypeName")
+    def object_type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ObjectType defined for the 3rd party data in Profile Service
+        """
+        return pulumi.get(self, "object_type_name")
+
+    @object_type_name.setter
+    def object_type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_type_name", value)
+
+    @property
+    @pulumi.getter(name="objectTypeNames")
+    def object_type_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]]:
+        """
+        The mapping between 3rd party event types and ObjectType names
+        """
+        return pulumi.get(self, "object_type_names")
+
+    @object_type_names.setter
+    def object_type_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]]):
+        pulumi.set(self, "object_type_names", value)
 
     @property
     @pulumi.getter
@@ -103,6 +120,7 @@ class Integration(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
+                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -113,6 +131,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
@@ -143,6 +162,7 @@ class Integration(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
+                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -161,9 +181,8 @@ class Integration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["flow_definition"] = flow_definition
-            if object_type_name is None and not opts.urn:
-                raise TypeError("Missing required property 'object_type_name'")
             __props__.__dict__["object_type_name"] = object_type_name
+            __props__.__dict__["object_type_names"] = object_type_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uri"] = uri
             __props__.__dict__["created_at"] = None
@@ -195,6 +214,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["flow_definition"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["object_type_name"] = None
+        __props__.__dict__["object_type_names"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["uri"] = None
         return Integration(resource_name, opts=opts, __props__=__props__)
@@ -230,11 +250,19 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectTypeName")
-    def object_type_name(self) -> pulumi.Output[str]:
+    def object_type_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the ObjectType defined for the 3rd party data in Profile Service
         """
         return pulumi.get(self, "object_type_name")
+
+    @property
+    @pulumi.getter(name="objectTypeNames")
+    def object_type_names(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationObjectTypeMapping']]]:
+        """
+        The mapping between 3rd party event types and ObjectType names
+        """
+        return pulumi.get(self, "object_type_names")
 
     @property
     @pulumi.getter

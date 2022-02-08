@@ -11,6 +11,8 @@ from . import outputs
 
 __all__ = [
     'DetectorCFNDataSourceConfigurations',
+    'DetectorCFNKubernetesAuditLogsConfiguration',
+    'DetectorCFNKubernetesConfiguration',
     'DetectorCFNS3LogsConfiguration',
     'FilterCondition',
     'FilterFindingCriteria',
@@ -36,14 +38,65 @@ class DetectorCFNDataSourceConfigurations(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 kubernetes: Optional['outputs.DetectorCFNKubernetesConfiguration'] = None,
                  s3_logs: Optional['outputs.DetectorCFNS3LogsConfiguration'] = None):
+        if kubernetes is not None:
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if s3_logs is not None:
             pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter
+    def kubernetes(self) -> Optional['outputs.DetectorCFNKubernetesConfiguration']:
+        return pulumi.get(self, "kubernetes")
 
     @property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional['outputs.DetectorCFNS3LogsConfiguration']:
         return pulumi.get(self, "s3_logs")
+
+
+@pulumi.output_type
+class DetectorCFNKubernetesAuditLogsConfiguration(dict):
+    def __init__(__self__, *,
+                 enable: Optional[bool] = None):
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class DetectorCFNKubernetesConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "auditLogs":
+            suggest = "audit_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorCFNKubernetesConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorCFNKubernetesConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorCFNKubernetesConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audit_logs: Optional['outputs.DetectorCFNKubernetesAuditLogsConfiguration'] = None):
+        if audit_logs is not None:
+            pulumi.set(__self__, "audit_logs", audit_logs)
+
+    @property
+    @pulumi.getter(name="auditLogs")
+    def audit_logs(self) -> Optional['outputs.DetectorCFNKubernetesAuditLogsConfiguration']:
+        return pulumi.get(self, "audit_logs")
 
 
 @pulumi.output_type

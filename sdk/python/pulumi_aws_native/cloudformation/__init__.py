@@ -8,6 +8,9 @@ import typing
 from ._enums import *
 from .custom_resource import *
 from .get_custom_resource import *
+from .get_hook_default_version import *
+from .get_hook_type_config import *
+from .get_hook_version import *
 from .get_macro import *
 from .get_module_default_version import *
 from .get_module_version import *
@@ -20,6 +23,9 @@ from .get_stack_set import *
 from .get_type_activation import *
 from .get_wait_condition import *
 from .get_wait_condition_handle import *
+from .hook_default_version import *
+from .hook_type_config import *
+from .hook_version import *
 from .macro import *
 from .module_default_version import *
 from .module_version import *

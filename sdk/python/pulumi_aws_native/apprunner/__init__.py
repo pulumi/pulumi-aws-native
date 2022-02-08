@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_service import *
+from .get_vpc_connector import *
 from .service import *
+from .vpc_connector import *
 from ._inputs import *
 from . import outputs

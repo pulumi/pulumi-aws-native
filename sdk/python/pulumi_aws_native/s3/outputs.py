@@ -25,6 +25,7 @@ __all__ = [
     'BucketDestination',
     'BucketEncryption',
     'BucketEncryptionConfiguration',
+    'BucketEventBridgeConfiguration',
     'BucketFilterRule',
     'BucketIntelligentTieringConfiguration',
     'BucketInventoryConfiguration',
@@ -33,6 +34,7 @@ __all__ = [
     'BucketLoggingConfiguration',
     'BucketMetrics',
     'BucketMetricsConfiguration',
+    'BucketNoncurrentVersionExpiration',
     'BucketNoncurrentVersionTransition',
     'BucketNotificationConfiguration',
     'BucketNotificationFilter',
@@ -759,6 +761,45 @@ class BucketEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
+class BucketEventBridgeConfiguration(dict):
+    """
+    Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBridgeEnabled":
+            suggest = "event_bridge_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketEventBridgeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketEventBridgeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketEventBridgeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bridge_enabled: bool):
+        """
+        Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+        :param bool event_bridge_enabled: Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "event_bridge_enabled", event_bridge_enabled)
+
+    @property
+    @pulumi.getter(name="eventBridgeEnabled")
+    def event_bridge_enabled(self) -> bool:
+        """
+        Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+        """
+        return pulumi.get(self, "event_bridge_enabled")
+
+
+@pulumi.output_type
 class BucketFilterRule(dict):
     """
     Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
@@ -1169,6 +1210,59 @@ class BucketMetricsConfiguration(dict):
 
 
 @pulumi.output_type
+class BucketNoncurrentVersionExpiration(dict):
+    """
+    Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noncurrentDays":
+            suggest = "noncurrent_days"
+        elif key == "newerNoncurrentVersions":
+            suggest = "newer_noncurrent_versions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNoncurrentVersionExpiration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNoncurrentVersionExpiration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNoncurrentVersionExpiration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 noncurrent_days: int,
+                 newer_noncurrent_versions: Optional[int] = None):
+        """
+        Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+        :param int noncurrent_days: Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+        :param int newer_noncurrent_versions: Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        """
+        pulumi.set(__self__, "noncurrent_days", noncurrent_days)
+        if newer_noncurrent_versions is not None:
+            pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
+
+    @property
+    @pulumi.getter(name="noncurrentDays")
+    def noncurrent_days(self) -> int:
+        """
+        Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+        """
+        return pulumi.get(self, "noncurrent_days")
+
+    @property
+    @pulumi.getter(name="newerNoncurrentVersions")
+    def newer_noncurrent_versions(self) -> Optional[int]:
+        """
+        Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        """
+        return pulumi.get(self, "newer_noncurrent_versions")
+
+
+@pulumi.output_type
 class BucketNoncurrentVersionTransition(dict):
     """
     Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
@@ -1180,6 +1274,8 @@ class BucketNoncurrentVersionTransition(dict):
             suggest = "storage_class"
         elif key == "transitionInDays":
             suggest = "transition_in_days"
+        elif key == "newerNoncurrentVersions":
+            suggest = "newer_noncurrent_versions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BucketNoncurrentVersionTransition. Access the value via the '{suggest}' property getter instead.")
@@ -1194,14 +1290,18 @@ class BucketNoncurrentVersionTransition(dict):
 
     def __init__(__self__, *,
                  storage_class: 'BucketNoncurrentVersionTransitionStorageClass',
-                 transition_in_days: int):
+                 transition_in_days: int,
+                 newer_noncurrent_versions: Optional[int] = None):
         """
         Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
         :param 'BucketNoncurrentVersionTransitionStorageClass' storage_class: The class of storage used to store the object.
         :param int transition_in_days: Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
+        :param int newer_noncurrent_versions: Specified the number of newer noncurrent and current versions that must exists before performing the associated action
         """
         pulumi.set(__self__, "storage_class", storage_class)
         pulumi.set(__self__, "transition_in_days", transition_in_days)
+        if newer_noncurrent_versions is not None:
+            pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -1219,6 +1319,14 @@ class BucketNoncurrentVersionTransition(dict):
         """
         return pulumi.get(self, "transition_in_days")
 
+    @property
+    @pulumi.getter(name="newerNoncurrentVersions")
+    def newer_noncurrent_versions(self) -> Optional[int]:
+        """
+        Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        """
+        return pulumi.get(self, "newer_noncurrent_versions")
+
 
 @pulumi.output_type
 class BucketNotificationConfiguration(dict):
@@ -1228,7 +1336,9 @@ class BucketNotificationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lambdaConfigurations":
+        if key == "eventBridgeConfiguration":
+            suggest = "event_bridge_configuration"
+        elif key == "lambdaConfigurations":
             suggest = "lambda_configurations"
         elif key == "queueConfigurations":
             suggest = "queue_configurations"
@@ -1247,18 +1357,26 @@ class BucketNotificationConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 event_bridge_configuration: Optional['outputs.BucketEventBridgeConfiguration'] = None,
                  lambda_configurations: Optional[Sequence['outputs.BucketLambdaConfiguration']] = None,
                  queue_configurations: Optional[Sequence['outputs.BucketQueueConfiguration']] = None,
                  topic_configurations: Optional[Sequence['outputs.BucketTopicConfiguration']] = None):
         """
         Describes the notification configuration for an Amazon S3 bucket.
         """
+        if event_bridge_configuration is not None:
+            pulumi.set(__self__, "event_bridge_configuration", event_bridge_configuration)
         if lambda_configurations is not None:
             pulumi.set(__self__, "lambda_configurations", lambda_configurations)
         if queue_configurations is not None:
             pulumi.set(__self__, "queue_configurations", queue_configurations)
         if topic_configurations is not None:
             pulumi.set(__self__, "topic_configurations", topic_configurations)
+
+    @property
+    @pulumi.getter(name="eventBridgeConfiguration")
+    def event_bridge_configuration(self) -> Optional['outputs.BucketEventBridgeConfiguration']:
+        return pulumi.get(self, "event_bridge_configuration")
 
     @property
     @pulumi.getter(name="lambdaConfigurations")
@@ -2201,12 +2319,18 @@ class BucketRule(dict):
             suggest = "expiration_in_days"
         elif key == "expiredObjectDeleteMarker":
             suggest = "expired_object_delete_marker"
+        elif key == "noncurrentVersionExpiration":
+            suggest = "noncurrent_version_expiration"
         elif key == "noncurrentVersionExpirationInDays":
             suggest = "noncurrent_version_expiration_in_days"
         elif key == "noncurrentVersionTransition":
             suggest = "noncurrent_version_transition"
         elif key == "noncurrentVersionTransitions":
             suggest = "noncurrent_version_transitions"
+        elif key == "objectSizeGreaterThan":
+            suggest = "object_size_greater_than"
+        elif key == "objectSizeLessThan":
+            suggest = "object_size_less_than"
         elif key == "tagFilters":
             suggest = "tag_filters"
 
@@ -2228,9 +2352,12 @@ class BucketRule(dict):
                  expiration_in_days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None,
                  id: Optional[str] = None,
+                 noncurrent_version_expiration: Optional['outputs.BucketNoncurrentVersionExpiration'] = None,
                  noncurrent_version_expiration_in_days: Optional[int] = None,
                  noncurrent_version_transition: Optional['outputs.BucketNoncurrentVersionTransition'] = None,
                  noncurrent_version_transitions: Optional[Sequence['outputs.BucketNoncurrentVersionTransition']] = None,
+                 object_size_greater_than: Optional[str] = None,
+                 object_size_less_than: Optional[str] = None,
                  prefix: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
                  transition: Optional['outputs.BucketTransition'] = None,
@@ -2249,12 +2376,18 @@ class BucketRule(dict):
             pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if noncurrent_version_expiration is not None:
+            pulumi.set(__self__, "noncurrent_version_expiration", noncurrent_version_expiration)
         if noncurrent_version_expiration_in_days is not None:
             pulumi.set(__self__, "noncurrent_version_expiration_in_days", noncurrent_version_expiration_in_days)
         if noncurrent_version_transition is not None:
             pulumi.set(__self__, "noncurrent_version_transition", noncurrent_version_transition)
         if noncurrent_version_transitions is not None:
             pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
+        if object_size_greater_than is not None:
+            pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
+        if object_size_less_than is not None:
+            pulumi.set(__self__, "object_size_less_than", object_size_less_than)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
@@ -2295,6 +2428,11 @@ class BucketRule(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="noncurrentVersionExpiration")
+    def noncurrent_version_expiration(self) -> Optional['outputs.BucketNoncurrentVersionExpiration']:
+        return pulumi.get(self, "noncurrent_version_expiration")
+
+    @property
     @pulumi.getter(name="noncurrentVersionExpirationInDays")
     def noncurrent_version_expiration_in_days(self) -> Optional[int]:
         return pulumi.get(self, "noncurrent_version_expiration_in_days")
@@ -2308,6 +2446,16 @@ class BucketRule(dict):
     @pulumi.getter(name="noncurrentVersionTransitions")
     def noncurrent_version_transitions(self) -> Optional[Sequence['outputs.BucketNoncurrentVersionTransition']]:
         return pulumi.get(self, "noncurrent_version_transitions")
+
+    @property
+    @pulumi.getter(name="objectSizeGreaterThan")
+    def object_size_greater_than(self) -> Optional[str]:
+        return pulumi.get(self, "object_size_greater_than")
+
+    @property
+    @pulumi.getter(name="objectSizeLessThan")
+    def object_size_less_than(self) -> Optional[str]:
+        return pulumi.get(self, "object_size_less_than")
 
     @property
     @pulumi.getter

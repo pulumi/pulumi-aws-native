@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationResult:
-    def __init__(__self__, created_at=None, last_updated_at=None, object_type_name=None, tags=None):
+    def __init__(__self__, created_at=None, last_updated_at=None, object_type_name=None, object_type_names=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -28,6 +28,9 @@ class GetIntegrationResult:
         if object_type_name and not isinstance(object_type_name, str):
             raise TypeError("Expected argument 'object_type_name' to be a str")
         pulumi.set(__self__, "object_type_name", object_type_name)
+        if object_type_names and not isinstance(object_type_names, list):
+            raise TypeError("Expected argument 'object_type_names' to be a list")
+        pulumi.set(__self__, "object_type_names", object_type_names)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -57,6 +60,14 @@ class GetIntegrationResult:
         return pulumi.get(self, "object_type_name")
 
     @property
+    @pulumi.getter(name="objectTypeNames")
+    def object_type_names(self) -> Optional[Sequence['outputs.IntegrationObjectTypeMapping']]:
+        """
+        The mapping between 3rd party event types and ObjectType names
+        """
+        return pulumi.get(self, "object_type_names")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.IntegrationTag']]:
         """
@@ -74,6 +85,7 @@ class AwaitableGetIntegrationResult(GetIntegrationResult):
             created_at=self.created_at,
             last_updated_at=self.last_updated_at,
             object_type_name=self.object_type_name,
+            object_type_names=self.object_type_names,
             tags=self.tags)
 
 
@@ -100,6 +112,7 @@ def get_integration(domain_name: Optional[str] = None,
         created_at=__ret__.created_at,
         last_updated_at=__ret__.last_updated_at,
         object_type_name=__ret__.object_type_name,
+        object_type_names=__ret__.object_type_names,
         tags=__ret__.tags)
 
 

@@ -45,6 +45,10 @@ export interface GetIntegrationResult {
      */
     readonly objectTypeName?: string;
     /**
+     * The mapping between 3rd party event types and ObjectType names
+     */
+    readonly objectTypeNames?: outputs.customerprofiles.IntegrationObjectTypeMapping[];
+    /**
      * The tags (keys and values) associated with the integration
      */
     readonly tags?: outputs.customerprofiles.IntegrationTag[];

@@ -11,7 +11,9 @@ import (
 )
 
 type QueueTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -27,7 +29,9 @@ type QueueTagInput interface {
 }
 
 type QueueTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -82,10 +86,12 @@ func (o QueueTagOutput) ToQueueTagOutputWithContext(ctx context.Context) QueueTa
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o QueueTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v QueueTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o QueueTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v QueueTag) string { return v.Value }).(pulumi.StringOutput)
 }

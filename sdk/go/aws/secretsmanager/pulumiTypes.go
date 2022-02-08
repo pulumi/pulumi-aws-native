@@ -264,7 +264,9 @@ func (o RotationScheduleHostedRotationLambdaPtrOutput) VpcSubnetIds() pulumi.Str
 }
 
 type RotationScheduleRotationRules struct {
-	AutomaticallyAfterDays *int `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays *int    `pulumi:"automaticallyAfterDays"`
+	Duration               *string `pulumi:"duration"`
+	ScheduleExpression     *string `pulumi:"scheduleExpression"`
 }
 
 // RotationScheduleRotationRulesInput is an input type that accepts RotationScheduleRotationRulesArgs and RotationScheduleRotationRulesOutput values.
@@ -279,7 +281,9 @@ type RotationScheduleRotationRulesInput interface {
 }
 
 type RotationScheduleRotationRulesArgs struct {
-	AutomaticallyAfterDays pulumi.IntPtrInput `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays pulumi.IntPtrInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringPtrInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
 func (RotationScheduleRotationRulesArgs) ElementType() reflect.Type {
@@ -363,6 +367,14 @@ func (o RotationScheduleRotationRulesOutput) AutomaticallyAfterDays() pulumi.Int
 	return o.ApplyT(func(v RotationScheduleRotationRules) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
 }
 
+func (o RotationScheduleRotationRulesOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleRotationRules) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleRotationRulesOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleRotationRules) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
 type RotationScheduleRotationRulesPtrOutput struct{ *pulumi.OutputState }
 
 func (RotationScheduleRotationRulesPtrOutput) ElementType() reflect.Type {
@@ -394,6 +406,24 @@ func (o RotationScheduleRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.
 		}
 		return v.AutomaticallyAfterDays
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o RotationScheduleRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleRotationRulesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
 }
 
 type SecretGenerateSecretString struct {

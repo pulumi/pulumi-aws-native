@@ -602,7 +602,6 @@ class RecordSetGroupRecordSetArgs:
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  alias_target: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']] = None,
-                 comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
@@ -618,8 +617,6 @@ class RecordSetGroupRecordSetArgs:
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
         if failover is not None:
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
@@ -669,15 +666,6 @@ class RecordSetGroupRecordSetArgs:
     @alias_target.setter
     def alias_target(self, value: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']]):
         pulumi.set(self, "alias_target", value)
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "comment")
-
-    @comment.setter
-    def comment(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "comment", value)
 
     @property
     @pulumi.getter

@@ -10,6 +10,504 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The name of robot software suite.
+type RobotApplicationRobotSoftwareSuiteName string
+
+const (
+	RobotApplicationRobotSoftwareSuiteNameRos     = RobotApplicationRobotSoftwareSuiteName("ROS")
+	RobotApplicationRobotSoftwareSuiteNameRos2    = RobotApplicationRobotSoftwareSuiteName("ROS2")
+	RobotApplicationRobotSoftwareSuiteNameGeneral = RobotApplicationRobotSoftwareSuiteName("General")
+)
+
+func (RobotApplicationRobotSoftwareSuiteName) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteName)(nil)).Elem()
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToRobotApplicationRobotSoftwareSuiteNameOutput() RobotApplicationRobotSoftwareSuiteNameOutput {
+	return pulumi.ToOutput(e).(RobotApplicationRobotSoftwareSuiteNameOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToRobotApplicationRobotSoftwareSuiteNameOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RobotApplicationRobotSoftwareSuiteNameOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToRobotApplicationRobotSoftwareSuiteNamePtrOutput() RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return e.ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(context.Background())
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return RobotApplicationRobotSoftwareSuiteName(e).ToRobotApplicationRobotSoftwareSuiteNameOutputWithContext(ctx).ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RobotApplicationRobotSoftwareSuiteName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RobotApplicationRobotSoftwareSuiteNameOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationRobotSoftwareSuiteNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteName)(nil)).Elem()
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToRobotApplicationRobotSoftwareSuiteNameOutput() RobotApplicationRobotSoftwareSuiteNameOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToRobotApplicationRobotSoftwareSuiteNameOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNameOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToRobotApplicationRobotSoftwareSuiteNamePtrOutput() RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o.ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RobotApplicationRobotSoftwareSuiteName) *RobotApplicationRobotSoftwareSuiteName {
+		return &v
+	}).(RobotApplicationRobotSoftwareSuiteNamePtrOutput)
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RobotApplicationRobotSoftwareSuiteName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RobotApplicationRobotSoftwareSuiteName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RobotApplicationRobotSoftwareSuiteNamePtrOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationRobotSoftwareSuiteNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotApplicationRobotSoftwareSuiteName)(nil)).Elem()
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToRobotApplicationRobotSoftwareSuiteNamePtrOutput() RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) Elem() RobotApplicationRobotSoftwareSuiteNameOutput {
+	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuiteName) RobotApplicationRobotSoftwareSuiteName {
+		if v != nil {
+			return *v
+		}
+		var ret RobotApplicationRobotSoftwareSuiteName
+		return ret
+	}).(RobotApplicationRobotSoftwareSuiteNameOutput)
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RobotApplicationRobotSoftwareSuiteName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RobotApplicationRobotSoftwareSuiteNameInput is an input type that accepts RobotApplicationRobotSoftwareSuiteNameArgs and RobotApplicationRobotSoftwareSuiteNameOutput values.
+// You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteNameInput` via:
+//
+//          RobotApplicationRobotSoftwareSuiteNameArgs{...}
+type RobotApplicationRobotSoftwareSuiteNameInput interface {
+	pulumi.Input
+
+	ToRobotApplicationRobotSoftwareSuiteNameOutput() RobotApplicationRobotSoftwareSuiteNameOutput
+	ToRobotApplicationRobotSoftwareSuiteNameOutputWithContext(context.Context) RobotApplicationRobotSoftwareSuiteNameOutput
+}
+
+var robotApplicationRobotSoftwareSuiteNamePtrType = reflect.TypeOf((**RobotApplicationRobotSoftwareSuiteName)(nil)).Elem()
+
+type RobotApplicationRobotSoftwareSuiteNamePtrInput interface {
+	pulumi.Input
+
+	ToRobotApplicationRobotSoftwareSuiteNamePtrOutput() RobotApplicationRobotSoftwareSuiteNamePtrOutput
+	ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(context.Context) RobotApplicationRobotSoftwareSuiteNamePtrOutput
+}
+
+type robotApplicationRobotSoftwareSuiteNamePtr string
+
+func RobotApplicationRobotSoftwareSuiteNamePtr(v string) RobotApplicationRobotSoftwareSuiteNamePtrInput {
+	return (*robotApplicationRobotSoftwareSuiteNamePtr)(&v)
+}
+
+func (*robotApplicationRobotSoftwareSuiteNamePtr) ElementType() reflect.Type {
+	return robotApplicationRobotSoftwareSuiteNamePtrType
+}
+
+func (in *robotApplicationRobotSoftwareSuiteNamePtr) ToRobotApplicationRobotSoftwareSuiteNamePtrOutput() RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return pulumi.ToOutput(in).(RobotApplicationRobotSoftwareSuiteNamePtrOutput)
+}
+
+func (in *robotApplicationRobotSoftwareSuiteNamePtr) ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RobotApplicationRobotSoftwareSuiteNamePtrOutput)
+}
+
+// The version of robot software suite.
+type RobotApplicationRobotSoftwareSuiteVersion string
+
+const (
+	RobotApplicationRobotSoftwareSuiteVersionKinetic = RobotApplicationRobotSoftwareSuiteVersion("Kinetic")
+	RobotApplicationRobotSoftwareSuiteVersionMelodic = RobotApplicationRobotSoftwareSuiteVersion("Melodic")
+	RobotApplicationRobotSoftwareSuiteVersionDashing = RobotApplicationRobotSoftwareSuiteVersion("Dashing")
+)
+
+func (RobotApplicationRobotSoftwareSuiteVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteVersion)(nil)).Elem()
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToRobotApplicationRobotSoftwareSuiteVersionOutput() RobotApplicationRobotSoftwareSuiteVersionOutput {
+	return pulumi.ToOutput(e).(RobotApplicationRobotSoftwareSuiteVersionOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToRobotApplicationRobotSoftwareSuiteVersionOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RobotApplicationRobotSoftwareSuiteVersionOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutput() RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return e.ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(context.Background())
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return RobotApplicationRobotSoftwareSuiteVersion(e).ToRobotApplicationRobotSoftwareSuiteVersionOutputWithContext(ctx).ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RobotApplicationRobotSoftwareSuiteVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RobotApplicationRobotSoftwareSuiteVersionOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationRobotSoftwareSuiteVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteVersion)(nil)).Elem()
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToRobotApplicationRobotSoftwareSuiteVersionOutput() RobotApplicationRobotSoftwareSuiteVersionOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToRobotApplicationRobotSoftwareSuiteVersionOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutput() RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RobotApplicationRobotSoftwareSuiteVersion) *RobotApplicationRobotSoftwareSuiteVersion {
+		return &v
+	}).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RobotApplicationRobotSoftwareSuiteVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RobotApplicationRobotSoftwareSuiteVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RobotApplicationRobotSoftwareSuiteVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotApplicationRobotSoftwareSuiteVersion)(nil)).Elem()
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutput() RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) Elem() RobotApplicationRobotSoftwareSuiteVersionOutput {
+	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuiteVersion) RobotApplicationRobotSoftwareSuiteVersion {
+		if v != nil {
+			return *v
+		}
+		var ret RobotApplicationRobotSoftwareSuiteVersion
+		return ret
+	}).(RobotApplicationRobotSoftwareSuiteVersionOutput)
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RobotApplicationRobotSoftwareSuiteVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RobotApplicationRobotSoftwareSuiteVersionInput is an input type that accepts RobotApplicationRobotSoftwareSuiteVersionArgs and RobotApplicationRobotSoftwareSuiteVersionOutput values.
+// You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteVersionInput` via:
+//
+//          RobotApplicationRobotSoftwareSuiteVersionArgs{...}
+type RobotApplicationRobotSoftwareSuiteVersionInput interface {
+	pulumi.Input
+
+	ToRobotApplicationRobotSoftwareSuiteVersionOutput() RobotApplicationRobotSoftwareSuiteVersionOutput
+	ToRobotApplicationRobotSoftwareSuiteVersionOutputWithContext(context.Context) RobotApplicationRobotSoftwareSuiteVersionOutput
+}
+
+var robotApplicationRobotSoftwareSuiteVersionPtrType = reflect.TypeOf((**RobotApplicationRobotSoftwareSuiteVersion)(nil)).Elem()
+
+type RobotApplicationRobotSoftwareSuiteVersionPtrInput interface {
+	pulumi.Input
+
+	ToRobotApplicationRobotSoftwareSuiteVersionPtrOutput() RobotApplicationRobotSoftwareSuiteVersionPtrOutput
+	ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(context.Context) RobotApplicationRobotSoftwareSuiteVersionPtrOutput
+}
+
+type robotApplicationRobotSoftwareSuiteVersionPtr string
+
+func RobotApplicationRobotSoftwareSuiteVersionPtr(v string) RobotApplicationRobotSoftwareSuiteVersionPtrInput {
+	return (*robotApplicationRobotSoftwareSuiteVersionPtr)(&v)
+}
+
+func (*robotApplicationRobotSoftwareSuiteVersionPtr) ElementType() reflect.Type {
+	return robotApplicationRobotSoftwareSuiteVersionPtrType
+}
+
+func (in *robotApplicationRobotSoftwareSuiteVersionPtr) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutput() RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return pulumi.ToOutput(in).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
+}
+
+func (in *robotApplicationRobotSoftwareSuiteVersionPtr) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
+}
+
+// The architecture of robot application.
+type RobotApplicationSourceConfigArchitecture string
+
+const (
+	RobotApplicationSourceConfigArchitectureX8664 = RobotApplicationSourceConfigArchitecture("X86_64")
+	RobotApplicationSourceConfigArchitectureArm64 = RobotApplicationSourceConfigArchitecture("ARM64")
+	RobotApplicationSourceConfigArchitectureArmhf = RobotApplicationSourceConfigArchitecture("ARMHF")
+)
+
+func (RobotApplicationSourceConfigArchitecture) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationSourceConfigArchitecture)(nil)).Elem()
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToRobotApplicationSourceConfigArchitectureOutput() RobotApplicationSourceConfigArchitectureOutput {
+	return pulumi.ToOutput(e).(RobotApplicationSourceConfigArchitectureOutput)
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToRobotApplicationSourceConfigArchitectureOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitectureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RobotApplicationSourceConfigArchitectureOutput)
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToRobotApplicationSourceConfigArchitecturePtrOutput() RobotApplicationSourceConfigArchitecturePtrOutput {
+	return e.ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(context.Background())
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitecturePtrOutput {
+	return RobotApplicationSourceConfigArchitecture(e).ToRobotApplicationSourceConfigArchitectureOutputWithContext(ctx).ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(ctx)
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RobotApplicationSourceConfigArchitecture) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RobotApplicationSourceConfigArchitectureOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationSourceConfigArchitectureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationSourceConfigArchitecture)(nil)).Elem()
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToRobotApplicationSourceConfigArchitectureOutput() RobotApplicationSourceConfigArchitectureOutput {
+	return o
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToRobotApplicationSourceConfigArchitectureOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitectureOutput {
+	return o
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToRobotApplicationSourceConfigArchitecturePtrOutput() RobotApplicationSourceConfigArchitecturePtrOutput {
+	return o.ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitecturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RobotApplicationSourceConfigArchitecture) *RobotApplicationSourceConfigArchitecture {
+		return &v
+	}).(RobotApplicationSourceConfigArchitecturePtrOutput)
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RobotApplicationSourceConfigArchitecture) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationSourceConfigArchitectureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RobotApplicationSourceConfigArchitecture) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RobotApplicationSourceConfigArchitecturePtrOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationSourceConfigArchitecturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotApplicationSourceConfigArchitecture)(nil)).Elem()
+}
+
+func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToRobotApplicationSourceConfigArchitecturePtrOutput() RobotApplicationSourceConfigArchitecturePtrOutput {
+	return o
+}
+
+func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitecturePtrOutput {
+	return o
+}
+
+func (o RobotApplicationSourceConfigArchitecturePtrOutput) Elem() RobotApplicationSourceConfigArchitectureOutput {
+	return o.ApplyT(func(v *RobotApplicationSourceConfigArchitecture) RobotApplicationSourceConfigArchitecture {
+		if v != nil {
+			return *v
+		}
+		var ret RobotApplicationSourceConfigArchitecture
+		return ret
+	}).(RobotApplicationSourceConfigArchitectureOutput)
+}
+
+func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RobotApplicationSourceConfigArchitecture) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RobotApplicationSourceConfigArchitectureInput is an input type that accepts RobotApplicationSourceConfigArchitectureArgs and RobotApplicationSourceConfigArchitectureOutput values.
+// You can construct a concrete instance of `RobotApplicationSourceConfigArchitectureInput` via:
+//
+//          RobotApplicationSourceConfigArchitectureArgs{...}
+type RobotApplicationSourceConfigArchitectureInput interface {
+	pulumi.Input
+
+	ToRobotApplicationSourceConfigArchitectureOutput() RobotApplicationSourceConfigArchitectureOutput
+	ToRobotApplicationSourceConfigArchitectureOutputWithContext(context.Context) RobotApplicationSourceConfigArchitectureOutput
+}
+
+var robotApplicationSourceConfigArchitecturePtrType = reflect.TypeOf((**RobotApplicationSourceConfigArchitecture)(nil)).Elem()
+
+type RobotApplicationSourceConfigArchitecturePtrInput interface {
+	pulumi.Input
+
+	ToRobotApplicationSourceConfigArchitecturePtrOutput() RobotApplicationSourceConfigArchitecturePtrOutput
+	ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(context.Context) RobotApplicationSourceConfigArchitecturePtrOutput
+}
+
+type robotApplicationSourceConfigArchitecturePtr string
+
+func RobotApplicationSourceConfigArchitecturePtr(v string) RobotApplicationSourceConfigArchitecturePtrInput {
+	return (*robotApplicationSourceConfigArchitecturePtr)(&v)
+}
+
+func (*robotApplicationSourceConfigArchitecturePtr) ElementType() reflect.Type {
+	return robotApplicationSourceConfigArchitecturePtrType
+}
+
+func (in *robotApplicationSourceConfigArchitecturePtr) ToRobotApplicationSourceConfigArchitecturePtrOutput() RobotApplicationSourceConfigArchitecturePtrOutput {
+	return pulumi.ToOutput(in).(RobotApplicationSourceConfigArchitecturePtrOutput)
+}
+
+func (in *robotApplicationSourceConfigArchitecturePtr) ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitecturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RobotApplicationSourceConfigArchitecturePtrOutput)
+}
+
 // The target architecture of the robot.
 type RobotArchitecture string
 
@@ -1176,6 +1674,12 @@ func (in *simulationApplicationSourceConfigArchitecturePtr) ToSimulationApplicat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteNameInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteName("ROS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteNamePtrInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteName("ROS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteVersionInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteVersion("Kinetic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteVersionPtrInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteVersion("Kinetic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationSourceConfigArchitectureInput)(nil)).Elem(), RobotApplicationSourceConfigArchitecture("X86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationSourceConfigArchitecturePtrInput)(nil)).Elem(), RobotApplicationSourceConfigArchitecture("X86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotArchitectureInput)(nil)).Elem(), RobotArchitecture("X86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotArchitecturePtrInput)(nil)).Elem(), RobotArchitecture("X86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRenderingEngineNameInput)(nil)).Elem(), SimulationApplicationRenderingEngineName("OGRE"))
@@ -1190,6 +1694,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuiteVersionPtrInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteVersion("7"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSourceConfigArchitectureInput)(nil)).Elem(), SimulationApplicationSourceConfigArchitecture("X86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSourceConfigArchitecturePtrInput)(nil)).Elem(), SimulationApplicationSourceConfigArchitecture("X86_64"))
+	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuiteNameOutput{})
+	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuiteNamePtrOutput{})
+	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuiteVersionOutput{})
+	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuiteVersionPtrOutput{})
+	pulumi.RegisterOutputType(RobotApplicationSourceConfigArchitectureOutput{})
+	pulumi.RegisterOutputType(RobotApplicationSourceConfigArchitecturePtrOutput{})
 	pulumi.RegisterOutputType(RobotArchitectureOutput{})
 	pulumi.RegisterOutputType(RobotArchitecturePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEngineNameOutput{})

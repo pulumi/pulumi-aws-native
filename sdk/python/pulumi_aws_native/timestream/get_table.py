@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, name=None, retention_properties=None, tags=None):
+    def __init__(__self__, arn=None, magnetic_store_write_properties=None, name=None, retention_properties=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if magnetic_store_write_properties and not isinstance(magnetic_store_write_properties, dict):
+            raise TypeError("Expected argument 'magnetic_store_write_properties' to be a dict")
+        pulumi.set(__self__, "magnetic_store_write_properties", magnetic_store_write_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,6 +39,14 @@ class GetTableResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="magneticStoreWriteProperties")
+    def magnetic_store_write_properties(self) -> Optional['outputs.MagneticStoreWritePropertiesProperties']:
+        """
+        The properties that determine whether magnetic store writes are enabled.
+        """
+        return pulumi.get(self, "magnetic_store_write_properties")
 
     @property
     @pulumi.getter
@@ -69,6 +80,7 @@ class AwaitableGetTableResult(GetTableResult):
             yield self
         return GetTableResult(
             arn=self.arn,
+            magnetic_store_write_properties=self.magnetic_store_write_properties,
             name=self.name,
             retention_properties=self.retention_properties,
             tags=self.tags)
@@ -95,6 +107,7 @@ def get_table(database_name: Optional[str] = None,
 
     return AwaitableGetTableResult(
         arn=__ret__.arn,
+        magnetic_store_write_properties=__ret__.magnetic_store_write_properties,
         name=__ret__.name,
         retention_properties=__ret__.retention_properties,
         tags=__ret__.tags)

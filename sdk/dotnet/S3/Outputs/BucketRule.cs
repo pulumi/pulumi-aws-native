@@ -21,9 +21,12 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly int? ExpirationInDays;
         public readonly bool? ExpiredObjectDeleteMarker;
         public readonly string? Id;
+        public readonly Outputs.BucketNoncurrentVersionExpiration? NoncurrentVersionExpiration;
         public readonly int? NoncurrentVersionExpirationInDays;
         public readonly Outputs.BucketNoncurrentVersionTransition? NoncurrentVersionTransition;
         public readonly ImmutableArray<Outputs.BucketNoncurrentVersionTransition> NoncurrentVersionTransitions;
+        public readonly string? ObjectSizeGreaterThan;
+        public readonly string? ObjectSizeLessThan;
         public readonly string? Prefix;
         public readonly Pulumi.AwsNative.S3.BucketRuleStatus Status;
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;
@@ -42,11 +45,17 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             string? id,
 
+            Outputs.BucketNoncurrentVersionExpiration? noncurrentVersionExpiration,
+
             int? noncurrentVersionExpirationInDays,
 
             Outputs.BucketNoncurrentVersionTransition? noncurrentVersionTransition,
 
             ImmutableArray<Outputs.BucketNoncurrentVersionTransition> noncurrentVersionTransitions,
+
+            string? objectSizeGreaterThan,
+
+            string? objectSizeLessThan,
 
             string? prefix,
 
@@ -63,9 +72,12 @@ namespace Pulumi.AwsNative.S3.Outputs
             ExpirationInDays = expirationInDays;
             ExpiredObjectDeleteMarker = expiredObjectDeleteMarker;
             Id = id;
+            NoncurrentVersionExpiration = noncurrentVersionExpiration;
             NoncurrentVersionExpirationInDays = noncurrentVersionExpirationInDays;
             NoncurrentVersionTransition = noncurrentVersionTransition;
             NoncurrentVersionTransitions = noncurrentVersionTransitions;
+            ObjectSizeGreaterThan = objectSizeGreaterThan;
+            ObjectSizeLessThan = objectSizeLessThan;
             Prefix = prefix;
             Status = status;
             TagFilters = tagFilters;

@@ -1170,20 +1170,80 @@ class EndpointS3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bucketFolder":
+        if key == "addColumnName":
+            suggest = "add_column_name"
+        elif key == "bucketFolder":
             suggest = "bucket_folder"
         elif key == "bucketName":
             suggest = "bucket_name"
+        elif key == "cannedAclForObjects":
+            suggest = "canned_acl_for_objects"
+        elif key == "cdcInsertsAndUpdates":
+            suggest = "cdc_inserts_and_updates"
+        elif key == "cdcInsertsOnly":
+            suggest = "cdc_inserts_only"
+        elif key == "cdcMaxBatchInterval":
+            suggest = "cdc_max_batch_interval"
+        elif key == "cdcMinFileSize":
+            suggest = "cdc_min_file_size"
+        elif key == "cdcPath":
+            suggest = "cdc_path"
         elif key == "compressionType":
             suggest = "compression_type"
         elif key == "csvDelimiter":
             suggest = "csv_delimiter"
+        elif key == "csvNoSupValue":
+            suggest = "csv_no_sup_value"
+        elif key == "csvNullValue":
+            suggest = "csv_null_value"
         elif key == "csvRowDelimiter":
             suggest = "csv_row_delimiter"
+        elif key == "dataFormat":
+            suggest = "data_format"
+        elif key == "dataPageSize":
+            suggest = "data_page_size"
+        elif key == "datePartitionDelimiter":
+            suggest = "date_partition_delimiter"
+        elif key == "datePartitionEnabled":
+            suggest = "date_partition_enabled"
+        elif key == "datePartitionSequence":
+            suggest = "date_partition_sequence"
+        elif key == "datePartitionTimezone":
+            suggest = "date_partition_timezone"
+        elif key == "dictPageSizeLimit":
+            suggest = "dict_page_size_limit"
+        elif key == "enableStatistics":
+            suggest = "enable_statistics"
+        elif key == "encodingType":
+            suggest = "encoding_type"
+        elif key == "encryptionMode":
+            suggest = "encryption_mode"
         elif key == "externalTableDefinition":
             suggest = "external_table_definition"
+        elif key == "ignoreHeaderRows":
+            suggest = "ignore_header_rows"
+        elif key == "includeOpForFullLoad":
+            suggest = "include_op_for_full_load"
+        elif key == "maxFileSize":
+            suggest = "max_file_size"
+        elif key == "parquetTimestampInMillisecond":
+            suggest = "parquet_timestamp_in_millisecond"
+        elif key == "parquetVersion":
+            suggest = "parquet_version"
+        elif key == "preserveTransactions":
+            suggest = "preserve_transactions"
+        elif key == "rowGroupLength":
+            suggest = "row_group_length"
+        elif key == "serverSideEncryptionKmsKeyId":
+            suggest = "server_side_encryption_kms_key_id"
         elif key == "serviceAccessRoleArn":
             suggest = "service_access_role_arn"
+        elif key == "timestampColumnName":
+            suggest = "timestamp_column_name"
+        elif key == "useCsvNoSupValue":
+            suggest = "use_csv_no_sup_value"
+        elif key == "useTaskStartTimeForFullLoadTimestamp":
+            suggest = "use_task_start_time_for_full_load_timestamp"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointS3Settings. Access the value via the '{suggest}' property getter instead.")
@@ -1197,27 +1257,125 @@ class EndpointS3Settings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 add_column_name: Optional[bool] = None,
                  bucket_folder: Optional[str] = None,
                  bucket_name: Optional[str] = None,
+                 canned_acl_for_objects: Optional[str] = None,
+                 cdc_inserts_and_updates: Optional[bool] = None,
+                 cdc_inserts_only: Optional[bool] = None,
+                 cdc_max_batch_interval: Optional[int] = None,
+                 cdc_min_file_size: Optional[int] = None,
+                 cdc_path: Optional[str] = None,
                  compression_type: Optional[str] = None,
                  csv_delimiter: Optional[str] = None,
+                 csv_no_sup_value: Optional[str] = None,
+                 csv_null_value: Optional[str] = None,
                  csv_row_delimiter: Optional[str] = None,
+                 data_format: Optional[str] = None,
+                 data_page_size: Optional[int] = None,
+                 date_partition_delimiter: Optional[str] = None,
+                 date_partition_enabled: Optional[bool] = None,
+                 date_partition_sequence: Optional[str] = None,
+                 date_partition_timezone: Optional[str] = None,
+                 dict_page_size_limit: Optional[int] = None,
+                 enable_statistics: Optional[bool] = None,
+                 encoding_type: Optional[str] = None,
+                 encryption_mode: Optional[str] = None,
                  external_table_definition: Optional[str] = None,
-                 service_access_role_arn: Optional[str] = None):
+                 ignore_header_rows: Optional[int] = None,
+                 include_op_for_full_load: Optional[bool] = None,
+                 max_file_size: Optional[int] = None,
+                 parquet_timestamp_in_millisecond: Optional[bool] = None,
+                 parquet_version: Optional[str] = None,
+                 preserve_transactions: Optional[bool] = None,
+                 rfc4180: Optional[bool] = None,
+                 row_group_length: Optional[int] = None,
+                 server_side_encryption_kms_key_id: Optional[str] = None,
+                 service_access_role_arn: Optional[str] = None,
+                 timestamp_column_name: Optional[str] = None,
+                 use_csv_no_sup_value: Optional[bool] = None,
+                 use_task_start_time_for_full_load_timestamp: Optional[bool] = None):
+        if add_column_name is not None:
+            pulumi.set(__self__, "add_column_name", add_column_name)
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if canned_acl_for_objects is not None:
+            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+        if cdc_inserts_and_updates is not None:
+            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+        if cdc_inserts_only is not None:
+            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+        if cdc_max_batch_interval is not None:
+            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+        if cdc_min_file_size is not None:
+            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+        if cdc_path is not None:
+            pulumi.set(__self__, "cdc_path", cdc_path)
         if compression_type is not None:
             pulumi.set(__self__, "compression_type", compression_type)
         if csv_delimiter is not None:
             pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+        if csv_no_sup_value is not None:
+            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+        if csv_null_value is not None:
+            pulumi.set(__self__, "csv_null_value", csv_null_value)
         if csv_row_delimiter is not None:
             pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if data_page_size is not None:
+            pulumi.set(__self__, "data_page_size", data_page_size)
+        if date_partition_delimiter is not None:
+            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+        if date_partition_enabled is not None:
+            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+        if date_partition_sequence is not None:
+            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+        if date_partition_timezone is not None:
+            pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+        if dict_page_size_limit is not None:
+            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+        if enable_statistics is not None:
+            pulumi.set(__self__, "enable_statistics", enable_statistics)
+        if encoding_type is not None:
+            pulumi.set(__self__, "encoding_type", encoding_type)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if ignore_header_rows is not None:
+            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+        if include_op_for_full_load is not None:
+            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parquet_timestamp_in_millisecond is not None:
+            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+        if parquet_version is not None:
+            pulumi.set(__self__, "parquet_version", parquet_version)
+        if preserve_transactions is not None:
+            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+        if rfc4180 is not None:
+            pulumi.set(__self__, "rfc4180", rfc4180)
+        if row_group_length is not None:
+            pulumi.set(__self__, "row_group_length", row_group_length)
+        if server_side_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if timestamp_column_name is not None:
+            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+        if use_csv_no_sup_value is not None:
+            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+        if use_task_start_time_for_full_load_timestamp is not None:
+            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+
+    @property
+    @pulumi.getter(name="addColumnName")
+    def add_column_name(self) -> Optional[bool]:
+        return pulumi.get(self, "add_column_name")
 
     @property
     @pulumi.getter(name="bucketFolder")
@@ -1230,6 +1388,36 @@ class EndpointS3Settings(dict):
         return pulumi.get(self, "bucket_name")
 
     @property
+    @pulumi.getter(name="cannedAclForObjects")
+    def canned_acl_for_objects(self) -> Optional[str]:
+        return pulumi.get(self, "canned_acl_for_objects")
+
+    @property
+    @pulumi.getter(name="cdcInsertsAndUpdates")
+    def cdc_inserts_and_updates(self) -> Optional[bool]:
+        return pulumi.get(self, "cdc_inserts_and_updates")
+
+    @property
+    @pulumi.getter(name="cdcInsertsOnly")
+    def cdc_inserts_only(self) -> Optional[bool]:
+        return pulumi.get(self, "cdc_inserts_only")
+
+    @property
+    @pulumi.getter(name="cdcMaxBatchInterval")
+    def cdc_max_batch_interval(self) -> Optional[int]:
+        return pulumi.get(self, "cdc_max_batch_interval")
+
+    @property
+    @pulumi.getter(name="cdcMinFileSize")
+    def cdc_min_file_size(self) -> Optional[int]:
+        return pulumi.get(self, "cdc_min_file_size")
+
+    @property
+    @pulumi.getter(name="cdcPath")
+    def cdc_path(self) -> Optional[str]:
+        return pulumi.get(self, "cdc_path")
+
+    @property
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> Optional[str]:
         return pulumi.get(self, "compression_type")
@@ -1240,9 +1428,69 @@ class EndpointS3Settings(dict):
         return pulumi.get(self, "csv_delimiter")
 
     @property
+    @pulumi.getter(name="csvNoSupValue")
+    def csv_no_sup_value(self) -> Optional[str]:
+        return pulumi.get(self, "csv_no_sup_value")
+
+    @property
+    @pulumi.getter(name="csvNullValue")
+    def csv_null_value(self) -> Optional[str]:
+        return pulumi.get(self, "csv_null_value")
+
+    @property
     @pulumi.getter(name="csvRowDelimiter")
     def csv_row_delimiter(self) -> Optional[str]:
         return pulumi.get(self, "csv_row_delimiter")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[str]:
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="dataPageSize")
+    def data_page_size(self) -> Optional[int]:
+        return pulumi.get(self, "data_page_size")
+
+    @property
+    @pulumi.getter(name="datePartitionDelimiter")
+    def date_partition_delimiter(self) -> Optional[str]:
+        return pulumi.get(self, "date_partition_delimiter")
+
+    @property
+    @pulumi.getter(name="datePartitionEnabled")
+    def date_partition_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "date_partition_enabled")
+
+    @property
+    @pulumi.getter(name="datePartitionSequence")
+    def date_partition_sequence(self) -> Optional[str]:
+        return pulumi.get(self, "date_partition_sequence")
+
+    @property
+    @pulumi.getter(name="datePartitionTimezone")
+    def date_partition_timezone(self) -> Optional[str]:
+        return pulumi.get(self, "date_partition_timezone")
+
+    @property
+    @pulumi.getter(name="dictPageSizeLimit")
+    def dict_page_size_limit(self) -> Optional[int]:
+        return pulumi.get(self, "dict_page_size_limit")
+
+    @property
+    @pulumi.getter(name="enableStatistics")
+    def enable_statistics(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_statistics")
+
+    @property
+    @pulumi.getter(name="encodingType")
+    def encoding_type(self) -> Optional[str]:
+        return pulumi.get(self, "encoding_type")
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[str]:
+        return pulumi.get(self, "encryption_mode")
 
     @property
     @pulumi.getter(name="externalTableDefinition")
@@ -1250,9 +1498,69 @@ class EndpointS3Settings(dict):
         return pulumi.get(self, "external_table_definition")
 
     @property
+    @pulumi.getter(name="ignoreHeaderRows")
+    def ignore_header_rows(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_header_rows")
+
+    @property
+    @pulumi.getter(name="includeOpForFullLoad")
+    def include_op_for_full_load(self) -> Optional[bool]:
+        return pulumi.get(self, "include_op_for_full_load")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[int]:
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="parquetTimestampInMillisecond")
+    def parquet_timestamp_in_millisecond(self) -> Optional[bool]:
+        return pulumi.get(self, "parquet_timestamp_in_millisecond")
+
+    @property
+    @pulumi.getter(name="parquetVersion")
+    def parquet_version(self) -> Optional[str]:
+        return pulumi.get(self, "parquet_version")
+
+    @property
+    @pulumi.getter(name="preserveTransactions")
+    def preserve_transactions(self) -> Optional[bool]:
+        return pulumi.get(self, "preserve_transactions")
+
+    @property
+    @pulumi.getter
+    def rfc4180(self) -> Optional[bool]:
+        return pulumi.get(self, "rfc4180")
+
+    @property
+    @pulumi.getter(name="rowGroupLength")
+    def row_group_length(self) -> Optional[int]:
+        return pulumi.get(self, "row_group_length")
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "service_access_role_arn")
+
+    @property
+    @pulumi.getter(name="timestampColumnName")
+    def timestamp_column_name(self) -> Optional[str]:
+        return pulumi.get(self, "timestamp_column_name")
+
+    @property
+    @pulumi.getter(name="useCsvNoSupValue")
+    def use_csv_no_sup_value(self) -> Optional[bool]:
+        return pulumi.get(self, "use_csv_no_sup_value")
+
+    @property
+    @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
+    def use_task_start_time_for_full_load_timestamp(self) -> Optional[bool]:
+        return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 
 
 @pulumi.output_type

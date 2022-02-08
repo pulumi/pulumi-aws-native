@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MSK.Inputs
 
     public sealed class ClusterEBSStorageInfoArgs : Pulumi.ResourceArgs
     {
+        [Input("provisionedThroughput")]
+        public Input<Inputs.ClusterProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
+
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 

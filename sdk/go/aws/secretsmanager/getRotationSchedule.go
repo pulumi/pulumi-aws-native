@@ -25,10 +25,11 @@ type LookupRotationScheduleArgs struct {
 }
 
 type LookupRotationScheduleResult struct {
-	HostedRotationLambda *RotationScheduleHostedRotationLambda `pulumi:"hostedRotationLambda"`
-	Id                   *string                               `pulumi:"id"`
-	RotationLambdaARN    *string                               `pulumi:"rotationLambdaARN"`
-	RotationRules        *RotationScheduleRotationRules        `pulumi:"rotationRules"`
+	HostedRotationLambda      *RotationScheduleHostedRotationLambda `pulumi:"hostedRotationLambda"`
+	Id                        *string                               `pulumi:"id"`
+	RotateImmediatelyOnUpdate *bool                                 `pulumi:"rotateImmediatelyOnUpdate"`
+	RotationLambdaARN         *string                               `pulumi:"rotationLambdaARN"`
+	RotationRules             *RotationScheduleRotationRules        `pulumi:"rotationRules"`
 }
 
 func LookupRotationScheduleOutput(ctx *pulumi.Context, args LookupRotationScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupRotationScheduleResultOutput {
@@ -70,6 +71,10 @@ func (o LookupRotationScheduleResultOutput) HostedRotationLambda() RotationSched
 
 func (o LookupRotationScheduleResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRotationScheduleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRotationScheduleResultOutput) RotateImmediatelyOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRotationScheduleResult) *bool { return v.RotateImmediatelyOnUpdate }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRotationScheduleResultOutput) RotationLambdaARN() pulumi.StringPtrOutput {

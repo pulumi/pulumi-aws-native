@@ -11,7 +11,8 @@ import (
 )
 
 type DetectorCFNDataSourceConfigurations struct {
-	S3Logs *DetectorCFNS3LogsConfiguration `pulumi:"s3Logs"`
+	Kubernetes *DetectorCFNKubernetesConfiguration `pulumi:"kubernetes"`
+	S3Logs     *DetectorCFNS3LogsConfiguration     `pulumi:"s3Logs"`
 }
 
 // DetectorCFNDataSourceConfigurationsInput is an input type that accepts DetectorCFNDataSourceConfigurationsArgs and DetectorCFNDataSourceConfigurationsOutput values.
@@ -26,7 +27,8 @@ type DetectorCFNDataSourceConfigurationsInput interface {
 }
 
 type DetectorCFNDataSourceConfigurationsArgs struct {
-	S3Logs DetectorCFNS3LogsConfigurationPtrInput `pulumi:"s3Logs"`
+	Kubernetes DetectorCFNKubernetesConfigurationPtrInput `pulumi:"kubernetes"`
+	S3Logs     DetectorCFNS3LogsConfigurationPtrInput     `pulumi:"s3Logs"`
 }
 
 func (DetectorCFNDataSourceConfigurationsArgs) ElementType() reflect.Type {
@@ -106,6 +108,10 @@ func (o DetectorCFNDataSourceConfigurationsOutput) ToDetectorCFNDataSourceConfig
 	}).(DetectorCFNDataSourceConfigurationsPtrOutput)
 }
 
+func (o DetectorCFNDataSourceConfigurationsOutput) Kubernetes() DetectorCFNKubernetesConfigurationPtrOutput {
+	return o.ApplyT(func(v DetectorCFNDataSourceConfigurations) *DetectorCFNKubernetesConfiguration { return v.Kubernetes }).(DetectorCFNKubernetesConfigurationPtrOutput)
+}
+
 func (o DetectorCFNDataSourceConfigurationsOutput) S3Logs() DetectorCFNS3LogsConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCFNDataSourceConfigurations) *DetectorCFNS3LogsConfiguration { return v.S3Logs }).(DetectorCFNS3LogsConfigurationPtrOutput)
 }
@@ -134,6 +140,15 @@ func (o DetectorCFNDataSourceConfigurationsPtrOutput) Elem() DetectorCFNDataSour
 	}).(DetectorCFNDataSourceConfigurationsOutput)
 }
 
+func (o DetectorCFNDataSourceConfigurationsPtrOutput) Kubernetes() DetectorCFNKubernetesConfigurationPtrOutput {
+	return o.ApplyT(func(v *DetectorCFNDataSourceConfigurations) *DetectorCFNKubernetesConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Kubernetes
+	}).(DetectorCFNKubernetesConfigurationPtrOutput)
+}
+
 func (o DetectorCFNDataSourceConfigurationsPtrOutput) S3Logs() DetectorCFNS3LogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCFNDataSourceConfigurations) *DetectorCFNS3LogsConfiguration {
 		if v == nil {
@@ -141,6 +156,274 @@ func (o DetectorCFNDataSourceConfigurationsPtrOutput) S3Logs() DetectorCFNS3Logs
 		}
 		return v.S3Logs
 	}).(DetectorCFNS3LogsConfigurationPtrOutput)
+}
+
+type DetectorCFNKubernetesAuditLogsConfiguration struct {
+	Enable *bool `pulumi:"enable"`
+}
+
+// DetectorCFNKubernetesAuditLogsConfigurationInput is an input type that accepts DetectorCFNKubernetesAuditLogsConfigurationArgs and DetectorCFNKubernetesAuditLogsConfigurationOutput values.
+// You can construct a concrete instance of `DetectorCFNKubernetesAuditLogsConfigurationInput` via:
+//
+//          DetectorCFNKubernetesAuditLogsConfigurationArgs{...}
+type DetectorCFNKubernetesAuditLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToDetectorCFNKubernetesAuditLogsConfigurationOutput() DetectorCFNKubernetesAuditLogsConfigurationOutput
+	ToDetectorCFNKubernetesAuditLogsConfigurationOutputWithContext(context.Context) DetectorCFNKubernetesAuditLogsConfigurationOutput
+}
+
+type DetectorCFNKubernetesAuditLogsConfigurationArgs struct {
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+}
+
+func (DetectorCFNKubernetesAuditLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNKubernetesAuditLogsConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCFNKubernetesAuditLogsConfigurationArgs) ToDetectorCFNKubernetesAuditLogsConfigurationOutput() DetectorCFNKubernetesAuditLogsConfigurationOutput {
+	return i.ToDetectorCFNKubernetesAuditLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNKubernetesAuditLogsConfigurationArgs) ToDetectorCFNKubernetesAuditLogsConfigurationOutputWithContext(ctx context.Context) DetectorCFNKubernetesAuditLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNKubernetesAuditLogsConfigurationOutput)
+}
+
+func (i DetectorCFNKubernetesAuditLogsConfigurationArgs) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutput() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return i.ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNKubernetesAuditLogsConfigurationArgs) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNKubernetesAuditLogsConfigurationOutput).ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// DetectorCFNKubernetesAuditLogsConfigurationPtrInput is an input type that accepts DetectorCFNKubernetesAuditLogsConfigurationArgs, DetectorCFNKubernetesAuditLogsConfigurationPtr and DetectorCFNKubernetesAuditLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `DetectorCFNKubernetesAuditLogsConfigurationPtrInput` via:
+//
+//          DetectorCFNKubernetesAuditLogsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorCFNKubernetesAuditLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutput() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput
+	ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(context.Context) DetectorCFNKubernetesAuditLogsConfigurationPtrOutput
+}
+
+type detectorCFNKubernetesAuditLogsConfigurationPtrType DetectorCFNKubernetesAuditLogsConfigurationArgs
+
+func DetectorCFNKubernetesAuditLogsConfigurationPtr(v *DetectorCFNKubernetesAuditLogsConfigurationArgs) DetectorCFNKubernetesAuditLogsConfigurationPtrInput {
+	return (*detectorCFNKubernetesAuditLogsConfigurationPtrType)(v)
+}
+
+func (*detectorCFNKubernetesAuditLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNKubernetesAuditLogsConfiguration)(nil)).Elem()
+}
+
+func (i *detectorCFNKubernetesAuditLogsConfigurationPtrType) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutput() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return i.ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorCFNKubernetesAuditLogsConfigurationPtrType) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNKubernetesAuditLogsConfigurationPtrOutput)
+}
+
+type DetectorCFNKubernetesAuditLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNKubernetesAuditLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNKubernetesAuditLogsConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationOutput) ToDetectorCFNKubernetesAuditLogsConfigurationOutput() DetectorCFNKubernetesAuditLogsConfigurationOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationOutput) ToDetectorCFNKubernetesAuditLogsConfigurationOutputWithContext(ctx context.Context) DetectorCFNKubernetesAuditLogsConfigurationOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationOutput) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutput() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return o.ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationOutput) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorCFNKubernetesAuditLogsConfiguration) *DetectorCFNKubernetesAuditLogsConfiguration {
+		return &v
+	}).(DetectorCFNKubernetesAuditLogsConfigurationPtrOutput)
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DetectorCFNKubernetesAuditLogsConfiguration) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+type DetectorCFNKubernetesAuditLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNKubernetesAuditLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNKubernetesAuditLogsConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationPtrOutput) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutput() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationPtrOutput) ToDetectorCFNKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationPtrOutput) Elem() DetectorCFNKubernetesAuditLogsConfigurationOutput {
+	return o.ApplyT(func(v *DetectorCFNKubernetesAuditLogsConfiguration) DetectorCFNKubernetesAuditLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorCFNKubernetesAuditLogsConfiguration
+		return ret
+	}).(DetectorCFNKubernetesAuditLogsConfigurationOutput)
+}
+
+func (o DetectorCFNKubernetesAuditLogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DetectorCFNKubernetesAuditLogsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DetectorCFNKubernetesConfiguration struct {
+	AuditLogs *DetectorCFNKubernetesAuditLogsConfiguration `pulumi:"auditLogs"`
+}
+
+// DetectorCFNKubernetesConfigurationInput is an input type that accepts DetectorCFNKubernetesConfigurationArgs and DetectorCFNKubernetesConfigurationOutput values.
+// You can construct a concrete instance of `DetectorCFNKubernetesConfigurationInput` via:
+//
+//          DetectorCFNKubernetesConfigurationArgs{...}
+type DetectorCFNKubernetesConfigurationInput interface {
+	pulumi.Input
+
+	ToDetectorCFNKubernetesConfigurationOutput() DetectorCFNKubernetesConfigurationOutput
+	ToDetectorCFNKubernetesConfigurationOutputWithContext(context.Context) DetectorCFNKubernetesConfigurationOutput
+}
+
+type DetectorCFNKubernetesConfigurationArgs struct {
+	AuditLogs DetectorCFNKubernetesAuditLogsConfigurationPtrInput `pulumi:"auditLogs"`
+}
+
+func (DetectorCFNKubernetesConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNKubernetesConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCFNKubernetesConfigurationArgs) ToDetectorCFNKubernetesConfigurationOutput() DetectorCFNKubernetesConfigurationOutput {
+	return i.ToDetectorCFNKubernetesConfigurationOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNKubernetesConfigurationArgs) ToDetectorCFNKubernetesConfigurationOutputWithContext(ctx context.Context) DetectorCFNKubernetesConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNKubernetesConfigurationOutput)
+}
+
+func (i DetectorCFNKubernetesConfigurationArgs) ToDetectorCFNKubernetesConfigurationPtrOutput() DetectorCFNKubernetesConfigurationPtrOutput {
+	return i.ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNKubernetesConfigurationArgs) ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNKubernetesConfigurationOutput).ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(ctx)
+}
+
+// DetectorCFNKubernetesConfigurationPtrInput is an input type that accepts DetectorCFNKubernetesConfigurationArgs, DetectorCFNKubernetesConfigurationPtr and DetectorCFNKubernetesConfigurationPtrOutput values.
+// You can construct a concrete instance of `DetectorCFNKubernetesConfigurationPtrInput` via:
+//
+//          DetectorCFNKubernetesConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorCFNKubernetesConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDetectorCFNKubernetesConfigurationPtrOutput() DetectorCFNKubernetesConfigurationPtrOutput
+	ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(context.Context) DetectorCFNKubernetesConfigurationPtrOutput
+}
+
+type detectorCFNKubernetesConfigurationPtrType DetectorCFNKubernetesConfigurationArgs
+
+func DetectorCFNKubernetesConfigurationPtr(v *DetectorCFNKubernetesConfigurationArgs) DetectorCFNKubernetesConfigurationPtrInput {
+	return (*detectorCFNKubernetesConfigurationPtrType)(v)
+}
+
+func (*detectorCFNKubernetesConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNKubernetesConfiguration)(nil)).Elem()
+}
+
+func (i *detectorCFNKubernetesConfigurationPtrType) ToDetectorCFNKubernetesConfigurationPtrOutput() DetectorCFNKubernetesConfigurationPtrOutput {
+	return i.ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorCFNKubernetesConfigurationPtrType) ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNKubernetesConfigurationPtrOutput)
+}
+
+type DetectorCFNKubernetesConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNKubernetesConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNKubernetesConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCFNKubernetesConfigurationOutput) ToDetectorCFNKubernetesConfigurationOutput() DetectorCFNKubernetesConfigurationOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesConfigurationOutput) ToDetectorCFNKubernetesConfigurationOutputWithContext(ctx context.Context) DetectorCFNKubernetesConfigurationOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesConfigurationOutput) ToDetectorCFNKubernetesConfigurationPtrOutput() DetectorCFNKubernetesConfigurationPtrOutput {
+	return o.ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorCFNKubernetesConfigurationOutput) ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorCFNKubernetesConfiguration) *DetectorCFNKubernetesConfiguration {
+		return &v
+	}).(DetectorCFNKubernetesConfigurationPtrOutput)
+}
+
+func (o DetectorCFNKubernetesConfigurationOutput) AuditLogs() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v DetectorCFNKubernetesConfiguration) *DetectorCFNKubernetesAuditLogsConfiguration {
+		return v.AuditLogs
+	}).(DetectorCFNKubernetesAuditLogsConfigurationPtrOutput)
+}
+
+type DetectorCFNKubernetesConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNKubernetesConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNKubernetesConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCFNKubernetesConfigurationPtrOutput) ToDetectorCFNKubernetesConfigurationPtrOutput() DetectorCFNKubernetesConfigurationPtrOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesConfigurationPtrOutput) ToDetectorCFNKubernetesConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNKubernetesConfigurationPtrOutput {
+	return o
+}
+
+func (o DetectorCFNKubernetesConfigurationPtrOutput) Elem() DetectorCFNKubernetesConfigurationOutput {
+	return o.ApplyT(func(v *DetectorCFNKubernetesConfiguration) DetectorCFNKubernetesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorCFNKubernetesConfiguration
+		return ret
+	}).(DetectorCFNKubernetesConfigurationOutput)
+}
+
+func (o DetectorCFNKubernetesConfigurationPtrOutput) AuditLogs() DetectorCFNKubernetesAuditLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v *DetectorCFNKubernetesConfiguration) *DetectorCFNKubernetesAuditLogsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuditLogs
+	}).(DetectorCFNKubernetesAuditLogsConfigurationPtrOutput)
 }
 
 type DetectorCFNS3LogsConfiguration struct {
@@ -569,6 +852,10 @@ func (o FilterFindingCriteriaPtrOutput) ItemType() FilterConditionPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNDataSourceConfigurationsInput)(nil)).Elem(), DetectorCFNDataSourceConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNDataSourceConfigurationsPtrInput)(nil)).Elem(), DetectorCFNDataSourceConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNKubernetesAuditLogsConfigurationInput)(nil)).Elem(), DetectorCFNKubernetesAuditLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNKubernetesAuditLogsConfigurationPtrInput)(nil)).Elem(), DetectorCFNKubernetesAuditLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNKubernetesConfigurationInput)(nil)).Elem(), DetectorCFNKubernetesConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNKubernetesConfigurationPtrInput)(nil)).Elem(), DetectorCFNKubernetesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNS3LogsConfigurationInput)(nil)).Elem(), DetectorCFNS3LogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNS3LogsConfigurationPtrInput)(nil)).Elem(), DetectorCFNS3LogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionInput)(nil)).Elem(), FilterConditionArgs{})
@@ -576,6 +863,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
 	pulumi.RegisterOutputType(DetectorCFNDataSourceConfigurationsOutput{})
 	pulumi.RegisterOutputType(DetectorCFNDataSourceConfigurationsPtrOutput{})
+	pulumi.RegisterOutputType(DetectorCFNKubernetesAuditLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(DetectorCFNKubernetesAuditLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DetectorCFNKubernetesConfigurationOutput{})
+	pulumi.RegisterOutputType(DetectorCFNKubernetesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DetectorCFNS3LogsConfigurationOutput{})
 	pulumi.RegisterOutputType(DetectorCFNS3LogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FilterConditionOutput{})

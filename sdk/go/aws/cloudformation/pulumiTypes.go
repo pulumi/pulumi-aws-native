@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type HookVersionLoggingConfig struct {
+	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+	LogRoleArn *string `pulumi:"logRoleArn"`
+}
+
+// HookVersionLoggingConfigInput is an input type that accepts HookVersionLoggingConfigArgs and HookVersionLoggingConfigOutput values.
+// You can construct a concrete instance of `HookVersionLoggingConfigInput` via:
+//
+//          HookVersionLoggingConfigArgs{...}
+type HookVersionLoggingConfigInput interface {
+	pulumi.Input
+
+	ToHookVersionLoggingConfigOutput() HookVersionLoggingConfigOutput
+	ToHookVersionLoggingConfigOutputWithContext(context.Context) HookVersionLoggingConfigOutput
+}
+
+type HookVersionLoggingConfigArgs struct {
+	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+	LogRoleArn pulumi.StringPtrInput `pulumi:"logRoleArn"`
+}
+
+func (HookVersionLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HookVersionLoggingConfig)(nil)).Elem()
+}
+
+func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigOutput() HookVersionLoggingConfigOutput {
+	return i.ToHookVersionLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigOutputWithContext(ctx context.Context) HookVersionLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HookVersionLoggingConfigOutput)
+}
+
+func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigPtrOutput() HookVersionLoggingConfigPtrOutput {
+	return i.ToHookVersionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigPtrOutputWithContext(ctx context.Context) HookVersionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HookVersionLoggingConfigOutput).ToHookVersionLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// HookVersionLoggingConfigPtrInput is an input type that accepts HookVersionLoggingConfigArgs, HookVersionLoggingConfigPtr and HookVersionLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `HookVersionLoggingConfigPtrInput` via:
+//
+//          HookVersionLoggingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type HookVersionLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToHookVersionLoggingConfigPtrOutput() HookVersionLoggingConfigPtrOutput
+	ToHookVersionLoggingConfigPtrOutputWithContext(context.Context) HookVersionLoggingConfigPtrOutput
+}
+
+type hookVersionLoggingConfigPtrType HookVersionLoggingConfigArgs
+
+func HookVersionLoggingConfigPtr(v *HookVersionLoggingConfigArgs) HookVersionLoggingConfigPtrInput {
+	return (*hookVersionLoggingConfigPtrType)(v)
+}
+
+func (*hookVersionLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HookVersionLoggingConfig)(nil)).Elem()
+}
+
+func (i *hookVersionLoggingConfigPtrType) ToHookVersionLoggingConfigPtrOutput() HookVersionLoggingConfigPtrOutput {
+	return i.ToHookVersionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *hookVersionLoggingConfigPtrType) ToHookVersionLoggingConfigPtrOutputWithContext(ctx context.Context) HookVersionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HookVersionLoggingConfigPtrOutput)
+}
+
+type HookVersionLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (HookVersionLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HookVersionLoggingConfig)(nil)).Elem()
+}
+
+func (o HookVersionLoggingConfigOutput) ToHookVersionLoggingConfigOutput() HookVersionLoggingConfigOutput {
+	return o
+}
+
+func (o HookVersionLoggingConfigOutput) ToHookVersionLoggingConfigOutputWithContext(ctx context.Context) HookVersionLoggingConfigOutput {
+	return o
+}
+
+func (o HookVersionLoggingConfigOutput) ToHookVersionLoggingConfigPtrOutput() HookVersionLoggingConfigPtrOutput {
+	return o.ToHookVersionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o HookVersionLoggingConfigOutput) ToHookVersionLoggingConfigPtrOutputWithContext(ctx context.Context) HookVersionLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HookVersionLoggingConfig) *HookVersionLoggingConfig {
+		return &v
+	}).(HookVersionLoggingConfigPtrOutput)
+}
+
+// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+func (o HookVersionLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HookVersionLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+func (o HookVersionLoggingConfigOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HookVersionLoggingConfig) *string { return v.LogRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type HookVersionLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (HookVersionLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HookVersionLoggingConfig)(nil)).Elem()
+}
+
+func (o HookVersionLoggingConfigPtrOutput) ToHookVersionLoggingConfigPtrOutput() HookVersionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o HookVersionLoggingConfigPtrOutput) ToHookVersionLoggingConfigPtrOutputWithContext(ctx context.Context) HookVersionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o HookVersionLoggingConfigPtrOutput) Elem() HookVersionLoggingConfigOutput {
+	return o.ApplyT(func(v *HookVersionLoggingConfig) HookVersionLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HookVersionLoggingConfig
+		return ret
+	}).(HookVersionLoggingConfigOutput)
+}
+
+// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+func (o HookVersionLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookVersionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+func (o HookVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookVersionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 type ManagedExecutionProperties struct {
 	Active *bool `pulumi:"active"`
@@ -1320,6 +1476,8 @@ func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigPtrInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesPtrInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
@@ -1339,6 +1497,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
+	pulumi.RegisterOutputType(HookVersionLoggingConfigOutput{})
+	pulumi.RegisterOutputType(HookVersionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigOutput{})

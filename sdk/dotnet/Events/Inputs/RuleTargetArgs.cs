@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Events.Inputs
         [Input("runCommandParameters")]
         public Input<Inputs.RuleRunCommandParametersArgs>? RunCommandParameters { get; set; }
 
+        [Input("sageMakerPipelineParameters")]
+        public Input<Inputs.RuleSageMakerPipelineParametersArgs>? SageMakerPipelineParameters { get; set; }
+
         [Input("sqsParameters")]
         public Input<Inputs.RuleSqsParametersArgs>? SqsParameters { get; set; }
 

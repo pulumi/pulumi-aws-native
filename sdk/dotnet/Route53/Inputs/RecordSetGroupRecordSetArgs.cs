@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         [Input("aliasTarget")]
         public Input<Inputs.RecordSetGroupAliasTargetArgs>? AliasTarget { get; set; }
 
-        [Input("comment")]
-        public Input<string>? Comment { get; set; }
-
         [Input("failover")]
         public Input<string>? Failover { get; set; }
 

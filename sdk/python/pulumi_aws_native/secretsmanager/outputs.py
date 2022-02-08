@@ -132,6 +132,8 @@ class RotationScheduleRotationRules(dict):
         suggest = None
         if key == "automaticallyAfterDays":
             suggest = "automatically_after_days"
+        elif key == "scheduleExpression":
+            suggest = "schedule_expression"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RotationScheduleRotationRules. Access the value via the '{suggest}' property getter instead.")
@@ -145,14 +147,30 @@ class RotationScheduleRotationRules(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 automatically_after_days: Optional[int] = None):
+                 automatically_after_days: Optional[int] = None,
+                 duration: Optional[str] = None,
+                 schedule_expression: Optional[str] = None):
         if automatically_after_days is not None:
             pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> Optional[int]:
         return pulumi.get(self, "automatically_after_days")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[str]:
+        return pulumi.get(self, "schedule_expression")
 
 
 @pulumi.output_type

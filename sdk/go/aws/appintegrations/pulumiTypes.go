@@ -10,6 +10,185 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DataIntegrationScheduleConfig struct {
+	// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+	FirstExecutionFrom string `pulumi:"firstExecutionFrom"`
+	// The name of the object to pull from the data source.
+	Object string `pulumi:"object"`
+	// How often the data should be pulled from data source.
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// DataIntegrationScheduleConfigInput is an input type that accepts DataIntegrationScheduleConfigArgs and DataIntegrationScheduleConfigOutput values.
+// You can construct a concrete instance of `DataIntegrationScheduleConfigInput` via:
+//
+//          DataIntegrationScheduleConfigArgs{...}
+type DataIntegrationScheduleConfigInput interface {
+	pulumi.Input
+
+	ToDataIntegrationScheduleConfigOutput() DataIntegrationScheduleConfigOutput
+	ToDataIntegrationScheduleConfigOutputWithContext(context.Context) DataIntegrationScheduleConfigOutput
+}
+
+type DataIntegrationScheduleConfigArgs struct {
+	// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+	FirstExecutionFrom pulumi.StringInput `pulumi:"firstExecutionFrom"`
+	// The name of the object to pull from the data source.
+	Object pulumi.StringInput `pulumi:"object"`
+	// How often the data should be pulled from data source.
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (DataIntegrationScheduleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataIntegrationScheduleConfig)(nil)).Elem()
+}
+
+func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigOutput() DataIntegrationScheduleConfigOutput {
+	return i.ToDataIntegrationScheduleConfigOutputWithContext(context.Background())
+}
+
+func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigOutput)
+}
+
+type DataIntegrationScheduleConfigOutput struct{ *pulumi.OutputState }
+
+func (DataIntegrationScheduleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataIntegrationScheduleConfig)(nil)).Elem()
+}
+
+func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigOutput() DataIntegrationScheduleConfigOutput {
+	return o
+}
+
+func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigOutput {
+	return o
+}
+
+// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+func (o DataIntegrationScheduleConfigOutput) FirstExecutionFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.FirstExecutionFrom }).(pulumi.StringOutput)
+}
+
+// The name of the object to pull from the data source.
+func (o DataIntegrationScheduleConfigOutput) Object() pulumi.StringOutput {
+	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.Object }).(pulumi.StringOutput)
+}
+
+// How often the data should be pulled from data source.
+func (o DataIntegrationScheduleConfigOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+// A label for tagging DataIntegration resources
+type DataIntegrationTag struct {
+	// A key to identify the tag.
+	Key string `pulumi:"key"`
+	// Corresponding tag value for the key.
+	Value string `pulumi:"value"`
+}
+
+// DataIntegrationTagInput is an input type that accepts DataIntegrationTagArgs and DataIntegrationTagOutput values.
+// You can construct a concrete instance of `DataIntegrationTagInput` via:
+//
+//          DataIntegrationTagArgs{...}
+type DataIntegrationTagInput interface {
+	pulumi.Input
+
+	ToDataIntegrationTagOutput() DataIntegrationTagOutput
+	ToDataIntegrationTagOutputWithContext(context.Context) DataIntegrationTagOutput
+}
+
+// A label for tagging DataIntegration resources
+type DataIntegrationTagArgs struct {
+	// A key to identify the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Corresponding tag value for the key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DataIntegrationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataIntegrationTag)(nil)).Elem()
+}
+
+func (i DataIntegrationTagArgs) ToDataIntegrationTagOutput() DataIntegrationTagOutput {
+	return i.ToDataIntegrationTagOutputWithContext(context.Background())
+}
+
+func (i DataIntegrationTagArgs) ToDataIntegrationTagOutputWithContext(ctx context.Context) DataIntegrationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationTagOutput)
+}
+
+// DataIntegrationTagArrayInput is an input type that accepts DataIntegrationTagArray and DataIntegrationTagArrayOutput values.
+// You can construct a concrete instance of `DataIntegrationTagArrayInput` via:
+//
+//          DataIntegrationTagArray{ DataIntegrationTagArgs{...} }
+type DataIntegrationTagArrayInput interface {
+	pulumi.Input
+
+	ToDataIntegrationTagArrayOutput() DataIntegrationTagArrayOutput
+	ToDataIntegrationTagArrayOutputWithContext(context.Context) DataIntegrationTagArrayOutput
+}
+
+type DataIntegrationTagArray []DataIntegrationTagInput
+
+func (DataIntegrationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataIntegrationTag)(nil)).Elem()
+}
+
+func (i DataIntegrationTagArray) ToDataIntegrationTagArrayOutput() DataIntegrationTagArrayOutput {
+	return i.ToDataIntegrationTagArrayOutputWithContext(context.Background())
+}
+
+func (i DataIntegrationTagArray) ToDataIntegrationTagArrayOutputWithContext(ctx context.Context) DataIntegrationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationTagArrayOutput)
+}
+
+// A label for tagging DataIntegration resources
+type DataIntegrationTagOutput struct{ *pulumi.OutputState }
+
+func (DataIntegrationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataIntegrationTag)(nil)).Elem()
+}
+
+func (o DataIntegrationTagOutput) ToDataIntegrationTagOutput() DataIntegrationTagOutput {
+	return o
+}
+
+func (o DataIntegrationTagOutput) ToDataIntegrationTagOutputWithContext(ctx context.Context) DataIntegrationTagOutput {
+	return o
+}
+
+// A key to identify the tag.
+func (o DataIntegrationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataIntegrationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Corresponding tag value for the key.
+func (o DataIntegrationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataIntegrationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DataIntegrationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataIntegrationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataIntegrationTag)(nil)).Elem()
+}
+
+func (o DataIntegrationTagArrayOutput) ToDataIntegrationTagArrayOutput() DataIntegrationTagArrayOutput {
+	return o
+}
+
+func (o DataIntegrationTagArrayOutput) ToDataIntegrationTagArrayOutputWithContext(ctx context.Context) DataIntegrationTagArrayOutput {
+	return o
+}
+
+func (o DataIntegrationTagArrayOutput) Index(i pulumi.IntInput) DataIntegrationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataIntegrationTag {
+		return vs[0].([]DataIntegrationTag)[vs[1].(int)]
+	}).(DataIntegrationTagOutput)
+}
+
 type EventIntegrationAssociation struct {
 	// The metadata associated with the client.
 	ClientAssociationMetadata []EventIntegrationMetadata `pulumi:"clientAssociationMetadata"`
@@ -292,9 +471,15 @@ func (o EventIntegrationTagArrayOutput) Index(i pulumi.IntInput) EventIntegratio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationTagInput)(nil)).Elem(), DataIntegrationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationTagArrayInput)(nil)).Elem(), DataIntegrationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagInput)(nil)).Elem(), EventIntegrationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagArrayInput)(nil)).Elem(), EventIntegrationTagArray{})
+	pulumi.RegisterOutputType(DataIntegrationScheduleConfigOutput{})
+	pulumi.RegisterOutputType(DataIntegrationTagOutput{})
+	pulumi.RegisterOutputType(DataIntegrationTagArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationAssociationOutput{})
 	pulumi.RegisterOutputType(EventIntegrationAssociationArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})

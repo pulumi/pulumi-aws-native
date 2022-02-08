@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetRobotApplicationResult',
@@ -18,16 +19,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetRobotApplicationResult:
-    def __init__(__self__, arn=None, current_revision_id=None, id=None, sources=None, tags=None):
+    def __init__(__self__, arn=None, current_revision_id=None, environment=None, robot_software_suite=None, sources=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if current_revision_id and not isinstance(current_revision_id, str):
             raise TypeError("Expected argument 'current_revision_id' to be a str")
         pulumi.set(__self__, "current_revision_id", current_revision_id)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if environment and not isinstance(environment, str):
+            raise TypeError("Expected argument 'environment' to be a str")
+        pulumi.set(__self__, "environment", environment)
+        if robot_software_suite and not isinstance(robot_software_suite, dict):
+            raise TypeError("Expected argument 'robot_software_suite' to be a dict")
+        pulumi.set(__self__, "robot_software_suite", robot_software_suite)
         if sources and not isinstance(sources, list):
             raise TypeError("Expected argument 'sources' to be a list")
         pulumi.set(__self__, "sources", sources)
@@ -43,21 +47,35 @@ class GetRobotApplicationResult:
     @property
     @pulumi.getter(name="currentRevisionId")
     def current_revision_id(self) -> Optional[str]:
+        """
+        The revision ID of robot application.
+        """
         return pulumi.get(self, "current_revision_id")
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    def environment(self) -> Optional[str]:
+        """
+        The URI of the Docker image for the robot application.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="robotSoftwareSuite")
+    def robot_software_suite(self) -> Optional['outputs.RobotApplicationRobotSoftwareSuite']:
+        return pulumi.get(self, "robot_software_suite")
 
     @property
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.RobotApplicationSourceConfig']]:
+        """
+        The sources of the robot application.
+        """
         return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional['outputs.RobotApplicationTags']:
         return pulumi.get(self, "tags")
 
 
@@ -69,18 +87,19 @@ class AwaitableGetRobotApplicationResult(GetRobotApplicationResult):
         return GetRobotApplicationResult(
             arn=self.arn,
             current_revision_id=self.current_revision_id,
-            id=self.id,
+            environment=self.environment,
+            robot_software_suite=self.robot_software_suite,
             sources=self.sources,
             tags=self.tags)
 
 
-def get_robot_application(id: Optional[str] = None,
+def get_robot_application(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRobotApplicationResult:
     """
-    Resource Type definition for AWS::RoboMaker::RobotApplication
+    An example resource schema demonstrating some basic constructs and validation rules.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -90,15 +109,16 @@ def get_robot_application(id: Optional[str] = None,
     return AwaitableGetRobotApplicationResult(
         arn=__ret__.arn,
         current_revision_id=__ret__.current_revision_id,
-        id=__ret__.id,
+        environment=__ret__.environment,
+        robot_software_suite=__ret__.robot_software_suite,
         sources=__ret__.sources,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_robot_application)
-def get_robot_application_output(id: Optional[pulumi.Input[str]] = None,
+def get_robot_application_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotApplicationResult]:
     """
-    Resource Type definition for AWS::RoboMaker::RobotApplication
+    An example resource schema demonstrating some basic constructs and validation rules.
     """
     ...

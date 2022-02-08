@@ -19,6 +19,7 @@ class DBClusterArgs:
                  master_username: pulumi.Input[str],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,8 @@ class DBClusterArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if d_b_cluster_identifier is not None:
             pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
         if d_b_cluster_parameter_group_name is not None:
@@ -106,6 +109,15 @@ class DBClusterArgs:
     @backup_retention_period.setter
     def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_period", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")
@@ -246,6 +258,7 @@ class DBCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -295,6 +308,7 @@ class DBCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -326,6 +340,7 @@ class DBCluster(pulumi.CustomResource):
 
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backup_retention_period"] = backup_retention_period
+            __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
             __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
             __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
@@ -374,6 +389,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_resource_id"] = None
+        __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["d_b_cluster_identifier"] = None
         __props__.__dict__["d_b_cluster_parameter_group_name"] = None
         __props__.__dict__["d_b_subnet_group_name"] = None
@@ -408,6 +424,11 @@ class DBCluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")

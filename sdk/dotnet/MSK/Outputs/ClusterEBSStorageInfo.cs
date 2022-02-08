@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.MSK.Outputs
     [OutputType]
     public sealed class ClusterEBSStorageInfo
     {
+        public readonly Outputs.ClusterProvisionedThroughput? ProvisionedThroughput;
         public readonly int? VolumeSize;
 
         [OutputConstructor]
-        private ClusterEBSStorageInfo(int? volumeSize)
+        private ClusterEBSStorageInfo(
+            Outputs.ClusterProvisionedThroughput? provisionedThroughput,
+
+            int? volumeSize)
         {
+            ProvisionedThroughput = provisionedThroughput;
             VolumeSize = volumeSize;
         }
     }

@@ -16,6 +16,7 @@ __all__ = [
     'RecordingConfigurationDestinationConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
     'RecordingConfigurationTag',
+    'RecordingConfigurationThumbnailConfiguration',
     'StreamKeyTag',
 ]
 
@@ -127,6 +128,59 @@ class RecordingConfigurationTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RecordingConfigurationThumbnailConfiguration(dict):
+    """
+    Recording Thumbnail Configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingMode":
+            suggest = "recording_mode"
+        elif key == "targetIntervalSeconds":
+            suggest = "target_interval_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordingConfigurationThumbnailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordingConfigurationThumbnailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordingConfigurationThumbnailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_mode: 'RecordingConfigurationThumbnailConfigurationRecordingMode',
+                 target_interval_seconds: Optional[int] = None):
+        """
+        Recording Thumbnail Configuration.
+        :param 'RecordingConfigurationThumbnailConfigurationRecordingMode' recording_mode: Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+        :param int target_interval_seconds: Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+        """
+        pulumi.set(__self__, "recording_mode", recording_mode)
+        if target_interval_seconds is not None:
+            pulumi.set(__self__, "target_interval_seconds", target_interval_seconds)
+
+    @property
+    @pulumi.getter(name="recordingMode")
+    def recording_mode(self) -> 'RecordingConfigurationThumbnailConfigurationRecordingMode':
+        """
+        Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+        """
+        return pulumi.get(self, "recording_mode")
+
+    @property
+    @pulumi.getter(name="targetIntervalSeconds")
+    def target_interval_seconds(self) -> Optional[int]:
+        """
+        Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+        """
+        return pulumi.get(self, "target_interval_seconds")
 
 
 @pulumi.output_type

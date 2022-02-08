@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.DocDB
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
+        [Output("copyTagsToSnapshot")]
+        public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
+
         [Output("dBClusterIdentifier")]
         public Output<string?> DBClusterIdentifier { get; private set; } = null!;
 
@@ -134,6 +137,9 @@ namespace Pulumi.AwsNative.DocDB
 
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
+
+        [Input("copyTagsToSnapshot")]
+        public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         [Input("dBClusterIdentifier")]
         public Input<string>? DBClusterIdentifier { get; set; }

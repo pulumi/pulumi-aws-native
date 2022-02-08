@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RoboMaker::RobotApplication
+// An example resource schema demonstrating some basic constructs and validation rules.
 func LookupRobotApplication(ctx *pulumi.Context, args *LookupRobotApplicationArgs, opts ...pulumi.InvokeOption) (*LookupRobotApplicationResult, error) {
 	var rv LookupRobotApplicationResult
 	err := ctx.Invoke("aws-native:robomaker:getRobotApplication", args, &rv, opts...)
@@ -21,15 +21,19 @@ func LookupRobotApplication(ctx *pulumi.Context, args *LookupRobotApplicationArg
 }
 
 type LookupRobotApplicationArgs struct {
-	Id string `pulumi:"id"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupRobotApplicationResult struct {
-	Arn               *string                        `pulumi:"arn"`
-	CurrentRevisionId *string                        `pulumi:"currentRevisionId"`
-	Id                *string                        `pulumi:"id"`
-	Sources           []RobotApplicationSourceConfig `pulumi:"sources"`
-	Tags              interface{}                    `pulumi:"tags"`
+	Arn *string `pulumi:"arn"`
+	// The revision ID of robot application.
+	CurrentRevisionId *string `pulumi:"currentRevisionId"`
+	// The URI of the Docker image for the robot application.
+	Environment        *string                             `pulumi:"environment"`
+	RobotSoftwareSuite *RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
+	// The sources of the robot application.
+	Sources []RobotApplicationSourceConfig `pulumi:"sources"`
+	Tags    *RobotApplicationTags          `pulumi:"tags"`
 }
 
 func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupRobotApplicationResultOutput {
@@ -42,7 +46,7 @@ func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicati
 }
 
 type LookupRobotApplicationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupRobotApplicationOutputArgs) ElementType() reflect.Type {
@@ -67,20 +71,27 @@ func (o LookupRobotApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The revision ID of robot application.
 func (o LookupRobotApplicationResultOutput) CurrentRevisionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.CurrentRevisionId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRobotApplicationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The URI of the Docker image for the robot application.
+func (o LookupRobotApplicationResultOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.Environment }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupRobotApplicationResultOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuitePtrOutput {
+	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationRobotSoftwareSuite { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuitePtrOutput)
+}
+
+// The sources of the robot application.
 func (o LookupRobotApplicationResultOutput) Sources() RobotApplicationSourceConfigArrayOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) []RobotApplicationSourceConfig { return v.Sources }).(RobotApplicationSourceConfigArrayOutput)
 }
 
-func (o LookupRobotApplicationResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupRobotApplicationResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupRobotApplicationResultOutput) Tags() RobotApplicationTagsPtrOutput {
+	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationTags { return v.Tags }).(RobotApplicationTagsPtrOutput)
 }
 
 func init() {

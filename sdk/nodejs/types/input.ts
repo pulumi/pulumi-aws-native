@@ -2519,6 +2519,35 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    export interface DataIntegrationScheduleConfigArgs {
+        /**
+         * The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+         */
+        firstExecutionFrom: pulumi.Input<string>;
+        /**
+         * The name of the object to pull from the data source.
+         */
+        object: pulumi.Input<string>;
+        /**
+         * How often the data should be pulled from data source.
+         */
+        scheduleExpression: pulumi.Input<string>;
+    }
+
+    /**
+     * A label for tagging DataIntegration resources
+     */
+    export interface DataIntegrationTagArgs {
+        /**
+         * A key to identify the tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Corresponding tag value for the key.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface EventIntegrationEventFilterArgs {
         /**
          * The source of the events.
@@ -2735,22 +2764,22 @@ export namespace applicationinsights {
         /**
          * A flag which indicates agreeing to install SAP HANA DB client.
          */
-        agreeToInstallHANADBClient?: pulumi.Input<boolean>;
+        agreeToInstallHANADBClient: pulumi.Input<boolean>;
         /**
          * The HANA DB port.
          */
-        hANAPort?: pulumi.Input<string>;
+        hANAPort: pulumi.Input<string>;
         /**
          * HANA DB SID.
          */
-        hANASID?: pulumi.Input<string>;
+        hANASID: pulumi.Input<string>;
         /**
          * The secret name which manages the HANA DB credentials e.g. {
          *   "username": "<>",
          *   "password": "<>"
          * }.
          */
-        hANASecretName?: pulumi.Input<string>;
+        hANASecretName: pulumi.Input<string>;
         /**
          * Prometheus exporter port.
          */
@@ -3786,6 +3815,11 @@ export namespace apprunner {
     }
 
     export interface ServiceTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface VpcConnectorTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
     }
@@ -5061,6 +5095,17 @@ export namespace cloud9 {
 }
 
 export namespace cloudformation {
+    export interface HookVersionLoggingConfigArgs {
+        /**
+         * The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+         */
+        logRoleArn?: pulumi.Input<string>;
+    }
+
     /**
      * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
      */
@@ -6472,6 +6517,7 @@ export namespace cognito {
     export interface UserPoolSmsConfigurationArgs {
         externalId?: pulumi.Input<string>;
         snsCallerArn?: pulumi.Input<string>;
+        snsRegion?: pulumi.Input<string>;
     }
 
     export interface UserPoolStringAttributeConstraintsArgs {
@@ -6821,6 +6867,11 @@ export namespace customerprofiles {
         object: pulumi.Input<string>;
     }
 
+    export interface IntegrationObjectTypeMappingArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface IntegrationS3SourcePropertiesArgs {
         bucketName: pulumi.Input<string>;
         bucketPrefix?: pulumi.Input<string>;
@@ -6938,7 +6989,6 @@ export namespace customerprofiles {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace databrew {
@@ -8252,13 +8302,44 @@ export namespace dms {
     }
 
     export interface EndpointS3SettingsArgs {
+        addColumnName?: pulumi.Input<boolean>;
         bucketFolder?: pulumi.Input<string>;
         bucketName?: pulumi.Input<string>;
+        cannedAclForObjects?: pulumi.Input<string>;
+        cdcInsertsAndUpdates?: pulumi.Input<boolean>;
+        cdcInsertsOnly?: pulumi.Input<boolean>;
+        cdcMaxBatchInterval?: pulumi.Input<number>;
+        cdcMinFileSize?: pulumi.Input<number>;
+        cdcPath?: pulumi.Input<string>;
         compressionType?: pulumi.Input<string>;
         csvDelimiter?: pulumi.Input<string>;
+        csvNoSupValue?: pulumi.Input<string>;
+        csvNullValue?: pulumi.Input<string>;
         csvRowDelimiter?: pulumi.Input<string>;
+        dataFormat?: pulumi.Input<string>;
+        dataPageSize?: pulumi.Input<number>;
+        datePartitionDelimiter?: pulumi.Input<string>;
+        datePartitionEnabled?: pulumi.Input<boolean>;
+        datePartitionSequence?: pulumi.Input<string>;
+        datePartitionTimezone?: pulumi.Input<string>;
+        dictPageSizeLimit?: pulumi.Input<number>;
+        enableStatistics?: pulumi.Input<boolean>;
+        encodingType?: pulumi.Input<string>;
+        encryptionMode?: pulumi.Input<string>;
         externalTableDefinition?: pulumi.Input<string>;
+        ignoreHeaderRows?: pulumi.Input<number>;
+        includeOpForFullLoad?: pulumi.Input<boolean>;
+        maxFileSize?: pulumi.Input<number>;
+        parquetTimestampInMillisecond?: pulumi.Input<boolean>;
+        parquetVersion?: pulumi.Input<string>;
+        preserveTransactions?: pulumi.Input<boolean>;
+        rfc4180?: pulumi.Input<boolean>;
+        rowGroupLength?: pulumi.Input<number>;
+        serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
         serviceAccessRoleArn?: pulumi.Input<string>;
+        timestampColumnName?: pulumi.Input<string>;
+        useCsvNoSupValue?: pulumi.Input<boolean>;
+        useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean>;
     }
 
     export interface EndpointSybaseSettingsArgs {
@@ -8966,6 +9047,7 @@ export namespace ec2 {
         monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoringArgs>;
         networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterfaceArgs>[]>;
         placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacementArgs>;
+        privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptionsArgs>;
         ramDiskId?: pulumi.Input<string>;
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -9058,6 +9140,7 @@ export namespace ec2 {
         httpProtocolIpv6?: pulumi.Input<string>;
         httpPutResponseHopLimit?: pulumi.Input<number>;
         httpTokens?: pulumi.Input<string>;
+        instanceMetadataTags?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateMonitoringArgs {
@@ -9096,6 +9179,12 @@ export namespace ec2 {
         partitionNumber?: pulumi.Input<number>;
         spreadDomain?: pulumi.Input<string>;
         tenancy?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplatePrivateDnsNameOptionsArgs {
+        enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
+        enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        hostnameType?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplatePrivateIpAddArgs {
@@ -11515,6 +11604,15 @@ export namespace events {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface RuleSageMakerPipelineParameterArgs {
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleSageMakerPipelineParametersArgs {
+        pipelineParameterList?: pulumi.Input<pulumi.Input<inputs.events.RuleSageMakerPipelineParameterArgs>[]>;
+    }
+
     export interface RuleSqsParametersArgs {
         messageGroupId: pulumi.Input<string>;
     }
@@ -11539,9 +11637,9 @@ export namespace events {
         retryPolicy?: pulumi.Input<inputs.events.RuleRetryPolicyArgs>;
         roleArn?: pulumi.Input<string>;
         runCommandParameters?: pulumi.Input<inputs.events.RuleRunCommandParametersArgs>;
+        sageMakerPipelineParameters?: pulumi.Input<inputs.events.RuleSageMakerPipelineParametersArgs>;
         sqsParameters?: pulumi.Input<inputs.events.RuleSqsParametersArgs>;
     }
-
 }
 
 export namespace eventschemas {
@@ -13412,7 +13510,16 @@ export namespace groundstation {
 
 export namespace guardduty {
     export interface DetectorCFNDataSourceConfigurationsArgs {
+        kubernetes?: pulumi.Input<inputs.guardduty.DetectorCFNKubernetesConfigurationArgs>;
         s3Logs?: pulumi.Input<inputs.guardduty.DetectorCFNS3LogsConfigurationArgs>;
+    }
+
+    export interface DetectorCFNKubernetesAuditLogsConfigurationArgs {
+        enable?: pulumi.Input<boolean>;
+    }
+
+    export interface DetectorCFNKubernetesConfigurationArgs {
+        auditLogs?: pulumi.Input<inputs.guardduty.DetectorCFNKubernetesAuditLogsConfigurationArgs>;
     }
 
     export interface DetectorCFNS3LogsConfigurationArgs {
@@ -16188,6 +16295,20 @@ export namespace ivs {
     export interface RecordingConfigurationTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Recording Thumbnail Configuration.
+     */
+    export interface RecordingConfigurationThumbnailConfigurationArgs {
+        /**
+         * Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+         */
+        recordingMode: pulumi.Input<enums.ivs.RecordingConfigurationThumbnailConfigurationRecordingMode>;
+        /**
+         * Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+         */
+        targetIntervalSeconds?: pulumi.Input<number>;
     }
 
     export interface StreamKeyTagArgs {
@@ -21595,6 +21716,7 @@ export namespace msk {
     }
 
     export interface ClusterEBSStorageInfoArgs {
+        provisionedThroughput?: pulumi.Input<inputs.msk.ClusterProvisionedThroughputArgs>;
         volumeSize?: pulumi.Input<number>;
     }
 
@@ -21640,6 +21762,11 @@ export namespace msk {
     export interface ClusterPrometheusArgs {
         jmxExporter?: pulumi.Input<inputs.msk.ClusterJmxExporterArgs>;
         nodeExporter?: pulumi.Input<inputs.msk.ClusterNodeExporterArgs>;
+    }
+
+    export interface ClusterProvisionedThroughputArgs {
+        enabled?: pulumi.Input<boolean>;
+        volumeThroughput?: pulumi.Input<number>;
     }
 
     export interface ClusterPublicAccessArgs {
@@ -24446,15 +24573,39 @@ export namespace robomaker {
     export interface FleetTagsArgs {
     }
 
+    /**
+     * The robot software suite used by the robot application.
+     */
     export interface RobotApplicationRobotSoftwareSuiteArgs {
-        name: pulumi.Input<string>;
-        version: pulumi.Input<string>;
+        /**
+         * The name of robot software suite.
+         */
+        name: pulumi.Input<enums.robomaker.RobotApplicationRobotSoftwareSuiteName>;
+        /**
+         * The version of robot software suite.
+         */
+        version?: pulumi.Input<enums.robomaker.RobotApplicationRobotSoftwareSuiteVersion>;
     }
 
     export interface RobotApplicationSourceConfigArgs {
-        architecture: pulumi.Input<string>;
+        /**
+         * The architecture of robot application.
+         */
+        architecture: pulumi.Input<enums.robomaker.RobotApplicationSourceConfigArchitecture>;
+        /**
+         * The Arn of the S3Bucket that stores the robot application source.
+         */
         s3Bucket: pulumi.Input<string>;
+        /**
+         * The s3 key of robot application source.
+         */
         s3Key: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RobotApplicationTagsArgs {
     }
 
     /**
@@ -24658,7 +24809,6 @@ export namespace route53 {
 
     export interface RecordSetGroupRecordSetArgs {
         aliasTarget?: pulumi.Input<inputs.route53.RecordSetGroupAliasTargetArgs>;
-        comment?: pulumi.Input<string>;
         failover?: pulumi.Input<string>;
         geoLocation?: pulumi.Input<inputs.route53.RecordSetGroupGeoLocationArgs>;
         healthCheckId?: pulumi.Input<string>;
@@ -25180,6 +25330,16 @@ export namespace s3 {
     }
 
     /**
+     * Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+     */
+    export interface BucketEventBridgeConfigurationArgs {
+        /**
+         * Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+         */
+        eventBridgeEnabled: pulumi.Input<boolean>;
+    }
+
+    /**
      * Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
      */
     export interface BucketFilterRuleArgs {
@@ -25284,9 +25444,27 @@ export namespace s3 {
     }
 
     /**
+     * Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+     */
+    export interface BucketNoncurrentVersionExpirationArgs {
+        /**
+         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         */
+        newerNoncurrentVersions?: pulumi.Input<number>;
+        /**
+         * Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+         */
+        noncurrentDays: pulumi.Input<number>;
+    }
+
+    /**
      * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
      */
     export interface BucketNoncurrentVersionTransitionArgs {
+        /**
+         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         */
+        newerNoncurrentVersions?: pulumi.Input<number>;
         /**
          * The class of storage used to store the object.
          */
@@ -25301,6 +25479,7 @@ export namespace s3 {
      * Describes the notification configuration for an Amazon S3 bucket.
      */
     export interface BucketNotificationConfigurationArgs {
+        eventBridgeConfiguration?: pulumi.Input<inputs.s3.BucketEventBridgeConfigurationArgs>;
         lambdaConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketLambdaConfigurationArgs>[]>;
         queueConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketQueueConfigurationArgs>[]>;
         topicConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketTopicConfigurationArgs>[]>;
@@ -25536,9 +25715,12 @@ export namespace s3 {
         expirationInDays?: pulumi.Input<number>;
         expiredObjectDeleteMarker?: pulumi.Input<boolean>;
         id?: pulumi.Input<string>;
+        noncurrentVersionExpiration?: pulumi.Input<inputs.s3.BucketNoncurrentVersionExpirationArgs>;
         noncurrentVersionExpirationInDays?: pulumi.Input<number>;
         noncurrentVersionTransition?: pulumi.Input<inputs.s3.BucketNoncurrentVersionTransitionArgs>;
         noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNoncurrentVersionTransitionArgs>[]>;
+        objectSizeGreaterThan?: pulumi.Input<string>;
+        objectSizeLessThan?: pulumi.Input<string>;
         prefix?: pulumi.Input<string>;
         status: pulumi.Input<enums.s3.BucketRuleStatus>;
         tagFilters?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagFilterArgs>[]>;
@@ -27740,6 +27922,8 @@ export namespace secretsmanager {
 
     export interface RotationScheduleRotationRulesArgs {
         automaticallyAfterDays?: pulumi.Input<number>;
+        duration?: pulumi.Input<string>;
+        scheduleExpression?: pulumi.Input<string>;
     }
 
     export interface SecretGenerateSecretStringArgs {
@@ -28000,10 +28184,25 @@ export namespace ses {
         topicArn?: pulumi.Input<string>;
     }
 
+    /**
+     * The content of the email, composed of a subject line, an HTML part, and a text-only part
+     */
     export interface TemplateArgs {
+        /**
+         * The HTML body of the email.
+         */
         htmlPart?: pulumi.Input<string>;
-        subjectPart?: pulumi.Input<string>;
+        /**
+         * The subject line of the email.
+         */
+        subjectPart: pulumi.Input<string>;
+        /**
+         * The name of the template.
+         */
         templateName?: pulumi.Input<string>;
+        /**
+         * The email body that is visible to recipients whose email clients do not display HTML content.
+         */
         textPart?: pulumi.Input<string>;
     }
 }
@@ -28034,7 +28233,13 @@ export namespace sns {
 
 export namespace sqs {
     export interface QueueTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 }
@@ -28544,6 +28749,52 @@ export namespace timestream {
     export interface DatabaseTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties that determine whether magnetic store writes are enabled.
+     */
+    export interface MagneticStoreWritePropertiesPropertiesArgs {
+        /**
+         * Boolean flag indicating whether magnetic store writes are enabled.
+         */
+        enableMagneticStoreWrites: pulumi.Input<boolean>;
+        /**
+         * Location to store information about records that were asynchronously rejected during magnetic store writes.
+         */
+        magneticStoreRejectedDataLocation?: pulumi.Input<inputs.timestream.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs>;
+    }
+
+    /**
+     * Location to store information about records that were asynchronously rejected during magnetic store writes.
+     */
+    export interface MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs {
+        /**
+         * S3 configuration for location to store rejections from magnetic store writes
+         */
+        s3Configuration?: pulumi.Input<inputs.timestream.MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs>;
+    }
+
+    /**
+     * S3 configuration for location to store rejections from magnetic store writes
+     */
+    export interface MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs {
+        /**
+         * The bucket name used to store the data.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * Either SSE_KMS or SSE_S3.
+         */
+        encryptionOption: pulumi.Input<string>;
+        /**
+         * Must be provided if SSE_KMS is specified as the encryption option
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * String used to prefix all data in the bucket.
+         */
+        objectKeyPrefix?: pulumi.Input<string>;
     }
 
     /**

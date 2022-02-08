@@ -417,10 +417,10 @@ class ApplicationHAClusterPrometheusExporterArgs:
 @pulumi.input_type
 class ApplicationHANAPrometheusExporterArgs:
     def __init__(__self__, *,
-                 agree_to_install_hanadb_client: Optional[pulumi.Input[bool]] = None,
-                 h_ana_port: Optional[pulumi.Input[str]] = None,
-                 h_anasid: Optional[pulumi.Input[str]] = None,
-                 h_ana_secret_name: Optional[pulumi.Input[str]] = None,
+                 agree_to_install_hanadb_client: pulumi.Input[bool],
+                 h_ana_port: pulumi.Input[str],
+                 h_anasid: pulumi.Input[str],
+                 h_ana_secret_name: pulumi.Input[str],
                  prometheus_port: Optional[pulumi.Input[str]] = None):
         """
         The HANA DB Prometheus Exporter settings.
@@ -433,56 +433,52 @@ class ApplicationHANAPrometheusExporterArgs:
                }.
         :param pulumi.Input[str] prometheus_port: Prometheus exporter port.
         """
-        if agree_to_install_hanadb_client is not None:
-            pulumi.set(__self__, "agree_to_install_hanadb_client", agree_to_install_hanadb_client)
-        if h_ana_port is not None:
-            pulumi.set(__self__, "h_ana_port", h_ana_port)
-        if h_anasid is not None:
-            pulumi.set(__self__, "h_anasid", h_anasid)
-        if h_ana_secret_name is not None:
-            pulumi.set(__self__, "h_ana_secret_name", h_ana_secret_name)
+        pulumi.set(__self__, "agree_to_install_hanadb_client", agree_to_install_hanadb_client)
+        pulumi.set(__self__, "h_ana_port", h_ana_port)
+        pulumi.set(__self__, "h_anasid", h_anasid)
+        pulumi.set(__self__, "h_ana_secret_name", h_ana_secret_name)
         if prometheus_port is not None:
             pulumi.set(__self__, "prometheus_port", prometheus_port)
 
     @property
     @pulumi.getter(name="agreeToInstallHANADBClient")
-    def agree_to_install_hanadb_client(self) -> Optional[pulumi.Input[bool]]:
+    def agree_to_install_hanadb_client(self) -> pulumi.Input[bool]:
         """
         A flag which indicates agreeing to install SAP HANA DB client.
         """
         return pulumi.get(self, "agree_to_install_hanadb_client")
 
     @agree_to_install_hanadb_client.setter
-    def agree_to_install_hanadb_client(self, value: Optional[pulumi.Input[bool]]):
+    def agree_to_install_hanadb_client(self, value: pulumi.Input[bool]):
         pulumi.set(self, "agree_to_install_hanadb_client", value)
 
     @property
     @pulumi.getter(name="hANAPort")
-    def h_ana_port(self) -> Optional[pulumi.Input[str]]:
+    def h_ana_port(self) -> pulumi.Input[str]:
         """
         The HANA DB port.
         """
         return pulumi.get(self, "h_ana_port")
 
     @h_ana_port.setter
-    def h_ana_port(self, value: Optional[pulumi.Input[str]]):
+    def h_ana_port(self, value: pulumi.Input[str]):
         pulumi.set(self, "h_ana_port", value)
 
     @property
     @pulumi.getter(name="hANASID")
-    def h_anasid(self) -> Optional[pulumi.Input[str]]:
+    def h_anasid(self) -> pulumi.Input[str]:
         """
         HANA DB SID.
         """
         return pulumi.get(self, "h_anasid")
 
     @h_anasid.setter
-    def h_anasid(self, value: Optional[pulumi.Input[str]]):
+    def h_anasid(self, value: pulumi.Input[str]):
         pulumi.set(self, "h_anasid", value)
 
     @property
     @pulumi.getter(name="hANASecretName")
-    def h_ana_secret_name(self) -> Optional[pulumi.Input[str]]:
+    def h_ana_secret_name(self) -> pulumi.Input[str]:
         """
         The secret name which manages the HANA DB credentials e.g. {
           "username": "<>",
@@ -492,7 +488,7 @@ class ApplicationHANAPrometheusExporterArgs:
         return pulumi.get(self, "h_ana_secret_name")
 
     @h_ana_secret_name.setter
-    def h_ana_secret_name(self, value: Optional[pulumi.Input[str]]):
+    def h_ana_secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "h_ana_secret_name", value)
 
     @property

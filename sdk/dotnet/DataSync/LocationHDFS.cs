@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The authentication mode used to determine identity of user.
         /// </summary>
         [Output("authenticationType")]
-        public Output<Pulumi.AwsNative.DataSync.LocationHDFSAuthenticationType?> AuthenticationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataSync.LocationHDFSAuthenticationType> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
         /// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public LocationHDFS(string name, LocationHDFSArgs? args = null, CustomResourceOptions? options = null)
+        public LocationHDFS(string name, LocationHDFSArgs args, CustomResourceOptions? options = null)
             : base("aws-native:datasync:LocationHDFS", name, args ?? new LocationHDFSArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class LocationHDFSArgs : Pulumi.ResourceArgs
     {
-        [Input("agentArns")]
+        [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
 
         /// <summary>
@@ -162,8 +162,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The authentication mode used to determine identity of user.
         /// </summary>
-        [Input("authenticationType")]
-        public Input<Pulumi.AwsNative.DataSync.LocationHDFSAuthenticationType>? AuthenticationType { get; set; }
+        [Input("authenticationType", required: true)]
+        public Input<Pulumi.AwsNative.DataSync.LocationHDFSAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
@@ -195,7 +195,7 @@ namespace Pulumi.AwsNative.DataSync
         [Input("kmsKeyProviderUri")]
         public Input<string>? KmsKeyProviderUri { get; set; }
 
-        [Input("nameNodes")]
+        [Input("nameNodes", required: true)]
         private InputList<Inputs.LocationHDFSNameNodeArgs>? _nameNodes;
 
         /// <summary>

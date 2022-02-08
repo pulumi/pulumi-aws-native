@@ -18,7 +18,8 @@ class RecordingConfigurationArgs:
     def __init__(__self__, *,
                  destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None,
+                 thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
         :param pulumi.Input[str] name: Recording Configuration Name.
@@ -29,6 +30,8 @@ class RecordingConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if thumbnail_configuration is not None:
+            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
 
     @property
     @pulumi.getter(name="destinationConfiguration")
@@ -63,6 +66,15 @@ class RecordingConfigurationArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="thumbnailConfiguration")
+    def thumbnail_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]:
+        return pulumi.get(self, "thumbnail_configuration")
+
+    @thumbnail_configuration.setter
+    def thumbnail_configuration(self, value: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]):
+        pulumi.set(self, "thumbnail_configuration", value)
+
 
 class RecordingConfiguration(pulumi.CustomResource):
     @overload
@@ -72,6 +84,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
+                 thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::RecordingConfiguration
@@ -108,6 +121,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
+                 thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -125,6 +139,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
         super(RecordingConfiguration, __self__).__init__(
@@ -154,6 +169,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["thumbnail_configuration"] = None
         return RecordingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -192,4 +208,9 @@ class RecordingConfiguration(pulumi.CustomResource):
         A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="thumbnailConfiguration")
+    def thumbnail_configuration(self) -> pulumi.Output[Optional['outputs.RecordingConfigurationThumbnailConfiguration']]:
+        return pulumi.get(self, "thumbnail_configuration")
 

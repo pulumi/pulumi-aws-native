@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'DetectorCFNDataSourceConfigurationsArgs',
+    'DetectorCFNKubernetesAuditLogsConfigurationArgs',
+    'DetectorCFNKubernetesConfigurationArgs',
     'DetectorCFNS3LogsConfigurationArgs',
     'FilterConditionArgs',
     'FilterFindingCriteriaArgs',
@@ -18,9 +20,21 @@ __all__ = [
 @pulumi.input_type
 class DetectorCFNDataSourceConfigurationsArgs:
     def __init__(__self__, *,
+                 kubernetes: Optional[pulumi.Input['DetectorCFNKubernetesConfigurationArgs']] = None,
                  s3_logs: Optional[pulumi.Input['DetectorCFNS3LogsConfigurationArgs']] = None):
+        if kubernetes is not None:
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if s3_logs is not None:
             pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter
+    def kubernetes(self) -> Optional[pulumi.Input['DetectorCFNKubernetesConfigurationArgs']]:
+        return pulumi.get(self, "kubernetes")
+
+    @kubernetes.setter
+    def kubernetes(self, value: Optional[pulumi.Input['DetectorCFNKubernetesConfigurationArgs']]):
+        pulumi.set(self, "kubernetes", value)
 
     @property
     @pulumi.getter(name="s3Logs")
@@ -30,6 +44,40 @@ class DetectorCFNDataSourceConfigurationsArgs:
     @s3_logs.setter
     def s3_logs(self, value: Optional[pulumi.Input['DetectorCFNS3LogsConfigurationArgs']]):
         pulumi.set(self, "s3_logs", value)
+
+
+@pulumi.input_type
+class DetectorCFNKubernetesAuditLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 enable: Optional[pulumi.Input[bool]] = None):
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable", value)
+
+
+@pulumi.input_type
+class DetectorCFNKubernetesConfigurationArgs:
+    def __init__(__self__, *,
+                 audit_logs: Optional[pulumi.Input['DetectorCFNKubernetesAuditLogsConfigurationArgs']] = None):
+        if audit_logs is not None:
+            pulumi.set(__self__, "audit_logs", audit_logs)
+
+    @property
+    @pulumi.getter(name="auditLogs")
+    def audit_logs(self) -> Optional[pulumi.Input['DetectorCFNKubernetesAuditLogsConfigurationArgs']]:
+        return pulumi.get(self, "audit_logs")
+
+    @audit_logs.setter
+    def audit_logs(self, value: Optional[pulumi.Input['DetectorCFNKubernetesAuditLogsConfigurationArgs']]):
+        pulumi.set(self, "audit_logs", value)
 
 
 @pulumi.input_type

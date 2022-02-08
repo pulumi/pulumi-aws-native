@@ -416,6 +416,167 @@ func (o RecordingConfigurationTagArrayOutput) Index(i pulumi.IntInput) Recording
 	}).(RecordingConfigurationTagOutput)
 }
 
+// Recording Thumbnail Configuration.
+type RecordingConfigurationThumbnailConfiguration struct {
+	// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+	RecordingMode RecordingConfigurationThumbnailConfigurationRecordingMode `pulumi:"recordingMode"`
+	// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+	TargetIntervalSeconds *int `pulumi:"targetIntervalSeconds"`
+}
+
+// RecordingConfigurationThumbnailConfigurationInput is an input type that accepts RecordingConfigurationThumbnailConfigurationArgs and RecordingConfigurationThumbnailConfigurationOutput values.
+// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationInput` via:
+//
+//          RecordingConfigurationThumbnailConfigurationArgs{...}
+type RecordingConfigurationThumbnailConfigurationInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationOutput() RecordingConfigurationThumbnailConfigurationOutput
+	ToRecordingConfigurationThumbnailConfigurationOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationOutput
+}
+
+// Recording Thumbnail Configuration.
+type RecordingConfigurationThumbnailConfigurationArgs struct {
+	// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+	RecordingMode RecordingConfigurationThumbnailConfigurationRecordingModeInput `pulumi:"recordingMode"`
+	// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+	TargetIntervalSeconds pulumi.IntPtrInput `pulumi:"targetIntervalSeconds"`
+}
+
+func (RecordingConfigurationThumbnailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurationThumbnailConfigurationOutput() RecordingConfigurationThumbnailConfigurationOutput {
+	return i.ToRecordingConfigurationThumbnailConfigurationOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurationThumbnailConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationOutput)
+}
+
+func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return i.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationOutput).ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx)
+}
+
+// RecordingConfigurationThumbnailConfigurationPtrInput is an input type that accepts RecordingConfigurationThumbnailConfigurationArgs, RecordingConfigurationThumbnailConfigurationPtr and RecordingConfigurationThumbnailConfigurationPtrOutput values.
+// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationPtrInput` via:
+//
+//          RecordingConfigurationThumbnailConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RecordingConfigurationThumbnailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput
+	ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput
+}
+
+type recordingConfigurationThumbnailConfigurationPtrType RecordingConfigurationThumbnailConfigurationArgs
+
+func RecordingConfigurationThumbnailConfigurationPtr(v *RecordingConfigurationThumbnailConfigurationArgs) RecordingConfigurationThumbnailConfigurationPtrInput {
+	return (*recordingConfigurationThumbnailConfigurationPtrType)(v)
+}
+
+func (*recordingConfigurationThumbnailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i *recordingConfigurationThumbnailConfigurationPtrType) ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return i.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordingConfigurationThumbnailConfigurationPtrType) ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationPtrOutput)
+}
+
+// Recording Thumbnail Configuration.
+type RecordingConfigurationThumbnailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigurationThumbnailConfigurationOutput() RecordingConfigurationThumbnailConfigurationOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigurationThumbnailConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return o.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationThumbnailConfiguration) *RecordingConfigurationThumbnailConfiguration {
+		return &v
+	}).(RecordingConfigurationThumbnailConfigurationPtrOutput)
+}
+
+// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+func (o RecordingConfigurationThumbnailConfigurationOutput) RecordingMode() RecordingConfigurationThumbnailConfigurationRecordingModeOutput {
+	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) RecordingConfigurationThumbnailConfigurationRecordingMode {
+		return v.RecordingMode
+	}).(RecordingConfigurationThumbnailConfigurationRecordingModeOutput)
+}
+
+// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+func (o RecordingConfigurationThumbnailConfigurationOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *int { return v.TargetIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+type RecordingConfigurationThumbnailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationThumbnailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordingConfigurationThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) RecordingConfigurationThumbnailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RecordingConfigurationThumbnailConfiguration
+		return ret
+	}).(RecordingConfigurationThumbnailConfigurationOutput)
+}
+
+// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) RecordingMode() RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *RecordingConfigurationThumbnailConfigurationRecordingMode {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordingMode
+	}).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
+}
+
+// Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetIntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type StreamKeyTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -525,6 +686,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagInput)(nil)).Elem(), RecordingConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagArrayInput)(nil)).Elem(), RecordingConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagInput)(nil)).Elem(), StreamKeyTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagArrayInput)(nil)).Elem(), StreamKeyTagArray{})
 	pulumi.RegisterOutputType(ChannelTagOutput{})
@@ -535,6 +698,8 @@ func init() {
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationTagOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamKeyTagOutput{})
 	pulumi.RegisterOutputType(StreamKeyTagArrayOutput{})
 }

@@ -26,6 +26,7 @@ __all__ = [
     'ClusterNodeExporterArgs',
     'ClusterOpenMonitoringArgs',
     'ClusterPrometheusArgs',
+    'ClusterProvisionedThroughputArgs',
     'ClusterPublicAccessArgs',
     'ClusterS3Args',
     'ClusterSaslArgs',
@@ -267,9 +268,21 @@ class ClusterConnectivityInfoArgs:
 @pulumi.input_type
 class ClusterEBSStorageInfoArgs:
     def __init__(__self__, *,
+                 provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
+        if provisioned_throughput is not None:
+            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> Optional[pulumi.Input['ClusterProvisionedThroughputArgs']]:
+        return pulumi.get(self, "provisioned_throughput")
+
+    @provisioned_throughput.setter
+    def provisioned_throughput(self, value: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']]):
+        pulumi.set(self, "provisioned_throughput", value)
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -490,6 +503,35 @@ class ClusterPrometheusArgs:
     @node_exporter.setter
     def node_exporter(self, value: Optional[pulumi.Input['ClusterNodeExporterArgs']]):
         pulumi.set(self, "node_exporter", value)
+
+
+@pulumi.input_type
+class ClusterProvisionedThroughputArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 volume_throughput: Optional[pulumi.Input[int]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if volume_throughput is not None:
+            pulumi.set(__self__, "volume_throughput", volume_throughput)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="volumeThroughput")
+    def volume_throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "volume_throughput")
+
+    @volume_throughput.setter
+    def volume_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_throughput", value)
 
 
 @pulumi.input_type

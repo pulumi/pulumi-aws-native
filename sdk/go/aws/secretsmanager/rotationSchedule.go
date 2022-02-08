@@ -17,10 +17,11 @@ import (
 type RotationSchedule struct {
 	pulumi.CustomResourceState
 
-	HostedRotationLambda RotationScheduleHostedRotationLambdaPtrOutput `pulumi:"hostedRotationLambda"`
-	RotationLambdaARN    pulumi.StringPtrOutput                        `pulumi:"rotationLambdaARN"`
-	RotationRules        RotationScheduleRotationRulesPtrOutput        `pulumi:"rotationRules"`
-	SecretId             pulumi.StringOutput                           `pulumi:"secretId"`
+	HostedRotationLambda      RotationScheduleHostedRotationLambdaPtrOutput `pulumi:"hostedRotationLambda"`
+	RotateImmediatelyOnUpdate pulumi.BoolPtrOutput                          `pulumi:"rotateImmediatelyOnUpdate"`
+	RotationLambdaARN         pulumi.StringPtrOutput                        `pulumi:"rotationLambdaARN"`
+	RotationRules             RotationScheduleRotationRulesPtrOutput        `pulumi:"rotationRules"`
+	SecretId                  pulumi.StringOutput                           `pulumi:"secretId"`
 }
 
 // NewRotationSchedule registers a new resource with the given unique name, arguments, and options.
@@ -65,18 +66,20 @@ func (RotationScheduleState) ElementType() reflect.Type {
 }
 
 type rotationScheduleArgs struct {
-	HostedRotationLambda *RotationScheduleHostedRotationLambda `pulumi:"hostedRotationLambda"`
-	RotationLambdaARN    *string                               `pulumi:"rotationLambdaARN"`
-	RotationRules        *RotationScheduleRotationRules        `pulumi:"rotationRules"`
-	SecretId             string                                `pulumi:"secretId"`
+	HostedRotationLambda      *RotationScheduleHostedRotationLambda `pulumi:"hostedRotationLambda"`
+	RotateImmediatelyOnUpdate *bool                                 `pulumi:"rotateImmediatelyOnUpdate"`
+	RotationLambdaARN         *string                               `pulumi:"rotationLambdaARN"`
+	RotationRules             *RotationScheduleRotationRules        `pulumi:"rotationRules"`
+	SecretId                  string                                `pulumi:"secretId"`
 }
 
 // The set of arguments for constructing a RotationSchedule resource.
 type RotationScheduleArgs struct {
-	HostedRotationLambda RotationScheduleHostedRotationLambdaPtrInput
-	RotationLambdaARN    pulumi.StringPtrInput
-	RotationRules        RotationScheduleRotationRulesPtrInput
-	SecretId             pulumi.StringInput
+	HostedRotationLambda      RotationScheduleHostedRotationLambdaPtrInput
+	RotateImmediatelyOnUpdate pulumi.BoolPtrInput
+	RotationLambdaARN         pulumi.StringPtrInput
+	RotationRules             RotationScheduleRotationRulesPtrInput
+	SecretId                  pulumi.StringInput
 }
 
 func (RotationScheduleArgs) ElementType() reflect.Type {

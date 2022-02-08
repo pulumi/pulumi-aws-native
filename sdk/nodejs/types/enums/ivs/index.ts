@@ -32,3 +32,13 @@ export const RecordingConfigurationState = {
  * Recording Configuration State.
  */
 export type RecordingConfigurationState = (typeof RecordingConfigurationState)[keyof typeof RecordingConfigurationState];
+
+export const RecordingConfigurationThumbnailConfigurationRecordingMode = {
+    Interval: "INTERVAL",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+ */
+export type RecordingConfigurationThumbnailConfigurationRecordingMode = (typeof RecordingConfigurationThumbnailConfigurationRecordingMode)[keyof typeof RecordingConfigurationThumbnailConfigurationRecordingMode];

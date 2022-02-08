@@ -41,6 +41,7 @@ export class DBCluster extends pulumi.CustomResource {
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly dBClusterParameterGroupName!: pulumi.Output<string | undefined>;
     public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
@@ -81,6 +82,7 @@ export class DBCluster extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
             resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
             resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
@@ -104,6 +106,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
+            resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
             resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
@@ -134,6 +137,7 @@ export class DBCluster extends pulumi.CustomResource {
 export interface DBClusterArgs {
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     backupRetentionPeriod?: pulumi.Input<number>;
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
     dBClusterIdentifier?: pulumi.Input<string>;
     dBClusterParameterGroupName?: pulumi.Input<string>;
     dBSubnetGroupName?: pulumi.Input<string>;

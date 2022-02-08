@@ -1763,7 +1763,6 @@ func (o RecordSetGroupGeoLocationPtrOutput) SubdivisionCode() pulumi.StringPtrOu
 
 type RecordSetGroupRecordSet struct {
 	AliasTarget      *RecordSetGroupAliasTarget `pulumi:"aliasTarget"`
-	Comment          *string                    `pulumi:"comment"`
 	Failover         *string                    `pulumi:"failover"`
 	GeoLocation      *RecordSetGroupGeoLocation `pulumi:"geoLocation"`
 	HealthCheckId    *string                    `pulumi:"healthCheckId"`
@@ -1792,7 +1791,6 @@ type RecordSetGroupRecordSetInput interface {
 
 type RecordSetGroupRecordSetArgs struct {
 	AliasTarget      RecordSetGroupAliasTargetPtrInput `pulumi:"aliasTarget"`
-	Comment          pulumi.StringPtrInput             `pulumi:"comment"`
 	Failover         pulumi.StringPtrInput             `pulumi:"failover"`
 	GeoLocation      RecordSetGroupGeoLocationPtrInput `pulumi:"geoLocation"`
 	HealthCheckId    pulumi.StringPtrInput             `pulumi:"healthCheckId"`
@@ -1861,10 +1859,6 @@ func (o RecordSetGroupRecordSetOutput) ToRecordSetGroupRecordSetOutputWithContex
 
 func (o RecordSetGroupRecordSetOutput) AliasTarget() RecordSetGroupAliasTargetPtrOutput {
 	return o.ApplyT(func(v RecordSetGroupRecordSet) *RecordSetGroupAliasTarget { return v.AliasTarget }).(RecordSetGroupAliasTargetPtrOutput)
-}
-
-func (o RecordSetGroupRecordSetOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecordSetGroupRecordSet) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 func (o RecordSetGroupRecordSetOutput) Failover() pulumi.StringPtrOutput {

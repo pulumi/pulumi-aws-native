@@ -41,6 +41,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * The properties that determine whether magnetic store writes are enabled.
+     */
+    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestream.MagneticStoreWritePropertiesProperties | undefined>;
+    /**
      * The table name exposed as a read-only attribute.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -72,6 +76,7 @@ export class Table extends pulumi.CustomResource {
                 throw new Error("Missing required property 'databaseName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
             resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -80,6 +85,7 @@ export class Table extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["magneticStoreWriteProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retentionProperties"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
@@ -98,6 +104,10 @@ export interface TableArgs {
      * The name for the database which the table to be created belongs to.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The properties that determine whether magnetic store writes are enabled.
+     */
+    magneticStoreWriteProperties?: pulumi.Input<inputs.timestream.MagneticStoreWritePropertiesPropertiesArgs>;
     /**
      * The retention duration of the memory store and the magnetic store.
      */

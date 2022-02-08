@@ -18,6 +18,8 @@ type Table struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name for the database which the table to be created belongs to.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The properties that determine whether magnetic store writes are enabled.
+	MagneticStoreWriteProperties MagneticStoreWritePropertiesPropertiesPtrOutput `pulumi:"magneticStoreWriteProperties"`
 	// The table name exposed as a read-only attribute.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The retention duration of the memory store and the magnetic store.
@@ -72,6 +74,8 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// The name for the database which the table to be created belongs to.
 	DatabaseName string `pulumi:"databaseName"`
+	// The properties that determine whether magnetic store writes are enabled.
+	MagneticStoreWriteProperties *MagneticStoreWritePropertiesProperties `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration of the memory store and the magnetic store.
 	RetentionProperties *RetentionPropertiesProperties `pulumi:"retentionProperties"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
@@ -84,6 +88,8 @@ type tableArgs struct {
 type TableArgs struct {
 	// The name for the database which the table to be created belongs to.
 	DatabaseName pulumi.StringInput
+	// The properties that determine whether magnetic store writes are enabled.
+	MagneticStoreWriteProperties MagneticStoreWritePropertiesPropertiesPtrInput
 	// The retention duration of the memory store and the magnetic store.
 	RetentionProperties RetentionPropertiesPropertiesPtrInput
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.

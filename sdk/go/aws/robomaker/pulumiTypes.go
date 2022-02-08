@@ -131,9 +131,12 @@ func (o FleetTagsPtrOutput) Elem() FleetTagsOutput {
 	}).(FleetTagsOutput)
 }
 
+// The robot software suite used by the robot application.
 type RobotApplicationRobotSoftwareSuite struct {
-	Name    string `pulumi:"name"`
-	Version string `pulumi:"version"`
+	// The name of robot software suite.
+	Name RobotApplicationRobotSoftwareSuiteName `pulumi:"name"`
+	// The version of robot software suite.
+	Version *RobotApplicationRobotSoftwareSuiteVersion `pulumi:"version"`
 }
 
 // RobotApplicationRobotSoftwareSuiteInput is an input type that accepts RobotApplicationRobotSoftwareSuiteArgs and RobotApplicationRobotSoftwareSuiteOutput values.
@@ -147,9 +150,12 @@ type RobotApplicationRobotSoftwareSuiteInput interface {
 	ToRobotApplicationRobotSoftwareSuiteOutputWithContext(context.Context) RobotApplicationRobotSoftwareSuiteOutput
 }
 
+// The robot software suite used by the robot application.
 type RobotApplicationRobotSoftwareSuiteArgs struct {
-	Name    pulumi.StringInput `pulumi:"name"`
-	Version pulumi.StringInput `pulumi:"version"`
+	// The name of robot software suite.
+	Name RobotApplicationRobotSoftwareSuiteNameInput `pulumi:"name"`
+	// The version of robot software suite.
+	Version RobotApplicationRobotSoftwareSuiteVersionPtrInput `pulumi:"version"`
 }
 
 func (RobotApplicationRobotSoftwareSuiteArgs) ElementType() reflect.Type {
@@ -164,6 +170,7 @@ func (i RobotApplicationRobotSoftwareSuiteArgs) ToRobotApplicationRobotSoftwareS
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationRobotSoftwareSuiteOutput)
 }
 
+// The robot software suite used by the robot application.
 type RobotApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationRobotSoftwareSuiteOutput) ElementType() reflect.Type {
@@ -178,18 +185,69 @@ func (o RobotApplicationRobotSoftwareSuiteOutput) ToRobotApplicationRobotSoftwar
 	return o
 }
 
-func (o RobotApplicationRobotSoftwareSuiteOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RobotApplicationRobotSoftwareSuite) string { return v.Name }).(pulumi.StringOutput)
+// The name of robot software suite.
+func (o RobotApplicationRobotSoftwareSuiteOutput) Name() RobotApplicationRobotSoftwareSuiteNameOutput {
+	return o.ApplyT(func(v RobotApplicationRobotSoftwareSuite) RobotApplicationRobotSoftwareSuiteName { return v.Name }).(RobotApplicationRobotSoftwareSuiteNameOutput)
 }
 
-func (o RobotApplicationRobotSoftwareSuiteOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v RobotApplicationRobotSoftwareSuite) string { return v.Version }).(pulumi.StringOutput)
+// The version of robot software suite.
+func (o RobotApplicationRobotSoftwareSuiteOutput) Version() RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v RobotApplicationRobotSoftwareSuite) *RobotApplicationRobotSoftwareSuiteVersion {
+		return v.Version
+	}).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
+}
+
+type RobotApplicationRobotSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationRobotSoftwareSuitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotApplicationRobotSoftwareSuite)(nil)).Elem()
+}
+
+func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToRobotApplicationRobotSoftwareSuitePtrOutput() RobotApplicationRobotSoftwareSuitePtrOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuitePtrOutput {
+	return o
+}
+
+func (o RobotApplicationRobotSoftwareSuitePtrOutput) Elem() RobotApplicationRobotSoftwareSuiteOutput {
+	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuite) RobotApplicationRobotSoftwareSuite {
+		if v != nil {
+			return *v
+		}
+		var ret RobotApplicationRobotSoftwareSuite
+		return ret
+	}).(RobotApplicationRobotSoftwareSuiteOutput)
+}
+
+// The name of robot software suite.
+func (o RobotApplicationRobotSoftwareSuitePtrOutput) Name() RobotApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuite) *RobotApplicationRobotSoftwareSuiteName {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(RobotApplicationRobotSoftwareSuiteNamePtrOutput)
+}
+
+// The version of robot software suite.
+func (o RobotApplicationRobotSoftwareSuitePtrOutput) Version() RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuite) *RobotApplicationRobotSoftwareSuiteVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
 type RobotApplicationSourceConfig struct {
-	Architecture string `pulumi:"architecture"`
-	S3Bucket     string `pulumi:"s3Bucket"`
-	S3Key        string `pulumi:"s3Key"`
+	// The architecture of robot application.
+	Architecture RobotApplicationSourceConfigArchitecture `pulumi:"architecture"`
+	// The Arn of the S3Bucket that stores the robot application source.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// The s3 key of robot application source.
+	S3Key string `pulumi:"s3Key"`
 }
 
 // RobotApplicationSourceConfigInput is an input type that accepts RobotApplicationSourceConfigArgs and RobotApplicationSourceConfigOutput values.
@@ -204,9 +262,12 @@ type RobotApplicationSourceConfigInput interface {
 }
 
 type RobotApplicationSourceConfigArgs struct {
-	Architecture pulumi.StringInput `pulumi:"architecture"`
-	S3Bucket     pulumi.StringInput `pulumi:"s3Bucket"`
-	S3Key        pulumi.StringInput `pulumi:"s3Key"`
+	// The architecture of robot application.
+	Architecture RobotApplicationSourceConfigArchitectureInput `pulumi:"architecture"`
+	// The Arn of the S3Bucket that stores the robot application source.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// The s3 key of robot application source.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 }
 
 func (RobotApplicationSourceConfigArgs) ElementType() reflect.Type {
@@ -260,14 +321,17 @@ func (o RobotApplicationSourceConfigOutput) ToRobotApplicationSourceConfigOutput
 	return o
 }
 
-func (o RobotApplicationSourceConfigOutput) Architecture() pulumi.StringOutput {
-	return o.ApplyT(func(v RobotApplicationSourceConfig) string { return v.Architecture }).(pulumi.StringOutput)
+// The architecture of robot application.
+func (o RobotApplicationSourceConfigOutput) Architecture() RobotApplicationSourceConfigArchitectureOutput {
+	return o.ApplyT(func(v RobotApplicationSourceConfig) RobotApplicationSourceConfigArchitecture { return v.Architecture }).(RobotApplicationSourceConfigArchitectureOutput)
 }
 
+// The Arn of the S3Bucket that stores the robot application source.
 func (o RobotApplicationSourceConfigOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v RobotApplicationSourceConfig) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The s3 key of robot application source.
 func (o RobotApplicationSourceConfigOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RobotApplicationSourceConfig) string { return v.S3Key }).(pulumi.StringOutput)
 }
@@ -290,6 +354,127 @@ func (o RobotApplicationSourceConfigArrayOutput) Index(i pulumi.IntInput) RobotA
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RobotApplicationSourceConfig {
 		return vs[0].([]RobotApplicationSourceConfig)[vs[1].(int)]
 	}).(RobotApplicationSourceConfigOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RobotApplicationTags struct {
+}
+
+// RobotApplicationTagsInput is an input type that accepts RobotApplicationTagsArgs and RobotApplicationTagsOutput values.
+// You can construct a concrete instance of `RobotApplicationTagsInput` via:
+//
+//          RobotApplicationTagsArgs{...}
+type RobotApplicationTagsInput interface {
+	pulumi.Input
+
+	ToRobotApplicationTagsOutput() RobotApplicationTagsOutput
+	ToRobotApplicationTagsOutputWithContext(context.Context) RobotApplicationTagsOutput
+}
+
+// A key-value pair to associate with a resource.
+type RobotApplicationTagsArgs struct {
+}
+
+func (RobotApplicationTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationTags)(nil)).Elem()
+}
+
+func (i RobotApplicationTagsArgs) ToRobotApplicationTagsOutput() RobotApplicationTagsOutput {
+	return i.ToRobotApplicationTagsOutputWithContext(context.Background())
+}
+
+func (i RobotApplicationTagsArgs) ToRobotApplicationTagsOutputWithContext(ctx context.Context) RobotApplicationTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationTagsOutput)
+}
+
+func (i RobotApplicationTagsArgs) ToRobotApplicationTagsPtrOutput() RobotApplicationTagsPtrOutput {
+	return i.ToRobotApplicationTagsPtrOutputWithContext(context.Background())
+}
+
+func (i RobotApplicationTagsArgs) ToRobotApplicationTagsPtrOutputWithContext(ctx context.Context) RobotApplicationTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationTagsOutput).ToRobotApplicationTagsPtrOutputWithContext(ctx)
+}
+
+// RobotApplicationTagsPtrInput is an input type that accepts RobotApplicationTagsArgs, RobotApplicationTagsPtr and RobotApplicationTagsPtrOutput values.
+// You can construct a concrete instance of `RobotApplicationTagsPtrInput` via:
+//
+//          RobotApplicationTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type RobotApplicationTagsPtrInput interface {
+	pulumi.Input
+
+	ToRobotApplicationTagsPtrOutput() RobotApplicationTagsPtrOutput
+	ToRobotApplicationTagsPtrOutputWithContext(context.Context) RobotApplicationTagsPtrOutput
+}
+
+type robotApplicationTagsPtrType RobotApplicationTagsArgs
+
+func RobotApplicationTagsPtr(v *RobotApplicationTagsArgs) RobotApplicationTagsPtrInput {
+	return (*robotApplicationTagsPtrType)(v)
+}
+
+func (*robotApplicationTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotApplicationTags)(nil)).Elem()
+}
+
+func (i *robotApplicationTagsPtrType) ToRobotApplicationTagsPtrOutput() RobotApplicationTagsPtrOutput {
+	return i.ToRobotApplicationTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *robotApplicationTagsPtrType) ToRobotApplicationTagsPtrOutputWithContext(ctx context.Context) RobotApplicationTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationTagsPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RobotApplicationTagsOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationTags)(nil)).Elem()
+}
+
+func (o RobotApplicationTagsOutput) ToRobotApplicationTagsOutput() RobotApplicationTagsOutput {
+	return o
+}
+
+func (o RobotApplicationTagsOutput) ToRobotApplicationTagsOutputWithContext(ctx context.Context) RobotApplicationTagsOutput {
+	return o
+}
+
+func (o RobotApplicationTagsOutput) ToRobotApplicationTagsPtrOutput() RobotApplicationTagsPtrOutput {
+	return o.ToRobotApplicationTagsPtrOutputWithContext(context.Background())
+}
+
+func (o RobotApplicationTagsOutput) ToRobotApplicationTagsPtrOutputWithContext(ctx context.Context) RobotApplicationTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RobotApplicationTags) *RobotApplicationTags {
+		return &v
+	}).(RobotApplicationTagsPtrOutput)
+}
+
+type RobotApplicationTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (RobotApplicationTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotApplicationTags)(nil)).Elem()
+}
+
+func (o RobotApplicationTagsPtrOutput) ToRobotApplicationTagsPtrOutput() RobotApplicationTagsPtrOutput {
+	return o
+}
+
+func (o RobotApplicationTagsPtrOutput) ToRobotApplicationTagsPtrOutputWithContext(ctx context.Context) RobotApplicationTagsPtrOutput {
+	return o
+}
+
+func (o RobotApplicationTagsPtrOutput) Elem() RobotApplicationTagsOutput {
+	return o.ApplyT(func(v *RobotApplicationTags) RobotApplicationTags {
+		if v != nil {
+			return *v
+		}
+		var ret RobotApplicationTags
+		return ret
+	}).(RobotApplicationTagsOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1043,6 +1228,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationSourceConfigInput)(nil)).Elem(), RobotApplicationSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationSourceConfigArrayInput)(nil)).Elem(), RobotApplicationSourceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationTagsInput)(nil)).Elem(), RobotApplicationTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationTagsPtrInput)(nil)).Elem(), RobotApplicationTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotTagsInput)(nil)).Elem(), RobotTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotTagsPtrInput)(nil)).Elem(), RobotTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRenderingEngineInput)(nil)).Elem(), SimulationApplicationRenderingEngineArgs{})
@@ -1056,8 +1243,11 @@ func init() {
 	pulumi.RegisterOutputType(FleetTagsOutput{})
 	pulumi.RegisterOutputType(FleetTagsPtrOutput{})
 	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuiteOutput{})
+	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(RobotApplicationSourceConfigOutput{})
 	pulumi.RegisterOutputType(RobotApplicationSourceConfigArrayOutput{})
+	pulumi.RegisterOutputType(RobotApplicationTagsOutput{})
+	pulumi.RegisterOutputType(RobotApplicationTagsPtrOutput{})
 	pulumi.RegisterOutputType(RobotTagsOutput{})
 	pulumi.RegisterOutputType(RobotTagsPtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEngineOutput{})

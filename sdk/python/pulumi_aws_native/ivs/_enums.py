@@ -8,6 +8,7 @@ __all__ = [
     'ChannelLatencyMode',
     'ChannelType',
     'RecordingConfigurationState',
+    'RecordingConfigurationThumbnailConfigurationRecordingMode',
 ]
 
 
@@ -34,3 +35,11 @@ class RecordingConfigurationState(str, Enum):
     CREATING = "CREATING"
     CREATE_FAILED = "CREATE_FAILED"
     ACTIVE = "ACTIVE"
+
+
+class RecordingConfigurationThumbnailConfigurationRecordingMode(str, Enum):
+    """
+    Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+    """
+    INTERVAL = "INTERVAL"
+    DISABLED = "DISABLED"

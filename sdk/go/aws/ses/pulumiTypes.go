@@ -2289,11 +2289,16 @@ func (o ReceiptRuleWorkmailActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The content of the email, composed of a subject line, an HTML part, and a text-only part
 type TemplateType struct {
-	HtmlPart     *string `pulumi:"htmlPart"`
-	SubjectPart  *string `pulumi:"subjectPart"`
+	// The HTML body of the email.
+	HtmlPart *string `pulumi:"htmlPart"`
+	// The subject line of the email.
+	SubjectPart string `pulumi:"subjectPart"`
+	// The name of the template.
 	TemplateName *string `pulumi:"templateName"`
-	TextPart     *string `pulumi:"textPart"`
+	// The email body that is visible to recipients whose email clients do not display HTML content.
+	TextPart *string `pulumi:"textPart"`
 }
 
 // TemplateTypeInput is an input type that accepts TemplateTypeArgs and TemplateTypeOutput values.
@@ -2307,11 +2312,16 @@ type TemplateTypeInput interface {
 	ToTemplateTypeOutputWithContext(context.Context) TemplateTypeOutput
 }
 
+// The content of the email, composed of a subject line, an HTML part, and a text-only part
 type TemplateTypeArgs struct {
-	HtmlPart     pulumi.StringPtrInput `pulumi:"htmlPart"`
-	SubjectPart  pulumi.StringPtrInput `pulumi:"subjectPart"`
+	// The HTML body of the email.
+	HtmlPart pulumi.StringPtrInput `pulumi:"htmlPart"`
+	// The subject line of the email.
+	SubjectPart pulumi.StringInput `pulumi:"subjectPart"`
+	// The name of the template.
 	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
-	TextPart     pulumi.StringPtrInput `pulumi:"textPart"`
+	// The email body that is visible to recipients whose email clients do not display HTML content.
+	TextPart pulumi.StringPtrInput `pulumi:"textPart"`
 }
 
 func (TemplateTypeArgs) ElementType() reflect.Type {
@@ -2367,6 +2377,7 @@ func (i *templateTypePtrType) ToTemplateTypePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateTypePtrOutput)
 }
 
+// The content of the email, composed of a subject line, an HTML part, and a text-only part
 type TemplateTypeOutput struct{ *pulumi.OutputState }
 
 func (TemplateTypeOutput) ElementType() reflect.Type {
@@ -2391,18 +2402,22 @@ func (o TemplateTypeOutput) ToTemplateTypePtrOutputWithContext(ctx context.Conte
 	}).(TemplateTypePtrOutput)
 }
 
+// The HTML body of the email.
 func (o TemplateTypeOutput) HtmlPart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateType) *string { return v.HtmlPart }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTypeOutput) SubjectPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateType) *string { return v.SubjectPart }).(pulumi.StringPtrOutput)
+// The subject line of the email.
+func (o TemplateTypeOutput) SubjectPart() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateType) string { return v.SubjectPart }).(pulumi.StringOutput)
 }
 
+// The name of the template.
 func (o TemplateTypeOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateType) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
 
+// The email body that is visible to recipients whose email clients do not display HTML content.
 func (o TemplateTypeOutput) TextPart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateType) *string { return v.TextPart }).(pulumi.StringPtrOutput)
 }
@@ -2431,6 +2446,7 @@ func (o TemplateTypePtrOutput) Elem() TemplateTypeOutput {
 	}).(TemplateTypeOutput)
 }
 
+// The HTML body of the email.
 func (o TemplateTypePtrOutput) HtmlPart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
@@ -2440,15 +2456,17 @@ func (o TemplateTypePtrOutput) HtmlPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The subject line of the email.
 func (o TemplateTypePtrOutput) SubjectPart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
 			return nil
 		}
-		return v.SubjectPart
+		return &v.SubjectPart
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the template.
 func (o TemplateTypePtrOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
@@ -2458,6 +2476,7 @@ func (o TemplateTypePtrOutput) TemplateName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email body that is visible to recipients whose email clients do not display HTML content.
 func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {

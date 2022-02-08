@@ -10,17 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
+    /// <summary>
+    /// The content of the email, composed of a subject line, an HTML part, and a text-only part
+    /// </summary>
     public sealed class TemplateArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTML body of the email.
+        /// </summary>
         [Input("htmlPart")]
         public Input<string>? HtmlPart { get; set; }
 
-        [Input("subjectPart")]
-        public Input<string>? SubjectPart { get; set; }
+        /// <summary>
+        /// The subject line of the email.
+        /// </summary>
+        [Input("subjectPart", required: true)]
+        public Input<string> SubjectPart { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the template.
+        /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
 
+        /// <summary>
+        /// The email body that is visible to recipients whose email clients do not display HTML content.
+        /// </summary>
         [Input("textPart")]
         public Input<string>? TextPart { get; set; }
 

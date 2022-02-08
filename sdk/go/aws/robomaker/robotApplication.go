@@ -11,18 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RoboMaker::RobotApplication
-//
-// Deprecated: RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// An example resource schema demonstrating some basic constructs and validation rules.
 type RobotApplication struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                      `pulumi:"arn"`
-	CurrentRevisionId  pulumi.StringPtrOutput                   `pulumi:"currentRevisionId"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The revision ID of robot application.
+	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
+	// The URI of the Docker image for the robot application.
+	Environment pulumi.StringPtrOutput `pulumi:"environment"`
+	// The name of the robot application.
 	Name               pulumi.StringPtrOutput                   `pulumi:"name"`
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
-	Sources            RobotApplicationSourceConfigArrayOutput  `pulumi:"sources"`
-	Tags               pulumi.AnyOutput                         `pulumi:"tags"`
+	// The sources of the robot application.
+	Sources RobotApplicationSourceConfigArrayOutput `pulumi:"sources"`
+	Tags    RobotApplicationTagsPtrOutput           `pulumi:"tags"`
 }
 
 // NewRobotApplication registers a new resource with the given unique name, arguments, and options.
@@ -34,9 +37,6 @@ func NewRobotApplication(ctx *pulumi.Context,
 
 	if args.RobotSoftwareSuite == nil {
 		return nil, errors.New("invalid value for required argument 'RobotSoftwareSuite'")
-	}
-	if args.Sources == nil {
-		return nil, errors.New("invalid value for required argument 'Sources'")
 	}
 	var resource RobotApplication
 	err := ctx.RegisterResource("aws-native:robomaker:RobotApplication", name, args, &resource, opts...)
@@ -70,20 +70,30 @@ func (RobotApplicationState) ElementType() reflect.Type {
 }
 
 type robotApplicationArgs struct {
-	CurrentRevisionId  *string                            `pulumi:"currentRevisionId"`
+	// The revision ID of robot application.
+	CurrentRevisionId *string `pulumi:"currentRevisionId"`
+	// The URI of the Docker image for the robot application.
+	Environment *string `pulumi:"environment"`
+	// The name of the robot application.
 	Name               *string                            `pulumi:"name"`
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
-	Sources            []RobotApplicationSourceConfig     `pulumi:"sources"`
-	Tags               interface{}                        `pulumi:"tags"`
+	// The sources of the robot application.
+	Sources []RobotApplicationSourceConfig `pulumi:"sources"`
+	Tags    *RobotApplicationTags          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RobotApplication resource.
 type RobotApplicationArgs struct {
-	CurrentRevisionId  pulumi.StringPtrInput
+	// The revision ID of robot application.
+	CurrentRevisionId pulumi.StringPtrInput
+	// The URI of the Docker image for the robot application.
+	Environment pulumi.StringPtrInput
+	// The name of the robot application.
 	Name               pulumi.StringPtrInput
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteInput
-	Sources            RobotApplicationSourceConfigArrayInput
-	Tags               pulumi.Input
+	// The sources of the robot application.
+	Sources RobotApplicationSourceConfigArrayInput
+	Tags    RobotApplicationTagsPtrInput
 }
 
 func (RobotApplicationArgs) ElementType() reflect.Type {

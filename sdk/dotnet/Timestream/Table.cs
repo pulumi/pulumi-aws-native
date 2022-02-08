@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// The properties that determine whether magnetic store writes are enabled.
+        /// </summary>
+        [Output("magneticStoreWriteProperties")]
+        public Output<Outputs.MagneticStoreWritePropertiesProperties?> MagneticStoreWriteProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The table name exposed as a read-only attribute.
         /// </summary>
         [Output("name")]
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The properties that determine whether magnetic store writes are enabled.
+        /// </summary>
+        [Input("magneticStoreWriteProperties")]
+        public Input<Inputs.MagneticStoreWritePropertiesPropertiesArgs>? MagneticStoreWriteProperties { get; set; }
 
         /// <summary>
         /// The retention duration of the memory store and the magnetic store.

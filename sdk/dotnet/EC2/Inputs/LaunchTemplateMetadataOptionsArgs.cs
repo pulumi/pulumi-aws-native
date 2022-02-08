@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }
 
+        [Input("instanceMetadataTags")]
+        public Input<string>? InstanceMetadataTags { get; set; }
+
         public LaunchTemplateMetadataOptionsArgs()
         {
         }

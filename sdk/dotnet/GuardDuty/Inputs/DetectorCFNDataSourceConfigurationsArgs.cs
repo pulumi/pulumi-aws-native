@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
 
     public sealed class DetectorCFNDataSourceConfigurationsArgs : Pulumi.ResourceArgs
     {
+        [Input("kubernetes")]
+        public Input<Inputs.DetectorCFNKubernetesConfigurationArgs>? Kubernetes { get; set; }
+
         [Input("s3Logs")]
         public Input<Inputs.DetectorCFNS3LogsConfigurationArgs>? S3Logs { get; set; }
 

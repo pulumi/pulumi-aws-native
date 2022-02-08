@@ -29,6 +29,8 @@ type LookupTableArgs struct {
 
 type LookupTableResult struct {
 	Arn *string `pulumi:"arn"`
+	// The properties that determine whether magnetic store writes are enabled.
+	MagneticStoreWriteProperties *MagneticStoreWritePropertiesProperties `pulumi:"magneticStoreWriteProperties"`
 	// The table name exposed as a read-only attribute.
 	Name *string `pulumi:"name"`
 	// The retention duration of the memory store and the magnetic store.
@@ -73,6 +75,13 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 
 func (o LookupTableResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The properties that determine whether magnetic store writes are enabled.
+func (o LookupTableResultOutput) MagneticStoreWriteProperties() MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *MagneticStoreWritePropertiesProperties {
+		return v.MagneticStoreWriteProperties
+	}).(MagneticStoreWritePropertiesPropertiesPtrOutput)
 }
 
 // The table name exposed as a read-only attribute.

@@ -52,6 +52,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      * A list of key-value pairs that contain metadata for the asset model.
      */
     public readonly tags!: pulumi.Output<outputs.ivs.RecordingConfigurationTag[] | undefined>;
+    public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
 
     /**
      * Create a RecordingConfiguration resource with the given unique name, arguments, and options.
@@ -70,6 +71,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
@@ -78,6 +80,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["thumbnailConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RecordingConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -97,4 +100,5 @@ export interface RecordingConfigurationArgs {
      * A list of key-value pairs that contain metadata for the asset model.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.ivs.RecordingConfigurationTagArgs>[]>;
+    thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfigurationArgs>;
 }

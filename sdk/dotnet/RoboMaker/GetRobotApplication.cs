@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RoboMaker
     public static class GetRobotApplication
     {
         /// <summary>
-        /// Resource Type definition for AWS::RoboMaker::RobotApplication
+        /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetRobotApplicationResult> InvokeAsync(GetRobotApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRobotApplicationResult>("aws-native:robomaker:getRobotApplication", args ?? new GetRobotApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::RoboMaker::RobotApplication
+        /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetRobotApplicationResult> Invoke(GetRobotApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRobotApplicationResult>("aws-native:robomaker:getRobotApplication", args ?? new GetRobotApplicationInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotApplicationArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetRobotApplicationArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetRobotApplicationInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetRobotApplicationInvokeArgs()
         {
@@ -50,10 +50,20 @@ namespace Pulumi.AwsNative.RoboMaker
     public sealed class GetRobotApplicationResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// The revision ID of robot application.
+        /// </summary>
         public readonly string? CurrentRevisionId;
-        public readonly string? Id;
+        /// <summary>
+        /// The URI of the Docker image for the robot application.
+        /// </summary>
+        public readonly string? Environment;
+        public readonly Outputs.RobotApplicationRobotSoftwareSuite? RobotSoftwareSuite;
+        /// <summary>
+        /// The sources of the robot application.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RobotApplicationSourceConfig> Sources;
-        public readonly object? Tags;
+        public readonly Outputs.RobotApplicationTags? Tags;
 
         [OutputConstructor]
         private GetRobotApplicationResult(
@@ -61,15 +71,18 @@ namespace Pulumi.AwsNative.RoboMaker
 
             string? currentRevisionId,
 
-            string? id,
+            string? environment,
+
+            Outputs.RobotApplicationRobotSoftwareSuite? robotSoftwareSuite,
 
             ImmutableArray<Outputs.RobotApplicationSourceConfig> sources,
 
-            object? tags)
+            Outputs.RobotApplicationTags? tags)
         {
             Arn = arn;
             CurrentRevisionId = currentRevisionId;
-            Id = id;
+            Environment = environment;
+            RobotSoftwareSuite = robotSoftwareSuite;
             Sources = sources;
             Tags = tags;
         }

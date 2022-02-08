@@ -37,6 +37,8 @@ __all__ = [
     'RuleRetryPolicy',
     'RuleRunCommandParameters',
     'RuleRunCommandTarget',
+    'RuleSageMakerPipelineParameter',
+    'RuleSageMakerPipelineParameters',
     'RuleSqsParameters',
     'RuleTag',
     'RuleTarget',
@@ -1095,6 +1097,55 @@ class RuleRunCommandTarget(dict):
 
 
 @pulumi.output_type
+class RuleSageMakerPipelineParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleSageMakerPipelineParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineParameterList":
+            suggest = "pipeline_parameter_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSageMakerPipelineParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSageMakerPipelineParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSageMakerPipelineParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_parameter_list: Optional[Sequence['outputs.RuleSageMakerPipelineParameter']] = None):
+        if pipeline_parameter_list is not None:
+            pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
+
+    @property
+    @pulumi.getter(name="pipelineParameterList")
+    def pipeline_parameter_list(self) -> Optional[Sequence['outputs.RuleSageMakerPipelineParameter']]:
+        return pulumi.get(self, "pipeline_parameter_list")
+
+
+@pulumi.output_type
 class RuleSqsParameters(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1171,6 +1222,8 @@ class RuleTarget(dict):
             suggest = "role_arn"
         elif key == "runCommandParameters":
             suggest = "run_command_parameters"
+        elif key == "sageMakerPipelineParameters":
+            suggest = "sage_maker_pipeline_parameters"
         elif key == "sqsParameters":
             suggest = "sqs_parameters"
 
@@ -1200,6 +1253,7 @@ class RuleTarget(dict):
                  retry_policy: Optional['outputs.RuleRetryPolicy'] = None,
                  role_arn: Optional[str] = None,
                  run_command_parameters: Optional['outputs.RuleRunCommandParameters'] = None,
+                 sage_maker_pipeline_parameters: Optional['outputs.RuleSageMakerPipelineParameters'] = None,
                  sqs_parameters: Optional['outputs.RuleSqsParameters'] = None):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -1227,6 +1281,8 @@ class RuleTarget(dict):
             pulumi.set(__self__, "role_arn", role_arn)
         if run_command_parameters is not None:
             pulumi.set(__self__, "run_command_parameters", run_command_parameters)
+        if sage_maker_pipeline_parameters is not None:
+            pulumi.set(__self__, "sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
         if sqs_parameters is not None:
             pulumi.set(__self__, "sqs_parameters", sqs_parameters)
 
@@ -1299,6 +1355,11 @@ class RuleTarget(dict):
     @pulumi.getter(name="runCommandParameters")
     def run_command_parameters(self) -> Optional['outputs.RuleRunCommandParameters']:
         return pulumi.get(self, "run_command_parameters")
+
+    @property
+    @pulumi.getter(name="sageMakerPipelineParameters")
+    def sage_maker_pipeline_parameters(self) -> Optional['outputs.RuleSageMakerPipelineParameters']:
+        return pulumi.get(self, "sage_maker_pipeline_parameters")
 
     @property
     @pulumi.getter(name="sqsParameters")

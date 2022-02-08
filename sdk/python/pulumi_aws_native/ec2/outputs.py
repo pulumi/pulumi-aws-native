@@ -102,6 +102,7 @@ __all__ = [
     'LaunchTemplateNetworkInterface',
     'LaunchTemplateNetworkInterfaceCount',
     'LaunchTemplatePlacement',
+    'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplatePrivateIpAdd',
     'LaunchTemplateSpotOptions',
     'LaunchTemplateTag',
@@ -3115,6 +3116,8 @@ class LaunchTemplateData(dict):
             suggest = "metadata_options"
         elif key == "networkInterfaces":
             suggest = "network_interfaces"
+        elif key == "privateDnsNameOptions":
+            suggest = "private_dns_name_options"
         elif key == "ramDiskId":
             suggest = "ram_disk_id"
         elif key == "securityGroupIds":
@@ -3161,6 +3164,7 @@ class LaunchTemplateData(dict):
                  monitoring: Optional['outputs.LaunchTemplateMonitoring'] = None,
                  network_interfaces: Optional[Sequence['outputs.LaunchTemplateNetworkInterface']] = None,
                  placement: Optional['outputs.LaunchTemplatePlacement'] = None,
+                 private_dns_name_options: Optional['outputs.LaunchTemplatePrivateDnsNameOptions'] = None,
                  ram_disk_id: Optional[str] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  security_groups: Optional[Sequence[str]] = None,
@@ -3212,6 +3216,8 @@ class LaunchTemplateData(dict):
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
+        if private_dns_name_options is not None:
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if security_group_ids is not None:
@@ -3337,6 +3343,11 @@ class LaunchTemplateData(dict):
     @pulumi.getter
     def placement(self) -> Optional['outputs.LaunchTemplatePlacement']:
         return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional['outputs.LaunchTemplatePrivateDnsNameOptions']:
+        return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="ramDiskId")
@@ -3924,6 +3935,8 @@ class LaunchTemplateMetadataOptions(dict):
             suggest = "http_put_response_hop_limit"
         elif key == "httpTokens":
             suggest = "http_tokens"
+        elif key == "instanceMetadataTags":
+            suggest = "instance_metadata_tags"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateMetadataOptions. Access the value via the '{suggest}' property getter instead.")
@@ -3940,7 +3953,8 @@ class LaunchTemplateMetadataOptions(dict):
                  http_endpoint: Optional[str] = None,
                  http_protocol_ipv6: Optional[str] = None,
                  http_put_response_hop_limit: Optional[int] = None,
-                 http_tokens: Optional[str] = None):
+                 http_tokens: Optional[str] = None,
+                 instance_metadata_tags: Optional[str] = None):
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
         if http_protocol_ipv6 is not None:
@@ -3949,6 +3963,8 @@ class LaunchTemplateMetadataOptions(dict):
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
             pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -3969,6 +3985,11 @@ class LaunchTemplateMetadataOptions(dict):
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[str]:
         return pulumi.get(self, "http_tokens")
+
+    @property
+    @pulumi.getter(name="instanceMetadataTags")
+    def instance_metadata_tags(self) -> Optional[str]:
+        return pulumi.get(self, "instance_metadata_tags")
 
 
 @pulumi.output_type
@@ -4265,6 +4286,56 @@ class LaunchTemplatePlacement(dict):
     @pulumi.getter
     def tenancy(self) -> Optional[str]:
         return pulumi.get(self, "tenancy")
+
+
+@pulumi.output_type
+class LaunchTemplatePrivateDnsNameOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceNameDnsAAAARecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
+        elif key == "enableResourceNameDnsARecord":
+            suggest = "enable_resource_name_dns_a_record"
+        elif key == "hostnameType":
+            suggest = "hostname_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplatePrivateDnsNameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplatePrivateDnsNameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplatePrivateDnsNameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[str]:
+        return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type

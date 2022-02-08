@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, backup_retention_period=None, cluster_resource_id=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, id=None, master_user_password=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, id=None, master_user_password=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, tags=None, vpc_security_group_ids=None):
         if backup_retention_period and not isinstance(backup_retention_period, int):
             raise TypeError("Expected argument 'backup_retention_period' to be a int")
         pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if cluster_resource_id and not isinstance(cluster_resource_id, str):
             raise TypeError("Expected argument 'cluster_resource_id' to be a str")
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
+            raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
+        pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if d_b_cluster_parameter_group_name and not isinstance(d_b_cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'd_b_cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
@@ -71,6 +74,11 @@ class GetDBClusterResult:
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> Optional[str]:
         return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[bool]:
+        return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
     @pulumi.getter(name="dBClusterParameterGroupName")
@@ -141,6 +149,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
         return GetDBClusterResult(
             backup_retention_period=self.backup_retention_period,
             cluster_resource_id=self.cluster_resource_id,
+            copy_tags_to_snapshot=self.copy_tags_to_snapshot,
             d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
             deletion_protection=self.deletion_protection,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
@@ -171,6 +180,7 @@ def get_db_cluster(id: Optional[str] = None,
     return AwaitableGetDBClusterResult(
         backup_retention_period=__ret__.backup_retention_period,
         cluster_resource_id=__ret__.cluster_resource_id,
+        copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
         d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
         deletion_protection=__ret__.deletion_protection,
         enable_cloudwatch_logs_exports=__ret__.enable_cloudwatch_logs_exports,

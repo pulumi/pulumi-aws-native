@@ -10,17 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker.Outputs
 {
 
+    /// <summary>
+    /// The robot software suite used by the robot application.
+    /// </summary>
     [OutputType]
     public sealed class RobotApplicationRobotSoftwareSuite
     {
-        public readonly string Name;
-        public readonly string Version;
+        /// <summary>
+        /// The name of robot software suite.
+        /// </summary>
+        public readonly Pulumi.AwsNative.RoboMaker.RobotApplicationRobotSoftwareSuiteName Name;
+        /// <summary>
+        /// The version of robot software suite.
+        /// </summary>
+        public readonly Pulumi.AwsNative.RoboMaker.RobotApplicationRobotSoftwareSuiteVersion? Version;
 
         [OutputConstructor]
         private RobotApplicationRobotSoftwareSuite(
-            string name,
+            Pulumi.AwsNative.RoboMaker.RobotApplicationRobotSoftwareSuiteName name,
 
-            string version)
+            Pulumi.AwsNative.RoboMaker.RobotApplicationRobotSoftwareSuiteVersion? version)
         {
             Name = name;
             Version = version;

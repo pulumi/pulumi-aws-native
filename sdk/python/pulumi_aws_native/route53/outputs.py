@@ -664,7 +664,6 @@ class RecordSetGroupRecordSet(dict):
                  name: str,
                  type: str,
                  alias_target: Optional['outputs.RecordSetGroupAliasTarget'] = None,
-                 comment: Optional[str] = None,
                  failover: Optional[str] = None,
                  geo_location: Optional['outputs.RecordSetGroupGeoLocation'] = None,
                  health_check_id: Optional[str] = None,
@@ -680,8 +679,6 @@ class RecordSetGroupRecordSet(dict):
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
         if failover is not None:
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
@@ -719,11 +716,6 @@ class RecordSetGroupRecordSet(dict):
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> Optional['outputs.RecordSetGroupAliasTarget']:
         return pulumi.get(self, "alias_target")
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[str]:
-        return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter

@@ -10,6 +10,267 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An alias by which to refer to this extension configuration data.
+type HookTypeConfigConfigurationAlias string
+
+const (
+	HookTypeConfigConfigurationAliasDefault = HookTypeConfigConfigurationAlias("default")
+)
+
+func (HookTypeConfigConfigurationAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*HookTypeConfigConfigurationAlias)(nil)).Elem()
+}
+
+func (e HookTypeConfigConfigurationAlias) ToHookTypeConfigConfigurationAliasOutput() HookTypeConfigConfigurationAliasOutput {
+	return pulumi.ToOutput(e).(HookTypeConfigConfigurationAliasOutput)
+}
+
+func (e HookTypeConfigConfigurationAlias) ToHookTypeConfigConfigurationAliasOutputWithContext(ctx context.Context) HookTypeConfigConfigurationAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HookTypeConfigConfigurationAliasOutput)
+}
+
+func (e HookTypeConfigConfigurationAlias) ToHookTypeConfigConfigurationAliasPtrOutput() HookTypeConfigConfigurationAliasPtrOutput {
+	return e.ToHookTypeConfigConfigurationAliasPtrOutputWithContext(context.Background())
+}
+
+func (e HookTypeConfigConfigurationAlias) ToHookTypeConfigConfigurationAliasPtrOutputWithContext(ctx context.Context) HookTypeConfigConfigurationAliasPtrOutput {
+	return HookTypeConfigConfigurationAlias(e).ToHookTypeConfigConfigurationAliasOutputWithContext(ctx).ToHookTypeConfigConfigurationAliasPtrOutputWithContext(ctx)
+}
+
+func (e HookTypeConfigConfigurationAlias) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HookTypeConfigConfigurationAlias) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HookTypeConfigConfigurationAlias) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HookTypeConfigConfigurationAlias) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HookTypeConfigConfigurationAliasOutput struct{ *pulumi.OutputState }
+
+func (HookTypeConfigConfigurationAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HookTypeConfigConfigurationAlias)(nil)).Elem()
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToHookTypeConfigConfigurationAliasOutput() HookTypeConfigConfigurationAliasOutput {
+	return o
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToHookTypeConfigConfigurationAliasOutputWithContext(ctx context.Context) HookTypeConfigConfigurationAliasOutput {
+	return o
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToHookTypeConfigConfigurationAliasPtrOutput() HookTypeConfigConfigurationAliasPtrOutput {
+	return o.ToHookTypeConfigConfigurationAliasPtrOutputWithContext(context.Background())
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToHookTypeConfigConfigurationAliasPtrOutputWithContext(ctx context.Context) HookTypeConfigConfigurationAliasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HookTypeConfigConfigurationAlias) *HookTypeConfigConfigurationAlias {
+		return &v
+	}).(HookTypeConfigConfigurationAliasPtrOutput)
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HookTypeConfigConfigurationAlias) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HookTypeConfigConfigurationAliasOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HookTypeConfigConfigurationAlias) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HookTypeConfigConfigurationAliasPtrOutput struct{ *pulumi.OutputState }
+
+func (HookTypeConfigConfigurationAliasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HookTypeConfigConfigurationAlias)(nil)).Elem()
+}
+
+func (o HookTypeConfigConfigurationAliasPtrOutput) ToHookTypeConfigConfigurationAliasPtrOutput() HookTypeConfigConfigurationAliasPtrOutput {
+	return o
+}
+
+func (o HookTypeConfigConfigurationAliasPtrOutput) ToHookTypeConfigConfigurationAliasPtrOutputWithContext(ctx context.Context) HookTypeConfigConfigurationAliasPtrOutput {
+	return o
+}
+
+func (o HookTypeConfigConfigurationAliasPtrOutput) Elem() HookTypeConfigConfigurationAliasOutput {
+	return o.ApplyT(func(v *HookTypeConfigConfigurationAlias) HookTypeConfigConfigurationAlias {
+		if v != nil {
+			return *v
+		}
+		var ret HookTypeConfigConfigurationAlias
+		return ret
+	}).(HookTypeConfigConfigurationAliasOutput)
+}
+
+func (o HookTypeConfigConfigurationAliasPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HookTypeConfigConfigurationAliasPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HookTypeConfigConfigurationAlias) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HookTypeConfigConfigurationAliasInput is an input type that accepts HookTypeConfigConfigurationAliasArgs and HookTypeConfigConfigurationAliasOutput values.
+// You can construct a concrete instance of `HookTypeConfigConfigurationAliasInput` via:
+//
+//          HookTypeConfigConfigurationAliasArgs{...}
+type HookTypeConfigConfigurationAliasInput interface {
+	pulumi.Input
+
+	ToHookTypeConfigConfigurationAliasOutput() HookTypeConfigConfigurationAliasOutput
+	ToHookTypeConfigConfigurationAliasOutputWithContext(context.Context) HookTypeConfigConfigurationAliasOutput
+}
+
+var hookTypeConfigConfigurationAliasPtrType = reflect.TypeOf((**HookTypeConfigConfigurationAlias)(nil)).Elem()
+
+type HookTypeConfigConfigurationAliasPtrInput interface {
+	pulumi.Input
+
+	ToHookTypeConfigConfigurationAliasPtrOutput() HookTypeConfigConfigurationAliasPtrOutput
+	ToHookTypeConfigConfigurationAliasPtrOutputWithContext(context.Context) HookTypeConfigConfigurationAliasPtrOutput
+}
+
+type hookTypeConfigConfigurationAliasPtr string
+
+func HookTypeConfigConfigurationAliasPtr(v string) HookTypeConfigConfigurationAliasPtrInput {
+	return (*hookTypeConfigConfigurationAliasPtr)(&v)
+}
+
+func (*hookTypeConfigConfigurationAliasPtr) ElementType() reflect.Type {
+	return hookTypeConfigConfigurationAliasPtrType
+}
+
+func (in *hookTypeConfigConfigurationAliasPtr) ToHookTypeConfigConfigurationAliasPtrOutput() HookTypeConfigConfigurationAliasPtrOutput {
+	return pulumi.ToOutput(in).(HookTypeConfigConfigurationAliasPtrOutput)
+}
+
+func (in *hookTypeConfigConfigurationAliasPtr) ToHookTypeConfigConfigurationAliasPtrOutputWithContext(ctx context.Context) HookTypeConfigConfigurationAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HookTypeConfigConfigurationAliasPtrOutput)
+}
+
+// The scope at which the type is visible and usable in CloudFormation operations.
+//
+// Valid values include:
+//
+// PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+//
+// PUBLIC: The type is publically visible and usable within any Amazon account.
+type HookVersionVisibility string
+
+const (
+	HookVersionVisibilityPublic  = HookVersionVisibility("PUBLIC")
+	HookVersionVisibilityPrivate = HookVersionVisibility("PRIVATE")
+)
+
+type HookVersionVisibilityOutput struct{ *pulumi.OutputState }
+
+func (HookVersionVisibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HookVersionVisibility)(nil)).Elem()
+}
+
+func (o HookVersionVisibilityOutput) ToHookVersionVisibilityOutput() HookVersionVisibilityOutput {
+	return o
+}
+
+func (o HookVersionVisibilityOutput) ToHookVersionVisibilityOutputWithContext(ctx context.Context) HookVersionVisibilityOutput {
+	return o
+}
+
+func (o HookVersionVisibilityOutput) ToHookVersionVisibilityPtrOutput() HookVersionVisibilityPtrOutput {
+	return o.ToHookVersionVisibilityPtrOutputWithContext(context.Background())
+}
+
+func (o HookVersionVisibilityOutput) ToHookVersionVisibilityPtrOutputWithContext(ctx context.Context) HookVersionVisibilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HookVersionVisibility) *HookVersionVisibility {
+		return &v
+	}).(HookVersionVisibilityPtrOutput)
+}
+
+func (o HookVersionVisibilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HookVersionVisibilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HookVersionVisibility) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HookVersionVisibilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HookVersionVisibilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HookVersionVisibility) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HookVersionVisibilityPtrOutput struct{ *pulumi.OutputState }
+
+func (HookVersionVisibilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HookVersionVisibility)(nil)).Elem()
+}
+
+func (o HookVersionVisibilityPtrOutput) ToHookVersionVisibilityPtrOutput() HookVersionVisibilityPtrOutput {
+	return o
+}
+
+func (o HookVersionVisibilityPtrOutput) ToHookVersionVisibilityPtrOutputWithContext(ctx context.Context) HookVersionVisibilityPtrOutput {
+	return o
+}
+
+func (o HookVersionVisibilityPtrOutput) Elem() HookVersionVisibilityOutput {
+	return o.ApplyT(func(v *HookVersionVisibility) HookVersionVisibility {
+		if v != nil {
+			return *v
+		}
+		var ret HookVersionVisibility
+		return ret
+	}).(HookVersionVisibilityOutput)
+}
+
+func (o HookVersionVisibilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HookVersionVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HookVersionVisibility) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The scope at which the type is visible and usable in CloudFormation operations.
 //
 // The only allowed value at present is:
@@ -1677,6 +1938,8 @@ func (in *typeActivationVersionBumpPtr) ToTypeActivationVersionBumpPtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HookTypeConfigConfigurationAliasInput)(nil)).Elem(), HookTypeConfigConfigurationAlias("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HookTypeConfigConfigurationAliasPtrInput)(nil)).Elem(), HookTypeConfigConfigurationAlias("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypeInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypePtrInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCallAsInput)(nil)).Elem(), StackSetCallAs("SELF"))
@@ -1692,6 +1955,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationTypePtrInput)(nil)).Elem(), TypeActivationType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpPtrInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
+	pulumi.RegisterOutputType(HookTypeConfigConfigurationAliasOutput{})
+	pulumi.RegisterOutputType(HookTypeConfigConfigurationAliasPtrOutput{})
+	pulumi.RegisterOutputType(HookVersionVisibilityOutput{})
+	pulumi.RegisterOutputType(HookVersionVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(ModuleVersionVisibilityOutput{})
 	pulumi.RegisterOutputType(ModuleVersionVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(PublicTypeVersionTypeOutput{})

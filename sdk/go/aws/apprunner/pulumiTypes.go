@@ -2104,6 +2104,106 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 	}).(ServiceTagOutput)
 }
 
+type VpcConnectorTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// VpcConnectorTagInput is an input type that accepts VpcConnectorTagArgs and VpcConnectorTagOutput values.
+// You can construct a concrete instance of `VpcConnectorTagInput` via:
+//
+//          VpcConnectorTagArgs{...}
+type VpcConnectorTagInput interface {
+	pulumi.Input
+
+	ToVpcConnectorTagOutput() VpcConnectorTagOutput
+	ToVpcConnectorTagOutputWithContext(context.Context) VpcConnectorTagOutput
+}
+
+type VpcConnectorTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (VpcConnectorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectorTag)(nil)).Elem()
+}
+
+func (i VpcConnectorTagArgs) ToVpcConnectorTagOutput() VpcConnectorTagOutput {
+	return i.ToVpcConnectorTagOutputWithContext(context.Background())
+}
+
+func (i VpcConnectorTagArgs) ToVpcConnectorTagOutputWithContext(ctx context.Context) VpcConnectorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectorTagOutput)
+}
+
+// VpcConnectorTagArrayInput is an input type that accepts VpcConnectorTagArray and VpcConnectorTagArrayOutput values.
+// You can construct a concrete instance of `VpcConnectorTagArrayInput` via:
+//
+//          VpcConnectorTagArray{ VpcConnectorTagArgs{...} }
+type VpcConnectorTagArrayInput interface {
+	pulumi.Input
+
+	ToVpcConnectorTagArrayOutput() VpcConnectorTagArrayOutput
+	ToVpcConnectorTagArrayOutputWithContext(context.Context) VpcConnectorTagArrayOutput
+}
+
+type VpcConnectorTagArray []VpcConnectorTagInput
+
+func (VpcConnectorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcConnectorTag)(nil)).Elem()
+}
+
+func (i VpcConnectorTagArray) ToVpcConnectorTagArrayOutput() VpcConnectorTagArrayOutput {
+	return i.ToVpcConnectorTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpcConnectorTagArray) ToVpcConnectorTagArrayOutputWithContext(ctx context.Context) VpcConnectorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectorTagArrayOutput)
+}
+
+type VpcConnectorTagOutput struct{ *pulumi.OutputState }
+
+func (VpcConnectorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectorTag)(nil)).Elem()
+}
+
+func (o VpcConnectorTagOutput) ToVpcConnectorTagOutput() VpcConnectorTagOutput {
+	return o
+}
+
+func (o VpcConnectorTagOutput) ToVpcConnectorTagOutputWithContext(ctx context.Context) VpcConnectorTagOutput {
+	return o
+}
+
+func (o VpcConnectorTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcConnectorTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcConnectorTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcConnectorTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type VpcConnectorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcConnectorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcConnectorTag)(nil)).Elem()
+}
+
+func (o VpcConnectorTagArrayOutput) ToVpcConnectorTagArrayOutput() VpcConnectorTagArrayOutput {
+	return o
+}
+
+func (o VpcConnectorTagArrayOutput) ToVpcConnectorTagArrayOutputWithContext(ctx context.Context) VpcConnectorTagArrayOutput {
+	return o
+}
+
+func (o VpcConnectorTagArrayOutput) Index(i pulumi.IntInput) VpcConnectorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcConnectorTag {
+		return vs[0].([]VpcConnectorTag)[vs[1].(int)]
+	}).(VpcConnectorTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
@@ -2130,6 +2230,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectorTagInput)(nil)).Elem(), VpcConnectorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectorTagArrayInput)(nil)).Elem(), VpcConnectorTagArray{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCodeConfigurationOutput{})
@@ -2156,4 +2258,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
+	pulumi.RegisterOutputType(VpcConnectorTagOutput{})
+	pulumi.RegisterOutputType(VpcConnectorTagArrayOutput{})
 }

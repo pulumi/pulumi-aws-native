@@ -24,6 +24,7 @@ __all__ = [
     'ServiceSourceCodeVersion',
     'ServiceSourceConfiguration',
     'ServiceTag',
+    'VpcConnectorTag',
 ]
 
 @pulumi.output_type
@@ -729,6 +730,27 @@ class ServiceSourceConfiguration(dict):
 
 @pulumi.output_type
 class ServiceTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcConnectorTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):

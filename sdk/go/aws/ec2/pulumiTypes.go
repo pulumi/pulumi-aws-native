@@ -9841,6 +9841,7 @@ type LaunchTemplateData struct {
 	Monitoring                        *LaunchTemplateMonitoring                       `pulumi:"monitoring"`
 	NetworkInterfaces                 []LaunchTemplateNetworkInterface                `pulumi:"networkInterfaces"`
 	Placement                         *LaunchTemplatePlacement                        `pulumi:"placement"`
+	PrivateDnsNameOptions             *LaunchTemplatePrivateDnsNameOptions            `pulumi:"privateDnsNameOptions"`
 	RamDiskId                         *string                                         `pulumi:"ramDiskId"`
 	SecurityGroupIds                  []string                                        `pulumi:"securityGroupIds"`
 	SecurityGroups                    []string                                        `pulumi:"securityGroups"`
@@ -9883,6 +9884,7 @@ type LaunchTemplateDataArgs struct {
 	Monitoring                        LaunchTemplateMonitoringPtrInput                       `pulumi:"monitoring"`
 	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput               `pulumi:"networkInterfaces"`
 	Placement                         LaunchTemplatePlacementPtrInput                        `pulumi:"placement"`
+	PrivateDnsNameOptions             LaunchTemplatePrivateDnsNameOptionsPtrInput            `pulumi:"privateDnsNameOptions"`
 	RamDiskId                         pulumi.StringPtrInput                                  `pulumi:"ramDiskId"`
 	SecurityGroupIds                  pulumi.StringArrayInput                                `pulumi:"securityGroupIds"`
 	SecurityGroups                    pulumi.StringArrayInput                                `pulumi:"securityGroups"`
@@ -10061,6 +10063,10 @@ func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInter
 
 func (o LaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) PrivateDnsNameOptions() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplatePrivateDnsNameOptions { return v.PrivateDnsNameOptions }).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
 func (o LaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
@@ -10312,6 +10318,15 @@ func (o LaunchTemplateDataPtrOutput) Placement() LaunchTemplatePlacementPtrOutpu
 		}
 		return v.Placement
 	}).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) PrivateDnsNameOptions() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplatePrivateDnsNameOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsNameOptions
+	}).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
 func (o LaunchTemplateDataPtrOutput) RamDiskId() pulumi.StringPtrOutput {
@@ -12283,6 +12298,7 @@ type LaunchTemplateMetadataOptions struct {
 	HttpProtocolIpv6        *string `pulumi:"httpProtocolIpv6"`
 	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
 	HttpTokens              *string `pulumi:"httpTokens"`
+	InstanceMetadataTags    *string `pulumi:"instanceMetadataTags"`
 }
 
 // LaunchTemplateMetadataOptionsInput is an input type that accepts LaunchTemplateMetadataOptionsArgs and LaunchTemplateMetadataOptionsOutput values.
@@ -12301,6 +12317,7 @@ type LaunchTemplateMetadataOptionsArgs struct {
 	HttpProtocolIpv6        pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
 	HttpPutResponseHopLimit pulumi.IntPtrInput    `pulumi:"httpPutResponseHopLimit"`
 	HttpTokens              pulumi.StringPtrInput `pulumi:"httpTokens"`
+	InstanceMetadataTags    pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
 
 func (LaunchTemplateMetadataOptionsArgs) ElementType() reflect.Type {
@@ -12396,6 +12413,10 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
+func (o LaunchTemplateMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.InstanceMetadataTags }).(pulumi.StringPtrOutput)
+}
+
 type LaunchTemplateMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMetadataOptionsPtrOutput) ElementType() reflect.Type {
@@ -12453,6 +12474,15 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOut
 			return nil
 		}
 		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMetadataTags
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13150,6 +13180,169 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Tenancy
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePrivateDnsNameOptions struct {
+	EnableResourceNameDnsAAAARecord *bool   `pulumi:"enableResourceNameDnsAAAARecord"`
+	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
+	HostnameType                    *string `pulumi:"hostnameType"`
+}
+
+// LaunchTemplatePrivateDnsNameOptionsInput is an input type that accepts LaunchTemplatePrivateDnsNameOptionsArgs and LaunchTemplatePrivateDnsNameOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplatePrivateDnsNameOptionsInput` via:
+//
+//          LaunchTemplatePrivateDnsNameOptionsArgs{...}
+type LaunchTemplatePrivateDnsNameOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePrivateDnsNameOptionsOutput() LaunchTemplatePrivateDnsNameOptionsOutput
+	ToLaunchTemplatePrivateDnsNameOptionsOutputWithContext(context.Context) LaunchTemplatePrivateDnsNameOptionsOutput
+}
+
+type LaunchTemplatePrivateDnsNameOptionsArgs struct {
+	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAAAARecord"`
+	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
+	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
+}
+
+func (LaunchTemplatePrivateDnsNameOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplatePrivateDnsNameOptionsArgs) ToLaunchTemplatePrivateDnsNameOptionsOutput() LaunchTemplatePrivateDnsNameOptionsOutput {
+	return i.ToLaunchTemplatePrivateDnsNameOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePrivateDnsNameOptionsArgs) ToLaunchTemplatePrivateDnsNameOptionsOutputWithContext(ctx context.Context) LaunchTemplatePrivateDnsNameOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateDnsNameOptionsOutput)
+}
+
+func (i LaunchTemplatePrivateDnsNameOptionsArgs) ToLaunchTemplatePrivateDnsNameOptionsPtrOutput() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return i.ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePrivateDnsNameOptionsArgs) ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateDnsNameOptionsOutput).ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplatePrivateDnsNameOptionsPtrInput is an input type that accepts LaunchTemplatePrivateDnsNameOptionsArgs, LaunchTemplatePrivateDnsNameOptionsPtr and LaunchTemplatePrivateDnsNameOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplatePrivateDnsNameOptionsPtrInput` via:
+//
+//          LaunchTemplatePrivateDnsNameOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplatePrivateDnsNameOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePrivateDnsNameOptionsPtrOutput() LaunchTemplatePrivateDnsNameOptionsPtrOutput
+	ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(context.Context) LaunchTemplatePrivateDnsNameOptionsPtrOutput
+}
+
+type launchTemplatePrivateDnsNameOptionsPtrType LaunchTemplatePrivateDnsNameOptionsArgs
+
+func LaunchTemplatePrivateDnsNameOptionsPtr(v *LaunchTemplatePrivateDnsNameOptionsArgs) LaunchTemplatePrivateDnsNameOptionsPtrInput {
+	return (*launchTemplatePrivateDnsNameOptionsPtrType)(v)
+}
+
+func (*launchTemplatePrivateDnsNameOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplatePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i *launchTemplatePrivateDnsNameOptionsPtrType) ToLaunchTemplatePrivateDnsNameOptionsPtrOutput() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return i.ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplatePrivateDnsNameOptionsPtrType) ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
+}
+
+type LaunchTemplatePrivateDnsNameOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePrivateDnsNameOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) ToLaunchTemplatePrivateDnsNameOptionsOutput() LaunchTemplatePrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) ToLaunchTemplatePrivateDnsNameOptionsOutputWithContext(ctx context.Context) LaunchTemplatePrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) ToLaunchTemplatePrivateDnsNameOptionsPtrOutput() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return o.ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplatePrivateDnsNameOptions) *LaunchTemplatePrivateDnsNameOptions {
+		return &v
+	}).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePrivateDnsNameOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePrivateDnsNameOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplatePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) ToLaunchTemplatePrivateDnsNameOptionsPtrOutput() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) ToLaunchTemplatePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplatePrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) Elem() LaunchTemplatePrivateDnsNameOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) LaunchTemplatePrivateDnsNameOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplatePrivateDnsNameOptions
+		return ret
+	}).(LaunchTemplatePrivateDnsNameOptionsOutput)
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAAAARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostnameType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -25434,6 +25627,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceCountPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsPtrInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateIpAddInput)(nil)).Elem(), LaunchTemplatePrivateIpAddArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateIpAddArrayInput)(nil)).Elem(), LaunchTemplatePrivateIpAddArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateSpotOptionsInput)(nil)).Elem(), LaunchTemplateSpotOptionsArgs{})
@@ -25778,6 +25973,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsOutput{})

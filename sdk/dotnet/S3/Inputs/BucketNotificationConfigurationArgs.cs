@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class BucketNotificationConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("eventBridgeConfiguration")]
+        public Input<Inputs.BucketEventBridgeConfigurationArgs>? EventBridgeConfiguration { get; set; }
+
         [Input("lambdaConfigurations")]
         private InputList<Inputs.BucketLambdaConfigurationArgs>? _lambdaConfigurations;
         public InputList<Inputs.BucketLambdaConfigurationArgs> LambdaConfigurations

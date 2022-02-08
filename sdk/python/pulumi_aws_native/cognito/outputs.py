@@ -1493,6 +1493,8 @@ class UserPoolSmsConfiguration(dict):
             suggest = "external_id"
         elif key == "snsCallerArn":
             suggest = "sns_caller_arn"
+        elif key == "snsRegion":
+            suggest = "sns_region"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPoolSmsConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1507,11 +1509,14 @@ class UserPoolSmsConfiguration(dict):
 
     def __init__(__self__, *,
                  external_id: Optional[str] = None,
-                 sns_caller_arn: Optional[str] = None):
+                 sns_caller_arn: Optional[str] = None,
+                 sns_region: Optional[str] = None):
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if sns_caller_arn is not None:
             pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
+        if sns_region is not None:
+            pulumi.set(__self__, "sns_region", sns_region)
 
     @property
     @pulumi.getter(name="externalId")
@@ -1522,6 +1527,11 @@ class UserPoolSmsConfiguration(dict):
     @pulumi.getter(name="snsCallerArn")
     def sns_caller_arn(self) -> Optional[str]:
         return pulumi.get(self, "sns_caller_arn")
+
+    @property
+    @pulumi.getter(name="snsRegion")
+    def sns_region(self) -> Optional[str]:
+        return pulumi.get(self, "sns_region")
 
 
 @pulumi.output_type
