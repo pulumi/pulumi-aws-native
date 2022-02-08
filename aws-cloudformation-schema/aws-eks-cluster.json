@@ -242,7 +242,8 @@
       "permissions" : [ "eks:DescribeCluster" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "eks:UpdateClusterConfig", "eks:UpdateClusterVersion", "eks:DescribeCluster", "eks:DescribeUpdate", "eks:TagResource", "eks:UntagResource" ]
+      "permissions" : [ "iam:PassRole", "eks:UpdateClusterConfig", "eks:UpdateClusterVersion", "eks:DescribeCluster", "eks:DescribeUpdate", "eks:TagResource", "eks:UntagResource" ],
+      "timeoutInMinutes" : 150
     },
     "delete" : {
       "permissions" : [ "eks:DeleteCluster", "eks:DescribeCluster" ]
