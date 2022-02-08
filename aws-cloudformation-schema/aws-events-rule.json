@@ -227,6 +227,9 @@
         "Arn" : {
           "type" : "string"
         },
+        "SageMakerPipelineParameters" : {
+          "$ref" : "#/definitions/SageMakerPipelineParameters"
+        },
         "RetryPolicy" : {
           "$ref" : "#/definitions/RetryPolicy"
         }
@@ -401,6 +404,19 @@
         }
       }
     },
+    "SageMakerPipelineParameters" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PipelineParameterList" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/SageMakerPipelineParameter"
+          }
+        }
+      }
+    },
     "RetryPolicy" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -421,6 +437,19 @@
           "type" : "integer"
         }
       }
+    },
+    "SageMakerPipelineParameter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Name" ]
     }
   },
   "createOnlyProperties" : [ "/properties/Name", "/properties/EventBusName" ],
