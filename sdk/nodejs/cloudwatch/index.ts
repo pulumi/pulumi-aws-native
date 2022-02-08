@@ -9,6 +9,12 @@ export * from "./alarm";
 export * from "./anomalyDetector";
 export * from "./compositeAlarm";
 export * from "./dashboard";
+export * from "./getAlarm";
+export * from "./getAnomalyDetector";
+export * from "./getCompositeAlarm";
+export * from "./getDashboard";
+export * from "./getInsightRule";
+export * from "./getMetricStream";
 export * from "./insightRule";
 export * from "./metricStream";
 

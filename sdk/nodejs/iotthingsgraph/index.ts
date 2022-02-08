@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./flowTemplate";
+export * from "./getFlowTemplate";
 
 // Import resources to register:
 import { FlowTemplate } from "./flowTemplate";

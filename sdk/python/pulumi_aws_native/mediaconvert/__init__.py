@@ -5,6 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_job_template import *
+from .get_preset import *
+from .get_queue import *
 from .job_template import *
 from .preset import *
 from .queue import *

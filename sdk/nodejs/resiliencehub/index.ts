@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./app";
+export * from "./getApp";
+export * from "./getResiliencyPolicy";
 export * from "./resiliencyPolicy";
 
 // Export enums:

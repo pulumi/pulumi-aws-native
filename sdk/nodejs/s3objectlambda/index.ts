@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./accessPoint";
 export * from "./accessPointPolicy";
+export * from "./getAccessPoint";
+export * from "./getAccessPointPolicy";
 
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";

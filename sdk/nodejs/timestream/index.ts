@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./database";
+export * from "./getDatabase";
+export * from "./getScheduledQuery";
+export * from "./getTable";
 export * from "./scheduledQuery";
 export * from "./table";
 

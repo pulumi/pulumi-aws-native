@@ -8,6 +8,10 @@ import typing
 from ._enums import *
 from .firewall import *
 from .firewall_policy import *
+from .get_firewall import *
+from .get_firewall_policy import *
+from .get_logging_configuration import *
+from .get_rule_group import *
 from .logging_configuration import *
 from .rule_group import *
 from ._inputs import *

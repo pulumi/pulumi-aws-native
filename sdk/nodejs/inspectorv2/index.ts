@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./filter";
+export * from "./getFilter";
 
 // Export enums:
 export * from "../types/enums/inspectorv2";

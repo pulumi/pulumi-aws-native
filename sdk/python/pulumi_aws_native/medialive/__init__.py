@@ -6,6 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .channel import *
+from .get_channel import *
+from .get_input import *
+from .get_input_security_group import *
 from .input import *
 from .input_security_group import *
 from ._inputs import *

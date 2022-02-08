@@ -7,6 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./contactFlow";
 export * from "./contactFlowModule";
+export * from "./getContactFlow";
+export * from "./getContactFlowModule";
+export * from "./getHoursOfOperation";
+export * from "./getQuickConnect";
+export * from "./getUser";
+export * from "./getUserHierarchyGroup";
 export * from "./hoursOfOperation";
 export * from "./quickConnect";
 export * from "./user";

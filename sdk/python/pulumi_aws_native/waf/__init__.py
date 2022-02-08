@@ -6,6 +6,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .byte_match_set import *
+from .get_byte_match_set import *
+from .get_ip_set import *
+from .get_rule import *
+from .get_size_constraint_set import *
+from .get_sql_injection_match_set import *
+from .get_web_acl import *
+from .get_xss_match_set import *
 from .ip_set import *
 from .rule import *
 from .size_constraint_set import *

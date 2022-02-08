@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getScalingPlan";
 export * from "./scalingPlan";
 
 // Import resources to register:

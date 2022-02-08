@@ -65,6 +65,48 @@ func (o ScalingPlanApplicationSourceOutput) TagFilters() ScalingPlanTagFilterArr
 	return o.ApplyT(func(v ScalingPlanApplicationSource) []ScalingPlanTagFilter { return v.TagFilters }).(ScalingPlanTagFilterArrayOutput)
 }
 
+type ScalingPlanApplicationSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPlanApplicationSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPlanApplicationSource)(nil)).Elem()
+}
+
+func (o ScalingPlanApplicationSourcePtrOutput) ToScalingPlanApplicationSourcePtrOutput() ScalingPlanApplicationSourcePtrOutput {
+	return o
+}
+
+func (o ScalingPlanApplicationSourcePtrOutput) ToScalingPlanApplicationSourcePtrOutputWithContext(ctx context.Context) ScalingPlanApplicationSourcePtrOutput {
+	return o
+}
+
+func (o ScalingPlanApplicationSourcePtrOutput) Elem() ScalingPlanApplicationSourceOutput {
+	return o.ApplyT(func(v *ScalingPlanApplicationSource) ScalingPlanApplicationSource {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPlanApplicationSource
+		return ret
+	}).(ScalingPlanApplicationSourceOutput)
+}
+
+func (o ScalingPlanApplicationSourcePtrOutput) CloudFormationStackARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlanApplicationSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudFormationStackARN
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPlanApplicationSourcePtrOutput) TagFilters() ScalingPlanTagFilterArrayOutput {
+	return o.ApplyT(func(v *ScalingPlanApplicationSource) []ScalingPlanTagFilter {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(ScalingPlanTagFilterArrayOutput)
+}
+
 type ScalingPlanCustomizedLoadMetricSpecification struct {
 	Dimensions []ScalingPlanMetricDimension `pulumi:"dimensions"`
 	MetricName string                       `pulumi:"metricName"`
@@ -1280,6 +1322,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanTargetTrackingConfigurationInput)(nil)).Elem(), ScalingPlanTargetTrackingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanTargetTrackingConfigurationArrayInput)(nil)).Elem(), ScalingPlanTargetTrackingConfigurationArray{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourceOutput{})
+	pulumi.RegisterOutputType(ScalingPlanApplicationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ScalingPlanCustomizedLoadMetricSpecificationOutput{})
 	pulumi.RegisterOutputType(ScalingPlanCustomizedLoadMetricSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ScalingPlanCustomizedScalingMetricSpecificationOutput{})

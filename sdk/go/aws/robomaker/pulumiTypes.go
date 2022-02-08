@@ -640,6 +640,50 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() SimulationAppli
 	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
+type SimulationApplicationRobotSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
+
+func (SimulationApplicationRobotSoftwareSuitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SimulationApplicationRobotSoftwareSuite)(nil)).Elem()
+}
+
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutput() SimulationApplicationRobotSoftwareSuitePtrOutput {
+	return o
+}
+
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput {
+	return o
+}
+
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteOutput {
+	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuite {
+		if v != nil {
+			return *v
+		}
+		var ret SimulationApplicationRobotSoftwareSuite
+		return ret
+	}).(SimulationApplicationRobotSoftwareSuiteOutput)
+}
+
+// The name of the robot software suite.
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() SimulationApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteName {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
+}
+
+// The version of the robot software suite.
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
+}
+
 // Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuite struct {
 	// The name of the simulation software suite.
@@ -704,6 +748,50 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() SimulationApp
 // The version of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
 	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteVersion {
+		return v.Version
+	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
+}
+
+type SimulationApplicationSimulationSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
+
+func (SimulationApplicationSimulationSoftwareSuitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SimulationApplicationSimulationSoftwareSuite)(nil)).Elem()
+}
+
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutput() SimulationApplicationSimulationSoftwareSuitePtrOutput {
+	return o
+}
+
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput {
+	return o
+}
+
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteOutput {
+	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) SimulationApplicationSimulationSoftwareSuite {
+		if v != nil {
+			return *v
+		}
+		var ret SimulationApplicationSimulationSoftwareSuite
+		return ret
+	}).(SimulationApplicationSimulationSoftwareSuiteOutput)
+}
+
+// The name of the simulation software suite.
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Name() SimulationApplicationSimulationSoftwareSuiteNamePtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteName {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(SimulationApplicationSimulationSoftwareSuiteNamePtrOutput)
+}
+
+// The version of the simulation software suite.
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteVersion {
+		if v == nil {
+			return nil
+		}
 		return v.Version
 	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
@@ -975,7 +1063,9 @@ func init() {
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEngineOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEnginePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRobotSoftwareSuiteOutput{})
+	pulumi.RegisterOutputType(SimulationApplicationRobotSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSimulationSoftwareSuiteOutput{})
+	pulumi.RegisterOutputType(SimulationApplicationSimulationSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSourceConfigOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSourceConfigArrayOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationTagsOutput{})

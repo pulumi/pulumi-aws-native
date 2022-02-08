@@ -8,6 +8,9 @@ import typing
 from ._enums import *
 from .data_source import *
 from .faq import *
+from .get_data_source import *
+from .get_faq import *
+from .get_index import *
 from .index import *
 from ._inputs import *
 from . import outputs

@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./domain";
+export * from "./getDomain";
+export * from "./getRepository";
 export * from "./repository";
 
 // Import resources to register:

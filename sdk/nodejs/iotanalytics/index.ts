@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
 export * from "./channel";
 export * from "./dataset";
 export * from "./datastore";
+export * from "./getChannel";
+export * from "./getDataset";
+export * from "./getDatastore";
+export * from "./getPipeline";
 export * from "./pipeline";
 
 // Export enums:

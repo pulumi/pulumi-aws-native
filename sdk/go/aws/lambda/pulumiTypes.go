@@ -431,6 +431,40 @@ func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pu
 	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
 }
 
+type CodeSigningConfigAllowedPublishersPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAllowedPublishersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSigningConfigAllowedPublishers
+		return ret
+	}).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+// List of Signing profile version Arns
+func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningProfileVersionArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // Policies to control how to act if a signature is invalid
 type CodeSigningConfigCodeSigningPolicies struct {
 	// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
@@ -3431,6 +3465,7 @@ func init() {
 	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(EventInvokeConfigDestinationConfigOutput{})

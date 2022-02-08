@@ -6,6 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./gatewayRoute";
+export * from "./getGatewayRoute";
+export * from "./getMesh";
+export * from "./getRoute";
+export * from "./getVirtualGateway";
+export * from "./getVirtualNode";
+export * from "./getVirtualRouter";
+export * from "./getVirtualService";
 export * from "./mesh";
 export * from "./route";
 export * from "./virtualGateway";

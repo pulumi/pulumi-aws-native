@@ -1491,6 +1491,102 @@ func (o DomainServiceSoftwareOptionsOutput) UpdateStatus() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.UpdateStatus }).(pulumi.StringPtrOutput)
 }
 
+type DomainServiceSoftwareOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainServiceSoftwareOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainServiceSoftwareOptions)(nil)).Elem()
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) ToDomainServiceSoftwareOptionsPtrOutput() DomainServiceSoftwareOptionsPtrOutput {
+	return o
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) ToDomainServiceSoftwareOptionsPtrOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsPtrOutput {
+	return o
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) Elem() DomainServiceSoftwareOptionsOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) DomainServiceSoftwareOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainServiceSoftwareOptions
+		return ret
+	}).(DomainServiceSoftwareOptionsOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) AutomatedUpdateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutomatedUpdateDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) Cancellable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Cancellable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) NewVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) OptionalDeployment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OptionalDeployment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) UpdateAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateAvailable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainServiceSoftwareOptionsPtrOutput) UpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateStatus
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainSnapshotOptions struct {
 	AutomatedSnapshotStartHour *int `pulumi:"automatedSnapshotStartHour"`
 }
@@ -2047,6 +2143,7 @@ func init() {
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsOutput{})
+	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})

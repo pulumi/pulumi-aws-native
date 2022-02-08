@@ -7,6 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./app";
 export * from "./elasticLoadBalancerAttachment";
+export * from "./getApp";
+export * from "./getElasticLoadBalancerAttachment";
+export * from "./getInstance";
+export * from "./getLayer";
+export * from "./getStack";
+export * from "./getUserProfile";
+export * from "./getVolume";
 export * from "./instance";
 export * from "./layer";
 export * from "./stack";

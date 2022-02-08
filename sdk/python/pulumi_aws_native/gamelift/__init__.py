@@ -11,6 +11,14 @@ from .build import *
 from .fleet import *
 from .game_server_group import *
 from .game_session_queue import *
+from .get_alias import *
+from .get_build import *
+from .get_fleet import *
+from .get_game_server_group import *
+from .get_game_session_queue import *
+from .get_matchmaking_configuration import *
+from .get_matchmaking_rule_set import *
+from .get_script import *
 from .matchmaking_configuration import *
 from .matchmaking_rule_set import *
 from .script import *

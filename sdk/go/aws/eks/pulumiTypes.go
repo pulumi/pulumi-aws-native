@@ -777,6 +777,80 @@ func (o ClusterResourcesVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+type ClusterResourcesVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourcesVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourcesVpcConfig)(nil)).Elem()
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
+	return o
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
+	return o
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) Elem() ClusterResourcesVpcConfigOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) ClusterResourcesVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterResourcesVpcConfig
+		return ret
+	}).(ClusterResourcesVpcConfigOutput)
+}
+
+// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+func (o ClusterResourcesVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPrivateAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+func (o ClusterResourcesVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPublicAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+func (o ClusterResourcesVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccessCidrs
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
+func (o ClusterResourcesVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1973,6 +2047,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
+	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})
 	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelOutput{})

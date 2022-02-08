@@ -1952,6 +1952,174 @@ func (o ClusterJobFlowInstancesConfigOutput) TerminationProtected() pulumi.BoolP
 	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.TerminationProtected }).(pulumi.BoolPtrOutput)
 }
 
+type ClusterJobFlowInstancesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterJobFlowInstancesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterJobFlowInstancesConfig)(nil)).Elem()
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput {
+	return o
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigPtrOutput {
+	return o
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) Elem() ClusterJobFlowInstancesConfigOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) ClusterJobFlowInstancesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterJobFlowInstancesConfig
+		return ret
+	}).(ClusterJobFlowInstancesConfigOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) AdditionalMasterSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalMasterSecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) AdditionalSlaveSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalSlaveSecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) CoreInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CoreInstanceFleet
+	}).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) CoreInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CoreInstanceGroup
+	}).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmrManagedMasterSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmrManagedSlaveSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) HadoopVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HadoopVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) KeepJobFlowAliveWhenNoSteps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeepJobFlowAliveWhenNoSteps
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) MasterInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MasterInstanceFleet
+	}).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) MasterInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MasterInstanceGroup
+	}).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) Placement() ClusterPlacementTypePtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterPlacementType {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(ClusterPlacementTypePtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) TerminationProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClusterKerberosAttributes struct {
 	ADDomainJoinPassword             *string `pulumi:"aDDomainJoinPassword"`
 	ADDomainJoinUser                 *string `pulumi:"aDDomainJoinUser"`
@@ -6277,6 +6445,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterInstanceTypeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceTypeConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigOutput{})
+	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKeyValueOutput{})

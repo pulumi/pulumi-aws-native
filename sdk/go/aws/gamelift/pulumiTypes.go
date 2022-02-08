@@ -80,6 +80,60 @@ func (o AliasRoutingStrategyOutput) Type() AliasRoutingStrategyTypeOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) AliasRoutingStrategyType { return v.Type }).(AliasRoutingStrategyTypeOutput)
 }
 
+type AliasRoutingStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasRoutingStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasRoutingStrategy)(nil)).Elem()
+}
+
+func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
+	return o
+}
+
+func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
+	return o
+}
+
+func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) AliasRoutingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret AliasRoutingStrategy
+		return ret
+	}).(AliasRoutingStrategyOutput)
+}
+
+// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
+func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
+func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
+func (o AliasRoutingStrategyPtrOutput) Type() AliasRoutingStrategyTypePtrOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) *AliasRoutingStrategyType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(AliasRoutingStrategyTypePtrOutput)
+}
+
 type BuildS3Location struct {
 	Bucket        string  `pulumi:"bucket"`
 	Key           string  `pulumi:"key"`
@@ -1609,6 +1663,57 @@ func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
+type GameServerGroupLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) GameServerGroupLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret GameServerGroupLaunchTemplate
+		return ret
+	}).(GameServerGroupLaunchTemplateOutput)
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type GameServerGroupTag struct {
 	// The key for a developer-defined key:value pair for tagging an AWS resource.
 	Key *string `pulumi:"key"`
@@ -2793,6 +2898,66 @@ func (o ScriptS3LocationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptS3Location) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+type ScriptS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptS3Location)(nil)).Elem()
+}
+
+func (o ScriptS3LocationPtrOutput) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
+	return o
+}
+
+func (o ScriptS3LocationPtrOutput) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
+	return o
+}
+
+func (o ScriptS3LocationPtrOutput) Elem() ScriptS3LocationOutput {
+	return o.ApplyT(func(v *ScriptS3Location) ScriptS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret ScriptS3Location
+		return ret
+	}).(ScriptS3LocationOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScriptTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2940,6 +3105,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagInput)(nil)).Elem(), ScriptTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagArrayInput)(nil)).Elem(), ScriptTagArray{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
+	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})
@@ -2961,6 +3127,7 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionOutput{})
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTagOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
@@ -2982,6 +3149,7 @@ func init() {
 	pulumi.RegisterOutputType(MatchmakingRuleSetTagOutput{})
 	pulumi.RegisterOutputType(MatchmakingRuleSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ScriptS3LocationOutput{})
+	pulumi.RegisterOutputType(ScriptS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ScriptTagOutput{})
 	pulumi.RegisterOutputType(ScriptTagArrayOutput{})
 }

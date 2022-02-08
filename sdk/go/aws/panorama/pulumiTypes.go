@@ -340,6 +340,75 @@ func (o PackageStorageLocationOutput) RepoPrefixLocation() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.RepoPrefixLocation }).(pulumi.StringPtrOutput)
 }
 
+type PackageStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (PackageStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackageStorageLocation)(nil)).Elem()
+}
+
+func (o PackageStorageLocationPtrOutput) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
+	return o
+}
+
+func (o PackageStorageLocationPtrOutput) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
+	return o
+}
+
+func (o PackageStorageLocationPtrOutput) Elem() PackageStorageLocationOutput {
+	return o.ApplyT(func(v *PackageStorageLocation) PackageStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret PackageStorageLocation
+		return ret
+	}).(PackageStorageLocationOutput)
+}
+
+func (o PackageStorageLocationPtrOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BinaryPrefixLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PackageStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PackageStorageLocationPtrOutput) GeneratedPrefixLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratedPrefixLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PackageStorageLocationPtrOutput) ManifestPrefixLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestPrefixLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PackageStorageLocationPtrOutput) RepoPrefixLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepoPrefixLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 type PackageTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -454,6 +523,7 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInstanceTagOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(PackageStorageLocationOutput{})
+	pulumi.RegisterOutputType(PackageStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(PackageTagOutput{})
 	pulumi.RegisterOutputType(PackageTagArrayOutput{})
 }

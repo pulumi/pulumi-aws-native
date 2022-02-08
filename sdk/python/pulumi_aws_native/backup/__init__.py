@@ -9,6 +9,11 @@ from .backup_plan import *
 from .backup_selection import *
 from .backup_vault import *
 from .framework import *
+from .get_backup_plan import *
+from .get_backup_selection import *
+from .get_backup_vault import *
+from .get_framework import *
+from .get_report_plan import *
 from .report_plan import *
 from ._inputs import *
 from . import outputs

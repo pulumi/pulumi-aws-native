@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getPublicRepository";
+export * from "./getRegistryPolicy";
+export * from "./getReplicationConfiguration";
+export * from "./getRepository";
 export * from "./publicRepository";
 export * from "./registryPolicy";
 export * from "./replicationConfiguration";

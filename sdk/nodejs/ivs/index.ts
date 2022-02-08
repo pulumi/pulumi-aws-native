@@ -6,6 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./channel";
+export * from "./getChannel";
+export * from "./getPlaybackKeyPair";
+export * from "./getRecordingConfiguration";
+export * from "./getStreamKey";
 export * from "./playbackKeyPair";
 export * from "./recordingConfiguration";
 export * from "./streamKey";

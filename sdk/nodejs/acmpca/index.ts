@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
 export * from "./certificate";
 export * from "./certificateAuthority";
 export * from "./certificateAuthorityActivation";
+export * from "./getCertificate";
+export * from "./getCertificateAuthority";
+export * from "./getCertificateAuthorityActivation";
+export * from "./getPermission";
 export * from "./permission";
 
 // Import resources to register:

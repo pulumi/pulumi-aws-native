@@ -7,6 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .application_instance import *
+from .get_application_instance import *
+from .get_package import *
+from .get_package_version import *
 from .package import *
 from .package_version import *
 from ._inputs import *

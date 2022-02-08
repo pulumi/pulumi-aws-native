@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getIPSet";
+export * from "./getLoggingConfiguration";
+export * from "./getRegexPatternSet";
+export * from "./getRuleGroup";
+export * from "./getWebACL";
+export * from "./getWebACLAssociation";
 export * from "./ipset";
 export * from "./loggingConfiguration";
 export * from "./regexPatternSet";

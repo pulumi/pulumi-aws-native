@@ -328,6 +328,75 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) Name() pulumi.St
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+type ConfigurationSetEventDestinationEventDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) ConfigurationSetEventDestinationEventDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchDestination
+	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisFirehoseDestination
+	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingEventTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetEventDestinationKinesisFirehoseDestination struct {
 	DeliveryStreamARN string `pulumi:"deliveryStreamARN"`
 	IAMRoleARN        string `pulumi:"iAMRoleARN"`
@@ -1520,6 +1589,84 @@ func (o ReceiptRuleRuleOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleRule) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
 
+type ReceiptRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleRule)(nil)).Elem()
+}
+
+func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
+	return o
+}
+
+func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
+	return o
+}
+
+func (o ReceiptRuleRulePtrOutput) Elem() ReceiptRuleRuleOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) ReceiptRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleRule
+		return ret
+	}).(ReceiptRuleRuleOutput)
+}
+
+func (o ReceiptRuleRulePtrOutput) Actions() ReceiptRuleActionArrayOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) []ReceiptRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(ReceiptRuleActionArrayOutput)
+}
+
+func (o ReceiptRuleRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ReceiptRuleRulePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReceiptRuleRulePtrOutput) Recipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Recipients
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ReceiptRuleRulePtrOutput) ScanEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScanEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ReceiptRuleRulePtrOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReceiptRuleS3Action struct {
 	BucketName      string  `pulumi:"bucketName"`
 	KmsKeyArn       *string `pulumi:"kmsKeyArn"`
@@ -2358,6 +2505,7 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ContactListTagOutput{})
@@ -2375,6 +2523,7 @@ func init() {
 	pulumi.RegisterOutputType(ReceiptRuleLambdaActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleLambdaActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleRuleOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleRulePtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleS3ActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleS3ActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleSNSActionOutput{})

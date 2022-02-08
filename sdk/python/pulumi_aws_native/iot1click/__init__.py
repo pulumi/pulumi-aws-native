@@ -6,6 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .device import *
+from .get_device import *
+from .get_placement import *
+from .get_project import *
 from .placement import *
 from .project import *
 from ._inputs import *

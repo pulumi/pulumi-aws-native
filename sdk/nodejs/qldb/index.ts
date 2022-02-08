@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getLedger";
+export * from "./getStream";
 export * from "./ledger";
 export * from "./stream";
 

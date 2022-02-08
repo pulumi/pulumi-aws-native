@@ -234,6 +234,57 @@ func (o MemberConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemberConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+type MemberConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemberConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberConfiguration)(nil)).Elem()
+}
+
+func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
+	return o
+}
+
+func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
+	return o
+}
+
+func (o MemberConfigurationPtrOutput) Elem() MemberConfigurationOutput {
+	return o.ApplyT(func(v *MemberConfiguration) MemberConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MemberConfiguration
+		return ret
+	}).(MemberConfigurationOutput)
+}
+
+func (o MemberConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemberConfigurationPtrOutput) MemberFrameworkConfiguration() MemberFrameworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *MemberConfiguration) *MemberFrameworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MemberFrameworkConfiguration
+	}).(MemberFrameworkConfigurationPtrOutput)
+}
+
+func (o MemberConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type MemberFabricConfiguration struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	AdminUsername string `pulumi:"adminUsername"`
@@ -1181,6 +1232,48 @@ func (o NodeConfigurationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeConfiguration) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+type NodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeConfiguration)(nil)).Elem()
+}
+
+func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
+	return o
+}
+
+func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
+	return o
+}
+
+func (o NodeConfigurationPtrOutput) Elem() NodeConfigurationOutput {
+	return o.ApplyT(func(v *NodeConfiguration) NodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NodeConfiguration
+		return ret
+	}).(NodeConfigurationOutput)
+}
+
+func (o NodeConfigurationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NodeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberApprovalThresholdPolicyInput)(nil)).Elem(), MemberApprovalThresholdPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberApprovalThresholdPolicyPtrInput)(nil)).Elem(), MemberApprovalThresholdPolicyArgs{})
@@ -1201,6 +1294,7 @@ func init() {
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyOutput{})
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MemberConfigurationOutput{})
+	pulumi.RegisterOutputType(MemberConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberFabricConfigurationOutput{})
 	pulumi.RegisterOutputType(MemberFabricConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberFrameworkConfigurationOutput{})
@@ -1214,4 +1308,5 @@ func init() {
 	pulumi.RegisterOutputType(MemberVotingPolicyOutput{})
 	pulumi.RegisterOutputType(MemberVotingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(NodeConfigurationOutput{})
+	pulumi.RegisterOutputType(NodeConfigurationPtrOutput{})
 }

@@ -9,6 +9,10 @@ from ._enums import *
 from .bot import *
 from .bot_alias import *
 from .bot_version import *
+from .get_bot import *
+from .get_bot_alias import *
+from .get_bot_version import *
+from .get_resource_policy import *
 from .resource_policy import *
 from ._inputs import *
 from . import outputs

@@ -6,6 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cell import *
+from .get_cell import *
+from .get_readiness_check import *
+from .get_recovery_group import *
+from .get_resource_set import *
 from .readiness_check import *
 from .recovery_group import *
 from .resource_set import *

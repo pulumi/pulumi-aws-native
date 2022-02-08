@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .component import *
+from .get_component import *
+from .get_theme import *
 from .theme import *
 from ._inputs import *
 from . import outputs

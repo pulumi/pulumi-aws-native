@@ -9,6 +9,10 @@ export * from "./application";
 export * from "./applicationCloudWatchLoggingOption";
 export * from "./applicationOutputResource";
 export * from "./applicationReferenceDataSource";
+export * from "./getApplication";
+export * from "./getApplicationCloudWatchLoggingOption";
+export * from "./getApplicationOutputResource";
+export * from "./getApplicationReferenceDataSource";
 
 // Import resources to register:
 import { Application } from "./application";

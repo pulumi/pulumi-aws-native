@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./accessKey";
+export * from "./getAccessKey";
+export * from "./getGroup";
+export * from "./getInstanceProfile";
+export * from "./getManagedPolicy";
+export * from "./getOIDCProvider";
+export * from "./getPolicy";
+export * from "./getRole";
+export * from "./getSAMLProvider";
+export * from "./getServerCertificate";
+export * from "./getServiceLinkedRole";
+export * from "./getUser";
+export * from "./getUserToGroupAddition";
+export * from "./getVirtualMFADevice";
 export * from "./group";
 export * from "./instanceProfile";
 export * from "./managedPolicy";

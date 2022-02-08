@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./config";
 export * from "./dataflowEndpointGroup";
+export * from "./getConfig";
+export * from "./getDataflowEndpointGroup";
+export * from "./getMissionProfile";
 export * from "./missionProfile";
 
 // Export enums:

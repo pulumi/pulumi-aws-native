@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getLoadBalancer";
 export * from "./loadBalancer";
 
 // Import resources to register:

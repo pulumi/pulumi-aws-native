@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./deliveryStream";
+export * from "./getDeliveryStream";
 
 // Export enums:
 export * from "../types/enums/kinesisfirehose";

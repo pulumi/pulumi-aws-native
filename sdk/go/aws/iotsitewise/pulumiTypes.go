@@ -354,6 +354,57 @@ func (o AccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
 }
 
+type AccessPolicyIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIdentity)(nil)).Elem()
+}
+
+func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
+	return o
+}
+
+func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
+	return o
+}
+
+func (o AccessPolicyIdentityPtrOutput) Elem() AccessPolicyIdentityOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) AccessPolicyIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyIdentity
+		return ret
+	}).(AccessPolicyIdentityOutput)
+}
+
+func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamRole {
+		if v == nil {
+			return nil
+		}
+		return v.IamRole
+	}).(AccessPolicyIamRolePtrOutput)
+}
+
+func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamUser {
+		if v == nil {
+			return nil
+		}
+		return v.IamUser
+	}).(AccessPolicyIamUserPtrOutput)
+}
+
+func (o AccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyUser {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(AccessPolicyUserPtrOutput)
+}
+
 // A portal resource.
 type AccessPolicyPortal struct {
 	// The ID of the portal.
@@ -690,6 +741,48 @@ func (o AccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
 
 func (o AccessPolicyResourceOutput) Project() AccessPolicyProjectPtrOutput {
 	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyProject { return v.Project }).(AccessPolicyProjectPtrOutput)
+}
+
+type AccessPolicyResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyResource)(nil)).Elem()
+}
+
+func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
+	return o
+}
+
+func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
+	return o
+}
+
+func (o AccessPolicyResourcePtrOutput) Elem() AccessPolicyResourceOutput {
+	return o.ApplyT(func(v *AccessPolicyResource) AccessPolicyResource {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyResource
+		return ret
+	}).(AccessPolicyResourceOutput)
+}
+
+func (o AccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyPortal {
+		if v == nil {
+			return nil
+		}
+		return v.Portal
+	}).(AccessPolicyPortalPtrOutput)
+}
+
+func (o AccessPolicyResourcePtrOutput) Project() AccessPolicyProjectPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyProject {
+		if v == nil {
+			return nil
+		}
+		return v.Project
+	}).(AccessPolicyProjectPtrOutput)
 }
 
 // Contains information for a user identity in an access policy.
@@ -3712,11 +3805,13 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIdentityOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyResourceOutput{})
+	pulumi.RegisterOutputType(AccessPolicyResourcePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserPtrOutput{})
 	pulumi.RegisterOutputType(AlarmsPropertiesOutput{})

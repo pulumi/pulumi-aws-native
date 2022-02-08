@@ -7,5 +7,7 @@ import typing
 # Export this package's modules as members:
 from .access_point import *
 from .access_point_policy import *
+from .get_access_point import *
+from .get_access_point_policy import *
 from ._inputs import *
 from . import outputs

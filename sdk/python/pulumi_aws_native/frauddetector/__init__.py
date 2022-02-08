@@ -9,6 +9,12 @@ from ._enums import *
 from .detector import *
 from .entity_type import *
 from .event_type import *
+from .get_detector import *
+from .get_entity_type import *
+from .get_event_type import *
+from .get_label import *
+from .get_outcome import *
+from .get_variable import *
 from .label import *
 from .outcome import *
 from .variable import *

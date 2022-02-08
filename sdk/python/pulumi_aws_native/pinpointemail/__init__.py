@@ -8,6 +8,10 @@ import typing
 from .configuration_set import *
 from .configuration_set_event_destination import *
 from .dedicated_ip_pool import *
+from .get_configuration_set import *
+from .get_configuration_set_event_destination import *
+from .get_dedicated_ip_pool import *
+from .get_identity import *
 from .identity import *
 from ._inputs import *
 from . import outputs

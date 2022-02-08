@@ -977,6 +977,40 @@ func (o LocationNFSOnPremConfigOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocationNFSOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
+type LocationNFSOnPremConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationNFSOnPremConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationNFSOnPremConfig)(nil)).Elem()
+}
+
+func (o LocationNFSOnPremConfigPtrOutput) ToLocationNFSOnPremConfigPtrOutput() LocationNFSOnPremConfigPtrOutput {
+	return o
+}
+
+func (o LocationNFSOnPremConfigPtrOutput) ToLocationNFSOnPremConfigPtrOutputWithContext(ctx context.Context) LocationNFSOnPremConfigPtrOutput {
+	return o
+}
+
+func (o LocationNFSOnPremConfigPtrOutput) Elem() LocationNFSOnPremConfigOutput {
+	return o.ApplyT(func(v *LocationNFSOnPremConfig) LocationNFSOnPremConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationNFSOnPremConfig
+		return ret
+	}).(LocationNFSOnPremConfigOutput)
+}
+
+// ARN(s) of the agent(s) to use for an NFS location.
+func (o LocationNFSOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationNFSOnPremConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // A key-value pair to associate with a resource.
 type LocationNFSTag struct {
 	// The key for an AWS resource tag.
@@ -2405,6 +2439,7 @@ func init() {
 	pulumi.RegisterOutputType(LocationNFSMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationNFSMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationNFSOnPremConfigOutput{})
+	pulumi.RegisterOutputType(LocationNFSOnPremConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationNFSTagOutput{})
 	pulumi.RegisterOutputType(LocationNFSTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageTagOutput{})

@@ -1943,6 +1943,67 @@ func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceImageReposito
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceImageRepository { return v.ImageRepository }).(ServiceImageRepositoryPtrOutput)
 }
 
+type ServiceSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceSourceConfiguration)(nil)).Elem()
+}
+
+func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOutput {
+	return o.ApplyT(func(v *ServiceSourceConfiguration) ServiceSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfiguration
+		return ret
+	}).(ServiceSourceConfigurationOutput)
+}
+
+func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceAuthenticationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationConfiguration
+	}).(ServiceAuthenticationConfigurationPtrOutput)
+}
+
+// Auto Deployment enabled
+func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSourceConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDeploymentsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceCodeRepositoryPtrOutput {
+	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceCodeRepository {
+		if v == nil {
+			return nil
+		}
+		return v.CodeRepository
+	}).(ServiceCodeRepositoryPtrOutput)
+}
+
+func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
+	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceImageRepository {
+		if v == nil {
+			return nil
+		}
+		return v.ImageRepository
+	}).(ServiceImageRepositoryPtrOutput)
+}
+
 type ServiceTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -2092,6 +2153,7 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 }

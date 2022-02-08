@@ -99,6 +99,93 @@ func (o FirewallPolicyTypeOutput) StatelessRuleGroupReferences() FirewallPolicyS
 	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+type FirewallPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyType)(nil)).Elem()
+}
+
+func (o FirewallPolicyTypePtrOutput) ToFirewallPolicyTypePtrOutput() FirewallPolicyTypePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyTypePtrOutput) ToFirewallPolicyTypePtrOutputWithContext(ctx context.Context) FirewallPolicyTypePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) FirewallPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyType
+		return ret
+	}).(FirewallPolicyTypeOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulDefaultActions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatefulEngineOptions() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) *FirewallPolicyStatefulEngineOptions {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulEngineOptions
+	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyStatefulRuleGroupReference {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulRuleGroupReferences
+	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessCustomActions
+	}).(FirewallPolicyCustomActionArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessDefaultActions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessFragmentDefaultActions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyStatelessRuleGroupReference {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessRuleGroupReferences
+	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
 type FirewallPolicyActionDefinition struct {
 	PublishMetricAction *FirewallPolicyPublishMetricAction `pulumi:"publishMetricAction"`
 }
@@ -1154,6 +1241,39 @@ func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypeOutputWithCont
 
 func (o LoggingConfigurationTypeOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v LoggingConfigurationType) []LoggingConfigurationLogDestinationConfig {
+		return v.LogDestinationConfigs
+	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
+}
+
+type LoggingConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationType)(nil)).Elem()
+}
+
+func (o LoggingConfigurationTypePtrOutput) ToLoggingConfigurationTypePtrOutput() LoggingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationTypePtrOutput) ToLoggingConfigurationTypePtrOutputWithContext(ctx context.Context) LoggingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationTypePtrOutput) Elem() LoggingConfigurationTypeOutput {
+	return o.ApplyT(func(v *LoggingConfigurationType) LoggingConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationType
+		return ret
+	}).(LoggingConfigurationTypeOutput)
+}
+
+func (o LoggingConfigurationTypePtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
+	return o.ApplyT(func(v *LoggingConfigurationType) []LoggingConfigurationLogDestinationConfig {
+		if v == nil {
+			return nil
+		}
 		return v.LogDestinationConfigs
 	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
 }
@@ -3556,6 +3676,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagInput)(nil)).Elem(), RuleGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagArrayInput)(nil)).Elem(), RuleGroupTagArray{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionArrayOutput{})
@@ -3576,6 +3697,7 @@ func init() {
 	pulumi.RegisterOutputType(FirewallTagOutput{})
 	pulumi.RegisterOutputType(FirewallTagArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTypeOutput{})

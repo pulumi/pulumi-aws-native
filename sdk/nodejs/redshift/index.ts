@@ -13,6 +13,15 @@ export * from "./clusterSubnetGroup";
 export * from "./endpointAccess";
 export * from "./endpointAuthorization";
 export * from "./eventSubscription";
+export * from "./getCluster";
+export * from "./getClusterParameterGroup";
+export * from "./getClusterSecurityGroup";
+export * from "./getClusterSecurityGroupIngress";
+export * from "./getClusterSubnetGroup";
+export * from "./getEndpointAccess";
+export * from "./getEndpointAuthorization";
+export * from "./getEventSubscription";
+export * from "./getScheduledAction";
 export * from "./scheduledAction";
 
 // Export enums:

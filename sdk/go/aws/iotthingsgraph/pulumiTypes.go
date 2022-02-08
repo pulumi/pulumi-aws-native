@@ -65,7 +65,50 @@ func (o FlowTemplateDefinitionDocumentOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTemplateDefinitionDocument) string { return v.Text }).(pulumi.StringOutput)
 }
 
+type FlowTemplateDefinitionDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowTemplateDefinitionDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowTemplateDefinitionDocument)(nil)).Elem()
+}
+
+func (o FlowTemplateDefinitionDocumentPtrOutput) ToFlowTemplateDefinitionDocumentPtrOutput() FlowTemplateDefinitionDocumentPtrOutput {
+	return o
+}
+
+func (o FlowTemplateDefinitionDocumentPtrOutput) ToFlowTemplateDefinitionDocumentPtrOutputWithContext(ctx context.Context) FlowTemplateDefinitionDocumentPtrOutput {
+	return o
+}
+
+func (o FlowTemplateDefinitionDocumentPtrOutput) Elem() FlowTemplateDefinitionDocumentOutput {
+	return o.ApplyT(func(v *FlowTemplateDefinitionDocument) FlowTemplateDefinitionDocument {
+		if v != nil {
+			return *v
+		}
+		var ret FlowTemplateDefinitionDocument
+		return ret
+	}).(FlowTemplateDefinitionDocumentOutput)
+}
+
+func (o FlowTemplateDefinitionDocumentPtrOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowTemplateDefinitionDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowTemplateDefinitionDocumentPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowTemplateDefinitionDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTemplateDefinitionDocumentInput)(nil)).Elem(), FlowTemplateDefinitionDocumentArgs{})
 	pulumi.RegisterOutputType(FlowTemplateDefinitionDocumentOutput{})
+	pulumi.RegisterOutputType(FlowTemplateDefinitionDocumentPtrOutput{})
 }

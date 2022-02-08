@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_trail import *
 from .trail import *
 from ._inputs import *
 from . import outputs

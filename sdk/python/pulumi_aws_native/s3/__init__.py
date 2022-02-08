@@ -9,6 +9,11 @@ from ._enums import *
 from .access_point import *
 from .bucket import *
 from .bucket_policy import *
+from .get_access_point import *
+from .get_bucket import *
+from .get_bucket_policy import *
+from .get_multi_region_access_point import *
+from .get_multi_region_access_point_policy import *
 from .multi_region_access_point import *
 from .multi_region_access_point_policy import *
 from .storage_lens import *

@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_global_table import *
+from .get_table import *
 from .global_table import *
 from .table import *
 from ._inputs import *

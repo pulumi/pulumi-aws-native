@@ -444,6 +444,156 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) Unauthenticated
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+type AccountAuditConfigurationAuditCheckConfigurationsPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationAuditCheckConfigurations)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutput() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Elem() AccountAuditConfigurationAuditCheckConfigurationsOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) AccountAuditConfigurationAuditCheckConfigurations {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAuditConfigurationAuditCheckConfigurations
+		return ret
+	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticatedCognitoRoleOverlyPermissiveCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificateExpiringCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificateKeyQualityCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictingClientIdsCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceCertificateExpiringCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceCertificateKeyQualityCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceCertificateSharedCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IotPolicyOverlyPermissiveCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IotRoleAliasAllowsAccessToUnusedServicesCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IotRoleAliasOverlyPermissiveCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingDisabledCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RevokedCaCertificateStillActiveCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RevokedDeviceCertificateStillActiveCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.UnauthenticatedCognitoRoleOverlyPermissiveCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
 type AccountAuditConfigurationAuditNotificationTarget struct {
 	// True if notifications to the target are enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -2696,6 +2846,84 @@ func (o MitigationActionActionParamsOutput) UpdateCACertificateParams() Mitigati
 
 func (o MitigationActionActionParamsOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
+		return v.UpdateDeviceCertificateParams
+	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
+}
+
+type MitigationActionActionParamsPtrOutput struct{ *pulumi.OutputState }
+
+func (MitigationActionActionParamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MitigationActionActionParams)(nil)).Elem()
+}
+
+func (o MitigationActionActionParamsPtrOutput) ToMitigationActionActionParamsPtrOutput() MitigationActionActionParamsPtrOutput {
+	return o
+}
+
+func (o MitigationActionActionParamsPtrOutput) ToMitigationActionActionParamsPtrOutputWithContext(ctx context.Context) MitigationActionActionParamsPtrOutput {
+	return o
+}
+
+func (o MitigationActionActionParamsPtrOutput) Elem() MitigationActionActionParamsOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) MitigationActionActionParams {
+		if v != nil {
+			return *v
+		}
+		var ret MitigationActionActionParams
+		return ret
+	}).(MitigationActionActionParamsOutput)
+}
+
+func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
+		if v == nil {
+			return nil
+		}
+		return v.AddThingsToThingGroupParams
+	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
+}
+
+func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIoTLoggingParams
+	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
+}
+
+func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
+		if v == nil {
+			return nil
+		}
+		return v.PublishFindingToSnsParams
+	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
+}
+
+func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceDefaultPolicyVersionParams
+	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
+}
+
+func (o MitigationActionActionParamsPtrOutput) UpdateCACertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateCACertificateParams
+	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
+}
+
+func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
+	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
+		if v == nil {
+			return nil
+		}
 		return v.UpdateDeviceCertificateParams
 	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
@@ -9717,6 +9945,84 @@ func (o TopicRulePayloadOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRulePayload) string { return v.Sql }).(pulumi.StringOutput)
 }
 
+type TopicRulePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRulePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRulePayload)(nil)).Elem()
+}
+
+func (o TopicRulePayloadPtrOutput) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
+	return o
+}
+
+func (o TopicRulePayloadPtrOutput) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
+	return o
+}
+
+func (o TopicRulePayloadPtrOutput) Elem() TopicRulePayloadOutput {
+	return o.ApplyT(func(v *TopicRulePayload) TopicRulePayload {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRulePayload
+		return ret
+	}).(TopicRulePayloadOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
+	return o.ApplyT(func(v *TopicRulePayload) []TopicRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TopicRuleActionArrayOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIotSqlVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *TopicRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorAction
+	}).(TopicRuleActionPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RuleDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sql
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRulePutAssetPropertyValueEntry struct {
 	AssetId        *string                       `pulumi:"assetId"`
 	EntryId        *string                       `pulumi:"entryId"`
@@ -11673,6 +11979,7 @@ func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationsOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput{})
@@ -11708,6 +12015,7 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateTagOutput{})
 	pulumi.RegisterOutputType(JobTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})
+	pulumi.RegisterOutputType(MitigationActionActionParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsOutput{})
@@ -11796,6 +12104,7 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePayloadOutput{})
+	pulumi.RegisterOutputType(TopicRulePayloadPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryArrayOutput{})
 	pulumi.RegisterOutputType(TopicRulePutItemInputOutput{})

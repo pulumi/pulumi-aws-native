@@ -6,6 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./getCluster";
+export * from "./getInstanceFleetConfig";
+export * from "./getInstanceGroupConfig";
+export * from "./getSecurityConfiguration";
+export * from "./getStep";
+export * from "./getStudio";
+export * from "./getStudioSessionMapping";
 export * from "./instanceFleetConfig";
 export * from "./instanceGroupConfig";
 export * from "./securityConfiguration";

@@ -77,6 +77,66 @@ func (o AuthParametersPropertiesOutput) OAuthParameters() ConnectionOAuthParamet
 	return o.ApplyT(func(v AuthParametersProperties) *ConnectionOAuthParameters { return v.OAuthParameters }).(ConnectionOAuthParametersPtrOutput)
 }
 
+type AuthParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthParametersProperties)(nil)).Elem()
+}
+
+func (o AuthParametersPropertiesPtrOutput) ToAuthParametersPropertiesPtrOutput() AuthParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o AuthParametersPropertiesPtrOutput) ToAuthParametersPropertiesPtrOutputWithContext(ctx context.Context) AuthParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o AuthParametersPropertiesPtrOutput) Elem() AuthParametersPropertiesOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) AuthParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AuthParametersProperties
+		return ret
+	}).(AuthParametersPropertiesOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) ApiKeyAuthParameters() ConnectionApiKeyAuthParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionApiKeyAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAuthParameters
+	}).(ConnectionApiKeyAuthParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) BasicAuthParameters() ConnectionBasicAuthParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionBasicAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthParameters
+	}).(ConnectionBasicAuthParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) InvocationHttpParameters() ConnectionHttpParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionHttpParameters {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationHttpParameters
+	}).(ConnectionHttpParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) OAuthParameters() ConnectionOAuthParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionOAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthParameters
+	}).(ConnectionOAuthParametersPtrOutput)
+}
+
 type ConnectionApiKeyAuthParameters struct {
 	ApiKeyName  string `pulumi:"apiKeyName"`
 	ApiKeyValue string `pulumi:"apiKeyValue"`
@@ -4241,6 +4301,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTargetInput)(nil)).Elem(), RuleTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTargetArrayInput)(nil)).Elem(), RuleTargetArray{})
 	pulumi.RegisterOutputType(AuthParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(AuthParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionApiKeyAuthParametersOutput{})
 	pulumi.RegisterOutputType(ConnectionApiKeyAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionBasicAuthParametersOutput{})

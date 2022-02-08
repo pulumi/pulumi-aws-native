@@ -7,5 +7,7 @@ import typing
 # Export this package's modules as members:
 from .account import *
 from .certificate import *
+from .get_account import *
+from .get_certificate import *
 from ._inputs import *
 from . import outputs

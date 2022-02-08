@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_scalable_target import *
+from .get_scaling_policy import *
 from .scalable_target import *
 from .scaling_policy import *
 from ._inputs import *

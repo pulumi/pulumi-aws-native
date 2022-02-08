@@ -6,6 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./dataCatalog";
+export * from "./getDataCatalog";
+export * from "./getNamedQuery";
+export * from "./getPreparedStatement";
+export * from "./getWorkGroup";
 export * from "./namedQuery";
 export * from "./preparedStatement";
 export * from "./workGroup";

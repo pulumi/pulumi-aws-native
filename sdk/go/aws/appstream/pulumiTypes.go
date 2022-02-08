@@ -287,6 +287,48 @@ func (o ApplicationS3LocationOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationS3Location) string { return v.S3Key }).(pulumi.StringOutput)
 }
 
+type ApplicationS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationS3Location)(nil)).Elem()
+}
+
+func (o ApplicationS3LocationPtrOutput) ToApplicationS3LocationPtrOutput() ApplicationS3LocationPtrOutput {
+	return o
+}
+
+func (o ApplicationS3LocationPtrOutput) ToApplicationS3LocationPtrOutputWithContext(ctx context.Context) ApplicationS3LocationPtrOutput {
+	return o
+}
+
+func (o ApplicationS3LocationPtrOutput) Elem() ApplicationS3LocationOutput {
+	return o.ApplyT(func(v *ApplicationS3Location) ApplicationS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationS3Location
+		return ret
+	}).(ApplicationS3LocationOutput)
+}
+
+func (o ApplicationS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationTag struct {
 	TagKey   string `pulumi:"tagKey"`
 	TagValue string `pulumi:"tagValue"`
@@ -440,6 +482,48 @@ func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.Str
 
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountPassword }).(pulumi.StringOutput)
+}
+
+type DirectoryConfigServiceAccountCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryConfigServiceAccountCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryConfigServiceAccountCredentials)(nil)).Elem()
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) Elem() DirectoryConfigServiceAccountCredentialsOutput {
+	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) DirectoryConfigServiceAccountCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryConfigServiceAccountCredentials
+		return ret
+	}).(DirectoryConfigServiceAccountCredentialsOutput)
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountPassword
+	}).(pulumi.StringPtrOutput)
 }
 
 type EntitlementAttribute struct {
@@ -2163,9 +2247,11 @@ func init() {
 	pulumi.RegisterOutputType(AppBlockTagOutput{})
 	pulumi.RegisterOutputType(AppBlockTagArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationS3LocationOutput{})
+	pulumi.RegisterOutputType(ApplicationS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTagOutput{})
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
+	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(EntitlementAttributeOutput{})
 	pulumi.RegisterOutputType(EntitlementAttributeArrayOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})

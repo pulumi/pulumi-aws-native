@@ -5,6 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_resource_policy import *
+from .get_rotation_schedule import *
+from .get_secret import *
+from .get_secret_target_attachment import *
 from .resource_policy import *
 from .rotation_schedule import *
 from .secret import *

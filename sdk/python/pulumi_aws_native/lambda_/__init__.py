@@ -11,6 +11,16 @@ from .code_signing_config import *
 from .event_invoke_config import *
 from .event_source_mapping import *
 from .function import *
+from .get_alias import *
+from .get_code_signing_config import *
+from .get_event_invoke_config import *
+from .get_event_source_mapping import *
+from .get_function import *
+from .get_layer_version import *
+from .get_layer_version_permission import *
+from .get_permission import *
+from .get_url import *
+from .get_version import *
 from .layer_version import *
 from .layer_version_permission import *
 from .permission import *

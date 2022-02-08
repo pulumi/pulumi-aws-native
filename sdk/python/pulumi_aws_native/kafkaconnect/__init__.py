@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .connector import *
+from .get_connector import *
 from ._inputs import *
 from . import outputs

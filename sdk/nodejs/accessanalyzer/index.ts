@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./analyzer";
+export * from "./getAnalyzer";
 
 // Import resources to register:
 import { Analyzer } from "./analyzer";

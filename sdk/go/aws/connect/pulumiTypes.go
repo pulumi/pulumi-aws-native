@@ -589,6 +589,66 @@ func (o QuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfi
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
 
+type QuickConnectConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickConnectConfig)(nil)).Elem()
+}
+
+func (o QuickConnectConfigPtrOutput) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
+	return o
+}
+
+func (o QuickConnectConfigPtrOutput) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
+	return o
+}
+
+func (o QuickConnectConfigPtrOutput) Elem() QuickConnectConfigOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) QuickConnectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret QuickConnectConfig
+		return ret
+	}).(QuickConnectConfigOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneConfig
+	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.QueueConfig
+	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectType {
+		if v == nil {
+			return nil
+		}
+		return &v.QuickConnectType
+	}).(QuickConnectTypePtrOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectUserQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.UserConfig
+	}).(QuickConnectUserQuickConnectConfigPtrOutput)
+}
+
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfig struct {
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -1372,6 +1432,66 @@ func (o UserPhoneConfigOutput) PhoneType() UserPhoneTypeOutput {
 	return o.ApplyT(func(v UserPhoneConfig) UserPhoneType { return v.PhoneType }).(UserPhoneTypeOutput)
 }
 
+type UserPhoneConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
+}
+
+func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return o
+}
+
+func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return o
+}
+
+func (o UserPhoneConfigPtrOutput) Elem() UserPhoneConfigOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) UserPhoneConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPhoneConfig
+		return ret
+	}).(UserPhoneConfigOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AfterContactWorkTimeLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) AutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoAccept
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeskPhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *UserPhoneType {
+		if v == nil {
+			return nil
+		}
+		return &v.PhoneType
+	}).(UserPhoneTypePtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type UserTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1515,6 +1635,7 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationTagArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
+	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectQueueQuickConnectConfigOutput{})
@@ -1526,6 +1647,7 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})
+	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
 }

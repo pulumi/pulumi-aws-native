@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .app import *
+from .get_app import *
+from .get_resiliency_policy import *
 from .resiliency_policy import *
 from ._inputs import *
 from . import outputs

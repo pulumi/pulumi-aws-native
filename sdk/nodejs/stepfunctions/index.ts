@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./activity";
+export * from "./getActivity";
+export * from "./getStateMachine";
 export * from "./stateMachine";
 
 // Export enums:

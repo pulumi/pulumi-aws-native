@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./budget";
 export * from "./budgetsAction";
+export * from "./getBudget";
+export * from "./getBudgetsAction";
 
 // Export enums:
 export * from "../types/enums/budgets";

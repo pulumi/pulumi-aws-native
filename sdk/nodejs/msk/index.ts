@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./getCluster";
 
 // Import resources to register:
 import { Cluster } from "./cluster";

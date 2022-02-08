@@ -10,6 +10,12 @@ export * from "./configurationProfile";
 export * from "./deployment";
 export * from "./deploymentStrategy";
 export * from "./environment";
+export * from "./getApplication";
+export * from "./getConfigurationProfile";
+export * from "./getDeployment";
+export * from "./getDeploymentStrategy";
+export * from "./getEnvironment";
+export * from "./getHostedConfigurationVersion";
 export * from "./hostedConfigurationVersion";
 
 // Import resources to register:

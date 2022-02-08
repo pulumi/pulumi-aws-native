@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./assessmentTarget";
 export * from "./assessmentTemplate";
+export * from "./getAssessmentTarget";
+export * from "./getAssessmentTemplate";
+export * from "./getResourceGroup";
 export * from "./resourceGroup";
 
 // Import resources to register:

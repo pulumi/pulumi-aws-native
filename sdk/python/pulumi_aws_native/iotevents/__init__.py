@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .detector_model import *
+from .get_detector_model import *
+from .get_input import *
 from .input import *
 from ._inputs import *
 from . import outputs

@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .dataset import *
 from .dataset_group import *
+from .get_dataset import *
+from .get_dataset_group import *
 from ._inputs import *
 from . import outputs

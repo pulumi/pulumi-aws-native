@@ -10,5 +10,9 @@ from .access_point import *
 from .bucket import *
 from .bucket_policy import *
 from .endpoint import *
+from .get_access_point import *
+from .get_bucket import *
+from .get_bucket_policy import *
+from .get_endpoint import *
 from ._inputs import *
 from . import outputs

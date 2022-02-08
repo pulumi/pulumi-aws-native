@@ -716,6 +716,40 @@ func (o AnomalyDetectorConfigOutput) AnomalyDetectorFrequency() AnomalyDetectorF
 	return o.ApplyT(func(v AnomalyDetectorConfig) AnomalyDetectorFrequency { return v.AnomalyDetectorFrequency }).(AnomalyDetectorFrequencyOutput)
 }
 
+type AnomalyDetectorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfig)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigPtrOutput) ToAnomalyDetectorConfigPtrOutput() AnomalyDetectorConfigPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigPtrOutput) ToAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigPtrOutput) Elem() AnomalyDetectorConfigOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfig) AnomalyDetectorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfig
+		return ret
+	}).(AnomalyDetectorConfigOutput)
+}
+
+// Frequency of anomaly detection
+func (o AnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() AnomalyDetectorFrequencyPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfig) *AnomalyDetectorFrequency {
+		if v == nil {
+			return nil
+		}
+		return &v.AnomalyDetectorFrequency
+	}).(AnomalyDetectorFrequencyPtrOutput)
+}
+
 type AnomalyDetectorCsvFormatDescriptor struct {
 	Charset         *string                                            `pulumi:"charset"`
 	ContainsHeader  *bool                                              `pulumi:"containsHeader"`
@@ -2572,6 +2606,7 @@ func init() {
 	pulumi.RegisterOutputType(AnomalyDetectorCloudwatchConfigOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCloudwatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorConfigOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCsvFormatDescriptorOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCsvFormatDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorFileFormatDescriptorOutput{})

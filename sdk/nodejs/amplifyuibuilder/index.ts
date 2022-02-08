@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./component";
+export * from "./getComponent";
+export * from "./getTheme";
 export * from "./theme";
 
 // Import resources to register:

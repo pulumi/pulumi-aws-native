@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./experimentTemplate";
+export * from "./getExperimentTemplate";
 
 // Import resources to register:
 import { ExperimentTemplate } from "./experimentTemplate";

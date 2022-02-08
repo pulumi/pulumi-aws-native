@@ -803,6 +803,84 @@ func (o ConnectionInputTypeOutput) PhysicalConnectionRequirements() ConnectionPh
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
 
+type ConnectionInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInputType)(nil)).Elem()
+}
+
+func (o ConnectionInputTypePtrOutput) ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput {
+	return o
+}
+
+func (o ConnectionInputTypePtrOutput) ToConnectionInputTypePtrOutputWithContext(ctx context.Context) ConnectionInputTypePtrOutput {
+	return o
+}
+
+func (o ConnectionInputTypePtrOutput) Elem() ConnectionInputTypeOutput {
+	return o.ApplyT(func(v *ConnectionInputType) ConnectionInputType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionInputType
+		return ret
+	}).(ConnectionInputTypeOutput)
+}
+
+func (o ConnectionInputTypePtrOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionProperties
+	}).(pulumi.AnyOutput)
+}
+
+func (o ConnectionInputTypePtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionInputTypePtrOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionInputType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchCriteria
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectionInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionInputTypePtrOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *ConnectionPhysicalConnectionRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
 type ConnectionPhysicalConnectionRequirements struct {
 	AvailabilityZone    *string  `pulumi:"availabilityZone"`
 	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
@@ -1977,6 +2055,75 @@ func (o CrawlerTargetsOutput) S3Targets() CrawlerS3TargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerS3Target { return v.S3Targets }).(CrawlerS3TargetArrayOutput)
 }
 
+type CrawlerTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerTargets)(nil)).Elem()
+}
+
+func (o CrawlerTargetsPtrOutput) ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput {
+	return o
+}
+
+func (o CrawlerTargetsPtrOutput) ToCrawlerTargetsPtrOutputWithContext(ctx context.Context) CrawlerTargetsPtrOutput {
+	return o
+}
+
+func (o CrawlerTargetsPtrOutput) Elem() CrawlerTargetsOutput {
+	return o.ApplyT(func(v *CrawlerTargets) CrawlerTargets {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerTargets
+		return ret
+	}).(CrawlerTargetsOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerCatalogTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogTargets
+	}).(CrawlerCatalogTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDynamoDBTarget {
+		if v == nil {
+			return nil
+		}
+		return v.DynamoDBTargets
+	}).(CrawlerDynamoDBTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerJdbcTarget {
+		if v == nil {
+			return nil
+		}
+		return v.JdbcTargets
+	}).(CrawlerJdbcTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) MongoDBTargets() CrawlerMongoDBTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerMongoDBTarget {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDBTargets
+	}).(CrawlerMongoDBTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerS3Target {
+		if v == nil {
+			return nil
+		}
+		return v.S3Targets
+	}).(CrawlerS3TargetArrayOutput)
+}
+
 type DataCatalogEncryptionSettingsType struct {
 	ConnectionPasswordEncryption *DataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
 	EncryptionAtRest             *DataCatalogEncryptionSettingsEncryptionAtRest             `pulumi:"encryptionAtRest"`
@@ -2032,6 +2179,48 @@ func (o DataCatalogEncryptionSettingsTypeOutput) ConnectionPasswordEncryption() 
 
 func (o DataCatalogEncryptionSettingsTypeOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypePtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) Elem() DataCatalogEncryptionSettingsTypeOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) DataCatalogEncryptionSettingsType {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsType
+		return ret
+	}).(DataCatalogEncryptionSettingsTypeOutput)
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		if v == nil {
+			return nil
+		}
 		return v.EncryptionAtRest
 	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
 }
@@ -2694,6 +2883,84 @@ func (o DatabaseInputTypeOutput) TargetDatabase() DatabaseIdentifierPtrOutput {
 	return o.ApplyT(func(v DatabaseInputType) *DatabaseIdentifier { return v.TargetDatabase }).(DatabaseIdentifierPtrOutput)
 }
 
+type DatabaseInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseInputType)(nil)).Elem()
+}
+
+func (o DatabaseInputTypePtrOutput) ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput {
+	return o
+}
+
+func (o DatabaseInputTypePtrOutput) ToDatabaseInputTypePtrOutputWithContext(ctx context.Context) DatabaseInputTypePtrOutput {
+	return o
+}
+
+func (o DatabaseInputTypePtrOutput) Elem() DatabaseInputTypeOutput {
+	return o.ApplyT(func(v *DatabaseInputType) DatabaseInputType {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseInputType
+		return ret
+	}).(DatabaseInputTypeOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v *DatabaseInputType) []DatabasePrincipalPrivileges {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTableDefaultPermissions
+	}).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) TargetDatabase() DatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *DatabaseIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDatabase
+	}).(DatabaseIdentifierPtrOutput)
+}
+
 type DatabasePrincipalPrivileges struct {
 	Permissions []string                   `pulumi:"permissions"`
 	Principal   *DatabaseDataLakePrincipal `pulumi:"principal"`
@@ -2853,6 +3120,57 @@ func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 
 func (o JobCommandOutput) ScriptLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.ScriptLocation }).(pulumi.StringPtrOutput)
+}
+
+type JobCommandPtrOutput struct{ *pulumi.OutputState }
+
+func (JobCommandPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCommand)(nil)).Elem()
+}
+
+func (o JobCommandPtrOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
+	return o
+}
+
+func (o JobCommandPtrOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
+	return o
+}
+
+func (o JobCommandPtrOutput) Elem() JobCommandOutput {
+	return o.ApplyT(func(v *JobCommand) JobCommand {
+		if v != nil {
+			return *v
+		}
+		var ret JobCommand
+		return ret
+	}).(JobCommandOutput)
+}
+
+func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptLocation
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobConnectionsList struct {
@@ -3946,6 +4264,48 @@ func (o MLTransformTransformParametersOutput) TransformType() pulumi.StringOutpu
 	return o.ApplyT(func(v MLTransformTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
 }
 
+type MLTransformTransformParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformParameters)(nil)).Elem()
+}
+
+func (o MLTransformTransformParametersPtrOutput) ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformParametersPtrOutput) ToMLTransformTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformTransformParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformParametersPtrOutput) Elem() MLTransformTransformParametersOutput {
+	return o.ApplyT(func(v *MLTransformTransformParameters) MLTransformTransformParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformTransformParameters
+		return ret
+	}).(MLTransformTransformParametersOutput)
+}
+
+func (o MLTransformTransformParametersPtrOutput) FindMatchesParameters() MLTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformParameters) *MLTransformFindMatchesParameters {
+		if v == nil {
+			return nil
+		}
+		return v.FindMatchesParameters
+	}).(MLTransformFindMatchesParametersPtrOutput)
+}
+
+func (o MLTransformTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformType
+	}).(pulumi.StringPtrOutput)
+}
+
 type PartitionColumn struct {
 	Comment *string `pulumi:"comment"`
 	Name    string  `pulumi:"name"`
@@ -4111,6 +4471,57 @@ func (o PartitionInputTypeOutput) StorageDescriptor() PartitionStorageDescriptor
 
 func (o PartitionInputTypeOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PartitionInputType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PartitionInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionInputType)(nil)).Elem()
+}
+
+func (o PartitionInputTypePtrOutput) ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput {
+	return o
+}
+
+func (o PartitionInputTypePtrOutput) ToPartitionInputTypePtrOutputWithContext(ctx context.Context) PartitionInputTypePtrOutput {
+	return o
+}
+
+func (o PartitionInputTypePtrOutput) Elem() PartitionInputTypeOutput {
+	return o.ApplyT(func(v *PartitionInputType) PartitionInputType {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionInputType
+		return ret
+	}).(PartitionInputTypeOutput)
+}
+
+func (o PartitionInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o PartitionInputTypePtrOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *PartitionInputType) *PartitionStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+func (o PartitionInputTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionInputType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 type PartitionOrder struct {
@@ -5996,6 +6407,57 @@ func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryptions() Secu
 	}).(SecurityConfigurationS3EncryptionsPtrOutput)
 }
 
+type SecurityConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudWatchEncryption() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationCloudWatchEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryption
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncryption() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationJobBookmarksEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryptions() SecurityConfigurationS3EncryptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationS3Encryptions {
+		if v == nil {
+			return nil
+		}
+		return v.S3Encryptions
+	}).(SecurityConfigurationS3EncryptionsPtrOutput)
+}
+
 type SecurityConfigurationJobBookmarksEncryption struct {
 	JobBookmarksEncryptionMode *string `pulumi:"jobBookmarksEncryptionMode"`
 	KmsKeyArn                  *string `pulumi:"kmsKeyArn"`
@@ -6638,6 +7100,129 @@ func (o TableInputTypeOutput) ViewExpandedText() pulumi.StringPtrOutput {
 
 func (o TableInputTypeOutput) ViewOriginalText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableInputType) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
+}
+
+type TableInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TableInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputType)(nil)).Elem()
+}
+
+func (o TableInputTypePtrOutput) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return o
+}
+
+func (o TableInputTypePtrOutput) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return o
+}
+
+func (o TableInputTypePtrOutput) Elem() TableInputTypeOutput {
+	return o.ApplyT(func(v *TableInputType) TableInputType {
+		if v != nil {
+			return *v
+		}
+		var ret TableInputType
+		return ret
+	}).(TableInputTypeOutput)
+}
+
+func (o TableInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o TableInputTypePtrOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v *TableInputType) []TableColumn {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKeys
+	}).(TableColumnArrayOutput)
+}
+
+func (o TableInputTypePtrOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retention
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(TableStorageDescriptorPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) TargetTable() TableIdentifierPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTable
+	}).(TableIdentifierPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewExpandedText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewOriginalText
+	}).(pulumi.StringPtrOutput)
 }
 
 type TableOrder struct {
@@ -8351,6 +8936,7 @@ func init() {
 	pulumi.RegisterOutputType(ClassifierXMLClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierXMLClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionInputTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionInputTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
@@ -8370,7 +8956,9 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerTargetsOutput{})
+	pulumi.RegisterOutputType(CrawlerTargetsPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsTypeOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsTypePtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestOutput{})
@@ -8380,9 +8968,11 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseIdentifierOutput{})
 	pulumi.RegisterOutputType(DatabaseIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseInputTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesArrayOutput{})
 	pulumi.RegisterOutputType(JobCommandOutput{})
+	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobConnectionsListOutput{})
 	pulumi.RegisterOutputType(JobConnectionsListPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
@@ -8399,9 +8989,11 @@ func init() {
 	pulumi.RegisterOutputType(MLTransformTransformEncryptionOutput{})
 	pulumi.RegisterOutputType(MLTransformTransformEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformTransformParametersOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformParametersPtrOutput{})
 	pulumi.RegisterOutputType(PartitionColumnOutput{})
 	pulumi.RegisterOutputType(PartitionColumnArrayOutput{})
 	pulumi.RegisterOutputType(PartitionInputTypeOutput{})
+	pulumi.RegisterOutputType(PartitionInputTypePtrOutput{})
 	pulumi.RegisterOutputType(PartitionOrderOutput{})
 	pulumi.RegisterOutputType(PartitionOrderArrayOutput{})
 	pulumi.RegisterOutputType(PartitionSchemaIdOutput{})
@@ -8426,6 +9018,7 @@ func init() {
 	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionsOutput{})
@@ -8435,6 +9028,7 @@ func init() {
 	pulumi.RegisterOutputType(TableIdentifierOutput{})
 	pulumi.RegisterOutputType(TableIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(TableInputTypeOutput{})
+	pulumi.RegisterOutputType(TableInputTypePtrOutput{})
 	pulumi.RegisterOutputType(TableOrderOutput{})
 	pulumi.RegisterOutputType(TableOrderArrayOutput{})
 	pulumi.RegisterOutputType(TableSchemaIdOutput{})

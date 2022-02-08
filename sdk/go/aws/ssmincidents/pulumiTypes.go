@@ -577,6 +577,80 @@ func (o ResponsePlanIncidentTemplateOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) string { return v.Title }).(pulumi.StringOutput)
 }
 
+type ResponsePlanIncidentTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanIncidentTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponsePlanIncidentTemplate)(nil)).Elem()
+}
+
+func (o ResponsePlanIncidentTemplatePtrOutput) ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput {
+	return o
+}
+
+func (o ResponsePlanIncidentTemplatePtrOutput) ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplatePtrOutput {
+	return o
+}
+
+func (o ResponsePlanIncidentTemplatePtrOutput) Elem() ResponsePlanIncidentTemplateOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) ResponsePlanIncidentTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret ResponsePlanIncidentTemplate
+		return ret
+	}).(ResponsePlanIncidentTemplateOutput)
+}
+
+// The deduplication string.
+func (o ResponsePlanIncidentTemplatePtrOutput) DedupeString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DedupeString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The impact value.
+func (o ResponsePlanIncidentTemplatePtrOutput) Impact() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Impact
+	}).(pulumi.IntPtrOutput)
+}
+
+// The list of notification targets.
+func (o ResponsePlanIncidentTemplatePtrOutput) NotificationTargets() ResponsePlanNotificationTargetItemArrayOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) []ResponsePlanNotificationTargetItem {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationTargets
+	}).(ResponsePlanNotificationTargetItemArrayOutput)
+}
+
+// The summary string.
+func (o ResponsePlanIncidentTemplatePtrOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Summary
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title string.
+func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
 // A notification target.
 type ResponsePlanNotificationTargetItem struct {
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
@@ -1123,6 +1197,7 @@ func init() {
 	pulumi.RegisterOutputType(ResponsePlanChatChannelOutput{})
 	pulumi.RegisterOutputType(ResponsePlanChatChannelPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanIncidentTemplateOutput{})
+	pulumi.RegisterOutputType(ResponsePlanIncidentTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationOutput{})

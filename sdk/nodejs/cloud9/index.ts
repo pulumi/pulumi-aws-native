@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./environmentEC2";
+export * from "./getEnvironmentEC2";
 
 // Import resources to register:
 import { EnvironmentEC2 } from "./environmentEC2";

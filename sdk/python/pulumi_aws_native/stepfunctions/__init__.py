@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .activity import *
+from .get_activity import *
+from .get_state_machine import *
 from .state_machine import *
 from ._inputs import *
 from . import outputs

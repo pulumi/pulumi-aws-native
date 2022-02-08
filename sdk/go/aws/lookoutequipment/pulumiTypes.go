@@ -81,6 +81,58 @@ func (o DataInputConfigurationPropertiesOutput) S3InputConfiguration() Inference
 	}).(InferenceSchedulerS3InputConfigurationOutput)
 }
 
+type DataInputConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataInputConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataInputConfigurationProperties)(nil)).Elem()
+}
+
+func (o DataInputConfigurationPropertiesPtrOutput) ToDataInputConfigurationPropertiesPtrOutput() DataInputConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o DataInputConfigurationPropertiesPtrOutput) ToDataInputConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataInputConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o DataInputConfigurationPropertiesPtrOutput) Elem() DataInputConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *DataInputConfigurationProperties) DataInputConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataInputConfigurationProperties
+		return ret
+	}).(DataInputConfigurationPropertiesOutput)
+}
+
+func (o DataInputConfigurationPropertiesPtrOutput) InferenceInputNameConfiguration() InferenceSchedulerInputNameConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataInputConfigurationProperties) *InferenceSchedulerInputNameConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceInputNameConfiguration
+	}).(InferenceSchedulerInputNameConfigurationPtrOutput)
+}
+
+// Indicates the difference between your time zone and Greenwich Mean Time (GMT).
+func (o DataInputConfigurationPropertiesPtrOutput) InputTimeZoneOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataInputConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputTimeZoneOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataInputConfigurationPropertiesPtrOutput) S3InputConfiguration() InferenceSchedulerS3InputConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataInputConfigurationProperties) *InferenceSchedulerS3InputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3InputConfiguration
+	}).(InferenceSchedulerS3InputConfigurationPtrOutput)
+}
+
 // Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
 type DataOutputConfigurationProperties struct {
 	// The ID number for the AWS KMS key used to encrypt the inference output.
@@ -142,6 +194,49 @@ func (o DataOutputConfigurationPropertiesOutput) S3OutputConfiguration() Inferen
 	return o.ApplyT(func(v DataOutputConfigurationProperties) InferenceSchedulerS3OutputConfiguration {
 		return v.S3OutputConfiguration
 	}).(InferenceSchedulerS3OutputConfigurationOutput)
+}
+
+type DataOutputConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataOutputConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataOutputConfigurationProperties)(nil)).Elem()
+}
+
+func (o DataOutputConfigurationPropertiesPtrOutput) ToDataOutputConfigurationPropertiesPtrOutput() DataOutputConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o DataOutputConfigurationPropertiesPtrOutput) ToDataOutputConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataOutputConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o DataOutputConfigurationPropertiesPtrOutput) Elem() DataOutputConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *DataOutputConfigurationProperties) DataOutputConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataOutputConfigurationProperties
+		return ret
+	}).(DataOutputConfigurationPropertiesOutput)
+}
+
+// The ID number for the AWS KMS key used to encrypt the inference output.
+func (o DataOutputConfigurationPropertiesPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataOutputConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataOutputConfigurationPropertiesPtrOutput) S3OutputConfiguration() InferenceSchedulerS3OutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataOutputConfigurationProperties) *InferenceSchedulerS3OutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputConfiguration
+	}).(InferenceSchedulerS3OutputConfigurationPtrOutput)
 }
 
 // Specifies configuration information for the input data for the inference, including timestamp format and delimiter.
@@ -361,6 +456,48 @@ func (o InferenceSchedulerS3InputConfigurationOutput) Prefix() pulumi.StringPtrO
 	return o.ApplyT(func(v InferenceSchedulerS3InputConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+type InferenceSchedulerS3InputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceSchedulerS3InputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceSchedulerS3InputConfiguration)(nil)).Elem()
+}
+
+func (o InferenceSchedulerS3InputConfigurationPtrOutput) ToInferenceSchedulerS3InputConfigurationPtrOutput() InferenceSchedulerS3InputConfigurationPtrOutput {
+	return o
+}
+
+func (o InferenceSchedulerS3InputConfigurationPtrOutput) ToInferenceSchedulerS3InputConfigurationPtrOutputWithContext(ctx context.Context) InferenceSchedulerS3InputConfigurationPtrOutput {
+	return o
+}
+
+func (o InferenceSchedulerS3InputConfigurationPtrOutput) Elem() InferenceSchedulerS3InputConfigurationOutput {
+	return o.ApplyT(func(v *InferenceSchedulerS3InputConfiguration) InferenceSchedulerS3InputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceSchedulerS3InputConfiguration
+		return ret
+	}).(InferenceSchedulerS3InputConfigurationOutput)
+}
+
+func (o InferenceSchedulerS3InputConfigurationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceSchedulerS3InputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InferenceSchedulerS3InputConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceSchedulerS3InputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies configuration information for the output results from the inference, including output S3 location.
 type InferenceSchedulerS3OutputConfiguration struct {
 	Bucket string  `pulumi:"bucket"`
@@ -417,6 +554,48 @@ func (o InferenceSchedulerS3OutputConfigurationOutput) Bucket() pulumi.StringOut
 
 func (o InferenceSchedulerS3OutputConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceSchedulerS3OutputConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type InferenceSchedulerS3OutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceSchedulerS3OutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceSchedulerS3OutputConfiguration)(nil)).Elem()
+}
+
+func (o InferenceSchedulerS3OutputConfigurationPtrOutput) ToInferenceSchedulerS3OutputConfigurationPtrOutput() InferenceSchedulerS3OutputConfigurationPtrOutput {
+	return o
+}
+
+func (o InferenceSchedulerS3OutputConfigurationPtrOutput) ToInferenceSchedulerS3OutputConfigurationPtrOutputWithContext(ctx context.Context) InferenceSchedulerS3OutputConfigurationPtrOutput {
+	return o
+}
+
+func (o InferenceSchedulerS3OutputConfigurationPtrOutput) Elem() InferenceSchedulerS3OutputConfigurationOutput {
+	return o.ApplyT(func(v *InferenceSchedulerS3OutputConfiguration) InferenceSchedulerS3OutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceSchedulerS3OutputConfiguration
+		return ret
+	}).(InferenceSchedulerS3OutputConfigurationOutput)
+}
+
+func (o InferenceSchedulerS3OutputConfigurationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceSchedulerS3OutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InferenceSchedulerS3OutputConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceSchedulerS3OutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // A tag is a key-value pair that can be added to a resource as metadata.
@@ -538,11 +717,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerTagInput)(nil)).Elem(), InferenceSchedulerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerTagArrayInput)(nil)).Elem(), InferenceSchedulerTagArray{})
 	pulumi.RegisterOutputType(DataInputConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(DataInputConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataOutputConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(DataOutputConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerInputNameConfigurationOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerInputNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerS3InputConfigurationOutput{})
+	pulumi.RegisterOutputType(InferenceSchedulerS3InputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerS3OutputConfigurationOutput{})
+	pulumi.RegisterOutputType(InferenceSchedulerS3OutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerTagOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerTagArrayOutput{})
 }

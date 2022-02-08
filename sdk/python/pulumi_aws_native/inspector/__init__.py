@@ -7,6 +7,9 @@ import typing
 # Export this package's modules as members:
 from .assessment_target import *
 from .assessment_template import *
+from .get_assessment_target import *
+from .get_assessment_template import *
+from .get_resource_group import *
 from .resource_group import *
 from ._inputs import *
 from . import outputs

@@ -11,6 +11,16 @@ from .configuration_aggregator import *
 from .configuration_recorder import *
 from .conformance_pack import *
 from .delivery_channel import *
+from .get_aggregation_authorization import *
+from .get_config_rule import *
+from .get_configuration_aggregator import *
+from .get_configuration_recorder import *
+from .get_conformance_pack import *
+from .get_delivery_channel import *
+from .get_organization_config_rule import *
+from .get_organization_conformance_pack import *
+from .get_remediation_configuration import *
+from .get_stored_query import *
 from .organization_config_rule import *
 from .organization_conformance_pack import *
 from .remediation_configuration import *

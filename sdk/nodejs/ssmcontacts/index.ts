@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./contact";
 export * from "./contactChannel";
+export * from "./getContact";
+export * from "./getContactChannel";
 
 // Export enums:
 export * from "../types/enums/ssmcontacts";

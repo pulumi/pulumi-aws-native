@@ -563,6 +563,57 @@ func (o BackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResou
 	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
+type BackupPlanResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPlanResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
+	return o
+}
+
+func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
+	return o
+}
+
+func (o BackupPlanResourceTypePtrOutput) Elem() BackupPlanResourceTypeOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) BackupPlanResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPlanResourceType
+		return ret
+	}).(BackupPlanResourceTypeOutput)
+}
+
+func (o BackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedBackupSettings
+	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
+}
+
+func (o BackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackupPlanName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanBackupRuleResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.BackupPlanRule
+	}).(BackupPlanBackupRuleResourceTypeArrayOutput)
+}
+
 type BackupSelectionConditionParameter struct {
 	ConditionKey   *string `pulumi:"conditionKey"`
 	ConditionValue *string `pulumi:"conditionValue"`
@@ -1922,6 +1973,60 @@ func (o ReportDeliveryChannelPropertiesOutput) S3KeyPrefix() pulumi.StringPtrOut
 	return o.ApplyT(func(v ReportDeliveryChannelProperties) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+type ReportDeliveryChannelPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryChannelPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryChannelProperties)(nil)).Elem()
+}
+
+func (o ReportDeliveryChannelPropertiesPtrOutput) ToReportDeliveryChannelPropertiesPtrOutput() ReportDeliveryChannelPropertiesPtrOutput {
+	return o
+}
+
+func (o ReportDeliveryChannelPropertiesPtrOutput) ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesPtrOutput {
+	return o
+}
+
+func (o ReportDeliveryChannelPropertiesPtrOutput) Elem() ReportDeliveryChannelPropertiesOutput {
+	return o.ApplyT(func(v *ReportDeliveryChannelProperties) ReportDeliveryChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDeliveryChannelProperties
+		return ret
+	}).(ReportDeliveryChannelPropertiesOutput)
+}
+
+// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+func (o ReportDeliveryChannelPropertiesPtrOutput) Formats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportDeliveryChannelProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Formats
+	}).(pulumi.StringArrayOutput)
+}
+
+// The unique name of the S3 bucket that receives your reports.
+func (o ReportDeliveryChannelPropertiesPtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+func (o ReportDeliveryChannelPropertiesPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ReportPlanTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2095,6 +2200,50 @@ func (o ReportSettingPropertiesOutput) ReportTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportSettingProperties) string { return v.ReportTemplate }).(pulumi.StringOutput)
 }
 
+type ReportSettingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportSettingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportSettingProperties)(nil)).Elem()
+}
+
+func (o ReportSettingPropertiesPtrOutput) ToReportSettingPropertiesPtrOutput() ReportSettingPropertiesPtrOutput {
+	return o
+}
+
+func (o ReportSettingPropertiesPtrOutput) ToReportSettingPropertiesPtrOutputWithContext(ctx context.Context) ReportSettingPropertiesPtrOutput {
+	return o
+}
+
+func (o ReportSettingPropertiesPtrOutput) Elem() ReportSettingPropertiesOutput {
+	return o.ApplyT(func(v *ReportSettingProperties) ReportSettingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ReportSettingProperties
+		return ret
+	}).(ReportSettingPropertiesOutput)
+}
+
+// The Amazon Resource Names (ARNs) of the frameworks a report covers.
+func (o ReportSettingPropertiesPtrOutput) FrameworkArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportSettingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FrameworkArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+func (o ReportSettingPropertiesPtrOutput) ReportTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportSettingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReportTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeArrayInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArray{})
@@ -2137,6 +2286,7 @@ func init() {
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupPlanResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionParameterOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionParameterArrayOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeOutput{})
@@ -2157,7 +2307,9 @@ func init() {
 	pulumi.RegisterOutputType(FrameworkTagOutput{})
 	pulumi.RegisterOutputType(FrameworkTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReportPlanTagOutput{})
 	pulumi.RegisterOutputType(ReportPlanTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesOutput{})
+	pulumi.RegisterOutputType(ReportSettingPropertiesPtrOutput{})
 }

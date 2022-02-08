@@ -9,5 +9,9 @@ from .application import *
 from .application_cloud_watch_logging_option import *
 from .application_output_resource import *
 from .application_reference_data_source import *
+from .get_application import *
+from .get_application_cloud_watch_logging_option import *
+from .get_application_output_resource import *
+from .get_application_reference_data_source import *
 from ._inputs import *
 from . import outputs

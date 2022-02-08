@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_profile_permission import *
+from .get_signing_profile import *
 from .profile_permission import *
 from .signing_profile import *
 from ._inputs import *

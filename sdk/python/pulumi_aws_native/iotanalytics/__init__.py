@@ -9,6 +9,10 @@ from ._enums import *
 from .channel import *
 from .dataset import *
 from .datastore import *
+from .get_channel import *
+from .get_dataset import *
+from .get_datastore import *
+from .get_pipeline import *
 from .pipeline import *
 from ._inputs import *
 from . import outputs

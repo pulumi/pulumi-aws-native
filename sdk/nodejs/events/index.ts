@@ -10,6 +10,12 @@ export * from "./archive";
 export * from "./connection";
 export * from "./eventBus";
 export * from "./eventBusPolicy";
+export * from "./getApiDestination";
+export * from "./getArchive";
+export * from "./getConnection";
+export * from "./getEventBus";
+export * from "./getEventBusPolicy";
+export * from "./getRule";
 export * from "./rule";
 
 // Export enums:

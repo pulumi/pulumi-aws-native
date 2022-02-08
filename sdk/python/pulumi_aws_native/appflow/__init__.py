@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .connector_profile import *
 from .flow import *
+from .get_connector_profile import *
+from .get_flow import *
 from ._inputs import *
 from . import outputs

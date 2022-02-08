@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./canary";
+export * from "./getCanary";
 
 // Import resources to register:
 import { Canary } from "./canary";

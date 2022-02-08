@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./dataLakeSettings";
+export * from "./getDataLakeSettings";
+export * from "./getPermissions";
+export * from "./getResource";
 export * from "./permissions";
 export * from "./resource";
 

@@ -402,7 +402,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				CreateOnly: []string{"type", "properties"},
 			},
 		},
-		Types: map[string]CloudAPIType{},
+		Types:     map[string]CloudAPIType{},
+		Functions: map[string]CloudAPIFunction{},
 	}
 
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
@@ -427,6 +428,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				isSupported:   isSupported,
 			}
 			err := ctx.gatherResourceType()
+			if err != nil {
+				return nil, nil, err
+			}
+			err = ctx.gatherInvoke()
 			if err != nil {
 				return nil, nil, err
 			}
@@ -565,10 +570,93 @@ type context struct {
 	isSupported   bool
 }
 
+func (ctx *context) gatherInvoke() error {
+	resourceTypeName := typeName(ctx.cfTypeName)
+	_, getterToken := getterToken(ctx.cfTypeName)
+
+	// Skip resource that causes naming clashes
+	switch ctx.cfTypeName {
+	case "AWS::MediaConnect::FlowOutput":
+		return nil
+	}
+
+	primaryIdentifier := readPropNames(ctx.resourceSpec, "primaryIdentifier")
+
+	inputs := map[string]pschema.PropertySpec{}
+	inputNames := make([]string, len(primaryIdentifier))
+	for i, r := range primaryIdentifier {
+		n := strings.TrimPrefix(r, "/properties/")
+		sdkName := ToSdkName(n)
+		inputNames[i] = sdkName
+		s, ok := ctx.resourceSpec.Properties[n]
+		if !ok {
+			fmt.Printf("Unable to find primary identifier %q for resource %s, skipping\n", n, resourceTypeName)
+			return nil
+		}
+
+		p, err := ctx.propertySpec(n, resourceTypeName, s)
+		if err != nil {
+			return err
+		}
+		inputs[sdkName] = *p
+	}
+
+	writeOnlyProperties := readPropNames(ctx.resourceSpec, "writeOnlyProperties")
+	createOnlyProperties := readPropNames(ctx.resourceSpec, "createOnlyProperties")
+	nonOutputProperties := codegen.NewStringSet(append(writeOnlyProperties, createOnlyProperties...)...)
+
+	outputs := map[string]pschema.PropertySpec{}
+	for k, v := range ctx.resourceSpec.Properties {
+		sdkName := ToSdkName(k)
+		if nonOutputProperties.Has(k) {
+			continue
+		}
+		p, err := ctx.propertySpec(k, resourceTypeName, v)
+		if err != nil {
+			return err
+		}
+		outputs[sdkName] = *p
+	}
+
+	ctx.pkg.Functions[getterToken] = pschema.FunctionSpec{
+		Description: ctx.resourceSpec.Description,
+		Inputs: &pschema.ObjectTypeSpec{
+			Properties: inputs,
+			Required:   inputNames,
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Properties: outputs,
+		},
+	}
+
+	identifiers := make([]string, len(primaryIdentifier))
+	for i, v := range primaryIdentifier {
+		identifiers[i] = ToSdkName(v)
+	}
+	ctx.metadata.Functions[getterToken] = CloudAPIFunction{
+		CfType:      ctx.cfTypeName,
+		Identifiers: identifiers,
+	}
+
+	return nil
+}
+
+func readPropNames(resourceSpec *jsschema.Schema, listName string) []string {
+	if p, ok := resourceSpec.Extras[listName]; ok {
+		pSlice := p.([]interface{})
+		props := make([]string, len(pSlice))
+		for i, v := range pSlice {
+			n := strings.TrimPrefix(v.(string), "/properties/")
+			props[i] = n
+		}
+		return props
+	}
+	return make([]string, 0)
+}
+
 // gatherResourceType builds the schema for the resource type in the context.
 func (ctx *context) gatherResourceType() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
-
 	readOnlyProperties := codegen.NewStringSet()
 	if rop, ok := ctx.resourceSpec.Extras["readOnlyProperties"].([]interface{}); ok {
 		for _, propRef := range rop {
@@ -976,6 +1064,22 @@ func typeToken(typ string) (string, string) {
 	}
 
 	return resourceName, fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
+}
+
+func getterToken(typ string) (string, string) {
+	resourceTypeComponents := strings.Split(typ, "::")
+	resourceName := resourceTypeComponents[2]
+	module := strings.ToLower(moduleName(typ))
+	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
+
+	// Override name to avoid duplicate
+	// See https://github.com/pulumi/pulumi/issues/8018
+	switch typ {
+	case "AWS::KinesisAnalytics::ApplicationOutput", "AWS::KinesisAnalyticsV2::ApplicationOutput":
+		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
+	}
+
+	return resourceName, fmt.Sprintf("%s:%s:get%s", packageName, module, resourceName)
 }
 
 func typeName(typ string) string {

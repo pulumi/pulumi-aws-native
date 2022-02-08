@@ -17,6 +17,42 @@ const (
 	ResourceCollectionTypeAwsCloudFormation = ResourceCollectionType("AWS_CLOUD_FORMATION")
 )
 
+func (ResourceCollectionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionType)(nil)).Elem()
+}
+
+func (e ResourceCollectionType) ToResourceCollectionTypeOutput() ResourceCollectionTypeOutput {
+	return pulumi.ToOutput(e).(ResourceCollectionTypeOutput)
+}
+
+func (e ResourceCollectionType) ToResourceCollectionTypeOutputWithContext(ctx context.Context) ResourceCollectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceCollectionTypeOutput)
+}
+
+func (e ResourceCollectionType) ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput {
+	return e.ToResourceCollectionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceCollectionType) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
+	return ResourceCollectionType(e).ToResourceCollectionTypeOutputWithContext(ctx).ToResourceCollectionTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceCollectionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceCollectionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceCollectionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceCollectionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type ResourceCollectionTypeOutput struct{ *pulumi.OutputState }
 
 func (ResourceCollectionTypeOutput) ElementType() reflect.Type {
@@ -100,7 +136,47 @@ func (o ResourceCollectionTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+// ResourceCollectionTypeInput is an input type that accepts ResourceCollectionTypeArgs and ResourceCollectionTypeOutput values.
+// You can construct a concrete instance of `ResourceCollectionTypeInput` via:
+//
+//          ResourceCollectionTypeArgs{...}
+type ResourceCollectionTypeInput interface {
+	pulumi.Input
+
+	ToResourceCollectionTypeOutput() ResourceCollectionTypeOutput
+	ToResourceCollectionTypeOutputWithContext(context.Context) ResourceCollectionTypeOutput
+}
+
+var resourceCollectionTypePtrType = reflect.TypeOf((**ResourceCollectionType)(nil)).Elem()
+
+type ResourceCollectionTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput
+	ToResourceCollectionTypePtrOutputWithContext(context.Context) ResourceCollectionTypePtrOutput
+}
+
+type resourceCollectionTypePtr string
+
+func ResourceCollectionTypePtr(v string) ResourceCollectionTypePtrInput {
+	return (*resourceCollectionTypePtr)(&v)
+}
+
+func (*resourceCollectionTypePtr) ElementType() reflect.Type {
+	return resourceCollectionTypePtrType
+}
+
+func (in *resourceCollectionTypePtr) ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceCollectionTypePtrOutput)
+}
+
+func (in *resourceCollectionTypePtr) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceCollectionTypePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTypeInput)(nil)).Elem(), ResourceCollectionType("AWS_CLOUD_FORMATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTypePtrInput)(nil)).Elem(), ResourceCollectionType("AWS_CLOUD_FORMATION"))
 	pulumi.RegisterOutputType(ResourceCollectionTypeOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionTypePtrOutput{})
 }

@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
 export * from "./application";
 export * from "./attributeGroup";
 export * from "./attributeGroupAssociation";
+export * from "./getApplication";
+export * from "./getAttributeGroup";
+export * from "./getAttributeGroupAssociation";
+export * from "./getResourceAssociation";
 export * from "./resourceAssociation";
 
 // Export enums:

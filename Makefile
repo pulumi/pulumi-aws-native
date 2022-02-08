@@ -52,6 +52,9 @@ codegen::
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
+install_provider::
+	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+
 cf2pulumi::
 	(cd provider && go build -o $(WORKING_DIR)/bin/cf2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/cf2pulumi)
 

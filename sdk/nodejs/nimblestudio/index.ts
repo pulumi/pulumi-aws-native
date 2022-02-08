@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getLaunchProfile";
+export * from "./getStreamingImage";
+export * from "./getStudio";
+export * from "./getStudioComponent";
 export * from "./launchProfile";
 export * from "./streamingImage";
 export * from "./studio";

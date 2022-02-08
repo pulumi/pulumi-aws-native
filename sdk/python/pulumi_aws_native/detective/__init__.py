@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_graph import *
+from .get_member_invitation import *
 from .graph import *
 from .member_invitation import *
 from ._inputs import *

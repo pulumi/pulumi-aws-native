@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
 export * from "./addon";
 export * from "./cluster";
 export * from "./fargateProfile";
+export * from "./getAddon";
+export * from "./getCluster";
+export * from "./getFargateProfile";
+export * from "./getNodegroup";
 export * from "./nodegroup";
 
 // Export enums:

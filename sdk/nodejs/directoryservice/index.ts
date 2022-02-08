@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getMicrosoftAD";
+export * from "./getSimpleAD";
 export * from "./microsoftAD";
 export * from "./simpleAD";
 

@@ -132,6 +132,111 @@ func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectArtifacts) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type ProjectArtifactsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectArtifactsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectArtifacts)(nil)).Elem()
+}
+
+func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput {
+	return o
+}
+
+func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
+	return o
+}
+
+func (o ProjectArtifactsPtrOutput) Elem() ProjectArtifactsOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) ProjectArtifacts {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectArtifacts
+		return ret
+	}).(ProjectArtifactsOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) OverrideArtifactName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OverrideArtifactName
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) Packaging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Packaging
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProjectArtifactsArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectArtifactsArrayOutput) ElementType() reflect.Type {
@@ -1056,6 +1161,102 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectRegistryCredential
 
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironment)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentPtrOutput) Elem() ProjectEnvironmentOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) ProjectEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironment
+		return ret
+	}).(ProjectEnvironmentOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputeType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) []ProjectEnvironmentVariable {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentVariables
+	}).(ProjectEnvironmentVariableArrayOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) ImagePullCredentialsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImagePullCredentialsType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) PrivilegedMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivilegedMode
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectRegistryCredentialPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectRegistryCredential {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryCredential
+	}).(ProjectRegistryCredentialPtrOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectEnvironmentVariable struct {
@@ -2090,6 +2291,120 @@ func (o ProjectSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type ProjectSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSource)(nil)).Elem()
+}
+
+func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
+	return o
+}
+
+func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
+	return o
+}
+
+func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
+	return o.ApplyT(func(v *ProjectSource) ProjectSource {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSource
+		return ret
+	}).(ProjectSourceOutput)
+}
+
+func (o ProjectSourcePtrOutput) Auth() ProjectSourceAuthPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectSourceAuth {
+		if v == nil {
+			return nil
+		}
+		return v.Auth
+	}).(ProjectSourceAuthPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) BuildSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildSpec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectBuildStatusConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BuildStatusConfig
+	}).(ProjectBuildStatusConfigPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) GitCloneDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GitCloneDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) GitSubmodulesConfig() ProjectGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectGitSubmodulesConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GitSubmodulesConfig
+	}).(ProjectGitSubmodulesConfigPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InsecureSsl
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReportBuildStatus
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProjectSourceArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectSourceArrayOutput) ElementType() reflect.Type {
@@ -2839,6 +3154,48 @@ func (o ReportGroupReportExportConfigOutput) S3Destination() ReportGroupS3Report
 	return o.ApplyT(func(v ReportGroupReportExportConfig) *ReportGroupS3ReportExportConfig { return v.S3Destination }).(ReportGroupS3ReportExportConfigPtrOutput)
 }
 
+type ReportGroupReportExportConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupReportExportConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupReportExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) Elem() ReportGroupReportExportConfigOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) ReportGroupReportExportConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupReportExportConfig
+		return ret
+	}).(ReportGroupReportExportConfigOutput)
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) ExportConfigType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExportConfigType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) S3Destination() ReportGroupS3ReportExportConfigPtrOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) *ReportGroupS3ReportExportConfig {
+		if v == nil {
+			return nil
+		}
+		return v.S3Destination
+	}).(ReportGroupS3ReportExportConfigPtrOutput)
+}
+
 type ReportGroupS3ReportExportConfig struct {
 	Bucket             string  `pulumi:"bucket"`
 	BucketOwner        *string `pulumi:"bucketOwner"`
@@ -3193,6 +3550,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagInput)(nil)).Elem(), ReportGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagArrayInput)(nil)).Elem(), ReportGroupTagArray{})
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
+	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
 	pulumi.RegisterOutputType(ProjectBatchRestrictionsOutput{})
 	pulumi.RegisterOutputType(ProjectBatchRestrictionsPtrOutput{})
@@ -3205,6 +3563,7 @@ func init() {
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFileSystemLocationOutput{})
@@ -3220,6 +3579,7 @@ func init() {
 	pulumi.RegisterOutputType(ProjectS3LogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectS3LogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceOutput{})
+	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
@@ -3232,6 +3592,7 @@ func init() {
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupReportExportConfigOutput{})
+	pulumi.RegisterOutputType(ReportGroupReportExportConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupTagOutput{})

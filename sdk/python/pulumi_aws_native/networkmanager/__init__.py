@@ -7,6 +7,13 @@ import typing
 # Export this package's modules as members:
 from .customer_gateway_association import *
 from .device import *
+from .get_customer_gateway_association import *
+from .get_device import *
+from .get_global_network import *
+from .get_link import *
+from .get_link_association import *
+from .get_site import *
+from .get_transit_gateway_registration import *
 from .global_network import *
 from .link import *
 from .link_association import *

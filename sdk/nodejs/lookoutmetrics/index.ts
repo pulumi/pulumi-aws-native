@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./alert";
 export * from "./anomalyDetector";
+export * from "./getAlert";
+export * from "./getAnomalyDetector";
 
 // Export enums:
 export * from "../types/enums/lookoutmetrics";

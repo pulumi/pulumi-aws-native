@@ -6,6 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./byteMatchSet";
+export * from "./getByteMatchSet";
+export * from "./getIPSet";
+export * from "./getRule";
+export * from "./getSizeConstraintSet";
+export * from "./getSqlInjectionMatchSet";
+export * from "./getWebACL";
+export * from "./getXssMatchSet";
 export * from "./ipset";
 export * from "./rule";
 export * from "./sizeConstraintSet";

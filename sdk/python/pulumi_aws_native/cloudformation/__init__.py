@@ -7,6 +7,19 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .custom_resource import *
+from .get_custom_resource import *
+from .get_macro import *
+from .get_module_default_version import *
+from .get_module_version import *
+from .get_public_type_version import *
+from .get_publisher import *
+from .get_resource_default_version import *
+from .get_resource_version import *
+from .get_stack import *
+from .get_stack_set import *
+from .get_type_activation import *
+from .get_wait_condition import *
+from .get_wait_condition_handle import *
 from .macro import *
 from .module_default_version import *
 from .module_version import *

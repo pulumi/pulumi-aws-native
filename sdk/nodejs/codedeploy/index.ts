@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./application";
 export * from "./deploymentConfig";
 export * from "./deploymentGroup";
+export * from "./getApplication";
+export * from "./getDeploymentConfig";
+export * from "./getDeploymentGroup";
 
 // Import resources to register:
 import { Application } from "./application";

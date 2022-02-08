@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getScalableTarget";
+export * from "./getScalingPolicy";
 export * from "./scalableTarget";
 export * from "./scalingPolicy";
 

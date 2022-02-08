@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./app";
 export * from "./branch";
 export * from "./domain";
+export * from "./getApp";
+export * from "./getBranch";
+export * from "./getDomain";
 
 // Export enums:
 export * from "../types/enums/amplify";

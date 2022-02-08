@@ -6,6 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./dataset";
+export * from "./getDataset";
+export * from "./getJob";
+export * from "./getProject";
+export * from "./getRecipe";
+export * from "./getRuleset";
+export * from "./getSchedule";
 export * from "./job";
 export * from "./project";
 export * from "./recipe";

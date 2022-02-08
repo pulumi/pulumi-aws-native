@@ -7,6 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cluster";
 export * from "./controlPanel";
+export * from "./getCluster";
+export * from "./getControlPanel";
+export * from "./getRoutingControl";
+export * from "./getSafetyRule";
 export * from "./routingControl";
 export * from "./safetyRule";
 

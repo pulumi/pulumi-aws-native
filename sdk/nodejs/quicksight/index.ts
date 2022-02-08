@@ -9,6 +9,12 @@ export * from "./analysis";
 export * from "./dashboard";
 export * from "./dataSet";
 export * from "./dataSource";
+export * from "./getAnalysis";
+export * from "./getDashboard";
+export * from "./getDataSet";
+export * from "./getDataSource";
+export * from "./getTemplate";
+export * from "./getTheme";
 export * from "./template";
 export * from "./theme";
 

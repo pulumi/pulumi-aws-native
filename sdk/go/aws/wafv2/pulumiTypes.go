@@ -7015,6 +7015,57 @@ func (o RuleGroupVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOut
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
 
+type RuleGroupVisibilityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupVisibilityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupVisibilityConfig)(nil)).Elem()
+}
+
+func (o RuleGroupVisibilityConfigPtrOutput) ToRuleGroupVisibilityConfigPtrOutput() RuleGroupVisibilityConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupVisibilityConfigPtrOutput) ToRuleGroupVisibilityConfigPtrOutputWithContext(ctx context.Context) RuleGroupVisibilityConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupVisibilityConfigPtrOutput) Elem() RuleGroupVisibilityConfigOutput {
+	return o.ApplyT(func(v *RuleGroupVisibilityConfig) RuleGroupVisibilityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupVisibilityConfig
+		return ret
+	}).(RuleGroupVisibilityConfigOutput)
+}
+
+func (o RuleGroupVisibilityConfigPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudWatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RuleGroupVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SampledRequestsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Xss Match Statement.
 type RuleGroupXssMatchStatement struct {
 	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
@@ -8766,6 +8817,48 @@ func (o WebACLDefaultActionOutput) Allow() WebACLAllowActionPtrOutput {
 
 func (o WebACLDefaultActionOutput) Block() WebACLBlockActionPtrOutput {
 	return o.ApplyT(func(v WebACLDefaultAction) *WebACLBlockAction { return v.Block }).(WebACLBlockActionPtrOutput)
+}
+
+type WebACLDefaultActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLDefaultActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLDefaultAction)(nil)).Elem()
+}
+
+func (o WebACLDefaultActionPtrOutput) ToWebACLDefaultActionPtrOutput() WebACLDefaultActionPtrOutput {
+	return o
+}
+
+func (o WebACLDefaultActionPtrOutput) ToWebACLDefaultActionPtrOutputWithContext(ctx context.Context) WebACLDefaultActionPtrOutput {
+	return o
+}
+
+func (o WebACLDefaultActionPtrOutput) Elem() WebACLDefaultActionOutput {
+	return o.ApplyT(func(v *WebACLDefaultAction) WebACLDefaultAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLDefaultAction
+		return ret
+	}).(WebACLDefaultActionOutput)
+}
+
+func (o WebACLDefaultActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
+	return o.ApplyT(func(v *WebACLDefaultAction) *WebACLAllowAction {
+		if v == nil {
+			return nil
+		}
+		return v.Allow
+	}).(WebACLAllowActionPtrOutput)
+}
+
+func (o WebACLDefaultActionPtrOutput) Block() WebACLBlockActionPtrOutput {
+	return o.ApplyT(func(v *WebACLDefaultAction) *WebACLBlockAction {
+		if v == nil {
+			return nil
+		}
+		return v.Block
+	}).(WebACLBlockActionPtrOutput)
 }
 
 // Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
@@ -13301,6 +13394,57 @@ func (o WebACLVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput
 	return o.ApplyT(func(v WebACLVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
 
+type WebACLVisibilityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLVisibilityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLVisibilityConfig)(nil)).Elem()
+}
+
+func (o WebACLVisibilityConfigPtrOutput) ToWebACLVisibilityConfigPtrOutput() WebACLVisibilityConfigPtrOutput {
+	return o
+}
+
+func (o WebACLVisibilityConfigPtrOutput) ToWebACLVisibilityConfigPtrOutputWithContext(ctx context.Context) WebACLVisibilityConfigPtrOutput {
+	return o
+}
+
+func (o WebACLVisibilityConfigPtrOutput) Elem() WebACLVisibilityConfigOutput {
+	return o.ApplyT(func(v *WebACLVisibilityConfig) WebACLVisibilityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLVisibilityConfig
+		return ret
+	}).(WebACLVisibilityConfigOutput)
+}
+
+func (o WebACLVisibilityConfigPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebACLVisibilityConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudWatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WebACLVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLVisibilityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebACLVisibilityConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SampledRequestsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Xss Match Statement.
 type WebACLXssMatchStatement struct {
 	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
@@ -13728,6 +13872,7 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupTextTransformationOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionOutput{})
@@ -13753,6 +13898,7 @@ func init() {
 	pulumi.RegisterOutputType(WebACLCustomResponseBodiesOutput{})
 	pulumi.RegisterOutputType(WebACLCustomResponseBodiesPtrOutput{})
 	pulumi.RegisterOutputType(WebACLDefaultActionOutput{})
+	pulumi.RegisterOutputType(WebACLDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLExcludedRuleOutput{})
 	pulumi.RegisterOutputType(WebACLExcludedRuleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchOutput{})
@@ -13811,6 +13957,7 @@ func init() {
 	pulumi.RegisterOutputType(WebACLTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebACLTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebACLVisibilityConfigOutput{})
+	pulumi.RegisterOutputType(WebACLVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebACLXssMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLXssMatchStatementPtrOutput{})
 }

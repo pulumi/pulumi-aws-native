@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_lifecycle_policy import *
 from .lifecycle_policy import *
 from ._inputs import *
 from . import outputs

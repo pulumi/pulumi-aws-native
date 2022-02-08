@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./dataset";
 export * from "./datasetGroup";
+export * from "./getDataset";
+export * from "./getDatasetGroup";
 
 // Export enums:
 export * from "../types/enums/forecast";
