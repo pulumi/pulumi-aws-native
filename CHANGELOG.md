@@ -1,12 +1,15 @@
 ## HEAD (Unreleased)
 
+---
+
+## 0.12.0 (Feb 8, 2022)
+
 - Implement get functions for all resources
   [#346](https://github.com/pulumi/pulumi-aws-native/pull/346)
 - Update Pulumi dependencies to v3.23.0
 - Use sequence numbers to generate deterministic autonames.
   [#341](https://github.com/pulumi/pulumi-aws-native/pull/341)
-
----
+- Update to include the latest resource definitions
 
 ## 0.11.0 (Jan 24, 2022)
 
