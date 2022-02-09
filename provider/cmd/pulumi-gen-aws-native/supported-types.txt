@@ -52,6 +52,7 @@ AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
 AWS::Backup::Framework
 AWS::Backup::ReportPlan
+AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
 AWS::Budgets::BudgetsAction
 AWS::CE::CostCategory
@@ -182,6 +183,7 @@ AWS::EFS::MountTarget
 AWS::EKS::Addon
 AWS::EKS::Cluster
 AWS::EKS::FargateProfile
+AWS::EKS::Nodegroup
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
 AWS::EMRContainers::VirtualCluster
