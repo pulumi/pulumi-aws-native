@@ -2327,6 +2327,9 @@
                 "instanceConfiguration": {
                     "$ref": "#/types/aws-native:apprunner:ServiceInstanceConfiguration"
                 },
+                "networkConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ServiceNetworkConfiguration"
+                },
                 "serviceName": {
                     "type": "string",
                     "description": "The AppRunner Service Name."
@@ -2354,6 +2357,9 @@
                 },
                 "instanceConfiguration": {
                     "$ref": "#/types/aws-native:apprunner:ServiceInstanceConfiguration"
+                },
+                "networkConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ServiceNetworkConfiguration"
                 },
                 "serviceArn": {
                     "type": "string",
@@ -3944,6 +3950,150 @@
             ],
             "createOnly": [
                 "reportPlanName"
+            ]
+        },
+        "aws-native:batch:ComputeEnvironment": {
+            "cf": "AWS::Batch::ComputeEnvironment",
+            "inputs": {
+                "computeEnvironmentName": {
+                    "type": "string"
+                },
+                "computeResources": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
+                },
+                "serviceRole": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "type": {
+                    "type": "string"
+                },
+                "unmanagedvCpus": {
+                    "type": "integer"
+                }
+            },
+            "outputs": {
+                "computeEnvironmentArn": {
+                    "type": "string"
+                },
+                "computeEnvironmentName": {
+                    "type": "string"
+                },
+                "computeResources": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
+                },
+                "serviceRole": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "type": {
+                    "type": "string"
+                },
+                "unmanagedvCpus": {
+                    "type": "integer"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "computeEnvironmentName"
+            },
+            "required": [
+                "type"
+            ],
+            "createOnly": [
+                "computeEnvironmentName",
+                "computeResources/AllocationStrategy",
+                "computeResources/BidPercentage",
+                "computeResources/Ec2Configuration",
+                "computeResources/Ec2KeyPair",
+                "computeResources/ImageId",
+                "computeResources/InstanceRole",
+                "computeResources/InstanceTypes",
+                "computeResources/LaunchTemplate",
+                "computeResources/PlacementGroup",
+                "computeResources/SpotIamFleetRole",
+                "computeResources/Tags",
+                "computeResources/Type",
+                "tags",
+                "type"
+            ]
+        },
+        "aws-native:batch:JobQueue": {
+            "cf": "AWS::Batch::JobQueue",
+            "inputs": {
+                "computeEnvironmentOrder": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:batch:JobQueueComputeEnvironmentOrder"
+                    }
+                },
+                "jobQueueName": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "schedulingPolicyArn": {
+                    "type": "string"
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:batch:JobQueueState"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "outputs": {
+                "computeEnvironmentOrder": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:batch:JobQueueComputeEnvironmentOrder"
+                    }
+                },
+                "jobQueueArn": {
+                    "type": "string"
+                },
+                "jobQueueName": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "schedulingPolicyArn": {
+                    "type": "string"
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:batch:JobQueueState"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "jobQueueName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "computeEnvironmentOrder",
+                "priority"
+            ],
+            "createOnly": [
+                "jobQueueName",
+                "tags"
             ]
         },
         "aws-native:batch:SchedulingPolicy": {
@@ -13108,6 +13258,198 @@
                 "fargateProfileName",
                 "podExecutionRoleArn",
                 "selectors",
+                "subnets"
+            ]
+        },
+        "aws-native:eks:Nodegroup": {
+            "cf": "AWS::EKS::Nodegroup",
+            "inputs": {
+                "amiType": {
+                    "type": "string",
+                    "description": "The AMI type for your node group."
+                },
+                "capacityType": {
+                    "type": "string",
+                    "description": "The capacity type of your managed node group."
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the cluster to create the node group in."
+                },
+                "diskSize": {
+                    "type": "integer",
+                    "description": "The root device disk size (in GiB) for your node group instances."
+                },
+                "forceUpdateEnabled": {
+                    "type": "boolean",
+                    "description": "Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue."
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify the instance types for a node group."
+                },
+                "labels": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The Kubernetes labels to be applied to the nodes in the node group when they are created."
+                },
+                "launchTemplate": {
+                    "$ref": "#/types/aws-native:eks:NodegroupLaunchTemplateSpecification",
+                    "description": "An object representing a node group's launch template specification."
+                },
+                "nodeRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role to associate with your node group."
+                },
+                "nodegroupName": {
+                    "type": "string",
+                    "description": "The unique name to give your node group."
+                },
+                "releaseVersion": {
+                    "type": "string",
+                    "description": "The AMI version of the Amazon EKS-optimized AMI to use with your node group."
+                },
+                "remoteAccess": {
+                    "$ref": "#/types/aws-native:eks:NodegroupRemoteAccess",
+                    "description": "The remote access (SSH) configuration to use with your node group."
+                },
+                "scalingConfig": {
+                    "$ref": "#/types/aws-native:eks:NodegroupScalingConfig",
+                    "description": "The scaling configuration details for the Auto Scaling group that is created for your node group."
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The subnets to use for the Auto Scaling group that is created for your node group."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency."
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:NodegroupTaint"
+                    },
+                    "description": "The Kubernetes taints to be applied to the nodes in the node group when they are created."
+                },
+                "updateConfig": {
+                    "$ref": "#/types/aws-native:eks:NodegroupUpdateConfig",
+                    "description": "The node group update configuration."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The Kubernetes version to use for your managed nodes."
+                }
+            },
+            "outputs": {
+                "amiType": {
+                    "type": "string",
+                    "description": "The AMI type for your node group."
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "capacityType": {
+                    "type": "string",
+                    "description": "The capacity type of your managed node group."
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the cluster to create the node group in."
+                },
+                "diskSize": {
+                    "type": "integer",
+                    "description": "The root device disk size (in GiB) for your node group instances."
+                },
+                "forceUpdateEnabled": {
+                    "type": "boolean",
+                    "description": "Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue."
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify the instance types for a node group."
+                },
+                "labels": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The Kubernetes labels to be applied to the nodes in the node group when they are created."
+                },
+                "launchTemplate": {
+                    "$ref": "#/types/aws-native:eks:NodegroupLaunchTemplateSpecification",
+                    "description": "An object representing a node group's launch template specification."
+                },
+                "nodeRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role to associate with your node group."
+                },
+                "nodegroupName": {
+                    "type": "string",
+                    "description": "The unique name to give your node group."
+                },
+                "releaseVersion": {
+                    "type": "string",
+                    "description": "The AMI version of the Amazon EKS-optimized AMI to use with your node group."
+                },
+                "remoteAccess": {
+                    "$ref": "#/types/aws-native:eks:NodegroupRemoteAccess",
+                    "description": "The remote access (SSH) configuration to use with your node group."
+                },
+                "scalingConfig": {
+                    "$ref": "#/types/aws-native:eks:NodegroupScalingConfig",
+                    "description": "The scaling configuration details for the Auto Scaling group that is created for your node group."
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The subnets to use for the Auto Scaling group that is created for your node group."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency."
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:NodegroupTaint"
+                    },
+                    "description": "The Kubernetes taints to be applied to the nodes in the node group when they are created."
+                },
+                "updateConfig": {
+                    "$ref": "#/types/aws-native:eks:NodegroupUpdateConfig",
+                    "description": "The node group update configuration."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The Kubernetes version to use for your managed nodes."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "nodegroupName",
+                "minLength": 1
+            },
+            "required": [
+                "clusterName",
+                "nodeRole",
+                "subnets"
+            ],
+            "createOnly": [
+                "amiType",
+                "capacityType",
+                "clusterName",
+                "diskSize",
+                "instanceTypes",
+                "nodeRole",
+                "nodegroupName",
+                "remoteAccess",
                 "subnets"
             ]
         },
@@ -33890,6 +34232,36 @@
                 "name"
             ]
         },
+        "aws-native:ses:ConfigurationSetEventDestination": {
+            "cf": "AWS::SES::ConfigurationSetEventDestination",
+            "inputs": {
+                "configurationSetName": {
+                    "type": "string",
+                    "description": "The name of the configuration set that contains the event destination."
+                },
+                "eventDestination": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetEventDestinationEventDestination",
+                    "description": "The event destination object."
+                }
+            },
+            "outputs": {
+                "configurationSetName": {
+                    "type": "string",
+                    "description": "The name of the configuration set that contains the event destination."
+                },
+                "eventDestination": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetEventDestinationEventDestination",
+                    "description": "The event destination object."
+                }
+            },
+            "required": [
+                "configurationSetName",
+                "eventDestination"
+            ],
+            "createOnly": [
+                "configurationSetName"
+            ]
+        },
         "aws-native:ses:ContactList": {
             "cf": "AWS::SES::ContactList",
             "inputs": {
@@ -39391,6 +39763,22 @@
                 }
             }
         },
+        "aws-native:apprunner:ServiceEgressConfiguration": {
+            "type": "object",
+            "properties": {
+                "egressType": {
+                    "$ref": "#/types/aws-native:apprunner:ServiceEgressConfigurationEgressType",
+                    "description": "Network egress type."
+                },
+                "vpcConnectorArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the App Runner VpcConnector."
+                }
+            }
+        },
+        "aws-native:apprunner:ServiceEgressConfigurationEgressType": {
+            "type": "string"
+        },
         "aws-native:apprunner:ServiceEncryptionConfiguration": {
             "type": "object",
             "properties": {
@@ -39495,6 +39883,14 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:apprunner:ServiceNetworkConfiguration": {
+            "type": "object",
+            "properties": {
+                "egressConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ServiceEgressConfiguration"
                 }
             }
         },
@@ -40307,6 +40703,114 @@
                     "description": "Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`"
                 }
             }
+        },
+        "aws-native:batch:ComputeEnvironmentComputeResources": {
+            "type": "object",
+            "properties": {
+                "allocationStrategy": {
+                    "type": "string"
+                },
+                "bidPercentage": {
+                    "type": "integer"
+                },
+                "desiredvCpus": {
+                    "type": "integer"
+                },
+                "ec2Configuration": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:batch:ComputeEnvironmentEc2ConfigurationObject"
+                    }
+                },
+                "ec2KeyPair": {
+                    "type": "string"
+                },
+                "imageId": {
+                    "type": "string"
+                },
+                "instanceRole": {
+                    "type": "string"
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "launchTemplate": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentLaunchTemplateSpecification"
+                },
+                "maxvCpus": {
+                    "type": "integer"
+                },
+                "minvCpus": {
+                    "type": "integer"
+                },
+                "placementGroup": {
+                    "type": "string"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spotIamFleetRole": {
+                    "type": "string"
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:batch:ComputeEnvironmentEc2ConfigurationObject": {
+            "type": "object",
+            "properties": {
+                "imageIdOverride": {
+                    "type": "string"
+                },
+                "imageType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:batch:ComputeEnvironmentLaunchTemplateSpecification": {
+            "type": "object",
+            "properties": {
+                "launchTemplateId": {
+                    "type": "string"
+                },
+                "launchTemplateName": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:batch:JobQueueComputeEnvironmentOrder": {
+            "type": "object",
+            "properties": {
+                "computeEnvironment": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:batch:JobQueueState": {
+            "type": "string"
         },
         "aws-native:batch:SchedulingPolicyFairsharePolicy": {
             "type": "object",
@@ -44425,6 +44929,9 @@
                 "sSESpecification": {
                     "$ref": "#/types/aws-native:dynamodb:GlobalTableReplicaSSESpecification"
                 },
+                "tableClass": {
+                    "type": "string"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -47923,6 +48430,75 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:eks:NodegroupLaunchTemplateSpecification": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:eks:NodegroupRemoteAccess": {
+            "type": "object",
+            "properties": {
+                "ec2SshKey": {
+                    "type": "string"
+                },
+                "sourceSecurityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:eks:NodegroupScalingConfig": {
+            "type": "object",
+            "properties": {
+                "desiredSize": {
+                    "type": "integer"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "minSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:eks:NodegroupTaint": {
+            "type": "object",
+            "properties": {
+                "effect": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:eks:NodegroupUpdateConfig": {
+            "type": "object",
+            "properties": {
+                "maxUnavailable": {
+                    "type": "number",
+                    "description": "The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. "
+                },
+                "maxUnavailablePercentage": {
+                    "type": "number",
+                    "description": "The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value."
                 }
             }
         },
@@ -67568,6 +68144,76 @@
         "aws-native:servicecatalogappregistry:ResourceAssociationResourceType": {
             "type": "string"
         },
+        "aws-native:ses:ConfigurationSetEventDestinationCloudWatchDestination": {
+            "type": "object",
+            "properties": {
+                "dimensionConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ses:ConfigurationSetEventDestinationDimensionConfiguration"
+                    },
+                    "description": "A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch."
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetEventDestinationDimensionConfiguration": {
+            "type": "object",
+            "properties": {
+                "defaultDimensionValue": {
+                    "type": "string",
+                    "description": "The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email."
+                },
+                "dimensionName": {
+                    "type": "string",
+                    "description": "The name of an Amazon CloudWatch dimension associated with an email sending metric."
+                },
+                "dimensionValueSource": {
+                    "type": "string",
+                    "description": "The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag."
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetEventDestinationEventDestination": {
+            "type": "object",
+            "properties": {
+                "cloudWatchDestination": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetEventDestinationCloudWatchDestination",
+                    "description": "An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination."
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   "
+                },
+                "kinesisFirehoseDestination": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetEventDestinationKinesisFirehoseDestination",
+                    "description": "An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination."
+                },
+                "matchingEventTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event destination set."
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetEventDestinationKinesisFirehoseDestination": {
+            "type": "object",
+            "properties": {
+                "deliveryStreamARN": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to."
+                },
+                "iAMRoleARN": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream."
+                }
+            }
+        },
         "aws-native:ses:ContactListTag": {
             "type": "object",
             "properties": {
@@ -70668,6 +71314,18 @@
                 "reportPlanArn"
             ]
         },
+        "aws-native:batch:getComputeEnvironment": {
+            "cf": "AWS::Batch::ComputeEnvironment",
+            "ids": [
+                "computeEnvironmentArn"
+            ]
+        },
+        "aws-native:batch:getJobQueue": {
+            "cf": "AWS::Batch::JobQueue",
+            "ids": [
+                "jobQueueArn"
+            ]
+        },
         "aws-native:batch:getSchedulingPolicy": {
             "cf": "AWS::Batch::SchedulingPolicy",
             "ids": [
@@ -71468,6 +72126,12 @@
             "ids": [
                 "clusterName",
                 "fargateProfileName"
+            ]
+        },
+        "aws-native:eks:getNodegroup": {
+            "cf": "AWS::EKS::Nodegroup",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:elasticache:getGlobalReplicationGroup": {
@@ -73120,6 +73784,12 @@
             "cf": "AWS::SES::ConfigurationSet",
             "ids": [
                 "name"
+            ]
+        },
+        "aws-native:ses:getConfigurationSetEventDestination": {
+            "cf": "AWS::SES::ConfigurationSetEventDestination",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:ses:getContactList": {
