@@ -28,7 +28,12 @@
   "createOnlyProperties" : [ "/properties/DestinationCidrBlock", "/properties/LocalGatewayRouteTableId", "/properties/LocalGatewayVirtualInterfaceGroupId" ],
   "readOnlyProperties" : [ "/properties/State", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/DestinationCidrBlock", "/properties/LocalGatewayRouteTableId" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateLocalGatewayRoute", "ec2:SearchLocalGatewayRoutes" ]
