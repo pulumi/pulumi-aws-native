@@ -3,13 +3,7 @@
   "description" : "Resource Type definition for AWS::Batch::ComputeEnvironment",
   "additionalProperties" : false,
   "properties" : {
-    "UnmanagedvCpus" : {
-      "type" : "integer"
-    },
-    "Type" : {
-      "type" : "string"
-    },
-    "ServiceRole" : {
+    "ComputeEnvironmentArn" : {
       "type" : "string"
     },
     "ComputeEnvironmentName" : {
@@ -18,17 +12,115 @@
     "ComputeResources" : {
       "$ref" : "#/definitions/ComputeResources"
     },
+    "ServiceRole" : {
+      "type" : "string"
+    },
     "State" : {
       "type" : "string"
     },
-    "Id" : {
+    "Tags" : {
+      "type" : "object",
+      "description" : "A key-value pair to associate with a resource.",
+      "patternProperties" : {
+        ".*" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Type" : {
       "type" : "string"
     },
-    "Tags" : {
-      "type" : "object"
+    "UnmanagedvCpus" : {
+      "type" : "integer"
     }
   },
   "definitions" : {
+    "ComputeResources" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AllocationStrategy" : {
+          "type" : "string"
+        },
+        "BidPercentage" : {
+          "type" : "integer"
+        },
+        "DesiredvCpus" : {
+          "type" : "integer"
+        },
+        "Ec2Configuration" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/Ec2ConfigurationObject"
+          }
+        },
+        "Ec2KeyPair" : {
+          "type" : "string"
+        },
+        "ImageId" : {
+          "type" : "string"
+        },
+        "InstanceRole" : {
+          "type" : "string"
+        },
+        "InstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "LaunchTemplate" : {
+          "$ref" : "#/definitions/LaunchTemplateSpecification"
+        },
+        "MaxvCpus" : {
+          "type" : "integer"
+        },
+        "MinvCpus" : {
+          "type" : "integer"
+        },
+        "PlacementGroup" : {
+          "type" : "string"
+        },
+        "SecurityGroupIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "SpotIamFleetRole" : {
+          "type" : "string"
+        },
+        "Subnets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Tags" : {
+          "type" : "object",
+          "description" : "A key-value pair to associate with a resource.",
+          "patternProperties" : {
+            ".*" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Subnets", "Type", "MaxvCpus" ]
+    },
     "Ec2ConfigurationObject" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -46,94 +138,44 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "LaunchTemplateName" : {
+        "LaunchTemplateId" : {
           "type" : "string"
         },
-        "LaunchTemplateId" : {
+        "LaunchTemplateName" : {
           "type" : "string"
         },
         "Version" : {
           "type" : "string"
         }
       }
-    },
-    "ComputeResources" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "SpotIamFleetRole" : {
-          "type" : "string"
-        },
-        "MaxvCpus" : {
-          "type" : "integer"
-        },
-        "Ec2Configuration" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/Ec2ConfigurationObject"
-          }
-        },
-        "BidPercentage" : {
-          "type" : "integer"
-        },
-        "SecurityGroupIds" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Subnets" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Type" : {
-          "type" : "string"
-        },
-        "AllocationStrategy" : {
-          "type" : "string"
-        },
-        "MinvCpus" : {
-          "type" : "integer"
-        },
-        "LaunchTemplate" : {
-          "$ref" : "#/definitions/LaunchTemplateSpecification"
-        },
-        "ImageId" : {
-          "type" : "string"
-        },
-        "InstanceRole" : {
-          "type" : "string"
-        },
-        "InstanceTypes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Ec2KeyPair" : {
-          "type" : "string"
-        },
-        "PlacementGroup" : {
-          "type" : "string"
-        },
-        "Tags" : {
-          "type" : "object"
-        },
-        "DesiredvCpus" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "Subnets", "Type", "MaxvCpus" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "Type" ],
-  "createOnlyProperties" : [ "/properties/ComputeEnvironmentName", "/properties/Type", "/properties/Tags" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/ComputeResources/AllocationStrategy", "/properties/ComputeResources/BidPercentage", "/properties/ComputeResources/Ec2Configuration", "/properties/ComputeResources/Ec2KeyPair", "/properties/ComputeResources/ImageId", "/properties/ComputeResources/InstanceRole", "/properties/ComputeResources/InstanceTypes", "/properties/ComputeResources/LaunchTemplate", "/properties/ComputeResources/PlacementGroup", "/properties/ComputeResources/SpotIamFleetRole", "/properties/ComputeResources/Tags", "/properties/ComputeResources/Type", "/properties/ComputeEnvironmentName", "/properties/Tags", "/properties/Type" ],
+  "primaryIdentifier" : [ "/properties/ComputeEnvironmentArn" ],
+  "readOnlyProperties" : [ "/properties/ComputeEnvironmentArn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "Batch:CreateComputeEnvironment", "Batch:TagResource", "Batch:DescribeComputeEnvironments", "iam:CreateServiceLinkedRole", "Iam:PassRole" ]
+    },
+    "read" : {
+      "permissions" : [ "Batch:DescribeComputeEnvironments" ]
+    },
+    "update" : {
+      "permissions" : [ "Batch:UpdateComputeEnvironment", "Batch:TagResource", "Batch:UnTagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "Batch:DeleteComputeEnvironment" ]
+    },
+    "list" : {
+      "permissions" : [ "Batch:DescribeComputeEnvironments" ]
+    }
+  }
 }
