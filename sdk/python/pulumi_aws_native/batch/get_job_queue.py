@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetJobQueueResult',
@@ -18,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobQueueResult:
-    def __init__(__self__, compute_environment_order=None, id=None, priority=None, scheduling_policy_arn=None, state=None):
+    def __init__(__self__, compute_environment_order=None, job_queue_arn=None, priority=None, scheduling_policy_arn=None, state=None):
         if compute_environment_order and not isinstance(compute_environment_order, list):
             raise TypeError("Expected argument 'compute_environment_order' to be a list")
         pulumi.set(__self__, "compute_environment_order", compute_environment_order)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if job_queue_arn and not isinstance(job_queue_arn, str):
+            raise TypeError("Expected argument 'job_queue_arn' to be a str")
+        pulumi.set(__self__, "job_queue_arn", job_queue_arn)
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
@@ -41,9 +42,9 @@ class GetJobQueueResult:
         return pulumi.get(self, "compute_environment_order")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="jobQueueArn")
+    def job_queue_arn(self) -> Optional[str]:
+        return pulumi.get(self, "job_queue_arn")
 
     @property
     @pulumi.getter
@@ -57,7 +58,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> Optional['JobQueueState']:
         return pulumi.get(self, "state")
 
 
@@ -68,19 +69,19 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
             yield self
         return GetJobQueueResult(
             compute_environment_order=self.compute_environment_order,
-            id=self.id,
+            job_queue_arn=self.job_queue_arn,
             priority=self.priority,
             scheduling_policy_arn=self.scheduling_policy_arn,
             state=self.state)
 
 
-def get_job_queue(id: Optional[str] = None,
+def get_job_queue(job_queue_arn: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobQueueResult:
     """
     Resource Type definition for AWS::Batch::JobQueue
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['jobQueueArn'] = job_queue_arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -89,14 +90,14 @@ def get_job_queue(id: Optional[str] = None,
 
     return AwaitableGetJobQueueResult(
         compute_environment_order=__ret__.compute_environment_order,
-        id=__ret__.id,
+        job_queue_arn=__ret__.job_queue_arn,
         priority=__ret__.priority,
         scheduling_policy_arn=__ret__.scheduling_policy_arn,
         state=__ret__.state)
 
 
 @_utilities.lift_output_func(get_job_queue)
-def get_job_queue_output(id: Optional[pulumi.Input[str]] = None,
+def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobQueueResult]:
     """
     Resource Type definition for AWS::Batch::JobQueue

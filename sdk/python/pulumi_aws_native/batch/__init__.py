@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .compute_environment import *
 from .get_compute_environment import *
 from .get_job_definition import *

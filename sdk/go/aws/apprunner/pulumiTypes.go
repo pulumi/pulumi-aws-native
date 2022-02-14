@@ -708,6 +708,165 @@ func (o ServiceCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceCodeVer
 	}).(ServiceSourceCodeVersionPtrOutput)
 }
 
+// Network egress configuration
+type ServiceEgressConfiguration struct {
+	// Network egress type.
+	EgressType ServiceEgressConfigurationEgressType `pulumi:"egressType"`
+	// The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+	VpcConnectorArn *string `pulumi:"vpcConnectorArn"`
+}
+
+// ServiceEgressConfigurationInput is an input type that accepts ServiceEgressConfigurationArgs and ServiceEgressConfigurationOutput values.
+// You can construct a concrete instance of `ServiceEgressConfigurationInput` via:
+//
+//          ServiceEgressConfigurationArgs{...}
+type ServiceEgressConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceEgressConfigurationOutput() ServiceEgressConfigurationOutput
+	ToServiceEgressConfigurationOutputWithContext(context.Context) ServiceEgressConfigurationOutput
+}
+
+// Network egress configuration
+type ServiceEgressConfigurationArgs struct {
+	// Network egress type.
+	EgressType ServiceEgressConfigurationEgressTypeInput `pulumi:"egressType"`
+	// The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+	VpcConnectorArn pulumi.StringPtrInput `pulumi:"vpcConnectorArn"`
+}
+
+func (ServiceEgressConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEgressConfiguration)(nil)).Elem()
+}
+
+func (i ServiceEgressConfigurationArgs) ToServiceEgressConfigurationOutput() ServiceEgressConfigurationOutput {
+	return i.ToServiceEgressConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceEgressConfigurationArgs) ToServiceEgressConfigurationOutputWithContext(ctx context.Context) ServiceEgressConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEgressConfigurationOutput)
+}
+
+func (i ServiceEgressConfigurationArgs) ToServiceEgressConfigurationPtrOutput() ServiceEgressConfigurationPtrOutput {
+	return i.ToServiceEgressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEgressConfigurationArgs) ToServiceEgressConfigurationPtrOutputWithContext(ctx context.Context) ServiceEgressConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEgressConfigurationOutput).ToServiceEgressConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceEgressConfigurationPtrInput is an input type that accepts ServiceEgressConfigurationArgs, ServiceEgressConfigurationPtr and ServiceEgressConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceEgressConfigurationPtrInput` via:
+//
+//          ServiceEgressConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEgressConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceEgressConfigurationPtrOutput() ServiceEgressConfigurationPtrOutput
+	ToServiceEgressConfigurationPtrOutputWithContext(context.Context) ServiceEgressConfigurationPtrOutput
+}
+
+type serviceEgressConfigurationPtrType ServiceEgressConfigurationArgs
+
+func ServiceEgressConfigurationPtr(v *ServiceEgressConfigurationArgs) ServiceEgressConfigurationPtrInput {
+	return (*serviceEgressConfigurationPtrType)(v)
+}
+
+func (*serviceEgressConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEgressConfiguration)(nil)).Elem()
+}
+
+func (i *serviceEgressConfigurationPtrType) ToServiceEgressConfigurationPtrOutput() ServiceEgressConfigurationPtrOutput {
+	return i.ToServiceEgressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEgressConfigurationPtrType) ToServiceEgressConfigurationPtrOutputWithContext(ctx context.Context) ServiceEgressConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEgressConfigurationPtrOutput)
+}
+
+// Network egress configuration
+type ServiceEgressConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceEgressConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEgressConfiguration)(nil)).Elem()
+}
+
+func (o ServiceEgressConfigurationOutput) ToServiceEgressConfigurationOutput() ServiceEgressConfigurationOutput {
+	return o
+}
+
+func (o ServiceEgressConfigurationOutput) ToServiceEgressConfigurationOutputWithContext(ctx context.Context) ServiceEgressConfigurationOutput {
+	return o
+}
+
+func (o ServiceEgressConfigurationOutput) ToServiceEgressConfigurationPtrOutput() ServiceEgressConfigurationPtrOutput {
+	return o.ToServiceEgressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEgressConfigurationOutput) ToServiceEgressConfigurationPtrOutputWithContext(ctx context.Context) ServiceEgressConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEgressConfiguration) *ServiceEgressConfiguration {
+		return &v
+	}).(ServiceEgressConfigurationPtrOutput)
+}
+
+// Network egress type.
+func (o ServiceEgressConfigurationOutput) EgressType() ServiceEgressConfigurationEgressTypeOutput {
+	return o.ApplyT(func(v ServiceEgressConfiguration) ServiceEgressConfigurationEgressType { return v.EgressType }).(ServiceEgressConfigurationEgressTypeOutput)
+}
+
+// The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+func (o ServiceEgressConfigurationOutput) VpcConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEgressConfiguration) *string { return v.VpcConnectorArn }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEgressConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEgressConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEgressConfiguration)(nil)).Elem()
+}
+
+func (o ServiceEgressConfigurationPtrOutput) ToServiceEgressConfigurationPtrOutput() ServiceEgressConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceEgressConfigurationPtrOutput) ToServiceEgressConfigurationPtrOutputWithContext(ctx context.Context) ServiceEgressConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceEgressConfigurationPtrOutput) Elem() ServiceEgressConfigurationOutput {
+	return o.ApplyT(func(v *ServiceEgressConfiguration) ServiceEgressConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEgressConfiguration
+		return ret
+	}).(ServiceEgressConfigurationOutput)
+}
+
+// Network egress type.
+func (o ServiceEgressConfigurationPtrOutput) EgressType() ServiceEgressConfigurationEgressTypePtrOutput {
+	return o.ApplyT(func(v *ServiceEgressConfiguration) *ServiceEgressConfigurationEgressType {
+		if v == nil {
+			return nil
+		}
+		return &v.EgressType
+	}).(ServiceEgressConfigurationEgressTypePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+func (o ServiceEgressConfigurationPtrOutput) VpcConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEgressConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Encryption configuration (KMS key)
 type ServiceEncryptionConfiguration struct {
 	// The KMS Key
@@ -1709,6 +1868,142 @@ func (o ServiceKeyValuePairArrayOutput) Index(i pulumi.IntInput) ServiceKeyValue
 	}).(ServiceKeyValuePairOutput)
 }
 
+// Network configuration
+type ServiceNetworkConfiguration struct {
+	EgressConfiguration ServiceEgressConfiguration `pulumi:"egressConfiguration"`
+}
+
+// ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationInput` via:
+//
+//          ServiceNetworkConfigurationArgs{...}
+type ServiceNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceNetworkConfigurationOutput() ServiceNetworkConfigurationOutput
+	ToServiceNetworkConfigurationOutputWithContext(context.Context) ServiceNetworkConfigurationOutput
+}
+
+// Network configuration
+type ServiceNetworkConfigurationArgs struct {
+	EgressConfiguration ServiceEgressConfigurationInput `pulumi:"egressConfiguration"`
+}
+
+func (ServiceNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationOutput() ServiceNetworkConfigurationOutput {
+	return i.ToServiceNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationOutputWithContext(ctx context.Context) ServiceNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationOutput)
+}
+
+func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationPtrOutput() ServiceNetworkConfigurationPtrOutput {
+	return i.ToServiceNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationOutput).ToServiceNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceNetworkConfigurationPtrInput is an input type that accepts ServiceNetworkConfigurationArgs, ServiceNetworkConfigurationPtr and ServiceNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationPtrInput` via:
+//
+//          ServiceNetworkConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkConfigurationPtrOutput() ServiceNetworkConfigurationPtrOutput
+	ToServiceNetworkConfigurationPtrOutputWithContext(context.Context) ServiceNetworkConfigurationPtrOutput
+}
+
+type serviceNetworkConfigurationPtrType ServiceNetworkConfigurationArgs
+
+func ServiceNetworkConfigurationPtr(v *ServiceNetworkConfigurationArgs) ServiceNetworkConfigurationPtrInput {
+	return (*serviceNetworkConfigurationPtrType)(v)
+}
+
+func (*serviceNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *serviceNetworkConfigurationPtrType) ToServiceNetworkConfigurationPtrOutput() ServiceNetworkConfigurationPtrOutput {
+	return i.ToServiceNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNetworkConfigurationPtrType) ToServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationPtrOutput)
+}
+
+// Network configuration
+type ServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationOutput() ServiceNetworkConfigurationOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationOutputWithContext(ctx context.Context) ServiceNetworkConfigurationOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutput() ServiceNetworkConfigurationPtrOutput {
+	return o.ToServiceNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkConfiguration) *ServiceNetworkConfiguration {
+		return &v
+	}).(ServiceNetworkConfigurationPtrOutput)
+}
+
+func (o ServiceNetworkConfigurationOutput) EgressConfiguration() ServiceEgressConfigurationOutput {
+	return o.ApplyT(func(v ServiceNetworkConfiguration) ServiceEgressConfiguration { return v.EgressConfiguration }).(ServiceEgressConfigurationOutput)
+}
+
+type ServiceNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ServiceNetworkConfigurationPtrOutput) ToServiceNetworkConfigurationPtrOutput() ServiceNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationPtrOutput) ToServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) ServiceNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkConfiguration
+		return ret
+	}).(ServiceNetworkConfigurationOutput)
+}
+
+func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceEgressConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceEgressConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EgressConfiguration
+	}).(ServiceEgressConfigurationPtrOutput)
+}
+
 // Source Code Version
 type ServiceSourceCodeVersion struct {
 	// Source Code Version Type
@@ -2213,6 +2508,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationValuesPtrInput)(nil)).Elem(), ServiceCodeConfigurationValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeRepositoryInput)(nil)).Elem(), ServiceCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeRepositoryPtrInput)(nil)).Elem(), ServiceCodeRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEgressConfigurationInput)(nil)).Elem(), ServiceEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEgressConfigurationPtrInput)(nil)).Elem(), ServiceEgressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationPtrInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigurationInput)(nil)).Elem(), ServiceHealthCheckConfigurationArgs{})
@@ -2225,6 +2522,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInstanceConfigurationPtrInput)(nil)).Elem(), ServiceInstanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceKeyValuePairInput)(nil)).Elem(), ServiceKeyValuePairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceKeyValuePairArrayInput)(nil)).Elem(), ServiceKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionInput)(nil)).Elem(), ServiceSourceCodeVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionPtrInput)(nil)).Elem(), ServiceSourceCodeVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
@@ -2240,6 +2539,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceCodeConfigurationValuesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(ServiceCodeRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEgressConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceEgressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHealthCheckConfigurationOutput{})
@@ -2252,6 +2553,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceInstanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceKeyValuePairOutput{})
 	pulumi.RegisterOutputType(ServiceKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})

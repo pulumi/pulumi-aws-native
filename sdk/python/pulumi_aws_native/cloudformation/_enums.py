@@ -60,6 +60,7 @@ class PublicTypeVersionType(str, Enum):
     """
     RESOURCE = "RESOURCE"
     MODULE = "MODULE"
+    HOOK = "HOOK"
 
 
 class PublisherIdentityProvider(str, Enum):
@@ -138,6 +139,7 @@ class TypeActivationType(str, Enum):
     """
     RESOURCE = "RESOURCE"
     MODULE = "MODULE"
+    HOOK = "HOOK"
 
 
 class TypeActivationVersionBump(str, Enum):

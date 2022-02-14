@@ -25,6 +25,7 @@ type LookupConfigurationSetEventDestinationArgs struct {
 }
 
 type LookupConfigurationSetEventDestinationResult struct {
+	// The event destination object.
 	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	Id               *string                                           `pulumi:"id"`
 }
@@ -60,6 +61,7 @@ func (o LookupConfigurationSetEventDestinationResultOutput) ToLookupConfiguratio
 	return o
 }
 
+// The event destination object.
 func (o LookupConfigurationSetEventDestinationResultOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetEventDestinationResult) *ConfigurationSetEventDestinationEventDestination {
 		return v.EventDestination

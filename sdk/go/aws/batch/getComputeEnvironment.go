@@ -21,15 +21,15 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmen
 }
 
 type LookupComputeEnvironmentArgs struct {
-	Id string `pulumi:"id"`
+	ComputeEnvironmentArn string `pulumi:"computeEnvironmentArn"`
 }
 
 type LookupComputeEnvironmentResult struct {
-	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
-	Id               *string                             `pulumi:"id"`
-	ServiceRole      *string                             `pulumi:"serviceRole"`
-	State            *string                             `pulumi:"state"`
-	UnmanagedvCpus   *int                                `pulumi:"unmanagedvCpus"`
+	ComputeEnvironmentArn *string                             `pulumi:"computeEnvironmentArn"`
+	ComputeResources      *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
+	ServiceRole           *string                             `pulumi:"serviceRole"`
+	State                 *string                             `pulumi:"state"`
+	UnmanagedvCpus        *int                                `pulumi:"unmanagedvCpus"`
 }
 
 func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupComputeEnvironmentResultOutput {
@@ -42,7 +42,7 @@ func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvir
 }
 
 type LookupComputeEnvironmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ComputeEnvironmentArn pulumi.StringInput `pulumi:"computeEnvironmentArn"`
 }
 
 func (LookupComputeEnvironmentOutputArgs) ElementType() reflect.Type {
@@ -63,12 +63,12 @@ func (o LookupComputeEnvironmentResultOutput) ToLookupComputeEnvironmentResultOu
 	return o
 }
 
-func (o LookupComputeEnvironmentResultOutput) ComputeResources() ComputeEnvironmentComputeResourcesPtrOutput {
-	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentComputeResources { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesPtrOutput)
+func (o LookupComputeEnvironmentResultOutput) ComputeEnvironmentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) *string { return v.ComputeEnvironmentArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupComputeEnvironmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupComputeEnvironmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupComputeEnvironmentResultOutput) ComputeResources() ComputeEnvironmentComputeResourcesPtrOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentComputeResources { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
 
 func (o LookupComputeEnvironmentResultOutput) ServiceRole() pulumi.StringPtrOutput {

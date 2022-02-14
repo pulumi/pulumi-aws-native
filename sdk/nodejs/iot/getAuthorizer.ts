@@ -26,6 +26,7 @@ export interface GetAuthorizerArgs {
 export interface GetAuthorizerResult {
     readonly arn?: string;
     readonly authorizerFunctionArn?: string;
+    readonly enableCachingForHttp?: boolean;
     readonly status?: enums.iot.AuthorizerStatus;
     readonly tags?: outputs.iot.AuthorizerTag[];
     readonly tokenKeyName?: string;

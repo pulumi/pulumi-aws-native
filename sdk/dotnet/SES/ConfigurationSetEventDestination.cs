@@ -12,13 +12,18 @@ namespace Pulumi.AwsNative.SES
     /// <summary>
     /// Resource Type definition for AWS::SES::ConfigurationSetEventDestination
     /// </summary>
-    [Obsolete(@"ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:ConfigurationSetEventDestination")]
     public partial class ConfigurationSetEventDestination : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the configuration set that contains the event destination.
+        /// </summary>
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 
+        /// <summary>
+        /// The event destination object.
+        /// </summary>
         [Output("eventDestination")]
         public Output<Outputs.ConfigurationSetEventDestinationEventDestination> EventDestination { get; private set; } = null!;
 
@@ -67,9 +72,15 @@ namespace Pulumi.AwsNative.SES
 
     public sealed class ConfigurationSetEventDestinationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the configuration set that contains the event destination.
+        /// </summary>
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
 
+        /// <summary>
+        /// The event destination object.
+        /// </summary>
         [Input("eventDestination", required: true)]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> EventDestination { get; set; } = null!;
 

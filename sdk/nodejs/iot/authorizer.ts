@@ -38,6 +38,7 @@ export class Authorizer extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authorizerFunctionArn!: pulumi.Output<string>;
     public readonly authorizerName!: pulumi.Output<string | undefined>;
+    public readonly enableCachingForHttp!: pulumi.Output<boolean | undefined>;
     public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
     public readonly status!: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.AuthorizerTag[] | undefined>;
@@ -60,6 +61,7 @@ export class Authorizer extends pulumi.CustomResource {
             }
             resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
             resourceInputs["authorizerName"] = args ? args.authorizerName : undefined;
+            resourceInputs["enableCachingForHttp"] = args ? args.enableCachingForHttp : undefined;
             resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -70,6 +72,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authorizerFunctionArn"] = undefined /*out*/;
             resourceInputs["authorizerName"] = undefined /*out*/;
+            resourceInputs["enableCachingForHttp"] = undefined /*out*/;
             resourceInputs["signingDisabled"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -87,6 +90,7 @@ export class Authorizer extends pulumi.CustomResource {
 export interface AuthorizerArgs {
     authorizerFunctionArn: pulumi.Input<string>;
     authorizerName?: pulumi.Input<string>;
+    enableCachingForHttp?: pulumi.Input<boolean>;
     signingDisabled?: pulumi.Input<boolean>;
     status?: pulumi.Input<enums.iot.AuthorizerStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.AuthorizerTagArgs>[]>;

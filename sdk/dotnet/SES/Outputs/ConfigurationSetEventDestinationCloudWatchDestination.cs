@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Outputs
 {
 
+    /// <summary>
+    /// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+    /// </summary>
     [OutputType]
     public sealed class ConfigurationSetEventDestinationCloudWatchDestination
     {
+        /// <summary>
+        /// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationSetEventDestinationDimensionConfiguration> DimensionConfigurations;
 
         [OutputConstructor]

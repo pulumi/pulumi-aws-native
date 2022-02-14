@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ComputeEnvironmentComputeResourcesArgs',
@@ -58,6 +59,9 @@ class ComputeEnvironmentComputeResourcesArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_iam_fleet_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
+        """
+        :param Any tags: A key-value pair to associate with a resource.
+        """
         pulumi.set(__self__, "maxv_cpus", maxv_cpus)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
@@ -237,6 +241,9 @@ class ComputeEnvironmentComputeResourcesArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter

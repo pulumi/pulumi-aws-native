@@ -1278,6 +1278,7 @@ func (o FargateProfileTagArrayOutput) Index(i pulumi.IntInput) FargateProfileTag
 	}).(FargateProfileTagOutput)
 }
 
+// An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecification struct {
 	Id      *string `pulumi:"id"`
 	Name    *string `pulumi:"name"`
@@ -1295,6 +1296,7 @@ type NodegroupLaunchTemplateSpecificationInput interface {
 	ToNodegroupLaunchTemplateSpecificationOutputWithContext(context.Context) NodegroupLaunchTemplateSpecificationOutput
 }
 
+// An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecificationArgs struct {
 	Id      pulumi.StringPtrInput `pulumi:"id"`
 	Name    pulumi.StringPtrInput `pulumi:"name"`
@@ -1354,6 +1356,7 @@ func (i *nodegroupLaunchTemplateSpecificationPtrType) ToNodegroupLaunchTemplateS
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationPtrOutput)
 }
 
+// An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (NodegroupLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -1441,6 +1444,7 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccess struct {
 	Ec2SshKey            string   `pulumi:"ec2SshKey"`
 	SourceSecurityGroups []string `pulumi:"sourceSecurityGroups"`
@@ -1457,6 +1461,7 @@ type NodegroupRemoteAccessInput interface {
 	ToNodegroupRemoteAccessOutputWithContext(context.Context) NodegroupRemoteAccessOutput
 }
 
+// An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccessArgs struct {
 	Ec2SshKey            pulumi.StringInput      `pulumi:"ec2SshKey"`
 	SourceSecurityGroups pulumi.StringArrayInput `pulumi:"sourceSecurityGroups"`
@@ -1515,6 +1520,7 @@ func (i *nodegroupRemoteAccessPtrType) ToNodegroupRemoteAccessPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupRemoteAccessPtrOutput)
 }
 
+// An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccessOutput struct{ *pulumi.OutputState }
 
 func (NodegroupRemoteAccessOutput) ElementType() reflect.Type {
@@ -1589,10 +1595,11 @@ func (o NodegroupRemoteAccessPtrOutput) SourceSecurityGroups() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// An object representing a auto scaling group specification for AWS EKS Nodegroup.
 type NodegroupScalingConfig struct {
-	DesiredSize *float64 `pulumi:"desiredSize"`
-	MaxSize     *float64 `pulumi:"maxSize"`
-	MinSize     *float64 `pulumi:"minSize"`
+	DesiredSize *int `pulumi:"desiredSize"`
+	MaxSize     *int `pulumi:"maxSize"`
+	MinSize     *int `pulumi:"minSize"`
 }
 
 // NodegroupScalingConfigInput is an input type that accepts NodegroupScalingConfigArgs and NodegroupScalingConfigOutput values.
@@ -1606,10 +1613,11 @@ type NodegroupScalingConfigInput interface {
 	ToNodegroupScalingConfigOutputWithContext(context.Context) NodegroupScalingConfigOutput
 }
 
+// An object representing a auto scaling group specification for AWS EKS Nodegroup.
 type NodegroupScalingConfigArgs struct {
-	DesiredSize pulumi.Float64PtrInput `pulumi:"desiredSize"`
-	MaxSize     pulumi.Float64PtrInput `pulumi:"maxSize"`
-	MinSize     pulumi.Float64PtrInput `pulumi:"minSize"`
+	DesiredSize pulumi.IntPtrInput `pulumi:"desiredSize"`
+	MaxSize     pulumi.IntPtrInput `pulumi:"maxSize"`
+	MinSize     pulumi.IntPtrInput `pulumi:"minSize"`
 }
 
 func (NodegroupScalingConfigArgs) ElementType() reflect.Type {
@@ -1665,6 +1673,7 @@ func (i *nodegroupScalingConfigPtrType) ToNodegroupScalingConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupScalingConfigPtrOutput)
 }
 
+// An object representing a auto scaling group specification for AWS EKS Nodegroup.
 type NodegroupScalingConfigOutput struct{ *pulumi.OutputState }
 
 func (NodegroupScalingConfigOutput) ElementType() reflect.Type {
@@ -1689,16 +1698,16 @@ func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigPtrOutputWithConte
 	}).(NodegroupScalingConfigPtrOutput)
 }
 
-func (o NodegroupScalingConfigOutput) DesiredSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v NodegroupScalingConfig) *float64 { return v.DesiredSize }).(pulumi.Float64PtrOutput)
+func (o NodegroupScalingConfigOutput) DesiredSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodegroupScalingConfig) *int { return v.DesiredSize }).(pulumi.IntPtrOutput)
 }
 
-func (o NodegroupScalingConfigOutput) MaxSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v NodegroupScalingConfig) *float64 { return v.MaxSize }).(pulumi.Float64PtrOutput)
+func (o NodegroupScalingConfigOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodegroupScalingConfig) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
-func (o NodegroupScalingConfigOutput) MinSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v NodegroupScalingConfig) *float64 { return v.MinSize }).(pulumi.Float64PtrOutput)
+func (o NodegroupScalingConfigOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodegroupScalingConfig) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
 type NodegroupScalingConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1725,33 +1734,34 @@ func (o NodegroupScalingConfigPtrOutput) Elem() NodegroupScalingConfigOutput {
 	}).(NodegroupScalingConfigOutput)
 }
 
-func (o NodegroupScalingConfigPtrOutput) DesiredSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *NodegroupScalingConfig) *float64 {
+func (o NodegroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) *int {
 		if v == nil {
 			return nil
 		}
 		return v.DesiredSize
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o NodegroupScalingConfigPtrOutput) MaxSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *NodegroupScalingConfig) *float64 {
+func (o NodegroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) *int {
 		if v == nil {
 			return nil
 		}
 		return v.MaxSize
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o NodegroupScalingConfigPtrOutput) MinSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *NodegroupScalingConfig) *float64 {
+func (o NodegroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) *int {
 		if v == nil {
 			return nil
 		}
 		return v.MinSize
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
+// An object representing a Taint specification for AWS EKS Nodegroup.
 type NodegroupTaint struct {
 	Effect *string `pulumi:"effect"`
 	Key    *string `pulumi:"key"`
@@ -1769,6 +1779,7 @@ type NodegroupTaintInput interface {
 	ToNodegroupTaintOutputWithContext(context.Context) NodegroupTaintOutput
 }
 
+// An object representing a Taint specification for AWS EKS Nodegroup.
 type NodegroupTaintArgs struct {
 	Effect pulumi.StringPtrInput `pulumi:"effect"`
 	Key    pulumi.StringPtrInput `pulumi:"key"`
@@ -1812,6 +1823,7 @@ func (i NodegroupTaintArray) ToNodegroupTaintArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupTaintArrayOutput)
 }
 
+// An object representing a Taint specification for AWS EKS Nodegroup.
 type NodegroupTaintOutput struct{ *pulumi.OutputState }
 
 func (NodegroupTaintOutput) ElementType() reflect.Type {
@@ -1858,8 +1870,11 @@ func (o NodegroupTaintArrayOutput) Index(i pulumi.IntInput) NodegroupTaintOutput
 	}).(NodegroupTaintOutput)
 }
 
+// The node group update configuration.
 type NodegroupUpdateConfig struct {
-	MaxUnavailable           *float64 `pulumi:"maxUnavailable"`
+	// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
+	MaxUnavailable *float64 `pulumi:"maxUnavailable"`
+	// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
 	MaxUnavailablePercentage *float64 `pulumi:"maxUnavailablePercentage"`
 }
 
@@ -1874,8 +1889,11 @@ type NodegroupUpdateConfigInput interface {
 	ToNodegroupUpdateConfigOutputWithContext(context.Context) NodegroupUpdateConfigOutput
 }
 
+// The node group update configuration.
 type NodegroupUpdateConfigArgs struct {
-	MaxUnavailable           pulumi.Float64PtrInput `pulumi:"maxUnavailable"`
+	// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
+	MaxUnavailable pulumi.Float64PtrInput `pulumi:"maxUnavailable"`
+	// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
 	MaxUnavailablePercentage pulumi.Float64PtrInput `pulumi:"maxUnavailablePercentage"`
 }
 
@@ -1932,6 +1950,7 @@ func (i *nodegroupUpdateConfigPtrType) ToNodegroupUpdateConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupUpdateConfigPtrOutput)
 }
 
+// The node group update configuration.
 type NodegroupUpdateConfigOutput struct{ *pulumi.OutputState }
 
 func (NodegroupUpdateConfigOutput) ElementType() reflect.Type {
@@ -1956,10 +1975,12 @@ func (o NodegroupUpdateConfigOutput) ToNodegroupUpdateConfigPtrOutputWithContext
 	}).(NodegroupUpdateConfigPtrOutput)
 }
 
+// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
 func (o NodegroupUpdateConfigOutput) MaxUnavailable() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NodegroupUpdateConfig) *float64 { return v.MaxUnavailable }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
 func (o NodegroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NodegroupUpdateConfig) *float64 { return v.MaxUnavailablePercentage }).(pulumi.Float64PtrOutput)
 }
@@ -1988,6 +2009,7 @@ func (o NodegroupUpdateConfigPtrOutput) Elem() NodegroupUpdateConfigOutput {
 	}).(NodegroupUpdateConfigOutput)
 }
 
+// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
 func (o NodegroupUpdateConfigPtrOutput) MaxUnavailable() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NodegroupUpdateConfig) *float64 {
 		if v == nil {
@@ -1997,6 +2019,7 @@ func (o NodegroupUpdateConfigPtrOutput) MaxUnavailable() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
 func (o NodegroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NodegroupUpdateConfig) *float64 {
 		if v == nil {

@@ -43,6 +43,7 @@ export type ModuleVersionVisibility = (typeof ModuleVersionVisibility)[keyof typ
 export const PublicTypeVersionType = {
     Resource: "RESOURCE",
     Module: "MODULE",
+    Hook: "HOOK",
 } as const;
 
 /**
@@ -139,6 +140,7 @@ export type StackSetRegionConcurrencyType = (typeof StackSetRegionConcurrencyTyp
 export const TypeActivationType = {
     Resource: "RESOURCE",
     Module: "MODULE",
+    Hook: "HOOK",
 } as const;
 
 /**

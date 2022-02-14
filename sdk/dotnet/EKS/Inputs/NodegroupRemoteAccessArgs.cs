@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Inputs
 {
 
+    /// <summary>
+    /// An object representing a remote access configuration specification for AWS EKS Nodegroup.
+    /// </summary>
     public sealed class NodegroupRemoteAccessArgs : Pulumi.ResourceArgs
     {
         [Input("ec2SshKey", required: true)]

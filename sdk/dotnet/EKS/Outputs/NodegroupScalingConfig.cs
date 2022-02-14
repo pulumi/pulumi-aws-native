@@ -10,20 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Outputs
 {
 
+    /// <summary>
+    /// An object representing a auto scaling group specification for AWS EKS Nodegroup.
+    /// </summary>
     [OutputType]
     public sealed class NodegroupScalingConfig
     {
-        public readonly double? DesiredSize;
-        public readonly double? MaxSize;
-        public readonly double? MinSize;
+        public readonly int? DesiredSize;
+        public readonly int? MaxSize;
+        public readonly int? MinSize;
 
         [OutputConstructor]
         private NodegroupScalingConfig(
-            double? desiredSize,
+            int? desiredSize,
 
-            double? maxSize,
+            int? maxSize,
 
-            double? minSize)
+            int? minSize)
         {
             DesiredSize = desiredSize;
             MaxSize = maxSize;

@@ -21,15 +21,15 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 }
 
 type LookupJobQueueArgs struct {
-	Id string `pulumi:"id"`
+	JobQueueArn string `pulumi:"jobQueueArn"`
 }
 
 type LookupJobQueueResult struct {
 	ComputeEnvironmentOrder []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
-	Id                      *string                           `pulumi:"id"`
+	JobQueueArn             *string                           `pulumi:"jobQueueArn"`
 	Priority                *int                              `pulumi:"priority"`
 	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
-	State                   *string                           `pulumi:"state"`
+	State                   *JobQueueStateEnum                `pulumi:"state"`
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
@@ -42,7 +42,7 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 }
 
 type LookupJobQueueOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	JobQueueArn pulumi.StringInput `pulumi:"jobQueueArn"`
 }
 
 func (LookupJobQueueOutputArgs) ElementType() reflect.Type {
@@ -67,8 +67,8 @@ func (o LookupJobQueueResultOutput) ComputeEnvironmentOrder() JobQueueComputeEnv
 	return o.ApplyT(func(v LookupJobQueueResult) []JobQueueComputeEnvironmentOrder { return v.ComputeEnvironmentOrder }).(JobQueueComputeEnvironmentOrderArrayOutput)
 }
 
-func (o LookupJobQueueResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupJobQueueResultOutput) JobQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.JobQueueArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntPtrOutput {
@@ -79,8 +79,8 @@ func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupJobQueueResultOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.State }).(pulumi.StringPtrOutput)
+func (o LookupJobQueueResultOutput) State() JobQueueStateEnumPtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *JobQueueStateEnum { return v.State }).(JobQueueStateEnumPtrOutput)
 }
 
 func init() {

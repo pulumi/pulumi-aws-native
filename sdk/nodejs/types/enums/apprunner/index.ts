@@ -22,6 +22,16 @@ export const ServiceCodeConfigurationValuesRuntime = {
  */
 export type ServiceCodeConfigurationValuesRuntime = (typeof ServiceCodeConfigurationValuesRuntime)[keyof typeof ServiceCodeConfigurationValuesRuntime];
 
+export const ServiceEgressConfigurationEgressType = {
+    Default: "DEFAULT",
+    Vpc: "VPC",
+} as const;
+
+/**
+ * Network egress type.
+ */
+export type ServiceEgressConfigurationEgressType = (typeof ServiceEgressConfigurationEgressType)[keyof typeof ServiceEgressConfigurationEgressType];
+
 export const ServiceHealthCheckConfigurationProtocol = {
     Tcp: "TCP",
     Http: "HTTP",

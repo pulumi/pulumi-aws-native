@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobQueueArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("jobQueueArn", required: true)]
+        public string JobQueueArn { get; set; } = null!;
 
         public GetJobQueueArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobQueueInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("jobQueueArn", required: true)]
+        public Input<string> JobQueueArn { get; set; } = null!;
 
         public GetJobQueueInvokeArgs()
         {
@@ -50,25 +50,25 @@ namespace Pulumi.AwsNative.Batch
     public sealed class GetJobQueueResult
     {
         public readonly ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder> ComputeEnvironmentOrder;
-        public readonly string? Id;
+        public readonly string? JobQueueArn;
         public readonly int? Priority;
         public readonly string? SchedulingPolicyArn;
-        public readonly string? State;
+        public readonly Pulumi.AwsNative.Batch.JobQueueState? State;
 
         [OutputConstructor]
         private GetJobQueueResult(
             ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder> computeEnvironmentOrder,
 
-            string? id,
+            string? jobQueueArn,
 
             int? priority,
 
             string? schedulingPolicyArn,
 
-            string? state)
+            Pulumi.AwsNative.Batch.JobQueueState? state)
         {
             ComputeEnvironmentOrder = computeEnvironmentOrder;
-            Id = id;
+            JobQueueArn = jobQueueArn;
             Priority = priority;
             SchedulingPolicyArn = schedulingPolicyArn;
             State = state;

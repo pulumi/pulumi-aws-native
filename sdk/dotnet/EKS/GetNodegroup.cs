@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.EKS
     public static class GetNodegroup
     {
         /// <summary>
-        /// Resource Type definition for AWS::EKS::Nodegroup
+        /// Resource schema for AWS::EKS::Nodegroup
         /// </summary>
         public static Task<GetNodegroupResult> InvokeAsync(GetNodegroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EKS::Nodegroup
+        /// Resource schema for AWS::EKS::Nodegroup
         /// </summary>
         public static Output<GetNodegroupResult> Invoke(GetNodegroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupInvokeArgs(), options.WithDefaults());
@@ -50,22 +50,43 @@ namespace Pulumi.AwsNative.EKS
     public sealed class GetNodegroupResult
     {
         public readonly string? Arn;
-        public readonly bool? ForceUpdateEnabled;
         public readonly string? Id;
+        /// <summary>
+        /// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        /// </summary>
         public readonly object? Labels;
+        /// <summary>
+        /// An object representing a node group's launch template specification.
+        /// </summary>
         public readonly Outputs.NodegroupLaunchTemplateSpecification? LaunchTemplate;
+        /// <summary>
+        /// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        /// </summary>
         public readonly string? ReleaseVersion;
+        /// <summary>
+        /// The scaling configuration details for the Auto Scaling group that is created for your node group.
+        /// </summary>
         public readonly Outputs.NodegroupScalingConfig? ScalingConfig;
+        /// <summary>
+        /// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        /// </summary>
         public readonly object? Tags;
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NodegroupTaint> Taints;
+        /// <summary>
+        /// The node group update configuration.
+        /// </summary>
         public readonly Outputs.NodegroupUpdateConfig? UpdateConfig;
+        /// <summary>
+        /// The Kubernetes version to use for your managed nodes.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private GetNodegroupResult(
             string? arn,
-
-            bool? forceUpdateEnabled,
 
             string? id,
 
@@ -86,7 +107,6 @@ namespace Pulumi.AwsNative.EKS
             string? version)
         {
             Arn = arn;
-            ForceUpdateEnabled = forceUpdateEnabled;
             Id = id;
             Labels = labels;
             LaunchTemplate = launchTemplate;

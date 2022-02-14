@@ -10,7 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 type ConfigurationSetEventDestinationCloudWatchDestination struct {
+	// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 	DimensionConfigurations []ConfigurationSetEventDestinationDimensionConfiguration `pulumi:"dimensionConfigurations"`
 }
 
@@ -25,7 +27,9 @@ type ConfigurationSetEventDestinationCloudWatchDestinationInput interface {
 	ToConfigurationSetEventDestinationCloudWatchDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationCloudWatchDestinationOutput
 }
 
+// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 type ConfigurationSetEventDestinationCloudWatchDestinationArgs struct {
+	// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 	DimensionConfigurations ConfigurationSetEventDestinationDimensionConfigurationArrayInput `pulumi:"dimensionConfigurations"`
 }
 
@@ -82,6 +86,7 @@ func (i *configurationSetEventDestinationCloudWatchDestinationPtrType) ToConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
 }
 
+// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 type ConfigurationSetEventDestinationCloudWatchDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationCloudWatchDestinationOutput) ElementType() reflect.Type {
@@ -106,6 +111,7 @@ func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToConfigura
 	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
 }
 
+// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationDimensionConfiguration {
 		return v.DimensionConfigurations
@@ -136,6 +142,7 @@ func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) Elem() C
 	}).(ConfigurationSetEventDestinationCloudWatchDestinationOutput)
 }
 
+// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) DimensionConfigurations() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationDimensionConfiguration {
 		if v == nil {
@@ -145,10 +152,14 @@ func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) Dimensio
 	}).(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput)
 }
 
+// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 type ConfigurationSetEventDestinationDimensionConfiguration struct {
+	// The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
 	DefaultDimensionValue string `pulumi:"defaultDimensionValue"`
-	DimensionName         string `pulumi:"dimensionName"`
-	DimensionValueSource  string `pulumi:"dimensionValueSource"`
+	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	DimensionName string `pulumi:"dimensionName"`
+	// The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+	DimensionValueSource string `pulumi:"dimensionValueSource"`
 }
 
 // ConfigurationSetEventDestinationDimensionConfigurationInput is an input type that accepts ConfigurationSetEventDestinationDimensionConfigurationArgs and ConfigurationSetEventDestinationDimensionConfigurationOutput values.
@@ -162,10 +173,14 @@ type ConfigurationSetEventDestinationDimensionConfigurationInput interface {
 	ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(context.Context) ConfigurationSetEventDestinationDimensionConfigurationOutput
 }
 
+// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 type ConfigurationSetEventDestinationDimensionConfigurationArgs struct {
+	// The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
 	DefaultDimensionValue pulumi.StringInput `pulumi:"defaultDimensionValue"`
-	DimensionName         pulumi.StringInput `pulumi:"dimensionName"`
-	DimensionValueSource  pulumi.StringInput `pulumi:"dimensionValueSource"`
+	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
+	// The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+	DimensionValueSource pulumi.StringInput `pulumi:"dimensionValueSource"`
 }
 
 func (ConfigurationSetEventDestinationDimensionConfigurationArgs) ElementType() reflect.Type {
@@ -205,6 +220,7 @@ func (i ConfigurationSetEventDestinationDimensionConfigurationArray) ToConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput)
 }
 
+// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 type ConfigurationSetEventDestinationDimensionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationDimensionConfigurationOutput) ElementType() reflect.Type {
@@ -219,14 +235,17 @@ func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) ToConfigur
 	return o
 }
 
+// The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
 func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DefaultDimensionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationDimensionConfiguration) string { return v.DefaultDimensionValue }).(pulumi.StringOutput)
 }
 
+// The name of an Amazon CloudWatch dimension associated with an email sending metric.
 func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationDimensionConfiguration) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
+// The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
 func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DimensionValueSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationDimensionConfiguration) string { return v.DimensionValueSource }).(pulumi.StringOutput)
 }
@@ -252,11 +271,16 @@ func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) Index
 }
 
 type ConfigurationSetEventDestinationEventDestination struct {
-	CloudWatchDestination      *ConfigurationSetEventDestinationCloudWatchDestination      `pulumi:"cloudWatchDestination"`
-	Enabled                    *bool                                                       `pulumi:"enabled"`
+	// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+	CloudWatchDestination *ConfigurationSetEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
+	// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
+	Enabled *bool `pulumi:"enabled"`
+	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
-	MatchingEventTypes         []string                                                    `pulumi:"matchingEventTypes"`
-	Name                       *string                                                     `pulumi:"name"`
+	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
+	// The name of the event destination set.
+	Name *string `pulumi:"name"`
 }
 
 // ConfigurationSetEventDestinationEventDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs and ConfigurationSetEventDestinationEventDestinationOutput values.
@@ -271,11 +295,16 @@ type ConfigurationSetEventDestinationEventDestinationInput interface {
 }
 
 type ConfigurationSetEventDestinationEventDestinationArgs struct {
-	CloudWatchDestination      ConfigurationSetEventDestinationCloudWatchDestinationPtrInput      `pulumi:"cloudWatchDestination"`
-	Enabled                    pulumi.BoolPtrInput                                                `pulumi:"enabled"`
+	// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+	CloudWatchDestination ConfigurationSetEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
+	// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
-	MatchingEventTypes         pulumi.StringArrayInput                                            `pulumi:"matchingEventTypes"`
-	Name                       pulumi.StringPtrInput                                              `pulumi:"name"`
+	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
+	// The name of the event destination set.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ConfigurationSetEventDestinationEventDestinationArgs) ElementType() reflect.Type {
@@ -304,26 +333,31 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationS
 	return o
 }
 
+// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
 		return v.CloudWatchDestination
 	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
 }
 
+// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
 		return v.KinesisFirehoseDestination
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
+// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
 
+// The name of the event destination set.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -352,6 +386,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() Config
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
+// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
 		if v == nil {
@@ -361,6 +396,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDes
 	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
 }
 
+// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *bool {
 		if v == nil {
@@ -370,6 +406,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
 		if v == nil {
@@ -379,6 +416,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFireho
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
+// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
 		if v == nil {
@@ -388,6 +426,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEvent
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the event destination set.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *string {
 		if v == nil {
@@ -397,9 +436,12 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 type ConfigurationSetEventDestinationKinesisFirehoseDestination struct {
+	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 	DeliveryStreamARN string `pulumi:"deliveryStreamARN"`
-	IAMRoleARN        string `pulumi:"iAMRoleARN"`
+	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+	IAMRoleARN string `pulumi:"iAMRoleARN"`
 }
 
 // ConfigurationSetEventDestinationKinesisFirehoseDestinationInput is an input type that accepts ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs and ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput values.
@@ -413,9 +455,12 @@ type ConfigurationSetEventDestinationKinesisFirehoseDestinationInput interface {
 	ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput
 }
 
+// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs struct {
+	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 	DeliveryStreamARN pulumi.StringInput `pulumi:"deliveryStreamARN"`
-	IAMRoleARN        pulumi.StringInput `pulumi:"iAMRoleARN"`
+	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+	IAMRoleARN pulumi.StringInput `pulumi:"iAMRoleARN"`
 }
 
 func (ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ElementType() reflect.Type {
@@ -471,6 +516,7 @@ func (i *configurationSetEventDestinationKinesisFirehoseDestinationPtrType) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
+// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ElementType() reflect.Type {
@@ -495,10 +541,12 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConf
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
+// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.DeliveryStreamARN }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) IAMRoleARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.IAMRoleARN }).(pulumi.StringOutput)
 }
@@ -527,6 +575,7 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) Ele
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput)
 }
 
+// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) *string {
 		if v == nil {
@@ -536,6 +585,7 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) Del
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) IAMRoleARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) *string {
 		if v == nil {

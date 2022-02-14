@@ -12,17 +12,17 @@ import (
 )
 
 // Resource Type definition for AWS::Batch::JobQueue
-//
-// Deprecated: JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type JobQueue struct {
 	pulumi.CustomResourceState
 
 	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrder"`
+	JobQueueArn             pulumi.StringOutput                        `pulumi:"jobQueueArn"`
 	JobQueueName            pulumi.StringPtrOutput                     `pulumi:"jobQueueName"`
 	Priority                pulumi.IntOutput                           `pulumi:"priority"`
 	SchedulingPolicyArn     pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
-	State                   pulumi.StringPtrOutput                     `pulumi:"state"`
-	Tags                    pulumi.AnyOutput                           `pulumi:"tags"`
+	State                   JobQueueStateEnumPtrOutput                 `pulumi:"state"`
+	// A key-value pair to associate with a resource.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewJobQueue registers a new resource with the given unique name, arguments, and options.
@@ -74,8 +74,9 @@ type jobQueueArgs struct {
 	JobQueueName            *string                           `pulumi:"jobQueueName"`
 	Priority                int                               `pulumi:"priority"`
 	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
-	State                   *string                           `pulumi:"state"`
-	Tags                    interface{}                       `pulumi:"tags"`
+	State                   *JobQueueStateEnum                `pulumi:"state"`
+	// A key-value pair to associate with a resource.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
@@ -84,8 +85,9 @@ type JobQueueArgs struct {
 	JobQueueName            pulumi.StringPtrInput
 	Priority                pulumi.IntInput
 	SchedulingPolicyArn     pulumi.StringPtrInput
-	State                   pulumi.StringPtrInput
-	Tags                    pulumi.Input
+	State                   JobQueueStateEnumPtrInput
+	// A key-value pair to associate with a resource.
+	Tags pulumi.Input
 }
 
 func (JobQueueArgs) ElementType() reflect.Type {

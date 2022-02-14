@@ -1929,6 +1929,7 @@
         "types/enums/apprunner/index.ts",
         "types/enums/athena/index.ts",
         "types/enums/auditmanager/index.ts",
+        "types/enums/batch/index.ts",
         "types/enums/budgets/index.ts",
         "types/enums/cassandra/index.ts",
         "types/enums/ce/index.ts",

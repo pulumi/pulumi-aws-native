@@ -12,13 +12,13 @@ import (
 )
 
 // Resource Type definition for AWS::SES::ConfigurationSetEventDestination
-//
-// Deprecated: ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState
 
-	ConfigurationSetName pulumi.StringOutput                                    `pulumi:"configurationSetName"`
-	EventDestination     ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
+	// The name of the configuration set that contains the event destination.
+	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
+	// The event destination object.
+	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
 }
 
 // NewConfigurationSetEventDestination registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,18 @@ func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
 }
 
 type configurationSetEventDestinationArgs struct {
-	ConfigurationSetName string                                           `pulumi:"configurationSetName"`
-	EventDestination     ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	// The name of the configuration set that contains the event destination.
+	ConfigurationSetName string `pulumi:"configurationSetName"`
+	// The event destination object.
+	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 }
 
 // The set of arguments for constructing a ConfigurationSetEventDestination resource.
 type ConfigurationSetEventDestinationArgs struct {
+	// The name of the configuration set that contains the event destination.
 	ConfigurationSetName pulumi.StringInput
-	EventDestination     ConfigurationSetEventDestinationEventDestinationInput
+	// The event destination object.
+	EventDestination ConfigurationSetEventDestinationEventDestinationInput
 }
 
 func (ConfigurationSetEventDestinationArgs) ElementType() reflect.Type {

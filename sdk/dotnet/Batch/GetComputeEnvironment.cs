@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("computeEnvironmentArn", required: true)]
+        public string ComputeEnvironmentArn { get; set; } = null!;
 
         public GetComputeEnvironmentArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetComputeEnvironmentInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("computeEnvironmentArn", required: true)]
+        public Input<string> ComputeEnvironmentArn { get; set; } = null!;
 
         public GetComputeEnvironmentInvokeArgs()
         {
@@ -49,17 +49,17 @@ namespace Pulumi.AwsNative.Batch
     [OutputType]
     public sealed class GetComputeEnvironmentResult
     {
+        public readonly string? ComputeEnvironmentArn;
         public readonly Outputs.ComputeEnvironmentComputeResources? ComputeResources;
-        public readonly string? Id;
         public readonly string? ServiceRole;
         public readonly string? State;
         public readonly int? UnmanagedvCpus;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
-            Outputs.ComputeEnvironmentComputeResources? computeResources,
+            string? computeEnvironmentArn,
 
-            string? id,
+            Outputs.ComputeEnvironmentComputeResources? computeResources,
 
             string? serviceRole,
 
@@ -67,8 +67,8 @@ namespace Pulumi.AwsNative.Batch
 
             int? unmanagedvCpus)
         {
+            ComputeEnvironmentArn = computeEnvironmentArn;
             ComputeResources = computeResources;
-            Id = id;
             ServiceRole = serviceRole;
             State = state;
             UnmanagedvCpus = unmanagedvCpus;

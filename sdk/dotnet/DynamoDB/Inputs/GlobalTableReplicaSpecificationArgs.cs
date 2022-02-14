@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         [Input("sSESpecification")]
         public Input<Inputs.GlobalTableReplicaSSESpecificationArgs>? SSESpecification { get; set; }
 
+        [Input("tableClass")]
+        public Input<string>? TableClass { get; set; }
+
         [Input("tags")]
         private InputList<Inputs.GlobalTableTagArgs>? _tags;
         public InputList<Inputs.GlobalTableTagArgs> Tags

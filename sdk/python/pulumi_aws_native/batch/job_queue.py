@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['JobQueueArgs', 'JobQueue']
@@ -19,10 +20,11 @@ class JobQueueArgs:
                  priority: pulumi.Input[int],
                  job_queue_name: Optional[pulumi.Input[str]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a JobQueue resource.
+        :param Any tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "compute_environment_order", compute_environment_order)
         pulumi.set(__self__, "priority", priority)
@@ -73,16 +75,19 @@ class JobQueueArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input['JobQueueState']]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input['JobQueueState']]):
         pulumi.set(self, "state", value)
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -90,12 +95,7 @@ class JobQueueArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class JobQueue(pulumi.CustomResource):
-    warnings.warn("""JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -104,7 +104,7 @@ class JobQueue(pulumi.CustomResource):
                  job_queue_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -112,6 +112,7 @@ class JobQueue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -141,10 +142,9 @@ class JobQueue(pulumi.CustomResource):
                  job_queue_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""JobQueue is deprecated: JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,6 +166,7 @@ class JobQueue(pulumi.CustomResource):
             __props__.__dict__["scheduling_policy_arn"] = scheduling_policy_arn
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["job_queue_arn"] = None
         super(JobQueue, __self__).__init__(
             'aws-native:batch:JobQueue',
             resource_name,
@@ -189,6 +190,7 @@ class JobQueue(pulumi.CustomResource):
         __props__ = JobQueueArgs.__new__(JobQueueArgs)
 
         __props__.__dict__["compute_environment_order"] = None
+        __props__.__dict__["job_queue_arn"] = None
         __props__.__dict__["job_queue_name"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["scheduling_policy_arn"] = None
@@ -200,6 +202,11 @@ class JobQueue(pulumi.CustomResource):
     @pulumi.getter(name="computeEnvironmentOrder")
     def compute_environment_order(self) -> pulumi.Output[Sequence['outputs.JobQueueComputeEnvironmentOrder']]:
         return pulumi.get(self, "compute_environment_order")
+
+    @property
+    @pulumi.getter(name="jobQueueArn")
+    def job_queue_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "job_queue_arn")
 
     @property
     @pulumi.getter(name="jobQueueName")
@@ -218,11 +225,14 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional[str]]:
+    def state(self) -> pulumi.Output[Optional['JobQueueState']]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 

@@ -371,6 +371,7 @@ type PublicTypeVersionType string
 const (
 	PublicTypeVersionTypeResource = PublicTypeVersionType("RESOURCE")
 	PublicTypeVersionTypeModule   = PublicTypeVersionType("MODULE")
+	PublicTypeVersionTypeHook     = PublicTypeVersionType("HOOK")
 )
 
 func (PublicTypeVersionType) ElementType() reflect.Type {
@@ -1613,6 +1614,7 @@ type TypeActivationType string
 const (
 	TypeActivationTypeResource = TypeActivationType("RESOURCE")
 	TypeActivationTypeModule   = TypeActivationType("MODULE")
+	TypeActivationTypeHook     = TypeActivationType("HOOK")
 )
 
 func (TypeActivationType) ElementType() reflect.Type {

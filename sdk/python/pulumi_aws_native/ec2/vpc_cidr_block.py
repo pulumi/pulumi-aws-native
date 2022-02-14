@@ -16,7 +16,11 @@ class VPCCidrBlockArgs:
                  vpc_id: pulumi.Input[str],
                  amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VPCCidrBlock resource.
@@ -26,8 +30,16 @@ class VPCCidrBlockArgs:
             pulumi.set(__self__, "amazon_provided_ipv6_cidr_block", amazon_provided_ipv6_cidr_block)
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if ipv4_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+        if ipv4_netmask_length is not None:
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+        if ipv6_netmask_length is not None:
+            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if ipv6_pool is not None:
             pulumi.set(__self__, "ipv6_pool", ipv6_pool)
 
@@ -59,6 +71,24 @@ class VPCCidrBlockArgs:
         pulumi.set(self, "cidr_block", value)
 
     @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
@@ -66,6 +96,24 @@ class VPCCidrBlockArgs:
     @ipv6_cidr_block.setter
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @ipv6_ipam_pool_id.setter
+    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
 
     @property
     @pulumi.getter(name="ipv6Pool")
@@ -89,7 +137,11 @@ class VPCCidrBlock(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -125,7 +177,11 @@ class VPCCidrBlock(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -143,7 +199,11 @@ class VPCCidrBlock(pulumi.CustomResource):
 
             __props__.__dict__["amazon_provided_ipv6_cidr_block"] = amazon_provided_ipv6_cidr_block
             __props__.__dict__["cidr_block"] = cidr_block
+            __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
+            __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
+            __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["ipv6_pool"] = ipv6_pool
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -172,7 +232,11 @@ class VPCCidrBlock(pulumi.CustomResource):
 
         __props__.__dict__["amazon_provided_ipv6_cidr_block"] = None
         __props__.__dict__["cidr_block"] = None
+        __props__.__dict__["ipv4_ipam_pool_id"] = None
+        __props__.__dict__["ipv4_netmask_length"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
+        __props__.__dict__["ipv6_ipam_pool_id"] = None
+        __props__.__dict__["ipv6_netmask_length"] = None
         __props__.__dict__["ipv6_pool"] = None
         __props__.__dict__["vpc_id"] = None
         return VPCCidrBlock(resource_name, opts=opts, __props__=__props__)
@@ -188,9 +252,29 @@ class VPCCidrBlock(pulumi.CustomResource):
         return pulumi.get(self, "cidr_block")
 
     @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "ipv6_netmask_length")
 
     @property
     @pulumi.getter(name="ipv6Pool")

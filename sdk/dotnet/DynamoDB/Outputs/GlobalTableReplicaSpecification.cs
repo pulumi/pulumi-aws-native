@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         public readonly string Region;
         public readonly Outputs.GlobalTableReplicaSSESpecification? SSESpecification;
+        public readonly string? TableClass;
         public readonly ImmutableArray<Outputs.GlobalTableTag> Tags;
 
         [OutputConstructor]
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
 
             Outputs.GlobalTableReplicaSSESpecification? sSESpecification,
 
+            string? tableClass,
+
             ImmutableArray<Outputs.GlobalTableTag> tags)
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
             ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
             Region = region;
             SSESpecification = sSESpecification;
+            TableClass = tableClass;
             Tags = tags;
         }
     }

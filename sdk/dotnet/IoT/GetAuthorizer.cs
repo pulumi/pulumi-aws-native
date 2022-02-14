@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.IoT
     {
         public readonly string? Arn;
         public readonly string? AuthorizerFunctionArn;
+        public readonly bool? EnableCachingForHttp;
         public readonly Pulumi.AwsNative.IoT.AuthorizerStatus? Status;
         public readonly ImmutableArray<Outputs.AuthorizerTag> Tags;
         public readonly string? TokenKeyName;
@@ -62,6 +63,8 @@ namespace Pulumi.AwsNative.IoT
 
             string? authorizerFunctionArn,
 
+            bool? enableCachingForHttp,
+
             Pulumi.AwsNative.IoT.AuthorizerStatus? status,
 
             ImmutableArray<Outputs.AuthorizerTag> tags,
@@ -72,6 +75,7 @@ namespace Pulumi.AwsNative.IoT
         {
             Arn = arn;
             AuthorizerFunctionArn = authorizerFunctionArn;
+            EnableCachingForHttp = enableCachingForHttp;
             Status = status;
             Tags = tags;
             TokenKeyName = tokenKeyName;

@@ -21,6 +21,7 @@ class ServiceArgs:
                  encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
                  health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
                  instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None):
         """
@@ -37,6 +38,8 @@ class ServiceArgs:
             pulumi.set(__self__, "health_check_configuration", health_check_configuration)
         if instance_configuration is not None:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
@@ -91,6 +94,15 @@ class ServiceArgs:
         pulumi.set(self, "instance_configuration", value)
 
     @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -121,6 +133,7 @@ class Service(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -161,6 +174,7 @@ class Service(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -180,6 +194,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["health_check_configuration"] = health_check_configuration
             __props__.__dict__["instance_configuration"] = instance_configuration
+            __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["service_name"] = service_name
             if source_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'source_configuration'")
@@ -215,6 +230,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["health_check_configuration"] = None
         __props__.__dict__["instance_configuration"] = None
+        __props__.__dict__["network_configuration"] = None
         __props__.__dict__["service_arn"] = None
         __props__.__dict__["service_id"] = None
         __props__.__dict__["service_name"] = None
@@ -246,6 +262,11 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> pulumi.Output[Optional['outputs.ServiceInstanceConfiguration']]:
         return pulumi.get(self, "instance_configuration")
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceNetworkConfiguration']]:
+        return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="serviceArn")

@@ -9,6 +9,7 @@ import * as applicationinsights from "./applicationinsights";
 import * as apprunner from "./apprunner";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
+import * as batch from "./batch";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
@@ -107,6 +108,7 @@ export {
     apprunner,
     athena,
     auditmanager,
+    batch,
     budgets,
     cassandra,
     ce,

@@ -70,6 +70,37 @@ namespace Pulumi.AwsNative.AppRunner
     }
 
     /// <summary>
+    /// Network egress type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceEgressConfigurationEgressType : IEquatable<ServiceEgressConfigurationEgressType>
+    {
+        private readonly string _value;
+
+        private ServiceEgressConfigurationEgressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceEgressConfigurationEgressType Default { get; } = new ServiceEgressConfigurationEgressType("DEFAULT");
+        public static ServiceEgressConfigurationEgressType Vpc { get; } = new ServiceEgressConfigurationEgressType("VPC");
+
+        public static bool operator ==(ServiceEgressConfigurationEgressType left, ServiceEgressConfigurationEgressType right) => left.Equals(right);
+        public static bool operator !=(ServiceEgressConfigurationEgressType left, ServiceEgressConfigurationEgressType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceEgressConfigurationEgressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceEgressConfigurationEgressType other && Equals(other);
+        public bool Equals(ServiceEgressConfigurationEgressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Health Check Protocol
     /// </summary>
     [EnumType]

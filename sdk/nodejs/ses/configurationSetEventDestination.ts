@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::SES::ConfigurationSetEventDestination
- *
- * @deprecated ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ConfigurationSetEventDestination extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConfigurationSetEventDestination {
-        pulumi.log.warn("ConfigurationSetEventDestination is deprecated: ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ConfigurationSetEventDestination(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,7 +35,13 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSetEventDestination.__pulumiType;
     }
 
+    /**
+     * The name of the configuration set that contains the event destination.
+     */
     public readonly configurationSetName!: pulumi.Output<string>;
+    /**
+     * The event destination object.
+     */
     public readonly eventDestination!: pulumi.Output<outputs.ses.ConfigurationSetEventDestinationEventDestination>;
 
     /**
@@ -48,9 +51,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationSetEventDestinationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConfigurationSetEventDestination is deprecated: ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -75,6 +76,12 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationSetEventDestination resource.
  */
 export interface ConfigurationSetEventDestinationArgs {
+    /**
+     * The name of the configuration set that contains the event destination.
+     */
     configurationSetName: pulumi.Input<string>;
+    /**
+     * The event destination object.
+     */
     eventDestination: pulumi.Input<inputs.ses.ConfigurationSetEventDestinationEventDestinationArgs>;
 }

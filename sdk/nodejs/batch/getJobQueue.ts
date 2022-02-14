@@ -15,20 +15,20 @@ export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:batch:getJobQueue", {
-        "id": args.id,
+        "jobQueueArn": args.jobQueueArn,
     }, opts);
 }
 
 export interface GetJobQueueArgs {
-    id: string;
+    jobQueueArn: string;
 }
 
 export interface GetJobQueueResult {
     readonly computeEnvironmentOrder?: outputs.batch.JobQueueComputeEnvironmentOrder[];
-    readonly id?: string;
+    readonly jobQueueArn?: string;
     readonly priority?: number;
     readonly schedulingPolicyArn?: string;
-    readonly state?: string;
+    readonly state?: enums.batch.JobQueueState;
 }
 
 export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
@@ -36,5 +36,5 @@ export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetJobQueueOutputArgs {
-    id: pulumi.Input<string>;
+    jobQueueArn: pulumi.Input<string>;
 }

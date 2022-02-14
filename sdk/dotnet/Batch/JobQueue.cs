@@ -12,12 +12,14 @@ namespace Pulumi.AwsNative.Batch
     /// <summary>
     /// Resource Type definition for AWS::Batch::JobQueue
     /// </summary>
-    [Obsolete(@"JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:batch:JobQueue")]
     public partial class JobQueue : Pulumi.CustomResource
     {
         [Output("computeEnvironmentOrder")]
         public Output<ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder>> ComputeEnvironmentOrder { get; private set; } = null!;
+
+        [Output("jobQueueArn")]
+        public Output<string> JobQueueArn { get; private set; } = null!;
 
         [Output("jobQueueName")]
         public Output<string?> JobQueueName { get; private set; } = null!;
@@ -29,8 +31,11 @@ namespace Pulumi.AwsNative.Batch
         public Output<string?> SchedulingPolicyArn { get; private set; } = null!;
 
         [Output("state")]
-        public Output<string?> State { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Batch.JobQueueState?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -97,8 +102,11 @@ namespace Pulumi.AwsNative.Batch
         public Input<string>? SchedulingPolicyArn { get; set; }
 
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AwsNative.Batch.JobQueueState>? State { get; set; }
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

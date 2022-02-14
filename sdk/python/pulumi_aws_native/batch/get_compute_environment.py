@@ -18,13 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetComputeEnvironmentResult:
-    def __init__(__self__, compute_resources=None, id=None, service_role=None, state=None, unmanagedv_cpus=None):
+    def __init__(__self__, compute_environment_arn=None, compute_resources=None, service_role=None, state=None, unmanagedv_cpus=None):
+        if compute_environment_arn and not isinstance(compute_environment_arn, str):
+            raise TypeError("Expected argument 'compute_environment_arn' to be a str")
+        pulumi.set(__self__, "compute_environment_arn", compute_environment_arn)
         if compute_resources and not isinstance(compute_resources, dict):
             raise TypeError("Expected argument 'compute_resources' to be a dict")
         pulumi.set(__self__, "compute_resources", compute_resources)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
         pulumi.set(__self__, "service_role", service_role)
@@ -36,14 +36,14 @@ class GetComputeEnvironmentResult:
         pulumi.set(__self__, "unmanagedv_cpus", unmanagedv_cpus)
 
     @property
+    @pulumi.getter(name="computeEnvironmentArn")
+    def compute_environment_arn(self) -> Optional[str]:
+        return pulumi.get(self, "compute_environment_arn")
+
+    @property
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> Optional['outputs.ComputeEnvironmentComputeResources']:
         return pulumi.get(self, "compute_resources")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -67,20 +67,20 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
         if False:
             yield self
         return GetComputeEnvironmentResult(
+            compute_environment_arn=self.compute_environment_arn,
             compute_resources=self.compute_resources,
-            id=self.id,
             service_role=self.service_role,
             state=self.state,
             unmanagedv_cpus=self.unmanagedv_cpus)
 
 
-def get_compute_environment(id: Optional[str] = None,
+def get_compute_environment(compute_environment_arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputeEnvironmentResult:
     """
     Resource Type definition for AWS::Batch::ComputeEnvironment
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['computeEnvironmentArn'] = compute_environment_arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -88,15 +88,15 @@ def get_compute_environment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult).value
 
     return AwaitableGetComputeEnvironmentResult(
+        compute_environment_arn=__ret__.compute_environment_arn,
         compute_resources=__ret__.compute_resources,
-        id=__ret__.id,
         service_role=__ret__.service_role,
         state=__ret__.state,
         unmanagedv_cpus=__ret__.unmanagedv_cpus)
 
 
 @_utilities.lift_output_func(get_compute_environment)
-def get_compute_environment_output(id: Optional[pulumi.Input[str]] = None,
+def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
     Resource Type definition for AWS::Batch::ComputeEnvironment

@@ -22,8 +22,20 @@ namespace Pulumi.AwsNative.EC2
         [Output("cidrBlock")]
         public Output<string?> CidrBlock { get; private set; } = null!;
 
+        [Output("ipv4IpamPoolId")]
+        public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
+
+        [Output("ipv4NetmaskLength")]
+        public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
+
         [Output("ipv6CidrBlock")]
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
+
+        [Output("ipv6IpamPoolId")]
+        public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
+
+        [Output("ipv6NetmaskLength")]
+        public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         [Output("ipv6Pool")]
         public Output<string?> Ipv6Pool { get; private set; } = null!;
@@ -82,8 +94,20 @@ namespace Pulumi.AwsNative.EC2
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
+        [Input("ipv4IpamPoolId")]
+        public Input<string>? Ipv4IpamPoolId { get; set; }
+
+        [Input("ipv4NetmaskLength")]
+        public Input<int>? Ipv4NetmaskLength { get; set; }
+
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        [Input("ipv6IpamPoolId")]
+        public Input<string>? Ipv6IpamPoolId { get; set; }
+
+        [Input("ipv6NetmaskLength")]
+        public Input<int>? Ipv6NetmaskLength { get; set; }
 
         [Input("ipv6Pool")]
         public Input<string>? Ipv6Pool { get; set; }

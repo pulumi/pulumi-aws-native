@@ -10,66 +10,119 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS
 {
     /// <summary>
-    /// Resource Type definition for AWS::EKS::Nodegroup
+    /// Resource schema for AWS::EKS::Nodegroup
     /// </summary>
-    [Obsolete(@"Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eks:Nodegroup")]
     public partial class Nodegroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AMI type for your node group.
+        /// </summary>
         [Output("amiType")]
         public Output<string?> AmiType { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The capacity type of your managed node group.
+        /// </summary>
         [Output("capacityType")]
         public Output<string?> CapacityType { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the cluster to create the node group in.
+        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// The root device disk size (in GiB) for your node group instances.
+        /// </summary>
         [Output("diskSize")]
-        public Output<double?> DiskSize { get; private set; } = null!;
+        public Output<int?> DiskSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+        /// </summary>
         [Output("forceUpdateEnabled")]
         public Output<bool?> ForceUpdateEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify the instance types for a node group.
+        /// </summary>
         [Output("instanceTypes")]
         public Output<ImmutableArray<string>> InstanceTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        /// </summary>
         [Output("labels")]
         public Output<object?> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// An object representing a node group's launch template specification.
+        /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.NodegroupLaunchTemplateSpecification?> LaunchTemplate { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+        /// </summary>
         [Output("nodeRole")]
         public Output<string> NodeRole { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name to give your node group.
+        /// </summary>
         [Output("nodegroupName")]
         public Output<string?> NodegroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        /// </summary>
         [Output("releaseVersion")]
         public Output<string?> ReleaseVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The remote access (SSH) configuration to use with your node group.
+        /// </summary>
         [Output("remoteAccess")]
         public Output<Outputs.NodegroupRemoteAccess?> RemoteAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// The scaling configuration details for the Auto Scaling group that is created for your node group.
+        /// </summary>
         [Output("scalingConfig")]
         public Output<Outputs.NodegroupScalingConfig?> ScalingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnets to use for the Auto Scaling group that is created for your node group.
+        /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        /// </summary>
         [Output("taints")]
         public Output<ImmutableArray<Outputs.NodegroupTaint>> Taints { get; private set; } = null!;
 
+        /// <summary>
+        /// The node group update configuration.
+        /// </summary>
         [Output("updateConfig")]
         public Output<Outputs.NodegroupUpdateConfig?> UpdateConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The Kubernetes version to use for your managed nodes.
+        /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
@@ -118,72 +171,129 @@ namespace Pulumi.AwsNative.EKS
 
     public sealed class NodegroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AMI type for your node group.
+        /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
 
+        /// <summary>
+        /// The capacity type of your managed node group.
+        /// </summary>
         [Input("capacityType")]
         public Input<string>? CapacityType { get; set; }
 
+        /// <summary>
+        /// Name of the cluster to create the node group in.
+        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// The root device disk size (in GiB) for your node group instances.
+        /// </summary>
         [Input("diskSize")]
-        public Input<double>? DiskSize { get; set; }
+        public Input<int>? DiskSize { get; set; }
 
+        /// <summary>
+        /// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+        /// </summary>
         [Input("forceUpdateEnabled")]
         public Input<bool>? ForceUpdateEnabled { get; set; }
 
         [Input("instanceTypes")]
         private InputList<string>? _instanceTypes;
+
+        /// <summary>
+        /// Specify the instance types for a node group.
+        /// </summary>
         public InputList<string> InstanceTypes
         {
             get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
             set => _instanceTypes = value;
         }
 
+        /// <summary>
+        /// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        /// </summary>
         [Input("labels")]
         public Input<object>? Labels { get; set; }
 
+        /// <summary>
+        /// An object representing a node group's launch template specification.
+        /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodegroupLaunchTemplateSpecificationArgs>? LaunchTemplate { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+        /// </summary>
         [Input("nodeRole", required: true)]
         public Input<string> NodeRole { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name to give your node group.
+        /// </summary>
         [Input("nodegroupName")]
         public Input<string>? NodegroupName { get; set; }
 
+        /// <summary>
+        /// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        /// </summary>
         [Input("releaseVersion")]
         public Input<string>? ReleaseVersion { get; set; }
 
+        /// <summary>
+        /// The remote access (SSH) configuration to use with your node group.
+        /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodegroupRemoteAccessArgs>? RemoteAccess { get; set; }
 
+        /// <summary>
+        /// The scaling configuration details for the Auto Scaling group that is created for your node group.
+        /// </summary>
         [Input("scalingConfig")]
         public Input<Inputs.NodegroupScalingConfigArgs>? ScalingConfig { get; set; }
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// The subnets to use for the Auto Scaling group that is created for your node group.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
             set => _subnets = value;
         }
 
+        /// <summary>
+        /// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 
         [Input("taints")]
         private InputList<Inputs.NodegroupTaintArgs>? _taints;
+
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        /// </summary>
         public InputList<Inputs.NodegroupTaintArgs> Taints
         {
             get => _taints ?? (_taints = new InputList<Inputs.NodegroupTaintArgs>());
             set => _taints = value;
         }
 
+        /// <summary>
+        /// The node group update configuration.
+        /// </summary>
         [Input("updateConfig")]
         public Input<Inputs.NodegroupUpdateConfigArgs>? UpdateConfig { get; set; }
 
+        /// <summary>
+        /// The Kubernetes version to use for your managed nodes.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

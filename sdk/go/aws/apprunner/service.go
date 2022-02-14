@@ -20,6 +20,7 @@ type Service struct {
 	EncryptionConfiguration     ServiceEncryptionConfigurationPtrOutput  `pulumi:"encryptionConfiguration"`
 	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrOutput `pulumi:"healthCheckConfiguration"`
 	InstanceConfiguration       ServiceInstanceConfigurationPtrOutput    `pulumi:"instanceConfiguration"`
+	NetworkConfiguration        ServiceNetworkConfigurationPtrOutput     `pulumi:"networkConfiguration"`
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The AppRunner Service Id
@@ -81,6 +82,7 @@ type serviceArgs struct {
 	EncryptionConfiguration     *ServiceEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
 	HealthCheckConfiguration    *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
 	InstanceConfiguration       *ServiceInstanceConfiguration    `pulumi:"instanceConfiguration"`
+	NetworkConfiguration        *ServiceNetworkConfiguration     `pulumi:"networkConfiguration"`
 	// The AppRunner Service Name.
 	ServiceName         *string                    `pulumi:"serviceName"`
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
@@ -94,6 +96,7 @@ type ServiceArgs struct {
 	EncryptionConfiguration     ServiceEncryptionConfigurationPtrInput
 	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrInput
 	InstanceConfiguration       ServiceInstanceConfigurationPtrInput
+	NetworkConfiguration        ServiceNetworkConfigurationPtrInput
 	// The AppRunner Service Name.
 	ServiceName         pulumi.StringPtrInput
 	SourceConfiguration ServiceSourceConfigurationInput

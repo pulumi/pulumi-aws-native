@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Inputs
 {
 
+    /// <summary>
+    /// An object representing a Taint specification for AWS EKS Nodegroup.
+    /// </summary>
     public sealed class NodegroupTaintArgs : Pulumi.ResourceArgs
     {
         [Input("effect")]

@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ServiceCodeConfigurationConfigurationSource',
     'ServiceCodeConfigurationValuesRuntime',
+    'ServiceEgressConfigurationEgressType',
     'ServiceHealthCheckConfigurationProtocol',
     'ServiceImageRepositoryImageRepositoryType',
     'ServiceSourceCodeVersionType',
@@ -27,6 +28,14 @@ class ServiceCodeConfigurationValuesRuntime(str, Enum):
     """
     PYTHON3 = "PYTHON_3"
     NODEJS12 = "NODEJS_12"
+
+
+class ServiceEgressConfigurationEgressType(str, Enum):
+    """
+    Network egress type.
+    """
+    DEFAULT = "DEFAULT"
+    VPC = "VPC"
 
 
 class ServiceHealthCheckConfigurationProtocol(str, Enum):

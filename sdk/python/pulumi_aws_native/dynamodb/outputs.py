@@ -491,6 +491,8 @@ class GlobalTableReplicaSpecification(dict):
             suggest = "read_provisioned_throughput_settings"
         elif key == "sSESpecification":
             suggest = "s_se_specification"
+        elif key == "tableClass":
+            suggest = "table_class"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GlobalTableReplicaSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -510,6 +512,7 @@ class GlobalTableReplicaSpecification(dict):
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
                  read_provisioned_throughput_settings: Optional['outputs.GlobalTableReadProvisionedThroughputSettings'] = None,
                  s_se_specification: Optional['outputs.GlobalTableReplicaSSESpecification'] = None,
+                 table_class: Optional[str] = None,
                  tags: Optional[Sequence['outputs.GlobalTableTag']] = None):
         pulumi.set(__self__, "region", region)
         if contributor_insights_specification is not None:
@@ -522,6 +525,8 @@ class GlobalTableReplicaSpecification(dict):
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if s_se_specification is not None:
             pulumi.set(__self__, "s_se_specification", s_se_specification)
+        if table_class is not None:
+            pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -554,6 +559,11 @@ class GlobalTableReplicaSpecification(dict):
     @pulumi.getter(name="sSESpecification")
     def s_se_specification(self) -> Optional['outputs.GlobalTableReplicaSSESpecification']:
         return pulumi.get(self, "s_se_specification")
+
+    @property
+    @pulumi.getter(name="tableClass")
+    def table_class(self) -> Optional[str]:
+        return pulumi.get(self, "table_class")
 
     @property
     @pulumi.getter

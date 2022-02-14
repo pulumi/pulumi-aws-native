@@ -24,6 +24,9 @@ export interface GetConfigurationSetEventDestinationArgs {
 }
 
 export interface GetConfigurationSetEventDestinationResult {
+    /**
+     * The event destination object.
+     */
     readonly eventDestination?: outputs.ses.ConfigurationSetEventDestinationEventDestination;
     readonly id?: string;
 }

@@ -27,6 +27,7 @@ type LookupAuthorizerArgs struct {
 type LookupAuthorizerResult struct {
 	Arn                    *string           `pulumi:"arn"`
 	AuthorizerFunctionArn  *string           `pulumi:"authorizerFunctionArn"`
+	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
 	Status                 *AuthorizerStatus `pulumi:"status"`
 	Tags                   []AuthorizerTag   `pulumi:"tags"`
 	TokenKeyName           *string           `pulumi:"tokenKeyName"`
@@ -70,6 +71,10 @@ func (o LookupAuthorizerResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupAuthorizerResultOutput) AuthorizerFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerFunctionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAuthorizerResultOutput) EnableCachingForHttp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *bool { return v.EnableCachingForHttp }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupAuthorizerResultOutput) Status() AuthorizerStatusPtrOutput {

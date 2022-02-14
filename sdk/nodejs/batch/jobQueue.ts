@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Batch::JobQueue
- *
- * @deprecated JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class JobQueue extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class JobQueue extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobQueue {
-        pulumi.log.warn("JobQueue is deprecated: JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new JobQueue(name, undefined as any, { ...opts, id: id });
     }
 
@@ -39,10 +36,14 @@ export class JobQueue extends pulumi.CustomResource {
     }
 
     public readonly computeEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[]>;
+    public /*out*/ readonly jobQueueArn!: pulumi.Output<string>;
     public readonly jobQueueName!: pulumi.Output<string | undefined>;
     public readonly priority!: pulumi.Output<number>;
     public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<enums.batch.JobQueueState | undefined>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -52,9 +53,7 @@ export class JobQueue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: JobQueueArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("JobQueue is deprecated: JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -70,8 +69,10 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["jobQueueArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeEnvironmentOrder"] = undefined /*out*/;
+            resourceInputs["jobQueueArn"] = undefined /*out*/;
             resourceInputs["jobQueueName"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["schedulingPolicyArn"] = undefined /*out*/;
@@ -91,6 +92,9 @@ export interface JobQueueArgs {
     jobQueueName?: pulumi.Input<string>;
     priority: pulumi.Input<number>;
     schedulingPolicyArn?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<enums.batch.JobQueueState>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     tags?: any;
 }

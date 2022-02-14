@@ -32,6 +32,9 @@ __all__ = [
 
 @pulumi.output_type
 class ConfigurationSetEventDestinationCloudWatchDestination(dict):
+    """
+    An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -51,17 +54,27 @@ class ConfigurationSetEventDestinationCloudWatchDestination(dict):
 
     def __init__(__self__, *,
                  dimension_configurations: Optional[Sequence['outputs.ConfigurationSetEventDestinationDimensionConfiguration']] = None):
+        """
+        An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+        :param Sequence['ConfigurationSetEventDestinationDimensionConfiguration'] dimension_configurations: A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+        """
         if dimension_configurations is not None:
             pulumi.set(__self__, "dimension_configurations", dimension_configurations)
 
     @property
     @pulumi.getter(name="dimensionConfigurations")
     def dimension_configurations(self) -> Optional[Sequence['outputs.ConfigurationSetEventDestinationDimensionConfiguration']]:
+        """
+        A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+        """
         return pulumi.get(self, "dimension_configurations")
 
 
 @pulumi.output_type
 class ConfigurationSetEventDestinationDimensionConfiguration(dict):
+    """
+    A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -87,6 +100,12 @@ class ConfigurationSetEventDestinationDimensionConfiguration(dict):
                  default_dimension_value: str,
                  dimension_name: str,
                  dimension_value_source: str):
+        """
+        A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+        :param str default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
+        :param str dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        :param str dimension_value_source: The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+        """
         pulumi.set(__self__, "default_dimension_value", default_dimension_value)
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "dimension_value_source", dimension_value_source)
@@ -94,16 +113,25 @@ class ConfigurationSetEventDestinationDimensionConfiguration(dict):
     @property
     @pulumi.getter(name="defaultDimensionValue")
     def default_dimension_value(self) -> str:
+        """
+        The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
+        """
         return pulumi.get(self, "default_dimension_value")
 
     @property
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> str:
+        """
+        The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        """
         return pulumi.get(self, "dimension_name")
 
     @property
     @pulumi.getter(name="dimensionValueSource")
     def dimension_value_source(self) -> str:
+        """
+        The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+        """
         return pulumi.get(self, "dimension_value_source")
 
 
@@ -136,6 +164,13 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  enabled: Optional[bool] = None,
                  kinesis_firehose_destination: Optional['outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination'] = None,
                  name: Optional[str] = None):
+        """
+        :param Sequence[str] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        :param 'ConfigurationSetEventDestinationCloudWatchDestination' cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+        :param bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        :param 'ConfigurationSetEventDestinationKinesisFirehoseDestination' kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+        :param str name: The name of the event destination set.
+        """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
             pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
@@ -149,31 +184,49 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @property
     @pulumi.getter(name="matchingEventTypes")
     def matching_event_types(self) -> Sequence[str]:
+        """
+        The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        """
         return pulumi.get(self, "matching_event_types")
 
     @property
     @pulumi.getter(name="cloudWatchDestination")
     def cloud_watch_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationCloudWatchDestination']:
+        """
+        An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+        """
         return pulumi.get(self, "cloud_watch_destination")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="kinesisFirehoseDestination")
     def kinesis_firehose_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination']:
+        """
+        An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+        """
         return pulumi.get(self, "kinesis_firehose_destination")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the event destination set.
+        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
+    """
+    An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -196,17 +249,28 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
     def __init__(__self__, *,
                  delivery_stream_arn: str,
                  i_am_role_arn: str):
+        """
+        An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+        :param str delivery_stream_arn: The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+        :param str i_am_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+        """
         pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
         pulumi.set(__self__, "i_am_role_arn", i_am_role_arn)
 
     @property
     @pulumi.getter(name="deliveryStreamARN")
     def delivery_stream_arn(self) -> str:
+        """
+        The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+        """
         return pulumi.get(self, "delivery_stream_arn")
 
     @property
     @pulumi.getter(name="iAMRoleARN")
     def i_am_role_arn(self) -> str:
+        """
+        The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+        """
         return pulumi.get(self, "i_am_role_arn")
 
 

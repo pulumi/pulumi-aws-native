@@ -6,9 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EKS::Nodegroup
- *
- * @deprecated Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Resource schema for AWS::EKS::Nodegroup
  */
 export class Nodegroup extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Nodegroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Nodegroup {
-        pulumi.log.warn("Nodegroup is deprecated: Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Nodegroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,24 +35,78 @@ export class Nodegroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === Nodegroup.__pulumiType;
     }
 
+    /**
+     * The AMI type for your node group.
+     */
     public readonly amiType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The capacity type of your managed node group.
+     */
     public readonly capacityType!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the cluster to create the node group in.
+     */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * The root device disk size (in GiB) for your node group instances.
+     */
     public readonly diskSize!: pulumi.Output<number | undefined>;
+    /**
+     * Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+     */
     public readonly forceUpdateEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specify the instance types for a node group.
+     */
     public readonly instanceTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Kubernetes labels to be applied to the nodes in the node group when they are created.
+     */
     public readonly labels!: pulumi.Output<any | undefined>;
+    /**
+     * An object representing a node group's launch template specification.
+     */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodegroupLaunchTemplateSpecification | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+     */
     public readonly nodeRole!: pulumi.Output<string>;
+    /**
+     * The unique name to give your node group.
+     */
     public readonly nodegroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+     */
     public readonly releaseVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The remote access (SSH) configuration to use with your node group.
+     */
     public readonly remoteAccess!: pulumi.Output<outputs.eks.NodegroupRemoteAccess | undefined>;
+    /**
+     * The scaling configuration details for the Auto Scaling group that is created for your node group.
+     */
     public readonly scalingConfig!: pulumi.Output<outputs.eks.NodegroupScalingConfig | undefined>;
+    /**
+     * The subnets to use for the Auto Scaling group that is created for your node group.
+     */
     public readonly subnets!: pulumi.Output<string[]>;
+    /**
+     * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
+    /**
+     * The Kubernetes taints to be applied to the nodes in the node group when they are created.
+     */
     public readonly taints!: pulumi.Output<outputs.eks.NodegroupTaint[] | undefined>;
+    /**
+     * The node group update configuration.
+     */
     public readonly updateConfig!: pulumi.Output<outputs.eks.NodegroupUpdateConfig | undefined>;
+    /**
+     * The Kubernetes version to use for your managed nodes.
+     */
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -65,9 +116,7 @@ export class Nodegroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NodegroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Nodegroup is deprecated: Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -129,22 +178,76 @@ export class Nodegroup extends pulumi.CustomResource {
  * The set of arguments for constructing a Nodegroup resource.
  */
 export interface NodegroupArgs {
+    /**
+     * The AMI type for your node group.
+     */
     amiType?: pulumi.Input<string>;
+    /**
+     * The capacity type of your managed node group.
+     */
     capacityType?: pulumi.Input<string>;
+    /**
+     * Name of the cluster to create the node group in.
+     */
     clusterName: pulumi.Input<string>;
+    /**
+     * The root device disk size (in GiB) for your node group instances.
+     */
     diskSize?: pulumi.Input<number>;
+    /**
+     * Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+     */
     forceUpdateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specify the instance types for a node group.
+     */
     instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes labels to be applied to the nodes in the node group when they are created.
+     */
     labels?: any;
+    /**
+     * An object representing a node group's launch template specification.
+     */
     launchTemplate?: pulumi.Input<inputs.eks.NodegroupLaunchTemplateSpecificationArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+     */
     nodeRole: pulumi.Input<string>;
+    /**
+     * The unique name to give your node group.
+     */
     nodegroupName?: pulumi.Input<string>;
+    /**
+     * The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+     */
     releaseVersion?: pulumi.Input<string>;
+    /**
+     * The remote access (SSH) configuration to use with your node group.
+     */
     remoteAccess?: pulumi.Input<inputs.eks.NodegroupRemoteAccessArgs>;
+    /**
+     * The scaling configuration details for the Auto Scaling group that is created for your node group.
+     */
     scalingConfig?: pulumi.Input<inputs.eks.NodegroupScalingConfigArgs>;
+    /**
+     * The subnets to use for the Auto Scaling group that is created for your node group.
+     */
     subnets: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+     */
     tags?: any;
+    /**
+     * The Kubernetes taints to be applied to the nodes in the node group when they are created.
+     */
     taints?: pulumi.Input<pulumi.Input<inputs.eks.NodegroupTaintArgs>[]>;
+    /**
+     * The node group update configuration.
+     */
     updateConfig?: pulumi.Input<inputs.eks.NodegroupUpdateConfigArgs>;
+    /**
+     * The Kubernetes version to use for your managed nodes.
+     */
     version?: pulumi.Input<string>;
 }

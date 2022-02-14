@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, health_check_configuration=None, instance_configuration=None, service_arn=None, service_id=None, service_url=None, source_configuration=None, status=None):
+    def __init__(__self__, health_check_configuration=None, instance_configuration=None, network_configuration=None, service_arn=None, service_id=None, service_url=None, source_configuration=None, status=None):
         if health_check_configuration and not isinstance(health_check_configuration, dict):
             raise TypeError("Expected argument 'health_check_configuration' to be a dict")
         pulumi.set(__self__, "health_check_configuration", health_check_configuration)
         if instance_configuration and not isinstance(instance_configuration, dict):
             raise TypeError("Expected argument 'instance_configuration' to be a dict")
         pulumi.set(__self__, "instance_configuration", instance_configuration)
+        if network_configuration and not isinstance(network_configuration, dict):
+            raise TypeError("Expected argument 'network_configuration' to be a dict")
+        pulumi.set(__self__, "network_configuration", network_configuration)
         if service_arn and not isinstance(service_arn, str):
             raise TypeError("Expected argument 'service_arn' to be a str")
         pulumi.set(__self__, "service_arn", service_arn)
@@ -51,6 +54,11 @@ class GetServiceResult:
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> Optional['outputs.ServiceInstanceConfiguration']:
         return pulumi.get(self, "instance_configuration")
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional['outputs.ServiceNetworkConfiguration']:
+        return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="serviceArn")
@@ -98,6 +106,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             health_check_configuration=self.health_check_configuration,
             instance_configuration=self.instance_configuration,
+            network_configuration=self.network_configuration,
             service_arn=self.service_arn,
             service_id=self.service_id,
             service_url=self.service_url,
@@ -124,6 +133,7 @@ def get_service(service_arn: Optional[str] = None,
     return AwaitableGetServiceResult(
         health_check_configuration=__ret__.health_check_configuration,
         instance_configuration=__ret__.instance_configuration,
+        network_configuration=__ret__.network_configuration,
         service_arn=__ret__.service_arn,
         service_id=__ret__.service_id,
         service_url=__ret__.service_url,

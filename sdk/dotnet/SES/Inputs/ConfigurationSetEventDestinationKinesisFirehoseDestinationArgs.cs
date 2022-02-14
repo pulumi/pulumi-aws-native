@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
+    /// <summary>
+    /// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+    /// </summary>
     public sealed class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+        /// </summary>
         [Input("deliveryStreamARN", required: true)]
         public Input<string> DeliveryStreamARN { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+        /// </summary>
         [Input("iAMRoleARN", required: true)]
         public Input<string> IAMRoleARN { get; set; } = null!;
 

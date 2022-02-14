@@ -123,6 +123,7 @@ namespace Pulumi.AwsNative.CloudFormation
 
         public static PublicTypeVersionType Resource { get; } = new PublicTypeVersionType("RESOURCE");
         public static PublicTypeVersionType Module { get; } = new PublicTypeVersionType("MODULE");
+        public static PublicTypeVersionType Hook { get; } = new PublicTypeVersionType("HOOK");
 
         public static bool operator ==(PublicTypeVersionType left, PublicTypeVersionType right) => left.Equals(right);
         public static bool operator !=(PublicTypeVersionType left, PublicTypeVersionType right) => !left.Equals(right);
@@ -408,6 +409,7 @@ namespace Pulumi.AwsNative.CloudFormation
 
         public static TypeActivationType Resource { get; } = new TypeActivationType("RESOURCE");
         public static TypeActivationType Module { get; } = new TypeActivationType("MODULE");
+        public static TypeActivationType Hook { get; } = new TypeActivationType("HOOK");
 
         public static bool operator ==(TypeActivationType left, TypeActivationType right) => left.Equals(right);
         public static bool operator !=(TypeActivationType left, TypeActivationType right) => !left.Equals(right);

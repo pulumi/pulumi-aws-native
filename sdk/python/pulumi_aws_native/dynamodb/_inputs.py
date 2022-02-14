@@ -390,6 +390,7 @@ class GlobalTableReplicaSpecificationArgs:
                  point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
                  s_se_specification: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']] = None,
+                 table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
         pulumi.set(__self__, "region", region)
         if contributor_insights_specification is not None:
@@ -402,6 +403,8 @@ class GlobalTableReplicaSpecificationArgs:
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if s_se_specification is not None:
             pulumi.set(__self__, "s_se_specification", s_se_specification)
+        if table_class is not None:
+            pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -458,6 +461,15 @@ class GlobalTableReplicaSpecificationArgs:
     @s_se_specification.setter
     def s_se_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]):
         pulumi.set(self, "s_se_specification", value)
+
+    @property
+    @pulumi.getter(name="tableClass")
+    def table_class(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "table_class")
+
+    @table_class.setter
+    def table_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_class", value)
 
     @property
     @pulumi.getter

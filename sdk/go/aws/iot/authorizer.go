@@ -18,6 +18,7 @@ type Authorizer struct {
 	Arn                    pulumi.StringOutput       `pulumi:"arn"`
 	AuthorizerFunctionArn  pulumi.StringOutput       `pulumi:"authorizerFunctionArn"`
 	AuthorizerName         pulumi.StringPtrOutput    `pulumi:"authorizerName"`
+	EnableCachingForHttp   pulumi.BoolPtrOutput      `pulumi:"enableCachingForHttp"`
 	SigningDisabled        pulumi.BoolPtrOutput      `pulumi:"signingDisabled"`
 	Status                 AuthorizerStatusPtrOutput `pulumi:"status"`
 	Tags                   AuthorizerTagArrayOutput  `pulumi:"tags"`
@@ -69,6 +70,7 @@ func (AuthorizerState) ElementType() reflect.Type {
 type authorizerArgs struct {
 	AuthorizerFunctionArn  string            `pulumi:"authorizerFunctionArn"`
 	AuthorizerName         *string           `pulumi:"authorizerName"`
+	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
 	SigningDisabled        *bool             `pulumi:"signingDisabled"`
 	Status                 *AuthorizerStatus `pulumi:"status"`
 	Tags                   []AuthorizerTag   `pulumi:"tags"`
@@ -80,6 +82,7 @@ type authorizerArgs struct {
 type AuthorizerArgs struct {
 	AuthorizerFunctionArn  pulumi.StringInput
 	AuthorizerName         pulumi.StringPtrInput
+	EnableCachingForHttp   pulumi.BoolPtrInput
 	SigningDisabled        pulumi.BoolPtrInput
 	Status                 AuthorizerStatusPtrInput
 	Tags                   AuthorizerTagArrayInput

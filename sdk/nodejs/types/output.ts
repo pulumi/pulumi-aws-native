@@ -3036,6 +3036,20 @@ export namespace apprunner {
     }
 
     /**
+     * Network egress configuration
+     */
+    export interface ServiceEgressConfiguration {
+        /**
+         * Network egress type.
+         */
+        egressType: enums.apprunner.ServiceEgressConfigurationEgressType;
+        /**
+         * The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+         */
+        vpcConnectorArn?: string;
+    }
+
+    /**
      * Encryption configuration (KMS key)
      */
     export interface ServiceEncryptionConfiguration {
@@ -3126,6 +3140,13 @@ export namespace apprunner {
     export interface ServiceKeyValuePair {
         name?: string;
         value?: string;
+    }
+
+    /**
+     * Network configuration
+     */
+    export interface ServiceNetworkConfiguration {
+        egressConfiguration: outputs.apprunner.ServiceEgressConfiguration;
     }
 
     /**
@@ -4117,6 +4138,9 @@ export namespace batch {
         securityGroupIds?: string[];
         spotIamFleetRole?: string;
         subnets: string[];
+        /**
+         * A key-value pair to associate with a resource.
+         */
         tags?: any;
         type: string;
     }
@@ -8566,6 +8590,7 @@ export namespace dynamodb {
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
         sSESpecification?: outputs.dynamodb.GlobalTableReplicaSSESpecification;
+        tableClass?: string;
         tags?: outputs.dynamodb.GlobalTableTag[];
     }
 
@@ -10749,31 +10774,52 @@ export namespace eks {
         value: string;
     }
 
+    /**
+     * An object representing a launch template specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupLaunchTemplateSpecification {
         id?: string;
         name?: string;
         version?: string;
     }
 
+    /**
+     * An object representing a remote access configuration specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupRemoteAccess {
         ec2SshKey: string;
         sourceSecurityGroups?: string[];
     }
 
+    /**
+     * An object representing a auto scaling group specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupScalingConfig {
         desiredSize?: number;
         maxSize?: number;
         minSize?: number;
     }
 
+    /**
+     * An object representing a Taint specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupTaint {
         effect?: string;
         key?: string;
         value?: string;
     }
 
+    /**
+     * The node group update configuration.
+     */
     export interface NodegroupUpdateConfig {
+        /**
+         * The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+         */
         maxUnavailable?: number;
+        /**
+         * The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
+         */
         maxUnavailablePercentage?: number;
     }
 
@@ -28918,26 +28964,68 @@ export namespace servicediscovery {
 }
 
 export namespace ses {
+    /**
+     * An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+     */
     export interface ConfigurationSetEventDestinationCloudWatchDestination {
+        /**
+         * A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+         */
         dimensionConfigurations?: outputs.ses.ConfigurationSetEventDestinationDimensionConfiguration[];
     }
 
+    /**
+     * A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+     */
     export interface ConfigurationSetEventDestinationDimensionConfiguration {
+        /**
+         * The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
+         */
         defaultDimensionValue: string;
+        /**
+         * The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         */
         dimensionName: string;
+        /**
+         * The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+         */
         dimensionValueSource: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestination {
+        /**
+         * An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+         */
         cloudWatchDestination?: outputs.ses.ConfigurationSetEventDestinationCloudWatchDestination;
+        /**
+         * Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+         */
         enabled?: boolean;
+        /**
+         * An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+         */
         kinesisFirehoseDestination?: outputs.ses.ConfigurationSetEventDestinationKinesisFirehoseDestination;
+        /**
+         * The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+         */
         matchingEventTypes: string[];
+        /**
+         * The name of the event destination set.
+         */
         name?: string;
     }
 
+    /**
+     * An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+     */
     export interface ConfigurationSetEventDestinationKinesisFirehoseDestination {
+        /**
+         * The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+         */
         deliveryStreamARN: string;
+        /**
+         * The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+         */
         iAMRoleARN: string;
     }
 

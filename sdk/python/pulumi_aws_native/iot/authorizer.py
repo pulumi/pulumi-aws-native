@@ -18,6 +18,7 @@ class AuthorizerArgs:
     def __init__(__self__, *,
                  authorizer_function_arn: pulumi.Input[str],
                  authorizer_name: Optional[pulumi.Input[str]] = None,
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
@@ -29,6 +30,8 @@ class AuthorizerArgs:
         pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
         if authorizer_name is not None:
             pulumi.set(__self__, "authorizer_name", authorizer_name)
+        if enable_caching_for_http is not None:
+            pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if signing_disabled is not None:
             pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
@@ -57,6 +60,15 @@ class AuthorizerArgs:
     @authorizer_name.setter
     def authorizer_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authorizer_name", value)
+
+    @property
+    @pulumi.getter(name="enableCachingForHttp")
+    def enable_caching_for_http(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_caching_for_http")
+
+    @enable_caching_for_http.setter
+    def enable_caching_for_http(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_caching_for_http", value)
 
     @property
     @pulumi.getter(name="signingDisabled")
@@ -111,6 +123,7 @@ class Authorizer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
                  authorizer_name: Optional[pulumi.Input[str]] = None,
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
@@ -149,6 +162,7 @@ class Authorizer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
                  authorizer_name: Optional[pulumi.Input[str]] = None,
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
@@ -170,6 +184,7 @@ class Authorizer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorizer_function_arn'")
             __props__.__dict__["authorizer_function_arn"] = authorizer_function_arn
             __props__.__dict__["authorizer_name"] = authorizer_name
+            __props__.__dict__["enable_caching_for_http"] = enable_caching_for_http
             __props__.__dict__["signing_disabled"] = signing_disabled
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -201,6 +216,7 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["authorizer_function_arn"] = None
         __props__.__dict__["authorizer_name"] = None
+        __props__.__dict__["enable_caching_for_http"] = None
         __props__.__dict__["signing_disabled"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -222,6 +238,11 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="authorizerName")
     def authorizer_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "authorizer_name")
+
+    @property
+    @pulumi.getter(name="enableCachingForHttp")
+    def enable_caching_for_http(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_caching_for_http")
 
     @property
     @pulumi.getter(name="signingDisabled")

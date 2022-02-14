@@ -15,17 +15,17 @@ export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:batch:getComputeEnvironment", {
-        "id": args.id,
+        "computeEnvironmentArn": args.computeEnvironmentArn,
     }, opts);
 }
 
 export interface GetComputeEnvironmentArgs {
-    id: string;
+    computeEnvironmentArn: string;
 }
 
 export interface GetComputeEnvironmentResult {
+    readonly computeEnvironmentArn?: string;
     readonly computeResources?: outputs.batch.ComputeEnvironmentComputeResources;
-    readonly id?: string;
     readonly serviceRole?: string;
     readonly state?: string;
     readonly unmanagedvCpus?: number;
@@ -36,5 +36,5 @@ export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArg
 }
 
 export interface GetComputeEnvironmentOutputArgs {
-    id: pulumi.Input<string>;
+    computeEnvironmentArn: pulumi.Input<string>;
 }

@@ -18,13 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetNodegroupResult:
-    def __init__(__self__, arn=None, force_update_enabled=None, id=None, labels=None, launch_template=None, release_version=None, scaling_config=None, tags=None, taints=None, update_config=None, version=None):
+    def __init__(__self__, arn=None, id=None, labels=None, launch_template=None, release_version=None, scaling_config=None, tags=None, taints=None, update_config=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if force_update_enabled and not isinstance(force_update_enabled, bool):
-            raise TypeError("Expected argument 'force_update_enabled' to be a bool")
-        pulumi.set(__self__, "force_update_enabled", force_update_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -59,11 +56,6 @@ class GetNodegroupResult:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="forceUpdateEnabled")
-    def force_update_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "force_update_enabled")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
@@ -71,41 +63,65 @@ class GetNodegroupResult:
     @property
     @pulumi.getter
     def labels(self) -> Optional[Any]:
+        """
+        The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional['outputs.NodegroupLaunchTemplateSpecification']:
+        """
+        An object representing a node group's launch template specification.
+        """
         return pulumi.get(self, "launch_template")
 
     @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[str]:
+        """
+        The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        """
         return pulumi.get(self, "release_version")
 
     @property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional['outputs.NodegroupScalingConfig']:
+        """
+        The scaling configuration details for the Auto Scaling group that is created for your node group.
+        """
         return pulumi.get(self, "scaling_config")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def taints(self) -> Optional[Sequence['outputs.NodegroupTaint']]:
+        """
+        The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        """
         return pulumi.get(self, "taints")
 
     @property
     @pulumi.getter(name="updateConfig")
     def update_config(self) -> Optional['outputs.NodegroupUpdateConfig']:
+        """
+        The node group update configuration.
+        """
         return pulumi.get(self, "update_config")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        The Kubernetes version to use for your managed nodes.
+        """
         return pulumi.get(self, "version")
 
 
@@ -116,7 +132,6 @@ class AwaitableGetNodegroupResult(GetNodegroupResult):
             yield self
         return GetNodegroupResult(
             arn=self.arn,
-            force_update_enabled=self.force_update_enabled,
             id=self.id,
             labels=self.labels,
             launch_template=self.launch_template,
@@ -131,7 +146,7 @@ class AwaitableGetNodegroupResult(GetNodegroupResult):
 def get_nodegroup(id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodegroupResult:
     """
-    Resource Type definition for AWS::EKS::Nodegroup
+    Resource schema for AWS::EKS::Nodegroup
     """
     __args__ = dict()
     __args__['id'] = id
@@ -143,7 +158,6 @@ def get_nodegroup(id: Optional[str] = None,
 
     return AwaitableGetNodegroupResult(
         arn=__ret__.arn,
-        force_update_enabled=__ret__.force_update_enabled,
         id=__ret__.id,
         labels=__ret__.labels,
         launch_template=__ret__.launch_template,
@@ -159,6 +173,6 @@ def get_nodegroup(id: Optional[str] = None,
 def get_nodegroup_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodegroupResult]:
     """
-    Resource Type definition for AWS::EKS::Nodegroup
+    Resource schema for AWS::EKS::Nodegroup
     """
     ...

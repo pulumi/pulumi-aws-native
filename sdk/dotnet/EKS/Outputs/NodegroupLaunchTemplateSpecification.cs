@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Outputs
 {
 
+    /// <summary>
+    /// An object representing a launch template specification for AWS EKS Nodegroup.
+    /// </summary>
     [OutputType]
     public sealed class NodegroupLaunchTemplateSpecification
     {

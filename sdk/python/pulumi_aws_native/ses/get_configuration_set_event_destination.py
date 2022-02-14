@@ -29,6 +29,9 @@ class GetConfigurationSetEventDestinationResult:
     @property
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestination']:
+        """
+        The event destination object.
+        """
         return pulumi.get(self, "event_destination")
 
     @property

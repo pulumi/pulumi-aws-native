@@ -14,12 +14,14 @@ __all__ = [
     'ServiceCodeConfigurationValuesArgs',
     'ServiceCodeConfigurationArgs',
     'ServiceCodeRepositoryArgs',
+    'ServiceEgressConfigurationArgs',
     'ServiceEncryptionConfigurationArgs',
     'ServiceHealthCheckConfigurationArgs',
     'ServiceImageConfigurationArgs',
     'ServiceImageRepositoryArgs',
     'ServiceInstanceConfigurationArgs',
     'ServiceKeyValuePairArgs',
+    'ServiceNetworkConfigurationArgs',
     'ServiceSourceCodeVersionArgs',
     'ServiceSourceConfigurationArgs',
     'ServiceTagArgs',
@@ -228,6 +230,45 @@ class ServiceCodeRepositoryArgs:
     @code_configuration.setter
     def code_configuration(self, value: Optional[pulumi.Input['ServiceCodeConfigurationArgs']]):
         pulumi.set(self, "code_configuration", value)
+
+
+@pulumi.input_type
+class ServiceEgressConfigurationArgs:
+    def __init__(__self__, *,
+                 egress_type: pulumi.Input['ServiceEgressConfigurationEgressType'],
+                 vpc_connector_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Network egress configuration
+        :param pulumi.Input['ServiceEgressConfigurationEgressType'] egress_type: Network egress type.
+        :param pulumi.Input[str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+        """
+        pulumi.set(__self__, "egress_type", egress_type)
+        if vpc_connector_arn is not None:
+            pulumi.set(__self__, "vpc_connector_arn", vpc_connector_arn)
+
+    @property
+    @pulumi.getter(name="egressType")
+    def egress_type(self) -> pulumi.Input['ServiceEgressConfigurationEgressType']:
+        """
+        Network egress type.
+        """
+        return pulumi.get(self, "egress_type")
+
+    @egress_type.setter
+    def egress_type(self, value: pulumi.Input['ServiceEgressConfigurationEgressType']):
+        pulumi.set(self, "egress_type", value)
+
+    @property
+    @pulumi.getter(name="vpcConnectorArn")
+    def vpc_connector_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+        """
+        return pulumi.get(self, "vpc_connector_arn")
+
+    @vpc_connector_arn.setter
+    def vpc_connector_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_connector_arn", value)
 
 
 @pulumi.input_type
@@ -542,6 +583,25 @@ class ServiceKeyValuePairArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 egress_configuration: pulumi.Input['ServiceEgressConfigurationArgs']):
+        """
+        Network configuration
+        """
+        pulumi.set(__self__, "egress_configuration", egress_configuration)
+
+    @property
+    @pulumi.getter(name="egressConfiguration")
+    def egress_configuration(self) -> pulumi.Input['ServiceEgressConfigurationArgs']:
+        return pulumi.get(self, "egress_configuration")
+
+    @egress_configuration.setter
+    def egress_configuration(self, value: pulumi.Input['ServiceEgressConfigurationArgs']):
+        pulumi.set(self, "egress_configuration", value)
 
 
 @pulumi.input_type

@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Batch::ComputeEnvironment
- *
- * @deprecated ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ComputeEnvironment {
-        pulumi.log.warn("ComputeEnvironment is deprecated: ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ComputeEnvironment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,10 +35,14 @@ export class ComputeEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ComputeEnvironment.__pulumiType;
     }
 
+    public /*out*/ readonly computeEnvironmentArn!: pulumi.Output<string>;
     public readonly computeEnvironmentName!: pulumi.Output<string | undefined>;
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
     public readonly serviceRole!: pulumi.Output<string | undefined>;
     public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly unmanagedvCpus!: pulumi.Output<number | undefined>;
@@ -53,9 +54,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ComputeEnvironment is deprecated: ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -69,7 +68,9 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
+            resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
         } else {
+            resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
             resourceInputs["computeEnvironmentName"] = undefined /*out*/;
             resourceInputs["computeResources"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
@@ -91,6 +92,9 @@ export interface ComputeEnvironmentArgs {
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesArgs>;
     serviceRole?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     tags?: any;
     type: pulumi.Input<string>;
     unmanagedvCpus?: pulumi.Input<number>;

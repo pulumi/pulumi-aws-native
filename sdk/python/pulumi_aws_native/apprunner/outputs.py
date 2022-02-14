@@ -15,12 +15,14 @@ __all__ = [
     'ServiceCodeConfiguration',
     'ServiceCodeConfigurationValues',
     'ServiceCodeRepository',
+    'ServiceEgressConfiguration',
     'ServiceEncryptionConfiguration',
     'ServiceHealthCheckConfiguration',
     'ServiceImageConfiguration',
     'ServiceImageRepository',
     'ServiceInstanceConfiguration',
     'ServiceKeyValuePair',
+    'ServiceNetworkConfiguration',
     'ServiceSourceCodeVersion',
     'ServiceSourceConfiguration',
     'ServiceTag',
@@ -273,6 +275,59 @@ class ServiceCodeRepository(dict):
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional['outputs.ServiceCodeConfiguration']:
         return pulumi.get(self, "code_configuration")
+
+
+@pulumi.output_type
+class ServiceEgressConfiguration(dict):
+    """
+    Network egress configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressType":
+            suggest = "egress_type"
+        elif key == "vpcConnectorArn":
+            suggest = "vpc_connector_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEgressConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEgressConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEgressConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_type: 'ServiceEgressConfigurationEgressType',
+                 vpc_connector_arn: Optional[str] = None):
+        """
+        Network egress configuration
+        :param 'ServiceEgressConfigurationEgressType' egress_type: Network egress type.
+        :param str vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+        """
+        pulumi.set(__self__, "egress_type", egress_type)
+        if vpc_connector_arn is not None:
+            pulumi.set(__self__, "vpc_connector_arn", vpc_connector_arn)
+
+    @property
+    @pulumi.getter(name="egressType")
+    def egress_type(self) -> 'ServiceEgressConfigurationEgressType':
+        """
+        Network egress type.
+        """
+        return pulumi.get(self, "egress_type")
+
+    @property
+    @pulumi.getter(name="vpcConnectorArn")
+    def vpc_connector_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+        """
+        return pulumi.get(self, "vpc_connector_arn")
 
 
 @pulumi.output_type
@@ -623,6 +678,41 @@ class ServiceKeyValuePair(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceNetworkConfiguration(dict):
+    """
+    Network configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressConfiguration":
+            suggest = "egress_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_configuration: 'outputs.ServiceEgressConfiguration'):
+        """
+        Network configuration
+        """
+        pulumi.set(__self__, "egress_configuration", egress_configuration)
+
+    @property
+    @pulumi.getter(name="egressConfiguration")
+    def egress_configuration(self) -> 'outputs.ServiceEgressConfiguration':
+        return pulumi.get(self, "egress_configuration")
 
 
 @pulumi.output_type

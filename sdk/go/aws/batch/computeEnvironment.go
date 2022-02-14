@@ -12,18 +12,18 @@ import (
 )
 
 // Resource Type definition for AWS::Batch::ComputeEnvironment
-//
-// Deprecated: ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 
+	ComputeEnvironmentArn  pulumi.StringOutput                         `pulumi:"computeEnvironmentArn"`
 	ComputeEnvironmentName pulumi.StringPtrOutput                      `pulumi:"computeEnvironmentName"`
 	ComputeResources       ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
 	ServiceRole            pulumi.StringPtrOutput                      `pulumi:"serviceRole"`
 	State                  pulumi.StringPtrOutput                      `pulumi:"state"`
-	Tags                   pulumi.AnyOutput                            `pulumi:"tags"`
-	Type                   pulumi.StringOutput                         `pulumi:"type"`
-	UnmanagedvCpus         pulumi.IntPtrOutput                         `pulumi:"unmanagedvCpus"`
+	// A key-value pair to associate with a resource.
+	Tags           pulumi.AnyOutput    `pulumi:"tags"`
+	Type           pulumi.StringOutput `pulumi:"type"`
+	UnmanagedvCpus pulumi.IntPtrOutput `pulumi:"unmanagedvCpus"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -72,9 +72,10 @@ type computeEnvironmentArgs struct {
 	ComputeResources       *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
 	ServiceRole            *string                             `pulumi:"serviceRole"`
 	State                  *string                             `pulumi:"state"`
-	Tags                   interface{}                         `pulumi:"tags"`
-	Type                   string                              `pulumi:"type"`
-	UnmanagedvCpus         *int                                `pulumi:"unmanagedvCpus"`
+	// A key-value pair to associate with a resource.
+	Tags           interface{} `pulumi:"tags"`
+	Type           string      `pulumi:"type"`
+	UnmanagedvCpus *int        `pulumi:"unmanagedvCpus"`
 }
 
 // The set of arguments for constructing a ComputeEnvironment resource.
@@ -83,9 +84,10 @@ type ComputeEnvironmentArgs struct {
 	ComputeResources       ComputeEnvironmentComputeResourcesPtrInput
 	ServiceRole            pulumi.StringPtrInput
 	State                  pulumi.StringPtrInput
-	Tags                   pulumi.Input
-	Type                   pulumi.StringInput
-	UnmanagedvCpus         pulumi.IntPtrInput
+	// A key-value pair to associate with a resource.
+	Tags           pulumi.Input
+	Type           pulumi.StringInput
+	UnmanagedvCpus pulumi.IntPtrInput
 }
 
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {

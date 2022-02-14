@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Outputs
 {
 
+    /// <summary>
+    /// An object representing a Taint specification for AWS EKS Nodegroup.
+    /// </summary>
     [OutputType]
     public sealed class NodegroupTaint
     {

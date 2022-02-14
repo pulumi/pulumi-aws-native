@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.SES
     [OutputType]
     public sealed class GetConfigurationSetEventDestinationResult
     {
+        /// <summary>
+        /// The event destination object.
+        /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestination? EventDestination;
         public readonly string? Id;
 

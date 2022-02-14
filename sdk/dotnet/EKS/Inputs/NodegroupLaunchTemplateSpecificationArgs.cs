@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Inputs
 {
 
+    /// <summary>
+    /// An object representing a launch template specification for AWS EKS Nodegroup.
+    /// </summary>
     public sealed class NodegroupLaunchTemplateSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("id")]

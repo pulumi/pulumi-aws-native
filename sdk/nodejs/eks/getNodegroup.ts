@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EKS::Nodegroup
+ * Resource schema for AWS::EKS::Nodegroup
  */
 export function getNodegroup(args: GetNodegroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodegroupResult> {
     if (!opts) {
@@ -25,15 +25,38 @@ export interface GetNodegroupArgs {
 
 export interface GetNodegroupResult {
     readonly arn?: string;
-    readonly forceUpdateEnabled?: boolean;
     readonly id?: string;
+    /**
+     * The Kubernetes labels to be applied to the nodes in the node group when they are created.
+     */
     readonly labels?: any;
+    /**
+     * An object representing a node group's launch template specification.
+     */
     readonly launchTemplate?: outputs.eks.NodegroupLaunchTemplateSpecification;
+    /**
+     * The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+     */
     readonly releaseVersion?: string;
+    /**
+     * The scaling configuration details for the Auto Scaling group that is created for your node group.
+     */
     readonly scalingConfig?: outputs.eks.NodegroupScalingConfig;
+    /**
+     * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+     */
     readonly tags?: any;
+    /**
+     * The Kubernetes taints to be applied to the nodes in the node group when they are created.
+     */
     readonly taints?: outputs.eks.NodegroupTaint[];
+    /**
+     * The node group update configuration.
+     */
     readonly updateConfig?: outputs.eks.NodegroupUpdateConfig;
+    /**
+     * The Kubernetes version to use for your managed nodes.
+     */
     readonly version?: string;
 }
 

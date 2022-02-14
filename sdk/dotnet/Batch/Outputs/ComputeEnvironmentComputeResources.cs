@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly string? SpotIamFleetRole;
         public readonly ImmutableArray<string> Subnets;
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         public readonly object? Tags;
         public readonly string Type;
 

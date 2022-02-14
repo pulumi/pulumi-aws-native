@@ -11,31 +11,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EKS::Nodegroup
-//
-// Deprecated: Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Resource schema for AWS::EKS::Nodegroup
 type Nodegroup struct {
 	pulumi.CustomResourceState
 
-	AmiType            pulumi.StringPtrOutput                        `pulumi:"amiType"`
-	Arn                pulumi.StringOutput                           `pulumi:"arn"`
-	CapacityType       pulumi.StringPtrOutput                        `pulumi:"capacityType"`
-	ClusterName        pulumi.StringOutput                           `pulumi:"clusterName"`
-	DiskSize           pulumi.Float64PtrOutput                       `pulumi:"diskSize"`
-	ForceUpdateEnabled pulumi.BoolPtrOutput                          `pulumi:"forceUpdateEnabled"`
-	InstanceTypes      pulumi.StringArrayOutput                      `pulumi:"instanceTypes"`
-	Labels             pulumi.AnyOutput                              `pulumi:"labels"`
-	LaunchTemplate     NodegroupLaunchTemplateSpecificationPtrOutput `pulumi:"launchTemplate"`
-	NodeRole           pulumi.StringOutput                           `pulumi:"nodeRole"`
-	NodegroupName      pulumi.StringPtrOutput                        `pulumi:"nodegroupName"`
-	ReleaseVersion     pulumi.StringPtrOutput                        `pulumi:"releaseVersion"`
-	RemoteAccess       NodegroupRemoteAccessPtrOutput                `pulumi:"remoteAccess"`
-	ScalingConfig      NodegroupScalingConfigPtrOutput               `pulumi:"scalingConfig"`
-	Subnets            pulumi.StringArrayOutput                      `pulumi:"subnets"`
-	Tags               pulumi.AnyOutput                              `pulumi:"tags"`
-	Taints             NodegroupTaintArrayOutput                     `pulumi:"taints"`
-	UpdateConfig       NodegroupUpdateConfigPtrOutput                `pulumi:"updateConfig"`
-	Version            pulumi.StringPtrOutput                        `pulumi:"version"`
+	// The AMI type for your node group.
+	AmiType pulumi.StringPtrOutput `pulumi:"amiType"`
+	Arn     pulumi.StringOutput    `pulumi:"arn"`
+	// The capacity type of your managed node group.
+	CapacityType pulumi.StringPtrOutput `pulumi:"capacityType"`
+	// Name of the cluster to create the node group in.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// The root device disk size (in GiB) for your node group instances.
+	DiskSize pulumi.IntPtrOutput `pulumi:"diskSize"`
+	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateEnabled pulumi.BoolPtrOutput `pulumi:"forceUpdateEnabled"`
+	// Specify the instance types for a node group.
+	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
+	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+	Labels pulumi.AnyOutput `pulumi:"labels"`
+	// An object representing a node group's launch template specification.
+	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrOutput `pulumi:"launchTemplate"`
+	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+	NodeRole pulumi.StringOutput `pulumi:"nodeRole"`
+	// The unique name to give your node group.
+	NodegroupName pulumi.StringPtrOutput `pulumi:"nodegroupName"`
+	// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+	ReleaseVersion pulumi.StringPtrOutput `pulumi:"releaseVersion"`
+	// The remote access (SSH) configuration to use with your node group.
+	RemoteAccess NodegroupRemoteAccessPtrOutput `pulumi:"remoteAccess"`
+	// The scaling configuration details for the Auto Scaling group that is created for your node group.
+	ScalingConfig NodegroupScalingConfigPtrOutput `pulumi:"scalingConfig"`
+	// The subnets to use for the Auto Scaling group that is created for your node group.
+	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
+	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+	Taints NodegroupTaintArrayOutput `pulumi:"taints"`
+	// The node group update configuration.
+	UpdateConfig NodegroupUpdateConfigPtrOutput `pulumi:"updateConfig"`
+	// The Kubernetes version to use for your managed nodes.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewNodegroup registers a new resource with the given unique name, arguments, and options.
@@ -86,46 +102,82 @@ func (NodegroupState) ElementType() reflect.Type {
 }
 
 type nodegroupArgs struct {
-	AmiType            *string                               `pulumi:"amiType"`
-	CapacityType       *string                               `pulumi:"capacityType"`
-	ClusterName        string                                `pulumi:"clusterName"`
-	DiskSize           *float64                              `pulumi:"diskSize"`
-	ForceUpdateEnabled *bool                                 `pulumi:"forceUpdateEnabled"`
-	InstanceTypes      []string                              `pulumi:"instanceTypes"`
-	Labels             interface{}                           `pulumi:"labels"`
-	LaunchTemplate     *NodegroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
-	NodeRole           string                                `pulumi:"nodeRole"`
-	NodegroupName      *string                               `pulumi:"nodegroupName"`
-	ReleaseVersion     *string                               `pulumi:"releaseVersion"`
-	RemoteAccess       *NodegroupRemoteAccess                `pulumi:"remoteAccess"`
-	ScalingConfig      *NodegroupScalingConfig               `pulumi:"scalingConfig"`
-	Subnets            []string                              `pulumi:"subnets"`
-	Tags               interface{}                           `pulumi:"tags"`
-	Taints             []NodegroupTaint                      `pulumi:"taints"`
-	UpdateConfig       *NodegroupUpdateConfig                `pulumi:"updateConfig"`
-	Version            *string                               `pulumi:"version"`
+	// The AMI type for your node group.
+	AmiType *string `pulumi:"amiType"`
+	// The capacity type of your managed node group.
+	CapacityType *string `pulumi:"capacityType"`
+	// Name of the cluster to create the node group in.
+	ClusterName string `pulumi:"clusterName"`
+	// The root device disk size (in GiB) for your node group instances.
+	DiskSize *int `pulumi:"diskSize"`
+	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateEnabled *bool `pulumi:"forceUpdateEnabled"`
+	// Specify the instance types for a node group.
+	InstanceTypes []string `pulumi:"instanceTypes"`
+	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+	Labels interface{} `pulumi:"labels"`
+	// An object representing a node group's launch template specification.
+	LaunchTemplate *NodegroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
+	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+	NodeRole string `pulumi:"nodeRole"`
+	// The unique name to give your node group.
+	NodegroupName *string `pulumi:"nodegroupName"`
+	// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+	ReleaseVersion *string `pulumi:"releaseVersion"`
+	// The remote access (SSH) configuration to use with your node group.
+	RemoteAccess *NodegroupRemoteAccess `pulumi:"remoteAccess"`
+	// The scaling configuration details for the Auto Scaling group that is created for your node group.
+	ScalingConfig *NodegroupScalingConfig `pulumi:"scalingConfig"`
+	// The subnets to use for the Auto Scaling group that is created for your node group.
+	Subnets []string `pulumi:"subnets"`
+	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+	Tags interface{} `pulumi:"tags"`
+	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+	Taints []NodegroupTaint `pulumi:"taints"`
+	// The node group update configuration.
+	UpdateConfig *NodegroupUpdateConfig `pulumi:"updateConfig"`
+	// The Kubernetes version to use for your managed nodes.
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Nodegroup resource.
 type NodegroupArgs struct {
-	AmiType            pulumi.StringPtrInput
-	CapacityType       pulumi.StringPtrInput
-	ClusterName        pulumi.StringInput
-	DiskSize           pulumi.Float64PtrInput
+	// The AMI type for your node group.
+	AmiType pulumi.StringPtrInput
+	// The capacity type of your managed node group.
+	CapacityType pulumi.StringPtrInput
+	// Name of the cluster to create the node group in.
+	ClusterName pulumi.StringInput
+	// The root device disk size (in GiB) for your node group instances.
+	DiskSize pulumi.IntPtrInput
+	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateEnabled pulumi.BoolPtrInput
-	InstanceTypes      pulumi.StringArrayInput
-	Labels             pulumi.Input
-	LaunchTemplate     NodegroupLaunchTemplateSpecificationPtrInput
-	NodeRole           pulumi.StringInput
-	NodegroupName      pulumi.StringPtrInput
-	ReleaseVersion     pulumi.StringPtrInput
-	RemoteAccess       NodegroupRemoteAccessPtrInput
-	ScalingConfig      NodegroupScalingConfigPtrInput
-	Subnets            pulumi.StringArrayInput
-	Tags               pulumi.Input
-	Taints             NodegroupTaintArrayInput
-	UpdateConfig       NodegroupUpdateConfigPtrInput
-	Version            pulumi.StringPtrInput
+	// Specify the instance types for a node group.
+	InstanceTypes pulumi.StringArrayInput
+	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+	Labels pulumi.Input
+	// An object representing a node group's launch template specification.
+	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrInput
+	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+	NodeRole pulumi.StringInput
+	// The unique name to give your node group.
+	NodegroupName pulumi.StringPtrInput
+	// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+	ReleaseVersion pulumi.StringPtrInput
+	// The remote access (SSH) configuration to use with your node group.
+	RemoteAccess NodegroupRemoteAccessPtrInput
+	// The scaling configuration details for the Auto Scaling group that is created for your node group.
+	ScalingConfig NodegroupScalingConfigPtrInput
+	// The subnets to use for the Auto Scaling group that is created for your node group.
+	Subnets pulumi.StringArrayInput
+	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+	Tags pulumi.Input
+	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+	Taints NodegroupTaintArrayInput
+	// The node group update configuration.
+	UpdateConfig NodegroupUpdateConfigPtrInput
+	// The Kubernetes version to use for your managed nodes.
+	Version pulumi.StringPtrInput
 }
 
 func (NodegroupArgs) ElementType() reflect.Type {

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("authorizerName")]
         public Output<string?> AuthorizerName { get; private set; } = null!;
 
+        [Output("enableCachingForHttp")]
+        public Output<bool?> EnableCachingForHttp { get; private set; } = null!;
+
         [Output("signingDisabled")]
         public Output<bool?> SigningDisabled { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("authorizerName")]
         public Input<string>? AuthorizerName { get; set; }
+
+        [Input("enableCachingForHttp")]
+        public Input<bool>? EnableCachingForHttp { get; set; }
 
         [Input("signingDisabled")]
         public Input<bool>? SigningDisabled { get; set; }

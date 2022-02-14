@@ -1331,6 +1331,7 @@ type GlobalTableReplicaSpecification struct {
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
 	Region                            string                                                `pulumi:"region"`
 	SSESpecification                  *GlobalTableReplicaSSESpecification                   `pulumi:"sSESpecification"`
+	TableClass                        *string                                               `pulumi:"tableClass"`
 	Tags                              []GlobalTableTag                                      `pulumi:"tags"`
 }
 
@@ -1352,6 +1353,7 @@ type GlobalTableReplicaSpecificationArgs struct {
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
 	Region                            pulumi.StringInput                                            `pulumi:"region"`
 	SSESpecification                  GlobalTableReplicaSSESpecificationPtrInput                    `pulumi:"sSESpecification"`
+	TableClass                        pulumi.StringPtrInput                                         `pulumi:"tableClass"`
 	Tags                              GlobalTableTagArrayInput                                      `pulumi:"tags"`
 }
 
@@ -1436,6 +1438,10 @@ func (o GlobalTableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 
 func (o GlobalTableReplicaSpecificationOutput) SSESpecification() GlobalTableReplicaSSESpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSSESpecification { return v.SSESpecification }).(GlobalTableReplicaSSESpecificationPtrOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) TableClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *string { return v.TableClass }).(pulumi.StringPtrOutput)
 }
 
 func (o GlobalTableReplicaSpecificationOutput) Tags() GlobalTableTagArrayOutput {

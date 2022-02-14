@@ -19,6 +19,8 @@ class ConfigurationSetEventDestinationArgs:
                  event_destination: pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']):
         """
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
+        :param pulumi.Input[str] configuration_set_name: The name of the configuration set that contains the event destination.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: The event destination object.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         pulumi.set(__self__, "event_destination", event_destination)
@@ -26,6 +28,9 @@ class ConfigurationSetEventDestinationArgs:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration set that contains the event destination.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -35,6 +40,9 @@ class ConfigurationSetEventDestinationArgs:
     @property
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']:
+        """
+        The event destination object.
+        """
         return pulumi.get(self, "event_destination")
 
     @event_destination.setter
@@ -42,12 +50,7 @@ class ConfigurationSetEventDestinationArgs:
         pulumi.set(self, "event_destination", value)
 
 
-warnings.warn("""ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ConfigurationSetEventDestination(pulumi.CustomResource):
-    warnings.warn("""ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -60,6 +63,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configuration_set_name: The name of the configuration set that contains the event destination.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']] event_destination: The event destination object.
         """
         ...
     @overload
@@ -88,7 +93,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
                  event_destination: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigurationSetEventDestination is deprecated: ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -135,10 +139,16 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Output[str]:
+        """
+        The name of the configuration set that contains the event destination.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @property
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> pulumi.Output['outputs.ConfigurationSetEventDestinationEventDestination']:
+        """
+        The event destination object.
+        """
         return pulumi.get(self, "event_destination")
 

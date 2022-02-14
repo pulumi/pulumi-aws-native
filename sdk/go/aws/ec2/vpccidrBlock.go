@@ -19,7 +19,11 @@ type VPCCidrBlock struct {
 
 	AmazonProvidedIpv6CidrBlock pulumi.BoolPtrOutput   `pulumi:"amazonProvidedIpv6CidrBlock"`
 	CidrBlock                   pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	Ipv4IpamPoolId              pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
+	Ipv4NetmaskLength           pulumi.IntPtrOutput    `pulumi:"ipv4NetmaskLength"`
 	Ipv6CidrBlock               pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId              pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength           pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
 	Ipv6Pool                    pulumi.StringPtrOutput `pulumi:"ipv6Pool"`
 	VpcId                       pulumi.StringOutput    `pulumi:"vpcId"`
 }
@@ -68,7 +72,11 @@ func (VPCCidrBlockState) ElementType() reflect.Type {
 type vpccidrBlockArgs struct {
 	AmazonProvidedIpv6CidrBlock *bool   `pulumi:"amazonProvidedIpv6CidrBlock"`
 	CidrBlock                   *string `pulumi:"cidrBlock"`
+	Ipv4IpamPoolId              *string `pulumi:"ipv4IpamPoolId"`
+	Ipv4NetmaskLength           *int    `pulumi:"ipv4NetmaskLength"`
 	Ipv6CidrBlock               *string `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId              *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength           *int    `pulumi:"ipv6NetmaskLength"`
 	Ipv6Pool                    *string `pulumi:"ipv6Pool"`
 	VpcId                       string  `pulumi:"vpcId"`
 }
@@ -77,7 +85,11 @@ type vpccidrBlockArgs struct {
 type VPCCidrBlockArgs struct {
 	AmazonProvidedIpv6CidrBlock pulumi.BoolPtrInput
 	CidrBlock                   pulumi.StringPtrInput
+	Ipv4IpamPoolId              pulumi.StringPtrInput
+	Ipv4NetmaskLength           pulumi.IntPtrInput
 	Ipv6CidrBlock               pulumi.StringPtrInput
+	Ipv6IpamPoolId              pulumi.StringPtrInput
+	Ipv6NetmaskLength           pulumi.IntPtrInput
 	Ipv6Pool                    pulumi.StringPtrInput
 	VpcId                       pulumi.StringInput
 }

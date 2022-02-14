@@ -20,7 +20,7 @@ class NodegroupArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  ami_type: Optional[pulumi.Input[str]] = None,
                  capacity_type: Optional[pulumi.Input[str]] = None,
-                 disk_size: Optional[pulumi.Input[float]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  force_update_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[Any] = None,
@@ -35,6 +35,24 @@ class NodegroupArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Nodegroup resource.
+        :param pulumi.Input[str] cluster_name: Name of the cluster to create the node group in.
+        :param pulumi.Input[str] node_role: The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets to use for the Auto Scaling group that is created for your node group.
+        :param pulumi.Input[str] ami_type: The AMI type for your node group.
+        :param pulumi.Input[str] capacity_type: The capacity type of your managed node group.
+        :param pulumi.Input[int] disk_size: The root device disk size (in GiB) for your node group instances.
+        :param pulumi.Input[bool] force_update_enabled: Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Specify the instance types for a node group.
+        :param Any labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        :param pulumi.Input['NodegroupLaunchTemplateSpecificationArgs'] launch_template: An object representing a node group's launch template specification.
+        :param pulumi.Input[str] nodegroup_name: The unique name to give your node group.
+        :param pulumi.Input[str] release_version: The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        :param pulumi.Input['NodegroupRemoteAccessArgs'] remote_access: The remote access (SSH) configuration to use with your node group.
+        :param pulumi.Input['NodegroupScalingConfigArgs'] scaling_config: The scaling configuration details for the Auto Scaling group that is created for your node group.
+        :param Any tags: The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        :param pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        :param pulumi.Input['NodegroupUpdateConfigArgs'] update_config: The node group update configuration.
+        :param pulumi.Input[str] version: The Kubernetes version to use for your managed nodes.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "node_role", node_role)
@@ -73,6 +91,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
+        """
+        Name of the cluster to create the node group in.
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -82,6 +103,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="nodeRole")
     def node_role(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+        """
         return pulumi.get(self, "node_role")
 
     @node_role.setter
@@ -91,6 +115,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The subnets to use for the Auto Scaling group that is created for your node group.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -100,6 +127,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AMI type for your node group.
+        """
         return pulumi.get(self, "ami_type")
 
     @ami_type.setter
@@ -109,6 +139,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="capacityType")
     def capacity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The capacity type of your managed node group.
+        """
         return pulumi.get(self, "capacity_type")
 
     @capacity_type.setter
@@ -117,16 +150,22 @@ class NodegroupArgs:
 
     @property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> Optional[pulumi.Input[float]]:
+    def disk_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The root device disk size (in GiB) for your node group instances.
+        """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
-    def disk_size(self, value: Optional[pulumi.Input[float]]):
+    def disk_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size", value)
 
     @property
     @pulumi.getter(name="forceUpdateEnabled")
     def force_update_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+        """
         return pulumi.get(self, "force_update_enabled")
 
     @force_update_enabled.setter
@@ -136,6 +175,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify the instance types for a node group.
+        """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
@@ -145,6 +187,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter
     def labels(self) -> Optional[Any]:
+        """
+        The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -154,6 +199,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['NodegroupLaunchTemplateSpecificationArgs']]:
+        """
+        An object representing a node group's launch template specification.
+        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -163,6 +211,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="nodegroupName")
     def nodegroup_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name to give your node group.
+        """
         return pulumi.get(self, "nodegroup_name")
 
     @nodegroup_name.setter
@@ -172,6 +223,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        """
         return pulumi.get(self, "release_version")
 
     @release_version.setter
@@ -181,6 +235,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="remoteAccess")
     def remote_access(self) -> Optional[pulumi.Input['NodegroupRemoteAccessArgs']]:
+        """
+        The remote access (SSH) configuration to use with your node group.
+        """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
@@ -190,6 +247,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional[pulumi.Input['NodegroupScalingConfigArgs']]:
+        """
+        The scaling configuration details for the Auto Scaling group that is created for your node group.
+        """
         return pulumi.get(self, "scaling_config")
 
     @scaling_config.setter
@@ -199,6 +259,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -208,6 +271,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter
     def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]]]:
+        """
+        The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        """
         return pulumi.get(self, "taints")
 
     @taints.setter
@@ -217,6 +283,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter(name="updateConfig")
     def update_config(self) -> Optional[pulumi.Input['NodegroupUpdateConfigArgs']]:
+        """
+        The node group update configuration.
+        """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
@@ -226,6 +295,9 @@ class NodegroupArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kubernetes version to use for your managed nodes.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -233,12 +305,7 @@ class NodegroupArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Nodegroup(pulumi.CustomResource):
-    warnings.warn("""Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,7 +313,7 @@ class Nodegroup(pulumi.CustomResource):
                  ami_type: Optional[pulumi.Input[str]] = None,
                  capacity_type: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 disk_size: Optional[pulumi.Input[float]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  force_update_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[Any] = None,
@@ -263,10 +330,28 @@ class Nodegroup(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EKS::Nodegroup
+        Resource schema for AWS::EKS::Nodegroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ami_type: The AMI type for your node group.
+        :param pulumi.Input[str] capacity_type: The capacity type of your managed node group.
+        :param pulumi.Input[str] cluster_name: Name of the cluster to create the node group in.
+        :param pulumi.Input[int] disk_size: The root device disk size (in GiB) for your node group instances.
+        :param pulumi.Input[bool] force_update_enabled: Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Specify the instance types for a node group.
+        :param Any labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        :param pulumi.Input[pulumi.InputType['NodegroupLaunchTemplateSpecificationArgs']] launch_template: An object representing a node group's launch template specification.
+        :param pulumi.Input[str] node_role: The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+        :param pulumi.Input[str] nodegroup_name: The unique name to give your node group.
+        :param pulumi.Input[str] release_version: The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        :param pulumi.Input[pulumi.InputType['NodegroupRemoteAccessArgs']] remote_access: The remote access (SSH) configuration to use with your node group.
+        :param pulumi.Input[pulumi.InputType['NodegroupScalingConfigArgs']] scaling_config: The scaling configuration details for the Auto Scaling group that is created for your node group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets to use for the Auto Scaling group that is created for your node group.
+        :param Any tags: The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodegroupTaintArgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        :param pulumi.Input[pulumi.InputType['NodegroupUpdateConfigArgs']] update_config: The node group update configuration.
+        :param pulumi.Input[str] version: The Kubernetes version to use for your managed nodes.
         """
         ...
     @overload
@@ -275,7 +360,7 @@ class Nodegroup(pulumi.CustomResource):
                  args: NodegroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EKS::Nodegroup
+        Resource schema for AWS::EKS::Nodegroup
 
         :param str resource_name: The name of the resource.
         :param NodegroupArgs args: The arguments to use to populate this resource's properties.
@@ -295,7 +380,7 @@ class Nodegroup(pulumi.CustomResource):
                  ami_type: Optional[pulumi.Input[str]] = None,
                  capacity_type: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 disk_size: Optional[pulumi.Input[float]] = None,
+                 disk_size: Optional[pulumi.Input[int]] = None,
                  force_update_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[Any] = None,
@@ -311,7 +396,6 @@ class Nodegroup(pulumi.CustomResource):
                  update_config: Optional[pulumi.Input[pulumi.InputType['NodegroupUpdateConfigArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Nodegroup is deprecated: Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,6 +478,9 @@ class Nodegroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AMI type for your node group.
+        """
         return pulumi.get(self, "ami_type")
 
     @property
@@ -404,85 +491,136 @@ class Nodegroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="capacityType")
     def capacity_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The capacity type of your managed node group.
+        """
         return pulumi.get(self, "capacity_type")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
+        """
+        Name of the cluster to create the node group in.
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> pulumi.Output[Optional[float]]:
+    def disk_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The root device disk size (in GiB) for your node group instances.
+        """
         return pulumi.get(self, "disk_size")
 
     @property
     @pulumi.getter(name="forceUpdateEnabled")
     def force_update_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+        """
         return pulumi.get(self, "force_update_enabled")
 
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specify the instance types for a node group.
+        """
         return pulumi.get(self, "instance_types")
 
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.NodegroupLaunchTemplateSpecification']]:
+        """
+        An object representing a node group's launch template specification.
+        """
         return pulumi.get(self, "launch_template")
 
     @property
     @pulumi.getter(name="nodeRole")
     def node_role(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+        """
         return pulumi.get(self, "node_role")
 
     @property
     @pulumi.getter(name="nodegroupName")
     def nodegroup_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique name to give your node group.
+        """
         return pulumi.get(self, "nodegroup_name")
 
     @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+        """
         return pulumi.get(self, "release_version")
 
     @property
     @pulumi.getter(name="remoteAccess")
     def remote_access(self) -> pulumi.Output[Optional['outputs.NodegroupRemoteAccess']]:
+        """
+        The remote access (SSH) configuration to use with your node group.
+        """
         return pulumi.get(self, "remote_access")
 
     @property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> pulumi.Output[Optional['outputs.NodegroupScalingConfig']]:
+        """
+        The scaling configuration details for the Auto Scaling group that is created for your node group.
+        """
         return pulumi.get(self, "scaling_config")
 
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The subnets to use for the Auto Scaling group that is created for your node group.
+        """
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def taints(self) -> pulumi.Output[Optional[Sequence['outputs.NodegroupTaint']]]:
+        """
+        The Kubernetes taints to be applied to the nodes in the node group when they are created.
+        """
         return pulumi.get(self, "taints")
 
     @property
     @pulumi.getter(name="updateConfig")
     def update_config(self) -> pulumi.Output[Optional['outputs.NodegroupUpdateConfig']]:
+        """
+        The node group update configuration.
+        """
         return pulumi.get(self, "update_config")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Kubernetes version to use for your managed nodes.
+        """
         return pulumi.get(self, "version")
 

@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Inputs
 {
 
+    /// <summary>
+    /// An object representing a auto scaling group specification for AWS EKS Nodegroup.
+    /// </summary>
     public sealed class NodegroupScalingConfigArgs : Pulumi.ResourceArgs
     {
         [Input("desiredSize")]
-        public Input<double>? DesiredSize { get; set; }
+        public Input<int>? DesiredSize { get; set; }
 
         [Input("maxSize")]
-        public Input<double>? MaxSize { get; set; }
+        public Input<int>? MaxSize { get; set; }
 
         [Input("minSize")]
-        public Input<double>? MinSize { get; set; }
+        public Input<int>? MinSize { get; set; }
 
         public NodegroupScalingConfigArgs()
         {

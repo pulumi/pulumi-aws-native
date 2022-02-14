@@ -444,6 +444,9 @@ class NodegroupLaunchTemplateSpecificationArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
+        """
+        An object representing a launch template specification for AWS EKS Nodegroup.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -484,6 +487,9 @@ class NodegroupRemoteAccessArgs:
     def __init__(__self__, *,
                  ec2_ssh_key: pulumi.Input[str],
                  source_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        An object representing a remote access configuration specification for AWS EKS Nodegroup.
+        """
         pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
         if source_security_groups is not None:
             pulumi.set(__self__, "source_security_groups", source_security_groups)
@@ -510,9 +516,12 @@ class NodegroupRemoteAccessArgs:
 @pulumi.input_type
 class NodegroupScalingConfigArgs:
     def __init__(__self__, *,
-                 desired_size: Optional[pulumi.Input[float]] = None,
-                 max_size: Optional[pulumi.Input[float]] = None,
-                 min_size: Optional[pulumi.Input[float]] = None):
+                 desired_size: Optional[pulumi.Input[int]] = None,
+                 max_size: Optional[pulumi.Input[int]] = None,
+                 min_size: Optional[pulumi.Input[int]] = None):
+        """
+        An object representing a auto scaling group specification for AWS EKS Nodegroup.
+        """
         if desired_size is not None:
             pulumi.set(__self__, "desired_size", desired_size)
         if max_size is not None:
@@ -522,29 +531,29 @@ class NodegroupScalingConfigArgs:
 
     @property
     @pulumi.getter(name="desiredSize")
-    def desired_size(self) -> Optional[pulumi.Input[float]]:
+    def desired_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "desired_size")
 
     @desired_size.setter
-    def desired_size(self, value: Optional[pulumi.Input[float]]):
+    def desired_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "desired_size", value)
 
     @property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[float]]:
+    def max_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[float]]):
+    def max_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_size", value)
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[float]]:
+    def min_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[float]]):
+    def min_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_size", value)
 
 
@@ -554,6 +563,9 @@ class NodegroupTaintArgs:
                  effect: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        An object representing a Taint specification for AWS EKS Nodegroup.
+        """
         if effect is not None:
             pulumi.set(__self__, "effect", effect)
         if key is not None:
@@ -594,6 +606,11 @@ class NodegroupUpdateConfigArgs:
     def __init__(__self__, *,
                  max_unavailable: Optional[pulumi.Input[float]] = None,
                  max_unavailable_percentage: Optional[pulumi.Input[float]] = None):
+        """
+        The node group update configuration.
+        :param pulumi.Input[float] max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+        :param pulumi.Input[float] max_unavailable_percentage: The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
+        """
         if max_unavailable is not None:
             pulumi.set(__self__, "max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
@@ -602,6 +619,9 @@ class NodegroupUpdateConfigArgs:
     @property
     @pulumi.getter(name="maxUnavailable")
     def max_unavailable(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+        """
         return pulumi.get(self, "max_unavailable")
 
     @max_unavailable.setter
@@ -611,6 +631,9 @@ class NodegroupUpdateConfigArgs:
     @property
     @pulumi.getter(name="maxUnavailablePercentage")
     def max_unavailable_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
+        """
         return pulumi.get(self, "max_unavailable_percentage")
 
     @max_unavailable_percentage.setter

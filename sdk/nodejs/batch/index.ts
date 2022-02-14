@@ -14,6 +14,9 @@ export * from "./jobDefinition";
 export * from "./jobQueue";
 export * from "./schedulingPolicy";
 
+// Export enums:
+export * from "../types/enums/batch";
+
 // Import resources to register:
 import { ComputeEnvironment } from "./computeEnvironment";
 import { JobDefinition } from "./jobDefinition";

@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAuthorizerResult:
-    def __init__(__self__, arn=None, authorizer_function_arn=None, status=None, tags=None, token_key_name=None, token_signing_public_keys=None):
+    def __init__(__self__, arn=None, authorizer_function_arn=None, enable_caching_for_http=None, status=None, tags=None, token_key_name=None, token_signing_public_keys=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if authorizer_function_arn and not isinstance(authorizer_function_arn, str):
             raise TypeError("Expected argument 'authorizer_function_arn' to be a str")
         pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
+        if enable_caching_for_http and not isinstance(enable_caching_for_http, bool):
+            raise TypeError("Expected argument 'enable_caching_for_http' to be a bool")
+        pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -48,6 +51,11 @@ class GetAuthorizerResult:
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> Optional[str]:
         return pulumi.get(self, "authorizer_function_arn")
+
+    @property
+    @pulumi.getter(name="enableCachingForHttp")
+    def enable_caching_for_http(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_caching_for_http")
 
     @property
     @pulumi.getter
@@ -78,6 +86,7 @@ class AwaitableGetAuthorizerResult(GetAuthorizerResult):
         return GetAuthorizerResult(
             arn=self.arn,
             authorizer_function_arn=self.authorizer_function_arn,
+            enable_caching_for_http=self.enable_caching_for_http,
             status=self.status,
             tags=self.tags,
             token_key_name=self.token_key_name,
@@ -100,6 +109,7 @@ def get_authorizer(authorizer_name: Optional[str] = None,
     return AwaitableGetAuthorizerResult(
         arn=__ret__.arn,
         authorizer_function_arn=__ret__.authorizer_function_arn,
+        enable_caching_for_http=__ret__.enable_caching_for_http,
         status=__ret__.status,
         tags=__ret__.tags,
         token_key_name=__ret__.token_key_name,

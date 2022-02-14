@@ -3695,6 +3695,20 @@ export namespace apprunner {
     }
 
     /**
+     * Network egress configuration
+     */
+    export interface ServiceEgressConfigurationArgs {
+        /**
+         * Network egress type.
+         */
+        egressType: pulumi.Input<enums.apprunner.ServiceEgressConfigurationEgressType>;
+        /**
+         * The Amazon Resource Name (ARN) of the App Runner VpcConnector.
+         */
+        vpcConnectorArn?: pulumi.Input<string>;
+    }
+
+    /**
      * Encryption configuration (KMS key)
      */
     export interface ServiceEncryptionConfigurationArgs {
@@ -3785,6 +3799,13 @@ export namespace apprunner {
     export interface ServiceKeyValuePairArgs {
         name?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Network configuration
+     */
+    export interface ServiceNetworkConfigurationArgs {
+        egressConfiguration: pulumi.Input<inputs.apprunner.ServiceEgressConfigurationArgs>;
     }
 
     /**
@@ -4750,6 +4771,9 @@ export namespace batch {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         spotIamFleetRole?: pulumi.Input<string>;
         subnets: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A key-value pair to associate with a resource.
+         */
         tags?: any;
         type: pulumi.Input<string>;
     }
@@ -8462,6 +8486,7 @@ export namespace dynamodb {
         readProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadProvisionedThroughputSettingsArgs>;
         region: pulumi.Input<string>;
         sSESpecification?: pulumi.Input<inputs.dynamodb.GlobalTableReplicaSSESpecificationArgs>;
+        tableClass?: pulumi.Input<string>;
         tags?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableTagArgs>[]>;
     }
 
@@ -10503,31 +10528,52 @@ export namespace eks {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * An object representing a launch template specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupLaunchTemplateSpecificationArgs {
         id?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
     }
 
+    /**
+     * An object representing a remote access configuration specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupRemoteAccessArgs {
         ec2SshKey: pulumi.Input<string>;
         sourceSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * An object representing a auto scaling group specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupScalingConfigArgs {
         desiredSize?: pulumi.Input<number>;
         maxSize?: pulumi.Input<number>;
         minSize?: pulumi.Input<number>;
     }
 
+    /**
+     * An object representing a Taint specification for AWS EKS Nodegroup.
+     */
     export interface NodegroupTaintArgs {
         effect?: pulumi.Input<string>;
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * The node group update configuration.
+     */
     export interface NodegroupUpdateConfigArgs {
+        /**
+         * The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+         */
         maxUnavailable?: pulumi.Input<number>;
+        /**
+         * The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
+         */
         maxUnavailablePercentage?: pulumi.Input<number>;
     }
 }
@@ -28070,26 +28116,68 @@ export namespace servicediscovery {
 }
 
 export namespace ses {
+    /**
+     * An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+     */
     export interface ConfigurationSetEventDestinationCloudWatchDestinationArgs {
+        /**
+         * A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+         */
         dimensionConfigurations?: pulumi.Input<pulumi.Input<inputs.ses.ConfigurationSetEventDestinationDimensionConfigurationArgs>[]>;
     }
 
+    /**
+     * A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+     */
     export interface ConfigurationSetEventDestinationDimensionConfigurationArgs {
+        /**
+         * The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
+         */
         defaultDimensionValue: pulumi.Input<string>;
+        /**
+         * The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         */
         dimensionName: pulumi.Input<string>;
+        /**
+         * The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+         */
         dimensionValueSource: pulumi.Input<string>;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationArgs {
+        /**
+         * An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+         */
         cloudWatchDestination?: pulumi.Input<inputs.ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs>;
+        /**
+         * Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+         */
         kinesisFirehoseDestination?: pulumi.Input<inputs.ses.ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs>;
+        /**
+         * The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+         */
         matchingEventTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the event destination set.
+         */
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+     */
     export interface ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs {
+        /**
+         * The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+         */
         deliveryStreamARN: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+         */
         iAMRoleARN: pulumi.Input<string>;
     }
 
