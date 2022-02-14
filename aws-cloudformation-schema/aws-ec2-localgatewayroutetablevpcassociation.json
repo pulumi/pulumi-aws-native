@@ -60,7 +60,12 @@
   "createOnlyProperties" : [ "/properties/LocalGatewayRouteTableId", "/properties/VpcId" ],
   "readOnlyProperties" : [ "/properties/LocalGatewayId", "/properties/LocalGatewayRouteTableVpcAssociationId", "/properties/State" ],
   "primaryIdentifier" : [ "/properties/LocalGatewayRouteTableVpcAssociationId" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateLocalGatewayRouteTableVpcAssociation", "ec2:DescribeLocalGatewayRouteTableVpcAssociations", "ec2:CreateTags" ]
