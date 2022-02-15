@@ -35506,7 +35506,8 @@
                 "roleArn"
             ],
             "createOnly": [
-                "stateMachineName"
+                "stateMachineName",
+                "stateMachineType"
             ]
         },
         "aws-native:synthetics:Canary": {
