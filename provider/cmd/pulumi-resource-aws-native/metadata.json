@@ -35506,7 +35506,8 @@
                 "roleArn"
             ],
             "createOnly": [
-                "stateMachineName"
+                "stateMachineName",
+                "stateMachineType"
             ]
         },
         "aws-native:synthetics:Canary": {
@@ -46674,6 +46675,9 @@
                 },
                 "instanceType": {
                     "type": "string"
+                },
+                "priority": {
+                    "type": "number"
                 },
                 "spotPrice": {
                     "type": "string"
