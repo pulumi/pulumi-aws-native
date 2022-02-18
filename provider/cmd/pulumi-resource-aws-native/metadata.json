@@ -688,6 +688,9 @@
                 "componentType": {
                     "type": "string"
                 },
+                "events": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentEvents"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -729,14 +732,11 @@
                 "componentType": {
                     "type": "string"
                 },
-                "createdAt": {
-                    "type": "string"
-                },
                 "environmentName": {
                     "type": "string"
                 },
-                "modifiedAt": {
-                    "type": "string"
+                "events": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentEvents"
                 },
                 "name": {
                     "type": "string"
@@ -765,6 +765,13 @@
                 "minLength": 1,
                 "maxLength": 255
             },
+            "required": [
+                "bindingProperties",
+                "componentType",
+                "overrides",
+                "properties",
+                "variants"
+            ],
             "createOnly": [
                 "tags"
             ]
@@ -11940,6 +11947,33 @@
                 "vpcId"
             ]
         },
+        "aws-native:ecr:PullThroughCacheRule": {
+            "cf": "AWS::ECR::PullThroughCacheRule",
+            "inputs": {
+                "ecrRepositoryPrefix": {
+                    "type": "string",
+                    "description": "The ECRRepositoryPrefix is a custom alias for upstream registry url."
+                },
+                "upstreamRegistryUrl": {
+                    "type": "string",
+                    "description": "The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached"
+                }
+            },
+            "outputs": {
+                "ecrRepositoryPrefix": {
+                    "type": "string",
+                    "description": "The ECRRepositoryPrefix is a custom alias for upstream registry url."
+                },
+                "upstreamRegistryUrl": {
+                    "type": "string",
+                    "description": "The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached"
+                }
+            },
+            "createOnly": [
+                "ecrRepositoryPrefix",
+                "upstreamRegistryUrl"
+            ]
+        },
         "aws-native:ecr:RegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "inputs": {
@@ -20931,6 +20965,9 @@
         "aws-native:kendra:DataSource": {
             "cf": "AWS::Kendra::DataSource",
             "inputs": {
+                "customDocumentEnrichmentConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceCustomDocumentEnrichmentConfiguration"
+                },
                 "dataSourceConfiguration": {
                     "$ref": "#/types/aws-native:kendra:DataSourceConfiguration"
                 },
@@ -20963,6 +21000,9 @@
             "outputs": {
                 "arn": {
                     "type": "string"
+                },
+                "customDocumentEnrichmentConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceCustomDocumentEnrichmentConfiguration"
                 },
                 "dataSourceConfiguration": {
                     "$ref": "#/types/aws-native:kendra:DataSourceConfiguration"
@@ -21772,7 +21812,7 @@
                     "description": "The Amazon Resource Name (ARN) of the event source."
                 },
                 "filterCriteria": {
-                    "$ref": "#/types/aws-native:lambda:FilterCriteriaProperties",
+                    "$ref": "#/types/aws-native:lambda:EventSourceMappingFilterCriteria",
                     "description": "The filter criteria to control event filtering."
                 },
                 "functionName": {
@@ -21862,7 +21902,7 @@
                     "description": "The Amazon Resource Name (ARN) of the event source."
                 },
                 "filterCriteria": {
-                    "$ref": "#/types/aws-native:lambda:FilterCriteriaProperties",
+                    "$ref": "#/types/aws-native:lambda:EventSourceMappingFilterCriteria",
                     "description": "The filter criteria to control event filtering."
                 },
                 "functionName": {
@@ -21936,7 +21976,8 @@
             "createOnly": [
                 "eventSourceArn",
                 "selfManagedEventSource",
-                "startingPosition"
+                "startingPosition",
+                "startingPositionTimestamp"
             ]
         },
         "aws-native:lambda:Function": {
@@ -35506,7 +35547,8 @@
                 "roleArn"
             ],
             "createOnly": [
-                "stateMachineName"
+                "stateMachineName",
+                "stateMachineType"
             ]
         },
         "aws-native:synthetics:Canary": {
@@ -37406,6 +37448,9 @@
                 "componentType": {
                     "type": "string"
                 },
+                "events": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentEvents"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -37415,6 +37460,9 @@
             }
         },
         "aws-native:amplifyuibuilder:ComponentCollectionProperties": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ComponentEvents": {
             "type": "object"
         },
         "aws-native:amplifyuibuilder:ComponentOverrides": {
@@ -46675,6 +46723,9 @@
                 "instanceType": {
                     "type": "string"
                 },
+                "priority": {
+                    "type": "number"
+                },
                 "spotPrice": {
                     "type": "string"
                 },
@@ -55483,6 +55534,9 @@
                 }
             }
         },
+        "aws-native:kendra:DataSourceConditionOperator": {
+            "type": "string"
+        },
         "aws-native:kendra:DataSourceConfiguration": {
             "type": "object",
             "properties": {
@@ -55715,6 +55769,26 @@
                 }
             }
         },
+        "aws-native:kendra:DataSourceCustomDocumentEnrichmentConfiguration": {
+            "type": "object",
+            "properties": {
+                "inlineConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kendra:DataSourceInlineCustomDocumentEnrichmentConfiguration"
+                    }
+                },
+                "postExtractionHookConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceHookConfiguration"
+                },
+                "preExtractionHookConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceHookConfiguration"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:kendra:DataSourceDatabaseConfiguration": {
             "type": "object",
             "properties": {
@@ -55740,6 +55814,54 @@
         },
         "aws-native:kendra:DataSourceDatabaseEngineType": {
             "type": "string"
+        },
+        "aws-native:kendra:DataSourceDocumentAttributeCondition": {
+            "type": "object",
+            "properties": {
+                "conditionDocumentAttributeKey": {
+                    "type": "string"
+                },
+                "conditionOnValue": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceDocumentAttributeValue"
+                },
+                "operator": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceConditionOperator"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceDocumentAttributeTarget": {
+            "type": "object",
+            "properties": {
+                "targetDocumentAttributeKey": {
+                    "type": "string"
+                },
+                "targetDocumentAttributeValue": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceDocumentAttributeValue"
+                },
+                "targetDocumentAttributeValueDeletion": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceDocumentAttributeValue": {
+            "type": "object",
+            "properties": {
+                "dateValue": {
+                    "type": "string"
+                },
+                "longValue": {
+                    "type": "integer"
+                },
+                "stringListValue": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:kendra:DataSourceDocumentsMetadataConfiguration": {
             "type": "object",
@@ -55790,6 +55912,34 @@
                 },
                 "secretArn": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceHookConfiguration": {
+            "type": "object",
+            "properties": {
+                "invocationCondition": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceDocumentAttributeCondition"
+                },
+                "lambdaArn": {
+                    "type": "string"
+                },
+                "s3Bucket": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceInlineCustomDocumentEnrichmentConfiguration": {
+            "type": "object",
+            "properties": {
+                "condition": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceDocumentAttributeCondition"
+                },
+                "documentContentDeletion": {
+                    "type": "boolean"
+                },
+                "target": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceDocumentAttributeTarget"
                 }
             }
         },
@@ -57484,6 +57634,18 @@
                 }
             }
         },
+        "aws-native:lambda:EventSourceMappingFilterCriteria": {
+            "type": "object",
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lambda:EventSourceMappingFilter"
+                    },
+                    "description": "List of filters of this FilterCriteria"
+                }
+            }
+        },
         "aws-native:lambda:EventSourceMappingFunctionResponseTypesItem": {
             "type": "string"
         },
@@ -57520,18 +57682,6 @@
         },
         "aws-native:lambda:EventSourceMappingSourceAccessConfigurationType": {
             "type": "string"
-        },
-        "aws-native:lambda:FilterCriteriaProperties": {
-            "type": "object",
-            "properties": {
-                "filters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:lambda:EventSourceMappingFilter"
-                    },
-                    "description": "List of filters of this FilterCriteria"
-                }
-            }
         },
         "aws-native:lambda:FunctionArchitecturesItem": {
             "type": "string"
@@ -70205,6 +70355,14 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLFieldIdentifier": {
+            "type": "object",
+            "properties": {
+                "identifier": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:wafv2:WebACLFieldToMatch": {
             "type": "object",
             "properties": {
@@ -70377,6 +70535,26 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLManagedRuleGroupConfig": {
+            "type": "object",
+            "properties": {
+                "loginPath": {
+                    "type": "string"
+                },
+                "passwordField": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldIdentifier"
+                },
+                "payloadType": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLManagedRuleGroupConfigPayloadType"
+                },
+                "usernameField": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldIdentifier"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLManagedRuleGroupConfigPayloadType": {
+            "type": "string"
+        },
         "aws-native:wafv2:WebACLManagedRuleGroupStatement": {
             "type": "object",
             "properties": {
@@ -70385,6 +70563,13 @@
                     "items": {
                         "$ref": "#/types/aws-native:wafv2:WebACLExcludedRule"
                     }
+                },
+                "managedRuleGroupConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:WebACLManagedRuleGroupConfig"
+                    },
+                    "description": "Collection of ManagedRuleGroupConfig."
                 },
                 "name": {
                     "type": "string"
@@ -72030,6 +72215,12 @@
             "ids": [
                 "dhcpOptionsId",
                 "vpcId"
+            ]
+        },
+        "aws-native:ecr:getPullThroughCacheRule": {
+            "cf": "AWS::ECR::PullThroughCacheRule",
+            "ids": [
+                "ecrRepositoryPrefix"
             ]
         },
         "aws-native:ecr:getRegistryPolicy": {

@@ -315,6 +315,9 @@
         },
         "InstanceRequirements" : {
           "$ref" : "#/definitions/InstanceRequirementsRequest"
+        },
+        "Priority" : {
+          "type" : "number"
         }
       }
     },

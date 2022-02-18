@@ -35,48 +35,48 @@
       "properties" : {
         "StatelessDefaultActions" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
         },
         "StatelessFragmentDefaultActions" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
         },
         "StatelessCustomActions" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/CustomAction"
           }
         },
         "StatelessRuleGroupReferences" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/StatelessRuleGroupReference"
           }
         },
         "StatefulRuleGroupReferences" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/StatefulRuleGroupReference"
           }
         },
         "StatefulDefaultActions" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
@@ -118,8 +118,8 @@
       "properties" : {
         "Dimensions" : {
           "type" : "array",
-          "insertionOrder" : false,
-          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/Dimension"
           }
