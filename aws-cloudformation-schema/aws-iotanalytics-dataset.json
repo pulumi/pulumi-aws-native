@@ -238,8 +238,7 @@
         "Unlimited" : {
           "type" : "boolean"
         }
-      },
-      "required" : [ "NumberOfDays", "Unlimited" ]
+      }
     },
     "ResourceConfiguration" : {
       "type" : "object",

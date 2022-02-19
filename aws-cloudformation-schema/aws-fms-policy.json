@@ -138,7 +138,7 @@
         "ManagedServiceData" : {
           "type" : "string",
           "minLength" : 1,
-          "maxLength" : 4096
+          "maxLength" : 8192
         },
         "Type" : {
           "type" : "string",
