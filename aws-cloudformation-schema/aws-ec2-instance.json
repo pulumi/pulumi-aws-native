@@ -132,6 +132,9 @@
     "AvailabilityZone" : {
       "type" : "string"
     },
+    "PrivateDnsNameOptions" : {
+      "$ref" : "#/definitions/PrivateDnsNameOptions"
+    },
     "HostId" : {
       "type" : "string"
     },
@@ -296,6 +299,21 @@
         }
       },
       "required" : [ "DeviceIndex" ]
+    },
+    "PrivateDnsNameOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "HostnameType" : {
+          "type" : "string"
+        },
+        "EnableResourceNameDnsAAAARecord" : {
+          "type" : "boolean"
+        },
+        "EnableResourceNameDnsARecord" : {
+          "type" : "boolean"
+        }
+      }
     },
     "ElasticGpuSpecification" : {
       "type" : "object",
