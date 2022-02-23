@@ -261,6 +261,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         name: Publish SDKs
         run: ./ci-scripts/ci/publish-tfgen-package ${{ github.workspace }}
+      - if: success() && github.event_name == 'push'
+        name: Add SDK version tag
+        run: git tag sdk/${{ github.ref_name }} && git push origin sdk/${{ github.ref_name }}
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3
