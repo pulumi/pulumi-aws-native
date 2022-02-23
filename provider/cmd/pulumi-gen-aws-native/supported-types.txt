@@ -112,6 +112,7 @@ AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
+AWS::DataSync::LocationFSxLustre
 AWS::DataSync::LocationFSxWindows
 AWS::DataSync::LocationHDFS
 AWS::DataSync::LocationNFS
@@ -168,6 +169,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
