@@ -2,6 +2,10 @@
 
 ---
 
+## 0.13.0 (Feb 23, 2022)
+
+- Update to include the latest resource definitions
+
 ## 0.12.0 (Feb 8, 2022)
 
 - Implement get functions for all resources
