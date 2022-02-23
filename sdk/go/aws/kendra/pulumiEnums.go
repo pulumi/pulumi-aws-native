@@ -10,6 +10,179 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DataSourceConditionOperator string
+
+const (
+	DataSourceConditionOperatorGreaterThan         = DataSourceConditionOperator("GreaterThan")
+	DataSourceConditionOperatorGreaterThanOrEquals = DataSourceConditionOperator("GreaterThanOrEquals")
+	DataSourceConditionOperatorLessThan            = DataSourceConditionOperator("LessThan")
+	DataSourceConditionOperatorLessThanOrEquals    = DataSourceConditionOperator("LessThanOrEquals")
+	DataSourceConditionOperatorEquals              = DataSourceConditionOperator("Equals")
+	DataSourceConditionOperatorNotEquals           = DataSourceConditionOperator("NotEquals")
+	DataSourceConditionOperatorContains            = DataSourceConditionOperator("Contains")
+	DataSourceConditionOperatorNotContains         = DataSourceConditionOperator("NotContains")
+	DataSourceConditionOperatorExists              = DataSourceConditionOperator("Exists")
+	DataSourceConditionOperatorNotExists           = DataSourceConditionOperator("NotExists")
+	DataSourceConditionOperatorBeginsWith          = DataSourceConditionOperator("BeginsWith")
+)
+
+func (DataSourceConditionOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConditionOperator)(nil)).Elem()
+}
+
+func (e DataSourceConditionOperator) ToDataSourceConditionOperatorOutput() DataSourceConditionOperatorOutput {
+	return pulumi.ToOutput(e).(DataSourceConditionOperatorOutput)
+}
+
+func (e DataSourceConditionOperator) ToDataSourceConditionOperatorOutputWithContext(ctx context.Context) DataSourceConditionOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceConditionOperatorOutput)
+}
+
+func (e DataSourceConditionOperator) ToDataSourceConditionOperatorPtrOutput() DataSourceConditionOperatorPtrOutput {
+	return e.ToDataSourceConditionOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceConditionOperator) ToDataSourceConditionOperatorPtrOutputWithContext(ctx context.Context) DataSourceConditionOperatorPtrOutput {
+	return DataSourceConditionOperator(e).ToDataSourceConditionOperatorOutputWithContext(ctx).ToDataSourceConditionOperatorPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceConditionOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceConditionOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceConditionOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceConditionOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceConditionOperatorOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConditionOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConditionOperator)(nil)).Elem()
+}
+
+func (o DataSourceConditionOperatorOutput) ToDataSourceConditionOperatorOutput() DataSourceConditionOperatorOutput {
+	return o
+}
+
+func (o DataSourceConditionOperatorOutput) ToDataSourceConditionOperatorOutputWithContext(ctx context.Context) DataSourceConditionOperatorOutput {
+	return o
+}
+
+func (o DataSourceConditionOperatorOutput) ToDataSourceConditionOperatorPtrOutput() DataSourceConditionOperatorPtrOutput {
+	return o.ToDataSourceConditionOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConditionOperatorOutput) ToDataSourceConditionOperatorPtrOutputWithContext(ctx context.Context) DataSourceConditionOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConditionOperator) *DataSourceConditionOperator {
+		return &v
+	}).(DataSourceConditionOperatorPtrOutput)
+}
+
+func (o DataSourceConditionOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceConditionOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceConditionOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceConditionOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConditionOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceConditionOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConditionOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConditionOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConditionOperator)(nil)).Elem()
+}
+
+func (o DataSourceConditionOperatorPtrOutput) ToDataSourceConditionOperatorPtrOutput() DataSourceConditionOperatorPtrOutput {
+	return o
+}
+
+func (o DataSourceConditionOperatorPtrOutput) ToDataSourceConditionOperatorPtrOutputWithContext(ctx context.Context) DataSourceConditionOperatorPtrOutput {
+	return o
+}
+
+func (o DataSourceConditionOperatorPtrOutput) Elem() DataSourceConditionOperatorOutput {
+	return o.ApplyT(func(v *DataSourceConditionOperator) DataSourceConditionOperator {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConditionOperator
+		return ret
+	}).(DataSourceConditionOperatorOutput)
+}
+
+func (o DataSourceConditionOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConditionOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceConditionOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceConditionOperatorInput is an input type that accepts DataSourceConditionOperatorArgs and DataSourceConditionOperatorOutput values.
+// You can construct a concrete instance of `DataSourceConditionOperatorInput` via:
+//
+//          DataSourceConditionOperatorArgs{...}
+type DataSourceConditionOperatorInput interface {
+	pulumi.Input
+
+	ToDataSourceConditionOperatorOutput() DataSourceConditionOperatorOutput
+	ToDataSourceConditionOperatorOutputWithContext(context.Context) DataSourceConditionOperatorOutput
+}
+
+var dataSourceConditionOperatorPtrType = reflect.TypeOf((**DataSourceConditionOperator)(nil)).Elem()
+
+type DataSourceConditionOperatorPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConditionOperatorPtrOutput() DataSourceConditionOperatorPtrOutput
+	ToDataSourceConditionOperatorPtrOutputWithContext(context.Context) DataSourceConditionOperatorPtrOutput
+}
+
+type dataSourceConditionOperatorPtr string
+
+func DataSourceConditionOperatorPtr(v string) DataSourceConditionOperatorPtrInput {
+	return (*dataSourceConditionOperatorPtr)(&v)
+}
+
+func (*dataSourceConditionOperatorPtr) ElementType() reflect.Type {
+	return dataSourceConditionOperatorPtrType
+}
+
+func (in *dataSourceConditionOperatorPtr) ToDataSourceConditionOperatorPtrOutput() DataSourceConditionOperatorPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceConditionOperatorPtrOutput)
+}
+
+func (in *dataSourceConditionOperatorPtr) ToDataSourceConditionOperatorPtrOutputWithContext(ctx context.Context) DataSourceConditionOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConditionOperatorPtrOutput)
+}
+
 type DataSourceConfluenceAttachmentFieldName string
 
 const (
@@ -3608,6 +3781,8 @@ func (in *indexUserContextPolicyPtr) ToIndexUserContextPolicyPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConditionOperatorInput)(nil)).Elem(), DataSourceConditionOperator("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConditionOperatorPtrInput)(nil)).Elem(), DataSourceConditionOperator("GreaterThan"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceAttachmentFieldNameInput)(nil)).Elem(), DataSourceConfluenceAttachmentFieldName("AUTHOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceAttachmentFieldNamePtrInput)(nil)).Elem(), DataSourceConfluenceAttachmentFieldName("AUTHOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceBlogFieldNameInput)(nil)).Elem(), DataSourceConfluenceBlogFieldName("AUTHOR"))
@@ -3652,6 +3827,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexOrderPtrInput)(nil)).Elem(), IndexOrder("ASCENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserContextPolicyInput)(nil)).Elem(), IndexUserContextPolicy("ATTRIBUTE_FILTER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserContextPolicyPtrInput)(nil)).Elem(), IndexUserContextPolicy("ATTRIBUTE_FILTER"))
+	pulumi.RegisterOutputType(DataSourceConditionOperatorOutput{})
+	pulumi.RegisterOutputType(DataSourceConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentFieldNameOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentFieldNamePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceBlogFieldNameOutput{})

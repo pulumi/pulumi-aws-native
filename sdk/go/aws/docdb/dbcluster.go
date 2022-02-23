@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +28,8 @@ type DBCluster struct {
 	Endpoint                    pulumi.StringOutput      `pulumi:"endpoint"`
 	EngineVersion               pulumi.StringPtrOutput   `pulumi:"engineVersion"`
 	KmsKeyId                    pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
-	MasterUserPassword          pulumi.StringOutput      `pulumi:"masterUserPassword"`
-	MasterUsername              pulumi.StringOutput      `pulumi:"masterUsername"`
+	MasterUserPassword          pulumi.StringPtrOutput   `pulumi:"masterUserPassword"`
+	MasterUsername              pulumi.StringPtrOutput   `pulumi:"masterUsername"`
 	Port                        pulumi.IntPtrOutput      `pulumi:"port"`
 	PreferredBackupWindow       pulumi.StringPtrOutput   `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
@@ -45,15 +44,9 @@ type DBCluster struct {
 func NewDBCluster(ctx *pulumi.Context,
 	name string, args *DBClusterArgs, opts ...pulumi.ResourceOption) (*DBCluster, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DBClusterArgs{}
 	}
 
-	if args.MasterUserPassword == nil {
-		return nil, errors.New("invalid value for required argument 'MasterUserPassword'")
-	}
-	if args.MasterUsername == nil {
-		return nil, errors.New("invalid value for required argument 'MasterUsername'")
-	}
 	var resource DBCluster
 	err := ctx.RegisterResource("aws-native:docdb:DBCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -96,8 +89,8 @@ type dbclusterArgs struct {
 	EnableCloudwatchLogsExports []string       `pulumi:"enableCloudwatchLogsExports"`
 	EngineVersion               *string        `pulumi:"engineVersion"`
 	KmsKeyId                    *string        `pulumi:"kmsKeyId"`
-	MasterUserPassword          string         `pulumi:"masterUserPassword"`
-	MasterUsername              string         `pulumi:"masterUsername"`
+	MasterUserPassword          *string        `pulumi:"masterUserPassword"`
+	MasterUsername              *string        `pulumi:"masterUsername"`
 	Port                        *int           `pulumi:"port"`
 	PreferredBackupWindow       *string        `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  *string        `pulumi:"preferredMaintenanceWindow"`
@@ -119,8 +112,8 @@ type DBClusterArgs struct {
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	EngineVersion               pulumi.StringPtrInput
 	KmsKeyId                    pulumi.StringPtrInput
-	MasterUserPassword          pulumi.StringInput
-	MasterUsername              pulumi.StringInput
+	MasterUserPassword          pulumi.StringPtrInput
+	MasterUsername              pulumi.StringPtrInput
 	Port                        pulumi.IntPtrInput
 	PreferredBackupWindow       pulumi.StringPtrInput
 	PreferredMaintenanceWindow  pulumi.StringPtrInput

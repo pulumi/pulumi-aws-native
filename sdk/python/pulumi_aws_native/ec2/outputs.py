@@ -71,6 +71,7 @@ __all__ = [
     'InstanceLicenseSpecification',
     'InstanceNetworkInterface',
     'InstanceNoDevice',
+    'InstancePrivateDnsNameOptions',
     'InstancePrivateIpAddressSpecification',
     'InstanceSsmAssociation',
     'InstanceTag',
@@ -140,6 +141,7 @@ __all__ = [
     'OptionsProperties',
     'PrefixListEntry',
     'PrefixListTag',
+    'PrivateDnsNameOptionsOnLaunchProperties',
     'RouteTableTag',
     'SecurityGroupEgress',
     'SecurityGroupIngress',
@@ -2647,6 +2649,56 @@ class InstanceNetworkInterface(dict):
 class InstanceNoDevice(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class InstancePrivateDnsNameOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceNameDnsAAAARecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
+        elif key == "enableResourceNameDnsARecord":
+            suggest = "enable_resource_name_dns_a_record"
+        elif key == "hostnameType":
+            suggest = "hostname_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstancePrivateDnsNameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstancePrivateDnsNameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstancePrivateDnsNameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[str]:
+        return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type
@@ -6275,6 +6327,56 @@ class PrefixListTag(dict):
 
 
 @pulumi.output_type
+class PrivateDnsNameOptionsOnLaunchProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceNameDnsAAAARecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
+        elif key == "enableResourceNameDnsARecord":
+            suggest = "enable_resource_name_dns_a_record"
+        elif key == "hostnameType":
+            suggest = "hostname_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsNameOptionsOnLaunchProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateDnsNameOptionsOnLaunchProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateDnsNameOptionsOnLaunchProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[str]:
+        return pulumi.get(self, "hostname_type")
+
+
+@pulumi.output_type
 class RouteTableTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -7503,6 +7605,7 @@ class SpotFleetLaunchTemplateOverrides(dict):
                  availability_zone: Optional[str] = None,
                  instance_requirements: Optional['outputs.SpotFleetInstanceRequirementsRequest'] = None,
                  instance_type: Optional[str] = None,
+                 priority: Optional[float] = None,
                  spot_price: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  weighted_capacity: Optional[float] = None):
@@ -7512,6 +7615,8 @@ class SpotFleetLaunchTemplateOverrides(dict):
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if spot_price is not None:
             pulumi.set(__self__, "spot_price", spot_price)
         if subnet_id is not None:
@@ -7533,6 +7638,11 @@ class SpotFleetLaunchTemplateOverrides(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="spotPrice")

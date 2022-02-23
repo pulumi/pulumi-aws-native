@@ -15,8 +15,6 @@ __all__ = ['DBClusterArgs', 'DBCluster']
 @pulumi.input_type
 class DBClusterArgs:
     def __init__(__self__, *,
-                 master_user_password: pulumi.Input[str],
-                 master_username: pulumi.Input[str],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -27,6 +25,8 @@ class DBClusterArgs:
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 master_user_password: Optional[pulumi.Input[str]] = None,
+                 master_username: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -37,8 +37,6 @@ class DBClusterArgs:
         """
         The set of arguments for constructing a DBCluster resource.
         """
-        pulumi.set(__self__, "master_user_password", master_user_password)
-        pulumi.set(__self__, "master_username", master_username)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if backup_retention_period is not None:
@@ -59,6 +57,10 @@ class DBClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if master_user_password is not None:
+            pulumi.set(__self__, "master_user_password", master_user_password)
+        if master_username is not None:
+            pulumi.set(__self__, "master_username", master_username)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -73,24 +75,6 @@ class DBClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
-
-    @property
-    @pulumi.getter(name="masterUserPassword")
-    def master_user_password(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "master_user_password")
-
-    @master_user_password.setter
-    def master_user_password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "master_user_password", value)
-
-    @property
-    @pulumi.getter(name="masterUsername")
-    def master_username(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "master_username")
-
-    @master_username.setter
-    def master_username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "master_username", value)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -181,6 +165,24 @@ class DBClusterArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="masterUserPassword")
+    def master_user_password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "master_user_password")
+
+    @master_user_password.setter
+    def master_user_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_password", value)
+
+    @property
+    @pulumi.getter(name="masterUsername")
+    def master_username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "master_username")
+
+    @master_username.setter
+    def master_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_username", value)
 
     @property
     @pulumi.getter
@@ -286,7 +288,7 @@ class DBCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBClusterArgs,
+                 args: Optional[DBClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DocDB::DBCluster
@@ -348,11 +350,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if master_user_password is None and not opts.urn:
-                raise TypeError("Missing required property 'master_user_password'")
             __props__.__dict__["master_user_password"] = master_user_password
-            if master_username is None and not opts.urn:
-                raise TypeError("Missing required property 'master_username'")
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
@@ -472,12 +470,12 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserPassword")
-    def master_user_password(self) -> pulumi.Output[str]:
+    def master_user_password(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "master_user_password")
 
     @property
     @pulumi.getter(name="masterUsername")
-    def master_username(self) -> pulumi.Output[str]:
+    def master_username(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "master_username")
 
     @property

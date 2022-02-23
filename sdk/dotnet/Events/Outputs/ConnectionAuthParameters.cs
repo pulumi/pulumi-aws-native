@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Events.Outputs
 {
 
     [OutputType]
-    public sealed class AuthParametersProperties
+    public sealed class ConnectionAuthParameters
     {
         public readonly Outputs.ConnectionApiKeyAuthParameters? ApiKeyAuthParameters;
         public readonly Outputs.ConnectionBasicAuthParameters? BasicAuthParameters;
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         public readonly Outputs.ConnectionOAuthParameters? OAuthParameters;
 
         [OutputConstructor]
-        private AuthParametersProperties(
+        private ConnectionAuthParameters(
             Outputs.ConnectionApiKeyAuthParameters? apiKeyAuthParameters,
 
             Outputs.ConnectionBasicAuthParameters? basicAuthParameters,

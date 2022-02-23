@@ -21,14 +21,23 @@ namespace Pulumi.AwsNative.EC2
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        [Output("availabilityZoneId")]
+        public Output<string?> AvailabilityZoneId { get; private set; } = null!;
+
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
+
+        [Output("enableDns64")]
+        public Output<bool?> EnableDns64 { get; private set; } = null!;
 
         [Output("ipv6CidrBlock")]
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
+
+        [Output("ipv6Native")]
+        public Output<bool?> Ipv6Native { get; private set; } = null!;
 
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
@@ -38,6 +47,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
+
+        [Output("privateDnsNameOptionsOnLaunch")]
+        public Output<Outputs.PrivateDnsNameOptionsOnLaunchProperties?> PrivateDnsNameOptionsOnLaunch { get; private set; } = null!;
 
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -99,17 +111,29 @@ namespace Pulumi.AwsNative.EC2
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        [Input("cidrBlock", required: true)]
-        public Input<string> CidrBlock { get; set; } = null!;
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
+
+        [Input("cidrBlock")]
+        public Input<string>? CidrBlock { get; set; }
+
+        [Input("enableDns64")]
+        public Input<bool>? EnableDns64 { get; set; }
 
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        [Input("ipv6Native")]
+        public Input<bool>? Ipv6Native { get; set; }
 
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
+
+        [Input("privateDnsNameOptionsOnLaunch")]
+        public Input<Inputs.PrivateDnsNameOptionsOnLaunchPropertiesArgs>? PrivateDnsNameOptionsOnLaunch { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SubnetTagArgs>? _tags;

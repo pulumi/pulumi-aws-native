@@ -820,6 +820,34 @@ namespace Pulumi.AwsNative.WAFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct WebACLManagedRuleGroupConfigPayloadType : IEquatable<WebACLManagedRuleGroupConfigPayloadType>
+    {
+        private readonly string _value;
+
+        private WebACLManagedRuleGroupConfigPayloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLManagedRuleGroupConfigPayloadType Json { get; } = new WebACLManagedRuleGroupConfigPayloadType("JSON");
+        public static WebACLManagedRuleGroupConfigPayloadType FormEncoded { get; } = new WebACLManagedRuleGroupConfigPayloadType("FORM_ENCODED");
+
+        public static bool operator ==(WebACLManagedRuleGroupConfigPayloadType left, WebACLManagedRuleGroupConfigPayloadType right) => left.Equals(right);
+        public static bool operator !=(WebACLManagedRuleGroupConfigPayloadType left, WebACLManagedRuleGroupConfigPayloadType right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLManagedRuleGroupConfigPayloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLManagedRuleGroupConfigPayloadType other && Equals(other);
+        public bool Equals(WebACLManagedRuleGroupConfigPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Position of the evaluation in the FieldToMatch of request.
     /// </summary>

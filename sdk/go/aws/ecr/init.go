@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ecr:PublicRepository":
 		r = &PublicRepository{}
+	case "aws-native:ecr:PullThroughCacheRule":
+		r = &PullThroughCacheRule{}
 	case "aws-native:ecr:RegistryPolicy":
 		r = &RegistryPolicy{}
 	case "aws-native:ecr:ReplicationConfiguration":

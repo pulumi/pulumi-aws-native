@@ -33,10 +33,9 @@ export interface GetComponentResult {
     readonly children?: outputs.amplifyuibuilder.ComponentChild[];
     readonly collectionProperties?: outputs.amplifyuibuilder.ComponentCollectionProperties;
     readonly componentType?: string;
-    readonly createdAt?: string;
     readonly environmentName?: string;
+    readonly events?: outputs.amplifyuibuilder.ComponentEvents;
     readonly id?: string;
-    readonly modifiedAt?: string;
     readonly name?: string;
     readonly overrides?: outputs.amplifyuibuilder.ComponentOverrides;
     readonly properties?: outputs.amplifyuibuilder.ComponentProperties;

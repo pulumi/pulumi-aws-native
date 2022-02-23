@@ -39,7 +39,7 @@ export class Connection extends pulumi.CustomResource {
      * The arn of the connection resource.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly authParameters!: pulumi.Output<outputs.events.AuthParametersProperties>;
+    public readonly authParameters!: pulumi.Output<outputs.events.ConnectionAuthParameters>;
     public readonly authorizationType!: pulumi.Output<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.
@@ -94,7 +94,7 @@ export class Connection extends pulumi.CustomResource {
  * The set of arguments for constructing a Connection resource.
  */
 export interface ConnectionArgs {
-    authParameters: pulumi.Input<inputs.events.AuthParametersPropertiesArgs>;
+    authParameters: pulumi.Input<inputs.events.ConnectionAuthParametersArgs>;
     authorizationType: pulumi.Input<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.

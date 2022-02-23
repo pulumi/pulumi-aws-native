@@ -157,38 +157,14 @@
       "enum" : [ "API_KEY", "BASIC", "OAUTH_CLIENT_CREDENTIALS" ]
     },
     "AuthParameters" : {
-      "type" : "object",
-      "minProperties" : 1,
-      "maxProperties" : 2,
-      "properties" : {
-        "ApiKeyAuthParameters" : {
-          "$ref" : "#/definitions/ApiKeyAuthParameters"
-        },
-        "BasicAuthParameters" : {
-          "$ref" : "#/definitions/BasicAuthParameters"
-        },
-        "OAuthParameters" : {
-          "$ref" : "#/definitions/OAuthParameters"
-        },
-        "InvocationHttpParameters" : {
-          "$ref" : "#/definitions/ConnectionHttpParameters"
-        }
-      },
-      "oneOf" : [ {
-        "required" : [ "BasicAuthParameters" ]
-      }, {
-        "required" : [ "OAuthParameters" ]
-      }, {
-        "required" : [ "ApiKeyAuthParameters" ]
-      } ],
-      "additionalProperties" : false
+      "$ref" : "#/definitions/AuthParameters"
     }
   },
   "additionalProperties" : false,
   "required" : [ "AuthorizationType", "AuthParameters" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/SecretArn" ],
-  "writeOnlyProperties" : [ "/definitions/BasicAuthParameters/Password", "/definitions/ApiKeyAuthParameters/ApiKeyValue", "/definitions/OAuthParameters/ClientParameters/ClientSecret" ],
+  "writeOnlyProperties" : [ "/properties/AuthParameters" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {

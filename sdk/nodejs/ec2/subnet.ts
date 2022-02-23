@@ -37,12 +37,16 @@ export class Subnet extends pulumi.CustomResource {
 
     public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
-    public readonly cidrBlock!: pulumi.Output<string>;
+    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
+    public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    public readonly enableDns64!: pulumi.Output<boolean | undefined>;
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
+    public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
     public readonly outpostArn!: pulumi.Output<string | undefined>;
+    public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.SubnetTag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
@@ -58,18 +62,19 @@ export class Subnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cidrBlock'");
-            }
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
             resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["privateDnsNameOptionsOnLaunch"] = args ? args.privateDnsNameOptionsOnLaunch : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
@@ -78,12 +83,16 @@ export class Subnet extends pulumi.CustomResource {
         } else {
             resourceInputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["enableDns64"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
+            resourceInputs["ipv6Native"] = undefined /*out*/;
             resourceInputs["mapPublicIpOnLaunch"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["privateDnsNameOptionsOnLaunch"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
@@ -99,10 +108,14 @@ export class Subnet extends pulumi.CustomResource {
 export interface SubnetArgs {
     assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
     availabilityZone?: pulumi.Input<string>;
-    cidrBlock: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
+    enableDns64?: pulumi.Input<boolean>;
     ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6Native?: pulumi.Input<boolean>;
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     outpostArn?: pulumi.Input<string>;
+    privateDnsNameOptionsOnLaunch?: pulumi.Input<inputs.ec2.PrivateDnsNameOptionsOnLaunchPropertiesArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.SubnetTagArgs>[]>;
     vpcId: pulumi.Input<string>;
 }

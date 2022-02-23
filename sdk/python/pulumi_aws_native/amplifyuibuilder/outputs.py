@@ -13,6 +13,7 @@ __all__ = [
     'ComponentBindingProperties',
     'ComponentChild',
     'ComponentCollectionProperties',
+    'ComponentEvents',
     'ComponentOverrides',
     'ComponentProperties',
     'ComponentTags',
@@ -52,12 +53,15 @@ class ComponentChild(dict):
                  component_type: str,
                  name: str,
                  properties: 'outputs.ComponentProperties',
-                 children: Optional[Sequence['outputs.ComponentChild']] = None):
+                 children: Optional[Sequence['outputs.ComponentChild']] = None,
+                 events: Optional['outputs.ComponentEvents'] = None):
         pulumi.set(__self__, "component_type", component_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         if children is not None:
             pulumi.set(__self__, "children", children)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter(name="componentType")
@@ -79,9 +83,20 @@ class ComponentChild(dict):
     def children(self) -> Optional[Sequence['outputs.ComponentChild']]:
         return pulumi.get(self, "children")
 
+    @property
+    @pulumi.getter
+    def events(self) -> Optional['outputs.ComponentEvents']:
+        return pulumi.get(self, "events")
+
 
 @pulumi.output_type
 class ComponentCollectionProperties(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ComponentEvents(dict):
     def __init__(__self__):
         pass
 

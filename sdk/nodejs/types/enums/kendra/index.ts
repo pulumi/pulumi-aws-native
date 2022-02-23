@@ -2,6 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DataSourceConditionOperator = {
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEquals: "GreaterThanOrEquals",
+    LessThan: "LessThan",
+    LessThanOrEquals: "LessThanOrEquals",
+    Equals: "Equals",
+    NotEquals: "NotEquals",
+    Contains: "Contains",
+    NotContains: "NotContains",
+    Exists: "Exists",
+    NotExists: "NotExists",
+    BeginsWith: "BeginsWith",
+} as const;
+
+export type DataSourceConditionOperator = (typeof DataSourceConditionOperator)[keyof typeof DataSourceConditionOperator];
+
 export const DataSourceConfluenceAttachmentFieldName = {
     Author: "AUTHOR",
     ContentType: "CONTENT_TYPE",

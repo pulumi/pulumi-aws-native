@@ -71,6 +71,7 @@ __all__ = [
     'WebACLCustomResponseArgs',
     'WebACLDefaultActionArgs',
     'WebACLExcludedRuleArgs',
+    'WebACLFieldIdentifierArgs',
     'WebACLFieldToMatchSingleHeaderPropertiesArgs',
     'WebACLFieldToMatchSingleQueryArgumentPropertiesArgs',
     'WebACLFieldToMatchArgs',
@@ -83,6 +84,7 @@ __all__ = [
     'WebACLJsonMatchPatternArgs',
     'WebACLLabelMatchStatementArgs',
     'WebACLLabelArgs',
+    'WebACLManagedRuleGroupConfigArgs',
     'WebACLManagedRuleGroupStatementArgs',
     'WebACLNotStatementArgs',
     'WebACLOrStatementArgs',
@@ -2295,6 +2297,22 @@ class WebACLExcludedRuleArgs:
 
 
 @pulumi.input_type
+class WebACLFieldIdentifierArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[str]):
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identifier", value)
+
+
+@pulumi.input_type
 class WebACLFieldToMatchSingleHeaderPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
@@ -2717,17 +2735,79 @@ class WebACLLabelArgs:
 
 
 @pulumi.input_type
+class WebACLManagedRuleGroupConfigArgs:
+    def __init__(__self__, *,
+                 login_path: Optional[pulumi.Input[str]] = None,
+                 password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
+                 payload_type: Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']] = None,
+                 username_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None):
+        """
+        ManagedRuleGroupConfig.
+        """
+        if login_path is not None:
+            pulumi.set(__self__, "login_path", login_path)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if payload_type is not None:
+            pulumi.set(__self__, "payload_type", payload_type)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="loginPath")
+    def login_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "login_path")
+
+    @login_path.setter
+    def login_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login_path", value)
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+        return pulumi.get(self, "password_field")
+
+    @password_field.setter
+    def password_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+        pulumi.set(self, "password_field", value)
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']]:
+        return pulumi.get(self, "payload_type")
+
+    @payload_type.setter
+    def payload_type(self, value: Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']]):
+        pulumi.set(self, "payload_type", value)
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+        return pulumi.get(self, "username_field")
+
+    @username_field.setter
+    def username_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+        pulumi.set(self, "username_field", value)
+
+
+@pulumi.input_type
 class WebACLManagedRuleGroupStatementArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vendor_name: pulumi.Input[str],
                  excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]] = None,
+                 managed_rule_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]]] = None,
                  scope_down_statement: Optional[pulumi.Input['WebACLStatementArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
         if excluded_rules is not None:
             pulumi.set(__self__, "excluded_rules", excluded_rules)
+        if managed_rule_group_configs is not None:
+            pulumi.set(__self__, "managed_rule_group_configs", managed_rule_group_configs)
         if scope_down_statement is not None:
             pulumi.set(__self__, "scope_down_statement", scope_down_statement)
         if version is not None:
@@ -2759,6 +2839,18 @@ class WebACLManagedRuleGroupStatementArgs:
     @excluded_rules.setter
     def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]):
         pulumi.set(self, "excluded_rules", value)
+
+    @property
+    @pulumi.getter(name="managedRuleGroupConfigs")
+    def managed_rule_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]]]:
+        """
+        Collection of ManagedRuleGroupConfig.
+        """
+        return pulumi.get(self, "managed_rule_group_configs")
+
+    @managed_rule_group_configs.setter
+    def managed_rule_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLManagedRuleGroupConfigArgs']]]]):
+        pulumi.set(self, "managed_rule_group_configs", value)
 
     @property
     @pulumi.getter(name="scopeDownStatement")

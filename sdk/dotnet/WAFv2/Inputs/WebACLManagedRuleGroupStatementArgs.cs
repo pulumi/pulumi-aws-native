@@ -20,6 +20,18 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
             set => _excludedRules = value;
         }
 
+        [Input("managedRuleGroupConfigs")]
+        private InputList<Inputs.WebACLManagedRuleGroupConfigArgs>? _managedRuleGroupConfigs;
+
+        /// <summary>
+        /// Collection of ManagedRuleGroupConfig.
+        /// </summary>
+        public InputList<Inputs.WebACLManagedRuleGroupConfigArgs> ManagedRuleGroupConfigs
+        {
+            get => _managedRuleGroupConfigs ?? (_managedRuleGroupConfigs = new InputList<Inputs.WebACLManagedRuleGroupConfigArgs>());
+            set => _managedRuleGroupConfigs = value;
+        }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

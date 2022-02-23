@@ -4327,6 +4327,170 @@ func (in *webACLLabelMatchScopePtr) ToWebACLLabelMatchScopePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLLabelMatchScopePtrOutput)
 }
 
+type WebACLManagedRuleGroupConfigPayloadType string
+
+const (
+	WebACLManagedRuleGroupConfigPayloadTypeJson        = WebACLManagedRuleGroupConfigPayloadType("JSON")
+	WebACLManagedRuleGroupConfigPayloadTypeFormEncoded = WebACLManagedRuleGroupConfigPayloadType("FORM_ENCODED")
+)
+
+func (WebACLManagedRuleGroupConfigPayloadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypeOutput() WebACLManagedRuleGroupConfigPayloadTypeOutput {
+	return pulumi.ToOutput(e).(WebACLManagedRuleGroupConfigPayloadTypeOutput)
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebACLManagedRuleGroupConfigPayloadTypeOutput)
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return e.ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return WebACLManagedRuleGroupConfigPayloadType(e).ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx).ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx)
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLManagedRuleGroupConfigPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebACLManagedRuleGroupConfigPayloadTypeOutput struct{ *pulumi.OutputState }
+
+func (WebACLManagedRuleGroupConfigPayloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypeOutput() WebACLManagedRuleGroupConfigPayloadTypeOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypeOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o.ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLManagedRuleGroupConfigPayloadType) *WebACLManagedRuleGroupConfigPayloadType {
+		return &v
+	}).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLManagedRuleGroupConfigPayloadType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLManagedRuleGroupConfigPayloadType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLManagedRuleGroupConfigPayloadTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) Elem() WebACLManagedRuleGroupConfigPayloadTypeOutput {
+	return o.ApplyT(func(v *WebACLManagedRuleGroupConfigPayloadType) WebACLManagedRuleGroupConfigPayloadType {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLManagedRuleGroupConfigPayloadType
+		return ret
+	}).(WebACLManagedRuleGroupConfigPayloadTypeOutput)
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLManagedRuleGroupConfigPayloadType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebACLManagedRuleGroupConfigPayloadTypeInput is an input type that accepts WebACLManagedRuleGroupConfigPayloadTypeArgs and WebACLManagedRuleGroupConfigPayloadTypeOutput values.
+// You can construct a concrete instance of `WebACLManagedRuleGroupConfigPayloadTypeInput` via:
+//
+//          WebACLManagedRuleGroupConfigPayloadTypeArgs{...}
+type WebACLManagedRuleGroupConfigPayloadTypeInput interface {
+	pulumi.Input
+
+	ToWebACLManagedRuleGroupConfigPayloadTypeOutput() WebACLManagedRuleGroupConfigPayloadTypeOutput
+	ToWebACLManagedRuleGroupConfigPayloadTypeOutputWithContext(context.Context) WebACLManagedRuleGroupConfigPayloadTypeOutput
+}
+
+var webACLManagedRuleGroupConfigPayloadTypePtrType = reflect.TypeOf((**WebACLManagedRuleGroupConfigPayloadType)(nil)).Elem()
+
+type WebACLManagedRuleGroupConfigPayloadTypePtrInput interface {
+	pulumi.Input
+
+	ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput
+	ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput
+}
+
+type webACLManagedRuleGroupConfigPayloadTypePtr string
+
+func WebACLManagedRuleGroupConfigPayloadTypePtr(v string) WebACLManagedRuleGroupConfigPayloadTypePtrInput {
+	return (*webACLManagedRuleGroupConfigPayloadTypePtr)(&v)
+}
+
+func (*webACLManagedRuleGroupConfigPayloadTypePtr) ElementType() reflect.Type {
+	return webACLManagedRuleGroupConfigPayloadTypePtrType
+}
+
+func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutput() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return pulumi.ToOutput(in).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+}
+
+func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+}
+
 // Position of the evaluation in the FieldToMatch of request.
 type WebACLPositionalConstraint string
 
@@ -5229,6 +5393,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLJsonMatchScopePtrInput)(nil)).Elem(), WebACLJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchScopeInput)(nil)).Elem(), WebACLLabelMatchScope("LABEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchScopePtrInput)(nil)).Elem(), WebACLLabelMatchScope("LABEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadTypeInput)(nil)).Elem(), WebACLManagedRuleGroupConfigPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadTypePtrInput)(nil)).Elem(), WebACLManagedRuleGroupConfigPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintPtrInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
@@ -5291,6 +5457,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLJsonMatchScopePtrOutput{})
 	pulumi.RegisterOutputType(WebACLLabelMatchScopeOutput{})
 	pulumi.RegisterOutputType(WebACLLabelMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigPayloadTypeOutput{})
+	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(WebACLPositionalConstraintOutput{})
 	pulumi.RegisterOutputType(WebACLPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypeOutput{})

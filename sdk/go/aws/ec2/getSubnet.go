@@ -25,13 +25,15 @@ type LookupSubnetArgs struct {
 }
 
 type LookupSubnetResult struct {
-	AssignIpv6AddressOnCreation *bool       `pulumi:"assignIpv6AddressOnCreation"`
-	Ipv6CidrBlock               *string     `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks              []string    `pulumi:"ipv6CidrBlocks"`
-	MapPublicIpOnLaunch         *bool       `pulumi:"mapPublicIpOnLaunch"`
-	NetworkAclAssociationId     *string     `pulumi:"networkAclAssociationId"`
-	SubnetId                    *string     `pulumi:"subnetId"`
-	Tags                        []SubnetTag `pulumi:"tags"`
+	AssignIpv6AddressOnCreation   *bool                                    `pulumi:"assignIpv6AddressOnCreation"`
+	EnableDns64                   *bool                                    `pulumi:"enableDns64"`
+	Ipv6CidrBlock                 *string                                  `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlocks                []string                                 `pulumi:"ipv6CidrBlocks"`
+	MapPublicIpOnLaunch           *bool                                    `pulumi:"mapPublicIpOnLaunch"`
+	NetworkAclAssociationId       *string                                  `pulumi:"networkAclAssociationId"`
+	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
+	SubnetId                      *string                                  `pulumi:"subnetId"`
+	Tags                          []SubnetTag                              `pulumi:"tags"`
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
@@ -69,6 +71,10 @@ func (o LookupSubnetResultOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.AssignIpv6AddressOnCreation }).(pulumi.BoolPtrOutput)
 }
 
+func (o LookupSubnetResultOutput) EnableDns64() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupSubnetResultOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
@@ -83,6 +89,12 @@ func (o LookupSubnetResultOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 
 func (o LookupSubnetResultOutput) NetworkAclAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.NetworkAclAssociationId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSubnetResultOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupSubnetResult) *PrivateDnsNameOptionsOnLaunchProperties {
+		return v.PrivateDnsNameOptionsOnLaunch
+	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
 func (o LookupSubnetResultOutput) SubnetId() pulumi.StringPtrOutput {

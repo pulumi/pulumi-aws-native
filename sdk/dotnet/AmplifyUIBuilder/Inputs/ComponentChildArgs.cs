@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
         [Input("componentType", required: true)]
         public Input<string> ComponentType { get; set; } = null!;
 
+        [Input("events")]
+        public Input<Inputs.ComponentEventsArgs>? Events { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

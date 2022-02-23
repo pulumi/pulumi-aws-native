@@ -32,10 +32,9 @@ type LookupComponentResult struct {
 	Children             []ComponentChild               `pulumi:"children"`
 	CollectionProperties *ComponentCollectionProperties `pulumi:"collectionProperties"`
 	ComponentType        *string                        `pulumi:"componentType"`
-	CreatedAt            *string                        `pulumi:"createdAt"`
 	EnvironmentName      *string                        `pulumi:"environmentName"`
+	Events               *ComponentEvents               `pulumi:"events"`
 	Id                   *string                        `pulumi:"id"`
-	ModifiedAt           *string                        `pulumi:"modifiedAt"`
 	Name                 *string                        `pulumi:"name"`
 	Overrides            *ComponentOverrides            `pulumi:"overrides"`
 	Properties           *ComponentProperties           `pulumi:"properties"`
@@ -96,20 +95,16 @@ func (o LookupComponentResultOutput) ComponentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *string { return v.ComponentType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupComponentResultOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupComponentResultOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *string { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupComponentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupComponentResultOutput) Events() ComponentEventsPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *ComponentEvents { return v.Events }).(ComponentEventsPtrOutput)
 }
 
-func (o LookupComponentResultOutput) ModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+func (o LookupComponentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupComponentResultOutput) Name() pulumi.StringPtrOutput {

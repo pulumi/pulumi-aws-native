@@ -70,6 +70,7 @@ __all__ = [
     'InstanceLicenseSpecificationArgs',
     'InstanceNetworkInterfaceArgs',
     'InstanceNoDeviceArgs',
+    'InstancePrivateDnsNameOptionsArgs',
     'InstancePrivateIpAddressSpecificationArgs',
     'InstanceSsmAssociationArgs',
     'InstanceTagArgs',
@@ -128,6 +129,7 @@ __all__ = [
     'OptionsPropertiesArgs',
     'PrefixListEntryArgs',
     'PrefixListTagArgs',
+    'PrivateDnsNameOptionsOnLaunchPropertiesArgs',
     'RouteTableTagArgs',
     'SecurityGroupEgressArgs',
     'SecurityGroupIngressArgs',
@@ -2618,6 +2620,47 @@ class InstanceNetworkInterfaceArgs:
 class InstanceNoDeviceArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class InstancePrivateDnsNameOptionsArgs:
+    def __init__(__self__, *,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 hostname_type: Optional[pulumi.Input[str]] = None):
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @enable_resource_name_dns_a_record.setter
+    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hostname_type")
+
+    @hostname_type.setter
+    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_type", value)
 
 
 @pulumi.input_type
@@ -5228,6 +5271,47 @@ class PrefixListTagArgs:
 
 
 @pulumi.input_type
+class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
+    def __init__(__self__, *,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 hostname_type: Optional[pulumi.Input[str]] = None):
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @enable_resource_name_dns_a_record.setter
+    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hostname_type")
+
+    @hostname_type.setter
+    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_type", value)
+
+
+@pulumi.input_type
 class RouteTableTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -6491,6 +6575,7 @@ class SpotFleetLaunchTemplateOverridesArgs:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  instance_requirements: Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestArgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
@@ -6500,6 +6585,8 @@ class SpotFleetLaunchTemplateOverridesArgs:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if spot_price is not None:
             pulumi.set(__self__, "spot_price", spot_price)
         if subnet_id is not None:
@@ -6533,6 +6620,15 @@ class SpotFleetLaunchTemplateOverridesArgs:
     @instance_type.setter
     def instance_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="spotPrice")

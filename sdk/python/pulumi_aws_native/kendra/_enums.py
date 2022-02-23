@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'DataSourceConditionOperator',
     'DataSourceConfluenceAttachmentFieldName',
     'DataSourceConfluenceBlogFieldName',
     'DataSourceConfluencePageFieldName',
@@ -27,6 +28,20 @@ __all__ = [
     'IndexOrder',
     'IndexUserContextPolicy',
 ]
+
+
+class DataSourceConditionOperator(str, Enum):
+    GREATER_THAN = "GreaterThan"
+    GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals"
+    LESS_THAN = "LessThan"
+    LESS_THAN_OR_EQUALS = "LessThanOrEquals"
+    EQUALS = "Equals"
+    NOT_EQUALS = "NotEquals"
+    CONTAINS = "Contains"
+    NOT_CONTAINS = "NotContains"
+    EXISTS = "Exists"
+    NOT_EXISTS = "NotExists"
+    BEGINS_WITH = "BeginsWith"
 
 
 class DataSourceConfluenceAttachmentFieldName(str, Enum):

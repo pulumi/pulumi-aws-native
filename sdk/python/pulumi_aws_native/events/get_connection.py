@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -19,13 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionResult:
-    def __init__(__self__, arn=None, auth_parameters=None, authorization_type=None, description=None, secret_arn=None):
+    def __init__(__self__, arn=None, authorization_type=None, description=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if auth_parameters and not isinstance(auth_parameters, dict):
-            raise TypeError("Expected argument 'auth_parameters' to be a dict")
-        pulumi.set(__self__, "auth_parameters", auth_parameters)
         if authorization_type and not isinstance(authorization_type, str):
             raise TypeError("Expected argument 'authorization_type' to be a str")
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -43,11 +39,6 @@ class GetConnectionResult:
         The arn of the connection resource.
         """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> Optional['outputs.AuthParametersProperties']:
-        return pulumi.get(self, "auth_parameters")
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -78,7 +69,6 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             yield self
         return GetConnectionResult(
             arn=self.arn,
-            auth_parameters=self.auth_parameters,
             authorization_type=self.authorization_type,
             description=self.description,
             secret_arn=self.secret_arn)
@@ -102,7 +92,6 @@ def get_connection(name: Optional[str] = None,
 
     return AwaitableGetConnectionResult(
         arn=__ret__.arn,
-        auth_parameters=__ret__.auth_parameters,
         authorization_type=__ret__.authorization_type,
         description=__ret__.description,
         secret_arn=__ret__.secret_arn)

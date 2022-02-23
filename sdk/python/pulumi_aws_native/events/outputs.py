@@ -11,8 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AuthParametersProperties',
     'ConnectionApiKeyAuthParameters',
+    'ConnectionAuthParameters',
     'ConnectionBasicAuthParameters',
     'ConnectionClientParameters',
     'ConnectionHttpParameters',
@@ -43,66 +43,6 @@ __all__ = [
     'RuleTag',
     'RuleTarget',
 ]
-
-@pulumi.output_type
-class AuthParametersProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "apiKeyAuthParameters":
-            suggest = "api_key_auth_parameters"
-        elif key == "basicAuthParameters":
-            suggest = "basic_auth_parameters"
-        elif key == "invocationHttpParameters":
-            suggest = "invocation_http_parameters"
-        elif key == "oAuthParameters":
-            suggest = "o_auth_parameters"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AuthParametersProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AuthParametersProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AuthParametersProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 api_key_auth_parameters: Optional['outputs.ConnectionApiKeyAuthParameters'] = None,
-                 basic_auth_parameters: Optional['outputs.ConnectionBasicAuthParameters'] = None,
-                 invocation_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
-                 o_auth_parameters: Optional['outputs.ConnectionOAuthParameters'] = None):
-        if api_key_auth_parameters is not None:
-            pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
-        if basic_auth_parameters is not None:
-            pulumi.set(__self__, "basic_auth_parameters", basic_auth_parameters)
-        if invocation_http_parameters is not None:
-            pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
-        if o_auth_parameters is not None:
-            pulumi.set(__self__, "o_auth_parameters", o_auth_parameters)
-
-    @property
-    @pulumi.getter(name="apiKeyAuthParameters")
-    def api_key_auth_parameters(self) -> Optional['outputs.ConnectionApiKeyAuthParameters']:
-        return pulumi.get(self, "api_key_auth_parameters")
-
-    @property
-    @pulumi.getter(name="basicAuthParameters")
-    def basic_auth_parameters(self) -> Optional['outputs.ConnectionBasicAuthParameters']:
-        return pulumi.get(self, "basic_auth_parameters")
-
-    @property
-    @pulumi.getter(name="invocationHttpParameters")
-    def invocation_http_parameters(self) -> Optional['outputs.ConnectionHttpParameters']:
-        return pulumi.get(self, "invocation_http_parameters")
-
-    @property
-    @pulumi.getter(name="oAuthParameters")
-    def o_auth_parameters(self) -> Optional['outputs.ConnectionOAuthParameters']:
-        return pulumi.get(self, "o_auth_parameters")
-
 
 @pulumi.output_type
 class ConnectionApiKeyAuthParameters(dict):
@@ -140,6 +80,66 @@ class ConnectionApiKeyAuthParameters(dict):
     @pulumi.getter(name="apiKeyValue")
     def api_key_value(self) -> str:
         return pulumi.get(self, "api_key_value")
+
+
+@pulumi.output_type
+class ConnectionAuthParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyAuthParameters":
+            suggest = "api_key_auth_parameters"
+        elif key == "basicAuthParameters":
+            suggest = "basic_auth_parameters"
+        elif key == "invocationHttpParameters":
+            suggest = "invocation_http_parameters"
+        elif key == "oAuthParameters":
+            suggest = "o_auth_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAuthParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAuthParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAuthParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_auth_parameters: Optional['outputs.ConnectionApiKeyAuthParameters'] = None,
+                 basic_auth_parameters: Optional['outputs.ConnectionBasicAuthParameters'] = None,
+                 invocation_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
+                 o_auth_parameters: Optional['outputs.ConnectionOAuthParameters'] = None):
+        if api_key_auth_parameters is not None:
+            pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
+        if basic_auth_parameters is not None:
+            pulumi.set(__self__, "basic_auth_parameters", basic_auth_parameters)
+        if invocation_http_parameters is not None:
+            pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
+        if o_auth_parameters is not None:
+            pulumi.set(__self__, "o_auth_parameters", o_auth_parameters)
+
+    @property
+    @pulumi.getter(name="apiKeyAuthParameters")
+    def api_key_auth_parameters(self) -> Optional['outputs.ConnectionApiKeyAuthParameters']:
+        return pulumi.get(self, "api_key_auth_parameters")
+
+    @property
+    @pulumi.getter(name="basicAuthParameters")
+    def basic_auth_parameters(self) -> Optional['outputs.ConnectionBasicAuthParameters']:
+        return pulumi.get(self, "basic_auth_parameters")
+
+    @property
+    @pulumi.getter(name="invocationHttpParameters")
+    def invocation_http_parameters(self) -> Optional['outputs.ConnectionHttpParameters']:
+        return pulumi.get(self, "invocation_http_parameters")
+
+    @property
+    @pulumi.getter(name="oAuthParameters")
+    def o_auth_parameters(self) -> Optional['outputs.ConnectionOAuthParameters']:
+        return pulumi.get(self, "o_auth_parameters")
 
 
 @pulumi.output_type

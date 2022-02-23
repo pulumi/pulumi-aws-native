@@ -10,8 +10,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AuthParametersPropertiesArgs',
     'ConnectionApiKeyAuthParametersArgs',
+    'ConnectionAuthParametersArgs',
     'ConnectionBasicAuthParametersArgs',
     'ConnectionClientParametersArgs',
     'ConnectionHttpParametersArgs',
@@ -44,7 +44,34 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class AuthParametersPropertiesArgs:
+class ConnectionApiKeyAuthParametersArgs:
+    def __init__(__self__, *,
+                 api_key_name: pulumi.Input[str],
+                 api_key_value: pulumi.Input[str]):
+        pulumi.set(__self__, "api_key_name", api_key_name)
+        pulumi.set(__self__, "api_key_value", api_key_value)
+
+    @property
+    @pulumi.getter(name="apiKeyName")
+    def api_key_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "api_key_name")
+
+    @api_key_name.setter
+    def api_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key_name", value)
+
+    @property
+    @pulumi.getter(name="apiKeyValue")
+    def api_key_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "api_key_value")
+
+    @api_key_value.setter
+    def api_key_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key_value", value)
+
+
+@pulumi.input_type
+class ConnectionAuthParametersArgs:
     def __init__(__self__, *,
                  api_key_auth_parameters: Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']] = None,
                  basic_auth_parameters: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']] = None,
@@ -94,33 +121,6 @@ class AuthParametersPropertiesArgs:
     @o_auth_parameters.setter
     def o_auth_parameters(self, value: Optional[pulumi.Input['ConnectionOAuthParametersArgs']]):
         pulumi.set(self, "o_auth_parameters", value)
-
-
-@pulumi.input_type
-class ConnectionApiKeyAuthParametersArgs:
-    def __init__(__self__, *,
-                 api_key_name: pulumi.Input[str],
-                 api_key_value: pulumi.Input[str]):
-        pulumi.set(__self__, "api_key_name", api_key_name)
-        pulumi.set(__self__, "api_key_value", api_key_value)
-
-    @property
-    @pulumi.getter(name="apiKeyName")
-    def api_key_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "api_key_name")
-
-    @api_key_name.setter
-    def api_key_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "api_key_name", value)
-
-    @property
-    @pulumi.getter(name="apiKeyValue")
-    def api_key_value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "api_key_value")
-
-    @api_key_value.setter
-    def api_key_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "api_key_value", value)
 
 
 @pulumi.input_type

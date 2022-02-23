@@ -1401,6 +1401,146 @@ func (o EventSourceMappingFilterArrayOutput) Index(i pulumi.IntInput) EventSourc
 	}).(EventSourceMappingFilterOutput)
 }
 
+// The filter criteria to control event filtering.
+type EventSourceMappingFilterCriteria struct {
+	// List of filters of this FilterCriteria
+	Filters []EventSourceMappingFilter `pulumi:"filters"`
+}
+
+// EventSourceMappingFilterCriteriaInput is an input type that accepts EventSourceMappingFilterCriteriaArgs and EventSourceMappingFilterCriteriaOutput values.
+// You can construct a concrete instance of `EventSourceMappingFilterCriteriaInput` via:
+//
+//          EventSourceMappingFilterCriteriaArgs{...}
+type EventSourceMappingFilterCriteriaInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingFilterCriteriaOutput() EventSourceMappingFilterCriteriaOutput
+	ToEventSourceMappingFilterCriteriaOutputWithContext(context.Context) EventSourceMappingFilterCriteriaOutput
+}
+
+// The filter criteria to control event filtering.
+type EventSourceMappingFilterCriteriaArgs struct {
+	// List of filters of this FilterCriteria
+	Filters EventSourceMappingFilterArrayInput `pulumi:"filters"`
+}
+
+func (EventSourceMappingFilterCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingFilterCriteria)(nil)).Elem()
+}
+
+func (i EventSourceMappingFilterCriteriaArgs) ToEventSourceMappingFilterCriteriaOutput() EventSourceMappingFilterCriteriaOutput {
+	return i.ToEventSourceMappingFilterCriteriaOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingFilterCriteriaArgs) ToEventSourceMappingFilterCriteriaOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaOutput)
+}
+
+func (i EventSourceMappingFilterCriteriaArgs) ToEventSourceMappingFilterCriteriaPtrOutput() EventSourceMappingFilterCriteriaPtrOutput {
+	return i.ToEventSourceMappingFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingFilterCriteriaArgs) ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaOutput).ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingFilterCriteriaPtrInput is an input type that accepts EventSourceMappingFilterCriteriaArgs, EventSourceMappingFilterCriteriaPtr and EventSourceMappingFilterCriteriaPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingFilterCriteriaPtrInput` via:
+//
+//          EventSourceMappingFilterCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type EventSourceMappingFilterCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingFilterCriteriaPtrOutput() EventSourceMappingFilterCriteriaPtrOutput
+	ToEventSourceMappingFilterCriteriaPtrOutputWithContext(context.Context) EventSourceMappingFilterCriteriaPtrOutput
+}
+
+type eventSourceMappingFilterCriteriaPtrType EventSourceMappingFilterCriteriaArgs
+
+func EventSourceMappingFilterCriteriaPtr(v *EventSourceMappingFilterCriteriaArgs) EventSourceMappingFilterCriteriaPtrInput {
+	return (*eventSourceMappingFilterCriteriaPtrType)(v)
+}
+
+func (*eventSourceMappingFilterCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingFilterCriteria)(nil)).Elem()
+}
+
+func (i *eventSourceMappingFilterCriteriaPtrType) ToEventSourceMappingFilterCriteriaPtrOutput() EventSourceMappingFilterCriteriaPtrOutput {
+	return i.ToEventSourceMappingFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingFilterCriteriaPtrType) ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaPtrOutput)
+}
+
+// The filter criteria to control event filtering.
+type EventSourceMappingFilterCriteriaOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingFilterCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingFilterCriteria)(nil)).Elem()
+}
+
+func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriteriaOutput() EventSourceMappingFilterCriteriaOutput {
+	return o
+}
+
+func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriteriaOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaOutput {
+	return o
+}
+
+func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriteriaPtrOutput() EventSourceMappingFilterCriteriaPtrOutput {
+	return o.ToEventSourceMappingFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingFilterCriteria) *EventSourceMappingFilterCriteria {
+		return &v
+	}).(EventSourceMappingFilterCriteriaPtrOutput)
+}
+
+// List of filters of this FilterCriteria
+func (o EventSourceMappingFilterCriteriaOutput) Filters() EventSourceMappingFilterArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingFilterCriteria) []EventSourceMappingFilter { return v.Filters }).(EventSourceMappingFilterArrayOutput)
+}
+
+type EventSourceMappingFilterCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingFilterCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingFilterCriteria)(nil)).Elem()
+}
+
+func (o EventSourceMappingFilterCriteriaPtrOutput) ToEventSourceMappingFilterCriteriaPtrOutput() EventSourceMappingFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingFilterCriteriaPtrOutput) ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingFilterCriteriaPtrOutput) Elem() EventSourceMappingFilterCriteriaOutput {
+	return o.ApplyT(func(v *EventSourceMappingFilterCriteria) EventSourceMappingFilterCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingFilterCriteria
+		return ret
+	}).(EventSourceMappingFilterCriteriaOutput)
+}
+
+// List of filters of this FilterCriteria
+func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingFilterArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingFilterCriteria) []EventSourceMappingFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(EventSourceMappingFilterArrayOutput)
+}
+
 // A destination for events that failed processing.
 type EventSourceMappingOnFailure struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
@@ -1790,146 +1930,6 @@ func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSourceAccessConfiguration {
 		return vs[0].([]EventSourceMappingSourceAccessConfiguration)[vs[1].(int)]
 	}).(EventSourceMappingSourceAccessConfigurationOutput)
-}
-
-// The filter criteria to control event filtering.
-type FilterCriteriaProperties struct {
-	// List of filters of this FilterCriteria
-	Filters []EventSourceMappingFilter `pulumi:"filters"`
-}
-
-// FilterCriteriaPropertiesInput is an input type that accepts FilterCriteriaPropertiesArgs and FilterCriteriaPropertiesOutput values.
-// You can construct a concrete instance of `FilterCriteriaPropertiesInput` via:
-//
-//          FilterCriteriaPropertiesArgs{...}
-type FilterCriteriaPropertiesInput interface {
-	pulumi.Input
-
-	ToFilterCriteriaPropertiesOutput() FilterCriteriaPropertiesOutput
-	ToFilterCriteriaPropertiesOutputWithContext(context.Context) FilterCriteriaPropertiesOutput
-}
-
-// The filter criteria to control event filtering.
-type FilterCriteriaPropertiesArgs struct {
-	// List of filters of this FilterCriteria
-	Filters EventSourceMappingFilterArrayInput `pulumi:"filters"`
-}
-
-func (FilterCriteriaPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterCriteriaProperties)(nil)).Elem()
-}
-
-func (i FilterCriteriaPropertiesArgs) ToFilterCriteriaPropertiesOutput() FilterCriteriaPropertiesOutput {
-	return i.ToFilterCriteriaPropertiesOutputWithContext(context.Background())
-}
-
-func (i FilterCriteriaPropertiesArgs) ToFilterCriteriaPropertiesOutputWithContext(ctx context.Context) FilterCriteriaPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterCriteriaPropertiesOutput)
-}
-
-func (i FilterCriteriaPropertiesArgs) ToFilterCriteriaPropertiesPtrOutput() FilterCriteriaPropertiesPtrOutput {
-	return i.ToFilterCriteriaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FilterCriteriaPropertiesArgs) ToFilterCriteriaPropertiesPtrOutputWithContext(ctx context.Context) FilterCriteriaPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterCriteriaPropertiesOutput).ToFilterCriteriaPropertiesPtrOutputWithContext(ctx)
-}
-
-// FilterCriteriaPropertiesPtrInput is an input type that accepts FilterCriteriaPropertiesArgs, FilterCriteriaPropertiesPtr and FilterCriteriaPropertiesPtrOutput values.
-// You can construct a concrete instance of `FilterCriteriaPropertiesPtrInput` via:
-//
-//          FilterCriteriaPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type FilterCriteriaPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFilterCriteriaPropertiesPtrOutput() FilterCriteriaPropertiesPtrOutput
-	ToFilterCriteriaPropertiesPtrOutputWithContext(context.Context) FilterCriteriaPropertiesPtrOutput
-}
-
-type filterCriteriaPropertiesPtrType FilterCriteriaPropertiesArgs
-
-func FilterCriteriaPropertiesPtr(v *FilterCriteriaPropertiesArgs) FilterCriteriaPropertiesPtrInput {
-	return (*filterCriteriaPropertiesPtrType)(v)
-}
-
-func (*filterCriteriaPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterCriteriaProperties)(nil)).Elem()
-}
-
-func (i *filterCriteriaPropertiesPtrType) ToFilterCriteriaPropertiesPtrOutput() FilterCriteriaPropertiesPtrOutput {
-	return i.ToFilterCriteriaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *filterCriteriaPropertiesPtrType) ToFilterCriteriaPropertiesPtrOutputWithContext(ctx context.Context) FilterCriteriaPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterCriteriaPropertiesPtrOutput)
-}
-
-// The filter criteria to control event filtering.
-type FilterCriteriaPropertiesOutput struct{ *pulumi.OutputState }
-
-func (FilterCriteriaPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterCriteriaProperties)(nil)).Elem()
-}
-
-func (o FilterCriteriaPropertiesOutput) ToFilterCriteriaPropertiesOutput() FilterCriteriaPropertiesOutput {
-	return o
-}
-
-func (o FilterCriteriaPropertiesOutput) ToFilterCriteriaPropertiesOutputWithContext(ctx context.Context) FilterCriteriaPropertiesOutput {
-	return o
-}
-
-func (o FilterCriteriaPropertiesOutput) ToFilterCriteriaPropertiesPtrOutput() FilterCriteriaPropertiesPtrOutput {
-	return o.ToFilterCriteriaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FilterCriteriaPropertiesOutput) ToFilterCriteriaPropertiesPtrOutputWithContext(ctx context.Context) FilterCriteriaPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterCriteriaProperties) *FilterCriteriaProperties {
-		return &v
-	}).(FilterCriteriaPropertiesPtrOutput)
-}
-
-// List of filters of this FilterCriteria
-func (o FilterCriteriaPropertiesOutput) Filters() EventSourceMappingFilterArrayOutput {
-	return o.ApplyT(func(v FilterCriteriaProperties) []EventSourceMappingFilter { return v.Filters }).(EventSourceMappingFilterArrayOutput)
-}
-
-type FilterCriteriaPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FilterCriteriaPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterCriteriaProperties)(nil)).Elem()
-}
-
-func (o FilterCriteriaPropertiesPtrOutput) ToFilterCriteriaPropertiesPtrOutput() FilterCriteriaPropertiesPtrOutput {
-	return o
-}
-
-func (o FilterCriteriaPropertiesPtrOutput) ToFilterCriteriaPropertiesPtrOutputWithContext(ctx context.Context) FilterCriteriaPropertiesPtrOutput {
-	return o
-}
-
-func (o FilterCriteriaPropertiesPtrOutput) Elem() FilterCriteriaPropertiesOutput {
-	return o.ApplyT(func(v *FilterCriteriaProperties) FilterCriteriaProperties {
-		if v != nil {
-			return *v
-		}
-		var ret FilterCriteriaProperties
-		return ret
-	}).(FilterCriteriaPropertiesOutput)
-}
-
-// List of filters of this FilterCriteria
-func (o FilterCriteriaPropertiesPtrOutput) Filters() EventSourceMappingFilterArrayOutput {
-	return o.ApplyT(func(v *FilterCriteriaProperties) []EventSourceMappingFilter {
-		if v == nil {
-			return nil
-		}
-		return v.Filters
-	}).(EventSourceMappingFilterArrayOutput)
 }
 
 type FunctionCode struct {
@@ -3430,14 +3430,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingEndpointsPtrInput)(nil)).Elem(), EventSourceMappingEndpointsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterInput)(nil)).Elem(), EventSourceMappingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterArrayInput)(nil)).Elem(), EventSourceMappingFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaPtrInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailureInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailurePtrInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourceInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourcePtrInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationArrayInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterCriteriaPropertiesInput)(nil)).Elem(), FilterCriteriaPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterCriteriaPropertiesPtrInput)(nil)).Elem(), FilterCriteriaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeInput)(nil)).Elem(), FunctionCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
@@ -3480,14 +3480,14 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingEndpointsPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailureOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(FilterCriteriaPropertiesOutput{})
-	pulumi.RegisterOutputType(FilterCriteriaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCodeOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})

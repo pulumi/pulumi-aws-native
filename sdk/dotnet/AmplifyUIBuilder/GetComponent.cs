@@ -66,10 +66,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
         public readonly Outputs.ComponentCollectionProperties? CollectionProperties;
         public readonly string? ComponentType;
-        public readonly string? CreatedAt;
         public readonly string? EnvironmentName;
+        public readonly Outputs.ComponentEvents? Events;
         public readonly string? Id;
-        public readonly string? ModifiedAt;
         public readonly string? Name;
         public readonly Outputs.ComponentOverrides? Overrides;
         public readonly Outputs.ComponentProperties? Properties;
@@ -88,13 +87,11 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
             string? componentType,
 
-            string? createdAt,
-
             string? environmentName,
 
-            string? id,
+            Outputs.ComponentEvents? events,
 
-            string? modifiedAt,
+            string? id,
 
             string? name,
 
@@ -111,10 +108,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
             Children = children;
             CollectionProperties = collectionProperties;
             ComponentType = componentType;
-            CreatedAt = createdAt;
             EnvironmentName = environmentName;
+            Events = events;
             Id = id;
-            ModifiedAt = modifiedAt;
             Name = name;
             Overrides = overrides;
             Properties = properties;

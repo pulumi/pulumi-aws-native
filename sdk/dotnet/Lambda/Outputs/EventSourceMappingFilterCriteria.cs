@@ -7,28 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Lambda.Inputs
+namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
     /// The filter criteria to control event filtering.
     /// </summary>
-    public sealed class FilterCriteriaPropertiesArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class EventSourceMappingFilterCriteria
     {
-        [Input("filters")]
-        private InputList<Inputs.EventSourceMappingFilterArgs>? _filters;
-
         /// <summary>
         /// List of filters of this FilterCriteria
         /// </summary>
-        public InputList<Inputs.EventSourceMappingFilterArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<Inputs.EventSourceMappingFilterArgs>());
-            set => _filters = value;
-        }
+        public readonly ImmutableArray<Outputs.EventSourceMappingFilter> Filters;
 
-        public FilterCriteriaPropertiesArgs()
+        [OutputConstructor]
+        private EventSourceMappingFilterCriteria(ImmutableArray<Outputs.EventSourceMappingFilter> filters)
         {
+            Filters = filters;
         }
     }
 }

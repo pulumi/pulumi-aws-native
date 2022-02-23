@@ -44,6 +44,7 @@ type Instance struct {
 	NetworkInterfaces                 InstanceNetworkInterfaceArrayOutput            `pulumi:"networkInterfaces"`
 	PlacementGroupName                pulumi.StringPtrOutput                         `pulumi:"placementGroupName"`
 	PrivateDnsName                    pulumi.StringOutput                            `pulumi:"privateDnsName"`
+	PrivateDnsNameOptions             InstancePrivateDnsNameOptionsPtrOutput         `pulumi:"privateDnsNameOptions"`
 	PrivateIp                         pulumi.StringOutput                            `pulumi:"privateIp"`
 	PrivateIpAddress                  pulumi.StringPtrOutput                         `pulumi:"privateIpAddress"`
 	PropagateTagsToVolumeOnCreation   pulumi.BoolPtrOutput                           `pulumi:"propagateTagsToVolumeOnCreation"`
@@ -127,6 +128,7 @@ type instanceArgs struct {
 	Monitoring                        *bool                                 `pulumi:"monitoring"`
 	NetworkInterfaces                 []InstanceNetworkInterface            `pulumi:"networkInterfaces"`
 	PlacementGroupName                *string                               `pulumi:"placementGroupName"`
+	PrivateDnsNameOptions             *InstancePrivateDnsNameOptions        `pulumi:"privateDnsNameOptions"`
 	PrivateIpAddress                  *string                               `pulumi:"privateIpAddress"`
 	PropagateTagsToVolumeOnCreation   *bool                                 `pulumi:"propagateTagsToVolumeOnCreation"`
 	RamdiskId                         *string                               `pulumi:"ramdiskId"`
@@ -170,6 +172,7 @@ type InstanceArgs struct {
 	Monitoring                        pulumi.BoolPtrInput
 	NetworkInterfaces                 InstanceNetworkInterfaceArrayInput
 	PlacementGroupName                pulumi.StringPtrInput
+	PrivateDnsNameOptions             InstancePrivateDnsNameOptionsPtrInput
 	PrivateIpAddress                  pulumi.StringPtrInput
 	PropagateTagsToVolumeOnCreation   pulumi.BoolPtrInput
 	RamdiskId                         pulumi.StringPtrInput

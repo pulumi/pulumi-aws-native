@@ -12,6 +12,7 @@ __all__ = [
     'ComponentBindingPropertiesArgs',
     'ComponentChildArgs',
     'ComponentCollectionPropertiesArgs',
+    'ComponentEventsArgs',
     'ComponentOverridesArgs',
     'ComponentPropertiesArgs',
     'ComponentTagsArgs',
@@ -34,12 +35,15 @@ class ComponentChildArgs:
                  component_type: pulumi.Input[str],
                  name: pulumi.Input[str],
                  properties: pulumi.Input['ComponentPropertiesArgs'],
-                 children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None):
+                 children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
+                 events: Optional[pulumi.Input['ComponentEventsArgs']] = None):
         pulumi.set(__self__, "component_type", component_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         if children is not None:
             pulumi.set(__self__, "children", children)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter(name="componentType")
@@ -77,9 +81,24 @@ class ComponentChildArgs:
     def children(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]):
         pulumi.set(self, "children", value)
 
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input['ComponentEventsArgs']]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input['ComponentEventsArgs']]):
+        pulumi.set(self, "events", value)
+
 
 @pulumi.input_type
 class ComponentCollectionPropertiesArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ComponentEventsArgs:
     def __init__(__self__):
         pass
 

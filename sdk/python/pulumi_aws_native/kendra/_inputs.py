@@ -24,9 +24,15 @@ __all__ = [
     'DataSourceConfluenceSpaceConfigurationArgs',
     'DataSourceConfluenceSpaceToIndexFieldMappingArgs',
     'DataSourceConnectionConfigurationArgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationArgs',
     'DataSourceDatabaseConfigurationArgs',
+    'DataSourceDocumentAttributeConditionArgs',
+    'DataSourceDocumentAttributeTargetArgs',
+    'DataSourceDocumentAttributeValueArgs',
     'DataSourceDocumentsMetadataConfigurationArgs',
     'DataSourceGoogleDriveConfigurationArgs',
+    'DataSourceHookConfigurationArgs',
+    'DataSourceInlineCustomDocumentEnrichmentConfigurationArgs',
     'DataSourceOneDriveConfigurationArgs',
     'DataSourceOneDriveUsersArgs',
     'DataSourceProxyConfigurationArgs',
@@ -755,6 +761,59 @@ class DataSourceConnectionConfigurationArgs:
 
 
 @pulumi.input_type
+class DataSourceCustomDocumentEnrichmentConfigurationArgs:
+    def __init__(__self__, *,
+                 inline_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]] = None,
+                 post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
+                 pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        if inline_configurations is not None:
+            pulumi.set(__self__, "inline_configurations", inline_configurations)
+        if post_extraction_hook_configuration is not None:
+            pulumi.set(__self__, "post_extraction_hook_configuration", post_extraction_hook_configuration)
+        if pre_extraction_hook_configuration is not None:
+            pulumi.set(__self__, "pre_extraction_hook_configuration", pre_extraction_hook_configuration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="inlineConfigurations")
+    def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]:
+        return pulumi.get(self, "inline_configurations")
+
+    @inline_configurations.setter
+    def inline_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]):
+        pulumi.set(self, "inline_configurations", value)
+
+    @property
+    @pulumi.getter(name="postExtractionHookConfiguration")
+    def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+        return pulumi.get(self, "post_extraction_hook_configuration")
+
+    @post_extraction_hook_configuration.setter
+    def post_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
+        pulumi.set(self, "post_extraction_hook_configuration", value)
+
+    @property
+    @pulumi.getter(name="preExtractionHookConfiguration")
+    def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+        return pulumi.get(self, "pre_extraction_hook_configuration")
+
+    @pre_extraction_hook_configuration.setter
+    def pre_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
+        pulumi.set(self, "pre_extraction_hook_configuration", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
 class DataSourceDatabaseConfigurationArgs:
     def __init__(__self__, *,
                  column_configuration: pulumi.Input['DataSourceColumnConfigurationArgs'],
@@ -826,6 +885,138 @@ class DataSourceDatabaseConfigurationArgs:
     @vpc_configuration.setter
     def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
+
+
+@pulumi.input_type
+class DataSourceDocumentAttributeConditionArgs:
+    def __init__(__self__, *,
+                 condition_document_attribute_key: pulumi.Input[str],
+                 operator: pulumi.Input['DataSourceConditionOperator'],
+                 condition_on_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None):
+        pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
+        pulumi.set(__self__, "operator", operator)
+        if condition_on_value is not None:
+            pulumi.set(__self__, "condition_on_value", condition_on_value)
+
+    @property
+    @pulumi.getter(name="conditionDocumentAttributeKey")
+    def condition_document_attribute_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "condition_document_attribute_key")
+
+    @condition_document_attribute_key.setter
+    def condition_document_attribute_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_document_attribute_key", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input['DataSourceConditionOperator']:
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input['DataSourceConditionOperator']):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="conditionOnValue")
+    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]:
+        return pulumi.get(self, "condition_on_value")
+
+    @condition_on_value.setter
+    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]):
+        pulumi.set(self, "condition_on_value", value)
+
+
+@pulumi.input_type
+class DataSourceDocumentAttributeTargetArgs:
+    def __init__(__self__, *,
+                 target_document_attribute_key: pulumi.Input[str],
+                 target_document_attribute_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None,
+                 target_document_attribute_value_deletion: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "target_document_attribute_key", target_document_attribute_key)
+        if target_document_attribute_value is not None:
+            pulumi.set(__self__, "target_document_attribute_value", target_document_attribute_value)
+        if target_document_attribute_value_deletion is not None:
+            pulumi.set(__self__, "target_document_attribute_value_deletion", target_document_attribute_value_deletion)
+
+    @property
+    @pulumi.getter(name="targetDocumentAttributeKey")
+    def target_document_attribute_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target_document_attribute_key")
+
+    @target_document_attribute_key.setter
+    def target_document_attribute_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_document_attribute_key", value)
+
+    @property
+    @pulumi.getter(name="targetDocumentAttributeValue")
+    def target_document_attribute_value(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]:
+        return pulumi.get(self, "target_document_attribute_value")
+
+    @target_document_attribute_value.setter
+    def target_document_attribute_value(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]):
+        pulumi.set(self, "target_document_attribute_value", value)
+
+    @property
+    @pulumi.getter(name="targetDocumentAttributeValueDeletion")
+    def target_document_attribute_value_deletion(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "target_document_attribute_value_deletion")
+
+    @target_document_attribute_value_deletion.setter
+    def target_document_attribute_value_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "target_document_attribute_value_deletion", value)
+
+
+@pulumi.input_type
+class DataSourceDocumentAttributeValueArgs:
+    def __init__(__self__, *,
+                 date_value: Optional[pulumi.Input[str]] = None,
+                 long_value: Optional[pulumi.Input[int]] = None,
+                 string_list_value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 string_value: Optional[pulumi.Input[str]] = None):
+        if date_value is not None:
+            pulumi.set(__self__, "date_value", date_value)
+        if long_value is not None:
+            pulumi.set(__self__, "long_value", long_value)
+        if string_list_value is not None:
+            pulumi.set(__self__, "string_list_value", string_list_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @property
+    @pulumi.getter(name="dateValue")
+    def date_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "date_value")
+
+    @date_value.setter
+    def date_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_value", value)
+
+    @property
+    @pulumi.getter(name="longValue")
+    def long_value(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "long_value")
+
+    @long_value.setter
+    def long_value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "long_value", value)
+
+    @property
+    @pulumi.getter(name="stringListValue")
+    def string_list_value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "string_list_value")
+
+    @string_list_value.setter
+    def string_list_value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "string_list_value", value)
+
+    @property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "string_value", value)
 
 
 @pulumi.input_type
@@ -931,6 +1122,86 @@ class DataSourceGoogleDriveConfigurationArgs:
     @inclusion_patterns.setter
     def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
+
+
+@pulumi.input_type
+class DataSourceHookConfigurationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[str],
+                 s3_bucket: pulumi.Input[str],
+                 invocation_condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None):
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if invocation_condition is not None:
+            pulumi.set(__self__, "invocation_condition", invocation_condition)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="invocationCondition")
+    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+        return pulumi.get(self, "invocation_condition")
+
+    @invocation_condition.setter
+    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]):
+        pulumi.set(self, "invocation_condition", value)
+
+
+@pulumi.input_type
+class DataSourceInlineCustomDocumentEnrichmentConfigurationArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
+                 document_content_deletion: Optional[pulumi.Input[bool]] = None,
+                 target: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']] = None):
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if document_content_deletion is not None:
+            pulumi.set(__self__, "document_content_deletion", document_content_deletion)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="documentContentDeletion")
+    def document_content_deletion(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "document_content_deletion")
+
+    @document_content_deletion.setter
+    def document_content_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "document_content_deletion", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]):
+        pulumi.set(self, "target", value)
 
 
 @pulumi.input_type

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./agent";
 export * from "./getAgent";
 export * from "./getLocationEFS";
+export * from "./getLocationFSxLustre";
 export * from "./getLocationFSxWindows";
 export * from "./getLocationHDFS";
 export * from "./getLocationNFS";
@@ -16,6 +17,7 @@ export * from "./getLocationS3";
 export * from "./getLocationSMB";
 export * from "./getTask";
 export * from "./locationEFS";
+export * from "./locationFSxLustre";
 export * from "./locationFSxWindows";
 export * from "./locationHDFS";
 export * from "./locationNFS";
@@ -30,6 +32,7 @@ export * from "../types/enums/datasync";
 // Import resources to register:
 import { Agent } from "./agent";
 import { LocationEFS } from "./locationEFS";
+import { LocationFSxLustre } from "./locationFSxLustre";
 import { LocationFSxWindows } from "./locationFSxWindows";
 import { LocationHDFS } from "./locationHDFS";
 import { LocationNFS } from "./locationNFS";
@@ -46,6 +49,8 @@ const _module = {
                 return new Agent(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationEFS":
                 return new LocationEFS(name, <any>undefined, { urn })
+            case "aws-native:datasync:LocationFSxLustre":
+                return new LocationFSxLustre(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationFSxWindows":
                 return new LocationFSxWindows(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationHDFS":

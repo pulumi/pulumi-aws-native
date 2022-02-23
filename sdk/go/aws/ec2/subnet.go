@@ -15,17 +15,21 @@ import (
 type Subnet struct {
 	pulumi.CustomResourceState
 
-	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput     `pulumi:"assignIpv6AddressOnCreation"`
-	AvailabilityZone            pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
-	CidrBlock                   pulumi.StringOutput      `pulumi:"cidrBlock"`
-	Ipv6CidrBlock               pulumi.StringPtrOutput   `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks              pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
-	MapPublicIpOnLaunch         pulumi.BoolPtrOutput     `pulumi:"mapPublicIpOnLaunch"`
-	NetworkAclAssociationId     pulumi.StringOutput      `pulumi:"networkAclAssociationId"`
-	OutpostArn                  pulumi.StringPtrOutput   `pulumi:"outpostArn"`
-	SubnetId                    pulumi.StringOutput      `pulumi:"subnetId"`
-	Tags                        SubnetTagArrayOutput     `pulumi:"tags"`
-	VpcId                       pulumi.StringOutput      `pulumi:"vpcId"`
+	AssignIpv6AddressOnCreation   pulumi.BoolPtrOutput                             `pulumi:"assignIpv6AddressOnCreation"`
+	AvailabilityZone              pulumi.StringPtrOutput                           `pulumi:"availabilityZone"`
+	AvailabilityZoneId            pulumi.StringPtrOutput                           `pulumi:"availabilityZoneId"`
+	CidrBlock                     pulumi.StringPtrOutput                           `pulumi:"cidrBlock"`
+	EnableDns64                   pulumi.BoolPtrOutput                             `pulumi:"enableDns64"`
+	Ipv6CidrBlock                 pulumi.StringPtrOutput                           `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlocks                pulumi.StringArrayOutput                         `pulumi:"ipv6CidrBlocks"`
+	Ipv6Native                    pulumi.BoolPtrOutput                             `pulumi:"ipv6Native"`
+	MapPublicIpOnLaunch           pulumi.BoolPtrOutput                             `pulumi:"mapPublicIpOnLaunch"`
+	NetworkAclAssociationId       pulumi.StringOutput                              `pulumi:"networkAclAssociationId"`
+	OutpostArn                    pulumi.StringPtrOutput                           `pulumi:"outpostArn"`
+	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput `pulumi:"privateDnsNameOptionsOnLaunch"`
+	SubnetId                      pulumi.StringOutput                              `pulumi:"subnetId"`
+	Tags                          SubnetTagArrayOutput                             `pulumi:"tags"`
+	VpcId                         pulumi.StringOutput                              `pulumi:"vpcId"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -35,9 +39,6 @@ func NewSubnet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CidrBlock == nil {
-		return nil, errors.New("invalid value for required argument 'CidrBlock'")
-	}
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
@@ -73,26 +74,34 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
-	AssignIpv6AddressOnCreation *bool       `pulumi:"assignIpv6AddressOnCreation"`
-	AvailabilityZone            *string     `pulumi:"availabilityZone"`
-	CidrBlock                   string      `pulumi:"cidrBlock"`
-	Ipv6CidrBlock               *string     `pulumi:"ipv6CidrBlock"`
-	MapPublicIpOnLaunch         *bool       `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                  *string     `pulumi:"outpostArn"`
-	Tags                        []SubnetTag `pulumi:"tags"`
-	VpcId                       string      `pulumi:"vpcId"`
+	AssignIpv6AddressOnCreation   *bool                                    `pulumi:"assignIpv6AddressOnCreation"`
+	AvailabilityZone              *string                                  `pulumi:"availabilityZone"`
+	AvailabilityZoneId            *string                                  `pulumi:"availabilityZoneId"`
+	CidrBlock                     *string                                  `pulumi:"cidrBlock"`
+	EnableDns64                   *bool                                    `pulumi:"enableDns64"`
+	Ipv6CidrBlock                 *string                                  `pulumi:"ipv6CidrBlock"`
+	Ipv6Native                    *bool                                    `pulumi:"ipv6Native"`
+	MapPublicIpOnLaunch           *bool                                    `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                    *string                                  `pulumi:"outpostArn"`
+	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
+	Tags                          []SubnetTag                              `pulumi:"tags"`
+	VpcId                         string                                   `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
-	AssignIpv6AddressOnCreation pulumi.BoolPtrInput
-	AvailabilityZone            pulumi.StringPtrInput
-	CidrBlock                   pulumi.StringInput
-	Ipv6CidrBlock               pulumi.StringPtrInput
-	MapPublicIpOnLaunch         pulumi.BoolPtrInput
-	OutpostArn                  pulumi.StringPtrInput
-	Tags                        SubnetTagArrayInput
-	VpcId                       pulumi.StringInput
+	AssignIpv6AddressOnCreation   pulumi.BoolPtrInput
+	AvailabilityZone              pulumi.StringPtrInput
+	AvailabilityZoneId            pulumi.StringPtrInput
+	CidrBlock                     pulumi.StringPtrInput
+	EnableDns64                   pulumi.BoolPtrInput
+	Ipv6CidrBlock                 pulumi.StringPtrInput
+	Ipv6Native                    pulumi.BoolPtrInput
+	MapPublicIpOnLaunch           pulumi.BoolPtrInput
+	OutpostArn                    pulumi.StringPtrInput
+	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrInput
+	Tags                          SubnetTagArrayInput
+	VpcId                         pulumi.StringInput
 }
 
 func (SubnetArgs) ElementType() reflect.Type {

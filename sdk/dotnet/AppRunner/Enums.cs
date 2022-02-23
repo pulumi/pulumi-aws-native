@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.AppRunner
 
         public static ServiceCodeConfigurationValuesRuntime Python3 { get; } = new ServiceCodeConfigurationValuesRuntime("PYTHON_3");
         public static ServiceCodeConfigurationValuesRuntime Nodejs12 { get; } = new ServiceCodeConfigurationValuesRuntime("NODEJS_12");
+        public static ServiceCodeConfigurationValuesRuntime Nodejs14 { get; } = new ServiceCodeConfigurationValuesRuntime("NODEJS_14");
+        public static ServiceCodeConfigurationValuesRuntime Corretto8 { get; } = new ServiceCodeConfigurationValuesRuntime("CORRETTO_8");
+        public static ServiceCodeConfigurationValuesRuntime Corretto11 { get; } = new ServiceCodeConfigurationValuesRuntime("CORRETTO_11");
 
         public static bool operator ==(ServiceCodeConfigurationValuesRuntime left, ServiceCodeConfigurationValuesRuntime right) => left.Equals(right);
         public static bool operator !=(ServiceCodeConfigurationValuesRuntime left, ServiceCodeConfigurationValuesRuntime right) => !left.Equals(right);

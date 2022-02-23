@@ -179,8 +179,11 @@ func (in *serviceCodeConfigurationConfigurationSourcePtr) ToServiceCodeConfigura
 type ServiceCodeConfigurationValuesRuntime string
 
 const (
-	ServiceCodeConfigurationValuesRuntimePython3  = ServiceCodeConfigurationValuesRuntime("PYTHON_3")
-	ServiceCodeConfigurationValuesRuntimeNodejs12 = ServiceCodeConfigurationValuesRuntime("NODEJS_12")
+	ServiceCodeConfigurationValuesRuntimePython3    = ServiceCodeConfigurationValuesRuntime("PYTHON_3")
+	ServiceCodeConfigurationValuesRuntimeNodejs12   = ServiceCodeConfigurationValuesRuntime("NODEJS_12")
+	ServiceCodeConfigurationValuesRuntimeNodejs14   = ServiceCodeConfigurationValuesRuntime("NODEJS_14")
+	ServiceCodeConfigurationValuesRuntimeCorretto8  = ServiceCodeConfigurationValuesRuntime("CORRETTO_8")
+	ServiceCodeConfigurationValuesRuntimeCorretto11 = ServiceCodeConfigurationValuesRuntime("CORRETTO_11")
 )
 
 func (ServiceCodeConfigurationValuesRuntime) ElementType() reflect.Type {

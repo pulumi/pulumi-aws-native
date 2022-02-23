@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? AvailabilityZone;
         public readonly Outputs.SpotFleetInstanceRequirementsRequest? InstanceRequirements;
         public readonly string? InstanceType;
+        public readonly double? Priority;
         public readonly string? SpotPrice;
         public readonly string? SubnetId;
         public readonly double? WeightedCapacity;
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? instanceType,
 
+            double? priority,
+
             string? spotPrice,
 
             string? subnetId,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             AvailabilityZone = availabilityZone;
             InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
+            Priority = priority;
             SpotPrice = spotPrice;
             SubnetId = subnetId;
             WeightedCapacity = weightedCapacity;

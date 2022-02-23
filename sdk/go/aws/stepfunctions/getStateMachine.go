@@ -30,7 +30,6 @@ type LookupStateMachineResult struct {
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	Name                 *string                           `pulumi:"name"`
 	RoleArn              *string                           `pulumi:"roleArn"`
-	StateMachineType     *StateMachineType                 `pulumi:"stateMachineType"`
 	Tags                 []StateMachineTagsEntry           `pulumi:"tags"`
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
@@ -84,10 +83,6 @@ func (o LookupStateMachineResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupStateMachineResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupStateMachineResultOutput) StateMachineType() StateMachineTypePtrOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) *StateMachineType { return v.StateMachineType }).(StateMachineTypePtrOutput)
 }
 
 func (o LookupStateMachineResultOutput) Tags() StateMachineTagsEntryArrayOutput {

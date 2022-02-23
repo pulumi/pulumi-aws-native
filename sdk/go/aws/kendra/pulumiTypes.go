@@ -2253,6 +2253,190 @@ func (o DataSourceConnectionConfigurationPtrOutput) TableName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSourceCustomDocumentEnrichmentConfiguration struct {
+	InlineConfigurations            []DataSourceInlineCustomDocumentEnrichmentConfiguration `pulumi:"inlineConfigurations"`
+	PostExtractionHookConfiguration *DataSourceHookConfiguration                            `pulumi:"postExtractionHookConfiguration"`
+	PreExtractionHookConfiguration  *DataSourceHookConfiguration                            `pulumi:"preExtractionHookConfiguration"`
+	RoleArn                         *string                                                 `pulumi:"roleArn"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInput` via:
+//
+//          DataSourceCustomDocumentEnrichmentConfigurationArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationArgs struct {
+	InlineConfigurations            DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput `pulumi:"inlineConfigurations"`
+	PostExtractionHookConfiguration DataSourceHookConfigurationPtrInput                             `pulumi:"postExtractionHookConfiguration"`
+	PreExtractionHookConfiguration  DataSourceHookConfigurationPtrInput                             `pulumi:"preExtractionHookConfiguration"`
+	RoleArn                         pulumi.StringPtrInput                                           `pulumi:"roleArn"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationArgs, DataSourceCustomDocumentEnrichmentConfigurationPtr and DataSourceCustomDocumentEnrichmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPtrInput` via:
+//
+//          DataSourceCustomDocumentEnrichmentConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceCustomDocumentEnrichmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPtrType DataSourceCustomDocumentEnrichmentConfigurationArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPtr(v *DataSourceCustomDocumentEnrichmentConfigurationArgs) DataSourceCustomDocumentEnrichmentConfigurationPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfiguration {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) InlineConfigurations() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceInlineCustomDocumentEnrichmentConfiguration {
+		return v.InlineConfigurations
+	}).(DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PostExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
+		return v.PostExtractionHookConfiguration
+	}).(DataSourceHookConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PreExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
+		return v.PreExtractionHookConfiguration
+	}).(DataSourceHookConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) DataSourceCustomDocumentEnrichmentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfiguration
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) InlineConfigurations() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceInlineCustomDocumentEnrichmentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InlineConfigurations
+	}).(DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PostExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PostExtractionHookConfiguration
+	}).(DataSourceHookConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PreExtractionHookConfiguration
+	}).(DataSourceHookConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataSourceDatabaseConfiguration struct {
 	AclConfiguration        *DataSourceAclConfiguration       `pulumi:"aclConfiguration"`
 	ColumnConfiguration     DataSourceColumnConfiguration     `pulumi:"columnConfiguration"`
@@ -2461,6 +2645,514 @@ func (o DataSourceDatabaseConfigurationPtrOutput) VpcConfiguration() DataSourceV
 		}
 		return v.VpcConfiguration
 	}).(DataSourceVpcConfigurationPtrOutput)
+}
+
+type DataSourceDocumentAttributeCondition struct {
+	ConditionDocumentAttributeKey string                            `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              *DataSourceDocumentAttributeValue `pulumi:"conditionOnValue"`
+	Operator                      DataSourceConditionOperator       `pulumi:"operator"`
+}
+
+// DataSourceDocumentAttributeConditionInput is an input type that accepts DataSourceDocumentAttributeConditionArgs and DataSourceDocumentAttributeConditionOutput values.
+// You can construct a concrete instance of `DataSourceDocumentAttributeConditionInput` via:
+//
+//          DataSourceDocumentAttributeConditionArgs{...}
+type DataSourceDocumentAttributeConditionInput interface {
+	pulumi.Input
+
+	ToDataSourceDocumentAttributeConditionOutput() DataSourceDocumentAttributeConditionOutput
+	ToDataSourceDocumentAttributeConditionOutputWithContext(context.Context) DataSourceDocumentAttributeConditionOutput
+}
+
+type DataSourceDocumentAttributeConditionArgs struct {
+	ConditionDocumentAttributeKey pulumi.StringInput                       `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              DataSourceDocumentAttributeValuePtrInput `pulumi:"conditionOnValue"`
+	Operator                      DataSourceConditionOperatorInput         `pulumi:"operator"`
+}
+
+func (DataSourceDocumentAttributeConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDocumentAttributeCondition)(nil)).Elem()
+}
+
+func (i DataSourceDocumentAttributeConditionArgs) ToDataSourceDocumentAttributeConditionOutput() DataSourceDocumentAttributeConditionOutput {
+	return i.ToDataSourceDocumentAttributeConditionOutputWithContext(context.Background())
+}
+
+func (i DataSourceDocumentAttributeConditionArgs) ToDataSourceDocumentAttributeConditionOutputWithContext(ctx context.Context) DataSourceDocumentAttributeConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeConditionOutput)
+}
+
+func (i DataSourceDocumentAttributeConditionArgs) ToDataSourceDocumentAttributeConditionPtrOutput() DataSourceDocumentAttributeConditionPtrOutput {
+	return i.ToDataSourceDocumentAttributeConditionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDocumentAttributeConditionArgs) ToDataSourceDocumentAttributeConditionPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeConditionOutput).ToDataSourceDocumentAttributeConditionPtrOutputWithContext(ctx)
+}
+
+// DataSourceDocumentAttributeConditionPtrInput is an input type that accepts DataSourceDocumentAttributeConditionArgs, DataSourceDocumentAttributeConditionPtr and DataSourceDocumentAttributeConditionPtrOutput values.
+// You can construct a concrete instance of `DataSourceDocumentAttributeConditionPtrInput` via:
+//
+//          DataSourceDocumentAttributeConditionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceDocumentAttributeConditionPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDocumentAttributeConditionPtrOutput() DataSourceDocumentAttributeConditionPtrOutput
+	ToDataSourceDocumentAttributeConditionPtrOutputWithContext(context.Context) DataSourceDocumentAttributeConditionPtrOutput
+}
+
+type dataSourceDocumentAttributeConditionPtrType DataSourceDocumentAttributeConditionArgs
+
+func DataSourceDocumentAttributeConditionPtr(v *DataSourceDocumentAttributeConditionArgs) DataSourceDocumentAttributeConditionPtrInput {
+	return (*dataSourceDocumentAttributeConditionPtrType)(v)
+}
+
+func (*dataSourceDocumentAttributeConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDocumentAttributeCondition)(nil)).Elem()
+}
+
+func (i *dataSourceDocumentAttributeConditionPtrType) ToDataSourceDocumentAttributeConditionPtrOutput() DataSourceDocumentAttributeConditionPtrOutput {
+	return i.ToDataSourceDocumentAttributeConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDocumentAttributeConditionPtrType) ToDataSourceDocumentAttributeConditionPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeConditionPtrOutput)
+}
+
+type DataSourceDocumentAttributeConditionOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDocumentAttributeConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDocumentAttributeCondition)(nil)).Elem()
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) ToDataSourceDocumentAttributeConditionOutput() DataSourceDocumentAttributeConditionOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) ToDataSourceDocumentAttributeConditionOutputWithContext(ctx context.Context) DataSourceDocumentAttributeConditionOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) ToDataSourceDocumentAttributeConditionPtrOutput() DataSourceDocumentAttributeConditionPtrOutput {
+	return o.ToDataSourceDocumentAttributeConditionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) ToDataSourceDocumentAttributeConditionPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDocumentAttributeCondition) *DataSourceDocumentAttributeCondition {
+		return &v
+	}).(DataSourceDocumentAttributeConditionPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) string { return v.ConditionDocumentAttributeKey }).(pulumi.StringOutput)
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) ConditionOnValue() DataSourceDocumentAttributeValuePtrOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) *DataSourceDocumentAttributeValue {
+		return v.ConditionOnValue
+	}).(DataSourceDocumentAttributeValuePtrOutput)
+}
+
+func (o DataSourceDocumentAttributeConditionOutput) Operator() DataSourceConditionOperatorOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) DataSourceConditionOperator { return v.Operator }).(DataSourceConditionOperatorOutput)
+}
+
+type DataSourceDocumentAttributeConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDocumentAttributeConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDocumentAttributeCondition)(nil)).Elem()
+}
+
+func (o DataSourceDocumentAttributeConditionPtrOutput) ToDataSourceDocumentAttributeConditionPtrOutput() DataSourceDocumentAttributeConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeConditionPtrOutput) ToDataSourceDocumentAttributeConditionPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeConditionPtrOutput) Elem() DataSourceDocumentAttributeConditionOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) DataSourceDocumentAttributeCondition {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDocumentAttributeCondition
+		return ret
+	}).(DataSourceDocumentAttributeConditionOutput)
+}
+
+func (o DataSourceDocumentAttributeConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeConditionPtrOutput) ConditionOnValue() DataSourceDocumentAttributeValuePtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *DataSourceDocumentAttributeValue {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionOnValue
+	}).(DataSourceDocumentAttributeValuePtrOutput)
+}
+
+func (o DataSourceDocumentAttributeConditionPtrOutput) Operator() DataSourceConditionOperatorPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *DataSourceConditionOperator {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(DataSourceConditionOperatorPtrOutput)
+}
+
+type DataSourceDocumentAttributeTarget struct {
+	TargetDocumentAttributeKey           string                            `pulumi:"targetDocumentAttributeKey"`
+	TargetDocumentAttributeValue         *DataSourceDocumentAttributeValue `pulumi:"targetDocumentAttributeValue"`
+	TargetDocumentAttributeValueDeletion *bool                             `pulumi:"targetDocumentAttributeValueDeletion"`
+}
+
+// DataSourceDocumentAttributeTargetInput is an input type that accepts DataSourceDocumentAttributeTargetArgs and DataSourceDocumentAttributeTargetOutput values.
+// You can construct a concrete instance of `DataSourceDocumentAttributeTargetInput` via:
+//
+//          DataSourceDocumentAttributeTargetArgs{...}
+type DataSourceDocumentAttributeTargetInput interface {
+	pulumi.Input
+
+	ToDataSourceDocumentAttributeTargetOutput() DataSourceDocumentAttributeTargetOutput
+	ToDataSourceDocumentAttributeTargetOutputWithContext(context.Context) DataSourceDocumentAttributeTargetOutput
+}
+
+type DataSourceDocumentAttributeTargetArgs struct {
+	TargetDocumentAttributeKey           pulumi.StringInput                       `pulumi:"targetDocumentAttributeKey"`
+	TargetDocumentAttributeValue         DataSourceDocumentAttributeValuePtrInput `pulumi:"targetDocumentAttributeValue"`
+	TargetDocumentAttributeValueDeletion pulumi.BoolPtrInput                      `pulumi:"targetDocumentAttributeValueDeletion"`
+}
+
+func (DataSourceDocumentAttributeTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDocumentAttributeTarget)(nil)).Elem()
+}
+
+func (i DataSourceDocumentAttributeTargetArgs) ToDataSourceDocumentAttributeTargetOutput() DataSourceDocumentAttributeTargetOutput {
+	return i.ToDataSourceDocumentAttributeTargetOutputWithContext(context.Background())
+}
+
+func (i DataSourceDocumentAttributeTargetArgs) ToDataSourceDocumentAttributeTargetOutputWithContext(ctx context.Context) DataSourceDocumentAttributeTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeTargetOutput)
+}
+
+func (i DataSourceDocumentAttributeTargetArgs) ToDataSourceDocumentAttributeTargetPtrOutput() DataSourceDocumentAttributeTargetPtrOutput {
+	return i.ToDataSourceDocumentAttributeTargetPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDocumentAttributeTargetArgs) ToDataSourceDocumentAttributeTargetPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeTargetOutput).ToDataSourceDocumentAttributeTargetPtrOutputWithContext(ctx)
+}
+
+// DataSourceDocumentAttributeTargetPtrInput is an input type that accepts DataSourceDocumentAttributeTargetArgs, DataSourceDocumentAttributeTargetPtr and DataSourceDocumentAttributeTargetPtrOutput values.
+// You can construct a concrete instance of `DataSourceDocumentAttributeTargetPtrInput` via:
+//
+//          DataSourceDocumentAttributeTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceDocumentAttributeTargetPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDocumentAttributeTargetPtrOutput() DataSourceDocumentAttributeTargetPtrOutput
+	ToDataSourceDocumentAttributeTargetPtrOutputWithContext(context.Context) DataSourceDocumentAttributeTargetPtrOutput
+}
+
+type dataSourceDocumentAttributeTargetPtrType DataSourceDocumentAttributeTargetArgs
+
+func DataSourceDocumentAttributeTargetPtr(v *DataSourceDocumentAttributeTargetArgs) DataSourceDocumentAttributeTargetPtrInput {
+	return (*dataSourceDocumentAttributeTargetPtrType)(v)
+}
+
+func (*dataSourceDocumentAttributeTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDocumentAttributeTarget)(nil)).Elem()
+}
+
+func (i *dataSourceDocumentAttributeTargetPtrType) ToDataSourceDocumentAttributeTargetPtrOutput() DataSourceDocumentAttributeTargetPtrOutput {
+	return i.ToDataSourceDocumentAttributeTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDocumentAttributeTargetPtrType) ToDataSourceDocumentAttributeTargetPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeTargetPtrOutput)
+}
+
+type DataSourceDocumentAttributeTargetOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDocumentAttributeTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDocumentAttributeTarget)(nil)).Elem()
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) ToDataSourceDocumentAttributeTargetOutput() DataSourceDocumentAttributeTargetOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) ToDataSourceDocumentAttributeTargetOutputWithContext(ctx context.Context) DataSourceDocumentAttributeTargetOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) ToDataSourceDocumentAttributeTargetPtrOutput() DataSourceDocumentAttributeTargetPtrOutput {
+	return o.ToDataSourceDocumentAttributeTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) ToDataSourceDocumentAttributeTargetPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDocumentAttributeTarget) *DataSourceDocumentAttributeTarget {
+		return &v
+	}).(DataSourceDocumentAttributeTargetPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) TargetDocumentAttributeKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeTarget) string { return v.TargetDocumentAttributeKey }).(pulumi.StringOutput)
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) TargetDocumentAttributeValue() DataSourceDocumentAttributeValuePtrOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeTarget) *DataSourceDocumentAttributeValue {
+		return v.TargetDocumentAttributeValue
+	}).(DataSourceDocumentAttributeValuePtrOutput)
+}
+
+func (o DataSourceDocumentAttributeTargetOutput) TargetDocumentAttributeValueDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeTarget) *bool { return v.TargetDocumentAttributeValueDeletion }).(pulumi.BoolPtrOutput)
+}
+
+type DataSourceDocumentAttributeTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDocumentAttributeTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDocumentAttributeTarget)(nil)).Elem()
+}
+
+func (o DataSourceDocumentAttributeTargetPtrOutput) ToDataSourceDocumentAttributeTargetPtrOutput() DataSourceDocumentAttributeTargetPtrOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeTargetPtrOutput) ToDataSourceDocumentAttributeTargetPtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeTargetPtrOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeTargetPtrOutput) Elem() DataSourceDocumentAttributeTargetOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) DataSourceDocumentAttributeTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDocumentAttributeTarget
+		return ret
+	}).(DataSourceDocumentAttributeTargetOutput)
+}
+
+func (o DataSourceDocumentAttributeTargetPtrOutput) TargetDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeTargetPtrOutput) TargetDocumentAttributeValue() DataSourceDocumentAttributeValuePtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) *DataSourceDocumentAttributeValue {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDocumentAttributeValue
+	}).(DataSourceDocumentAttributeValuePtrOutput)
+}
+
+func (o DataSourceDocumentAttributeTargetPtrOutput) TargetDocumentAttributeValueDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDocumentAttributeValueDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSourceDocumentAttributeValue struct {
+	DateValue       *string  `pulumi:"dateValue"`
+	LongValue       *int     `pulumi:"longValue"`
+	StringListValue []string `pulumi:"stringListValue"`
+	StringValue     *string  `pulumi:"stringValue"`
+}
+
+// DataSourceDocumentAttributeValueInput is an input type that accepts DataSourceDocumentAttributeValueArgs and DataSourceDocumentAttributeValueOutput values.
+// You can construct a concrete instance of `DataSourceDocumentAttributeValueInput` via:
+//
+//          DataSourceDocumentAttributeValueArgs{...}
+type DataSourceDocumentAttributeValueInput interface {
+	pulumi.Input
+
+	ToDataSourceDocumentAttributeValueOutput() DataSourceDocumentAttributeValueOutput
+	ToDataSourceDocumentAttributeValueOutputWithContext(context.Context) DataSourceDocumentAttributeValueOutput
+}
+
+type DataSourceDocumentAttributeValueArgs struct {
+	DateValue       pulumi.StringPtrInput   `pulumi:"dateValue"`
+	LongValue       pulumi.IntPtrInput      `pulumi:"longValue"`
+	StringListValue pulumi.StringArrayInput `pulumi:"stringListValue"`
+	StringValue     pulumi.StringPtrInput   `pulumi:"stringValue"`
+}
+
+func (DataSourceDocumentAttributeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDocumentAttributeValue)(nil)).Elem()
+}
+
+func (i DataSourceDocumentAttributeValueArgs) ToDataSourceDocumentAttributeValueOutput() DataSourceDocumentAttributeValueOutput {
+	return i.ToDataSourceDocumentAttributeValueOutputWithContext(context.Background())
+}
+
+func (i DataSourceDocumentAttributeValueArgs) ToDataSourceDocumentAttributeValueOutputWithContext(ctx context.Context) DataSourceDocumentAttributeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeValueOutput)
+}
+
+func (i DataSourceDocumentAttributeValueArgs) ToDataSourceDocumentAttributeValuePtrOutput() DataSourceDocumentAttributeValuePtrOutput {
+	return i.ToDataSourceDocumentAttributeValuePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDocumentAttributeValueArgs) ToDataSourceDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeValueOutput).ToDataSourceDocumentAttributeValuePtrOutputWithContext(ctx)
+}
+
+// DataSourceDocumentAttributeValuePtrInput is an input type that accepts DataSourceDocumentAttributeValueArgs, DataSourceDocumentAttributeValuePtr and DataSourceDocumentAttributeValuePtrOutput values.
+// You can construct a concrete instance of `DataSourceDocumentAttributeValuePtrInput` via:
+//
+//          DataSourceDocumentAttributeValueArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceDocumentAttributeValuePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDocumentAttributeValuePtrOutput() DataSourceDocumentAttributeValuePtrOutput
+	ToDataSourceDocumentAttributeValuePtrOutputWithContext(context.Context) DataSourceDocumentAttributeValuePtrOutput
+}
+
+type dataSourceDocumentAttributeValuePtrType DataSourceDocumentAttributeValueArgs
+
+func DataSourceDocumentAttributeValuePtr(v *DataSourceDocumentAttributeValueArgs) DataSourceDocumentAttributeValuePtrInput {
+	return (*dataSourceDocumentAttributeValuePtrType)(v)
+}
+
+func (*dataSourceDocumentAttributeValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDocumentAttributeValue)(nil)).Elem()
+}
+
+func (i *dataSourceDocumentAttributeValuePtrType) ToDataSourceDocumentAttributeValuePtrOutput() DataSourceDocumentAttributeValuePtrOutput {
+	return i.ToDataSourceDocumentAttributeValuePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDocumentAttributeValuePtrType) ToDataSourceDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDocumentAttributeValuePtrOutput)
+}
+
+type DataSourceDocumentAttributeValueOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDocumentAttributeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDocumentAttributeValue)(nil)).Elem()
+}
+
+func (o DataSourceDocumentAttributeValueOutput) ToDataSourceDocumentAttributeValueOutput() DataSourceDocumentAttributeValueOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeValueOutput) ToDataSourceDocumentAttributeValueOutputWithContext(ctx context.Context) DataSourceDocumentAttributeValueOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeValueOutput) ToDataSourceDocumentAttributeValuePtrOutput() DataSourceDocumentAttributeValuePtrOutput {
+	return o.ToDataSourceDocumentAttributeValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDocumentAttributeValueOutput) ToDataSourceDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDocumentAttributeValue) *DataSourceDocumentAttributeValue {
+		return &v
+	}).(DataSourceDocumentAttributeValuePtrOutput)
+}
+
+func (o DataSourceDocumentAttributeValueOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeValue) *string { return v.DateValue }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeValueOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeValue) *int { return v.LongValue }).(pulumi.IntPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeValueOutput) StringListValue() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeValue) []string { return v.StringListValue }).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceDocumentAttributeValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceDocumentAttributeValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceDocumentAttributeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDocumentAttributeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDocumentAttributeValue)(nil)).Elem()
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) ToDataSourceDocumentAttributeValuePtrOutput() DataSourceDocumentAttributeValuePtrOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) ToDataSourceDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceDocumentAttributeValuePtrOutput {
+	return o
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) Elem() DataSourceDocumentAttributeValueOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) DataSourceDocumentAttributeValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDocumentAttributeValue
+		return ret
+	}).(DataSourceDocumentAttributeValueOutput)
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) StringListValue() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValue
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceDocumentAttributeValuePtrOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
 }
 
 type DataSourceDocumentsMetadataConfiguration struct {
@@ -2817,6 +3509,281 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) SecretArn() pulumi.StringPt
 		}
 		return &v.SecretArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceHookConfiguration struct {
+	InvocationCondition *DataSourceDocumentAttributeCondition `pulumi:"invocationCondition"`
+	LambdaArn           string                                `pulumi:"lambdaArn"`
+	S3Bucket            string                                `pulumi:"s3Bucket"`
+}
+
+// DataSourceHookConfigurationInput is an input type that accepts DataSourceHookConfigurationArgs and DataSourceHookConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceHookConfigurationInput` via:
+//
+//          DataSourceHookConfigurationArgs{...}
+type DataSourceHookConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceHookConfigurationOutput() DataSourceHookConfigurationOutput
+	ToDataSourceHookConfigurationOutputWithContext(context.Context) DataSourceHookConfigurationOutput
+}
+
+type DataSourceHookConfigurationArgs struct {
+	InvocationCondition DataSourceDocumentAttributeConditionPtrInput `pulumi:"invocationCondition"`
+	LambdaArn           pulumi.StringInput                           `pulumi:"lambdaArn"`
+	S3Bucket            pulumi.StringInput                           `pulumi:"s3Bucket"`
+}
+
+func (DataSourceHookConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHookConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceHookConfigurationArgs) ToDataSourceHookConfigurationOutput() DataSourceHookConfigurationOutput {
+	return i.ToDataSourceHookConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceHookConfigurationArgs) ToDataSourceHookConfigurationOutputWithContext(ctx context.Context) DataSourceHookConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHookConfigurationOutput)
+}
+
+func (i DataSourceHookConfigurationArgs) ToDataSourceHookConfigurationPtrOutput() DataSourceHookConfigurationPtrOutput {
+	return i.ToDataSourceHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceHookConfigurationArgs) ToDataSourceHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHookConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHookConfigurationOutput).ToDataSourceHookConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceHookConfigurationPtrInput is an input type that accepts DataSourceHookConfigurationArgs, DataSourceHookConfigurationPtr and DataSourceHookConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceHookConfigurationPtrInput` via:
+//
+//          DataSourceHookConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceHookConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceHookConfigurationPtrOutput() DataSourceHookConfigurationPtrOutput
+	ToDataSourceHookConfigurationPtrOutputWithContext(context.Context) DataSourceHookConfigurationPtrOutput
+}
+
+type dataSourceHookConfigurationPtrType DataSourceHookConfigurationArgs
+
+func DataSourceHookConfigurationPtr(v *DataSourceHookConfigurationArgs) DataSourceHookConfigurationPtrInput {
+	return (*dataSourceHookConfigurationPtrType)(v)
+}
+
+func (*dataSourceHookConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceHookConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceHookConfigurationPtrType) ToDataSourceHookConfigurationPtrOutput() DataSourceHookConfigurationPtrOutput {
+	return i.ToDataSourceHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceHookConfigurationPtrType) ToDataSourceHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHookConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHookConfigurationPtrOutput)
+}
+
+type DataSourceHookConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHookConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHookConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceHookConfigurationOutput) ToDataSourceHookConfigurationOutput() DataSourceHookConfigurationOutput {
+	return o
+}
+
+func (o DataSourceHookConfigurationOutput) ToDataSourceHookConfigurationOutputWithContext(ctx context.Context) DataSourceHookConfigurationOutput {
+	return o
+}
+
+func (o DataSourceHookConfigurationOutput) ToDataSourceHookConfigurationPtrOutput() DataSourceHookConfigurationPtrOutput {
+	return o.ToDataSourceHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceHookConfigurationOutput) ToDataSourceHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHookConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceHookConfiguration) *DataSourceHookConfiguration {
+		return &v
+	}).(DataSourceHookConfigurationPtrOutput)
+}
+
+func (o DataSourceHookConfigurationOutput) InvocationCondition() DataSourceDocumentAttributeConditionPtrOutput {
+	return o.ApplyT(func(v DataSourceHookConfiguration) *DataSourceDocumentAttributeCondition {
+		return v.InvocationCondition
+	}).(DataSourceDocumentAttributeConditionPtrOutput)
+}
+
+func (o DataSourceHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceHookConfiguration) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+func (o DataSourceHookConfigurationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceHookConfiguration) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+type DataSourceHookConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHookConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceHookConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceHookConfigurationPtrOutput) ToDataSourceHookConfigurationPtrOutput() DataSourceHookConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceHookConfigurationPtrOutput) ToDataSourceHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceHookConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceHookConfigurationPtrOutput) Elem() DataSourceHookConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceHookConfiguration) DataSourceHookConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceHookConfiguration
+		return ret
+	}).(DataSourceHookConfigurationOutput)
+}
+
+func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDocumentAttributeConditionPtrOutput {
+	return o.ApplyT(func(v *DataSourceHookConfiguration) *DataSourceDocumentAttributeCondition {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationCondition
+	}).(DataSourceDocumentAttributeConditionPtrOutput)
+}
+
+func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceHookConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceInlineCustomDocumentEnrichmentConfiguration struct {
+	Condition               *DataSourceDocumentAttributeCondition `pulumi:"condition"`
+	DocumentContentDeletion *bool                                 `pulumi:"documentContentDeletion"`
+	Target                  *DataSourceDocumentAttributeTarget    `pulumi:"target"`
+}
+
+// DataSourceInlineCustomDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceInlineCustomDocumentEnrichmentConfigurationArgs and DataSourceInlineCustomDocumentEnrichmentConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceInlineCustomDocumentEnrichmentConfigurationInput` via:
+//
+//          DataSourceInlineCustomDocumentEnrichmentConfigurationArgs{...}
+type DataSourceInlineCustomDocumentEnrichmentConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutput() DataSourceInlineCustomDocumentEnrichmentConfigurationOutput
+	ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutputWithContext(context.Context) DataSourceInlineCustomDocumentEnrichmentConfigurationOutput
+}
+
+type DataSourceInlineCustomDocumentEnrichmentConfigurationArgs struct {
+	Condition               DataSourceDocumentAttributeConditionPtrInput `pulumi:"condition"`
+	DocumentContentDeletion pulumi.BoolPtrInput                          `pulumi:"documentContentDeletion"`
+	Target                  DataSourceDocumentAttributeTargetPtrInput    `pulumi:"target"`
+}
+
+func (DataSourceInlineCustomDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceInlineCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceInlineCustomDocumentEnrichmentConfigurationArgs) ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutput() DataSourceInlineCustomDocumentEnrichmentConfigurationOutput {
+	return i.ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceInlineCustomDocumentEnrichmentConfigurationArgs) ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceInlineCustomDocumentEnrichmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceInlineCustomDocumentEnrichmentConfigurationOutput)
+}
+
+// DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput is an input type that accepts DataSourceInlineCustomDocumentEnrichmentConfigurationArray and DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput` via:
+//
+//          DataSourceInlineCustomDocumentEnrichmentConfigurationArray{ DataSourceInlineCustomDocumentEnrichmentConfigurationArgs{...} }
+type DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput
+	ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutputWithContext(context.Context) DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput
+}
+
+type DataSourceInlineCustomDocumentEnrichmentConfigurationArray []DataSourceInlineCustomDocumentEnrichmentConfigurationInput
+
+func (DataSourceInlineCustomDocumentEnrichmentConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceInlineCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceInlineCustomDocumentEnrichmentConfigurationArray) ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
+	return i.ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceInlineCustomDocumentEnrichmentConfigurationArray) ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutputWithContext(ctx context.Context) DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput)
+}
+
+type DataSourceInlineCustomDocumentEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceInlineCustomDocumentEnrichmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceInlineCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationOutput) ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutput() DataSourceInlineCustomDocumentEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationOutput) ToDataSourceInlineCustomDocumentEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceInlineCustomDocumentEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationOutput) Condition() DataSourceDocumentAttributeConditionPtrOutput {
+	return o.ApplyT(func(v DataSourceInlineCustomDocumentEnrichmentConfiguration) *DataSourceDocumentAttributeCondition {
+		return v.Condition
+	}).(DataSourceDocumentAttributeConditionPtrOutput)
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationOutput) DocumentContentDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceInlineCustomDocumentEnrichmentConfiguration) *bool { return v.DocumentContentDeletion }).(pulumi.BoolPtrOutput)
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationOutput) Target() DataSourceDocumentAttributeTargetPtrOutput {
+	return o.ApplyT(func(v DataSourceInlineCustomDocumentEnrichmentConfiguration) *DataSourceDocumentAttributeTarget {
+		return v.Target
+	}).(DataSourceDocumentAttributeTargetPtrOutput)
+}
+
+type DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceInlineCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput) ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput) ToDataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutputWithContext(ctx context.Context) DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput) Index(i pulumi.IntInput) DataSourceInlineCustomDocumentEnrichmentConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceInlineCustomDocumentEnrichmentConfiguration {
+		return vs[0].([]DataSourceInlineCustomDocumentEnrichmentConfiguration)[vs[1].(int)]
+	}).(DataSourceInlineCustomDocumentEnrichmentConfigurationOutput)
 }
 
 type DataSourceOneDriveConfiguration struct {
@@ -9123,12 +10090,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSpaceToIndexFieldMappingArrayInput)(nil)).Elem(), DataSourceConfluenceSpaceToIndexFieldMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConnectionConfigurationInput)(nil)).Elem(), DataSourceConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConnectionConfigurationPtrInput)(nil)).Elem(), DataSourceConnectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDatabaseConfigurationInput)(nil)).Elem(), DataSourceDatabaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDatabaseConfigurationPtrInput)(nil)).Elem(), DataSourceDatabaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionPtrInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeTargetInput)(nil)).Elem(), DataSourceDocumentAttributeTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeTargetPtrInput)(nil)).Elem(), DataSourceDocumentAttributeTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeValueInput)(nil)).Elem(), DataSourceDocumentAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeValuePtrInput)(nil)).Elem(), DataSourceDocumentAttributeValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentsMetadataConfigurationInput)(nil)).Elem(), DataSourceDocumentsMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentsMetadataConfigurationPtrInput)(nil)).Elem(), DataSourceDocumentsMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceGoogleDriveConfigurationInput)(nil)).Elem(), DataSourceGoogleDriveConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceGoogleDriveConfigurationPtrInput)(nil)).Elem(), DataSourceGoogleDriveConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHookConfigurationInput)(nil)).Elem(), DataSourceHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHookConfigurationPtrInput)(nil)).Elem(), DataSourceHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInlineCustomDocumentEnrichmentConfigurationInput)(nil)).Elem(), DataSourceInlineCustomDocumentEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput)(nil)).Elem(), DataSourceInlineCustomDocumentEnrichmentConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOneDriveConfigurationInput)(nil)).Elem(), DataSourceOneDriveConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOneDriveConfigurationPtrInput)(nil)).Elem(), DataSourceOneDriveConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOneDriveUsersInput)(nil)).Elem(), DataSourceOneDriveUsersArgs{})
@@ -9234,12 +10213,24 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConnectionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDatabaseConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDatabaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionOutput{})
+	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDocumentAttributeTargetOutput{})
+	pulumi.RegisterOutputType(DataSourceDocumentAttributeTargetPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDocumentAttributeValueOutput{})
+	pulumi.RegisterOutputType(DataSourceDocumentAttributeValuePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentsMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentsMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceGoogleDriveConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceGoogleDriveConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceHookConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceHookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceInlineCustomDocumentEnrichmentConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveUsersOutput{})

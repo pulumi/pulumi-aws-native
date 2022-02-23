@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetRetentionPeriodArgs : Pulumi.ResourceArgs
     {
-        [Input("numberOfDays", required: true)]
-        public Input<int> NumberOfDays { get; set; } = null!;
+        [Input("numberOfDays")]
+        public Input<int>? NumberOfDays { get; set; }
 
-        [Input("unlimited", required: true)]
-        public Input<bool> Unlimited { get; set; } = null!;
+        [Input("unlimited")]
+        public Input<bool>? Unlimited { get; set; }
 
         public DatasetRetentionPeriodArgs()
         {

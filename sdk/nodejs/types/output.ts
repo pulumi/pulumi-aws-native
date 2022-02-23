@@ -413,11 +413,15 @@ export namespace amplifyuibuilder {
     export interface ComponentChild {
         children?: outputs.amplifyuibuilder.ComponentChild[];
         componentType: string;
+        events?: outputs.amplifyuibuilder.ComponentEvents;
         name: string;
         properties: outputs.amplifyuibuilder.ComponentProperties;
     }
 
     export interface ComponentCollectionProperties {
+    }
+
+    export interface ComponentEvents {
     }
 
     export interface ComponentOverrides {
@@ -7792,6 +7796,20 @@ export namespace datasync {
     /**
      * A key-value pair to associate with a resource.
      */
+    export interface LocationFSxLustreTag {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: string;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface LocationFSxWindowsTag {
         /**
          * The key for an AWS resource tag.
@@ -9087,6 +9105,12 @@ export namespace ec2 {
     export interface InstanceNoDevice {
     }
 
+    export interface InstancePrivateDnsNameOptions {
+        enableResourceNameDnsAAAARecord?: boolean;
+        enableResourceNameDnsARecord?: boolean;
+        hostnameType?: string;
+    }
+
     export interface InstancePrivateIpAddressSpecification {
         primary: boolean;
         privateIpAddress: string;
@@ -9595,6 +9619,12 @@ export namespace ec2 {
         value?: string;
     }
 
+    export interface PrivateDnsNameOptionsOnLaunchProperties {
+        enableResourceNameDnsAAAARecord?: boolean;
+        enableResourceNameDnsARecord?: boolean;
+        hostnameType?: string;
+    }
+
     export interface RouteTableTag {
         key: string;
         value: string;
@@ -9754,6 +9784,7 @@ export namespace ec2 {
         availabilityZone?: string;
         instanceRequirements?: outputs.ec2.SpotFleetInstanceRequirementsRequest;
         instanceType?: string;
+        priority?: number;
         spotPrice?: string;
         subnetId?: string;
         weightedCapacity?: number;
@@ -11752,16 +11783,16 @@ export namespace emrcontainers {
 }
 
 export namespace events {
-    export interface AuthParametersProperties {
+    export interface ConnectionApiKeyAuthParameters {
+        apiKeyName: string;
+        apiKeyValue: string;
+    }
+
+    export interface ConnectionAuthParameters {
         apiKeyAuthParameters?: outputs.events.ConnectionApiKeyAuthParameters;
         basicAuthParameters?: outputs.events.ConnectionBasicAuthParameters;
         invocationHttpParameters?: outputs.events.ConnectionHttpParameters;
         oAuthParameters?: outputs.events.ConnectionOAuthParameters;
-    }
-
-    export interface ConnectionApiKeyAuthParameters {
-        apiKeyName: string;
-        apiKeyValue: string;
     }
 
     export interface ConnectionBasicAuthParameters {
@@ -15369,8 +15400,8 @@ export namespace iotanalytics {
     }
 
     export interface DatasetRetentionPeriod {
-        numberOfDays: number;
-        unlimited: boolean;
+        numberOfDays?: number;
+        unlimited?: boolean;
     }
 
     export interface DatasetS3DestinationConfiguration {
@@ -16973,6 +17004,13 @@ export namespace kendra {
         tableName: string;
     }
 
+    export interface DataSourceCustomDocumentEnrichmentConfiguration {
+        inlineConfigurations?: outputs.kendra.DataSourceInlineCustomDocumentEnrichmentConfiguration[];
+        postExtractionHookConfiguration?: outputs.kendra.DataSourceHookConfiguration;
+        preExtractionHookConfiguration?: outputs.kendra.DataSourceHookConfiguration;
+        roleArn?: string;
+    }
+
     export interface DataSourceDatabaseConfiguration {
         aclConfiguration?: outputs.kendra.DataSourceAclConfiguration;
         columnConfiguration: outputs.kendra.DataSourceColumnConfiguration;
@@ -16980,6 +17018,25 @@ export namespace kendra {
         databaseEngineType: enums.kendra.DataSourceDatabaseEngineType;
         sqlConfiguration?: outputs.kendra.DataSourceSqlConfiguration;
         vpcConfiguration?: outputs.kendra.DataSourceVpcConfiguration;
+    }
+
+    export interface DataSourceDocumentAttributeCondition {
+        conditionDocumentAttributeKey: string;
+        conditionOnValue?: outputs.kendra.DataSourceDocumentAttributeValue;
+        operator: enums.kendra.DataSourceConditionOperator;
+    }
+
+    export interface DataSourceDocumentAttributeTarget {
+        targetDocumentAttributeKey: string;
+        targetDocumentAttributeValue?: outputs.kendra.DataSourceDocumentAttributeValue;
+        targetDocumentAttributeValueDeletion?: boolean;
+    }
+
+    export interface DataSourceDocumentAttributeValue {
+        dateValue?: string;
+        longValue?: number;
+        stringListValue?: string[];
+        stringValue?: string;
     }
 
     export interface DataSourceDocumentsMetadataConfiguration {
@@ -16994,6 +17051,18 @@ export namespace kendra {
         fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         inclusionPatterns?: string[];
         secretArn: string;
+    }
+
+    export interface DataSourceHookConfiguration {
+        invocationCondition?: outputs.kendra.DataSourceDocumentAttributeCondition;
+        lambdaArn: string;
+        s3Bucket: string;
+    }
+
+    export interface DataSourceInlineCustomDocumentEnrichmentConfiguration {
+        condition?: outputs.kendra.DataSourceDocumentAttributeCondition;
+        documentContentDeletion?: boolean;
+        target?: outputs.kendra.DataSourceDocumentAttributeTarget;
     }
 
     export interface DataSourceOneDriveConfiguration {
@@ -18187,6 +18256,16 @@ export namespace lambda {
     }
 
     /**
+     * The filter criteria to control event filtering.
+     */
+    export interface EventSourceMappingFilterCriteria {
+        /**
+         * List of filters of this FilterCriteria
+         */
+        filters?: outputs.lambda.EventSourceMappingFilter[];
+    }
+
+    /**
      * A destination for events that failed processing.
      */
     export interface EventSourceMappingOnFailure {
@@ -18218,16 +18297,6 @@ export namespace lambda {
          * The URI for the source access configuration resource.
          */
         uRI?: string;
-    }
-
-    /**
-     * The filter criteria to control event filtering.
-     */
-    export interface FilterCriteriaProperties {
-        /**
-         * List of filters of this FilterCriteria
-         */
-        filters?: outputs.lambda.EventSourceMappingFilter[];
     }
 
     export interface FunctionCode {
@@ -30764,6 +30833,10 @@ export namespace wafv2 {
         name: string;
     }
 
+    export interface WebACLFieldIdentifier {
+        identifier: string;
+    }
+
     /**
      * Field of the request to match.
      */
@@ -30861,8 +30934,22 @@ export namespace wafv2 {
         scope: enums.wafv2.WebACLLabelMatchScope;
     }
 
+    /**
+     * ManagedRuleGroupConfig.
+     */
+    export interface WebACLManagedRuleGroupConfig {
+        loginPath?: string;
+        passwordField?: outputs.wafv2.WebACLFieldIdentifier;
+        payloadType?: enums.wafv2.WebACLManagedRuleGroupConfigPayloadType;
+        usernameField?: outputs.wafv2.WebACLFieldIdentifier;
+    }
+
     export interface WebACLManagedRuleGroupStatement {
         excludedRules?: outputs.wafv2.WebACLExcludedRule[];
+        /**
+         * Collection of ManagedRuleGroupConfig.
+         */
+        managedRuleGroupConfigs?: outputs.wafv2.WebACLManagedRuleGroupConfig[];
         name: string;
         scopeDownStatement?: outputs.wafv2.WebACLStatement;
         vendorName: string;

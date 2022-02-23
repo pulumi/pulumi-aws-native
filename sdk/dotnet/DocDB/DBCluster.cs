@@ -53,10 +53,10 @@ namespace Pulumi.AwsNative.DocDB
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         [Output("masterUserPassword")]
-        public Output<string> MasterUserPassword { get; private set; } = null!;
+        public Output<string?> MasterUserPassword { get; private set; } = null!;
 
         [Output("masterUsername")]
-        public Output<string> MasterUsername { get; private set; } = null!;
+        public Output<string?> MasterUsername { get; private set; } = null!;
 
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.DocDB
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DBCluster(string name, DBClusterArgs args, CustomResourceOptions? options = null)
+        public DBCluster(string name, DBClusterArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:docdb:DBCluster", name, args ?? new DBClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -167,11 +167,11 @@ namespace Pulumi.AwsNative.DocDB
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("masterUserPassword", required: true)]
-        public Input<string> MasterUserPassword { get; set; } = null!;
+        [Input("masterUserPassword")]
+        public Input<string>? MasterUserPassword { get; set; }
 
-        [Input("masterUsername", required: true)]
-        public Input<string> MasterUsername { get; set; } = null!;
+        [Input("masterUsername")]
+        public Input<string>? MasterUsername { get; set; }
 
         [Input("port")]
         public Input<int>? Port { get; set; }

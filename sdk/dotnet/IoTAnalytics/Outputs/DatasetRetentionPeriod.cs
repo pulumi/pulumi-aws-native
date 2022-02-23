@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetRetentionPeriod
     {
-        public readonly int NumberOfDays;
-        public readonly bool Unlimited;
+        public readonly int? NumberOfDays;
+        public readonly bool? Unlimited;
 
         [OutputConstructor]
         private DatasetRetentionPeriod(
-            int numberOfDays,
+            int? numberOfDays,
 
-            bool unlimited)
+            bool? unlimited)
         {
             NumberOfDays = numberOfDays;
             Unlimited = unlimited;

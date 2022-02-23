@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Lambda
         /// The filter criteria to control event filtering.
         /// </summary>
         [Output("filterCriteria")]
-        public Output<Outputs.FilterCriteriaProperties?> FilterCriteria { get; private set; } = null!;
+        public Output<Outputs.EventSourceMappingFilterCriteria?> FilterCriteria { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Lambda function.
@@ -208,7 +208,7 @@ namespace Pulumi.AwsNative.Lambda
         /// The filter criteria to control event filtering.
         /// </summary>
         [Input("filterCriteria")]
-        public Input<Inputs.FilterCriteriaPropertiesArgs>? FilterCriteria { get; set; }
+        public Input<Inputs.EventSourceMappingFilterCriteriaArgs>? FilterCriteria { get; set; }
 
         /// <summary>
         /// The name of the Lambda function.

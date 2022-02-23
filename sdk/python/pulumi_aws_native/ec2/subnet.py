@@ -15,40 +15,44 @@ __all__ = ['SubnetArgs', 'Subnet']
 @pulumi.input_type
 class SubnetArgs:
     def __init__(__self__, *,
-                 cidr_block: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
                  assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
         """
-        pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "vpc_id", vpc_id)
         if assign_ipv6_address_on_creation is not None:
             pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if enable_dns64 is not None:
+            pulumi.set(__self__, "enable_dns64", enable_dns64)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_native is not None:
+            pulumi.set(__self__, "ipv6_native", ipv6_native)
         if map_public_ip_on_launch is not None:
             pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
         if outpost_arn is not None:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if private_dns_name_options_on_launch is not None:
+            pulumi.set(__self__, "private_dns_name_options_on_launch", private_dns_name_options_on_launch)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "cidr_block")
-
-    @cidr_block.setter
-    def cidr_block(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cidr_block", value)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -78,6 +82,33 @@ class SubnetArgs:
         pulumi.set(self, "availability_zone", value)
 
     @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_id", value)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_dns64")
+
+    @enable_dns64.setter
+    def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_dns64", value)
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
@@ -85,6 +116,15 @@ class SubnetArgs:
     @ipv6_cidr_block.setter
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="ipv6Native")
+    def ipv6_native(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ipv6_native")
+
+    @ipv6_native.setter
+    def ipv6_native(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6_native", value)
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
@@ -105,6 +145,15 @@ class SubnetArgs:
         pulumi.set(self, "outpost_arn", value)
 
     @property
+    @pulumi.getter(name="privateDnsNameOptionsOnLaunch")
+    def private_dns_name_options_on_launch(self) -> Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]:
+        return pulumi.get(self, "private_dns_name_options_on_launch")
+
+    @private_dns_name_options_on_launch.setter
+    def private_dns_name_options_on_launch(self, value: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]):
+        pulumi.set(self, "private_dns_name_options_on_launch", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -121,10 +170,14 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -160,10 +213,14 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -180,12 +237,14 @@ class Subnet(pulumi.CustomResource):
 
             __props__.__dict__["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
             __props__.__dict__["availability_zone"] = availability_zone
-            if cidr_block is None and not opts.urn:
-                raise TypeError("Missing required property 'cidr_block'")
+            __props__.__dict__["availability_zone_id"] = availability_zone_id
             __props__.__dict__["cidr_block"] = cidr_block
+            __props__.__dict__["enable_dns64"] = enable_dns64
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_native"] = ipv6_native
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["private_dns_name_options_on_launch"] = private_dns_name_options_on_launch
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -217,12 +276,16 @@ class Subnet(pulumi.CustomResource):
 
         __props__.__dict__["assign_ipv6_address_on_creation"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["cidr_block"] = None
+        __props__.__dict__["enable_dns64"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
         __props__.__dict__["ipv6_cidr_blocks"] = None
+        __props__.__dict__["ipv6_native"] = None
         __props__.__dict__["map_public_ip_on_launch"] = None
         __props__.__dict__["network_acl_association_id"] = None
         __props__.__dict__["outpost_arn"] = None
+        __props__.__dict__["private_dns_name_options_on_launch"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
@@ -239,9 +302,19 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "availability_zone_id")
+
+    @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_dns64")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
@@ -252,6 +325,11 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "ipv6_cidr_blocks")
+
+    @property
+    @pulumi.getter(name="ipv6Native")
+    def ipv6_native(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "ipv6_native")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
@@ -267,6 +345,11 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "outpost_arn")
+
+    @property
+    @pulumi.getter(name="privateDnsNameOptionsOnLaunch")
+    def private_dns_name_options_on_launch(self) -> pulumi.Output[Optional['outputs.PrivateDnsNameOptionsOnLaunchProperties']]:
+        return pulumi.get(self, "private_dns_name_options_on_launch")
 
     @property
     @pulumi.getter(name="subnetId")

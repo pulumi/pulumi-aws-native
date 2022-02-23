@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLManagedRuleGroupStatement
     {
         public readonly ImmutableArray<Outputs.WebACLExcludedRule> ExcludedRules;
+        /// <summary>
+        /// Collection of ManagedRuleGroupConfig.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebACLManagedRuleGroupConfig> ManagedRuleGroupConfigs;
         public readonly string Name;
         public readonly Outputs.WebACLStatement? ScopeDownStatement;
         public readonly string VendorName;
@@ -22,6 +26,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         [OutputConstructor]
         private WebACLManagedRuleGroupStatement(
             ImmutableArray<Outputs.WebACLExcludedRule> excludedRules,
+
+            ImmutableArray<Outputs.WebACLManagedRuleGroupConfig> managedRuleGroupConfigs,
 
             string name,
 
@@ -32,6 +38,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             string? version)
         {
             ExcludedRules = excludedRules;
+            ManagedRuleGroupConfigs = managedRuleGroupConfigs;
             Name = name;
             ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;

@@ -1160,6 +1160,7 @@ _utilities.register(
   "classes": {
    "aws-native:datasync:Agent": "Agent",
    "aws-native:datasync:LocationEFS": "LocationEFS",
+   "aws-native:datasync:LocationFSxLustre": "LocationFSxLustre",
    "aws-native:datasync:LocationFSxWindows": "LocationFSxWindows",
    "aws-native:datasync:LocationHDFS": "LocationHDFS",
    "aws-native:datasync:LocationNFS": "LocationNFS",
@@ -1353,6 +1354,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ecr",
   "classes": {
    "aws-native:ecr:PublicRepository": "PublicRepository",
+   "aws-native:ecr:PullThroughCacheRule": "PullThroughCacheRule",
    "aws-native:ecr:RegistryPolicy": "RegistryPolicy",
    "aws-native:ecr:ReplicationConfiguration": "ReplicationConfiguration",
    "aws-native:ecr:Repository": "Repository"

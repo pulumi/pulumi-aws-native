@@ -29,7 +29,6 @@ export interface GetStateMachineResult {
     readonly loggingConfiguration?: outputs.stepfunctions.StateMachineLoggingConfiguration;
     readonly name?: string;
     readonly roleArn?: string;
-    readonly stateMachineType?: enums.stepfunctions.StateMachineType;
     readonly tags?: outputs.stepfunctions.StateMachineTagsEntry[];
     readonly tracingConfiguration?: outputs.stepfunctions.StateMachineTracingConfiguration;
 }

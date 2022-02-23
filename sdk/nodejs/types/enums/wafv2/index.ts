@@ -269,6 +269,13 @@ export const WebACLLabelMatchScope = {
 
 export type WebACLLabelMatchScope = (typeof WebACLLabelMatchScope)[keyof typeof WebACLLabelMatchScope];
 
+export const WebACLManagedRuleGroupConfigPayloadType = {
+    Json: "JSON",
+    FormEncoded: "FORM_ENCODED",
+} as const;
+
+export type WebACLManagedRuleGroupConfigPayloadType = (typeof WebACLManagedRuleGroupConfigPayloadType)[keyof typeof WebACLManagedRuleGroupConfigPayloadType];
+
 export const WebACLPositionalConstraint = {
     Exactly: "EXACTLY",
     StartsWith: "STARTS_WITH",

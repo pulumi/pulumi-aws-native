@@ -26,14 +26,15 @@ type LookupDataSourceArgs struct {
 }
 
 type LookupDataSourceResult struct {
-	Arn                     *string                  `pulumi:"arn"`
-	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	Description             *string                  `pulumi:"description"`
-	Id                      *string                  `pulumi:"id"`
-	IndexId                 *string                  `pulumi:"indexId"`
-	Name                    *string                  `pulumi:"name"`
-	RoleArn                 *string                  `pulumi:"roleArn"`
-	Schedule                *string                  `pulumi:"schedule"`
+	Arn                                   *string                                          `pulumi:"arn"`
+	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
+	DataSourceConfiguration               *DataSourceConfiguration                         `pulumi:"dataSourceConfiguration"`
+	Description                           *string                                          `pulumi:"description"`
+	Id                                    *string                                          `pulumi:"id"`
+	IndexId                               *string                                          `pulumi:"indexId"`
+	Name                                  *string                                          `pulumi:"name"`
+	RoleArn                               *string                                          `pulumi:"roleArn"`
+	Schedule                              *string                                          `pulumi:"schedule"`
 	// Tags for labeling the data source
 	Tags []DataSourceTag `pulumi:"tags"`
 }
@@ -72,6 +73,12 @@ func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutputWithContext(
 
 func (o LookupDataSourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDataSourceResultOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceCustomDocumentEnrichmentConfiguration {
+		return v.CustomDocumentEnrichmentConfiguration
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {

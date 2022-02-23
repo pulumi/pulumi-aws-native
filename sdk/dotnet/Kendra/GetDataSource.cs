@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.Kendra
     public sealed class GetDataSourceResult
     {
         public readonly string? Arn;
+        public readonly Outputs.DataSourceCustomDocumentEnrichmentConfiguration? CustomDocumentEnrichmentConfiguration;
         public readonly Outputs.DataSourceConfiguration? DataSourceConfiguration;
         public readonly string? Description;
         public readonly string? Id;
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.Kendra
         [OutputConstructor]
         private GetDataSourceResult(
             string? arn,
+
+            Outputs.DataSourceCustomDocumentEnrichmentConfiguration? customDocumentEnrichmentConfiguration,
 
             Outputs.DataSourceConfiguration? dataSourceConfiguration,
 
@@ -89,6 +92,7 @@ namespace Pulumi.AwsNative.Kendra
             ImmutableArray<Outputs.DataSourceTag> tags)
         {
             Arn = arn;
+            CustomDocumentEnrichmentConfiguration = customDocumentEnrichmentConfiguration;
             DataSourceConfiguration = dataSourceConfiguration;
             Description = description;
             Id = id;

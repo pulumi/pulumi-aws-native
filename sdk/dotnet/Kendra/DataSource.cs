@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Kendra
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("customDocumentEnrichmentConfiguration")]
+        public Output<Outputs.DataSourceCustomDocumentEnrichmentConfiguration?> CustomDocumentEnrichmentConfiguration { get; private set; } = null!;
+
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class DataSourceArgs : Pulumi.ResourceArgs
     {
+        [Input("customDocumentEnrichmentConfiguration")]
+        public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs>? CustomDocumentEnrichmentConfiguration { get; set; }
+
         [Input("dataSourceConfiguration")]
         public Input<Inputs.DataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 

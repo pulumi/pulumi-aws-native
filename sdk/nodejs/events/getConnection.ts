@@ -31,7 +31,6 @@ export interface GetConnectionResult {
      * The arn of the connection resource.
      */
     readonly arn?: string;
-    readonly authParameters?: outputs.events.AuthParametersProperties;
     readonly authorizationType?: enums.events.ConnectionAuthorizationType;
     /**
      * Description of the connection.

@@ -8958,6 +8958,139 @@ func (o WebACLExcludedRuleArrayOutput) Index(i pulumi.IntInput) WebACLExcludedRu
 	}).(WebACLExcludedRuleOutput)
 }
 
+type WebACLFieldIdentifier struct {
+	Identifier string `pulumi:"identifier"`
+}
+
+// WebACLFieldIdentifierInput is an input type that accepts WebACLFieldIdentifierArgs and WebACLFieldIdentifierOutput values.
+// You can construct a concrete instance of `WebACLFieldIdentifierInput` via:
+//
+//          WebACLFieldIdentifierArgs{...}
+type WebACLFieldIdentifierInput interface {
+	pulumi.Input
+
+	ToWebACLFieldIdentifierOutput() WebACLFieldIdentifierOutput
+	ToWebACLFieldIdentifierOutputWithContext(context.Context) WebACLFieldIdentifierOutput
+}
+
+type WebACLFieldIdentifierArgs struct {
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+}
+
+func (WebACLFieldIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLFieldIdentifier)(nil)).Elem()
+}
+
+func (i WebACLFieldIdentifierArgs) ToWebACLFieldIdentifierOutput() WebACLFieldIdentifierOutput {
+	return i.ToWebACLFieldIdentifierOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldIdentifierArgs) ToWebACLFieldIdentifierOutputWithContext(ctx context.Context) WebACLFieldIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldIdentifierOutput)
+}
+
+func (i WebACLFieldIdentifierArgs) ToWebACLFieldIdentifierPtrOutput() WebACLFieldIdentifierPtrOutput {
+	return i.ToWebACLFieldIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldIdentifierArgs) ToWebACLFieldIdentifierPtrOutputWithContext(ctx context.Context) WebACLFieldIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldIdentifierOutput).ToWebACLFieldIdentifierPtrOutputWithContext(ctx)
+}
+
+// WebACLFieldIdentifierPtrInput is an input type that accepts WebACLFieldIdentifierArgs, WebACLFieldIdentifierPtr and WebACLFieldIdentifierPtrOutput values.
+// You can construct a concrete instance of `WebACLFieldIdentifierPtrInput` via:
+//
+//          WebACLFieldIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLFieldIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToWebACLFieldIdentifierPtrOutput() WebACLFieldIdentifierPtrOutput
+	ToWebACLFieldIdentifierPtrOutputWithContext(context.Context) WebACLFieldIdentifierPtrOutput
+}
+
+type webACLFieldIdentifierPtrType WebACLFieldIdentifierArgs
+
+func WebACLFieldIdentifierPtr(v *WebACLFieldIdentifierArgs) WebACLFieldIdentifierPtrInput {
+	return (*webACLFieldIdentifierPtrType)(v)
+}
+
+func (*webACLFieldIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLFieldIdentifier)(nil)).Elem()
+}
+
+func (i *webACLFieldIdentifierPtrType) ToWebACLFieldIdentifierPtrOutput() WebACLFieldIdentifierPtrOutput {
+	return i.ToWebACLFieldIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLFieldIdentifierPtrType) ToWebACLFieldIdentifierPtrOutputWithContext(ctx context.Context) WebACLFieldIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldIdentifierPtrOutput)
+}
+
+type WebACLFieldIdentifierOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLFieldIdentifier)(nil)).Elem()
+}
+
+func (o WebACLFieldIdentifierOutput) ToWebACLFieldIdentifierOutput() WebACLFieldIdentifierOutput {
+	return o
+}
+
+func (o WebACLFieldIdentifierOutput) ToWebACLFieldIdentifierOutputWithContext(ctx context.Context) WebACLFieldIdentifierOutput {
+	return o
+}
+
+func (o WebACLFieldIdentifierOutput) ToWebACLFieldIdentifierPtrOutput() WebACLFieldIdentifierPtrOutput {
+	return o.ToWebACLFieldIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLFieldIdentifierOutput) ToWebACLFieldIdentifierPtrOutputWithContext(ctx context.Context) WebACLFieldIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLFieldIdentifier) *WebACLFieldIdentifier {
+		return &v
+	}).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLFieldIdentifierOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLFieldIdentifier) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+type WebACLFieldIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLFieldIdentifier)(nil)).Elem()
+}
+
+func (o WebACLFieldIdentifierPtrOutput) ToWebACLFieldIdentifierPtrOutput() WebACLFieldIdentifierPtrOutput {
+	return o
+}
+
+func (o WebACLFieldIdentifierPtrOutput) ToWebACLFieldIdentifierPtrOutputWithContext(ctx context.Context) WebACLFieldIdentifierPtrOutput {
+	return o
+}
+
+func (o WebACLFieldIdentifierPtrOutput) Elem() WebACLFieldIdentifierOutput {
+	return o.ApplyT(func(v *WebACLFieldIdentifier) WebACLFieldIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLFieldIdentifier
+		return ret
+	}).(WebACLFieldIdentifierOutput)
+}
+
+func (o WebACLFieldIdentifierPtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
 // Field of the request to match.
 type WebACLFieldToMatch struct {
 	// All query arguments of a web request.
@@ -10805,12 +10938,129 @@ func (o WebACLLabelMatchStatementPtrOutput) Scope() WebACLLabelMatchScopePtrOutp
 	}).(WebACLLabelMatchScopePtrOutput)
 }
 
+// ManagedRuleGroupConfig.
+type WebACLManagedRuleGroupConfig struct {
+	LoginPath     *string                                  `pulumi:"loginPath"`
+	PasswordField *WebACLFieldIdentifier                   `pulumi:"passwordField"`
+	PayloadType   *WebACLManagedRuleGroupConfigPayloadType `pulumi:"payloadType"`
+	UsernameField *WebACLFieldIdentifier                   `pulumi:"usernameField"`
+}
+
+// WebACLManagedRuleGroupConfigInput is an input type that accepts WebACLManagedRuleGroupConfigArgs and WebACLManagedRuleGroupConfigOutput values.
+// You can construct a concrete instance of `WebACLManagedRuleGroupConfigInput` via:
+//
+//          WebACLManagedRuleGroupConfigArgs{...}
+type WebACLManagedRuleGroupConfigInput interface {
+	pulumi.Input
+
+	ToWebACLManagedRuleGroupConfigOutput() WebACLManagedRuleGroupConfigOutput
+	ToWebACLManagedRuleGroupConfigOutputWithContext(context.Context) WebACLManagedRuleGroupConfigOutput
+}
+
+// ManagedRuleGroupConfig.
+type WebACLManagedRuleGroupConfigArgs struct {
+	LoginPath     pulumi.StringPtrInput                           `pulumi:"loginPath"`
+	PasswordField WebACLFieldIdentifierPtrInput                   `pulumi:"passwordField"`
+	PayloadType   WebACLManagedRuleGroupConfigPayloadTypePtrInput `pulumi:"payloadType"`
+	UsernameField WebACLFieldIdentifierPtrInput                   `pulumi:"usernameField"`
+}
+
+func (WebACLManagedRuleGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (i WebACLManagedRuleGroupConfigArgs) ToWebACLManagedRuleGroupConfigOutput() WebACLManagedRuleGroupConfigOutput {
+	return i.ToWebACLManagedRuleGroupConfigOutputWithContext(context.Background())
+}
+
+func (i WebACLManagedRuleGroupConfigArgs) ToWebACLManagedRuleGroupConfigOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLManagedRuleGroupConfigOutput)
+}
+
+// WebACLManagedRuleGroupConfigArrayInput is an input type that accepts WebACLManagedRuleGroupConfigArray and WebACLManagedRuleGroupConfigArrayOutput values.
+// You can construct a concrete instance of `WebACLManagedRuleGroupConfigArrayInput` via:
+//
+//          WebACLManagedRuleGroupConfigArray{ WebACLManagedRuleGroupConfigArgs{...} }
+type WebACLManagedRuleGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToWebACLManagedRuleGroupConfigArrayOutput() WebACLManagedRuleGroupConfigArrayOutput
+	ToWebACLManagedRuleGroupConfigArrayOutputWithContext(context.Context) WebACLManagedRuleGroupConfigArrayOutput
+}
+
+type WebACLManagedRuleGroupConfigArray []WebACLManagedRuleGroupConfigInput
+
+func (WebACLManagedRuleGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (i WebACLManagedRuleGroupConfigArray) ToWebACLManagedRuleGroupConfigArrayOutput() WebACLManagedRuleGroupConfigArrayOutput {
+	return i.ToWebACLManagedRuleGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLManagedRuleGroupConfigArray) ToWebACLManagedRuleGroupConfigArrayOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLManagedRuleGroupConfigArrayOutput)
+}
+
+// ManagedRuleGroupConfig.
+type WebACLManagedRuleGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (WebACLManagedRuleGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutput() WebACLManagedRuleGroupConfigOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) LoginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *string { return v.LoginPath }).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) PasswordField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLFieldIdentifier { return v.PasswordField }).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) PayloadType() WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLManagedRuleGroupConfigPayloadType { return v.PayloadType }).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) UsernameField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLFieldIdentifier { return v.UsernameField }).(WebACLFieldIdentifierPtrOutput)
+}
+
+type WebACLManagedRuleGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLManagedRuleGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (o WebACLManagedRuleGroupConfigArrayOutput) ToWebACLManagedRuleGroupConfigArrayOutput() WebACLManagedRuleGroupConfigArrayOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigArrayOutput) ToWebACLManagedRuleGroupConfigArrayOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigArrayOutput {
+	return o
+}
+
+func (o WebACLManagedRuleGroupConfigArrayOutput) Index(i pulumi.IntInput) WebACLManagedRuleGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLManagedRuleGroupConfig {
+		return vs[0].([]WebACLManagedRuleGroupConfig)[vs[1].(int)]
+	}).(WebACLManagedRuleGroupConfigOutput)
+}
+
 type WebACLManagedRuleGroupStatement struct {
-	ExcludedRules      []WebACLExcludedRule `pulumi:"excludedRules"`
-	Name               string               `pulumi:"name"`
-	ScopeDownStatement *WebACLStatement     `pulumi:"scopeDownStatement"`
-	VendorName         string               `pulumi:"vendorName"`
-	Version            *string              `pulumi:"version"`
+	ExcludedRules []WebACLExcludedRule `pulumi:"excludedRules"`
+	// Collection of ManagedRuleGroupConfig.
+	ManagedRuleGroupConfigs []WebACLManagedRuleGroupConfig `pulumi:"managedRuleGroupConfigs"`
+	Name                    string                         `pulumi:"name"`
+	ScopeDownStatement      *WebACLStatement               `pulumi:"scopeDownStatement"`
+	VendorName              string                         `pulumi:"vendorName"`
+	Version                 *string                        `pulumi:"version"`
 }
 
 // WebACLManagedRuleGroupStatementInput is an input type that accepts WebACLManagedRuleGroupStatementArgs and WebACLManagedRuleGroupStatementOutput values.
@@ -10825,11 +11075,13 @@ type WebACLManagedRuleGroupStatementInput interface {
 }
 
 type WebACLManagedRuleGroupStatementArgs struct {
-	ExcludedRules      WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
-	Name               pulumi.StringInput           `pulumi:"name"`
-	ScopeDownStatement WebACLStatementPtrInput      `pulumi:"scopeDownStatement"`
-	VendorName         pulumi.StringInput           `pulumi:"vendorName"`
-	Version            pulumi.StringPtrInput        `pulumi:"version"`
+	ExcludedRules WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
+	// Collection of ManagedRuleGroupConfig.
+	ManagedRuleGroupConfigs WebACLManagedRuleGroupConfigArrayInput `pulumi:"managedRuleGroupConfigs"`
+	Name                    pulumi.StringInput                     `pulumi:"name"`
+	ScopeDownStatement      WebACLStatementPtrInput                `pulumi:"scopeDownStatement"`
+	VendorName              pulumi.StringInput                     `pulumi:"vendorName"`
+	Version                 pulumi.StringPtrInput                  `pulumi:"version"`
 }
 
 func (WebACLManagedRuleGroupStatementArgs) ElementType() reflect.Type {
@@ -10913,6 +11165,13 @@ func (o WebACLManagedRuleGroupStatementOutput) ExcludedRules() WebACLExcludedRul
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) []WebACLExcludedRule { return v.ExcludedRules }).(WebACLExcludedRuleArrayOutput)
 }
 
+// Collection of ManagedRuleGroupConfig.
+func (o WebACLManagedRuleGroupStatementOutput) ManagedRuleGroupConfigs() WebACLManagedRuleGroupConfigArrayOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) []WebACLManagedRuleGroupConfig {
+		return v.ManagedRuleGroupConfigs
+	}).(WebACLManagedRuleGroupConfigArrayOutput)
+}
+
 func (o WebACLManagedRuleGroupStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10960,6 +11219,16 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) ExcludedRules() WebACLExcluded
 		}
 		return v.ExcludedRules
 	}).(WebACLExcludedRuleArrayOutput)
+}
+
+// Collection of ManagedRuleGroupConfig.
+func (o WebACLManagedRuleGroupStatementPtrOutput) ManagedRuleGroupConfigs() WebACLManagedRuleGroupConfigArrayOutput {
+	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) []WebACLManagedRuleGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedRuleGroupConfigs
+	}).(WebACLManagedRuleGroupConfigArrayOutput)
 }
 
 func (o WebACLManagedRuleGroupStatementPtrOutput) Name() pulumi.StringPtrOutput {
@@ -13718,6 +13987,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLDefaultActionInput)(nil)).Elem(), WebACLDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLExcludedRuleInput)(nil)).Elem(), WebACLExcludedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLExcludedRuleArrayInput)(nil)).Elem(), WebACLExcludedRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldIdentifierInput)(nil)).Elem(), WebACLFieldIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldIdentifierPtrInput)(nil)).Elem(), WebACLFieldIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldToMatchInput)(nil)).Elem(), WebACLFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldToMatchPtrInput)(nil)).Elem(), WebACLFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldToMatchSingleHeaderPropertiesInput)(nil)).Elem(), WebACLFieldToMatchSingleHeaderPropertiesArgs{})
@@ -13742,6 +14013,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelArrayInput)(nil)).Elem(), WebACLLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchStatementInput)(nil)).Elem(), WebACLLabelMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchStatementPtrInput)(nil)).Elem(), WebACLLabelMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigInput)(nil)).Elem(), WebACLManagedRuleGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigArrayInput)(nil)).Elem(), WebACLManagedRuleGroupConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupStatementInput)(nil)).Elem(), WebACLManagedRuleGroupStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupStatementPtrInput)(nil)).Elem(), WebACLManagedRuleGroupStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLNotStatementInput)(nil)).Elem(), WebACLNotStatementArgs{})
@@ -13901,6 +14174,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLExcludedRuleOutput{})
 	pulumi.RegisterOutputType(WebACLExcludedRuleArrayOutput{})
+	pulumi.RegisterOutputType(WebACLFieldIdentifierOutput{})
+	pulumi.RegisterOutputType(WebACLFieldIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchPtrOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchSingleHeaderPropertiesOutput{})
@@ -13925,6 +14200,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLLabelArrayOutput{})
 	pulumi.RegisterOutputType(WebACLLabelMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLLabelMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigOutput{})
+	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigArrayOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupStatementOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLNotStatementOutput{})

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public Output<string> AppId { get; private set; } = null!;
 
         [Output("bindingProperties")]
-        public Output<Outputs.ComponentBindingProperties?> BindingProperties { get; private set; } = null!;
+        public Output<Outputs.ComponentBindingProperties> BindingProperties { get; private set; } = null!;
 
         [Output("children")]
         public Output<ImmutableArray<Outputs.ComponentChild>> Children { get; private set; } = null!;
@@ -28,25 +28,22 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public Output<Outputs.ComponentCollectionProperties?> CollectionProperties { get; private set; } = null!;
 
         [Output("componentType")]
-        public Output<string?> ComponentType { get; private set; } = null!;
-
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string> ComponentType { get; private set; } = null!;
 
         [Output("environmentName")]
         public Output<string> EnvironmentName { get; private set; } = null!;
 
-        [Output("modifiedAt")]
-        public Output<string> ModifiedAt { get; private set; } = null!;
+        [Output("events")]
+        public Output<Outputs.ComponentEvents?> Events { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("overrides")]
-        public Output<Outputs.ComponentOverrides?> Overrides { get; private set; } = null!;
+        public Output<Outputs.ComponentOverrides> Overrides { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.ComponentProperties?> Properties { get; private set; } = null!;
+        public Output<Outputs.ComponentProperties> Properties { get; private set; } = null!;
 
         [Output("sourceId")]
         public Output<string?> SourceId { get; private set; } = null!;
@@ -65,7 +62,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Component(string name, ComponentArgs? args = null, CustomResourceOptions? options = null)
+        public Component(string name, ComponentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:amplifyuibuilder:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -102,8 +99,8 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
     public sealed class ComponentArgs : Pulumi.ResourceArgs
     {
-        [Input("bindingProperties")]
-        public Input<Inputs.ComponentBindingPropertiesArgs>? BindingProperties { get; set; }
+        [Input("bindingProperties", required: true)]
+        public Input<Inputs.ComponentBindingPropertiesArgs> BindingProperties { get; set; } = null!;
 
         [Input("children")]
         private InputList<Inputs.ComponentChildArgs>? _children;
@@ -116,17 +113,20 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         [Input("collectionProperties")]
         public Input<Inputs.ComponentCollectionPropertiesArgs>? CollectionProperties { get; set; }
 
-        [Input("componentType")]
-        public Input<string>? ComponentType { get; set; }
+        [Input("componentType", required: true)]
+        public Input<string> ComponentType { get; set; } = null!;
+
+        [Input("events")]
+        public Input<Inputs.ComponentEventsArgs>? Events { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("overrides")]
-        public Input<Inputs.ComponentOverridesArgs>? Overrides { get; set; }
+        [Input("overrides", required: true)]
+        public Input<Inputs.ComponentOverridesArgs> Overrides { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.ComponentPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ComponentPropertiesArgs> Properties { get; set; } = null!;
 
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         [Input("tags")]
         public Input<Inputs.ComponentTagsArgs>? Tags { get; set; }
 
-        [Input("variants")]
+        [Input("variants", required: true)]
         private InputList<Inputs.ComponentVariantArgs>? _variants;
         public InputList<Inputs.ComponentVariantArgs> Variants
         {

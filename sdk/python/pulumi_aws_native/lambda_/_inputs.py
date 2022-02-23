@@ -20,11 +20,11 @@ __all__ = [
     'EventInvokeConfigOnSuccessArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingEndpointsArgs',
+    'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterArgs',
     'EventSourceMappingOnFailureArgs',
     'EventSourceMappingSelfManagedEventSourceArgs',
     'EventSourceMappingSourceAccessConfigurationArgs',
-    'FilterCriteriaPropertiesArgs',
     'FunctionCodeArgs',
     'FunctionDeadLetterConfigArgs',
     'FunctionEnvironmentArgs',
@@ -253,6 +253,30 @@ class EventSourceMappingEndpointsArgs:
 
 
 @pulumi.input_type
+class EventSourceMappingFilterCriteriaArgs:
+    def __init__(__self__, *,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]] = None):
+        """
+        The filter criteria to control event filtering.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]] filters: List of filters of this FilterCriteria
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]:
+        """
+        List of filters of this FilterCriteria
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+
+@pulumi.input_type
 class EventSourceMappingFilterArgs:
     def __init__(__self__, *,
                  pattern: Optional[pulumi.Input[str]] = None):
@@ -362,30 +386,6 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @u_ri.setter
     def u_ri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "u_ri", value)
-
-
-@pulumi.input_type
-class FilterCriteriaPropertiesArgs:
-    def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]] = None):
-        """
-        The filter criteria to control event filtering.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]] filters: List of filters of this FilterCriteria
-        """
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]:
-        """
-        List of filters of this FilterCriteria
-        """
-        return pulumi.get(self, "filters")
-
-    @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]):
-        pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type

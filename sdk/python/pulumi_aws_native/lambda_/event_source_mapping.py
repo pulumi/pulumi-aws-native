@@ -22,7 +22,7 @@ class EventSourceMappingArgs:
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
-                 filter_criteria: Optional[pulumi.Input['FilterCriteriaPropertiesArgs']] = None,
+                 filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -43,7 +43,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
         :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
-        :param pulumi.Input['FilterCriteriaPropertiesArgs'] filter_criteria: The filter criteria to control event filtering.
+        :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The filter criteria to control event filtering.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams) A list of response types supported by the function.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Streams) The maximum age of a record that Lambda sends to a function for processing.
@@ -169,14 +169,14 @@ class EventSourceMappingArgs:
 
     @property
     @pulumi.getter(name="filterCriteria")
-    def filter_criteria(self) -> Optional[pulumi.Input['FilterCriteriaPropertiesArgs']]:
+    def filter_criteria(self) -> Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']]:
         """
         The filter criteria to control event filtering.
         """
         return pulumi.get(self, "filter_criteria")
 
     @filter_criteria.setter
-    def filter_criteria(self, value: Optional[pulumi.Input['FilterCriteriaPropertiesArgs']]):
+    def filter_criteria(self, value: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']]):
         pulumi.set(self, "filter_criteria", value)
 
     @property
@@ -334,7 +334,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
-                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['FilterCriteriaPropertiesArgs']]] = None,
+                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -359,7 +359,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
         :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
-        :param pulumi.Input[pulumi.InputType['FilterCriteriaPropertiesArgs']] filter_criteria: The filter criteria to control event filtering.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']] filter_criteria: The filter criteria to control event filtering.
         :param pulumi.Input[str] function_name: The name of the Lambda function.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams) A list of response types supported by the function.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
@@ -403,7 +403,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
-                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['FilterCriteriaPropertiesArgs']]] = None,
+                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -535,7 +535,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterCriteria")
-    def filter_criteria(self) -> pulumi.Output[Optional['outputs.FilterCriteriaProperties']]:
+    def filter_criteria(self) -> pulumi.Output[Optional['outputs.EventSourceMappingFilterCriteria']]:
         """
         The filter criteria to control event filtering.
         """

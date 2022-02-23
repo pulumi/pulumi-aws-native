@@ -791,19 +791,21 @@ class DatasetRetentionPeriod(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 number_of_days: int,
-                 unlimited: bool):
-        pulumi.set(__self__, "number_of_days", number_of_days)
-        pulumi.set(__self__, "unlimited", unlimited)
+                 number_of_days: Optional[int] = None,
+                 unlimited: Optional[bool] = None):
+        if number_of_days is not None:
+            pulumi.set(__self__, "number_of_days", number_of_days)
+        if unlimited is not None:
+            pulumi.set(__self__, "unlimited", unlimited)
 
     @property
     @pulumi.getter(name="numberOfDays")
-    def number_of_days(self) -> int:
+    def number_of_days(self) -> Optional[int]:
         return pulumi.get(self, "number_of_days")
 
     @property
     @pulumi.getter
-    def unlimited(self) -> bool:
+    def unlimited(self) -> Optional[bool]:
         return pulumi.get(self, "unlimited")
 
 

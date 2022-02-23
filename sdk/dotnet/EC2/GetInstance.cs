@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.EC2
         public readonly string? KernelId;
         public readonly bool? Monitoring;
         public readonly string? PrivateDnsName;
+        public readonly Outputs.InstancePrivateDnsNameOptions? PrivateDnsNameOptions;
         public readonly string? PrivateIp;
         public readonly bool? PropagateTagsToVolumeOnCreation;
         public readonly string? PublicDnsName;
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.EC2
 
             string? privateDnsName,
 
+            Outputs.InstancePrivateDnsNameOptions? privateDnsNameOptions,
+
             string? privateIp,
 
             bool? propagateTagsToVolumeOnCreation,
@@ -144,6 +147,7 @@ namespace Pulumi.AwsNative.EC2
             KernelId = kernelId;
             Monitoring = monitoring;
             PrivateDnsName = privateDnsName;
+            PrivateDnsNameOptions = privateDnsNameOptions;
             PrivateIp = privateIp;
             PropagateTagsToVolumeOnCreation = propagateTagsToVolumeOnCreation;
             PublicDnsName = publicDnsName;

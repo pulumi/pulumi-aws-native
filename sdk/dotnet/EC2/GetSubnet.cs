@@ -50,16 +50,20 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetSubnetResult
     {
         public readonly bool? AssignIpv6AddressOnCreation;
+        public readonly bool? EnableDns64;
         public readonly string? Ipv6CidrBlock;
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         public readonly bool? MapPublicIpOnLaunch;
         public readonly string? NetworkAclAssociationId;
+        public readonly Outputs.PrivateDnsNameOptionsOnLaunchProperties? PrivateDnsNameOptionsOnLaunch;
         public readonly string? SubnetId;
         public readonly ImmutableArray<Outputs.SubnetTag> Tags;
 
         [OutputConstructor]
         private GetSubnetResult(
             bool? assignIpv6AddressOnCreation,
+
+            bool? enableDns64,
 
             string? ipv6CidrBlock,
 
@@ -69,15 +73,19 @@ namespace Pulumi.AwsNative.EC2
 
             string? networkAclAssociationId,
 
+            Outputs.PrivateDnsNameOptionsOnLaunchProperties? privateDnsNameOptionsOnLaunch,
+
             string? subnetId,
 
             ImmutableArray<Outputs.SubnetTag> tags)
         {
             AssignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
+            EnableDns64 = enableDns64;
             Ipv6CidrBlock = ipv6CidrBlock;
             Ipv6CidrBlocks = ipv6CidrBlocks;
             MapPublicIpOnLaunch = mapPublicIpOnLaunch;
             NetworkAclAssociationId = networkAclAssociationId;
+            PrivateDnsNameOptionsOnLaunch = privateDnsNameOptionsOnLaunch;
             SubnetId = subnetId;
             Tags = tags;
         }

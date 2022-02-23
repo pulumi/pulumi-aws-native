@@ -46,7 +46,7 @@ export interface GetEventSourceMappingResult {
     /**
      * The filter criteria to control event filtering.
      */
-    readonly filterCriteria?: outputs.lambda.FilterCriteriaProperties;
+    readonly filterCriteria?: outputs.lambda.EventSourceMappingFilterCriteria;
     /**
      * The name of the Lambda function.
      */
@@ -83,10 +83,6 @@ export interface GetEventSourceMappingResult {
      * A list of SourceAccessConfiguration.
      */
     readonly sourceAccessConfigurations?: outputs.lambda.EventSourceMappingSourceAccessConfiguration[];
-    /**
-     * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-     */
-    readonly startingPositionTimestamp?: number;
     /**
      * (Kafka) A list of Kafka topics.
      */

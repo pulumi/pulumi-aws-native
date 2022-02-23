@@ -39,47 +39,6 @@ func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesOutput)
 }
 
-func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
-	return i.ToComponentBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesOutput).ToComponentBindingPropertiesPtrOutputWithContext(ctx)
-}
-
-// ComponentBindingPropertiesPtrInput is an input type that accepts ComponentBindingPropertiesArgs, ComponentBindingPropertiesPtr and ComponentBindingPropertiesPtrOutput values.
-// You can construct a concrete instance of `ComponentBindingPropertiesPtrInput` via:
-//
-//          ComponentBindingPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ComponentBindingPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput
-	ToComponentBindingPropertiesPtrOutputWithContext(context.Context) ComponentBindingPropertiesPtrOutput
-}
-
-type componentBindingPropertiesPtrType ComponentBindingPropertiesArgs
-
-func ComponentBindingPropertiesPtr(v *ComponentBindingPropertiesArgs) ComponentBindingPropertiesPtrInput {
-	return (*componentBindingPropertiesPtrType)(v)
-}
-
-func (*componentBindingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentBindingProperties)(nil)).Elem()
-}
-
-func (i *componentBindingPropertiesPtrType) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
-	return i.ToComponentBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *componentBindingPropertiesPtrType) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesPtrOutput)
-}
-
 type ComponentBindingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ComponentBindingPropertiesOutput) ElementType() reflect.Type {
@@ -92,16 +51,6 @@ func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesOutput() C
 
 func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesOutputWithContext(ctx context.Context) ComponentBindingPropertiesOutput {
 	return o
-}
-
-func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
-	return o.ToComponentBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentBindingProperties) *ComponentBindingProperties {
-		return &v
-	}).(ComponentBindingPropertiesPtrOutput)
 }
 
 type ComponentBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -131,6 +80,7 @@ func (o ComponentBindingPropertiesPtrOutput) Elem() ComponentBindingPropertiesOu
 type ComponentChild struct {
 	Children      []ComponentChild    `pulumi:"children"`
 	ComponentType string              `pulumi:"componentType"`
+	Events        *ComponentEvents    `pulumi:"events"`
 	Name          string              `pulumi:"name"`
 	Properties    ComponentProperties `pulumi:"properties"`
 }
@@ -149,6 +99,7 @@ type ComponentChildInput interface {
 type ComponentChildArgs struct {
 	Children      ComponentChildArrayInput `pulumi:"children"`
 	ComponentType pulumi.StringInput       `pulumi:"componentType"`
+	Events        ComponentEventsPtrInput  `pulumi:"events"`
 	Name          pulumi.StringInput       `pulumi:"name"`
 	Properties    ComponentPropertiesInput `pulumi:"properties"`
 }
@@ -210,6 +161,10 @@ func (o ComponentChildOutput) Children() ComponentChildArrayOutput {
 
 func (o ComponentChildOutput) ComponentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentChild) string { return v.ComponentType }).(pulumi.StringOutput)
+}
+
+func (o ComponentChildOutput) Events() ComponentEventsPtrOutput {
+	return o.ApplyT(func(v ComponentChild) *ComponentEvents { return v.Events }).(ComponentEventsPtrOutput)
 }
 
 func (o ComponentChildOutput) Name() pulumi.StringOutput {
@@ -356,6 +311,124 @@ func (o ComponentCollectionPropertiesPtrOutput) Elem() ComponentCollectionProper
 		var ret ComponentCollectionProperties
 		return ret
 	}).(ComponentCollectionPropertiesOutput)
+}
+
+type ComponentEvents struct {
+}
+
+// ComponentEventsInput is an input type that accepts ComponentEventsArgs and ComponentEventsOutput values.
+// You can construct a concrete instance of `ComponentEventsInput` via:
+//
+//          ComponentEventsArgs{...}
+type ComponentEventsInput interface {
+	pulumi.Input
+
+	ToComponentEventsOutput() ComponentEventsOutput
+	ToComponentEventsOutputWithContext(context.Context) ComponentEventsOutput
+}
+
+type ComponentEventsArgs struct {
+}
+
+func (ComponentEventsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentEvents)(nil)).Elem()
+}
+
+func (i ComponentEventsArgs) ToComponentEventsOutput() ComponentEventsOutput {
+	return i.ToComponentEventsOutputWithContext(context.Background())
+}
+
+func (i ComponentEventsArgs) ToComponentEventsOutputWithContext(ctx context.Context) ComponentEventsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsOutput)
+}
+
+func (i ComponentEventsArgs) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
+	return i.ToComponentEventsPtrOutputWithContext(context.Background())
+}
+
+func (i ComponentEventsArgs) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsOutput).ToComponentEventsPtrOutputWithContext(ctx)
+}
+
+// ComponentEventsPtrInput is an input type that accepts ComponentEventsArgs, ComponentEventsPtr and ComponentEventsPtrOutput values.
+// You can construct a concrete instance of `ComponentEventsPtrInput` via:
+//
+//          ComponentEventsArgs{...}
+//
+//  or:
+//
+//          nil
+type ComponentEventsPtrInput interface {
+	pulumi.Input
+
+	ToComponentEventsPtrOutput() ComponentEventsPtrOutput
+	ToComponentEventsPtrOutputWithContext(context.Context) ComponentEventsPtrOutput
+}
+
+type componentEventsPtrType ComponentEventsArgs
+
+func ComponentEventsPtr(v *ComponentEventsArgs) ComponentEventsPtrInput {
+	return (*componentEventsPtrType)(v)
+}
+
+func (*componentEventsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentEvents)(nil)).Elem()
+}
+
+func (i *componentEventsPtrType) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
+	return i.ToComponentEventsPtrOutputWithContext(context.Background())
+}
+
+func (i *componentEventsPtrType) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsPtrOutput)
+}
+
+type ComponentEventsOutput struct{ *pulumi.OutputState }
+
+func (ComponentEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentEvents)(nil)).Elem()
+}
+
+func (o ComponentEventsOutput) ToComponentEventsOutput() ComponentEventsOutput {
+	return o
+}
+
+func (o ComponentEventsOutput) ToComponentEventsOutputWithContext(ctx context.Context) ComponentEventsOutput {
+	return o
+}
+
+func (o ComponentEventsOutput) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
+	return o.ToComponentEventsPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentEventsOutput) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentEvents) *ComponentEvents {
+		return &v
+	}).(ComponentEventsPtrOutput)
+}
+
+type ComponentEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentEvents)(nil)).Elem()
+}
+
+func (o ComponentEventsPtrOutput) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
+	return o
+}
+
+func (o ComponentEventsPtrOutput) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
+	return o
+}
+
+func (o ComponentEventsPtrOutput) Elem() ComponentEventsOutput {
+	return o.ApplyT(func(v *ComponentEvents) ComponentEvents {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentEvents
+		return ret
+	}).(ComponentEventsOutput)
 }
 
 type ComponentOverrides struct {
@@ -505,47 +578,6 @@ func (i ComponentPropertiesArgs) ToComponentPropertiesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesOutput)
 }
 
-func (i ComponentPropertiesArgs) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
-	return i.ToComponentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ComponentPropertiesArgs) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesOutput).ToComponentPropertiesPtrOutputWithContext(ctx)
-}
-
-// ComponentPropertiesPtrInput is an input type that accepts ComponentPropertiesArgs, ComponentPropertiesPtr and ComponentPropertiesPtrOutput values.
-// You can construct a concrete instance of `ComponentPropertiesPtrInput` via:
-//
-//          ComponentPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ComponentPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput
-	ToComponentPropertiesPtrOutputWithContext(context.Context) ComponentPropertiesPtrOutput
-}
-
-type componentPropertiesPtrType ComponentPropertiesArgs
-
-func ComponentPropertiesPtr(v *ComponentPropertiesArgs) ComponentPropertiesPtrInput {
-	return (*componentPropertiesPtrType)(v)
-}
-
-func (*componentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentProperties)(nil)).Elem()
-}
-
-func (i *componentPropertiesPtrType) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
-	return i.ToComponentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *componentPropertiesPtrType) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesPtrOutput)
-}
-
 type ComponentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ComponentPropertiesOutput) ElementType() reflect.Type {
@@ -558,16 +590,6 @@ func (o ComponentPropertiesOutput) ToComponentPropertiesOutput() ComponentProper
 
 func (o ComponentPropertiesOutput) ToComponentPropertiesOutputWithContext(ctx context.Context) ComponentPropertiesOutput {
 	return o
-}
-
-func (o ComponentPropertiesOutput) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
-	return o.ToComponentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ComponentPropertiesOutput) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentProperties) *ComponentProperties {
-		return &v
-	}).(ComponentPropertiesPtrOutput)
 }
 
 type ComponentPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1298,15 +1320,15 @@ func (o ThemeValuesArrayOutput) Index(i pulumi.IntInput) ThemeValuesOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesInput)(nil)).Elem(), ComponentBindingPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesPtrInput)(nil)).Elem(), ComponentBindingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentChildInput)(nil)).Elem(), ComponentChildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentChildArrayInput)(nil)).Elem(), ComponentChildArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentCollectionPropertiesInput)(nil)).Elem(), ComponentCollectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentCollectionPropertiesPtrInput)(nil)).Elem(), ComponentCollectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentEventsInput)(nil)).Elem(), ComponentEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentEventsPtrInput)(nil)).Elem(), ComponentEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentOverridesInput)(nil)).Elem(), ComponentOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentOverridesPtrInput)(nil)).Elem(), ComponentOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertiesInput)(nil)).Elem(), ComponentPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertiesPtrInput)(nil)).Elem(), ComponentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTagsInput)(nil)).Elem(), ComponentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTagsPtrInput)(nil)).Elem(), ComponentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVariantInput)(nil)).Elem(), ComponentVariantArgs{})
@@ -1325,6 +1347,8 @@ func init() {
 	pulumi.RegisterOutputType(ComponentChildArrayOutput{})
 	pulumi.RegisterOutputType(ComponentCollectionPropertiesOutput{})
 	pulumi.RegisterOutputType(ComponentCollectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComponentEventsOutput{})
+	pulumi.RegisterOutputType(ComponentEventsPtrOutput{})
 	pulumi.RegisterOutputType(ComponentOverridesOutput{})
 	pulumi.RegisterOutputType(ComponentOverridesPtrOutput{})
 	pulumi.RegisterOutputType(ComponentPropertiesOutput{})

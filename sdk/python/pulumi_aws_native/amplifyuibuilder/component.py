@@ -15,48 +15,82 @@ __all__ = ['ComponentArgs', 'Component']
 @pulumi.input_type
 class ComponentArgs:
     def __init__(__self__, *,
-                 binding_properties: Optional[pulumi.Input['ComponentBindingPropertiesArgs']] = None,
+                 binding_properties: pulumi.Input['ComponentBindingPropertiesArgs'],
+                 component_type: pulumi.Input[str],
+                 overrides: pulumi.Input['ComponentOverridesArgs'],
+                 properties: pulumi.Input['ComponentPropertiesArgs'],
+                 variants: pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]],
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
                  collection_properties: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']] = None,
-                 component_type: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input['ComponentOverridesArgs']] = None,
-                 properties: Optional[pulumi.Input['ComponentPropertiesArgs']] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['ComponentTagsArgs']] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None):
+                 tags: Optional[pulumi.Input['ComponentTagsArgs']] = None):
         """
         The set of arguments for constructing a Component resource.
         """
-        if binding_properties is not None:
-            pulumi.set(__self__, "binding_properties", binding_properties)
+        pulumi.set(__self__, "binding_properties", binding_properties)
+        pulumi.set(__self__, "component_type", component_type)
+        pulumi.set(__self__, "overrides", overrides)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "variants", variants)
         if children is not None:
             pulumi.set(__self__, "children", children)
         if collection_properties is not None:
             pulumi.set(__self__, "collection_properties", collection_properties)
-        if component_type is not None:
-            pulumi.set(__self__, "component_type", component_type)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if source_id is not None:
             pulumi.set(__self__, "source_id", source_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if variants is not None:
-            pulumi.set(__self__, "variants", variants)
 
     @property
     @pulumi.getter(name="bindingProperties")
-    def binding_properties(self) -> Optional[pulumi.Input['ComponentBindingPropertiesArgs']]:
+    def binding_properties(self) -> pulumi.Input['ComponentBindingPropertiesArgs']:
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
-    def binding_properties(self, value: Optional[pulumi.Input['ComponentBindingPropertiesArgs']]):
+    def binding_properties(self, value: pulumi.Input['ComponentBindingPropertiesArgs']):
         pulumi.set(self, "binding_properties", value)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> pulumi.Input['ComponentOverridesArgs']:
+        return pulumi.get(self, "overrides")
+
+    @overrides.setter
+    def overrides(self, value: pulumi.Input['ComponentOverridesArgs']):
+        pulumi.set(self, "overrides", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ComponentPropertiesArgs']:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ComponentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def variants(self) -> pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]:
+        return pulumi.get(self, "variants")
+
+    @variants.setter
+    def variants(self, value: pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]):
+        pulumi.set(self, "variants", value)
 
     @property
     @pulumi.getter
@@ -77,13 +111,13 @@ class ComponentArgs:
         pulumi.set(self, "collection_properties", value)
 
     @property
-    @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "component_type")
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input['ComponentEventsArgs']]:
+        return pulumi.get(self, "events")
 
-    @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "component_type", value)
+    @events.setter
+    def events(self, value: Optional[pulumi.Input['ComponentEventsArgs']]):
+        pulumi.set(self, "events", value)
 
     @property
     @pulumi.getter
@@ -93,24 +127,6 @@ class ComponentArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input['ComponentOverridesArgs']]:
-        return pulumi.get(self, "overrides")
-
-    @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input['ComponentOverridesArgs']]):
-        pulumi.set(self, "overrides", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ComponentPropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ComponentPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="sourceId")
@@ -130,15 +146,6 @@ class ComponentArgs:
     def tags(self, value: Optional[pulumi.Input['ComponentTagsArgs']]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]]:
-        return pulumi.get(self, "variants")
-
-    @variants.setter
-    def variants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]]):
-        pulumi.set(self, "variants", value)
-
 
 class Component(pulumi.CustomResource):
     @overload
@@ -149,6 +156,7 @@ class Component(pulumi.CustomResource):
                  children: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]]] = None,
                  collection_properties: Optional[pulumi.Input[pulumi.InputType['ComponentCollectionPropertiesArgs']]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[pulumi.InputType['ComponentEventsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ComponentPropertiesArgs']]] = None,
@@ -166,7 +174,7 @@ class Component(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ComponentArgs] = None,
+                 args: ComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::AmplifyUIBuilder::Component Resource Type
@@ -190,6 +198,7 @@ class Component(pulumi.CustomResource):
                  children: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]]] = None,
                  collection_properties: Optional[pulumi.Input[pulumi.InputType['ComponentCollectionPropertiesArgs']]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[pulumi.InputType['ComponentEventsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ComponentPropertiesArgs']]] = None,
@@ -208,20 +217,29 @@ class Component(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComponentArgs.__new__(ComponentArgs)
 
+            if binding_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'binding_properties'")
             __props__.__dict__["binding_properties"] = binding_properties
             __props__.__dict__["children"] = children
             __props__.__dict__["collection_properties"] = collection_properties
+            if component_type is None and not opts.urn:
+                raise TypeError("Missing required property 'component_type'")
             __props__.__dict__["component_type"] = component_type
+            __props__.__dict__["events"] = events
             __props__.__dict__["name"] = name
+            if overrides is None and not opts.urn:
+                raise TypeError("Missing required property 'overrides'")
             __props__.__dict__["overrides"] = overrides
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["source_id"] = source_id
             __props__.__dict__["tags"] = tags
+            if variants is None and not opts.urn:
+                raise TypeError("Missing required property 'variants'")
             __props__.__dict__["variants"] = variants
             __props__.__dict__["app_id"] = None
-            __props__.__dict__["created_at"] = None
             __props__.__dict__["environment_name"] = None
-            __props__.__dict__["modified_at"] = None
         super(Component, __self__).__init__(
             'aws-native:amplifyuibuilder:Component',
             resource_name,
@@ -249,9 +267,8 @@ class Component(pulumi.CustomResource):
         __props__.__dict__["children"] = None
         __props__.__dict__["collection_properties"] = None
         __props__.__dict__["component_type"] = None
-        __props__.__dict__["created_at"] = None
         __props__.__dict__["environment_name"] = None
-        __props__.__dict__["modified_at"] = None
+        __props__.__dict__["events"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["overrides"] = None
         __props__.__dict__["properties"] = None
@@ -267,7 +284,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bindingProperties")
-    def binding_properties(self) -> pulumi.Output[Optional['outputs.ComponentBindingProperties']]:
+    def binding_properties(self) -> pulumi.Output['outputs.ComponentBindingProperties']:
         return pulumi.get(self, "binding_properties")
 
     @property
@@ -282,13 +299,8 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> pulumi.Output[Optional[str]]:
+    def component_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "component_type")
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="environmentName")
@@ -296,23 +308,23 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "environment_name")
 
     @property
-    @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "modified_at")
+    @pulumi.getter
+    def events(self) -> pulumi.Output[Optional['outputs.ComponentEvents']]:
+        return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def overrides(self) -> pulumi.Output[Optional['outputs.ComponentOverrides']]:
+    def overrides(self) -> pulumi.Output['outputs.ComponentOverrides']:
         return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Optional['outputs.ComponentProperties']]:
+    def properties(self) -> pulumi.Output['outputs.ComponentProperties']:
         return pulumi.get(self, "properties")
 
     @property
@@ -327,6 +339,6 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variants(self) -> pulumi.Output[Optional[Sequence['outputs.ComponentVariant']]]:
+    def variants(self) -> pulumi.Output[Sequence['outputs.ComponentVariant']]:
         return pulumi.get(self, "variants")
 

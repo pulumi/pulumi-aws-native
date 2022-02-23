@@ -13,6 +13,7 @@ __all__ = [
     'AgentTag',
     'LocationEFSEc2Config',
     'LocationEFSTag',
+    'LocationFSxLustreTag',
     'LocationFSxWindowsTag',
     'LocationHDFSNameNode',
     'LocationHDFSQopConfiguration',
@@ -118,6 +119,39 @@ class LocationEFSEc2Config(dict):
 
 @pulumi.output_type
 class LocationEFSTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LocationFSxLustreTag(dict):
     """
     A key-value pair to associate with a resource.
     """

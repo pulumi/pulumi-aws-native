@@ -58,7 +58,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The filter criteria to control event filtering.
      */
-    public readonly filterCriteria!: pulumi.Output<outputs.lambda.FilterCriteriaProperties | undefined>;
+    public readonly filterCriteria!: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
     /**
      * The name of the Lambda function.
      */
@@ -198,7 +198,7 @@ export interface EventSourceMappingArgs {
     /**
      * The filter criteria to control event filtering.
      */
-    filterCriteria?: pulumi.Input<inputs.lambda.FilterCriteriaPropertiesArgs>;
+    filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteriaArgs>;
     /**
      * The name of the Lambda function.
      */

@@ -6,10 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getPublicRepository";
+export * from "./getPullThroughCacheRule";
 export * from "./getRegistryPolicy";
 export * from "./getReplicationConfiguration";
 export * from "./getRepository";
 export * from "./publicRepository";
+export * from "./pullThroughCacheRule";
 export * from "./registryPolicy";
 export * from "./replicationConfiguration";
 export * from "./repository";
@@ -19,6 +21,7 @@ export * from "../types/enums/ecr";
 
 // Import resources to register:
 import { PublicRepository } from "./publicRepository";
+import { PullThroughCacheRule } from "./pullThroughCacheRule";
 import { RegistryPolicy } from "./registryPolicy";
 import { ReplicationConfiguration } from "./replicationConfiguration";
 import { Repository } from "./repository";
@@ -29,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws-native:ecr:PublicRepository":
                 return new PublicRepository(name, <any>undefined, { urn })
+            case "aws-native:ecr:PullThroughCacheRule":
+                return new PullThroughCacheRule(name, <any>undefined, { urn })
             case "aws-native:ecr:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
             case "aws-native:ecr:ReplicationConfiguration":

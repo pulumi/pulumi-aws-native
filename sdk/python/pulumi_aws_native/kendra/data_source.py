@@ -18,6 +18,7 @@ class DataSourceArgs:
     def __init__(__self__, *,
                  index_id: pulumi.Input[str],
                  type: pulumi.Input['DataSourceType'],
+                 custom_document_enrichment_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']] = None,
                  data_source_configuration: Optional[pulumi.Input['DataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,8 @@ class DataSourceArgs:
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "type", type)
+        if custom_document_enrichment_configuration is not None:
+            pulumi.set(__self__, "custom_document_enrichment_configuration", custom_document_enrichment_configuration)
         if data_source_configuration is not None:
             pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
@@ -60,6 +63,15 @@ class DataSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input['DataSourceType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="customDocumentEnrichmentConfiguration")
+    def custom_document_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']]:
+        return pulumi.get(self, "custom_document_enrichment_configuration")
+
+    @custom_document_enrichment_configuration.setter
+    def custom_document_enrichment_configuration(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']]):
+        pulumi.set(self, "custom_document_enrichment_configuration", value)
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
@@ -124,6 +136,7 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_document_enrichment_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']]] = None,
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
@@ -164,6 +177,7 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_document_enrichment_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']]] = None,
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
@@ -184,6 +198,7 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
+            __props__.__dict__["custom_document_enrichment_configuration"] = custom_document_enrichment_configuration
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if index_id is None and not opts.urn:
@@ -220,6 +235,7 @@ class DataSource(pulumi.CustomResource):
         __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["custom_document_enrichment_configuration"] = None
         __props__.__dict__["data_source_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["index_id"] = None
@@ -234,6 +250,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="customDocumentEnrichmentConfiguration")
+    def custom_document_enrichment_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceCustomDocumentEnrichmentConfiguration']]:
+        return pulumi.get(self, "custom_document_enrichment_configuration")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")

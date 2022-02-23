@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        [Input("priority")]
+        public Input<double>? Priority { get; set; }
+
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 

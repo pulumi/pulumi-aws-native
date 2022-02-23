@@ -391,7 +391,7 @@
     },
     "update" : {
       "permissions" : [ "dynamodb:Describe*", "dynamodb:CreateTableReplica", "dynamodb:UpdateTable", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:ListTagsOfResource", "dynamodb:Query", "dynamodb:Scan", "dynamodb:UpdateItem", "dynamodb:PutItem", "dynamodb:GetItem", "dynamodb:DeleteItem", "dynamodb:BatchWriteItem", "dynamodb:DeleteTable", "dynamodb:DeleteTableReplica", "dynamodb:UpdateItem", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:DescribeTableReplicaAutoScaling", "dynamodb:UpdateTableReplicaAutoScaling", "application-autoscaling:DeleteScalingPolicy", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:Describe*", "application-autoscaling:PutScalingPolicy", "application-autoscaling:PutScheduledAction", "application-autoscaling:RegisterScalableTarget", "kms:CreateGrant", "kms:Describe*", "kms:Get*", "kms:List*", "kms:RevokeGrant", "cloudwatch:PutMetricData" ],
-      "timeoutInMinutes" : 360
+      "timeoutInMinutes" : 1200
     },
     "delete" : {
       "permissions" : [ "dynamodb:Describe*", "application-autoscaling:DeleteScalingPolicy", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:Describe*", "application-autoscaling:PutScalingPolicy", "application-autoscaling:PutScheduledAction", "application-autoscaling:RegisterScalableTarget" ]

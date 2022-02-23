@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class AuthParametersPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionAuthParametersArgs : Pulumi.ResourceArgs
     {
         [Input("apiKeyAuthParameters")]
         public Input<Inputs.ConnectionApiKeyAuthParametersArgs>? ApiKeyAuthParameters { get; set; }
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         [Input("oAuthParameters")]
         public Input<Inputs.ConnectionOAuthParametersArgs>? OAuthParameters { get; set; }
 
-        public AuthParametersPropertiesArgs()
+        public ConnectionAuthParametersArgs()
         {
         }
     }

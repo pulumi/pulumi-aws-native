@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, arn=None, data_source_configuration=None, description=None, id=None, index_id=None, name=None, role_arn=None, schedule=None, tags=None):
+    def __init__(__self__, arn=None, custom_document_enrichment_configuration=None, data_source_configuration=None, description=None, id=None, index_id=None, name=None, role_arn=None, schedule=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if custom_document_enrichment_configuration and not isinstance(custom_document_enrichment_configuration, dict):
+            raise TypeError("Expected argument 'custom_document_enrichment_configuration' to be a dict")
+        pulumi.set(__self__, "custom_document_enrichment_configuration", custom_document_enrichment_configuration)
         if data_source_configuration and not isinstance(data_source_configuration, dict):
             raise TypeError("Expected argument 'data_source_configuration' to be a dict")
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
@@ -52,6 +55,11 @@ class GetDataSourceResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="customDocumentEnrichmentConfiguration")
+    def custom_document_enrichment_configuration(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfiguration']:
+        return pulumi.get(self, "custom_document_enrichment_configuration")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
@@ -104,6 +112,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             yield self
         return GetDataSourceResult(
             arn=self.arn,
+            custom_document_enrichment_configuration=self.custom_document_enrichment_configuration,
             data_source_configuration=self.data_source_configuration,
             description=self.description,
             id=self.id,
@@ -131,6 +140,7 @@ def get_data_source(id: Optional[str] = None,
 
     return AwaitableGetDataSourceResult(
         arn=__ret__.arn,
+        custom_document_enrichment_configuration=__ret__.custom_document_enrichment_configuration,
         data_source_configuration=__ret__.data_source_configuration,
         description=__ret__.description,
         id=__ret__.id,

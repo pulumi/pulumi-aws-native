@@ -293,6 +293,115 @@ func (o LocationEFSTagArrayOutput) Index(i pulumi.IntInput) LocationEFSTagOutput
 }
 
 // A key-value pair to associate with a resource.
+type LocationFSxLustreTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationFSxLustreTagInput is an input type that accepts LocationFSxLustreTagArgs and LocationFSxLustreTagOutput values.
+// You can construct a concrete instance of `LocationFSxLustreTagInput` via:
+//
+//          LocationFSxLustreTagArgs{...}
+type LocationFSxLustreTagInput interface {
+	pulumi.Input
+
+	ToLocationFSxLustreTagOutput() LocationFSxLustreTagOutput
+	ToLocationFSxLustreTagOutputWithContext(context.Context) LocationFSxLustreTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxLustreTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationFSxLustreTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxLustreTag)(nil)).Elem()
+}
+
+func (i LocationFSxLustreTagArgs) ToLocationFSxLustreTagOutput() LocationFSxLustreTagOutput {
+	return i.ToLocationFSxLustreTagOutputWithContext(context.Background())
+}
+
+func (i LocationFSxLustreTagArgs) ToLocationFSxLustreTagOutputWithContext(ctx context.Context) LocationFSxLustreTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxLustreTagOutput)
+}
+
+// LocationFSxLustreTagArrayInput is an input type that accepts LocationFSxLustreTagArray and LocationFSxLustreTagArrayOutput values.
+// You can construct a concrete instance of `LocationFSxLustreTagArrayInput` via:
+//
+//          LocationFSxLustreTagArray{ LocationFSxLustreTagArgs{...} }
+type LocationFSxLustreTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationFSxLustreTagArrayOutput() LocationFSxLustreTagArrayOutput
+	ToLocationFSxLustreTagArrayOutputWithContext(context.Context) LocationFSxLustreTagArrayOutput
+}
+
+type LocationFSxLustreTagArray []LocationFSxLustreTagInput
+
+func (LocationFSxLustreTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxLustreTag)(nil)).Elem()
+}
+
+func (i LocationFSxLustreTagArray) ToLocationFSxLustreTagArrayOutput() LocationFSxLustreTagArrayOutput {
+	return i.ToLocationFSxLustreTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationFSxLustreTagArray) ToLocationFSxLustreTagArrayOutputWithContext(ctx context.Context) LocationFSxLustreTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxLustreTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxLustreTagOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxLustreTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxLustreTag)(nil)).Elem()
+}
+
+func (o LocationFSxLustreTagOutput) ToLocationFSxLustreTagOutput() LocationFSxLustreTagOutput {
+	return o
+}
+
+func (o LocationFSxLustreTagOutput) ToLocationFSxLustreTagOutputWithContext(ctx context.Context) LocationFSxLustreTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationFSxLustreTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxLustreTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationFSxLustreTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxLustreTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationFSxLustreTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxLustreTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxLustreTag)(nil)).Elem()
+}
+
+func (o LocationFSxLustreTagArrayOutput) ToLocationFSxLustreTagArrayOutput() LocationFSxLustreTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxLustreTagArrayOutput) ToLocationFSxLustreTagArrayOutputWithContext(ctx context.Context) LocationFSxLustreTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxLustreTagArrayOutput) Index(i pulumi.IntInput) LocationFSxLustreTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxLustreTag {
+		return vs[0].([]LocationFSxLustreTag)[vs[1].(int)]
+	}).(LocationFSxLustreTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type LocationFSxWindowsTag struct {
 	// The key for an AWS resource tag.
 	Key string `pulumi:"key"`
@@ -2393,6 +2502,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSEc2ConfigInput)(nil)).Elem(), LocationEFSEc2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSTagInput)(nil)).Elem(), LocationEFSTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSTagArrayInput)(nil)).Elem(), LocationEFSTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagInput)(nil)).Elem(), LocationFSxLustreTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagArrayInput)(nil)).Elem(), LocationFSxLustreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagInput)(nil)).Elem(), LocationFSxWindowsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagArrayInput)(nil)).Elem(), LocationFSxWindowsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSNameNodeInput)(nil)).Elem(), LocationHDFSNameNodeArgs{})
@@ -2428,6 +2539,8 @@ func init() {
 	pulumi.RegisterOutputType(LocationEFSEc2ConfigOutput{})
 	pulumi.RegisterOutputType(LocationEFSTagOutput{})
 	pulumi.RegisterOutputType(LocationEFSTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationFSxLustreTagOutput{})
+	pulumi.RegisterOutputType(LocationFSxLustreTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxWindowsTagOutput{})
 	pulumi.RegisterOutputType(LocationFSxWindowsTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationHDFSNameNodeOutput{})

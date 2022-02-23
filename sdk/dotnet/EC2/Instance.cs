@@ -100,6 +100,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("privateDnsName")]
         public Output<string> PrivateDnsName { get; private set; } = null!;
 
+        [Output("privateDnsNameOptions")]
+        public Output<Outputs.InstancePrivateDnsNameOptions?> PrivateDnsNameOptions { get; private set; } = null!;
+
         [Output("privateIp")]
         public Output<string> PrivateIp { get; private set; } = null!;
 
@@ -300,6 +303,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("placementGroupName")]
         public Input<string>? PlacementGroupName { get; set; }
+
+        [Input("privateDnsNameOptions")]
+        public Input<Inputs.InstancePrivateDnsNameOptionsArgs>? PrivateDnsNameOptions { get; set; }
 
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }

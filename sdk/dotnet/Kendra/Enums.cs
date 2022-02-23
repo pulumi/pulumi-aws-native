@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AwsNative.Kendra
 {
     [EnumType]
+    public readonly struct DataSourceConditionOperator : IEquatable<DataSourceConditionOperator>
+    {
+        private readonly string _value;
+
+        private DataSourceConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceConditionOperator GreaterThan { get; } = new DataSourceConditionOperator("GreaterThan");
+        public static DataSourceConditionOperator GreaterThanOrEquals { get; } = new DataSourceConditionOperator("GreaterThanOrEquals");
+        public static DataSourceConditionOperator LessThan { get; } = new DataSourceConditionOperator("LessThan");
+        public static DataSourceConditionOperator LessThanOrEquals { get; } = new DataSourceConditionOperator("LessThanOrEquals");
+        public static DataSourceConditionOperator EqualsValue { get; } = new DataSourceConditionOperator("Equals");
+        public static DataSourceConditionOperator NotEquals { get; } = new DataSourceConditionOperator("NotEquals");
+        public static DataSourceConditionOperator Contains { get; } = new DataSourceConditionOperator("Contains");
+        public static DataSourceConditionOperator NotContains { get; } = new DataSourceConditionOperator("NotContains");
+        public static DataSourceConditionOperator Exists { get; } = new DataSourceConditionOperator("Exists");
+        public static DataSourceConditionOperator NotExists { get; } = new DataSourceConditionOperator("NotExists");
+        public static DataSourceConditionOperator BeginsWith { get; } = new DataSourceConditionOperator("BeginsWith");
+
+        public static bool operator ==(DataSourceConditionOperator left, DataSourceConditionOperator right) => left.Equals(right);
+        public static bool operator !=(DataSourceConditionOperator left, DataSourceConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceConditionOperator other && Equals(other);
+        public bool Equals(DataSourceConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSourceConfluenceAttachmentFieldName : IEquatable<DataSourceConfluenceAttachmentFieldName>
     {
         private readonly string _value;

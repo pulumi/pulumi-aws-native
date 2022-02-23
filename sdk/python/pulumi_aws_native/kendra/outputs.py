@@ -25,9 +25,15 @@ __all__ = [
     'DataSourceConfluenceSpaceConfiguration',
     'DataSourceConfluenceSpaceToIndexFieldMapping',
     'DataSourceConnectionConfiguration',
+    'DataSourceCustomDocumentEnrichmentConfiguration',
     'DataSourceDatabaseConfiguration',
+    'DataSourceDocumentAttributeCondition',
+    'DataSourceDocumentAttributeTarget',
+    'DataSourceDocumentAttributeValue',
     'DataSourceDocumentsMetadataConfiguration',
     'DataSourceGoogleDriveConfiguration',
+    'DataSourceHookConfiguration',
+    'DataSourceInlineCustomDocumentEnrichmentConfiguration',
     'DataSourceOneDriveConfiguration',
     'DataSourceOneDriveUsers',
     'DataSourceProxyConfiguration',
@@ -858,6 +864,66 @@ class DataSourceConnectionConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceCustomDocumentEnrichmentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlineConfigurations":
+            suggest = "inline_configurations"
+        elif key == "postExtractionHookConfiguration":
+            suggest = "post_extraction_hook_configuration"
+        elif key == "preExtractionHookConfiguration":
+            suggest = "pre_extraction_hook_configuration"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceCustomDocumentEnrichmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceCustomDocumentEnrichmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceCustomDocumentEnrichmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_configurations: Optional[Sequence['outputs.DataSourceInlineCustomDocumentEnrichmentConfiguration']] = None,
+                 post_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
+                 pre_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
+                 role_arn: Optional[str] = None):
+        if inline_configurations is not None:
+            pulumi.set(__self__, "inline_configurations", inline_configurations)
+        if post_extraction_hook_configuration is not None:
+            pulumi.set(__self__, "post_extraction_hook_configuration", post_extraction_hook_configuration)
+        if pre_extraction_hook_configuration is not None:
+            pulumi.set(__self__, "pre_extraction_hook_configuration", pre_extraction_hook_configuration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="inlineConfigurations")
+    def inline_configurations(self) -> Optional[Sequence['outputs.DataSourceInlineCustomDocumentEnrichmentConfiguration']]:
+        return pulumi.get(self, "inline_configurations")
+
+    @property
+    @pulumi.getter(name="postExtractionHookConfiguration")
+    def post_extraction_hook_configuration(self) -> Optional['outputs.DataSourceHookConfiguration']:
+        return pulumi.get(self, "post_extraction_hook_configuration")
+
+    @property
+    @pulumi.getter(name="preExtractionHookConfiguration")
+    def pre_extraction_hook_configuration(self) -> Optional['outputs.DataSourceHookConfiguration']:
+        return pulumi.get(self, "pre_extraction_hook_configuration")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
 class DataSourceDatabaseConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -932,6 +998,161 @@ class DataSourceDatabaseConfiguration(dict):
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.DataSourceVpcConfiguration']:
         return pulumi.get(self, "vpc_configuration")
+
+
+@pulumi.output_type
+class DataSourceDocumentAttributeCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionDocumentAttributeKey":
+            suggest = "condition_document_attribute_key"
+        elif key == "conditionOnValue":
+            suggest = "condition_on_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDocumentAttributeCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDocumentAttributeCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDocumentAttributeCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_document_attribute_key: str,
+                 operator: 'DataSourceConditionOperator',
+                 condition_on_value: Optional['outputs.DataSourceDocumentAttributeValue'] = None):
+        pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
+        pulumi.set(__self__, "operator", operator)
+        if condition_on_value is not None:
+            pulumi.set(__self__, "condition_on_value", condition_on_value)
+
+    @property
+    @pulumi.getter(name="conditionDocumentAttributeKey")
+    def condition_document_attribute_key(self) -> str:
+        return pulumi.get(self, "condition_document_attribute_key")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'DataSourceConditionOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="conditionOnValue")
+    def condition_on_value(self) -> Optional['outputs.DataSourceDocumentAttributeValue']:
+        return pulumi.get(self, "condition_on_value")
+
+
+@pulumi.output_type
+class DataSourceDocumentAttributeTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetDocumentAttributeKey":
+            suggest = "target_document_attribute_key"
+        elif key == "targetDocumentAttributeValue":
+            suggest = "target_document_attribute_value"
+        elif key == "targetDocumentAttributeValueDeletion":
+            suggest = "target_document_attribute_value_deletion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDocumentAttributeTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDocumentAttributeTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDocumentAttributeTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_document_attribute_key: str,
+                 target_document_attribute_value: Optional['outputs.DataSourceDocumentAttributeValue'] = None,
+                 target_document_attribute_value_deletion: Optional[bool] = None):
+        pulumi.set(__self__, "target_document_attribute_key", target_document_attribute_key)
+        if target_document_attribute_value is not None:
+            pulumi.set(__self__, "target_document_attribute_value", target_document_attribute_value)
+        if target_document_attribute_value_deletion is not None:
+            pulumi.set(__self__, "target_document_attribute_value_deletion", target_document_attribute_value_deletion)
+
+    @property
+    @pulumi.getter(name="targetDocumentAttributeKey")
+    def target_document_attribute_key(self) -> str:
+        return pulumi.get(self, "target_document_attribute_key")
+
+    @property
+    @pulumi.getter(name="targetDocumentAttributeValue")
+    def target_document_attribute_value(self) -> Optional['outputs.DataSourceDocumentAttributeValue']:
+        return pulumi.get(self, "target_document_attribute_value")
+
+    @property
+    @pulumi.getter(name="targetDocumentAttributeValueDeletion")
+    def target_document_attribute_value_deletion(self) -> Optional[bool]:
+        return pulumi.get(self, "target_document_attribute_value_deletion")
+
+
+@pulumi.output_type
+class DataSourceDocumentAttributeValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateValue":
+            suggest = "date_value"
+        elif key == "longValue":
+            suggest = "long_value"
+        elif key == "stringListValue":
+            suggest = "string_list_value"
+        elif key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDocumentAttributeValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDocumentAttributeValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDocumentAttributeValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_value: Optional[str] = None,
+                 long_value: Optional[int] = None,
+                 string_list_value: Optional[Sequence[str]] = None,
+                 string_value: Optional[str] = None):
+        if date_value is not None:
+            pulumi.set(__self__, "date_value", date_value)
+        if long_value is not None:
+            pulumi.set(__self__, "long_value", long_value)
+        if string_list_value is not None:
+            pulumi.set(__self__, "string_list_value", string_list_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @property
+    @pulumi.getter(name="dateValue")
+    def date_value(self) -> Optional[str]:
+        return pulumi.get(self, "date_value")
+
+    @property
+    @pulumi.getter(name="longValue")
+    def long_value(self) -> Optional[int]:
+        return pulumi.get(self, "long_value")
+
+    @property
+    @pulumi.getter(name="stringListValue")
+    def string_list_value(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "string_list_value")
+
+    @property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[str]:
+        return pulumi.get(self, "string_value")
 
 
 @pulumi.output_type
@@ -1051,6 +1272,100 @@ class DataSourceGoogleDriveConfiguration(dict):
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "inclusion_patterns")
+
+
+@pulumi.output_type
+class DataSourceHookConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "invocationCondition":
+            suggest = "invocation_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceHookConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceHookConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceHookConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 s3_bucket: str,
+                 invocation_condition: Optional['outputs.DataSourceDocumentAttributeCondition'] = None):
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if invocation_condition is not None:
+            pulumi.set(__self__, "invocation_condition", invocation_condition)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="invocationCondition")
+    def invocation_condition(self) -> Optional['outputs.DataSourceDocumentAttributeCondition']:
+        return pulumi.get(self, "invocation_condition")
+
+
+@pulumi.output_type
+class DataSourceInlineCustomDocumentEnrichmentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentContentDeletion":
+            suggest = "document_content_deletion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceInlineCustomDocumentEnrichmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceInlineCustomDocumentEnrichmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceInlineCustomDocumentEnrichmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: Optional['outputs.DataSourceDocumentAttributeCondition'] = None,
+                 document_content_deletion: Optional[bool] = None,
+                 target: Optional['outputs.DataSourceDocumentAttributeTarget'] = None):
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if document_content_deletion is not None:
+            pulumi.set(__self__, "document_content_deletion", document_content_deletion)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.DataSourceDocumentAttributeCondition']:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="documentContentDeletion")
+    def document_content_deletion(self) -> Optional[bool]:
+        return pulumi.get(self, "document_content_deletion")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional['outputs.DataSourceDocumentAttributeTarget']:
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type

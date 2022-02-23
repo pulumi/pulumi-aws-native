@@ -31,6 +31,7 @@ __all__ = [
     'WebACLIPSetForwardedIPConfigurationPosition',
     'WebACLJsonMatchScope',
     'WebACLLabelMatchScope',
+    'WebACLManagedRuleGroupConfigPayloadType',
     'WebACLPositionalConstraint',
     'WebACLRateBasedStatementAggregateKeyType',
     'WebACLScope',
@@ -252,6 +253,11 @@ class WebACLJsonMatchScope(str, Enum):
 class WebACLLabelMatchScope(str, Enum):
     LABEL = "LABEL"
     NAMESPACE = "NAMESPACE"
+
+
+class WebACLManagedRuleGroupConfigPayloadType(str, Enum):
+    JSON = "JSON"
+    FORM_ENCODED = "FORM_ENCODED"
 
 
 class WebACLPositionalConstraint(str, Enum):

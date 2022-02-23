@@ -26,7 +26,7 @@ type EventSourceMapping struct {
 	// The Amazon Resource Name (ARN) of the event source.
 	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
 	// The filter criteria to control event filtering.
-	FilterCriteria FilterCriteriaPropertiesPtrOutput `pulumi:"filterCriteria"`
+	FilterCriteria EventSourceMappingFilterCriteriaPtrOutput `pulumi:"filterCriteria"`
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// (Streams) A list of response types supported by the function.
@@ -108,7 +108,7 @@ type eventSourceMappingArgs struct {
 	// The Amazon Resource Name (ARN) of the event source.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
 	// The filter criteria to control event filtering.
-	FilterCriteria *FilterCriteriaProperties `pulumi:"filterCriteria"`
+	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// (Streams) A list of response types supported by the function.
@@ -150,7 +150,7 @@ type EventSourceMappingArgs struct {
 	// The Amazon Resource Name (ARN) of the event source.
 	EventSourceArn pulumi.StringPtrInput
 	// The filter criteria to control event filtering.
-	FilterCriteria FilterCriteriaPropertiesPtrInput
+	FilterCriteria EventSourceMappingFilterCriteriaPtrInput
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
 	// (Streams) A list of response types supported by the function.

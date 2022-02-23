@@ -50,8 +50,8 @@ export class DBCluster extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly masterUserPassword!: pulumi.Output<string>;
-    public readonly masterUsername!: pulumi.Output<string>;
+    public readonly masterUserPassword!: pulumi.Output<string | undefined>;
+    public readonly masterUsername!: pulumi.Output<string | undefined>;
     public readonly port!: pulumi.Output<number | undefined>;
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
@@ -69,17 +69,11 @@ export class DBCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: DBClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DBClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DBCluster is deprecated: DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.masterUserPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'masterUserPassword'");
-            }
-            if ((!args || args.masterUsername === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'masterUsername'");
-            }
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
@@ -145,8 +139,8 @@ export interface DBClusterArgs {
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     engineVersion?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
-    masterUserPassword: pulumi.Input<string>;
-    masterUsername: pulumi.Input<string>;
+    masterUserPassword?: pulumi.Input<string>;
+    masterUsername?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
     preferredBackupWindow?: pulumi.Input<string>;
     preferredMaintenanceWindow?: pulumi.Input<string>;

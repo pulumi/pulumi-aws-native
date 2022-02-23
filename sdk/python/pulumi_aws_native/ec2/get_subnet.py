@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubnetResult:
-    def __init__(__self__, assign_ipv6_address_on_creation=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, map_public_ip_on_launch=None, network_acl_association_id=None, subnet_id=None, tags=None):
+    def __init__(__self__, assign_ipv6_address_on_creation=None, enable_dns64=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, map_public_ip_on_launch=None, network_acl_association_id=None, private_dns_name_options_on_launch=None, subnet_id=None, tags=None):
         if assign_ipv6_address_on_creation and not isinstance(assign_ipv6_address_on_creation, bool):
             raise TypeError("Expected argument 'assign_ipv6_address_on_creation' to be a bool")
         pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
+        if enable_dns64 and not isinstance(enable_dns64, bool):
+            raise TypeError("Expected argument 'enable_dns64' to be a bool")
+        pulumi.set(__self__, "enable_dns64", enable_dns64)
         if ipv6_cidr_block and not isinstance(ipv6_cidr_block, str):
             raise TypeError("Expected argument 'ipv6_cidr_block' to be a str")
         pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
@@ -34,6 +37,9 @@ class GetSubnetResult:
         if network_acl_association_id and not isinstance(network_acl_association_id, str):
             raise TypeError("Expected argument 'network_acl_association_id' to be a str")
         pulumi.set(__self__, "network_acl_association_id", network_acl_association_id)
+        if private_dns_name_options_on_launch and not isinstance(private_dns_name_options_on_launch, dict):
+            raise TypeError("Expected argument 'private_dns_name_options_on_launch' to be a dict")
+        pulumi.set(__self__, "private_dns_name_options_on_launch", private_dns_name_options_on_launch)
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -45,6 +51,11 @@ class GetSubnetResult:
     @pulumi.getter(name="assignIpv6AddressOnCreation")
     def assign_ipv6_address_on_creation(self) -> Optional[bool]:
         return pulumi.get(self, "assign_ipv6_address_on_creation")
+
+    @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_dns64")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
@@ -67,6 +78,11 @@ class GetSubnetResult:
         return pulumi.get(self, "network_acl_association_id")
 
     @property
+    @pulumi.getter(name="privateDnsNameOptionsOnLaunch")
+    def private_dns_name_options_on_launch(self) -> Optional['outputs.PrivateDnsNameOptionsOnLaunchProperties']:
+        return pulumi.get(self, "private_dns_name_options_on_launch")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
@@ -84,10 +100,12 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             yield self
         return GetSubnetResult(
             assign_ipv6_address_on_creation=self.assign_ipv6_address_on_creation,
+            enable_dns64=self.enable_dns64,
             ipv6_cidr_block=self.ipv6_cidr_block,
             ipv6_cidr_blocks=self.ipv6_cidr_blocks,
             map_public_ip_on_launch=self.map_public_ip_on_launch,
             network_acl_association_id=self.network_acl_association_id,
+            private_dns_name_options_on_launch=self.private_dns_name_options_on_launch,
             subnet_id=self.subnet_id,
             tags=self.tags)
 
@@ -107,10 +125,12 @@ def get_subnet(subnet_id: Optional[str] = None,
 
     return AwaitableGetSubnetResult(
         assign_ipv6_address_on_creation=__ret__.assign_ipv6_address_on_creation,
+        enable_dns64=__ret__.enable_dns64,
         ipv6_cidr_block=__ret__.ipv6_cidr_block,
         ipv6_cidr_blocks=__ret__.ipv6_cidr_blocks,
         map_public_ip_on_launch=__ret__.map_public_ip_on_launch,
         network_acl_association_id=__ret__.network_acl_association_id,
+        private_dns_name_options_on_launch=__ret__.private_dns_name_options_on_launch,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags)
 

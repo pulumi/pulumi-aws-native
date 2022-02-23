@@ -54,7 +54,6 @@ namespace Pulumi.AwsNative.StepFunctions
         public readonly Outputs.StateMachineLoggingConfiguration? LoggingConfiguration;
         public readonly string? Name;
         public readonly string? RoleArn;
-        public readonly Pulumi.AwsNative.StepFunctions.StateMachineType? StateMachineType;
         public readonly ImmutableArray<Outputs.StateMachineTagsEntry> Tags;
         public readonly Outputs.StateMachineTracingConfiguration? TracingConfiguration;
 
@@ -70,8 +69,6 @@ namespace Pulumi.AwsNative.StepFunctions
 
             string? roleArn,
 
-            Pulumi.AwsNative.StepFunctions.StateMachineType? stateMachineType,
-
             ImmutableArray<Outputs.StateMachineTagsEntry> tags,
 
             Outputs.StateMachineTracingConfiguration? tracingConfiguration)
@@ -81,7 +78,6 @@ namespace Pulumi.AwsNative.StepFunctions
             LoggingConfiguration = loggingConfiguration;
             Name = name;
             RoleArn = roleArn;
-            StateMachineType = stateMachineType;
             Tags = tags;
             TracingConfiguration = tracingConfiguration;
         }

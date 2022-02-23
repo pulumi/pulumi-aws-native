@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,16 +16,15 @@ type Component struct {
 	pulumi.CustomResourceState
 
 	AppId                pulumi.StringOutput                    `pulumi:"appId"`
-	BindingProperties    ComponentBindingPropertiesPtrOutput    `pulumi:"bindingProperties"`
+	BindingProperties    ComponentBindingPropertiesOutput       `pulumi:"bindingProperties"`
 	Children             ComponentChildArrayOutput              `pulumi:"children"`
 	CollectionProperties ComponentCollectionPropertiesPtrOutput `pulumi:"collectionProperties"`
-	ComponentType        pulumi.StringPtrOutput                 `pulumi:"componentType"`
-	CreatedAt            pulumi.StringOutput                    `pulumi:"createdAt"`
+	ComponentType        pulumi.StringOutput                    `pulumi:"componentType"`
 	EnvironmentName      pulumi.StringOutput                    `pulumi:"environmentName"`
-	ModifiedAt           pulumi.StringOutput                    `pulumi:"modifiedAt"`
-	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
-	Overrides            ComponentOverridesPtrOutput            `pulumi:"overrides"`
-	Properties           ComponentPropertiesPtrOutput           `pulumi:"properties"`
+	Events               ComponentEventsPtrOutput               `pulumi:"events"`
+	Name                 pulumi.StringOutput                    `pulumi:"name"`
+	Overrides            ComponentOverridesOutput               `pulumi:"overrides"`
+	Properties           ComponentPropertiesOutput              `pulumi:"properties"`
 	SourceId             pulumi.StringPtrOutput                 `pulumi:"sourceId"`
 	Tags                 ComponentTagsPtrOutput                 `pulumi:"tags"`
 	Variants             ComponentVariantArrayOutput            `pulumi:"variants"`
@@ -34,9 +34,24 @@ type Component struct {
 func NewComponent(ctx *pulumi.Context,
 	name string, args *ComponentArgs, opts ...pulumi.ResourceOption) (*Component, error) {
 	if args == nil {
-		args = &ComponentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.BindingProperties == nil {
+		return nil, errors.New("invalid value for required argument 'BindingProperties'")
+	}
+	if args.ComponentType == nil {
+		return nil, errors.New("invalid value for required argument 'ComponentType'")
+	}
+	if args.Overrides == nil {
+		return nil, errors.New("invalid value for required argument 'Overrides'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.Variants == nil {
+		return nil, errors.New("invalid value for required argument 'Variants'")
+	}
 	var resource Component
 	err := ctx.RegisterResource("aws-native:amplifyuibuilder:Component", name, args, &resource, opts...)
 	if err != nil {
@@ -69,13 +84,14 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
-	BindingProperties    *ComponentBindingProperties    `pulumi:"bindingProperties"`
+	BindingProperties    ComponentBindingProperties     `pulumi:"bindingProperties"`
 	Children             []ComponentChild               `pulumi:"children"`
 	CollectionProperties *ComponentCollectionProperties `pulumi:"collectionProperties"`
-	ComponentType        *string                        `pulumi:"componentType"`
+	ComponentType        string                         `pulumi:"componentType"`
+	Events               *ComponentEvents               `pulumi:"events"`
 	Name                 *string                        `pulumi:"name"`
-	Overrides            *ComponentOverrides            `pulumi:"overrides"`
-	Properties           *ComponentProperties           `pulumi:"properties"`
+	Overrides            ComponentOverrides             `pulumi:"overrides"`
+	Properties           ComponentProperties            `pulumi:"properties"`
 	SourceId             *string                        `pulumi:"sourceId"`
 	Tags                 *ComponentTags                 `pulumi:"tags"`
 	Variants             []ComponentVariant             `pulumi:"variants"`
@@ -83,13 +99,14 @@ type componentArgs struct {
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
-	BindingProperties    ComponentBindingPropertiesPtrInput
+	BindingProperties    ComponentBindingPropertiesInput
 	Children             ComponentChildArrayInput
 	CollectionProperties ComponentCollectionPropertiesPtrInput
-	ComponentType        pulumi.StringPtrInput
+	ComponentType        pulumi.StringInput
+	Events               ComponentEventsPtrInput
 	Name                 pulumi.StringPtrInput
-	Overrides            ComponentOverridesPtrInput
-	Properties           ComponentPropertiesPtrInput
+	Overrides            ComponentOverridesInput
+	Properties           ComponentPropertiesInput
 	SourceId             pulumi.StringPtrInput
 	Tags                 ComponentTagsPtrInput
 	Variants             ComponentVariantArrayInput

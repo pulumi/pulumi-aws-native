@@ -25,10 +25,12 @@ export interface GetSubnetArgs {
 
 export interface GetSubnetResult {
     readonly assignIpv6AddressOnCreation?: boolean;
+    readonly enableDns64?: boolean;
     readonly ipv6CidrBlock?: string;
     readonly ipv6CidrBlocks?: string[];
     readonly mapPublicIpOnLaunch?: boolean;
     readonly networkAclAssociationId?: string;
+    readonly privateDnsNameOptionsOnLaunch?: outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties;
     readonly subnetId?: string;
     readonly tags?: outputs.ec2.SubnetTag[];
 }

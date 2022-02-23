@@ -27,6 +27,7 @@ export interface GetDataSourceArgs {
 
 export interface GetDataSourceResult {
     readonly arn?: string;
+    readonly customDocumentEnrichmentConfiguration?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration;
     readonly dataSourceConfiguration?: outputs.kendra.DataSourceConfiguration;
     readonly description?: string;
     readonly id?: string;

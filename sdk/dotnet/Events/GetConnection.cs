@@ -59,7 +59,6 @@ namespace Pulumi.AwsNative.Events
         /// The arn of the connection resource.
         /// </summary>
         public readonly string? Arn;
-        public readonly Outputs.AuthParametersProperties? AuthParameters;
         public readonly Pulumi.AwsNative.Events.ConnectionAuthorizationType? AuthorizationType;
         /// <summary>
         /// Description of the connection.
@@ -74,8 +73,6 @@ namespace Pulumi.AwsNative.Events
         private GetConnectionResult(
             string? arn,
 
-            Outputs.AuthParametersProperties? authParameters,
-
             Pulumi.AwsNative.Events.ConnectionAuthorizationType? authorizationType,
 
             string? description,
@@ -83,7 +80,6 @@ namespace Pulumi.AwsNative.Events
             string? secretArn)
         {
             Arn = arn;
-            AuthParameters = authParameters;
             AuthorizationType = authorizationType;
             Description = description;
             SecretArn = secretArn;

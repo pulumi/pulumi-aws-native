@@ -28,7 +28,6 @@ type LookupConnectionArgs struct {
 type LookupConnectionResult struct {
 	// The arn of the connection resource.
 	Arn               *string                      `pulumi:"arn"`
-	AuthParameters    *AuthParametersProperties    `pulumi:"authParameters"`
 	AuthorizationType *ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -71,10 +70,6 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 // The arn of the connection resource.
 func (o LookupConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupConnectionResultOutput) AuthParameters() AuthParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupConnectionResult) *AuthParametersProperties { return v.AuthParameters }).(AuthParametersPropertiesPtrOutput)
 }
 
 func (o LookupConnectionResultOutput) AuthorizationType() ConnectionAuthorizationTypePtrOutput {

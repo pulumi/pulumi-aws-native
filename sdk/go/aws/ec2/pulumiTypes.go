@@ -8182,6 +8182,169 @@ func (o InstanceNoDevicePtrOutput) Elem() InstanceNoDeviceOutput {
 	}).(InstanceNoDeviceOutput)
 }
 
+type InstancePrivateDnsNameOptions struct {
+	EnableResourceNameDnsAAAARecord *bool   `pulumi:"enableResourceNameDnsAAAARecord"`
+	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
+	HostnameType                    *string `pulumi:"hostnameType"`
+}
+
+// InstancePrivateDnsNameOptionsInput is an input type that accepts InstancePrivateDnsNameOptionsArgs and InstancePrivateDnsNameOptionsOutput values.
+// You can construct a concrete instance of `InstancePrivateDnsNameOptionsInput` via:
+//
+//          InstancePrivateDnsNameOptionsArgs{...}
+type InstancePrivateDnsNameOptionsInput interface {
+	pulumi.Input
+
+	ToInstancePrivateDnsNameOptionsOutput() InstancePrivateDnsNameOptionsOutput
+	ToInstancePrivateDnsNameOptionsOutputWithContext(context.Context) InstancePrivateDnsNameOptionsOutput
+}
+
+type InstancePrivateDnsNameOptionsArgs struct {
+	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAAAARecord"`
+	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
+	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
+}
+
+func (InstancePrivateDnsNameOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsOutput() InstancePrivateDnsNameOptionsOutput {
+	return i.ToInstancePrivateDnsNameOptionsOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateDnsNameOptionsOutput)
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return i.ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateDnsNameOptionsOutput).ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx)
+}
+
+// InstancePrivateDnsNameOptionsPtrInput is an input type that accepts InstancePrivateDnsNameOptionsArgs, InstancePrivateDnsNameOptionsPtr and InstancePrivateDnsNameOptionsPtrOutput values.
+// You can construct a concrete instance of `InstancePrivateDnsNameOptionsPtrInput` via:
+//
+//          InstancePrivateDnsNameOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstancePrivateDnsNameOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput
+	ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Context) InstancePrivateDnsNameOptionsPtrOutput
+}
+
+type instancePrivateDnsNameOptionsPtrType InstancePrivateDnsNameOptionsArgs
+
+func InstancePrivateDnsNameOptionsPtr(v *InstancePrivateDnsNameOptionsArgs) InstancePrivateDnsNameOptionsPtrInput {
+	return (*instancePrivateDnsNameOptionsPtrType)(v)
+}
+
+func (*instancePrivateDnsNameOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i *instancePrivateDnsNameOptionsPtrType) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return i.ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instancePrivateDnsNameOptionsPtrType) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateDnsNameOptionsPtrOutput)
+}
+
+type InstancePrivateDnsNameOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateDnsNameOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsOutput() InstancePrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return o.ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstancePrivateDnsNameOptions) *InstancePrivateDnsNameOptions {
+		return &v
+	}).(InstancePrivateDnsNameOptionsPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
+}
+
+type InstancePrivateDnsNameOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateDnsNameOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) Elem() InstancePrivateDnsNameOptionsOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) InstancePrivateDnsNameOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstancePrivateDnsNameOptions
+		return ret
+	}).(InstancePrivateDnsNameOptionsOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAAAARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostnameType
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstancePrivateIpAddressSpecification struct {
 	Primary          bool   `pulumi:"primary"`
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
@@ -17901,6 +18064,169 @@ func (o PrefixListTagArrayOutput) Index(i pulumi.IntInput) PrefixListTagOutput {
 	}).(PrefixListTagOutput)
 }
 
+type PrivateDnsNameOptionsOnLaunchProperties struct {
+	EnableResourceNameDnsAAAARecord *bool   `pulumi:"enableResourceNameDnsAAAARecord"`
+	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
+	HostnameType                    *string `pulumi:"hostnameType"`
+}
+
+// PrivateDnsNameOptionsOnLaunchPropertiesInput is an input type that accepts PrivateDnsNameOptionsOnLaunchPropertiesArgs and PrivateDnsNameOptionsOnLaunchPropertiesOutput values.
+// You can construct a concrete instance of `PrivateDnsNameOptionsOnLaunchPropertiesInput` via:
+//
+//          PrivateDnsNameOptionsOnLaunchPropertiesArgs{...}
+type PrivateDnsNameOptionsOnLaunchPropertiesInput interface {
+	pulumi.Input
+
+	ToPrivateDnsNameOptionsOnLaunchPropertiesOutput() PrivateDnsNameOptionsOnLaunchPropertiesOutput
+	ToPrivateDnsNameOptionsOnLaunchPropertiesOutputWithContext(context.Context) PrivateDnsNameOptionsOnLaunchPropertiesOutput
+}
+
+type PrivateDnsNameOptionsOnLaunchPropertiesArgs struct {
+	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAAAARecord"`
+	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
+	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
+}
+
+func (PrivateDnsNameOptionsOnLaunchPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchProperties)(nil)).Elem()
+}
+
+func (i PrivateDnsNameOptionsOnLaunchPropertiesArgs) ToPrivateDnsNameOptionsOnLaunchPropertiesOutput() PrivateDnsNameOptionsOnLaunchPropertiesOutput {
+	return i.ToPrivateDnsNameOptionsOnLaunchPropertiesOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsNameOptionsOnLaunchPropertiesArgs) ToPrivateDnsNameOptionsOnLaunchPropertiesOutputWithContext(ctx context.Context) PrivateDnsNameOptionsOnLaunchPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNameOptionsOnLaunchPropertiesOutput)
+}
+
+func (i PrivateDnsNameOptionsOnLaunchPropertiesArgs) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutput() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return i.ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsNameOptionsOnLaunchPropertiesArgs) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(ctx context.Context) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNameOptionsOnLaunchPropertiesOutput).ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(ctx)
+}
+
+// PrivateDnsNameOptionsOnLaunchPropertiesPtrInput is an input type that accepts PrivateDnsNameOptionsOnLaunchPropertiesArgs, PrivateDnsNameOptionsOnLaunchPropertiesPtr and PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput values.
+// You can construct a concrete instance of `PrivateDnsNameOptionsOnLaunchPropertiesPtrInput` via:
+//
+//          PrivateDnsNameOptionsOnLaunchPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateDnsNameOptionsOnLaunchPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutput() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput
+	ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(context.Context) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput
+}
+
+type privateDnsNameOptionsOnLaunchPropertiesPtrType PrivateDnsNameOptionsOnLaunchPropertiesArgs
+
+func PrivateDnsNameOptionsOnLaunchPropertiesPtr(v *PrivateDnsNameOptionsOnLaunchPropertiesArgs) PrivateDnsNameOptionsOnLaunchPropertiesPtrInput {
+	return (*privateDnsNameOptionsOnLaunchPropertiesPtrType)(v)
+}
+
+func (*privateDnsNameOptionsOnLaunchPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsNameOptionsOnLaunchProperties)(nil)).Elem()
+}
+
+func (i *privateDnsNameOptionsOnLaunchPropertiesPtrType) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutput() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return i.ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *privateDnsNameOptionsOnLaunchPropertiesPtrType) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(ctx context.Context) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
+}
+
+type PrivateDnsNameOptionsOnLaunchPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsNameOptionsOnLaunchPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchProperties)(nil)).Elem()
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) ToPrivateDnsNameOptionsOnLaunchPropertiesOutput() PrivateDnsNameOptionsOnLaunchPropertiesOutput {
+	return o
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) ToPrivateDnsNameOptionsOnLaunchPropertiesOutputWithContext(ctx context.Context) PrivateDnsNameOptionsOnLaunchPropertiesOutput {
+	return o
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutput() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return o.ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(ctx context.Context) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateDnsNameOptionsOnLaunchProperties) *PrivateDnsNameOptionsOnLaunchProperties {
+		return &v
+	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
+}
+
+type PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsNameOptionsOnLaunchProperties)(nil)).Elem()
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutput() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return o
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) ToPrivateDnsNameOptionsOnLaunchPropertiesPtrOutputWithContext(ctx context.Context) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return o
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) Elem() PrivateDnsNameOptionsOnLaunchPropertiesOutput {
+	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) PrivateDnsNameOptionsOnLaunchProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateDnsNameOptionsOnLaunchProperties
+		return ret
+	}).(PrivateDnsNameOptionsOnLaunchPropertiesOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAAAARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostnameType
+	}).(pulumi.StringPtrOutput)
+}
+
 type RouteTableTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -20791,6 +21117,7 @@ type SpotFleetLaunchTemplateOverrides struct {
 	AvailabilityZone     *string                               `pulumi:"availabilityZone"`
 	InstanceRequirements *SpotFleetInstanceRequirementsRequest `pulumi:"instanceRequirements"`
 	InstanceType         *string                               `pulumi:"instanceType"`
+	Priority             *float64                              `pulumi:"priority"`
 	SpotPrice            *string                               `pulumi:"spotPrice"`
 	SubnetId             *string                               `pulumi:"subnetId"`
 	WeightedCapacity     *float64                              `pulumi:"weightedCapacity"`
@@ -20811,6 +21138,7 @@ type SpotFleetLaunchTemplateOverridesArgs struct {
 	AvailabilityZone     pulumi.StringPtrInput                        `pulumi:"availabilityZone"`
 	InstanceRequirements SpotFleetInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
 	InstanceType         pulumi.StringPtrInput                        `pulumi:"instanceType"`
+	Priority             pulumi.Float64PtrInput                       `pulumi:"priority"`
 	SpotPrice            pulumi.StringPtrInput                        `pulumi:"spotPrice"`
 	SubnetId             pulumi.StringPtrInput                        `pulumi:"subnetId"`
 	WeightedCapacity     pulumi.Float64PtrInput                       `pulumi:"weightedCapacity"`
@@ -20879,6 +21207,10 @@ func (o SpotFleetLaunchTemplateOverridesOutput) InstanceRequirements() SpotFleet
 
 func (o SpotFleetLaunchTemplateOverridesOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchTemplateOverridesOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
 func (o SpotFleetLaunchTemplateOverridesOutput) SpotPrice() pulumi.StringPtrOutput {
@@ -25565,6 +25897,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceArrayInput)(nil)).Elem(), InstanceNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNoDeviceInput)(nil)).Elem(), InstanceNoDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNoDevicePtrInput)(nil)).Elem(), InstanceNoDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsPtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateIpAddressSpecificationInput)(nil)).Elem(), InstancePrivateIpAddressSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateIpAddressSpecificationArrayInput)(nil)).Elem(), InstancePrivateIpAddressSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceSsmAssociationInput)(nil)).Elem(), InstanceSsmAssociationArgs{})
@@ -25681,6 +26015,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListEntryArrayInput)(nil)).Elem(), PrefixListEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListTagInput)(nil)).Elem(), PrefixListTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListTagArrayInput)(nil)).Elem(), PrefixListTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchPropertiesInput)(nil)).Elem(), PrivateDnsNameOptionsOnLaunchPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchPropertiesPtrInput)(nil)).Elem(), PrivateDnsNameOptionsOnLaunchPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableTagInput)(nil)).Elem(), RouteTableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableTagArrayInput)(nil)).Elem(), RouteTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressTypeInput)(nil)).Elem(), SecurityGroupEgressTypeArgs{})
@@ -25911,6 +26247,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceNoDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceNoDevicePtrOutput{})
+	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsOutput{})
+	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceSsmAssociationOutput{})
@@ -26051,6 +26389,8 @@ func init() {
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListTagOutput{})
 	pulumi.RegisterOutputType(PrefixListTagArrayOutput{})
+	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesOutput{})
+	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouteTableTagOutput{})
 	pulumi.RegisterOutputType(RouteTableTagArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupEgressTypeOutput{})

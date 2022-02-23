@@ -73,6 +73,7 @@ __all__ = [
     'WebACLCustomResponseBodies',
     'WebACLDefaultAction',
     'WebACLExcludedRule',
+    'WebACLFieldIdentifier',
     'WebACLFieldToMatch',
     'WebACLFieldToMatchSingleHeaderProperties',
     'WebACLFieldToMatchSingleQueryArgumentProperties',
@@ -85,6 +86,7 @@ __all__ = [
     'WebACLJsonMatchPattern',
     'WebACLLabel',
     'WebACLLabelMatchStatement',
+    'WebACLManagedRuleGroupConfig',
     'WebACLManagedRuleGroupStatement',
     'WebACLNotStatement',
     'WebACLOrStatement',
@@ -2636,6 +2638,18 @@ class WebACLExcludedRule(dict):
 
 
 @pulumi.output_type
+class WebACLFieldIdentifier(dict):
+    def __init__(__self__, *,
+                 identifier: str):
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
 class WebACLFieldToMatch(dict):
     """
     Field of the request to match.
@@ -3114,6 +3128,72 @@ class WebACLLabelMatchStatement(dict):
 
 
 @pulumi.output_type
+class WebACLManagedRuleGroupConfig(dict):
+    """
+    ManagedRuleGroupConfig.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginPath":
+            suggest = "login_path"
+        elif key == "passwordField":
+            suggest = "password_field"
+        elif key == "payloadType":
+            suggest = "payload_type"
+        elif key == "usernameField":
+            suggest = "username_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLManagedRuleGroupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLManagedRuleGroupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLManagedRuleGroupConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login_path: Optional[str] = None,
+                 password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
+                 payload_type: Optional['WebACLManagedRuleGroupConfigPayloadType'] = None,
+                 username_field: Optional['outputs.WebACLFieldIdentifier'] = None):
+        """
+        ManagedRuleGroupConfig.
+        """
+        if login_path is not None:
+            pulumi.set(__self__, "login_path", login_path)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if payload_type is not None:
+            pulumi.set(__self__, "payload_type", payload_type)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="loginPath")
+    def login_path(self) -> Optional[str]:
+        return pulumi.get(self, "login_path")
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+        return pulumi.get(self, "password_field")
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> Optional['WebACLManagedRuleGroupConfigPayloadType']:
+        return pulumi.get(self, "payload_type")
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+        return pulumi.get(self, "username_field")
+
+
+@pulumi.output_type
 class WebACLManagedRuleGroupStatement(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3122,6 +3202,8 @@ class WebACLManagedRuleGroupStatement(dict):
             suggest = "vendor_name"
         elif key == "excludedRules":
             suggest = "excluded_rules"
+        elif key == "managedRuleGroupConfigs":
+            suggest = "managed_rule_group_configs"
         elif key == "scopeDownStatement":
             suggest = "scope_down_statement"
 
@@ -3140,12 +3222,18 @@ class WebACLManagedRuleGroupStatement(dict):
                  name: str,
                  vendor_name: str,
                  excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
+                 managed_rule_group_configs: Optional[Sequence['outputs.WebACLManagedRuleGroupConfig']] = None,
                  scope_down_statement: Optional['outputs.WebACLStatement'] = None,
                  version: Optional[str] = None):
+        """
+        :param Sequence['WebACLManagedRuleGroupConfig'] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
         if excluded_rules is not None:
             pulumi.set(__self__, "excluded_rules", excluded_rules)
+        if managed_rule_group_configs is not None:
+            pulumi.set(__self__, "managed_rule_group_configs", managed_rule_group_configs)
         if scope_down_statement is not None:
             pulumi.set(__self__, "scope_down_statement", scope_down_statement)
         if version is not None:
@@ -3165,6 +3253,14 @@ class WebACLManagedRuleGroupStatement(dict):
     @pulumi.getter(name="excludedRules")
     def excluded_rules(self) -> Optional[Sequence['outputs.WebACLExcludedRule']]:
         return pulumi.get(self, "excluded_rules")
+
+    @property
+    @pulumi.getter(name="managedRuleGroupConfigs")
+    def managed_rule_group_configs(self) -> Optional[Sequence['outputs.WebACLManagedRuleGroupConfig']]:
+        """
+        Collection of ManagedRuleGroupConfig.
+        """
+        return pulumi.get(self, "managed_rule_group_configs")
 
     @property
     @pulumi.getter(name="scopeDownStatement")

@@ -593,27 +593,29 @@ class DatasetResourceConfigurationArgs:
 @pulumi.input_type
 class DatasetRetentionPeriodArgs:
     def __init__(__self__, *,
-                 number_of_days: pulumi.Input[int],
-                 unlimited: pulumi.Input[bool]):
-        pulumi.set(__self__, "number_of_days", number_of_days)
-        pulumi.set(__self__, "unlimited", unlimited)
+                 number_of_days: Optional[pulumi.Input[int]] = None,
+                 unlimited: Optional[pulumi.Input[bool]] = None):
+        if number_of_days is not None:
+            pulumi.set(__self__, "number_of_days", number_of_days)
+        if unlimited is not None:
+            pulumi.set(__self__, "unlimited", unlimited)
 
     @property
     @pulumi.getter(name="numberOfDays")
-    def number_of_days(self) -> pulumi.Input[int]:
+    def number_of_days(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "number_of_days")
 
     @number_of_days.setter
-    def number_of_days(self, value: pulumi.Input[int]):
+    def number_of_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_days", value)
 
     @property
     @pulumi.getter
-    def unlimited(self) -> pulumi.Input[bool]:
+    def unlimited(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "unlimited")
 
     @unlimited.setter
-    def unlimited(self, value: pulumi.Input[bool]):
+    def unlimited(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unlimited", value)
 
 

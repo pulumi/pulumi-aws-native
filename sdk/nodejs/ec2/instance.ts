@@ -66,6 +66,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[] | undefined>;
     public readonly placementGroupName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
+    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions | undefined>;
     public /*out*/ readonly privateIp!: pulumi.Output<string>;
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
     public readonly propagateTagsToVolumeOnCreation!: pulumi.Output<boolean | undefined>;
@@ -122,6 +123,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["monitoring"] = args ? args.monitoring : undefined;
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["placementGroupName"] = args ? args.placementGroupName : undefined;
+            resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
             resourceInputs["propagateTagsToVolumeOnCreation"] = args ? args.propagateTagsToVolumeOnCreation : undefined;
             resourceInputs["ramdiskId"] = args ? args.ramdiskId : undefined;
@@ -167,6 +169,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["placementGroupName"] = undefined /*out*/;
             resourceInputs["privateDnsName"] = undefined /*out*/;
+            resourceInputs["privateDnsNameOptions"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["propagateTagsToVolumeOnCreation"] = undefined /*out*/;
@@ -219,6 +222,7 @@ export interface InstanceArgs {
     monitoring?: pulumi.Input<boolean>;
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterfaceArgs>[]>;
     placementGroupName?: pulumi.Input<string>;
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.InstancePrivateDnsNameOptionsArgs>;
     privateIpAddress?: pulumi.Input<string>;
     propagateTagsToVolumeOnCreation?: pulumi.Input<boolean>;
     ramdiskId?: pulumi.Input<string>;

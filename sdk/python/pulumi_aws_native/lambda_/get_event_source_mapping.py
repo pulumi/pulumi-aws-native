@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, source_access_configurations=None, starting_position_timestamp=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -62,9 +62,6 @@ class GetEventSourceMappingResult:
         if source_access_configurations and not isinstance(source_access_configurations, list):
             raise TypeError("Expected argument 'source_access_configurations' to be a list")
         pulumi.set(__self__, "source_access_configurations", source_access_configurations)
-        if starting_position_timestamp and not isinstance(starting_position_timestamp, float):
-            raise TypeError("Expected argument 'starting_position_timestamp' to be a float")
-        pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
         if topics and not isinstance(topics, list):
             raise TypeError("Expected argument 'topics' to be a list")
         pulumi.set(__self__, "topics", topics)
@@ -106,7 +103,7 @@ class GetEventSourceMappingResult:
 
     @property
     @pulumi.getter(name="filterCriteria")
-    def filter_criteria(self) -> Optional['outputs.FilterCriteriaProperties']:
+    def filter_criteria(self) -> Optional['outputs.EventSourceMappingFilterCriteria']:
         """
         The filter criteria to control event filtering.
         """
@@ -185,14 +182,6 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "source_access_configurations")
 
     @property
-    @pulumi.getter(name="startingPositionTimestamp")
-    def starting_position_timestamp(self) -> Optional[float]:
-        """
-        With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-        """
-        return pulumi.get(self, "starting_position_timestamp")
-
-    @property
     @pulumi.getter
     def topics(self) -> Optional[Sequence[str]]:
         """
@@ -229,7 +218,6 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             parallelization_factor=self.parallelization_factor,
             queues=self.queues,
             source_access_configurations=self.source_access_configurations,
-            starting_position_timestamp=self.starting_position_timestamp,
             topics=self.topics,
             tumbling_window_in_seconds=self.tumbling_window_in_seconds)
 
@@ -265,7 +253,6 @@ def get_event_source_mapping(id: Optional[str] = None,
         parallelization_factor=__ret__.parallelization_factor,
         queues=__ret__.queues,
         source_access_configurations=__ret__.source_access_configurations,
-        starting_position_timestamp=__ret__.starting_position_timestamp,
         topics=__ret__.topics,
         tumbling_window_in_seconds=__ret__.tumbling_window_in_seconds)
 

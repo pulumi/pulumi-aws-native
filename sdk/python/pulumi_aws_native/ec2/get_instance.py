@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, additional_info=None, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_ip=None, propagate_tags_to_volume_on_creation=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None):
+    def __init__(__self__, additional_info=None, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, propagate_tags_to_volume_on_creation=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None):
         if additional_info and not isinstance(additional_info, str):
             raise TypeError("Expected argument 'additional_info' to be a str")
         pulumi.set(__self__, "additional_info", additional_info)
@@ -61,6 +61,9 @@ class GetInstanceResult:
         if private_dns_name and not isinstance(private_dns_name, str):
             raise TypeError("Expected argument 'private_dns_name' to be a str")
         pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if private_dns_name_options and not isinstance(private_dns_name_options, dict):
+            raise TypeError("Expected argument 'private_dns_name_options' to be a dict")
+        pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if private_ip and not isinstance(private_ip, str):
             raise TypeError("Expected argument 'private_ip' to be a str")
         pulumi.set(__self__, "private_ip", private_ip)
@@ -169,6 +172,11 @@ class GetInstanceResult:
         return pulumi.get(self, "private_dns_name")
 
     @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional['outputs.InstancePrivateDnsNameOptions']:
+        return pulumi.get(self, "private_dns_name_options")
+
+    @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[str]:
         return pulumi.get(self, "private_ip")
@@ -249,6 +257,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             kernel_id=self.kernel_id,
             monitoring=self.monitoring,
             private_dns_name=self.private_dns_name,
+            private_dns_name_options=self.private_dns_name_options,
             private_ip=self.private_ip,
             propagate_tags_to_volume_on_creation=self.propagate_tags_to_volume_on_creation,
             public_dns_name=self.public_dns_name,
@@ -291,6 +300,7 @@ def get_instance(id: Optional[str] = None,
         kernel_id=__ret__.kernel_id,
         monitoring=__ret__.monitoring,
         private_dns_name=__ret__.private_dns_name,
+        private_dns_name_options=__ret__.private_dns_name_options,
         private_ip=__ret__.private_ip,
         propagate_tags_to_volume_on_creation=__ret__.propagate_tags_to_volume_on_creation,
         public_dns_name=__ret__.public_dns_name,

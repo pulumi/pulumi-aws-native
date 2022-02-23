@@ -1112,11 +1112,15 @@ export namespace amplifyuibuilder {
     export interface ComponentChildArgs {
         children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[]>;
         componentType: pulumi.Input<string>;
+        events?: pulumi.Input<inputs.amplifyuibuilder.ComponentEventsArgs>;
         name: pulumi.Input<string>;
         properties: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertiesArgs>;
     }
 
     export interface ComponentCollectionPropertiesArgs {
+    }
+
+    export interface ComponentEventsArgs {
     }
 
     export interface ComponentOverridesArgs {
@@ -7696,6 +7700,20 @@ export namespace datasync {
     /**
      * A key-value pair to associate with a resource.
      */
+    export interface LocationFSxLustreTagArgs {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface LocationFSxWindowsTagArgs {
         /**
          * The key for an AWS resource tag.
@@ -8982,6 +9000,12 @@ export namespace ec2 {
     export interface InstanceNoDeviceArgs {
     }
 
+    export interface InstancePrivateDnsNameOptionsArgs {
+        enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
+        enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        hostnameType?: pulumi.Input<string>;
+    }
+
     export interface InstancePrivateIpAddressSpecificationArgs {
         primary: pulumi.Input<boolean>;
         privateIpAddress: pulumi.Input<string>;
@@ -9362,6 +9386,12 @@ export namespace ec2 {
         value?: pulumi.Input<string>;
     }
 
+    export interface PrivateDnsNameOptionsOnLaunchPropertiesArgs {
+        enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
+        enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        hostnameType?: pulumi.Input<string>;
+    }
+
     export interface RouteTableTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -9521,6 +9551,7 @@ export namespace ec2 {
         availabilityZone?: pulumi.Input<string>;
         instanceRequirements?: pulumi.Input<inputs.ec2.SpotFleetInstanceRequirementsRequestArgs>;
         instanceType?: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
         spotPrice?: pulumi.Input<string>;
         subnetId?: pulumi.Input<string>;
         weightedCapacity?: pulumi.Input<number>;
@@ -11498,16 +11529,16 @@ export namespace emrcontainers {
 }
 
 export namespace events {
-    export interface AuthParametersPropertiesArgs {
+    export interface ConnectionApiKeyAuthParametersArgs {
+        apiKeyName: pulumi.Input<string>;
+        apiKeyValue: pulumi.Input<string>;
+    }
+
+    export interface ConnectionAuthParametersArgs {
         apiKeyAuthParameters?: pulumi.Input<inputs.events.ConnectionApiKeyAuthParametersArgs>;
         basicAuthParameters?: pulumi.Input<inputs.events.ConnectionBasicAuthParametersArgs>;
         invocationHttpParameters?: pulumi.Input<inputs.events.ConnectionHttpParametersArgs>;
         oAuthParameters?: pulumi.Input<inputs.events.ConnectionOAuthParametersArgs>;
-    }
-
-    export interface ConnectionApiKeyAuthParametersArgs {
-        apiKeyName: pulumi.Input<string>;
-        apiKeyValue: pulumi.Input<string>;
     }
 
     export interface ConnectionBasicAuthParametersArgs {
@@ -15073,8 +15104,8 @@ export namespace iotanalytics {
     }
 
     export interface DatasetRetentionPeriodArgs {
-        numberOfDays: pulumi.Input<number>;
-        unlimited: pulumi.Input<boolean>;
+        numberOfDays?: pulumi.Input<number>;
+        unlimited?: pulumi.Input<boolean>;
     }
 
     export interface DatasetS3DestinationConfigurationArgs {
@@ -16666,6 +16697,13 @@ export namespace kendra {
         tableName: pulumi.Input<string>;
     }
 
+    export interface DataSourceCustomDocumentEnrichmentConfigurationArgs {
+        inlineConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceInlineCustomDocumentEnrichmentConfigurationArgs>[]>;
+        postExtractionHookConfiguration?: pulumi.Input<inputs.kendra.DataSourceHookConfigurationArgs>;
+        preExtractionHookConfiguration?: pulumi.Input<inputs.kendra.DataSourceHookConfigurationArgs>;
+        roleArn?: pulumi.Input<string>;
+    }
+
     export interface DataSourceDatabaseConfigurationArgs {
         aclConfiguration?: pulumi.Input<inputs.kendra.DataSourceAclConfigurationArgs>;
         columnConfiguration: pulumi.Input<inputs.kendra.DataSourceColumnConfigurationArgs>;
@@ -16673,6 +16711,25 @@ export namespace kendra {
         databaseEngineType: pulumi.Input<enums.kendra.DataSourceDatabaseEngineType>;
         sqlConfiguration?: pulumi.Input<inputs.kendra.DataSourceSqlConfigurationArgs>;
         vpcConfiguration?: pulumi.Input<inputs.kendra.DataSourceVpcConfigurationArgs>;
+    }
+
+    export interface DataSourceDocumentAttributeConditionArgs {
+        conditionDocumentAttributeKey: pulumi.Input<string>;
+        conditionOnValue?: pulumi.Input<inputs.kendra.DataSourceDocumentAttributeValueArgs>;
+        operator: pulumi.Input<enums.kendra.DataSourceConditionOperator>;
+    }
+
+    export interface DataSourceDocumentAttributeTargetArgs {
+        targetDocumentAttributeKey: pulumi.Input<string>;
+        targetDocumentAttributeValue?: pulumi.Input<inputs.kendra.DataSourceDocumentAttributeValueArgs>;
+        targetDocumentAttributeValueDeletion?: pulumi.Input<boolean>;
+    }
+
+    export interface DataSourceDocumentAttributeValueArgs {
+        dateValue?: pulumi.Input<string>;
+        longValue?: pulumi.Input<number>;
+        stringListValue?: pulumi.Input<pulumi.Input<string>[]>;
+        stringValue?: pulumi.Input<string>;
     }
 
     export interface DataSourceDocumentsMetadataConfigurationArgs {
@@ -16687,6 +16744,18 @@ export namespace kendra {
         fieldMappings?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceToIndexFieldMappingArgs>[]>;
         inclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
         secretArn: pulumi.Input<string>;
+    }
+
+    export interface DataSourceHookConfigurationArgs {
+        invocationCondition?: pulumi.Input<inputs.kendra.DataSourceDocumentAttributeConditionArgs>;
+        lambdaArn: pulumi.Input<string>;
+        s3Bucket: pulumi.Input<string>;
+    }
+
+    export interface DataSourceInlineCustomDocumentEnrichmentConfigurationArgs {
+        condition?: pulumi.Input<inputs.kendra.DataSourceDocumentAttributeConditionArgs>;
+        documentContentDeletion?: pulumi.Input<boolean>;
+        target?: pulumi.Input<inputs.kendra.DataSourceDocumentAttributeTargetArgs>;
     }
 
     export interface DataSourceOneDriveConfigurationArgs {
@@ -17874,6 +17943,16 @@ export namespace lambda {
     }
 
     /**
+     * The filter criteria to control event filtering.
+     */
+    export interface EventSourceMappingFilterCriteriaArgs {
+        /**
+         * List of filters of this FilterCriteria
+         */
+        filters?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingFilterArgs>[]>;
+    }
+
+    /**
      * A destination for events that failed processing.
      */
     export interface EventSourceMappingOnFailureArgs {
@@ -17905,16 +17984,6 @@ export namespace lambda {
          * The URI for the source access configuration resource.
          */
         uRI?: pulumi.Input<string>;
-    }
-
-    /**
-     * The filter criteria to control event filtering.
-     */
-    export interface FilterCriteriaPropertiesArgs {
-        /**
-         * List of filters of this FilterCriteria
-         */
-        filters?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingFilterArgs>[]>;
     }
 
     export interface FunctionCodeArgs {
@@ -29898,6 +29967,10 @@ export namespace wafv2 {
         name: pulumi.Input<string>;
     }
 
+    export interface WebACLFieldIdentifierArgs {
+        identifier: pulumi.Input<string>;
+    }
+
     /**
      * Field of the request to match.
      */
@@ -29995,8 +30068,22 @@ export namespace wafv2 {
         scope: pulumi.Input<enums.wafv2.WebACLLabelMatchScope>;
     }
 
+    /**
+     * ManagedRuleGroupConfig.
+     */
+    export interface WebACLManagedRuleGroupConfigArgs {
+        loginPath?: pulumi.Input<string>;
+        passwordField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
+        payloadType?: pulumi.Input<enums.wafv2.WebACLManagedRuleGroupConfigPayloadType>;
+        usernameField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
+    }
+
     export interface WebACLManagedRuleGroupStatementArgs {
         excludedRules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLExcludedRuleArgs>[]>;
+        /**
+         * Collection of ManagedRuleGroupConfig.
+         */
+        managedRuleGroupConfigs?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLManagedRuleGroupConfigArgs>[]>;
         name: pulumi.Input<string>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebACLStatementArgs>;
         vendorName: pulumi.Input<string>;
@@ -30144,6 +30231,7 @@ export namespace wafv2 {
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
     }
+
 }
 
 export namespace wisdom {

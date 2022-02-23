@@ -38,6 +38,7 @@ export interface GetInstanceResult {
     readonly kernelId?: string;
     readonly monitoring?: boolean;
     readonly privateDnsName?: string;
+    readonly privateDnsNameOptions?: outputs.ec2.InstancePrivateDnsNameOptions;
     readonly privateIp?: string;
     readonly propagateTagsToVolumeOnCreation?: boolean;
     readonly publicDnsName?: string;

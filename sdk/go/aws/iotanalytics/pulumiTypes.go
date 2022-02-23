@@ -2515,8 +2515,8 @@ func (o DatasetResourceConfigurationPtrOutput) VolumeSizeInGB() pulumi.IntPtrOut
 }
 
 type DatasetRetentionPeriod struct {
-	NumberOfDays int  `pulumi:"numberOfDays"`
-	Unlimited    bool `pulumi:"unlimited"`
+	NumberOfDays *int  `pulumi:"numberOfDays"`
+	Unlimited    *bool `pulumi:"unlimited"`
 }
 
 // DatasetRetentionPeriodInput is an input type that accepts DatasetRetentionPeriodArgs and DatasetRetentionPeriodOutput values.
@@ -2531,8 +2531,8 @@ type DatasetRetentionPeriodInput interface {
 }
 
 type DatasetRetentionPeriodArgs struct {
-	NumberOfDays pulumi.IntInput  `pulumi:"numberOfDays"`
-	Unlimited    pulumi.BoolInput `pulumi:"unlimited"`
+	NumberOfDays pulumi.IntPtrInput  `pulumi:"numberOfDays"`
+	Unlimited    pulumi.BoolPtrInput `pulumi:"unlimited"`
 }
 
 func (DatasetRetentionPeriodArgs) ElementType() reflect.Type {
@@ -2612,12 +2612,12 @@ func (o DatasetRetentionPeriodOutput) ToDatasetRetentionPeriodPtrOutputWithConte
 	}).(DatasetRetentionPeriodPtrOutput)
 }
 
-func (o DatasetRetentionPeriodOutput) NumberOfDays() pulumi.IntOutput {
-	return o.ApplyT(func(v DatasetRetentionPeriod) int { return v.NumberOfDays }).(pulumi.IntOutput)
+func (o DatasetRetentionPeriodOutput) NumberOfDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetRetentionPeriod) *int { return v.NumberOfDays }).(pulumi.IntPtrOutput)
 }
 
-func (o DatasetRetentionPeriodOutput) Unlimited() pulumi.BoolOutput {
-	return o.ApplyT(func(v DatasetRetentionPeriod) bool { return v.Unlimited }).(pulumi.BoolOutput)
+func (o DatasetRetentionPeriodOutput) Unlimited() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetRetentionPeriod) *bool { return v.Unlimited }).(pulumi.BoolPtrOutput)
 }
 
 type DatasetRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
@@ -2649,7 +2649,7 @@ func (o DatasetRetentionPeriodPtrOutput) NumberOfDays() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.NumberOfDays
+		return v.NumberOfDays
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -2658,7 +2658,7 @@ func (o DatasetRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Unlimited
+		return v.Unlimited
 	}).(pulumi.BoolPtrOutput)
 }
 

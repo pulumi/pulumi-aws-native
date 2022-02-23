@@ -25,32 +25,33 @@ type LookupInstanceArgs struct {
 }
 
 type LookupInstanceResult struct {
-	AdditionalInfo                    *string                      `pulumi:"additionalInfo"`
-	Affinity                          *string                      `pulumi:"affinity"`
-	BlockDeviceMappings               []InstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	CreditSpecification               *InstanceCreditSpecification `pulumi:"creditSpecification"`
-	DisableApiTermination             *bool                        `pulumi:"disableApiTermination"`
-	EbsOptimized                      *bool                        `pulumi:"ebsOptimized"`
-	HostId                            *string                      `pulumi:"hostId"`
-	IamInstanceProfile                *string                      `pulumi:"iamInstanceProfile"`
-	Id                                *string                      `pulumi:"id"`
-	InstanceInitiatedShutdownBehavior *string                      `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceType                      *string                      `pulumi:"instanceType"`
-	KernelId                          *string                      `pulumi:"kernelId"`
-	Monitoring                        *bool                        `pulumi:"monitoring"`
-	PrivateDnsName                    *string                      `pulumi:"privateDnsName"`
-	PrivateIp                         *string                      `pulumi:"privateIp"`
-	PropagateTagsToVolumeOnCreation   *bool                        `pulumi:"propagateTagsToVolumeOnCreation"`
-	PublicDnsName                     *string                      `pulumi:"publicDnsName"`
-	PublicIp                          *string                      `pulumi:"publicIp"`
-	RamdiskId                         *string                      `pulumi:"ramdiskId"`
-	SecurityGroupIds                  []string                     `pulumi:"securityGroupIds"`
-	SourceDestCheck                   *bool                        `pulumi:"sourceDestCheck"`
-	SsmAssociations                   []InstanceSsmAssociation     `pulumi:"ssmAssociations"`
-	Tags                              []InstanceTag                `pulumi:"tags"`
-	Tenancy                           *string                      `pulumi:"tenancy"`
-	UserData                          *string                      `pulumi:"userData"`
-	Volumes                           []InstanceVolume             `pulumi:"volumes"`
+	AdditionalInfo                    *string                        `pulumi:"additionalInfo"`
+	Affinity                          *string                        `pulumi:"affinity"`
+	BlockDeviceMappings               []InstanceBlockDeviceMapping   `pulumi:"blockDeviceMappings"`
+	CreditSpecification               *InstanceCreditSpecification   `pulumi:"creditSpecification"`
+	DisableApiTermination             *bool                          `pulumi:"disableApiTermination"`
+	EbsOptimized                      *bool                          `pulumi:"ebsOptimized"`
+	HostId                            *string                        `pulumi:"hostId"`
+	IamInstanceProfile                *string                        `pulumi:"iamInstanceProfile"`
+	Id                                *string                        `pulumi:"id"`
+	InstanceInitiatedShutdownBehavior *string                        `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceType                      *string                        `pulumi:"instanceType"`
+	KernelId                          *string                        `pulumi:"kernelId"`
+	Monitoring                        *bool                          `pulumi:"monitoring"`
+	PrivateDnsName                    *string                        `pulumi:"privateDnsName"`
+	PrivateDnsNameOptions             *InstancePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
+	PrivateIp                         *string                        `pulumi:"privateIp"`
+	PropagateTagsToVolumeOnCreation   *bool                          `pulumi:"propagateTagsToVolumeOnCreation"`
+	PublicDnsName                     *string                        `pulumi:"publicDnsName"`
+	PublicIp                          *string                        `pulumi:"publicIp"`
+	RamdiskId                         *string                        `pulumi:"ramdiskId"`
+	SecurityGroupIds                  []string                       `pulumi:"securityGroupIds"`
+	SourceDestCheck                   *bool                          `pulumi:"sourceDestCheck"`
+	SsmAssociations                   []InstanceSsmAssociation       `pulumi:"ssmAssociations"`
+	Tags                              []InstanceTag                  `pulumi:"tags"`
+	Tenancy                           *string                        `pulumi:"tenancy"`
+	UserData                          *string                        `pulumi:"userData"`
+	Volumes                           []InstanceVolume               `pulumi:"volumes"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -138,6 +139,10 @@ func (o LookupInstanceResultOutput) Monitoring() pulumi.BoolPtrOutput {
 
 func (o LookupInstanceResultOutput) PrivateDnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupInstanceResultOutput) PrivateDnsNameOptions() InstancePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *InstancePrivateDnsNameOptions { return v.PrivateDnsNameOptions }).(InstancePrivateDnsNameOptionsPtrOutput)
 }
 
 func (o LookupInstanceResultOutput) PrivateIp() pulumi.StringPtrOutput {

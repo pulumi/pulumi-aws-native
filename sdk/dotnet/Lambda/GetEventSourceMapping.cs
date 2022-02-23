@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// The filter criteria to control event filtering.
         /// </summary>
-        public readonly Outputs.FilterCriteriaProperties? FilterCriteria;
+        public readonly Outputs.EventSourceMappingFilterCriteria? FilterCriteria;
         /// <summary>
         /// The name of the Lambda function.
         /// </summary>
@@ -112,10 +112,6 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
         /// <summary>
-        /// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-        /// </summary>
-        public readonly double? StartingPositionTimestamp;
-        /// <summary>
         /// (Kafka) A list of Kafka topics.
         /// </summary>
         public readonly ImmutableArray<string> Topics;
@@ -134,7 +130,7 @@ namespace Pulumi.AwsNative.Lambda
 
             bool? enabled,
 
-            Outputs.FilterCriteriaProperties? filterCriteria,
+            Outputs.EventSourceMappingFilterCriteria? filterCriteria,
 
             string? functionName,
 
@@ -154,8 +150,6 @@ namespace Pulumi.AwsNative.Lambda
 
             ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations,
 
-            double? startingPositionTimestamp,
-
             ImmutableArray<string> topics,
 
             int? tumblingWindowInSeconds)
@@ -174,7 +168,6 @@ namespace Pulumi.AwsNative.Lambda
             ParallelizationFactor = parallelizationFactor;
             Queues = queues;
             SourceAccessConfigurations = sourceAccessConfigurations;
-            StartingPositionTimestamp = startingPositionTimestamp;
             Topics = topics;
             TumblingWindowInSeconds = tumblingWindowInSeconds;
         }

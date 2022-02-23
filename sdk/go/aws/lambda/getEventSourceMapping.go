@@ -35,7 +35,7 @@ type LookupEventSourceMappingResult struct {
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled *bool `pulumi:"enabled"`
 	// The filter criteria to control event filtering.
-	FilterCriteria *FilterCriteriaProperties `pulumi:"filterCriteria"`
+	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
 	// The name of the Lambda function.
 	FunctionName *string `pulumi:"functionName"`
 	// (Streams) A list of response types supported by the function.
@@ -54,8 +54,6 @@ type LookupEventSourceMappingResult struct {
 	Queues []string `pulumi:"queues"`
 	// A list of SourceAccessConfiguration.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
-	// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-	StartingPositionTimestamp *float64 `pulumi:"startingPositionTimestamp"`
 	// (Kafka) A list of Kafka topics.
 	Topics []string `pulumi:"topics"`
 	// (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
@@ -117,8 +115,8 @@ func (o LookupEventSourceMappingResultOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The filter criteria to control event filtering.
-func (o LookupEventSourceMappingResultOutput) FilterCriteria() FilterCriteriaPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupEventSourceMappingResult) *FilterCriteriaProperties { return v.FilterCriteria }).(FilterCriteriaPropertiesPtrOutput)
+func (o LookupEventSourceMappingResultOutput) FilterCriteria() EventSourceMappingFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingFilterCriteria { return v.FilterCriteria }).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
 // The name of the Lambda function.
@@ -168,11 +166,6 @@ func (o LookupEventSourceMappingResultOutput) SourceAccessConfigurations() Event
 	return o.ApplyT(func(v LookupEventSourceMappingResult) []EventSourceMappingSourceAccessConfiguration {
 		return v.SourceAccessConfigurations
 	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
-}
-
-// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-func (o LookupEventSourceMappingResultOutput) StartingPositionTimestamp() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupEventSourceMappingResult) *float64 { return v.StartingPositionTimestamp }).(pulumi.Float64PtrOutput)
 }
 
 // (Kafka) A list of Kafka topics.

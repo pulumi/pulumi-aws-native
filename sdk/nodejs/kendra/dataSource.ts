@@ -36,6 +36,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly indexId!: pulumi.Output<string>;
@@ -65,6 +66,7 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["customDocumentEnrichmentConfiguration"] = args ? args.customDocumentEnrichmentConfiguration : undefined;
             resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
@@ -76,6 +78,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["customDocumentEnrichmentConfiguration"] = undefined /*out*/;
             resourceInputs["dataSourceConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;
@@ -94,6 +97,7 @@ export class DataSource extends pulumi.CustomResource {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationArgs>;
     dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
     indexId: pulumi.Input<string>;

@@ -9,6 +9,7 @@ from ._enums import *
 from .agent import *
 from .get_agent import *
 from .get_location_efs import *
+from .get_location_f_sx_lustre import *
 from .get_location_f_sx_windows import *
 from .get_location_hdfs import *
 from .get_location_nfs import *
@@ -17,6 +18,7 @@ from .get_location_s3 import *
 from .get_location_smb import *
 from .get_task import *
 from .location_efs import *
+from .location_f_sx_lustre import *
 from .location_f_sx_windows import *
 from .location_hdfs import *
 from .location_nfs import *
