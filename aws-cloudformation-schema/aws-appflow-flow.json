@@ -203,6 +203,9 @@
         },
         "Zendesk" : {
           "$ref" : "#/definitions/ZendeskDestinationProperties"
+        },
+        "SAPOData" : {
+          "$ref" : "#/definitions/SAPODataDestinationProperties"
         }
       }
     },
@@ -409,6 +412,18 @@
         "FailOnFirstError" : {
           "type" : "boolean"
         },
+        "BucketPrefix" : {
+          "$ref" : "#/definitions/BucketPrefix"
+        },
+        "BucketName" : {
+          "$ref" : "#/definitions/BucketName"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "SuccessResponseHandlingConfig" : {
+      "type" : "object",
+      "properties" : {
         "BucketPrefix" : {
           "$ref" : "#/definitions/BucketPrefix"
         },
@@ -736,6 +751,32 @@
       "required" : [ "BucketName" ],
       "additionalProperties" : false
     },
+    "SAPODataDestinationProperties" : {
+      "type" : "object",
+      "properties" : {
+        "ObjectPath" : {
+          "$ref" : "#/definitions/Object"
+        },
+        "ErrorHandlingConfig" : {
+          "$ref" : "#/definitions/ErrorHandlingConfig"
+        },
+        "SuccessResponseHandlingConfig" : {
+          "$ref" : "#/definitions/SuccessResponseHandlingConfig"
+        },
+        "IdFieldNames" : {
+          "description" : "List of fields used as ID when performing a write operation.",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "WriteOperationType" : {
+          "$ref" : "#/definitions/WriteOperationType"
+        }
+      },
+      "required" : [ "ObjectPath" ],
+      "additionalProperties" : false
+    },
     "SalesforceDestinationProperties" : {
       "type" : "object",
       "properties" : {
@@ -823,7 +864,7 @@
     },
     "TaskType" : {
       "type" : "string",
-      "enum" : [ "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Truncate", "Validate" ]
+      "enum" : [ "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Passthrough", "Truncate", "Validate" ]
     },
     "OperatorPropertiesKeys" : {
       "type" : "string",

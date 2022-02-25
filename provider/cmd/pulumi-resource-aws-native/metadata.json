@@ -11172,114 +11172,6 @@
                 "spotFleetRequestConfigData/ValidUntil"
             ]
         },
-        "aws-native:ec2:Subnet": {
-            "cf": "AWS::EC2::Subnet",
-            "inputs": {
-                "assignIpv6AddressOnCreation": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "availabilityZoneId": {
-                    "type": "string"
-                },
-                "cidrBlock": {
-                    "type": "string"
-                },
-                "enableDns64": {
-                    "type": "boolean"
-                },
-                "ipv6CidrBlock": {
-                    "type": "string"
-                },
-                "ipv6Native": {
-                    "type": "boolean"
-                },
-                "mapPublicIpOnLaunch": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "privateDnsNameOptionsOnLaunch": {
-                    "$ref": "#/types/aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:SubnetTag"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "assignIpv6AddressOnCreation": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "availabilityZoneId": {
-                    "type": "string"
-                },
-                "cidrBlock": {
-                    "type": "string"
-                },
-                "enableDns64": {
-                    "type": "boolean"
-                },
-                "ipv6CidrBlock": {
-                    "type": "string"
-                },
-                "ipv6CidrBlocks": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "ipv6Native": {
-                    "type": "boolean"
-                },
-                "mapPublicIpOnLaunch": {
-                    "type": "boolean"
-                },
-                "networkAclAssociationId": {
-                    "type": "string"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "privateDnsNameOptionsOnLaunch": {
-                    "$ref": "#/types/aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties"
-                },
-                "subnetId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:SubnetTag"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "vpcId"
-            ],
-            "createOnly": [
-                "availabilityZone",
-                "availabilityZoneId",
-                "cidrBlock",
-                "ipv6Native",
-                "outpostArn",
-                "vpcId"
-            ]
-        },
         "aws-native:ec2:SubnetNetworkAclAssociation": {
             "cf": "AWS::EC2::SubnetNetworkAclAssociation",
             "inputs": {
@@ -38837,6 +38729,9 @@
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3DestinationProperties"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataDestinationProperties"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceDestinationProperties"
                 },
@@ -39052,6 +38947,30 @@
         "aws-native:appflow:FlowSAPODataConnectorOperator": {
             "type": "string"
         },
+        "aws-native:appflow:FlowSAPODataDestinationProperties": {
+            "type": "object",
+            "properties": {
+                "errorHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowErrorHandlingConfig"
+                },
+                "idFieldNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields used as ID when performing a write operation."
+                },
+                "objectPath": {
+                    "type": "string"
+                },
+                "successResponseHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowSuccessResponseHandlingConfig"
+                },
+                "writeOperationType": {
+                    "$ref": "#/types/aws-native:appflow:FlowWriteOperationType"
+                }
+            }
+        },
         "aws-native:appflow:FlowSAPODataSourceProperties": {
             "type": "object",
             "properties": {
@@ -39242,6 +39161,17 @@
                 "sourceConnectorProperties": {
                     "$ref": "#/types/aws-native:appflow:FlowSourceConnectorProperties",
                     "description": "Source connector details required to query a connector"
+                }
+            }
+        },
+        "aws-native:appflow:FlowSuccessResponseHandlingConfig": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "bucketPrefix": {
+                    "type": "string"
                 }
             }
         },
@@ -46425,20 +46355,6 @@
                 }
             }
         },
-        "aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties": {
-            "type": "object",
-            "properties": {
-                "enableResourceNameDnsAAAARecord": {
-                    "type": "boolean"
-                },
-                "enableResourceNameDnsARecord": {
-                    "type": "boolean"
-                },
-                "hostnameType": {
-                    "type": "string"
-                }
-            }
-        },
         "aws-native:ec2:RouteTableTag": {
             "type": "object",
             "properties": {
@@ -47117,17 +47033,6 @@
                 },
                 "min": {
                     "type": "integer"
-                }
-            }
-        },
-        "aws-native:ec2:SubnetTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
                 }
             }
         },
@@ -72256,12 +72161,6 @@
             "cf": "AWS::EC2::SpotFleet",
             "ids": [
                 "id"
-            ]
-        },
-        "aws-native:ec2:getSubnet": {
-            "cf": "AWS::EC2::Subnet",
-            "ids": [
-                "subnetId"
             ]
         },
         "aws-native:ec2:getSubnetNetworkAclAssociation": {
