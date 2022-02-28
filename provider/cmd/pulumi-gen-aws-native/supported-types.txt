@@ -156,7 +156,6 @@ AWS::EC2::NetworkInterface
 AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
-AWS::EC2::Subnet
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
@@ -328,6 +327,8 @@ AWS::Logs::ResourcePolicy
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
 AWS::LookoutVision::Project
+AWS::MSK::BatchScramSecret
+AWS::MSK::Configuration
 AWS::MWAA::Environment
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
