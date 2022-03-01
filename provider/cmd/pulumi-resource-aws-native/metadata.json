@@ -11172,114 +11172,6 @@
                 "spotFleetRequestConfigData/ValidUntil"
             ]
         },
-        "aws-native:ec2:Subnet": {
-            "cf": "AWS::EC2::Subnet",
-            "inputs": {
-                "assignIpv6AddressOnCreation": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "availabilityZoneId": {
-                    "type": "string"
-                },
-                "cidrBlock": {
-                    "type": "string"
-                },
-                "enableDns64": {
-                    "type": "boolean"
-                },
-                "ipv6CidrBlock": {
-                    "type": "string"
-                },
-                "ipv6Native": {
-                    "type": "boolean"
-                },
-                "mapPublicIpOnLaunch": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "privateDnsNameOptionsOnLaunch": {
-                    "$ref": "#/types/aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:SubnetTag"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "assignIpv6AddressOnCreation": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "availabilityZoneId": {
-                    "type": "string"
-                },
-                "cidrBlock": {
-                    "type": "string"
-                },
-                "enableDns64": {
-                    "type": "boolean"
-                },
-                "ipv6CidrBlock": {
-                    "type": "string"
-                },
-                "ipv6CidrBlocks": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "ipv6Native": {
-                    "type": "boolean"
-                },
-                "mapPublicIpOnLaunch": {
-                    "type": "boolean"
-                },
-                "networkAclAssociationId": {
-                    "type": "string"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "privateDnsNameOptionsOnLaunch": {
-                    "$ref": "#/types/aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties"
-                },
-                "subnetId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:SubnetTag"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "vpcId"
-            ],
-            "createOnly": [
-                "availabilityZone",
-                "availabilityZoneId",
-                "cidrBlock",
-                "ipv6Native",
-                "outpostArn",
-                "vpcId"
-            ]
-        },
         "aws-native:ec2:SubnetNetworkAclAssociation": {
             "cf": "AWS::EC2::SubnetNetworkAclAssociation",
             "inputs": {
@@ -11918,6 +11810,11 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "subnetIds",
+                "transitGatewayId",
+                "vpcId"
+            ],
             "createOnly": [
                 "subnetIds",
                 "transitGatewayId",
@@ -25908,6 +25805,99 @@
                 "userName"
             ]
         },
+        "aws-native:msk:BatchScramSecret": {
+            "cf": "AWS::MSK::BatchScramSecret",
+            "inputs": {
+                "clusterArn": {
+                    "type": "string"
+                },
+                "secretArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "outputs": {
+                "clusterArn": {
+                    "type": "string"
+                },
+                "secretArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "clusterArn"
+            ],
+            "createOnly": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:msk:Configuration": {
+            "cf": "AWS::MSK::Configuration",
+            "inputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "kafkaVersionsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverProperties": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "kafkaVersionsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "latestRevision": {
+                    "$ref": "#/types/aws-native:msk:ConfigurationRevision"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverProperties": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "serverProperties"
+            ],
+            "createOnly": [
+                "kafkaVersionsList",
+                "name"
+            ]
+        },
         "aws-native:mwaa:Environment": {
             "cf": "AWS::MWAA::Environment",
             "inputs": {
@@ -38837,6 +38827,9 @@
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3DestinationProperties"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataDestinationProperties"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceDestinationProperties"
                 },
@@ -39052,6 +39045,30 @@
         "aws-native:appflow:FlowSAPODataConnectorOperator": {
             "type": "string"
         },
+        "aws-native:appflow:FlowSAPODataDestinationProperties": {
+            "type": "object",
+            "properties": {
+                "errorHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowErrorHandlingConfig"
+                },
+                "idFieldNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields used as ID when performing a write operation."
+                },
+                "objectPath": {
+                    "type": "string"
+                },
+                "successResponseHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowSuccessResponseHandlingConfig"
+                },
+                "writeOperationType": {
+                    "$ref": "#/types/aws-native:appflow:FlowWriteOperationType"
+                }
+            }
+        },
         "aws-native:appflow:FlowSAPODataSourceProperties": {
             "type": "object",
             "properties": {
@@ -39242,6 +39259,17 @@
                 "sourceConnectorProperties": {
                     "$ref": "#/types/aws-native:appflow:FlowSourceConnectorProperties",
                     "description": "Source connector details required to query a connector"
+                }
+            }
+        },
+        "aws-native:appflow:FlowSuccessResponseHandlingConfig": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "bucketPrefix": {
+                    "type": "string"
                 }
             }
         },
@@ -43668,6 +43696,9 @@
                 "location": {
                     "$ref": "#/types/aws-native:databrew:JobS3Location"
                 },
+                "maxOutputFiles": {
+                    "type": "integer"
+                },
                 "overwrite": {
                     "type": "boolean"
                 },
@@ -46425,20 +46456,6 @@
                 }
             }
         },
-        "aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties": {
-            "type": "object",
-            "properties": {
-                "enableResourceNameDnsAAAARecord": {
-                    "type": "boolean"
-                },
-                "enableResourceNameDnsARecord": {
-                    "type": "boolean"
-                },
-                "hostnameType": {
-                    "type": "string"
-                }
-            }
-        },
         "aws-native:ec2:RouteTableTag": {
             "type": "object",
             "properties": {
@@ -47117,17 +47134,6 @@
                 },
                 "min": {
                     "type": "integer"
-                }
-            }
-        },
-        "aws-native:ec2:SubnetTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
                 }
             }
         },
@@ -60903,6 +60909,20 @@
                 }
             }
         },
+        "aws-native:msk:ConfigurationRevision": {
+            "type": "object",
+            "properties": {
+                "creationTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "revision": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:mwaa:EnvironmentLoggingConfiguration": {
             "type": "object",
             "properties": {
@@ -61980,10 +62000,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the tag."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key of the tag."
                 }
             }
         },
@@ -72258,12 +72280,6 @@
                 "id"
             ]
         },
-        "aws-native:ec2:getSubnet": {
-            "cf": "AWS::EC2::Subnet",
-            "ids": [
-                "subnetId"
-            ]
-        },
         "aws-native:ec2:getSubnetNetworkAclAssociation": {
             "cf": "AWS::EC2::SubnetNetworkAclAssociation",
             "ids": [
@@ -73415,6 +73431,18 @@
             "cf": "AWS::MemoryDB::User",
             "ids": [
                 "userName"
+            ]
+        },
+        "aws-native:msk:getBatchScramSecret": {
+            "cf": "AWS::MSK::BatchScramSecret",
+            "ids": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:msk:getConfiguration": {
+            "cf": "AWS::MSK::Configuration",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:mwaa:getEnvironment": {
