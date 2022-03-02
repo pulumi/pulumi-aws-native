@@ -446,6 +446,10 @@
     "Properties" : {
       "$ref" : "#/definitions/ComponentProperties"
     },
+    "SchemaVersion" : {
+      "type" : "string",
+      "description" : "The schema version of the component when it was imported"
+    },
     "SourceId" : {
       "type" : "string"
     },

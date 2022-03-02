@@ -700,6 +700,10 @@
                 "properties": {
                     "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
                 },
+                "schemaVersion": {
+                    "type": "string",
+                    "description": "The schema version of the component when it was imported"
+                },
                 "sourceId": {
                     "type": "string"
                 },
@@ -746,6 +750,10 @@
                 },
                 "properties": {
                     "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
+                },
+                "schemaVersion": {
+                    "type": "string",
+                    "description": "The schema version of the component when it was imported"
                 },
                 "sourceId": {
                     "type": "string"
@@ -11918,6 +11926,11 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "subnetIds",
+                "transitGatewayId",
+                "vpcId"
+            ],
             "createOnly": [
                 "subnetIds",
                 "transitGatewayId",
@@ -17524,6 +17537,10 @@
                     "$ref": "#/types/aws-native:imagebuilder:ImageTestsConfiguration",
                     "description": "The image tests configuration used when creating this image."
                 },
+                "imageUri": {
+                    "type": "string",
+                    "description": "URI for containers created in current Region with default ECR image tag"
+                },
                 "infrastructureConfigurationArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
@@ -17538,6 +17555,7 @@
                 }
             },
             "createOnly": [
+                "containerRecipeArn",
                 "distributionConfigurationArn",
                 "enhancedImageMetadataEnabled",
                 "imageRecipeArn",
@@ -25906,6 +25924,87 @@
             ],
             "createOnly": [
                 "userName"
+            ]
+        },
+        "aws-native:msk:BatchScramSecret": {
+            "cf": "AWS::MSK::BatchScramSecret",
+            "inputs": {
+                "clusterArn": {
+                    "type": "string"
+                },
+                "secretArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "outputs": {
+                "clusterArn": {
+                    "type": "string"
+                },
+                "secretArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "clusterArn"
+            ],
+            "createOnly": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:msk:Configuration": {
+            "cf": "AWS::MSK::Configuration",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "kafkaVersionsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverProperties": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "kafkaVersionsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverProperties": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "serverProperties"
+            ],
+            "createOnly": [
+                "kafkaVersionsList",
+                "name"
             ]
         },
         "aws-native:mwaa:Environment": {
@@ -38837,6 +38936,9 @@
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3DestinationProperties"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataDestinationProperties"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceDestinationProperties"
                 },
@@ -39052,6 +39154,30 @@
         "aws-native:appflow:FlowSAPODataConnectorOperator": {
             "type": "string"
         },
+        "aws-native:appflow:FlowSAPODataDestinationProperties": {
+            "type": "object",
+            "properties": {
+                "errorHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowErrorHandlingConfig"
+                },
+                "idFieldNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields used as ID when performing a write operation."
+                },
+                "objectPath": {
+                    "type": "string"
+                },
+                "successResponseHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowSuccessResponseHandlingConfig"
+                },
+                "writeOperationType": {
+                    "$ref": "#/types/aws-native:appflow:FlowWriteOperationType"
+                }
+            }
+        },
         "aws-native:appflow:FlowSAPODataSourceProperties": {
             "type": "object",
             "properties": {
@@ -39242,6 +39368,17 @@
                 "sourceConnectorProperties": {
                     "$ref": "#/types/aws-native:appflow:FlowSourceConnectorProperties",
                     "description": "Source connector details required to query a connector"
+                }
+            }
+        },
+        "aws-native:appflow:FlowSuccessResponseHandlingConfig": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "bucketPrefix": {
+                    "type": "string"
                 }
             }
         },
@@ -43667,6 +43804,9 @@
                 },
                 "location": {
                     "$ref": "#/types/aws-native:databrew:JobS3Location"
+                },
+                "maxOutputFiles": {
+                    "type": "integer"
                 },
                 "overwrite": {
                     "type": "boolean"
@@ -53227,9 +53367,6 @@
         "aws-native:iot:TopicRuleTimestreamAction": {
             "type": "object",
             "properties": {
-                "batchMode": {
-                    "type": "boolean"
-                },
                 "databaseName": {
                     "type": "string"
                 },
@@ -61980,10 +62117,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the tag."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key of the tag."
                 }
             }
         },
@@ -73415,6 +73554,18 @@
             "cf": "AWS::MemoryDB::User",
             "ids": [
                 "userName"
+            ]
+        },
+        "aws-native:msk:getBatchScramSecret": {
+            "cf": "AWS::MSK::BatchScramSecret",
+            "ids": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:msk:getConfiguration": {
+            "cf": "AWS::MSK::Configuration",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:mwaa:getEnvironment": {

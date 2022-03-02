@@ -328,6 +328,8 @@ AWS::Logs::ResourcePolicy
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
 AWS::LookoutVision::Project
+AWS::MSK::BatchScramSecret
+AWS::MSK::Configuration
 AWS::MWAA::Environment
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
