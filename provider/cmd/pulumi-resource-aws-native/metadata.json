@@ -700,6 +700,9 @@
                 "properties": {
                     "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
                 },
+                "schemaVersion": {
+                    "type": "string"
+                },
                 "sourceId": {
                     "type": "string"
                 },
@@ -746,6 +749,9 @@
                 },
                 "properties": {
                     "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
+                },
+                "schemaVersion": {
+                    "type": "string"
                 },
                 "sourceId": {
                     "type": "string"
@@ -11918,6 +11924,11 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "subnetIds",
+                "transitGatewayId",
+                "vpcId"
+            ],
             "createOnly": [
                 "subnetIds",
                 "transitGatewayId",
@@ -13386,6 +13397,74 @@
                 "podExecutionRoleArn",
                 "selectors",
                 "subnets"
+            ]
+        },
+        "aws-native:eks:IdentityProviderConfig": {
+            "cf": "AWS::EKS::IdentityProviderConfig",
+            "inputs": {
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the identity provider configuration."
+                },
+                "identityProviderConfigName": {
+                    "type": "string",
+                    "description": "The name of the OIDC provider configuration."
+                },
+                "oidc": {
+                    "$ref": "#/types/aws-native:eks:IdentityProviderConfigOidcIdentityProviderConfig"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:IdentityProviderConfigTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:eks:IdentityProviderConfigType",
+                    "description": "The type of the identity provider configuration."
+                }
+            },
+            "outputs": {
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the identity provider configuration."
+                },
+                "identityProviderConfigArn": {
+                    "type": "string",
+                    "description": "The ARN of the configuration."
+                },
+                "identityProviderConfigName": {
+                    "type": "string",
+                    "description": "The name of the OIDC provider configuration."
+                },
+                "oidc": {
+                    "$ref": "#/types/aws-native:eks:IdentityProviderConfigOidcIdentityProviderConfig"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:IdentityProviderConfigTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:eks:IdentityProviderConfigType",
+                    "description": "The type of the identity provider configuration."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "identityProviderConfigName"
+            },
+            "required": [
+                "clusterName",
+                "type"
+            ],
+            "createOnly": [
+                "clusterName",
+                "identityProviderConfigName",
+                "oidc",
+                "type"
             ]
         },
         "aws-native:eks:Nodegroup": {
@@ -17524,6 +17603,10 @@
                     "$ref": "#/types/aws-native:imagebuilder:ImageTestsConfiguration",
                     "description": "The image tests configuration used when creating this image."
                 },
+                "imageUri": {
+                    "type": "string",
+                    "description": "URI for containers created in current Region with default ECR image tag"
+                },
                 "infrastructureConfigurationArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
@@ -17538,6 +17621,7 @@
                 }
             },
             "createOnly": [
+                "containerRecipeArn",
                 "distributionConfigurationArn",
                 "enhancedImageMetadataEnabled",
                 "imageRecipeArn",
@@ -25906,6 +25990,192 @@
             ],
             "createOnly": [
                 "userName"
+            ]
+        },
+        "aws-native:msk:BatchScramSecret": {
+            "cf": "AWS::MSK::BatchScramSecret",
+            "inputs": {
+                "clusterArn": {
+                    "type": "string"
+                },
+                "secretArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "outputs": {
+                "clusterArn": {
+                    "type": "string"
+                },
+                "secretArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "clusterArn"
+            ],
+            "createOnly": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:msk:Cluster": {
+            "cf": "AWS::MSK::Cluster",
+            "inputs": {
+                "brokerNodeGroupInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterBrokerNodeGroupInfo"
+                },
+                "clientAuthentication": {
+                    "$ref": "#/types/aws-native:msk:ClusterClientAuthentication"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "configurationInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterConfigurationInfo"
+                },
+                "currentVersion": {
+                    "type": "string",
+                    "description": "The current version of the MSK cluster"
+                },
+                "encryptionInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterEncryptionInfo"
+                },
+                "enhancedMonitoring": {
+                    "$ref": "#/types/aws-native:msk:ClusterEnhancedMonitoring"
+                },
+                "kafkaVersion": {
+                    "type": "string"
+                },
+                "loggingInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterLoggingInfo"
+                },
+                "numberOfBrokerNodes": {
+                    "type": "integer"
+                },
+                "openMonitoring": {
+                    "$ref": "#/types/aws-native:msk:ClusterOpenMonitoring"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "brokerNodeGroupInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterBrokerNodeGroupInfo"
+                },
+                "clientAuthentication": {
+                    "$ref": "#/types/aws-native:msk:ClusterClientAuthentication"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "configurationInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterConfigurationInfo"
+                },
+                "currentVersion": {
+                    "type": "string",
+                    "description": "The current version of the MSK cluster"
+                },
+                "encryptionInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterEncryptionInfo"
+                },
+                "enhancedMonitoring": {
+                    "$ref": "#/types/aws-native:msk:ClusterEnhancedMonitoring"
+                },
+                "kafkaVersion": {
+                    "type": "string"
+                },
+                "loggingInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterLoggingInfo"
+                },
+                "numberOfBrokerNodes": {
+                    "type": "integer"
+                },
+                "openMonitoring": {
+                    "$ref": "#/types/aws-native:msk:ClusterOpenMonitoring"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "clusterName",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "required": [
+                "brokerNodeGroupInfo",
+                "kafkaVersion",
+                "numberOfBrokerNodes"
+            ],
+            "createOnly": [
+                "brokerNodeGroupInfo/BrokerAZDistribution",
+                "brokerNodeGroupInfo/ClientSubnets",
+                "brokerNodeGroupInfo/SecurityGroups",
+                "clusterName",
+                "encryptionInfo/EncryptionAtRest",
+                "encryptionInfo/EncryptionInTransit/InCluster",
+                "tags"
+            ]
+        },
+        "aws-native:msk:Configuration": {
+            "cf": "AWS::MSK::Configuration",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "kafkaVersionsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverProperties": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "kafkaVersionsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverProperties": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "serverProperties"
+            ],
+            "createOnly": [
+                "kafkaVersionsList",
+                "name"
             ]
         },
         "aws-native:mwaa:Environment": {
@@ -38837,6 +39107,9 @@
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3DestinationProperties"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataDestinationProperties"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceDestinationProperties"
                 },
@@ -39052,6 +39325,30 @@
         "aws-native:appflow:FlowSAPODataConnectorOperator": {
             "type": "string"
         },
+        "aws-native:appflow:FlowSAPODataDestinationProperties": {
+            "type": "object",
+            "properties": {
+                "errorHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowErrorHandlingConfig"
+                },
+                "idFieldNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields used as ID when performing a write operation."
+                },
+                "objectPath": {
+                    "type": "string"
+                },
+                "successResponseHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowSuccessResponseHandlingConfig"
+                },
+                "writeOperationType": {
+                    "$ref": "#/types/aws-native:appflow:FlowWriteOperationType"
+                }
+            }
+        },
         "aws-native:appflow:FlowSAPODataSourceProperties": {
             "type": "object",
             "properties": {
@@ -39242,6 +39539,17 @@
                 "sourceConnectorProperties": {
                     "$ref": "#/types/aws-native:appflow:FlowSourceConnectorProperties",
                     "description": "Source connector details required to query a connector"
+                }
+            }
+        },
+        "aws-native:appflow:FlowSuccessResponseHandlingConfig": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "bucketPrefix": {
+                    "type": "string"
                 }
             }
         },
@@ -43667,6 +43975,9 @@
                 },
                 "location": {
                     "$ref": "#/types/aws-native:databrew:JobS3Location"
+                },
+                "maxOutputFiles": {
+                    "type": "integer"
                 },
                 "overwrite": {
                     "type": "boolean"
@@ -48610,6 +48921,70 @@
                 }
             }
         },
+        "aws-native:eks:IdentityProviderConfigOidcIdentityProviderConfig": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider."
+                },
+                "groupsClaim": {
+                    "type": "string",
+                    "description": "The JWT claim that the provider uses to return your groups."
+                },
+                "groupsPrefix": {
+                    "type": "string",
+                    "description": "The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups)."
+                },
+                "issuerUrl": {
+                    "type": "string",
+                    "description": "The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens."
+                },
+                "requiredClaims": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:IdentityProviderConfigRequiredClaim"
+                    }
+                },
+                "usernameClaim": {
+                    "type": "string",
+                    "description": "The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins."
+                },
+                "usernamePrefix": {
+                    "type": "string",
+                    "description": "The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing."
+                }
+            }
+        },
+        "aws-native:eks:IdentityProviderConfigRequiredClaim": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key of the requiredClaims."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the requiredClaims."
+                }
+            }
+        },
+        "aws-native:eks:IdentityProviderConfigTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:eks:IdentityProviderConfigType": {
+            "type": "string"
+        },
         "aws-native:eks:NodegroupLaunchTemplateSpecification": {
             "type": "object",
             "properties": {
@@ -53227,9 +53602,6 @@
         "aws-native:iot:TopicRuleTimestreamAction": {
             "type": "object",
             "properties": {
-                "batchMode": {
-                    "type": "boolean"
-                },
                 "databaseName": {
                     "type": "string"
                 },
@@ -60903,6 +61275,284 @@
                 }
             }
         },
+        "aws-native:msk:ClusterBrokerLogs": {
+            "type": "object",
+            "properties": {
+                "cloudWatchLogs": {
+                    "$ref": "#/types/aws-native:msk:ClusterCloudWatchLogs"
+                },
+                "firehose": {
+                    "$ref": "#/types/aws-native:msk:ClusterFirehose"
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:msk:ClusterS3"
+                }
+            }
+        },
+        "aws-native:msk:ClusterBrokerNodeGroupInfo": {
+            "type": "object",
+            "properties": {
+                "brokerAZDistribution": {
+                    "type": "string"
+                },
+                "clientSubnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "connectivityInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterConnectivityInfo"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "storageInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterStorageInfo"
+                }
+            }
+        },
+        "aws-native:msk:ClusterClientAuthentication": {
+            "type": "object",
+            "properties": {
+                "sasl": {
+                    "$ref": "#/types/aws-native:msk:ClusterSasl"
+                },
+                "tls": {
+                    "$ref": "#/types/aws-native:msk:ClusterTls"
+                },
+                "unauthenticated": {
+                    "$ref": "#/types/aws-native:msk:ClusterUnauthenticated"
+                }
+            }
+        },
+        "aws-native:msk:ClusterCloudWatchLogs": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "logGroup": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:msk:ClusterConfigurationInfo": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                },
+                "revision": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:msk:ClusterConnectivityInfo": {
+            "type": "object",
+            "properties": {
+                "publicAccess": {
+                    "$ref": "#/types/aws-native:msk:ClusterPublicAccess"
+                }
+            }
+        },
+        "aws-native:msk:ClusterEBSStorageInfo": {
+            "type": "object",
+            "properties": {
+                "provisionedThroughput": {
+                    "$ref": "#/types/aws-native:msk:ClusterProvisionedThroughput"
+                },
+                "volumeSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:msk:ClusterEncryptionAtRest": {
+            "type": "object",
+            "properties": {
+                "dataVolumeKMSKeyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:msk:ClusterEncryptionInTransit": {
+            "type": "object",
+            "properties": {
+                "clientBroker": {
+                    "$ref": "#/types/aws-native:msk:ClusterEncryptionInTransitClientBroker"
+                },
+                "inCluster": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterEncryptionInTransitClientBroker": {
+            "type": "string"
+        },
+        "aws-native:msk:ClusterEncryptionInfo": {
+            "type": "object",
+            "properties": {
+                "encryptionAtRest": {
+                    "$ref": "#/types/aws-native:msk:ClusterEncryptionAtRest"
+                },
+                "encryptionInTransit": {
+                    "$ref": "#/types/aws-native:msk:ClusterEncryptionInTransit"
+                }
+            }
+        },
+        "aws-native:msk:ClusterEnhancedMonitoring": {
+            "type": "string"
+        },
+        "aws-native:msk:ClusterFirehose": {
+            "type": "object",
+            "properties": {
+                "deliveryStream": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterIam": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterJmxExporter": {
+            "type": "object",
+            "properties": {
+                "enabledInBroker": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterLoggingInfo": {
+            "type": "object",
+            "properties": {
+                "brokerLogs": {
+                    "$ref": "#/types/aws-native:msk:ClusterBrokerLogs"
+                }
+            }
+        },
+        "aws-native:msk:ClusterNodeExporter": {
+            "type": "object",
+            "properties": {
+                "enabledInBroker": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterOpenMonitoring": {
+            "type": "object",
+            "properties": {
+                "prometheus": {
+                    "$ref": "#/types/aws-native:msk:ClusterPrometheus"
+                }
+            }
+        },
+        "aws-native:msk:ClusterPrometheus": {
+            "type": "object",
+            "properties": {
+                "jmxExporter": {
+                    "$ref": "#/types/aws-native:msk:ClusterJmxExporter"
+                },
+                "nodeExporter": {
+                    "$ref": "#/types/aws-native:msk:ClusterNodeExporter"
+                }
+            }
+        },
+        "aws-native:msk:ClusterProvisionedThroughput": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "volumeThroughput": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:msk:ClusterPublicAccess": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:msk:ClusterS3": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "prefix": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:msk:ClusterSasl": {
+            "type": "object",
+            "properties": {
+                "iam": {
+                    "$ref": "#/types/aws-native:msk:ClusterIam"
+                },
+                "scram": {
+                    "$ref": "#/types/aws-native:msk:ClusterScram"
+                }
+            }
+        },
+        "aws-native:msk:ClusterScram": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterStorageInfo": {
+            "type": "object",
+            "properties": {
+                "eBSStorageInfo": {
+                    "$ref": "#/types/aws-native:msk:ClusterEBSStorageInfo"
+                }
+            }
+        },
+        "aws-native:msk:ClusterTls": {
+            "type": "object",
+            "properties": {
+                "certificateAuthorityArnList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterUnauthenticated": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws-native:mwaa:EnvironmentLoggingConfiguration": {
             "type": "object",
             "properties": {
@@ -61980,10 +62630,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the tag."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key of the tag."
                 }
             }
         },
@@ -72451,6 +73103,14 @@
                 "fargateProfileName"
             ]
         },
+        "aws-native:eks:getIdentityProviderConfig": {
+            "cf": "AWS::EKS::IdentityProviderConfig",
+            "ids": [
+                "identityProviderConfigName",
+                "clusterName",
+                "type"
+            ]
+        },
         "aws-native:eks:getNodegroup": {
             "cf": "AWS::EKS::Nodegroup",
             "ids": [
@@ -73415,6 +74075,24 @@
             "cf": "AWS::MemoryDB::User",
             "ids": [
                 "userName"
+            ]
+        },
+        "aws-native:msk:getBatchScramSecret": {
+            "cf": "AWS::MSK::BatchScramSecret",
+            "ids": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:msk:getCluster": {
+            "cf": "AWS::MSK::Cluster",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:msk:getConfiguration": {
+            "cf": "AWS::MSK::Configuration",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:mwaa:getEnvironment": {
