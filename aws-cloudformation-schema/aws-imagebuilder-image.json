@@ -35,6 +35,10 @@
       "description" : "The AMI ID of the EC2 AMI in current region.",
       "type" : "string"
     },
+    "ImageUri" : {
+      "description" : "URI for containers created in current Region with default ECR image tag",
+      "type" : "string"
+    },
     "EnhancedImageMetadataEnabled" : {
       "description" : "Collects additional information about the image being created, including the operating system (OS) version and package list.",
       "type" : "boolean"
@@ -42,6 +46,7 @@
     "Tags" : {
       "description" : "The tags associated with the image.",
       "type" : "object",
+      "additionalProperties" : false,
       "patternProperties" : {
         ".{1,}" : {
           "type" : "string"
@@ -53,6 +58,7 @@
     "ImageTestsConfiguration" : {
       "description" : "The image tests configuration used when creating this image.",
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "ImageTestsEnabled" : {
           "description" : "ImageTestsEnabled",
@@ -74,8 +80,8 @@
     "required" : [ "ImageRecipeArn", "InfrastructureConfigurationArn" ]
   } ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId" ],
-  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/EnhancedImageMetadataEnabled", "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri" ],
+  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/EnhancedImageMetadataEnabled", "/properties/Tags" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:GetRole", "iam:CreateServiceLinkedRole", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:GetImage", "imagebuilder:CreateImage", "imagebuilder:TagResource" ],
@@ -85,13 +91,10 @@
       "permissions" : [ "imagebuilder:GetImage" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:GetImage", "imagebuilder:DeleteImage", "imagebuilder:UnTagResource" ]
+      "permissions" : [ "imagebuilder:GetImage", "imagebuilder:DeleteImage", "imagebuilder:UnTagResource", "imagebuilder:CancelImageCreation" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListImages" ]
-    },
-    "update" : {
-      "permissions" : [ ]
     }
   }
 }
