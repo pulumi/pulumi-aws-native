@@ -7,10 +7,15 @@
       "$ref" : "#/definitions/BrokerNodeGroupInfo"
     },
     "EnhancedMonitoring" : {
-      "type" : "string"
+      "type" : "string",
+      "minLength" : 7,
+      "maxLength" : 23,
+      "enum" : [ "DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER", "PER_TOPIC_PER_PARTITION" ]
     },
     "KafkaVersion" : {
-      "type" : "string"
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 128
     },
     "NumberOfBrokerNodes" : {
       "type" : "integer"
@@ -22,9 +27,15 @@
       "$ref" : "#/definitions/OpenMonitoring"
     },
     "ClusterName" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 64
+    },
+    "Arn" : {
       "type" : "string"
     },
-    "Id" : {
+    "CurrentVersion" : {
+      "description" : "The current version of the MSK cluster",
       "type" : "string"
     },
     "ClientAuthentication" : {
@@ -34,7 +45,14 @@
       "$ref" : "#/definitions/LoggingInfo"
     },
     "Tags" : {
-      "type" : "object"
+      "type" : "object",
+      "description" : "A key-value pair to associate with a resource.",
+      "patternProperties" : {
+        "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     },
     "ConfigurationInfo" : {
       "$ref" : "#/definitions/ConfigurationInfo"
@@ -72,12 +90,37 @@
         }
       }
     },
-    "Unauthenticated" : {
+    "NodeExporter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EnabledInBroker" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "EnabledInBroker" ]
+    },
+    "EncryptionInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EncryptionAtRest" : {
+          "$ref" : "#/definitions/EncryptionAtRest"
+        },
+        "EncryptionInTransit" : {
+          "$ref" : "#/definitions/EncryptionInTransit"
+        }
+      }
+    },
+    "Firehose" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Enabled" : {
           "type" : "boolean"
+        },
+        "DeliveryStream" : {
+          "type" : "string"
         }
       },
       "required" : [ "Enabled" ]
@@ -117,6 +160,20 @@
       },
       "required" : [ "Enabled" ]
     },
+    "EBSStorageInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "VolumeSize" : {
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 16384
+        },
+        "ProvisionedThroughput" : {
+          "$ref" : "#/definitions/ProvisionedThroughput"
+        }
+      }
+    },
     "ProvisionedThroughput" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -129,64 +186,175 @@
         }
       }
     },
+    "PublicAccess" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "minLength" : 7,
+          "maxLength" : 23
+        }
+      }
+    },
+    "ConfigurationInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Revision" : {
+          "type" : "integer"
+        },
+        "Arn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Revision", "Arn" ]
+    },
     "BrokerNodeGroupInfo" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "SecurityGroups" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "ClientSubnets" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
+        "StorageInfo" : {
+          "$ref" : "#/definitions/StorageInfo"
         },
         "ConnectivityInfo" : {
           "$ref" : "#/definitions/ConnectivityInfo"
         },
-        "StorageInfo" : {
-          "$ref" : "#/definitions/StorageInfo"
+        "SecurityGroups" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
         },
         "BrokerAZDistribution" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 6,
+          "maxLength" : 9
+        },
+        "ClientSubnets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
         },
         "InstanceType" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 5,
+          "maxLength" : 32
         }
       },
       "required" : [ "ClientSubnets", "InstanceType" ]
+    },
+    "EncryptionAtRest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "DataVolumeKMSKeyId" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "DataVolumeKMSKeyId" ]
+    },
+    "JmxExporter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EnabledInBroker" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "EnabledInBroker" ]
+    },
+    "StorageInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EBSStorageInfo" : {
+          "$ref" : "#/definitions/EBSStorageInfo"
+        }
+      }
+    },
+    "ConnectivityInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PublicAccess" : {
+          "$ref" : "#/definitions/PublicAccess"
+        }
+      }
     },
     "Tls" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
         "CertificateAuthorityArnList" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
+        },
+        "Enabled" : {
+          "type" : "boolean"
         }
       }
+    },
+    "Sasl" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Scram" : {
+          "$ref" : "#/definitions/Scram"
+        },
+        "Iam" : {
+          "$ref" : "#/definitions/Iam"
+        }
+      }
+    },
+    "Scram" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "Iam" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "Unauthenticated" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
     },
     "ClientAuthentication" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Sasl" : {
-          "$ref" : "#/definitions/Sasl"
-        },
         "Tls" : {
           "$ref" : "#/definitions/Tls"
+        },
+        "Sasl" : {
+          "$ref" : "#/definitions/Sasl"
         },
         "Unauthenticated" : {
           "$ref" : "#/definitions/Unauthenticated"
@@ -211,152 +379,42 @@
           "type" : "boolean"
         },
         "ClientBroker" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Sasl" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Iam" : {
-          "$ref" : "#/definitions/Iam"
-        },
-        "Scram" : {
-          "$ref" : "#/definitions/Scram"
-        }
-      }
-    },
-    "NodeExporter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EnabledInBroker" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "EnabledInBroker" ]
-    },
-    "ConnectivityInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "PublicAccess" : {
-          "$ref" : "#/definitions/PublicAccess"
-        }
-      }
-    },
-    "EncryptionInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EncryptionAtRest" : {
-          "$ref" : "#/definitions/EncryptionAtRest"
-        },
-        "EncryptionInTransit" : {
-          "$ref" : "#/definitions/EncryptionInTransit"
-        }
-      }
-    },
-    "Firehose" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "DeliveryStream" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Enabled" ]
-    },
-    "EBSStorageInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "VolumeSize" : {
-          "type" : "integer"
-        },
-        "ProvisionedThroughput" : {
-          "$ref" : "#/definitions/ProvisionedThroughput"
-        }
-      }
-    },
-    "Scram" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Enabled" ]
-    },
-    "ConfigurationInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Revision" : {
-          "type" : "integer"
-        },
-        "Arn" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Revision", "Arn" ]
-    },
-    "EncryptionAtRest" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "DataVolumeKMSKeyId" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "DataVolumeKMSKeyId" ]
-    },
-    "JmxExporter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EnabledInBroker" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "EnabledInBroker" ]
-    },
-    "Iam" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Enabled" ]
-    },
-    "StorageInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EBSStorageInfo" : {
-          "$ref" : "#/definitions/EBSStorageInfo"
-        }
-      }
-    },
-    "PublicAccess" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Type" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "TLS", "TLS_PLAINTEXT", "PLAINTEXT" ]
         }
       }
     }
   },
   "required" : [ "BrokerNodeGroupInfo", "KafkaVersion", "NumberOfBrokerNodes", "ClusterName" ],
-  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/Tags" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/BrokerNodeGroupInfo/BrokerAZDistribution", "/properties/BrokerNodeGroupInfo/ClientSubnets", "/properties/BrokerNodeGroupInfo/SecurityGroups", "/properties/EncryptionInfo/EncryptionAtRest", "/properties/EncryptionInfo/EncryptionInTransit/InCluster", "/properties/ClusterName", "/properties/Tags" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "replacementStrategy" : "delete_then_create",
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "kms:CreateGrant", "kms:DescribeKey", "kafka:CreateCluster", "kafka:TagResource", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "S3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "firehose:TagDeliveryStream" ],
+      "timeoutInMinutes" : 120
+    },
+    "update" : {
+      "permissions" : [ "kafka:UpdateMonitoring", "kafka:UpdateClusterKafkaVersion", "kafka:UpdateClusterConfiguration", "kafka:UpdateBrokerType", "kafka:UpdateBrokerCount", "kafka:UpdateBrokerStorage", "kafka:UpdateSecurity", "kafka:UpdateConnectivity", "kafka:DescribeClusterOperation", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "kms:DescribeKey", "kms:CreateGrant", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "S3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "firehose:TagDeliveryStream" ],
+      "timeoutInMinutes" : 720
+    },
+    "delete" : {
+      "permissions" : [ "kafka:DeleteCluster" ],
+      "timeoutInMinutes" : 30
+    },
+    "list" : {
+      "permissions" : [ "kafka:ListClusters" ]
+    },
+    "read" : {
+      "permissions" : [ "kafka:DescribeCluster" ]
+    }
+  }
 }

@@ -146,16 +146,16 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "evidently:CreateFeature", "evidently:TagResource" ]
+      "permissions" : [ "evidently:CreateFeature", "evidently:TagResource", "evidently:GetFeature" ]
     },
     "read" : {
       "permissions" : [ "evidently:GetFeature", "evidently:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "evidently:UpdateFeature", "evidently:ListTagsForResource", "evidently:TagResource", "evidently:UntagResource" ]
+      "permissions" : [ "evidently:UpdateFeature", "evidently:ListTagsForResource", "evidently:TagResource", "evidently:UntagResource", "evidently:GetFeature" ]
     },
     "delete" : {
-      "permissions" : [ "evidently:DeleteFeature", "evidently:UntagResource" ]
+      "permissions" : [ "evidently:DeleteFeature", "evidently:UntagResource", "evidently:GetFeature" ]
     }
   },
   "taggable" : true

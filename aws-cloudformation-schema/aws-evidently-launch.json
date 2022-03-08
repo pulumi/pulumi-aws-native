@@ -189,16 +189,16 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "evidently:CreateLaunch", "evidently:TagResource" ]
+      "permissions" : [ "evidently:CreateLaunch", "evidently:TagResource", "evidently:GetLaunch" ]
     },
     "read" : {
       "permissions" : [ "evidently:GetLaunch", "evidently:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "evidently:UpdateLaunch", "evidently:ListTagsForResource", "evidently:TagResource", "evidently:UntagResource" ]
+      "permissions" : [ "evidently:UpdateLaunch", "evidently:ListTagsForResource", "evidently:TagResource", "evidently:UntagResource", "evidently:GetLaunch" ]
     },
     "delete" : {
-      "permissions" : [ "evidently:DeleteLaunch", "evidently:UntagResource" ]
+      "permissions" : [ "evidently:DeleteLaunch", "evidently:UntagResource", "evidently:GetLaunch" ]
     }
   },
   "taggable" : true
