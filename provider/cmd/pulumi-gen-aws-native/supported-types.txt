@@ -186,6 +186,7 @@ AWS::EFS::MountTarget
 AWS::EKS::Addon
 AWS::EKS::Cluster
 AWS::EKS::FargateProfile
+AWS::EKS::IdentityProviderConfig
 AWS::EKS::Nodegroup
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
@@ -328,6 +329,9 @@ AWS::Logs::ResourcePolicy
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
 AWS::LookoutVision::Project
+AWS::MSK::BatchScramSecret
+AWS::MSK::Cluster
+AWS::MSK::Configuration
 AWS::MWAA::Environment
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
@@ -367,6 +371,10 @@ AWS::OpsWorksCM::Server
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
+AWS::Personalize::Dataset
+AWS::Personalize::DatasetGroup
+AWS::Personalize::Schema
+AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
 AWS::QLDB::Stream
 AWS::QuickSight::Analysis

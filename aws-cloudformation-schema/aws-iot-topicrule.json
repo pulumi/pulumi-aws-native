@@ -584,9 +584,6 @@
         },
         "Timestamp" : {
           "$ref" : "#/definitions/TimestreamTimestamp"
-        },
-        "BatchMode" : {
-          "type" : "boolean"
         }
       },
       "required" : [ "RoleArn", "DatabaseName", "TableName", "Dimensions" ]

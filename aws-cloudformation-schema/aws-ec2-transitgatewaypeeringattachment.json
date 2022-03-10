@@ -1,10 +1,4 @@
 {
-  "typeName" : "AWS::EC2::TransitGatewayPeeringAttachment",
-  "readOnlyProperties" : [ "/properties/TransitGatewayAttachmentId", "/properties/Status", "/properties/State", "/properties/CreationTime" ],
-  "description" : "The AWS::EC2::TransitGatewayPeeringAttachment type",
-  "createOnlyProperties" : [ "/properties/TransitGatewayId", "/properties/PeerTransitGatewayId", "/properties/PeerRegion", "/properties/PeerAccountId" ],
-  "primaryIdentifier" : [ "/properties/TransitGatewayAttachmentId" ],
-  "required" : [ "TransitGatewayId", "PeerTransitGatewayId", "PeerAccountId", "PeerRegion" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-myservice",
   "handlers" : {
     "read" : {
@@ -23,19 +17,14 @@
       "permissions" : [ "ec2:DeleteTransitGatewayPeeringAttachment", "ec2:DescribeTransitGatewayPeeringAttachments" ]
     }
   },
+  "typeName" : "AWS::EC2::TransitGatewayPeeringAttachment",
+  "readOnlyProperties" : [ "/properties/TransitGatewayAttachmentId", "/properties/Status", "/properties/State", "/properties/CreationTime" ],
+  "description" : "The AWS::EC2::TransitGatewayPeeringAttachment type",
   "writeOnlyProperties" : [ "/properties/Options" ],
+  "createOnlyProperties" : [ "/properties/TransitGatewayId", "/properties/PeerTransitGatewayId", "/properties/PeerRegion", "/properties/PeerAccountId" ],
   "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/TransitGatewayAttachmentId" ],
   "definitions" : {
-    "TransitGatewayPeeringAttachmentOptions" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "DynamicRouting" : {
-          "description" : "Whether to enable dynamic routing. (enable/disable)",
-          "type" : "string"
-        }
-      }
-    },
     "Tag" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -65,14 +54,11 @@
       }
     }
   },
+  "required" : [ "TransitGatewayId", "PeerTransitGatewayId", "PeerAccountId", "PeerRegion" ],
   "properties" : {
     "Status" : {
       "description" : "The status of the transit gateway peering attachment.",
       "$ref" : "#/definitions/PeeringAttachmentStatus"
-    },
-    "Options" : {
-      "description" : "Options for transit gateway peering attachment",
-      "$ref" : "#/definitions/TransitGatewayPeeringAttachmentOptions"
     },
     "TransitGatewayId" : {
       "description" : "The ID of the transit gateway.",
