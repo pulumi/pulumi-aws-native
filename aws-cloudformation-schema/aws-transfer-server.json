@@ -19,7 +19,13 @@
     "EndpointDetails" : {
       "$ref" : "#/definitions/EndpointDetails"
     },
+    "PreAuthenticationLoginBanner" : {
+      "type" : "string"
+    },
     "ServerId" : {
+      "type" : "string"
+    },
+    "PostAuthenticationLoginBanner" : {
       "type" : "string"
     },
     "EndpointType" : {

@@ -197,16 +197,16 @@
   "createOnlyProperties" : [ "/properties/Name", "/properties/Project" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "evidently:CreateExperiment", "evidently:TagResource" ]
+      "permissions" : [ "evidently:CreateExperiment", "evidently:TagResource", "evidently:GetExperiment" ]
     },
     "read" : {
       "permissions" : [ "evidently:GetExperiment", "evidently:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "evidently:UpdateExperiment", "evidently:TagResource", "evidently:UntagResource" ]
+      "permissions" : [ "evidently:UpdateExperiment", "evidently:TagResource", "evidently:UntagResource", "evidently:GetExperiment" ]
     },
     "delete" : {
-      "permissions" : [ "evidently:DeleteExperiment", "evidently:UntagResource" ]
+      "permissions" : [ "evidently:DeleteExperiment", "evidently:UntagResource", "evidently:GetExperiment" ]
     }
   },
   "taggable" : true
