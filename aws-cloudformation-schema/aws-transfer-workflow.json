@@ -75,6 +75,13 @@
               "description" : "A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.",
               "type" : "string",
               "enum" : [ "TRUE", "FALSE" ]
+            },
+            "SourceFileLocation" : {
+              "description" : "Specifies which file to use as input to the workflow step.",
+              "type" : "string",
+              "pattern" : "^\\$\\{(\\w+.)+\\w+\\}$",
+              "minLength" : 0,
+              "maxLength" : 256
             }
           },
           "additionalProperties" : false
@@ -102,6 +109,13 @@
               "type" : "integer",
               "minimum" : 1,
               "maximum" : 1800
+            },
+            "SourceFileLocation" : {
+              "description" : "Specifies which file to use as input to the workflow step.",
+              "type" : "string",
+              "pattern" : "^\\$\\{(\\w+.)+\\w+\\}$",
+              "minLength" : 0,
+              "maxLength" : 256
             }
           },
           "additionalProperties" : false
@@ -116,6 +130,13 @@
               "pattern" : "^[\\w-]*$",
               "minLength" : 0,
               "maxLength" : 30
+            },
+            "SourceFileLocation" : {
+              "description" : "Specifies which file to use as input to the workflow step.",
+              "type" : "string",
+              "pattern" : "^\\$\\{(\\w+.)+\\w+\\}$",
+              "minLength" : 0,
+              "maxLength" : 256
             }
           },
           "additionalProperties" : false
@@ -140,6 +161,13 @@
               "items" : {
                 "$ref" : "#/definitions/S3Tag"
               }
+            },
+            "SourceFileLocation" : {
+              "description" : "Specifies which file to use as input to the workflow step.",
+              "type" : "string",
+              "pattern" : "^\\$\\{(\\w+.)+\\w+\\}$",
+              "minLength" : 0,
+              "maxLength" : 256
             }
           },
           "additionalProperties" : false

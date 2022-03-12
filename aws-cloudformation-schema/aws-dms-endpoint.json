@@ -600,7 +600,7 @@
     }
   },
   "required" : [ "EndpointType", "EngineName" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ResourceIdentifier", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ResourceIdentifier" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/ExternalId" ]
 }
