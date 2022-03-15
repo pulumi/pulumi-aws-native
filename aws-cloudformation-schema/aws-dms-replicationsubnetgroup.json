@@ -3,10 +3,10 @@
   "description" : "Resource Type definition for AWS::DMS::ReplicationSubnetGroup",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "ReplicationSubnetGroupDescription" : {
       "type" : "string"
     },
-    "ReplicationSubnetGroupDescription" : {
+    "Id" : {
       "type" : "string"
     },
     "ReplicationSubnetGroupIdentifier" : {
@@ -32,18 +32,18 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Key" : {
+        "Value" : {
           "type" : "string"
         },
-        "Value" : {
+        "Key" : {
           "type" : "string"
         }
       },
       "required" : [ "Value", "Key" ]
     }
   },
-  "required" : [ "SubnetIds", "ReplicationSubnetGroupDescription" ],
-  "createOnlyProperties" : [ "/properties/ReplicationSubnetGroupIdentifier", "/properties/Tags" ],
+  "required" : [ "ReplicationSubnetGroupDescription", "SubnetIds" ],
+  "createOnlyProperties" : [ "/properties/ReplicationSubnetGroupIdentifier" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }
