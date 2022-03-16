@@ -278,6 +278,6 @@
     }
   },
   "readOnlyProperties" : [ "/properties/ServiceArn", "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Cluster", "/properties/DeploymentController", "/properties/EnableECSManagedTags", "/properties/LaunchType", "/properties/LoadBalancers", "/properties/PlacementConstraints", "/properties/PlacementStrategies", "/properties/PropagateTags", "/properties/Role", "/properties/SchedulingStrategy", "/properties/ServiceName", "/properties/ServiceRegistries" ],
+  "createOnlyProperties" : [ "/properties/Cluster", "/properties/DeploymentController", "/properties/LaunchType", "/properties/PlacementConstraints", "/properties/PlacementStrategies", "/properties/Role", "/properties/SchedulingStrategy", "/properties/ServiceName" ],
   "additionalProperties" : false
 }
