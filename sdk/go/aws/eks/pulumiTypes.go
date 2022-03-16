@@ -1278,6 +1278,476 @@ func (o FargateProfileTagArrayOutput) Index(i pulumi.IntInput) FargateProfileTag
 	}).(FargateProfileTagOutput)
 }
 
+// An object representing an OpenID Connect (OIDC) configuration.
+type IdentityProviderConfigOidcIdentityProviderConfig struct {
+	// This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+	ClientId string `pulumi:"clientId"`
+	// The JWT claim that the provider uses to return your groups.
+	GroupsClaim *string `pulumi:"groupsClaim"`
+	// The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+	GroupsPrefix *string `pulumi:"groupsPrefix"`
+	// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+	IssuerUrl      string                                `pulumi:"issuerUrl"`
+	RequiredClaims []IdentityProviderConfigRequiredClaim `pulumi:"requiredClaims"`
+	// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+	UsernameClaim *string `pulumi:"usernameClaim"`
+	// The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+	UsernamePrefix *string `pulumi:"usernamePrefix"`
+}
+
+// IdentityProviderConfigOidcIdentityProviderConfigInput is an input type that accepts IdentityProviderConfigOidcIdentityProviderConfigArgs and IdentityProviderConfigOidcIdentityProviderConfigOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigOidcIdentityProviderConfigInput` via:
+//
+//          IdentityProviderConfigOidcIdentityProviderConfigArgs{...}
+type IdentityProviderConfigOidcIdentityProviderConfigInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigOidcIdentityProviderConfigOutput() IdentityProviderConfigOidcIdentityProviderConfigOutput
+	ToIdentityProviderConfigOidcIdentityProviderConfigOutputWithContext(context.Context) IdentityProviderConfigOidcIdentityProviderConfigOutput
+}
+
+// An object representing an OpenID Connect (OIDC) configuration.
+type IdentityProviderConfigOidcIdentityProviderConfigArgs struct {
+	// This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The JWT claim that the provider uses to return your groups.
+	GroupsClaim pulumi.StringPtrInput `pulumi:"groupsClaim"`
+	// The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+	GroupsPrefix pulumi.StringPtrInput `pulumi:"groupsPrefix"`
+	// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+	IssuerUrl      pulumi.StringInput                            `pulumi:"issuerUrl"`
+	RequiredClaims IdentityProviderConfigRequiredClaimArrayInput `pulumi:"requiredClaims"`
+	// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+	UsernameClaim pulumi.StringPtrInput `pulumi:"usernameClaim"`
+	// The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+	UsernamePrefix pulumi.StringPtrInput `pulumi:"usernamePrefix"`
+}
+
+func (IdentityProviderConfigOidcIdentityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigOidcIdentityProviderConfig)(nil)).Elem()
+}
+
+func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProviderConfigOidcIdentityProviderConfigOutput() IdentityProviderConfigOidcIdentityProviderConfigOutput {
+	return i.ToIdentityProviderConfigOidcIdentityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProviderConfigOidcIdentityProviderConfigOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcIdentityProviderConfigOutput)
+}
+
+func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutput() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return i.ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcIdentityProviderConfigOutput).ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx)
+}
+
+// IdentityProviderConfigOidcIdentityProviderConfigPtrInput is an input type that accepts IdentityProviderConfigOidcIdentityProviderConfigArgs, IdentityProviderConfigOidcIdentityProviderConfigPtr and IdentityProviderConfigOidcIdentityProviderConfigPtrOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigOidcIdentityProviderConfigPtrInput` via:
+//
+//          IdentityProviderConfigOidcIdentityProviderConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityProviderConfigOidcIdentityProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutput() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput
+	ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(context.Context) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput
+}
+
+type identityProviderConfigOidcIdentityProviderConfigPtrType IdentityProviderConfigOidcIdentityProviderConfigArgs
+
+func IdentityProviderConfigOidcIdentityProviderConfigPtr(v *IdentityProviderConfigOidcIdentityProviderConfigArgs) IdentityProviderConfigOidcIdentityProviderConfigPtrInput {
+	return (*identityProviderConfigOidcIdentityProviderConfigPtrType)(v)
+}
+
+func (*identityProviderConfigOidcIdentityProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderConfigOidcIdentityProviderConfig)(nil)).Elem()
+}
+
+func (i *identityProviderConfigOidcIdentityProviderConfigPtrType) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutput() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return i.ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *identityProviderConfigOidcIdentityProviderConfigPtrType) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcIdentityProviderConfigPtrOutput)
+}
+
+// An object representing an OpenID Connect (OIDC) configuration.
+type IdentityProviderConfigOidcIdentityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigOidcIdentityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigOidcIdentityProviderConfig)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ToIdentityProviderConfigOidcIdentityProviderConfigOutput() IdentityProviderConfigOidcIdentityProviderConfigOutput {
+	return o
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ToIdentityProviderConfigOidcIdentityProviderConfigOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigOutput {
+	return o
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutput() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return o.ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfigOidcIdentityProviderConfig) *IdentityProviderConfigOidcIdentityProviderConfig {
+		return &v
+	}).(IdentityProviderConfigOidcIdentityProviderConfigPtrOutput)
+}
+
+// This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The JWT claim that the provider uses to return your groups.
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) GroupsClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) *string { return v.GroupsClaim }).(pulumi.StringPtrOutput)
+}
+
+// The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) GroupsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) *string { return v.GroupsPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) IssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) string { return v.IssuerUrl }).(pulumi.StringOutput)
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) RequiredClaims() IdentityProviderConfigRequiredClaimArrayOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) []IdentityProviderConfigRequiredClaim {
+		return v.RequiredClaims
+	}).(IdentityProviderConfigRequiredClaimArrayOutput)
+}
+
+// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) UsernameClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) *string { return v.UsernameClaim }).(pulumi.StringPtrOutput)
+}
+
+// The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) UsernamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) *string { return v.UsernamePrefix }).(pulumi.StringPtrOutput)
+}
+
+type IdentityProviderConfigOidcIdentityProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderConfigOidcIdentityProviderConfig)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutput() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return o
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return o
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) Elem() IdentityProviderConfigOidcIdentityProviderConfigOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) IdentityProviderConfigOidcIdentityProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderConfigOidcIdentityProviderConfig
+		return ret
+	}).(IdentityProviderConfigOidcIdentityProviderConfigOutput)
+}
+
+// This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The JWT claim that the provider uses to return your groups.
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) GroupsClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupsClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) GroupsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupsPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) IssuerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IssuerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) RequiredClaims() IdentityProviderConfigRequiredClaimArrayOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) []IdentityProviderConfigRequiredClaim {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredClaims
+	}).(IdentityProviderConfigRequiredClaimArrayOutput)
+}
+
+// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) UsernameClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) UsernamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+type IdentityProviderConfigRequiredClaim struct {
+	// The key of the requiredClaims.
+	Key string `pulumi:"key"`
+	// The value for the requiredClaims.
+	Value string `pulumi:"value"`
+}
+
+// IdentityProviderConfigRequiredClaimInput is an input type that accepts IdentityProviderConfigRequiredClaimArgs and IdentityProviderConfigRequiredClaimOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigRequiredClaimInput` via:
+//
+//          IdentityProviderConfigRequiredClaimArgs{...}
+type IdentityProviderConfigRequiredClaimInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigRequiredClaimOutput() IdentityProviderConfigRequiredClaimOutput
+	ToIdentityProviderConfigRequiredClaimOutputWithContext(context.Context) IdentityProviderConfigRequiredClaimOutput
+}
+
+// The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+type IdentityProviderConfigRequiredClaimArgs struct {
+	// The key of the requiredClaims.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the requiredClaims.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IdentityProviderConfigRequiredClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigRequiredClaim)(nil)).Elem()
+}
+
+func (i IdentityProviderConfigRequiredClaimArgs) ToIdentityProviderConfigRequiredClaimOutput() IdentityProviderConfigRequiredClaimOutput {
+	return i.ToIdentityProviderConfigRequiredClaimOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderConfigRequiredClaimArgs) ToIdentityProviderConfigRequiredClaimOutputWithContext(ctx context.Context) IdentityProviderConfigRequiredClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigRequiredClaimOutput)
+}
+
+// IdentityProviderConfigRequiredClaimArrayInput is an input type that accepts IdentityProviderConfigRequiredClaimArray and IdentityProviderConfigRequiredClaimArrayOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigRequiredClaimArrayInput` via:
+//
+//          IdentityProviderConfigRequiredClaimArray{ IdentityProviderConfigRequiredClaimArgs{...} }
+type IdentityProviderConfigRequiredClaimArrayInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigRequiredClaimArrayOutput() IdentityProviderConfigRequiredClaimArrayOutput
+	ToIdentityProviderConfigRequiredClaimArrayOutputWithContext(context.Context) IdentityProviderConfigRequiredClaimArrayOutput
+}
+
+type IdentityProviderConfigRequiredClaimArray []IdentityProviderConfigRequiredClaimInput
+
+func (IdentityProviderConfigRequiredClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProviderConfigRequiredClaim)(nil)).Elem()
+}
+
+func (i IdentityProviderConfigRequiredClaimArray) ToIdentityProviderConfigRequiredClaimArrayOutput() IdentityProviderConfigRequiredClaimArrayOutput {
+	return i.ToIdentityProviderConfigRequiredClaimArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderConfigRequiredClaimArray) ToIdentityProviderConfigRequiredClaimArrayOutputWithContext(ctx context.Context) IdentityProviderConfigRequiredClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigRequiredClaimArrayOutput)
+}
+
+// The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+type IdentityProviderConfigRequiredClaimOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigRequiredClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigRequiredClaim)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigRequiredClaimOutput) ToIdentityProviderConfigRequiredClaimOutput() IdentityProviderConfigRequiredClaimOutput {
+	return o
+}
+
+func (o IdentityProviderConfigRequiredClaimOutput) ToIdentityProviderConfigRequiredClaimOutputWithContext(ctx context.Context) IdentityProviderConfigRequiredClaimOutput {
+	return o
+}
+
+// The key of the requiredClaims.
+func (o IdentityProviderConfigRequiredClaimOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderConfigRequiredClaim) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the requiredClaims.
+func (o IdentityProviderConfigRequiredClaimOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderConfigRequiredClaim) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IdentityProviderConfigRequiredClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigRequiredClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProviderConfigRequiredClaim)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigRequiredClaimArrayOutput) ToIdentityProviderConfigRequiredClaimArrayOutput() IdentityProviderConfigRequiredClaimArrayOutput {
+	return o
+}
+
+func (o IdentityProviderConfigRequiredClaimArrayOutput) ToIdentityProviderConfigRequiredClaimArrayOutputWithContext(ctx context.Context) IdentityProviderConfigRequiredClaimArrayOutput {
+	return o
+}
+
+func (o IdentityProviderConfigRequiredClaimArrayOutput) Index(i pulumi.IntInput) IdentityProviderConfigRequiredClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProviderConfigRequiredClaim {
+		return vs[0].([]IdentityProviderConfigRequiredClaim)[vs[1].(int)]
+	}).(IdentityProviderConfigRequiredClaimOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IdentityProviderConfigTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IdentityProviderConfigTagInput is an input type that accepts IdentityProviderConfigTagArgs and IdentityProviderConfigTagOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigTagInput` via:
+//
+//          IdentityProviderConfigTagArgs{...}
+type IdentityProviderConfigTagInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigTagOutput() IdentityProviderConfigTagOutput
+	ToIdentityProviderConfigTagOutputWithContext(context.Context) IdentityProviderConfigTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IdentityProviderConfigTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IdentityProviderConfigTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigTag)(nil)).Elem()
+}
+
+func (i IdentityProviderConfigTagArgs) ToIdentityProviderConfigTagOutput() IdentityProviderConfigTagOutput {
+	return i.ToIdentityProviderConfigTagOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderConfigTagArgs) ToIdentityProviderConfigTagOutputWithContext(ctx context.Context) IdentityProviderConfigTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigTagOutput)
+}
+
+// IdentityProviderConfigTagArrayInput is an input type that accepts IdentityProviderConfigTagArray and IdentityProviderConfigTagArrayOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigTagArrayInput` via:
+//
+//          IdentityProviderConfigTagArray{ IdentityProviderConfigTagArgs{...} }
+type IdentityProviderConfigTagArrayInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigTagArrayOutput() IdentityProviderConfigTagArrayOutput
+	ToIdentityProviderConfigTagArrayOutputWithContext(context.Context) IdentityProviderConfigTagArrayOutput
+}
+
+type IdentityProviderConfigTagArray []IdentityProviderConfigTagInput
+
+func (IdentityProviderConfigTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProviderConfigTag)(nil)).Elem()
+}
+
+func (i IdentityProviderConfigTagArray) ToIdentityProviderConfigTagArrayOutput() IdentityProviderConfigTagArrayOutput {
+	return i.ToIdentityProviderConfigTagArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderConfigTagArray) ToIdentityProviderConfigTagArrayOutputWithContext(ctx context.Context) IdentityProviderConfigTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IdentityProviderConfigTagOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigTag)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigTagOutput) ToIdentityProviderConfigTagOutput() IdentityProviderConfigTagOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTagOutput) ToIdentityProviderConfigTagOutputWithContext(ctx context.Context) IdentityProviderConfigTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IdentityProviderConfigTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderConfigTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IdentityProviderConfigTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderConfigTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IdentityProviderConfigTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProviderConfigTag)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigTagArrayOutput) ToIdentityProviderConfigTagArrayOutput() IdentityProviderConfigTagArrayOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTagArrayOutput) ToIdentityProviderConfigTagArrayOutputWithContext(ctx context.Context) IdentityProviderConfigTagArrayOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTagArrayOutput) Index(i pulumi.IntInput) IdentityProviderConfigTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProviderConfigTag {
+		return vs[0].([]IdentityProviderConfigTag)[vs[1].(int)]
+	}).(IdentityProviderConfigTagOutput)
+}
+
 // An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecification struct {
 	Id      *string `pulumi:"id"`
@@ -2049,6 +2519,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorArrayInput)(nil)).Elem(), FargateProfileSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileTagInput)(nil)).Elem(), FargateProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileTagArrayInput)(nil)).Elem(), FargateProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigOidcIdentityProviderConfigInput)(nil)).Elem(), IdentityProviderConfigOidcIdentityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigOidcIdentityProviderConfigPtrInput)(nil)).Elem(), IdentityProviderConfigOidcIdentityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigRequiredClaimInput)(nil)).Elem(), IdentityProviderConfigRequiredClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigRequiredClaimArrayInput)(nil)).Elem(), IdentityProviderConfigRequiredClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTagInput)(nil)).Elem(), IdentityProviderConfigTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTagArrayInput)(nil)).Elem(), IdentityProviderConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupLaunchTemplateSpecificationInput)(nil)).Elem(), NodegroupLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupLaunchTemplateSpecificationPtrInput)(nil)).Elem(), NodegroupLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupRemoteAccessInput)(nil)).Elem(), NodegroupRemoteAccessArgs{})
@@ -2079,6 +2555,12 @@ func init() {
 	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileTagOutput{})
 	pulumi.RegisterOutputType(FargateProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigOidcIdentityProviderConfigOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigOidcIdentityProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigRequiredClaimOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigRequiredClaimArrayOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigTagOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupRemoteAccessOutput{})

@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotAliasTextLogSetting
     {
-        public readonly Outputs.BotAliasTextLogDestination? Destination;
-        public readonly bool? Enabled;
+        public readonly Outputs.BotAliasTextLogDestination Destination;
+        public readonly bool Enabled;
 
         [OutputConstructor]
         private BotAliasTextLogSetting(
-            Outputs.BotAliasTextLogDestination? destination,
+            Outputs.BotAliasTextLogDestination destination,
 
-            bool? enabled)
+            bool enabled)
         {
             Destination = destination;
             Enabled = enabled;

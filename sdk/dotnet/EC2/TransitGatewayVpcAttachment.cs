@@ -34,10 +34,10 @@ namespace Pulumi.AwsNative.EC2
         public Output<ImmutableArray<Outputs.TransitGatewayVpcAttachmentTag>> Tags { get; private set; } = null!;
 
         [Output("transitGatewayId")]
-        public Output<string?> TransitGatewayId { get; private set; } = null!;
+        public Output<string> TransitGatewayId { get; private set; } = null!;
 
         [Output("vpcId")]
-        public Output<string?> VpcId { get; private set; } = null!;
+        public Output<string> VpcId { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TransitGatewayVpcAttachment(string name, TransitGatewayVpcAttachmentArgs? args = null, CustomResourceOptions? options = null)
+        public TransitGatewayVpcAttachment(string name, TransitGatewayVpcAttachmentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:ec2:TransitGatewayVpcAttachment", name, args ?? new TransitGatewayVpcAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.EC2
             set => _removeSubnetIds = value;
         }
 
-        [Input("subnetIds")]
+        [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
         public InputList<string> SubnetIds
         {
@@ -122,11 +122,11 @@ namespace Pulumi.AwsNative.EC2
             set => _tags = value;
         }
 
-        [Input("transitGatewayId")]
-        public Input<string>? TransitGatewayId { get; set; }
+        [Input("transitGatewayId", required: true)]
+        public Input<string> TransitGatewayId { get; set; } = null!;
 
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         public TransitGatewayVpcAttachmentArgs()
         {

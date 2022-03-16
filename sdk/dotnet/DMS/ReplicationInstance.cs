@@ -50,10 +50,10 @@ namespace Pulumi.AwsNative.DMS
         public Output<string?> ReplicationInstanceIdentifier { get; private set; } = null!;
 
         [Output("replicationInstancePrivateIpAddresses")]
-        public Output<ImmutableArray<string>> ReplicationInstancePrivateIpAddresses { get; private set; } = null!;
+        public Output<string> ReplicationInstancePrivateIpAddresses { get; private set; } = null!;
 
         [Output("replicationInstancePublicIpAddresses")]
-        public Output<ImmutableArray<string>> ReplicationInstancePublicIpAddresses { get; private set; } = null!;
+        public Output<string> ReplicationInstancePublicIpAddresses { get; private set; } = null!;
 
         [Output("replicationSubnetGroupIdentifier")]
         public Output<string?> ReplicationSubnetGroupIdentifier { get; private set; } = null!;

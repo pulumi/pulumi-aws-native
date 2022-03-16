@@ -49,8 +49,8 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     public readonly replicationInstanceClass!: pulumi.Output<string>;
     public readonly replicationInstanceIdentifier!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly replicationInstancePrivateIpAddresses!: pulumi.Output<string[]>;
-    public /*out*/ readonly replicationInstancePublicIpAddresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly replicationInstancePrivateIpAddresses!: pulumi.Output<string>;
+    public /*out*/ readonly replicationInstancePublicIpAddresses!: pulumi.Output<string>;
     public readonly replicationSubnetGroupIdentifier!: pulumi.Output<string | undefined>;
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.dms.ReplicationInstanceTag[] | undefined>;

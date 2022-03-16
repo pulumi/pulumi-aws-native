@@ -1535,8 +1535,10 @@ export namespace appflow {
     export interface FlowDestinationConnectorProperties {
         eventBridge?: outputs.appflow.FlowEventBridgeDestinationProperties;
         lookoutMetrics?: outputs.appflow.FlowLookoutMetricsDestinationProperties;
+        marketo?: outputs.appflow.FlowMarketoDestinationProperties;
         redshift?: outputs.appflow.FlowRedshiftDestinationProperties;
         s3?: outputs.appflow.FlowS3DestinationProperties;
+        sAPOData?: outputs.appflow.FlowSAPODataDestinationProperties;
         salesforce?: outputs.appflow.FlowSalesforceDestinationProperties;
         snowflake?: outputs.appflow.FlowSnowflakeDestinationProperties;
         upsolver?: outputs.appflow.FlowUpsolverDestinationProperties;
@@ -1595,6 +1597,11 @@ export namespace appflow {
         object?: string;
     }
 
+    export interface FlowMarketoDestinationProperties {
+        errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
+        object: string;
+    }
+
     export interface FlowMarketoSourceProperties {
         object: string;
     }
@@ -1631,6 +1638,17 @@ export namespace appflow {
         bucketName: string;
         bucketPrefix: string;
         s3InputFormatConfig?: outputs.appflow.FlowS3InputFormatConfig;
+    }
+
+    export interface FlowSAPODataDestinationProperties {
+        errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
+        /**
+         * List of fields used as ID when performing a write operation.
+         */
+        idFieldNames?: string[];
+        objectPath: string;
+        successResponseHandlingConfig?: outputs.appflow.FlowSuccessResponseHandlingConfig;
+        writeOperationType?: enums.appflow.FlowWriteOperationType;
     }
 
     export interface FlowSAPODataSourceProperties {
@@ -1725,6 +1743,11 @@ export namespace appflow {
          * Source connector details required to query a connector
          */
         sourceConnectorProperties: outputs.appflow.FlowSourceConnectorProperties;
+    }
+
+    export interface FlowSuccessResponseHandlingConfig {
+        bucketName?: string;
+        bucketPrefix?: string;
     }
 
     /**
@@ -3823,9 +3846,29 @@ export namespace autoscaling {
         unit?: string;
     }
 
+    export interface ScalingPolicyMetric {
+        dimensions?: outputs.autoscaling.ScalingPolicyMetricDimension[];
+        metricName: string;
+        namespace: string;
+    }
+
+    export interface ScalingPolicyMetricDataQuery {
+        expression?: string;
+        id: string;
+        label?: string;
+        metricStat?: outputs.autoscaling.ScalingPolicyMetricStat;
+        returnData?: boolean;
+    }
+
     export interface ScalingPolicyMetricDimension {
         name: string;
         value: string;
+    }
+
+    export interface ScalingPolicyMetricStat {
+        metric: outputs.autoscaling.ScalingPolicyMetric;
+        stat: string;
+        unit?: string;
     }
 
     export interface ScalingPolicyPredefinedMetricSpecification {
@@ -3841,7 +3884,22 @@ export namespace autoscaling {
         schedulingBufferTime?: number;
     }
 
+    export interface ScalingPolicyPredictiveScalingCustomizedCapacityMetric {
+        metricDataQueries: outputs.autoscaling.ScalingPolicyMetricDataQuery[];
+    }
+
+    export interface ScalingPolicyPredictiveScalingCustomizedLoadMetric {
+        metricDataQueries: outputs.autoscaling.ScalingPolicyMetricDataQuery[];
+    }
+
+    export interface ScalingPolicyPredictiveScalingCustomizedScalingMetric {
+        metricDataQueries: outputs.autoscaling.ScalingPolicyMetricDataQuery[];
+    }
+
     export interface ScalingPolicyPredictiveScalingMetricSpecification {
+        customizedCapacityMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingCustomizedCapacityMetric;
+        customizedLoadMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingCustomizedLoadMetric;
+        customizedScalingMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingCustomizedScalingMetric;
         predefinedLoadMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedLoadMetric;
         predefinedMetricPairSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedMetricPair;
         predefinedScalingMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedScalingMetric;
@@ -7346,6 +7404,7 @@ export namespace databrew {
         format?: enums.databrew.JobOutputFormat;
         formatOptions?: outputs.databrew.JobOutputFormatOptions;
         location: outputs.databrew.JobS3Location;
+        maxOutputFiles?: number;
         overwrite?: boolean;
         partitionColumns?: string[];
     }
@@ -9946,13 +10005,6 @@ export namespace ec2 {
         value?: string;
     }
 
-    export interface TransitGatewayPeeringAttachmentOptions {
-        /**
-         * Whether to enable dynamic routing. (enable/disable)
-         */
-        dynamicRouting?: string;
-    }
-
     export interface TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
         /**
          * The status code.
@@ -10801,6 +10853,65 @@ export namespace eks {
         key: string;
         /**
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
+     * An object representing an OpenID Connect (OIDC) configuration.
+     */
+    export interface IdentityProviderConfigOidcIdentityProviderConfig {
+        /**
+         * This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+         */
+        clientId: string;
+        /**
+         * The JWT claim that the provider uses to return your groups.
+         */
+        groupsClaim?: string;
+        /**
+         * The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+         */
+        groupsPrefix?: string;
+        /**
+         * The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+         */
+        issuerUrl: string;
+        requiredClaims?: outputs.eks.IdentityProviderConfigRequiredClaim[];
+        /**
+         * The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+         */
+        usernameClaim?: string;
+        /**
+         * The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+         */
+        usernamePrefix?: string;
+    }
+
+    /**
+     * The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+     */
+    export interface IdentityProviderConfigRequiredClaim {
+        /**
+         * The key of the requiredClaims.
+         */
+        key: string;
+        /**
+         * The value for the requiredClaims.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IdentityProviderConfigTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
     }
@@ -12202,6 +12313,21 @@ export namespace fis {
      * The actions for the experiment.
      */
     export interface ExperimentTemplateActionMap {
+    }
+
+    export interface ExperimentTemplateLogConfiguration {
+        cloudWatchLogsConfiguration?: outputs.fis.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties;
+        logSchemaVersion: number;
+        s3Configuration?: outputs.fis.ExperimentTemplateLogConfigurationS3ConfigurationProperties;
+    }
+
+    export interface ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties {
+        logGroupArn: string;
+    }
+
+    export interface ExperimentTemplateLogConfigurationS3ConfigurationProperties {
+        bucketName: string;
+        prefix?: string;
     }
 
     export interface ExperimentTemplateStopCondition {
@@ -15273,7 +15399,6 @@ export namespace iot {
     }
 
     export interface TopicRuleTimestreamAction {
-        batchMode?: boolean;
         databaseName: string;
         dimensions: outputs.iot.TopicRuleTimestreamDimension[];
         roleArn: string;
@@ -18444,7 +18569,7 @@ export namespace lex {
      * The location of audio log files collected when conversation logging is enabled for a bot.
      */
     export interface BotAliasAudioLogDestination {
-        s3Bucket?: outputs.lex.BotAliasS3BucketLogDestination;
+        s3Bucket: outputs.lex.BotAliasS3BucketLogDestination;
     }
 
     /**
@@ -18553,15 +18678,15 @@ export namespace lex {
      * Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
      */
     export interface BotAliasTextLogDestination {
-        cloudWatch?: outputs.lex.BotAliasCloudWatchLogGroupLogDestination;
+        cloudWatch: outputs.lex.BotAliasCloudWatchLogGroupLogDestination;
     }
 
     /**
      * Contains information about code hooks that Amazon Lex calls during a conversation.
      */
     export interface BotAliasTextLogSetting {
-        destination?: outputs.lex.BotAliasTextLogDestination;
-        enabled?: boolean;
+        destination: outputs.lex.BotAliasTextLogDestination;
+        enabled: boolean;
     }
 
     /**
@@ -22231,7 +22356,7 @@ export namespace msk {
     }
 
     export interface ClusterEncryptionInTransit {
-        clientBroker?: string;
+        clientBroker?: enums.msk.ClusterEncryptionInTransitClientBroker;
         inCluster?: boolean;
     }
 
@@ -22943,7 +23068,13 @@ export namespace opensearchservice {
     }
 
     export interface DomainTag {
+        /**
+         * The value of the tag.
+         */
         key: string;
+        /**
+         * The key of the tag.
+         */
         value: string;
     }
 
@@ -23139,6 +23270,203 @@ export namespace panorama {
     export interface PackageTag {
         key: string;
         value: string;
+    }
+
+}
+
+export namespace personalize {
+    /**
+     * Initial DatasetImportJob for the created dataset
+     */
+    export interface DatasetImportJob {
+        /**
+         * The Amazon S3 bucket that contains the training data to import.
+         */
+        dataSource?: outputs.personalize.DatasetImportJobDataSourceProperties;
+        /**
+         * The ARN of the dataset that receives the imported data
+         */
+        datasetArn?: string;
+        /**
+         * The ARN of the dataset import job
+         */
+        datasetImportJobArn?: string;
+        /**
+         * The name for the dataset import job.
+         */
+        jobName?: string;
+        /**
+         * The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
+         */
+        roleArn?: string;
+    }
+
+    /**
+     * The Amazon S3 bucket that contains the training data to import.
+     */
+    export interface DatasetImportJobDataSourceProperties {
+        /**
+         * The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
+         */
+        dataLocation?: string;
+    }
+
+    /**
+     * Provides the name and values of a Categorical hyperparameter.
+     */
+    export interface SolutionCategoricalHyperParameterRange {
+        /**
+         * The name of the hyperparameter.
+         */
+        name?: string;
+        /**
+         * A list of the categories for the hyperparameter.
+         */
+        values?: string[];
+    }
+
+    /**
+     * The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
+     */
+    export interface SolutionConfig {
+        /**
+         * Lists the hyperparameter names and ranges.
+         */
+        algorithmHyperParameters?: any;
+        /**
+         * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+         */
+        autoMLConfig?: outputs.personalize.SolutionConfigAutoMLConfigProperties;
+        /**
+         * Only events with a value greater than or equal to this threshold are used for training a model.
+         */
+        eventValueThreshold?: string;
+        /**
+         * Lists the feature transformation parameters.
+         */
+        featureTransformationParameters?: any;
+        /**
+         * Describes the properties for hyperparameter optimization (HPO)
+         */
+        hpoConfig?: outputs.personalize.SolutionConfigHpoConfigProperties;
+    }
+
+    /**
+     * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+     */
+    export interface SolutionConfigAutoMLConfigProperties {
+        /**
+         * The metric to optimize.
+         */
+        metricName?: string;
+        /**
+         * The list of candidate recipes.
+         */
+        recipeList?: string[];
+    }
+
+    /**
+     * Describes the properties for hyperparameter optimization (HPO)
+     */
+    export interface SolutionConfigHpoConfigProperties {
+        /**
+         * The hyperparameters and their allowable ranges
+         */
+        algorithmHyperParameterRanges?: outputs.personalize.SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties;
+        /**
+         * The metric to optimize during HPO.
+         */
+        hpoObjective?: outputs.personalize.SolutionConfigHpoConfigPropertiesHpoObjectiveProperties;
+        /**
+         * Describes the resource configuration for hyperparameter optimization (HPO).
+         */
+        hpoResourceConfig?: outputs.personalize.SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties;
+    }
+
+    /**
+     * The hyperparameters and their allowable ranges
+     */
+    export interface SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties {
+        /**
+         * The categorical hyperparameters and their ranges.
+         */
+        categoricalHyperParameterRanges?: outputs.personalize.SolutionCategoricalHyperParameterRange[];
+        /**
+         * The continuous hyperparameters and their ranges.
+         */
+        continuousHyperParameterRanges?: outputs.personalize.SolutionContinuousHyperParameterRange[];
+        /**
+         * The integer hyperparameters and their ranges.
+         */
+        integerHyperParameterRanges?: outputs.personalize.SolutionIntegerHyperParameterRange[];
+    }
+
+    /**
+     * The metric to optimize during HPO.
+     */
+    export interface SolutionConfigHpoConfigPropertiesHpoObjectiveProperties {
+        /**
+         * The name of the metric
+         */
+        metricName?: string;
+        /**
+         * A regular expression for finding the metric in the training job logs.
+         */
+        metricRegex?: string;
+        /**
+         * The type of the metric. Valid values are Maximize and Minimize.
+         */
+        type?: enums.personalize.SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType;
+    }
+
+    /**
+     * Describes the resource configuration for hyperparameter optimization (HPO).
+     */
+    export interface SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties {
+        /**
+         * The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
+         */
+        maxNumberOfTrainingJobs?: string;
+        /**
+         * The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
+         */
+        maxParallelTrainingJobs?: string;
+    }
+
+    /**
+     * Provides the name and range of a continuous hyperparameter.
+     */
+    export interface SolutionContinuousHyperParameterRange {
+        /**
+         * The maximum allowable value for the hyperparameter.
+         */
+        maxValue?: number;
+        /**
+         * The minimum allowable value for the hyperparameter.
+         */
+        minValue?: number;
+        /**
+         * The name of the hyperparameter.
+         */
+        name?: string;
+    }
+
+    /**
+     * Provides the name and range of an integer-valued hyperparameter.
+     */
+    export interface SolutionIntegerHyperParameterRange {
+        /**
+         * The maximum allowable value for the hyperparameter.
+         */
+        maxValue?: number;
+        /**
+         * The minimum allowable value for the hyperparameter.
+         */
+        minValue?: number;
+        /**
+         * The name of the hyperparameter.
+         */
+        name?: string;
     }
 
 }
@@ -30065,6 +30393,10 @@ export namespace transfer {
          * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
          */
         overwriteExisting?: enums.transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: string;
     }
 
     /**
@@ -30075,6 +30407,10 @@ export namespace transfer {
          * The name of the step, used as an identifier.
          */
         name?: string;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: string;
         /**
          * The ARN for the lambda function that is being called.
          */
@@ -30093,6 +30429,10 @@ export namespace transfer {
          * The name of the step, used as an identifier.
          */
         name?: string;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: string;
     }
 
     /**
@@ -30103,6 +30443,10 @@ export namespace transfer {
          * The name of the step, used as an identifier.
          */
         name?: string;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: string;
         /**
          * Array that contains from 1 to 10 key/value pairs.
          */

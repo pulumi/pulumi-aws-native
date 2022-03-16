@@ -358,6 +358,7 @@ class FlowTaskType(str, Enum):
     MAP_ALL = "Map_all"
     MASK = "Mask"
     MERGE = "Merge"
+    PASSTHROUGH = "Passthrough"
     TRUNCATE = "Truncate"
     VALIDATE = "Validate"
 

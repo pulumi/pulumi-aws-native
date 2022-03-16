@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComponentResult:
-    def __init__(__self__, app_id=None, binding_properties=None, children=None, collection_properties=None, component_type=None, environment_name=None, events=None, id=None, name=None, overrides=None, properties=None, source_id=None, variants=None):
+    def __init__(__self__, app_id=None, binding_properties=None, children=None, collection_properties=None, component_type=None, environment_name=None, events=None, id=None, name=None, overrides=None, properties=None, schema_version=None, source_id=None, variants=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -52,6 +52,9 @@ class GetComponentResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if schema_version and not isinstance(schema_version, str):
+            raise TypeError("Expected argument 'schema_version' to be a str")
+        pulumi.set(__self__, "schema_version", schema_version)
         if source_id and not isinstance(source_id, str):
             raise TypeError("Expected argument 'source_id' to be a str")
         pulumi.set(__self__, "source_id", source_id)
@@ -115,6 +118,11 @@ class GetComponentResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> Optional[str]:
+        return pulumi.get(self, "schema_version")
+
+    @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[str]:
         return pulumi.get(self, "source_id")
@@ -142,6 +150,7 @@ class AwaitableGetComponentResult(GetComponentResult):
             name=self.name,
             overrides=self.overrides,
             properties=self.properties,
+            schema_version=self.schema_version,
             source_id=self.source_id,
             variants=self.variants)
 
@@ -175,6 +184,7 @@ def get_component(app_id: Optional[str] = None,
         name=__ret__.name,
         overrides=__ret__.overrides,
         properties=__ret__.properties,
+        schema_version=__ret__.schema_version,
         source_id=__ret__.source_id,
         variants=__ret__.variants)
 

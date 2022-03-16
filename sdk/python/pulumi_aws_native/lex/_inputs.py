@@ -75,20 +75,19 @@ __all__ = [
 @pulumi.input_type
 class BotAliasAudioLogDestinationArgs:
     def __init__(__self__, *,
-                 s3_bucket: Optional[pulumi.Input['BotAliasS3BucketLogDestinationArgs']] = None):
+                 s3_bucket: pulumi.Input['BotAliasS3BucketLogDestinationArgs']):
         """
         The location of audio log files collected when conversation logging is enabled for a bot.
         """
-        if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input['BotAliasS3BucketLogDestinationArgs']]:
+    def s3_bucket(self) -> pulumi.Input['BotAliasS3BucketLogDestinationArgs']:
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input['BotAliasS3BucketLogDestinationArgs']]):
+    def s3_bucket(self, value: pulumi.Input['BotAliasS3BucketLogDestinationArgs']):
         pulumi.set(self, "s3_bucket", value)
 
 
@@ -412,52 +411,49 @@ class BotAliasTagArgs:
 @pulumi.input_type
 class BotAliasTextLogDestinationArgs:
     def __init__(__self__, *,
-                 cloud_watch: Optional[pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']] = None):
+                 cloud_watch: pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']):
         """
         Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
         """
-        if cloud_watch is not None:
-            pulumi.set(__self__, "cloud_watch", cloud_watch)
+        pulumi.set(__self__, "cloud_watch", cloud_watch)
 
     @property
     @pulumi.getter(name="cloudWatch")
-    def cloud_watch(self) -> Optional[pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']]:
+    def cloud_watch(self) -> pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']:
         return pulumi.get(self, "cloud_watch")
 
     @cloud_watch.setter
-    def cloud_watch(self, value: Optional[pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']]):
+    def cloud_watch(self, value: pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']):
         pulumi.set(self, "cloud_watch", value)
 
 
 @pulumi.input_type
 class BotAliasTextLogSettingArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input['BotAliasTextLogDestinationArgs']] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 destination: pulumi.Input['BotAliasTextLogDestinationArgs'],
+                 enabled: pulumi.Input[bool]):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['BotAliasTextLogDestinationArgs']]:
+    def destination(self) -> pulumi.Input['BotAliasTextLogDestinationArgs']:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['BotAliasTextLogDestinationArgs']]):
+    def destination(self, value: pulumi.Input['BotAliasTextLogDestinationArgs']):
         pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
+    def enabled(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
+    def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
 

@@ -12,22 +12,24 @@ import (
 )
 
 // Resource Type definition for AWS::MSK::Cluster
-//
-// Deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	Arn                  pulumi.StringOutput                  `pulumi:"arn"`
 	BrokerNodeGroupInfo  ClusterBrokerNodeGroupInfoOutput     `pulumi:"brokerNodeGroupInfo"`
 	ClientAuthentication ClusterClientAuthenticationPtrOutput `pulumi:"clientAuthentication"`
 	ClusterName          pulumi.StringOutput                  `pulumi:"clusterName"`
 	ConfigurationInfo    ClusterConfigurationInfoPtrOutput    `pulumi:"configurationInfo"`
-	EncryptionInfo       ClusterEncryptionInfoPtrOutput       `pulumi:"encryptionInfo"`
-	EnhancedMonitoring   pulumi.StringPtrOutput               `pulumi:"enhancedMonitoring"`
-	KafkaVersion         pulumi.StringOutput                  `pulumi:"kafkaVersion"`
-	LoggingInfo          ClusterLoggingInfoPtrOutput          `pulumi:"loggingInfo"`
-	NumberOfBrokerNodes  pulumi.IntOutput                     `pulumi:"numberOfBrokerNodes"`
-	OpenMonitoring       ClusterOpenMonitoringPtrOutput       `pulumi:"openMonitoring"`
-	Tags                 pulumi.AnyOutput                     `pulumi:"tags"`
+	// The current version of the MSK cluster
+	CurrentVersion      pulumi.StringPtrOutput             `pulumi:"currentVersion"`
+	EncryptionInfo      ClusterEncryptionInfoPtrOutput     `pulumi:"encryptionInfo"`
+	EnhancedMonitoring  ClusterEnhancedMonitoringPtrOutput `pulumi:"enhancedMonitoring"`
+	KafkaVersion        pulumi.StringOutput                `pulumi:"kafkaVersion"`
+	LoggingInfo         ClusterLoggingInfoPtrOutput        `pulumi:"loggingInfo"`
+	NumberOfBrokerNodes pulumi.IntOutput                   `pulumi:"numberOfBrokerNodes"`
+	OpenMonitoring      ClusterOpenMonitoringPtrOutput     `pulumi:"openMonitoring"`
+	// A key-value pair to associate with a resource.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -82,13 +84,16 @@ type clusterArgs struct {
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
 	ClusterName          *string                      `pulumi:"clusterName"`
 	ConfigurationInfo    *ClusterConfigurationInfo    `pulumi:"configurationInfo"`
-	EncryptionInfo       *ClusterEncryptionInfo       `pulumi:"encryptionInfo"`
-	EnhancedMonitoring   *string                      `pulumi:"enhancedMonitoring"`
-	KafkaVersion         string                       `pulumi:"kafkaVersion"`
-	LoggingInfo          *ClusterLoggingInfo          `pulumi:"loggingInfo"`
-	NumberOfBrokerNodes  int                          `pulumi:"numberOfBrokerNodes"`
-	OpenMonitoring       *ClusterOpenMonitoring       `pulumi:"openMonitoring"`
-	Tags                 interface{}                  `pulumi:"tags"`
+	// The current version of the MSK cluster
+	CurrentVersion      *string                    `pulumi:"currentVersion"`
+	EncryptionInfo      *ClusterEncryptionInfo     `pulumi:"encryptionInfo"`
+	EnhancedMonitoring  *ClusterEnhancedMonitoring `pulumi:"enhancedMonitoring"`
+	KafkaVersion        string                     `pulumi:"kafkaVersion"`
+	LoggingInfo         *ClusterLoggingInfo        `pulumi:"loggingInfo"`
+	NumberOfBrokerNodes int                        `pulumi:"numberOfBrokerNodes"`
+	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
+	// A key-value pair to associate with a resource.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -97,13 +102,16 @@ type ClusterArgs struct {
 	ClientAuthentication ClusterClientAuthenticationPtrInput
 	ClusterName          pulumi.StringPtrInput
 	ConfigurationInfo    ClusterConfigurationInfoPtrInput
-	EncryptionInfo       ClusterEncryptionInfoPtrInput
-	EnhancedMonitoring   pulumi.StringPtrInput
-	KafkaVersion         pulumi.StringInput
-	LoggingInfo          ClusterLoggingInfoPtrInput
-	NumberOfBrokerNodes  pulumi.IntInput
-	OpenMonitoring       ClusterOpenMonitoringPtrInput
-	Tags                 pulumi.Input
+	// The current version of the MSK cluster
+	CurrentVersion      pulumi.StringPtrInput
+	EncryptionInfo      ClusterEncryptionInfoPtrInput
+	EnhancedMonitoring  ClusterEnhancedMonitoringPtrInput
+	KafkaVersion        pulumi.StringInput
+	LoggingInfo         ClusterLoggingInfoPtrInput
+	NumberOfBrokerNodes pulumi.IntInput
+	OpenMonitoring      ClusterOpenMonitoringPtrInput
+	// A key-value pair to associate with a resource.
+	Tags pulumi.Input
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

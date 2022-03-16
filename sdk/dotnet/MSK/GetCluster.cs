@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.MSK
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetClusterArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.MSK
 
     public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetClusterInvokeArgs()
         {
@@ -49,12 +49,16 @@ namespace Pulumi.AwsNative.MSK
     [OutputType]
     public sealed class GetClusterResult
     {
+        public readonly string? Arn;
         public readonly Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo;
         public readonly Outputs.ClusterClientAuthentication? ClientAuthentication;
         public readonly Outputs.ClusterConfigurationInfo? ConfigurationInfo;
+        /// <summary>
+        /// The current version of the MSK cluster
+        /// </summary>
+        public readonly string? CurrentVersion;
         public readonly Outputs.ClusterEncryptionInfo? EncryptionInfo;
-        public readonly string? EnhancedMonitoring;
-        public readonly string? Id;
+        public readonly Pulumi.AwsNative.MSK.ClusterEnhancedMonitoring? EnhancedMonitoring;
         public readonly string? KafkaVersion;
         public readonly Outputs.ClusterLoggingInfo? LoggingInfo;
         public readonly int? NumberOfBrokerNodes;
@@ -62,17 +66,19 @@ namespace Pulumi.AwsNative.MSK
 
         [OutputConstructor]
         private GetClusterResult(
+            string? arn,
+
             Outputs.ClusterBrokerNodeGroupInfo? brokerNodeGroupInfo,
 
             Outputs.ClusterClientAuthentication? clientAuthentication,
 
             Outputs.ClusterConfigurationInfo? configurationInfo,
 
+            string? currentVersion,
+
             Outputs.ClusterEncryptionInfo? encryptionInfo,
 
-            string? enhancedMonitoring,
-
-            string? id,
+            Pulumi.AwsNative.MSK.ClusterEnhancedMonitoring? enhancedMonitoring,
 
             string? kafkaVersion,
 
@@ -82,12 +88,13 @@ namespace Pulumi.AwsNative.MSK
 
             Outputs.ClusterOpenMonitoring? openMonitoring)
         {
+            Arn = arn;
             BrokerNodeGroupInfo = brokerNodeGroupInfo;
             ClientAuthentication = clientAuthentication;
             ConfigurationInfo = configurationInfo;
+            CurrentVersion = currentVersion;
             EncryptionInfo = encryptionInfo;
             EnhancedMonitoring = enhancedMonitoring;
-            Id = id;
             KafkaVersion = kafkaVersion;
             LoggingInfo = loggingInfo;
             NumberOfBrokerNodes = numberOfBrokerNodes;

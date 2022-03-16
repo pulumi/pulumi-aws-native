@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTargetArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetAssessmentTargetArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTargetInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetAssessmentTargetInvokeArgs()
         {
@@ -50,19 +50,15 @@ namespace Pulumi.AwsNative.Inspector
     public sealed class GetAssessmentTargetResult
     {
         public readonly string? Arn;
-        public readonly string? Id;
         public readonly string? ResourceGroupArn;
 
         [OutputConstructor]
         private GetAssessmentTargetResult(
             string? arn,
 
-            string? id,
-
             string? resourceGroupArn)
         {
             Arn = arn;
-            Id = id;
             ResourceGroupArn = resourceGroupArn;
         }
     }

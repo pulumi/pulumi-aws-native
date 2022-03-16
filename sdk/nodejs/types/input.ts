@@ -2231,8 +2231,10 @@ export namespace appflow {
     export interface FlowDestinationConnectorPropertiesArgs {
         eventBridge?: pulumi.Input<inputs.appflow.FlowEventBridgeDestinationPropertiesArgs>;
         lookoutMetrics?: pulumi.Input<inputs.appflow.FlowLookoutMetricsDestinationPropertiesArgs>;
+        marketo?: pulumi.Input<inputs.appflow.FlowMarketoDestinationPropertiesArgs>;
         redshift?: pulumi.Input<inputs.appflow.FlowRedshiftDestinationPropertiesArgs>;
         s3?: pulumi.Input<inputs.appflow.FlowS3DestinationPropertiesArgs>;
+        sAPOData?: pulumi.Input<inputs.appflow.FlowSAPODataDestinationPropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.FlowSalesforceDestinationPropertiesArgs>;
         snowflake?: pulumi.Input<inputs.appflow.FlowSnowflakeDestinationPropertiesArgs>;
         upsolver?: pulumi.Input<inputs.appflow.FlowUpsolverDestinationPropertiesArgs>;
@@ -2291,6 +2293,11 @@ export namespace appflow {
         object?: pulumi.Input<string>;
     }
 
+    export interface FlowMarketoDestinationPropertiesArgs {
+        errorHandlingConfig?: pulumi.Input<inputs.appflow.FlowErrorHandlingConfigArgs>;
+        object: pulumi.Input<string>;
+    }
+
     export interface FlowMarketoSourcePropertiesArgs {
         object: pulumi.Input<string>;
     }
@@ -2327,6 +2334,17 @@ export namespace appflow {
         bucketName: pulumi.Input<string>;
         bucketPrefix: pulumi.Input<string>;
         s3InputFormatConfig?: pulumi.Input<inputs.appflow.FlowS3InputFormatConfigArgs>;
+    }
+
+    export interface FlowSAPODataDestinationPropertiesArgs {
+        errorHandlingConfig?: pulumi.Input<inputs.appflow.FlowErrorHandlingConfigArgs>;
+        /**
+         * List of fields used as ID when performing a write operation.
+         */
+        idFieldNames?: pulumi.Input<pulumi.Input<string>[]>;
+        objectPath: pulumi.Input<string>;
+        successResponseHandlingConfig?: pulumi.Input<inputs.appflow.FlowSuccessResponseHandlingConfigArgs>;
+        writeOperationType?: pulumi.Input<enums.appflow.FlowWriteOperationType>;
     }
 
     export interface FlowSAPODataSourcePropertiesArgs {
@@ -2421,6 +2439,11 @@ export namespace appflow {
          * Source connector details required to query a connector
          */
         sourceConnectorProperties: pulumi.Input<inputs.appflow.FlowSourceConnectorPropertiesArgs>;
+    }
+
+    export interface FlowSuccessResponseHandlingConfigArgs {
+        bucketName?: pulumi.Input<string>;
+        bucketPrefix?: pulumi.Input<string>;
     }
 
     /**
@@ -4459,9 +4482,29 @@ export namespace autoscaling {
         unit?: pulumi.Input<string>;
     }
 
+    export interface ScalingPolicyMetricArgs {
+        dimensions?: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyMetricDimensionArgs>[]>;
+        metricName: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+    }
+
+    export interface ScalingPolicyMetricDataQueryArgs {
+        expression?: pulumi.Input<string>;
+        id: pulumi.Input<string>;
+        label?: pulumi.Input<string>;
+        metricStat?: pulumi.Input<inputs.autoscaling.ScalingPolicyMetricStatArgs>;
+        returnData?: pulumi.Input<boolean>;
+    }
+
     export interface ScalingPolicyMetricDimensionArgs {
         name: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface ScalingPolicyMetricStatArgs {
+        metric: pulumi.Input<inputs.autoscaling.ScalingPolicyMetricArgs>;
+        stat: pulumi.Input<string>;
+        unit?: pulumi.Input<string>;
     }
 
     export interface ScalingPolicyPredefinedMetricSpecificationArgs {
@@ -4477,7 +4520,22 @@ export namespace autoscaling {
         schedulingBufferTime?: pulumi.Input<number>;
     }
 
+    export interface ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs {
+        metricDataQueries: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyMetricDataQueryArgs>[]>;
+    }
+
+    export interface ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs {
+        metricDataQueries: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyMetricDataQueryArgs>[]>;
+    }
+
+    export interface ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs {
+        metricDataQueries: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyMetricDataQueryArgs>[]>;
+    }
+
     export interface ScalingPolicyPredictiveScalingMetricSpecificationArgs {
+        customizedCapacityMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs>;
+        customizedLoadMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs>;
+        customizedScalingMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs>;
         predefinedLoadMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs>;
         predefinedMetricPairSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedMetricPairArgs>;
         predefinedScalingMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs>;
@@ -4515,6 +4573,7 @@ export namespace autoscaling {
     export interface WarmPoolInstanceReusePolicyArgs {
         reuseOnScaleIn?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace autoscalingplans {
@@ -7252,6 +7311,7 @@ export namespace databrew {
         format?: pulumi.Input<enums.databrew.JobOutputFormat>;
         formatOptions?: pulumi.Input<inputs.databrew.JobOutputFormatOptionsArgs>;
         location: pulumi.Input<inputs.databrew.JobS3LocationArgs>;
+        maxOutputFiles?: pulumi.Input<number>;
         overwrite?: pulumi.Input<boolean>;
         partitionColumns?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -9713,13 +9773,6 @@ export namespace ec2 {
         value?: pulumi.Input<string>;
     }
 
-    export interface TransitGatewayPeeringAttachmentOptionsArgs {
-        /**
-         * Whether to enable dynamic routing. (enable/disable)
-         */
-        dynamicRouting?: pulumi.Input<string>;
-    }
-
     export interface TransitGatewayPeeringAttachmentTagArgs {
         /**
          * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
@@ -10555,6 +10608,65 @@ export namespace eks {
         key: pulumi.Input<string>;
         /**
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * An object representing an OpenID Connect (OIDC) configuration.
+     */
+    export interface IdentityProviderConfigOidcIdentityProviderConfigArgs {
+        /**
+         * This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The JWT claim that the provider uses to return your groups.
+         */
+        groupsClaim?: pulumi.Input<string>;
+        /**
+         * The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+         */
+        groupsPrefix?: pulumi.Input<string>;
+        /**
+         * The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+         */
+        issuerUrl: pulumi.Input<string>;
+        requiredClaims?: pulumi.Input<pulumi.Input<inputs.eks.IdentityProviderConfigRequiredClaimArgs>[]>;
+        /**
+         * The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+         */
+        usernameClaim?: pulumi.Input<string>;
+        /**
+         * The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+         */
+        usernamePrefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+     */
+    export interface IdentityProviderConfigRequiredClaimArgs {
+        /**
+         * The key of the requiredClaims.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the requiredClaims.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IdentityProviderConfigTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
     }
@@ -11944,6 +12056,21 @@ export namespace fis {
      * The actions for the experiment.
      */
     export interface ExperimentTemplateActionMapArgs {
+    }
+
+    export interface ExperimentTemplateLogConfigurationArgs {
+        cloudWatchLogsConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs>;
+        logSchemaVersion: pulumi.Input<number>;
+        s3Configuration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs>;
+    }
+
+    export interface ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs {
+        logGroupArn: pulumi.Input<string>;
+    }
+
+    export interface ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs {
+        bucketName: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface ExperimentTemplateStopConditionArgs {
@@ -14978,7 +15105,6 @@ export namespace iot {
     }
 
     export interface TopicRuleTimestreamActionArgs {
-        batchMode?: pulumi.Input<boolean>;
         databaseName: pulumi.Input<string>;
         dimensions: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestreamDimensionArgs>[]>;
         roleArn: pulumi.Input<string>;
@@ -18130,7 +18256,7 @@ export namespace lex {
      * The location of audio log files collected when conversation logging is enabled for a bot.
      */
     export interface BotAliasAudioLogDestinationArgs {
-        s3Bucket?: pulumi.Input<inputs.lex.BotAliasS3BucketLogDestinationArgs>;
+        s3Bucket: pulumi.Input<inputs.lex.BotAliasS3BucketLogDestinationArgs>;
     }
 
     /**
@@ -18239,15 +18365,15 @@ export namespace lex {
      * Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
      */
     export interface BotAliasTextLogDestinationArgs {
-        cloudWatch?: pulumi.Input<inputs.lex.BotAliasCloudWatchLogGroupLogDestinationArgs>;
+        cloudWatch: pulumi.Input<inputs.lex.BotAliasCloudWatchLogGroupLogDestinationArgs>;
     }
 
     /**
      * Contains information about code hooks that Amazon Lex calls during a conversation.
      */
     export interface BotAliasTextLogSettingArgs {
-        destination?: pulumi.Input<inputs.lex.BotAliasTextLogDestinationArgs>;
-        enabled?: pulumi.Input<boolean>;
+        destination: pulumi.Input<inputs.lex.BotAliasTextLogDestinationArgs>;
+        enabled: pulumi.Input<boolean>;
     }
 
     /**
@@ -21840,7 +21966,7 @@ export namespace msk {
     }
 
     export interface ClusterEncryptionInTransitArgs {
-        clientBroker?: pulumi.Input<string>;
+        clientBroker?: pulumi.Input<enums.msk.ClusterEncryptionInTransitClientBroker>;
         inCluster?: pulumi.Input<boolean>;
     }
 
@@ -22524,7 +22650,13 @@ export namespace opensearchservice {
     }
 
     export interface DomainTagArgs {
+        /**
+         * The value of the tag.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The key of the tag.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -22709,6 +22841,202 @@ export namespace panorama {
     export interface PackageTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace personalize {
+    /**
+     * Initial DatasetImportJob for the created dataset
+     */
+    export interface DatasetImportJobArgs {
+        /**
+         * The Amazon S3 bucket that contains the training data to import.
+         */
+        dataSource?: pulumi.Input<inputs.personalize.DatasetImportJobDataSourcePropertiesArgs>;
+        /**
+         * The ARN of the dataset that receives the imported data
+         */
+        datasetArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the dataset import job
+         */
+        datasetImportJobArn?: pulumi.Input<string>;
+        /**
+         * The name for the dataset import job.
+         */
+        jobName?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
+         */
+        roleArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * The Amazon S3 bucket that contains the training data to import.
+     */
+    export interface DatasetImportJobDataSourcePropertiesArgs {
+        /**
+         * The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
+         */
+        dataLocation?: pulumi.Input<string>;
+    }
+
+    /**
+     * Provides the name and values of a Categorical hyperparameter.
+     */
+    export interface SolutionCategoricalHyperParameterRangeArgs {
+        /**
+         * The name of the hyperparameter.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A list of the categories for the hyperparameter.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
+     */
+    export interface SolutionConfigArgs {
+        /**
+         * Lists the hyperparameter names and ranges.
+         */
+        algorithmHyperParameters?: any;
+        /**
+         * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+         */
+        autoMLConfig?: pulumi.Input<inputs.personalize.SolutionConfigAutoMLConfigPropertiesArgs>;
+        /**
+         * Only events with a value greater than or equal to this threshold are used for training a model.
+         */
+        eventValueThreshold?: pulumi.Input<string>;
+        /**
+         * Lists the feature transformation parameters.
+         */
+        featureTransformationParameters?: any;
+        /**
+         * Describes the properties for hyperparameter optimization (HPO)
+         */
+        hpoConfig?: pulumi.Input<inputs.personalize.SolutionConfigHpoConfigPropertiesArgs>;
+    }
+
+    /**
+     * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+     */
+    export interface SolutionConfigAutoMLConfigPropertiesArgs {
+        /**
+         * The metric to optimize.
+         */
+        metricName?: pulumi.Input<string>;
+        /**
+         * The list of candidate recipes.
+         */
+        recipeList?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes the properties for hyperparameter optimization (HPO)
+     */
+    export interface SolutionConfigHpoConfigPropertiesArgs {
+        /**
+         * The hyperparameters and their allowable ranges
+         */
+        algorithmHyperParameterRanges?: pulumi.Input<inputs.personalize.SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs>;
+        /**
+         * The metric to optimize during HPO.
+         */
+        hpoObjective?: pulumi.Input<inputs.personalize.SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs>;
+        /**
+         * Describes the resource configuration for hyperparameter optimization (HPO).
+         */
+        hpoResourceConfig?: pulumi.Input<inputs.personalize.SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs>;
+    }
+
+    /**
+     * The hyperparameters and their allowable ranges
+     */
+    export interface SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs {
+        /**
+         * The categorical hyperparameters and their ranges.
+         */
+        categoricalHyperParameterRanges?: pulumi.Input<pulumi.Input<inputs.personalize.SolutionCategoricalHyperParameterRangeArgs>[]>;
+        /**
+         * The continuous hyperparameters and their ranges.
+         */
+        continuousHyperParameterRanges?: pulumi.Input<pulumi.Input<inputs.personalize.SolutionContinuousHyperParameterRangeArgs>[]>;
+        /**
+         * The integer hyperparameters and their ranges.
+         */
+        integerHyperParameterRanges?: pulumi.Input<pulumi.Input<inputs.personalize.SolutionIntegerHyperParameterRangeArgs>[]>;
+    }
+
+    /**
+     * The metric to optimize during HPO.
+     */
+    export interface SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs {
+        /**
+         * The name of the metric
+         */
+        metricName?: pulumi.Input<string>;
+        /**
+         * A regular expression for finding the metric in the training job logs.
+         */
+        metricRegex?: pulumi.Input<string>;
+        /**
+         * The type of the metric. Valid values are Maximize and Minimize.
+         */
+        type?: pulumi.Input<enums.personalize.SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType>;
+    }
+
+    /**
+     * Describes the resource configuration for hyperparameter optimization (HPO).
+     */
+    export interface SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs {
+        /**
+         * The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
+         */
+        maxNumberOfTrainingJobs?: pulumi.Input<string>;
+        /**
+         * The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
+         */
+        maxParallelTrainingJobs?: pulumi.Input<string>;
+    }
+
+    /**
+     * Provides the name and range of a continuous hyperparameter.
+     */
+    export interface SolutionContinuousHyperParameterRangeArgs {
+        /**
+         * The maximum allowable value for the hyperparameter.
+         */
+        maxValue?: pulumi.Input<number>;
+        /**
+         * The minimum allowable value for the hyperparameter.
+         */
+        minValue?: pulumi.Input<number>;
+        /**
+         * The name of the hyperparameter.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    /**
+     * Provides the name and range of an integer-valued hyperparameter.
+     */
+    export interface SolutionIntegerHyperParameterRangeArgs {
+        /**
+         * The maximum allowable value for the hyperparameter.
+         */
+        maxValue?: pulumi.Input<number>;
+        /**
+         * The minimum allowable value for the hyperparameter.
+         */
+        minValue?: pulumi.Input<number>;
+        /**
+         * The name of the hyperparameter.
+         */
+        name?: pulumi.Input<string>;
     }
 }
 
@@ -29206,6 +29534,10 @@ export namespace transfer {
          * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
          */
         overwriteExisting?: pulumi.Input<enums.transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting>;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
     }
 
     /**
@@ -29216,6 +29548,10 @@ export namespace transfer {
          * The name of the step, used as an identifier.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
         /**
          * The ARN for the lambda function that is being called.
          */
@@ -29234,6 +29570,10 @@ export namespace transfer {
          * The name of the step, used as an identifier.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
     }
 
     /**
@@ -29244,6 +29584,10 @@ export namespace transfer {
          * The name of the step, used as an identifier.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
         /**
          * Array that contains from 1 to 10 key/value pairs.
          */

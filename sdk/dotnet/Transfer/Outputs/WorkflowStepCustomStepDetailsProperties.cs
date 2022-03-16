@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Specifies which file to use as input to the workflow step.
+        /// </summary>
+        public readonly string? SourceFileLocation;
+        /// <summary>
         /// The ARN for the lambda function that is being called.
         /// </summary>
         public readonly string? Target;
@@ -33,11 +37,14 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         private WorkflowStepCustomStepDetailsProperties(
             string? name,
 
+            string? sourceFileLocation,
+
             string? target,
 
             int? timeoutSeconds)
         {
             Name = name;
+            SourceFileLocation = sourceFileLocation;
             Target = target;
             TimeoutSeconds = timeoutSeconds;
         }

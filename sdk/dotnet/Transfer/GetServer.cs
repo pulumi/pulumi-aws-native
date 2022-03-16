@@ -55,6 +55,8 @@ namespace Pulumi.AwsNative.Transfer
         public readonly string? EndpointType;
         public readonly Outputs.ServerIdentityProviderDetails? IdentityProviderDetails;
         public readonly string? LoggingRole;
+        public readonly string? PostAuthenticationLoginBanner;
+        public readonly string? PreAuthenticationLoginBanner;
         public readonly Outputs.ServerProtocolDetails? ProtocolDetails;
         public readonly ImmutableArray<Outputs.ServerProtocol> Protocols;
         public readonly string? SecurityPolicyName;
@@ -76,6 +78,10 @@ namespace Pulumi.AwsNative.Transfer
 
             string? loggingRole,
 
+            string? postAuthenticationLoginBanner,
+
+            string? preAuthenticationLoginBanner,
+
             Outputs.ServerProtocolDetails? protocolDetails,
 
             ImmutableArray<Outputs.ServerProtocol> protocols,
@@ -94,6 +100,8 @@ namespace Pulumi.AwsNative.Transfer
             EndpointType = endpointType;
             IdentityProviderDetails = identityProviderDetails;
             LoggingRole = loggingRole;
+            PostAuthenticationLoginBanner = postAuthenticationLoginBanner;
+            PreAuthenticationLoginBanner = preAuthenticationLoginBanner;
             ProtocolDetails = protocolDetails;
             Protocols = protocols;
             SecurityPolicyName = securityPolicyName;

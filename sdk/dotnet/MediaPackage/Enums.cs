@@ -147,6 +147,7 @@ namespace Pulumi.AwsNative.MediaPackage
 
         public static OriginEndpointDashPackageProfile None { get; } = new OriginEndpointDashPackageProfile("NONE");
         public static OriginEndpointDashPackageProfile Hbbtv15 { get; } = new OriginEndpointDashPackageProfile("HBBTV_1_5");
+        public static OriginEndpointDashPackageProfile Hybridcast { get; } = new OriginEndpointDashPackageProfile("HYBRIDCAST");
 
         public static bool operator ==(OriginEndpointDashPackageProfile left, OriginEndpointDashPackageProfile right) => left.Equals(right);
         public static bool operator !=(OriginEndpointDashPackageProfile left, OriginEndpointDashPackageProfile right) => !left.Equals(right);

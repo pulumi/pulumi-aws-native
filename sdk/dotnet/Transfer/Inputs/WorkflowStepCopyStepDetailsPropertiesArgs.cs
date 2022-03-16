@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("overwriteExisting")]
         public Input<Pulumi.AwsNative.Transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting>? OverwriteExisting { get; set; }
 
+        /// <summary>
+        /// Specifies which file to use as input to the workflow step.
+        /// </summary>
+        [Input("sourceFileLocation")]
+        public Input<string>? SourceFileLocation { get; set; }
+
         public WorkflowStepCopyStepDetailsPropertiesArgs()
         {
         }

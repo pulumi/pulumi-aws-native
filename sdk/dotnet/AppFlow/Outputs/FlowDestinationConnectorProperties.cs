@@ -18,8 +18,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     {
         public readonly Outputs.FlowEventBridgeDestinationProperties? EventBridge;
         public readonly Outputs.FlowLookoutMetricsDestinationProperties? LookoutMetrics;
+        public readonly Outputs.FlowMarketoDestinationProperties? Marketo;
         public readonly Outputs.FlowRedshiftDestinationProperties? Redshift;
         public readonly Outputs.FlowS3DestinationProperties? S3;
+        public readonly Outputs.FlowSAPODataDestinationProperties? SAPOData;
         public readonly Outputs.FlowSalesforceDestinationProperties? Salesforce;
         public readonly Outputs.FlowSnowflakeDestinationProperties? Snowflake;
         public readonly Outputs.FlowUpsolverDestinationProperties? Upsolver;
@@ -31,9 +33,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowLookoutMetricsDestinationProperties? lookoutMetrics,
 
+            Outputs.FlowMarketoDestinationProperties? marketo,
+
             Outputs.FlowRedshiftDestinationProperties? redshift,
 
             Outputs.FlowS3DestinationProperties? s3,
+
+            Outputs.FlowSAPODataDestinationProperties? sAPOData,
 
             Outputs.FlowSalesforceDestinationProperties? salesforce,
 
@@ -45,8 +51,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         {
             EventBridge = eventBridge;
             LookoutMetrics = lookoutMetrics;
+            Marketo = marketo;
             Redshift = redshift;
             S3 = s3;
+            SAPOData = sAPOData;
             Salesforce = salesforce;
             Snowflake = snowflake;
             Upsolver = upsolver;

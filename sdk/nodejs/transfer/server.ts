@@ -46,6 +46,8 @@ export class Server extends pulumi.CustomResource {
     public readonly identityProviderDetails!: pulumi.Output<outputs.transfer.ServerIdentityProviderDetails | undefined>;
     public readonly identityProviderType!: pulumi.Output<string | undefined>;
     public readonly loggingRole!: pulumi.Output<string | undefined>;
+    public readonly postAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
+    public readonly preAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
     public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails | undefined>;
     public readonly protocols!: pulumi.Output<outputs.transfer.ServerProtocol[] | undefined>;
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
@@ -73,6 +75,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
             resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["postAuthenticationLoginBanner"] = args ? args.postAuthenticationLoginBanner : undefined;
+            resourceInputs["preAuthenticationLoginBanner"] = args ? args.preAuthenticationLoginBanner : undefined;
             resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
@@ -89,6 +93,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["identityProviderDetails"] = undefined /*out*/;
             resourceInputs["identityProviderType"] = undefined /*out*/;
             resourceInputs["loggingRole"] = undefined /*out*/;
+            resourceInputs["postAuthenticationLoginBanner"] = undefined /*out*/;
+            resourceInputs["preAuthenticationLoginBanner"] = undefined /*out*/;
             resourceInputs["protocolDetails"] = undefined /*out*/;
             resourceInputs["protocols"] = undefined /*out*/;
             resourceInputs["securityPolicyName"] = undefined /*out*/;
@@ -112,6 +118,8 @@ export interface ServerArgs {
     identityProviderDetails?: pulumi.Input<inputs.transfer.ServerIdentityProviderDetailsArgs>;
     identityProviderType?: pulumi.Input<string>;
     loggingRole?: pulumi.Input<string>;
+    postAuthenticationLoginBanner?: pulumi.Input<string>;
+    preAuthenticationLoginBanner?: pulumi.Input<string>;
     protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetailsArgs>;
     protocols?: pulumi.Input<pulumi.Input<inputs.transfer.ServerProtocolArgs>[]>;
     securityPolicyName?: pulumi.Input<string>;

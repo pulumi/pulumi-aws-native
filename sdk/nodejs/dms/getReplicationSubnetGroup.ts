@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +27,7 @@ export interface GetReplicationSubnetGroupResult {
     readonly id?: string;
     readonly replicationSubnetGroupDescription?: string;
     readonly subnetIds?: string[];
+    readonly tags?: outputs.dms.ReplicationSubnetGroupTag[];
 }
 
 export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {

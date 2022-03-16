@@ -33,8 +33,8 @@ export interface GetReplicationInstanceResult {
     readonly preferredMaintenanceWindow?: string;
     readonly replicationInstanceClass?: string;
     readonly replicationInstanceIdentifier?: string;
-    readonly replicationInstancePrivateIpAddresses?: string[];
-    readonly replicationInstancePublicIpAddresses?: string[];
+    readonly replicationInstancePrivateIpAddresses?: string;
+    readonly replicationInstancePublicIpAddresses?: string;
     readonly vpcSecurityGroupIds?: string[];
 }
 

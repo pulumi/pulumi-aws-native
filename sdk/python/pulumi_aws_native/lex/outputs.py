@@ -96,16 +96,15 @@ class BotAliasAudioLogDestination(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s3_bucket: Optional['outputs.BotAliasS3BucketLogDestination'] = None):
+                 s3_bucket: 'outputs.BotAliasS3BucketLogDestination'):
         """
         The location of audio log files collected when conversation logging is enabled for a bot.
         """
-        if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional['outputs.BotAliasS3BucketLogDestination']:
+    def s3_bucket(self) -> 'outputs.BotAliasS3BucketLogDestination':
         return pulumi.get(self, "s3_bucket")
 
 
@@ -532,16 +531,15 @@ class BotAliasTextLogDestination(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cloud_watch: Optional['outputs.BotAliasCloudWatchLogGroupLogDestination'] = None):
+                 cloud_watch: 'outputs.BotAliasCloudWatchLogGroupLogDestination'):
         """
         Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
         """
-        if cloud_watch is not None:
-            pulumi.set(__self__, "cloud_watch", cloud_watch)
+        pulumi.set(__self__, "cloud_watch", cloud_watch)
 
     @property
     @pulumi.getter(name="cloudWatch")
-    def cloud_watch(self) -> Optional['outputs.BotAliasCloudWatchLogGroupLogDestination']:
+    def cloud_watch(self) -> 'outputs.BotAliasCloudWatchLogGroupLogDestination':
         return pulumi.get(self, "cloud_watch")
 
 
@@ -551,24 +549,22 @@ class BotAliasTextLogSetting(dict):
     Contains information about code hooks that Amazon Lex calls during a conversation.
     """
     def __init__(__self__, *,
-                 destination: Optional['outputs.BotAliasTextLogDestination'] = None,
-                 enabled: Optional[bool] = None):
+                 destination: 'outputs.BotAliasTextLogDestination',
+                 enabled: bool):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.BotAliasTextLogDestination']:
+    def destination(self) -> 'outputs.BotAliasTextLogDestination':
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
 
 

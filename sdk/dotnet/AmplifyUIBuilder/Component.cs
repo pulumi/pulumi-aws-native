@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         [Output("properties")]
         public Output<Outputs.ComponentProperties> Properties { get; private set; } = null!;
 
+        [Output("schemaVersion")]
+        public Output<string?> SchemaVersion { get; private set; } = null!;
+
         [Output("sourceId")]
         public Output<string?> SourceId { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
         [Input("properties", required: true)]
         public Input<Inputs.ComponentPropertiesArgs> Properties { get; set; } = null!;
+
+        [Input("schemaVersion")]
+        public Input<string>? SchemaVersion { get; set; }
 
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }

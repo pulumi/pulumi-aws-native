@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetClusterResult',
@@ -18,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, broker_node_group_info=None, client_authentication=None, configuration_info=None, encryption_info=None, enhanced_monitoring=None, id=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None):
+    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if broker_node_group_info and not isinstance(broker_node_group_info, dict):
             raise TypeError("Expected argument 'broker_node_group_info' to be a dict")
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
@@ -28,15 +32,15 @@ class GetClusterResult:
         if configuration_info and not isinstance(configuration_info, dict):
             raise TypeError("Expected argument 'configuration_info' to be a dict")
         pulumi.set(__self__, "configuration_info", configuration_info)
+        if current_version and not isinstance(current_version, str):
+            raise TypeError("Expected argument 'current_version' to be a str")
+        pulumi.set(__self__, "current_version", current_version)
         if encryption_info and not isinstance(encryption_info, dict):
             raise TypeError("Expected argument 'encryption_info' to be a dict")
         pulumi.set(__self__, "encryption_info", encryption_info)
         if enhanced_monitoring and not isinstance(enhanced_monitoring, str):
             raise TypeError("Expected argument 'enhanced_monitoring' to be a str")
         pulumi.set(__self__, "enhanced_monitoring", enhanced_monitoring)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if kafka_version and not isinstance(kafka_version, str):
             raise TypeError("Expected argument 'kafka_version' to be a str")
         pulumi.set(__self__, "kafka_version", kafka_version)
@@ -49,6 +53,11 @@ class GetClusterResult:
         if open_monitoring and not isinstance(open_monitoring, dict):
             raise TypeError("Expected argument 'open_monitoring' to be a dict")
         pulumi.set(__self__, "open_monitoring", open_monitoring)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
@@ -66,19 +75,22 @@ class GetClusterResult:
         return pulumi.get(self, "configuration_info")
 
     @property
+    @pulumi.getter(name="currentVersion")
+    def current_version(self) -> Optional[str]:
+        """
+        The current version of the MSK cluster
+        """
+        return pulumi.get(self, "current_version")
+
+    @property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> Optional['outputs.ClusterEncryptionInfo']:
         return pulumi.get(self, "encryption_info")
 
     @property
     @pulumi.getter(name="enhancedMonitoring")
-    def enhanced_monitoring(self) -> Optional[str]:
+    def enhanced_monitoring(self) -> Optional['ClusterEnhancedMonitoring']:
         return pulumi.get(self, "enhanced_monitoring")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kafkaVersion")
@@ -107,25 +119,26 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            arn=self.arn,
             broker_node_group_info=self.broker_node_group_info,
             client_authentication=self.client_authentication,
             configuration_info=self.configuration_info,
+            current_version=self.current_version,
             encryption_info=self.encryption_info,
             enhanced_monitoring=self.enhanced_monitoring,
-            id=self.id,
             kafka_version=self.kafka_version,
             logging_info=self.logging_info,
             number_of_broker_nodes=self.number_of_broker_nodes,
             open_monitoring=self.open_monitoring)
 
 
-def get_cluster(id: Optional[str] = None,
+def get_cluster(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Resource Type definition for AWS::MSK::Cluster
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -133,12 +146,13 @@ def get_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        arn=__ret__.arn,
         broker_node_group_info=__ret__.broker_node_group_info,
         client_authentication=__ret__.client_authentication,
         configuration_info=__ret__.configuration_info,
+        current_version=__ret__.current_version,
         encryption_info=__ret__.encryption_info,
         enhanced_monitoring=__ret__.enhanced_monitoring,
-        id=__ret__.id,
         kafka_version=__ret__.kafka_version,
         logging_info=__ret__.logging_info,
         number_of_broker_nodes=__ret__.number_of_broker_nodes,
@@ -146,7 +160,7 @@ def get_cluster(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cluster)
-def get_cluster_output(id: Optional[pulumi.Input[str]] = None,
+def get_cluster_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Resource Type definition for AWS::MSK::Cluster

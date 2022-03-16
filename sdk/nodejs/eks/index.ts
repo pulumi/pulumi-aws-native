@@ -11,7 +11,9 @@ export * from "./fargateProfile";
 export * from "./getAddon";
 export * from "./getCluster";
 export * from "./getFargateProfile";
+export * from "./getIdentityProviderConfig";
 export * from "./getNodegroup";
+export * from "./identityProviderConfig";
 export * from "./nodegroup";
 
 // Export enums:
@@ -21,6 +23,7 @@ export * from "../types/enums/eks";
 import { Addon } from "./addon";
 import { Cluster } from "./cluster";
 import { FargateProfile } from "./fargateProfile";
+import { IdentityProviderConfig } from "./identityProviderConfig";
 import { Nodegroup } from "./nodegroup";
 
 const _module = {
@@ -33,6 +36,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:eks:FargateProfile":
                 return new FargateProfile(name, <any>undefined, { urn })
+            case "aws-native:eks:IdentityProviderConfig":
+                return new IdentityProviderConfig(name, <any>undefined, { urn })
             case "aws-native:eks:Nodegroup":
                 return new Nodegroup(name, <any>undefined, { urn })
             default:

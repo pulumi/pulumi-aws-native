@@ -3489,6 +3489,7 @@ type JobOutputType struct {
 	Format            *JobOutputFormat            `pulumi:"format"`
 	FormatOptions     *JobOutputFormatOptions     `pulumi:"formatOptions"`
 	Location          JobS3Location               `pulumi:"location"`
+	MaxOutputFiles    *int                        `pulumi:"maxOutputFiles"`
 	Overwrite         *bool                       `pulumi:"overwrite"`
 	PartitionColumns  []string                    `pulumi:"partitionColumns"`
 }
@@ -3509,6 +3510,7 @@ type JobOutputTypeArgs struct {
 	Format            JobOutputFormatPtrInput            `pulumi:"format"`
 	FormatOptions     JobOutputFormatOptionsPtrInput     `pulumi:"formatOptions"`
 	Location          JobS3LocationInput                 `pulumi:"location"`
+	MaxOutputFiles    pulumi.IntPtrInput                 `pulumi:"maxOutputFiles"`
 	Overwrite         pulumi.BoolPtrInput                `pulumi:"overwrite"`
 	PartitionColumns  pulumi.StringArrayInput            `pulumi:"partitionColumns"`
 }
@@ -3578,6 +3580,10 @@ func (o JobOutputTypeOutput) FormatOptions() JobOutputFormatOptionsPtrOutput {
 
 func (o JobOutputTypeOutput) Location() JobS3LocationOutput {
 	return o.ApplyT(func(v JobOutputType) JobS3Location { return v.Location }).(JobS3LocationOutput)
+}
+
+func (o JobOutputTypeOutput) MaxOutputFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobOutputType) *int { return v.MaxOutputFiles }).(pulumi.IntPtrOutput)
 }
 
 func (o JobOutputTypeOutput) Overwrite() pulumi.BoolPtrOutput {

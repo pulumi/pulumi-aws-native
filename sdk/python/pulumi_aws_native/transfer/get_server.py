@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, logging_role=None, protocol_details=None, protocols=None, security_policy_name=None, server_id=None, tags=None, workflow_details=None):
+    def __init__(__self__, arn=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, security_policy_name=None, server_id=None, tags=None, workflow_details=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,12 @@ class GetServerResult:
         if logging_role and not isinstance(logging_role, str):
             raise TypeError("Expected argument 'logging_role' to be a str")
         pulumi.set(__self__, "logging_role", logging_role)
+        if post_authentication_login_banner and not isinstance(post_authentication_login_banner, str):
+            raise TypeError("Expected argument 'post_authentication_login_banner' to be a str")
+        pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
+        if pre_authentication_login_banner and not isinstance(pre_authentication_login_banner, str):
+            raise TypeError("Expected argument 'pre_authentication_login_banner' to be a str")
+        pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
         if protocol_details and not isinstance(protocol_details, dict):
             raise TypeError("Expected argument 'protocol_details' to be a dict")
         pulumi.set(__self__, "protocol_details", protocol_details)
@@ -87,6 +93,16 @@ class GetServerResult:
         return pulumi.get(self, "logging_role")
 
     @property
+    @pulumi.getter(name="postAuthenticationLoginBanner")
+    def post_authentication_login_banner(self) -> Optional[str]:
+        return pulumi.get(self, "post_authentication_login_banner")
+
+    @property
+    @pulumi.getter(name="preAuthenticationLoginBanner")
+    def pre_authentication_login_banner(self) -> Optional[str]:
+        return pulumi.get(self, "pre_authentication_login_banner")
+
+    @property
     @pulumi.getter(name="protocolDetails")
     def protocol_details(self) -> Optional['outputs.ServerProtocolDetails']:
         return pulumi.get(self, "protocol_details")
@@ -129,6 +145,8 @@ class AwaitableGetServerResult(GetServerResult):
             endpoint_type=self.endpoint_type,
             identity_provider_details=self.identity_provider_details,
             logging_role=self.logging_role,
+            post_authentication_login_banner=self.post_authentication_login_banner,
+            pre_authentication_login_banner=self.pre_authentication_login_banner,
             protocol_details=self.protocol_details,
             protocols=self.protocols,
             security_policy_name=self.security_policy_name,
@@ -157,6 +175,8 @@ def get_server(server_id: Optional[str] = None,
         endpoint_type=__ret__.endpoint_type,
         identity_provider_details=__ret__.identity_provider_details,
         logging_role=__ret__.logging_role,
+        post_authentication_login_banner=__ret__.post_authentication_login_banner,
+        pre_authentication_login_banner=__ret__.pre_authentication_login_banner,
         protocol_details=__ret__.protocol_details,
         protocols=__ret__.protocols,
         security_policy_name=__ret__.security_policy_name,

@@ -28,6 +28,8 @@ type Image struct {
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration ImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
+	// URI for containers created in current Region with default ECR image tag
+	ImageUri pulumi.StringOutput `pulumi:"imageUri"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrOutput `pulumi:"infrastructureConfigurationArn"`
 	// The name of the image.

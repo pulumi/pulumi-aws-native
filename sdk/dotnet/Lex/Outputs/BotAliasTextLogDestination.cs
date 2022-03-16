@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotAliasTextLogDestination
     {
-        public readonly Outputs.BotAliasCloudWatchLogGroupLogDestination? CloudWatch;
+        public readonly Outputs.BotAliasCloudWatchLogGroupLogDestination CloudWatch;
 
         [OutputConstructor]
-        private BotAliasTextLogDestination(Outputs.BotAliasCloudWatchLogGroupLogDestination? cloudWatch)
+        private BotAliasTextLogDestination(Outputs.BotAliasCloudWatchLogGroupLogDestination cloudWatch)
         {
             CloudWatch = cloudWatch;
         }

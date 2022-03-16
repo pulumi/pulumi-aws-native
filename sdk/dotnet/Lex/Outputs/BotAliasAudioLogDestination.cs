@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotAliasAudioLogDestination
     {
-        public readonly Outputs.BotAliasS3BucketLogDestination? S3Bucket;
+        public readonly Outputs.BotAliasS3BucketLogDestination S3Bucket;
 
         [OutputConstructor]
-        private BotAliasAudioLogDestination(Outputs.BotAliasS3BucketLogDestination? s3Bucket)
+        private BotAliasAudioLogDestination(Outputs.BotAliasS3BucketLogDestination s3Bucket)
         {
             S3Bucket = s3Bucket;
         }

@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? Id;
         public readonly string? ReplicationSubnetGroupDescription;
         public readonly ImmutableArray<string> SubnetIds;
+        public readonly ImmutableArray<Outputs.ReplicationSubnetGroupTag> Tags;
 
         [OutputConstructor]
         private GetReplicationSubnetGroupResult(
@@ -59,11 +60,14 @@ namespace Pulumi.AwsNative.DMS
 
             string? replicationSubnetGroupDescription,
 
-            ImmutableArray<string> subnetIds)
+            ImmutableArray<string> subnetIds,
+
+            ImmutableArray<Outputs.ReplicationSubnetGroupTag> tags)
         {
             Id = id;
             ReplicationSubnetGroupDescription = replicationSubnetGroupDescription;
             SubnetIds = subnetIds;
+            Tags = tags;
         }
     }
 }

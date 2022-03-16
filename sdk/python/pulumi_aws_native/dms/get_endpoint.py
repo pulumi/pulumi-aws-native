@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEndpointResult:
-    def __init__(__self__, certificate_arn=None, database_name=None, doc_db_settings=None, dynamo_db_settings=None, elasticsearch_settings=None, endpoint_identifier=None, endpoint_type=None, engine_name=None, external_id=None, extra_connection_attributes=None, gcp_my_sql_settings=None, ibm_db2_settings=None, id=None, kafka_settings=None, kinesis_settings=None, microsoft_sql_server_settings=None, mongo_db_settings=None, my_sql_settings=None, neptune_settings=None, oracle_settings=None, password=None, port=None, postgre_sql_settings=None, redis_settings=None, redshift_settings=None, s3_settings=None, server_name=None, ssl_mode=None, sybase_settings=None, username=None):
+    def __init__(__self__, certificate_arn=None, database_name=None, doc_db_settings=None, dynamo_db_settings=None, elasticsearch_settings=None, endpoint_identifier=None, endpoint_type=None, engine_name=None, external_id=None, extra_connection_attributes=None, gcp_my_sql_settings=None, ibm_db2_settings=None, id=None, kafka_settings=None, kinesis_settings=None, microsoft_sql_server_settings=None, mongo_db_settings=None, my_sql_settings=None, neptune_settings=None, oracle_settings=None, password=None, port=None, postgre_sql_settings=None, redis_settings=None, redshift_settings=None, s3_settings=None, server_name=None, ssl_mode=None, sybase_settings=None, tags=None, username=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -106,6 +106,9 @@ class GetEndpointResult:
         if sybase_settings and not isinstance(sybase_settings, dict):
             raise TypeError("Expected argument 'sybase_settings' to be a dict")
         pulumi.set(__self__, "sybase_settings", sybase_settings)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if username and not isinstance(username, str):
             raise TypeError("Expected argument 'username' to be a str")
         pulumi.set(__self__, "username", username)
@@ -257,6 +260,11 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.EndpointTag']]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
@@ -296,6 +304,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             server_name=self.server_name,
             ssl_mode=self.ssl_mode,
             sybase_settings=self.sybase_settings,
+            tags=self.tags,
             username=self.username)
 
 
@@ -342,6 +351,7 @@ def get_endpoint(id: Optional[str] = None,
         server_name=__ret__.server_name,
         ssl_mode=__ret__.ssl_mode,
         sybase_settings=__ret__.sybase_settings,
+        tags=__ret__.tags,
         username=__ret__.username)
 
 

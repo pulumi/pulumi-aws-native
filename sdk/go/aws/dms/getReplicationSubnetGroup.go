@@ -25,9 +25,10 @@ type LookupReplicationSubnetGroupArgs struct {
 }
 
 type LookupReplicationSubnetGroupResult struct {
-	Id                                *string  `pulumi:"id"`
-	ReplicationSubnetGroupDescription *string  `pulumi:"replicationSubnetGroupDescription"`
-	SubnetIds                         []string `pulumi:"subnetIds"`
+	Id                                *string                     `pulumi:"id"`
+	ReplicationSubnetGroupDescription *string                     `pulumi:"replicationSubnetGroupDescription"`
+	SubnetIds                         []string                    `pulumi:"subnetIds"`
+	Tags                              []ReplicationSubnetGroupTag `pulumi:"tags"`
 }
 
 func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicationSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSubnetGroupResultOutput {
@@ -71,6 +72,10 @@ func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupDescript
 
 func (o LookupReplicationSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupReplicationSubnetGroupResultOutput) Tags() ReplicationSubnetGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) []ReplicationSubnetGroupTag { return v.Tags }).(ReplicationSubnetGroupTagArrayOutput)
 }
 
 func init() {

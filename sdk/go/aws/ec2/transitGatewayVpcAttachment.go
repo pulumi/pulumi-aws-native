@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,17 +21,26 @@ type TransitGatewayVpcAttachment struct {
 	RemoveSubnetIds  pulumi.StringArrayOutput                  `pulumi:"removeSubnetIds"`
 	SubnetIds        pulumi.StringArrayOutput                  `pulumi:"subnetIds"`
 	Tags             TransitGatewayVpcAttachmentTagArrayOutput `pulumi:"tags"`
-	TransitGatewayId pulumi.StringPtrOutput                    `pulumi:"transitGatewayId"`
-	VpcId            pulumi.StringPtrOutput                    `pulumi:"vpcId"`
+	TransitGatewayId pulumi.StringOutput                       `pulumi:"transitGatewayId"`
+	VpcId            pulumi.StringOutput                       `pulumi:"vpcId"`
 }
 
 // NewTransitGatewayVpcAttachment registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayVpcAttachment(ctx *pulumi.Context,
 	name string, args *TransitGatewayVpcAttachmentArgs, opts ...pulumi.ResourceOption) (*TransitGatewayVpcAttachment, error) {
 	if args == nil {
-		args = &TransitGatewayVpcAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
+	}
+	if args.TransitGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
+	}
 	var resource TransitGatewayVpcAttachment
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayVpcAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -69,8 +79,8 @@ type transitGatewayVpcAttachmentArgs struct {
 	RemoveSubnetIds  []string                         `pulumi:"removeSubnetIds"`
 	SubnetIds        []string                         `pulumi:"subnetIds"`
 	Tags             []TransitGatewayVpcAttachmentTag `pulumi:"tags"`
-	TransitGatewayId *string                          `pulumi:"transitGatewayId"`
-	VpcId            *string                          `pulumi:"vpcId"`
+	TransitGatewayId string                           `pulumi:"transitGatewayId"`
+	VpcId            string                           `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a TransitGatewayVpcAttachment resource.
@@ -81,8 +91,8 @@ type TransitGatewayVpcAttachmentArgs struct {
 	RemoveSubnetIds  pulumi.StringArrayInput
 	SubnetIds        pulumi.StringArrayInput
 	Tags             TransitGatewayVpcAttachmentTagArrayInput
-	TransitGatewayId pulumi.StringPtrInput
-	VpcId            pulumi.StringPtrInput
+	TransitGatewayId pulumi.StringInput
+	VpcId            pulumi.StringInput
 }
 
 func (TransitGatewayVpcAttachmentArgs) ElementType() reflect.Type {

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Inspector
     /// <summary>
     /// Resource Type definition for AWS::Inspector::ResourceGroup
     /// </summary>
-    [Obsolete(@"ResourceGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:inspector:ResourceGroup")]
     public partial class ResourceGroup : Pulumi.CustomResource
     {

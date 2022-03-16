@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.FIS
         public readonly Outputs.ExperimentTemplateActionMap? Actions;
         public readonly string? Description;
         public readonly string? Id;
+        public readonly Outputs.ExperimentTemplateLogConfiguration? LogConfiguration;
         public readonly string? RoleArn;
         public readonly ImmutableArray<Outputs.ExperimentTemplateStopCondition> StopConditions;
         public readonly Outputs.ExperimentTemplateTargetMap? Targets;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.FIS
 
             string? id,
 
+            Outputs.ExperimentTemplateLogConfiguration? logConfiguration,
+
             string? roleArn,
 
             ImmutableArray<Outputs.ExperimentTemplateStopCondition> stopConditions,
@@ -73,6 +76,7 @@ namespace Pulumi.AwsNative.FIS
             Actions = actions;
             Description = description;
             Id = id;
+            LogConfiguration = logConfiguration;
             RoleArn = roleArn;
             StopConditions = stopConditions;
             Targets = targets;

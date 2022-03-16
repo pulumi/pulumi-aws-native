@@ -210,6 +210,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["image_id"] = None
+            __props__.__dict__["image_uri"] = None
             __props__.__dict__["name"] = None
         super(Image, __self__).__init__(
             'aws-native:imagebuilder:Image',
@@ -240,6 +241,7 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["image_id"] = None
         __props__.__dict__["image_recipe_arn"] = None
         __props__.__dict__["image_tests_configuration"] = None
+        __props__.__dict__["image_uri"] = None
         __props__.__dict__["infrastructure_configuration_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -300,6 +302,14 @@ class Image(pulumi.CustomResource):
         The image tests configuration used when creating this image.
         """
         return pulumi.get(self, "image_tests_configuration")
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> pulumi.Output[str]:
+        """
+        URI for containers created in current Region with default ECR image tag
+        """
+        return pulumi.get(self, "image_uri")
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")

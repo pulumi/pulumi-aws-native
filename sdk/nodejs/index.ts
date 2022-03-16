@@ -162,6 +162,7 @@ import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
 import * as panorama from "./panorama";
+import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pinpointemail from "./pinpointemail";
 import * as qldb from "./qldb";
@@ -351,6 +352,7 @@ export {
     opsworks,
     opsworkscm,
     panorama,
+    personalize,
     pinpoint,
     pinpointemail,
     qldb,

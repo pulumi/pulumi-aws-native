@@ -14,17 +14,16 @@ export function getAssessmentTemplate(args: GetAssessmentTemplateArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:inspector:getAssessmentTemplate", {
-        "id": args.id,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetAssessmentTemplateArgs {
-    id: string;
+    arn: string;
 }
 
 export interface GetAssessmentTemplateResult {
     readonly arn?: string;
-    readonly id?: string;
 }
 
 export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTemplateResult> {
@@ -32,5 +31,5 @@ export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArg
 }
 
 export interface GetAssessmentTemplateOutputArgs {
-    id: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

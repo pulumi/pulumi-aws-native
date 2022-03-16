@@ -457,11 +457,13 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
     def __init__(__self__, *,
                  destination_file_location: Optional[pulumi.Input['WorkflowInputFileLocationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 overwrite_existing: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']] = None):
+                 overwrite_existing: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']] = None,
+                 source_file_location: Optional[pulumi.Input[str]] = None):
         """
         Details for a step that performs a file copy.
         :param pulumi.Input[str] name: The name of the step, used as an identifier.
         :param pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting'] overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        :param pulumi.Input[str] source_file_location: Specifies which file to use as input to the workflow step.
         """
         if destination_file_location is not None:
             pulumi.set(__self__, "destination_file_location", destination_file_location)
@@ -469,6 +471,8 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
             pulumi.set(__self__, "name", name)
         if overwrite_existing is not None:
             pulumi.set(__self__, "overwrite_existing", overwrite_existing)
+        if source_file_location is not None:
+            pulumi.set(__self__, "source_file_location", source_file_location)
 
     @property
     @pulumi.getter(name="destinationFileLocation")
@@ -503,21 +507,37 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
     def overwrite_existing(self, value: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]):
         pulumi.set(self, "overwrite_existing", value)
 
+    @property
+    @pulumi.getter(name="sourceFileLocation")
+    def source_file_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        return pulumi.get(self, "source_file_location")
+
+    @source_file_location.setter
+    def source_file_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_file_location", value)
+
 
 @pulumi.input_type
 class WorkflowStepCustomStepDetailsPropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 source_file_location: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         Details for a step that invokes a lambda function.
         :param pulumi.Input[str] name: The name of the step, used as an identifier.
+        :param pulumi.Input[str] source_file_location: Specifies which file to use as input to the workflow step.
         :param pulumi.Input[str] target: The ARN for the lambda function that is being called.
         :param pulumi.Input[int] timeout_seconds: Timeout, in seconds, for the step.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if source_file_location is not None:
+            pulumi.set(__self__, "source_file_location", source_file_location)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if timeout_seconds is not None:
@@ -534,6 +554,18 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sourceFileLocation")
+    def source_file_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        return pulumi.get(self, "source_file_location")
+
+    @source_file_location.setter
+    def source_file_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_file_location", value)
 
     @property
     @pulumi.getter
@@ -563,13 +595,17 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
 @pulumi.input_type
 class WorkflowStepDeleteStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 source_file_location: Optional[pulumi.Input[str]] = None):
         """
         Details for a step that deletes the file.
         :param pulumi.Input[str] name: The name of the step, used as an identifier.
+        :param pulumi.Input[str] source_file_location: Specifies which file to use as input to the workflow step.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if source_file_location is not None:
+            pulumi.set(__self__, "source_file_location", source_file_location)
 
     @property
     @pulumi.getter
@@ -583,19 +619,35 @@ class WorkflowStepDeleteStepDetailsPropertiesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="sourceFileLocation")
+    def source_file_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        return pulumi.get(self, "source_file_location")
+
+    @source_file_location.setter
+    def source_file_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_file_location", value)
+
 
 @pulumi.input_type
 class WorkflowStepTagStepDetailsPropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 source_file_location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]] = None):
         """
         Details for a step that creates one or more tags.
         :param pulumi.Input[str] name: The name of the step, used as an identifier.
+        :param pulumi.Input[str] source_file_location: Specifies which file to use as input to the workflow step.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]] tags: Array that contains from 1 to 10 key/value pairs.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if source_file_location is not None:
+            pulumi.set(__self__, "source_file_location", source_file_location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -610,6 +662,18 @@ class WorkflowStepTagStepDetailsPropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sourceFileLocation")
+    def source_file_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        return pulumi.get(self, "source_file_location")
+
+    @source_file_location.setter
+    def source_file_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_file_location", value)
 
     @property
     @pulumi.getter

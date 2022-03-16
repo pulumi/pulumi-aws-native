@@ -13,7 +13,6 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleTimestreamAction
     {
-        public readonly bool? BatchMode;
         public readonly string DatabaseName;
         public readonly ImmutableArray<Outputs.TopicRuleTimestreamDimension> Dimensions;
         public readonly string RoleArn;
@@ -22,8 +21,6 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleTimestreamAction(
-            bool? batchMode,
-
             string databaseName,
 
             ImmutableArray<Outputs.TopicRuleTimestreamDimension> dimensions,
@@ -34,7 +31,6 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleTimestreamTimestamp? timestamp)
         {
-            BatchMode = batchMode;
             DatabaseName = databaseName;
             Dimensions = dimensions;
             RoleArn = roleArn;

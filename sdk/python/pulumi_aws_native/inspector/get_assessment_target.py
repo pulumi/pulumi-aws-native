@@ -17,13 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssessmentTargetResult:
-    def __init__(__self__, arn=None, id=None, resource_group_arn=None):
+    def __init__(__self__, arn=None, resource_group_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if resource_group_arn and not isinstance(resource_group_arn, str):
             raise TypeError("Expected argument 'resource_group_arn' to be a str")
         pulumi.set(__self__, "resource_group_arn", resource_group_arn)
@@ -32,11 +29,6 @@ class GetAssessmentTargetResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="resourceGroupArn")
@@ -51,17 +43,16 @@ class AwaitableGetAssessmentTargetResult(GetAssessmentTargetResult):
             yield self
         return GetAssessmentTargetResult(
             arn=self.arn,
-            id=self.id,
             resource_group_arn=self.resource_group_arn)
 
 
-def get_assessment_target(id: Optional[str] = None,
+def get_assessment_target(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentTargetResult:
     """
     Resource Type definition for AWS::Inspector::AssessmentTarget
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -70,12 +61,11 @@ def get_assessment_target(id: Optional[str] = None,
 
     return AwaitableGetAssessmentTargetResult(
         arn=__ret__.arn,
-        id=__ret__.id,
         resource_group_arn=__ret__.resource_group_arn)
 
 
 @_utilities.lift_output_func(get_assessment_target)
-def get_assessment_target_output(id: Optional[pulumi.Input[str]] = None,
+def get_assessment_target_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentTargetResult]:
     """
     Resource Type definition for AWS::Inspector::AssessmentTarget

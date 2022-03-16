@@ -340,13 +340,181 @@ func (in *clusterKubernetesNetworkConfigIpFamilyPtr) ToClusterKubernetesNetworkC
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
 }
 
+// The type of the identity provider configuration.
+type IdentityProviderConfigType string
+
+const (
+	IdentityProviderConfigTypeOidc = IdentityProviderConfigType("oidc")
+)
+
+func (IdentityProviderConfigType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigType)(nil)).Elem()
+}
+
+func (e IdentityProviderConfigType) ToIdentityProviderConfigTypeOutput() IdentityProviderConfigTypeOutput {
+	return pulumi.ToOutput(e).(IdentityProviderConfigTypeOutput)
+}
+
+func (e IdentityProviderConfigType) ToIdentityProviderConfigTypeOutputWithContext(ctx context.Context) IdentityProviderConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IdentityProviderConfigTypeOutput)
+}
+
+func (e IdentityProviderConfigType) ToIdentityProviderConfigTypePtrOutput() IdentityProviderConfigTypePtrOutput {
+	return e.ToIdentityProviderConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (e IdentityProviderConfigType) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
+	return IdentityProviderConfigType(e).ToIdentityProviderConfigTypeOutputWithContext(ctx).ToIdentityProviderConfigTypePtrOutputWithContext(ctx)
+}
+
+func (e IdentityProviderConfigType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdentityProviderConfigType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdentityProviderConfigType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdentityProviderConfigType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IdentityProviderConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderConfigType)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypeOutput() IdentityProviderConfigTypeOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypeOutputWithContext(ctx context.Context) IdentityProviderConfigTypeOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypePtrOutput() IdentityProviderConfigTypePtrOutput {
+	return o.ToIdentityProviderConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfigType) *IdentityProviderConfigType {
+		return &v
+	}).(IdentityProviderConfigTypePtrOutput)
+}
+
+func (o IdentityProviderConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderConfigTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityProviderConfigType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdentityProviderConfigTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderConfigTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityProviderConfigType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentityProviderConfigTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderConfigType)(nil)).Elem()
+}
+
+func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutput() IdentityProviderConfigTypePtrOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
+	return o
+}
+
+func (o IdentityProviderConfigTypePtrOutput) Elem() IdentityProviderConfigTypeOutput {
+	return o.ApplyT(func(v *IdentityProviderConfigType) IdentityProviderConfigType {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderConfigType
+		return ret
+	}).(IdentityProviderConfigTypeOutput)
+}
+
+func (o IdentityProviderConfigTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdentityProviderConfigType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IdentityProviderConfigTypeInput is an input type that accepts IdentityProviderConfigTypeArgs and IdentityProviderConfigTypeOutput values.
+// You can construct a concrete instance of `IdentityProviderConfigTypeInput` via:
+//
+//          IdentityProviderConfigTypeArgs{...}
+type IdentityProviderConfigTypeInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigTypeOutput() IdentityProviderConfigTypeOutput
+	ToIdentityProviderConfigTypeOutputWithContext(context.Context) IdentityProviderConfigTypeOutput
+}
+
+var identityProviderConfigTypePtrType = reflect.TypeOf((**IdentityProviderConfigType)(nil)).Elem()
+
+type IdentityProviderConfigTypePtrInput interface {
+	pulumi.Input
+
+	ToIdentityProviderConfigTypePtrOutput() IdentityProviderConfigTypePtrOutput
+	ToIdentityProviderConfigTypePtrOutputWithContext(context.Context) IdentityProviderConfigTypePtrOutput
+}
+
+type identityProviderConfigTypePtr string
+
+func IdentityProviderConfigTypePtr(v string) IdentityProviderConfigTypePtrInput {
+	return (*identityProviderConfigTypePtr)(&v)
+}
+
+func (*identityProviderConfigTypePtr) ElementType() reflect.Type {
+	return identityProviderConfigTypePtrType
+}
+
+func (in *identityProviderConfigTypePtr) ToIdentityProviderConfigTypePtrOutput() IdentityProviderConfigTypePtrOutput {
+	return pulumi.ToOutput(in).(IdentityProviderConfigTypePtrOutput)
+}
+
+func (in *identityProviderConfigTypePtr) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IdentityProviderConfigTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsPtrInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypeInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypePtrInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
 	pulumi.RegisterOutputType(AddonResolveConflictsOutput{})
 	pulumi.RegisterOutputType(AddonResolveConflictsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyPtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigTypeOutput{})
+	pulumi.RegisterOutputType(IdentityProviderConfigTypePtrOutput{})
 }

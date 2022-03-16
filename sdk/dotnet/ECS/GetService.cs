@@ -58,12 +58,16 @@ namespace Pulumi.AwsNative.ECS
         public readonly ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy;
         public readonly Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration;
         public readonly int? DesiredCount;
+        public readonly bool? EnableECSManagedTags;
         public readonly bool? EnableExecuteCommand;
         public readonly int? HealthCheckGracePeriodSeconds;
+        public readonly ImmutableArray<Outputs.ServiceLoadBalancer> LoadBalancers;
         public readonly string? Name;
         public readonly Outputs.ServiceNetworkConfiguration? NetworkConfiguration;
         public readonly string? PlatformVersion;
+        public readonly Pulumi.AwsNative.ECS.ServicePropagateTags? PropagateTags;
         public readonly string? ServiceArn;
+        public readonly ImmutableArray<Outputs.ServiceRegistry> ServiceRegistries;
         public readonly ImmutableArray<Outputs.ServiceTag> Tags;
         public readonly string? TaskDefinition;
 
@@ -75,9 +79,13 @@ namespace Pulumi.AwsNative.ECS
 
             int? desiredCount,
 
+            bool? enableECSManagedTags,
+
             bool? enableExecuteCommand,
 
             int? healthCheckGracePeriodSeconds,
+
+            ImmutableArray<Outputs.ServiceLoadBalancer> loadBalancers,
 
             string? name,
 
@@ -85,7 +93,11 @@ namespace Pulumi.AwsNative.ECS
 
             string? platformVersion,
 
+            Pulumi.AwsNative.ECS.ServicePropagateTags? propagateTags,
+
             string? serviceArn,
+
+            ImmutableArray<Outputs.ServiceRegistry> serviceRegistries,
 
             ImmutableArray<Outputs.ServiceTag> tags,
 
@@ -94,12 +106,16 @@ namespace Pulumi.AwsNative.ECS
             CapacityProviderStrategy = capacityProviderStrategy;
             DeploymentConfiguration = deploymentConfiguration;
             DesiredCount = desiredCount;
+            EnableECSManagedTags = enableECSManagedTags;
             EnableExecuteCommand = enableExecuteCommand;
             HealthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds;
+            LoadBalancers = loadBalancers;
             Name = name;
             NetworkConfiguration = networkConfiguration;
             PlatformVersion = platformVersion;
+            PropagateTags = propagateTags;
             ServiceArn = serviceArn;
+            ServiceRegistries = serviceRegistries;
             Tags = tags;
             TaskDefinition = taskDefinition;
         }

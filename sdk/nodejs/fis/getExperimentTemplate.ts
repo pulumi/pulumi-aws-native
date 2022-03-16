@@ -27,6 +27,7 @@ export interface GetExperimentTemplateResult {
     readonly actions?: outputs.fis.ExperimentTemplateActionMap;
     readonly description?: string;
     readonly id?: string;
+    readonly logConfiguration?: outputs.fis.ExperimentTemplateLogConfiguration;
     readonly roleArn?: string;
     readonly stopConditions?: outputs.fis.ExperimentTemplateStopCondition[];
     readonly targets?: outputs.fis.ExperimentTemplateTargetMap;

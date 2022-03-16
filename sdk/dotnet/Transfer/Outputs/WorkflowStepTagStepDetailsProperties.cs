@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Specifies which file to use as input to the workflow step.
+        /// </summary>
+        public readonly string? SourceFileLocation;
+        /// <summary>
         /// Array that contains from 1 to 10 key/value pairs.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowS3Tag> Tags;
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         private WorkflowStepTagStepDetailsProperties(
             string? name,
 
+            string? sourceFileLocation,
+
             ImmutableArray<Outputs.WorkflowS3Tag> tags)
         {
             Name = name;
+            SourceFileLocation = sourceFileLocation;
             Tags = tags;
         }
     }

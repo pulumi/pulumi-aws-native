@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.MSK.Outputs
     [OutputType]
     public sealed class ClusterEncryptionInTransit
     {
-        public readonly string? ClientBroker;
+        public readonly Pulumi.AwsNative.MSK.ClusterEncryptionInTransitClientBroker? ClientBroker;
         public readonly bool? InCluster;
 
         [OutputConstructor]
         private ClusterEncryptionInTransit(
-            string? clientBroker,
+            Pulumi.AwsNative.MSK.ClusterEncryptionInTransitClientBroker? clientBroker,
 
             bool? inCluster)
         {

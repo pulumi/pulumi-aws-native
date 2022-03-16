@@ -22,6 +22,8 @@ class ServerArgs:
                  identity_provider_details: Optional[pulumi.Input['ServerIdentityProviderDetailsArgs']] = None,
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocolArgs']]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +46,10 @@ class ServerArgs:
             pulumi.set(__self__, "identity_provider_type", identity_provider_type)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if post_authentication_login_banner is not None:
+            pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
+        if pre_authentication_login_banner is not None:
+            pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
         if protocol_details is not None:
             pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
@@ -119,6 +125,24 @@ class ServerArgs:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter(name="postAuthenticationLoginBanner")
+    def post_authentication_login_banner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "post_authentication_login_banner")
+
+    @post_authentication_login_banner.setter
+    def post_authentication_login_banner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post_authentication_login_banner", value)
+
+    @property
+    @pulumi.getter(name="preAuthenticationLoginBanner")
+    def pre_authentication_login_banner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pre_authentication_login_banner")
+
+    @pre_authentication_login_banner.setter
+    def pre_authentication_login_banner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pre_authentication_login_banner", value)
+
+    @property
     @pulumi.getter(name="protocolDetails")
     def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArgs']]:
         return pulumi.get(self, "protocol_details")
@@ -181,6 +205,8 @@ class Server(pulumi.CustomResource):
                  identity_provider_details: Optional[pulumi.Input[pulumi.InputType['ServerIdentityProviderDetailsArgs']]] = None,
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerProtocolArgs']]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
@@ -224,6 +250,8 @@ class Server(pulumi.CustomResource):
                  identity_provider_details: Optional[pulumi.Input[pulumi.InputType['ServerIdentityProviderDetailsArgs']]] = None,
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerProtocolArgs']]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
@@ -249,6 +277,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["identity_provider_details"] = identity_provider_details
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["logging_role"] = logging_role
+            __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
+            __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
@@ -286,6 +316,8 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["identity_provider_details"] = None
         __props__.__dict__["identity_provider_type"] = None
         __props__.__dict__["logging_role"] = None
+        __props__.__dict__["post_authentication_login_banner"] = None
+        __props__.__dict__["pre_authentication_login_banner"] = None
         __props__.__dict__["protocol_details"] = None
         __props__.__dict__["protocols"] = None
         __props__.__dict__["security_policy_name"] = None
@@ -333,6 +365,16 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "logging_role")
+
+    @property
+    @pulumi.getter(name="postAuthenticationLoginBanner")
+    def post_authentication_login_banner(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "post_authentication_login_banner")
+
+    @property
+    @pulumi.getter(name="preAuthenticationLoginBanner")
+    def pre_authentication_login_banner(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "pre_authentication_login_banner")
 
     @property
     @pulumi.getter(name="protocolDetails")

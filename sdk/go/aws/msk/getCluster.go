@@ -21,20 +21,22 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	Id string `pulumi:"id"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupClusterResult struct {
+	Arn                  *string                      `pulumi:"arn"`
 	BrokerNodeGroupInfo  *ClusterBrokerNodeGroupInfo  `pulumi:"brokerNodeGroupInfo"`
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
 	ConfigurationInfo    *ClusterConfigurationInfo    `pulumi:"configurationInfo"`
-	EncryptionInfo       *ClusterEncryptionInfo       `pulumi:"encryptionInfo"`
-	EnhancedMonitoring   *string                      `pulumi:"enhancedMonitoring"`
-	Id                   *string                      `pulumi:"id"`
-	KafkaVersion         *string                      `pulumi:"kafkaVersion"`
-	LoggingInfo          *ClusterLoggingInfo          `pulumi:"loggingInfo"`
-	NumberOfBrokerNodes  *int                         `pulumi:"numberOfBrokerNodes"`
-	OpenMonitoring       *ClusterOpenMonitoring       `pulumi:"openMonitoring"`
+	// The current version of the MSK cluster
+	CurrentVersion      *string                    `pulumi:"currentVersion"`
+	EncryptionInfo      *ClusterEncryptionInfo     `pulumi:"encryptionInfo"`
+	EnhancedMonitoring  *ClusterEnhancedMonitoring `pulumi:"enhancedMonitoring"`
+	KafkaVersion        *string                    `pulumi:"kafkaVersion"`
+	LoggingInfo         *ClusterLoggingInfo        `pulumi:"loggingInfo"`
+	NumberOfBrokerNodes *int                       `pulumi:"numberOfBrokerNodes"`
+	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -47,7 +49,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 }
 
 type LookupClusterOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {
@@ -68,6 +70,10 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+func (o LookupClusterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupClusterResultOutput) BrokerNodeGroupInfo() ClusterBrokerNodeGroupInfoPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterBrokerNodeGroupInfo { return v.BrokerNodeGroupInfo }).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
@@ -80,16 +86,17 @@ func (o LookupClusterResultOutput) ConfigurationInfo() ClusterConfigurationInfoP
 	return o.ApplyT(func(v LookupClusterResult) *ClusterConfigurationInfo { return v.ConfigurationInfo }).(ClusterConfigurationInfoPtrOutput)
 }
 
+// The current version of the MSK cluster
+func (o LookupClusterResultOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupClusterResultOutput) EncryptionInfo() ClusterEncryptionInfoPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterEncryptionInfo { return v.EncryptionInfo }).(ClusterEncryptionInfoPtrOutput)
 }
 
-func (o LookupClusterResultOutput) EnhancedMonitoring() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.EnhancedMonitoring }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupClusterResultOutput) EnhancedMonitoring() ClusterEnhancedMonitoringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterEnhancedMonitoring { return v.EnhancedMonitoring }).(ClusterEnhancedMonitoringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) KafkaVersion() pulumi.StringPtrOutput {

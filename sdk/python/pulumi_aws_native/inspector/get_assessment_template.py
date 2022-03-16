@@ -17,23 +17,15 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssessmentTemplateResult:
-    def __init__(__self__, arn=None, id=None):
+    def __init__(__self__, arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
 
 class AwaitableGetAssessmentTemplateResult(GetAssessmentTemplateResult):
@@ -42,17 +34,16 @@ class AwaitableGetAssessmentTemplateResult(GetAssessmentTemplateResult):
         if False:
             yield self
         return GetAssessmentTemplateResult(
-            arn=self.arn,
-            id=self.id)
+            arn=self.arn)
 
 
-def get_assessment_template(id: Optional[str] = None,
+def get_assessment_template(arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentTemplateResult:
     """
     Resource Type definition for AWS::Inspector::AssessmentTemplate
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -60,12 +51,11 @@ def get_assessment_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:inspector:getAssessmentTemplate', __args__, opts=opts, typ=GetAssessmentTemplateResult).value
 
     return AwaitableGetAssessmentTemplateResult(
-        arn=__ret__.arn,
-        id=__ret__.id)
+        arn=__ret__.arn)
 
 
 @_utilities.lift_output_func(get_assessment_template)
-def get_assessment_template_output(id: Optional[pulumi.Input[str]] = None,
+def get_assessment_template_output(arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentTemplateResult]:
     """
     Resource Type definition for AWS::Inspector::AssessmentTemplate

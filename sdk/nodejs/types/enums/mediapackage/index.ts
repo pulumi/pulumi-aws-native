@@ -46,6 +46,7 @@ export type OriginEndpointDashPackagePeriodTriggersItem = (typeof OriginEndpoint
 export const OriginEndpointDashPackageProfile = {
     None: "NONE",
     Hbbtv15: "HBBTV_1_5",
+    Hybridcast: "HYBRIDCAST",
 } as const;
 
 /**

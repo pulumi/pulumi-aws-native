@@ -41,10 +41,10 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
     public readonly removeSubnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayVpcAttachmentTag[] | undefined>;
-    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    public readonly transitGatewayId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayVpcAttachment resource with the given unique name, arguments, and options.
@@ -53,10 +53,19 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TransitGatewayVpcAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TransitGatewayVpcAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnetIds'");
+            }
+            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'transitGatewayId'");
+            }
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'vpcId'");
+            }
             resourceInputs["addSubnetIds"] = args ? args.addSubnetIds : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["removeSubnetIds"] = args ? args.removeSubnetIds : undefined;
@@ -88,8 +97,8 @@ export interface TransitGatewayVpcAttachmentArgs {
      */
     options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
     removeSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayVpcAttachmentTagArgs>[]>;
-    transitGatewayId?: pulumi.Input<string>;
-    vpcId?: pulumi.Input<string>;
+    transitGatewayId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

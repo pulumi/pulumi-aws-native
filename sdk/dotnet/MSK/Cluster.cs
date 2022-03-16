@@ -12,10 +12,12 @@ namespace Pulumi.AwsNative.MSK
     /// <summary>
     /// Resource Type definition for AWS::MSK::Cluster
     /// </summary>
-    [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:msk:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
@@ -28,11 +30,17 @@ namespace Pulumi.AwsNative.MSK
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// The current version of the MSK cluster
+        /// </summary>
+        [Output("currentVersion")]
+        public Output<string?> CurrentVersion { get; private set; } = null!;
+
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
 
         [Output("enhancedMonitoring")]
-        public Output<string?> EnhancedMonitoring { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MSK.ClusterEnhancedMonitoring?> EnhancedMonitoring { get; private set; } = null!;
 
         [Output("kafkaVersion")]
         public Output<string> KafkaVersion { get; private set; } = null!;
@@ -46,6 +54,9 @@ namespace Pulumi.AwsNative.MSK
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -106,11 +117,17 @@ namespace Pulumi.AwsNative.MSK
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
+        /// <summary>
+        /// The current version of the MSK cluster
+        /// </summary>
+        [Input("currentVersion")]
+        public Input<string>? CurrentVersion { get; set; }
+
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
 
         [Input("enhancedMonitoring")]
-        public Input<string>? EnhancedMonitoring { get; set; }
+        public Input<Pulumi.AwsNative.MSK.ClusterEnhancedMonitoring>? EnhancedMonitoring { get; set; }
 
         [Input("kafkaVersion", required: true)]
         public Input<string> KafkaVersion { get; set; } = null!;
@@ -124,6 +141,9 @@ namespace Pulumi.AwsNative.MSK
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

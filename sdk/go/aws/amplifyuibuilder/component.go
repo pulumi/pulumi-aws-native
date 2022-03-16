@@ -25,6 +25,7 @@ type Component struct {
 	Name                 pulumi.StringOutput                    `pulumi:"name"`
 	Overrides            ComponentOverridesOutput               `pulumi:"overrides"`
 	Properties           ComponentPropertiesOutput              `pulumi:"properties"`
+	SchemaVersion        pulumi.StringPtrOutput                 `pulumi:"schemaVersion"`
 	SourceId             pulumi.StringPtrOutput                 `pulumi:"sourceId"`
 	Tags                 ComponentTagsPtrOutput                 `pulumi:"tags"`
 	Variants             ComponentVariantArrayOutput            `pulumi:"variants"`
@@ -92,6 +93,7 @@ type componentArgs struct {
 	Name                 *string                        `pulumi:"name"`
 	Overrides            ComponentOverrides             `pulumi:"overrides"`
 	Properties           ComponentProperties            `pulumi:"properties"`
+	SchemaVersion        *string                        `pulumi:"schemaVersion"`
 	SourceId             *string                        `pulumi:"sourceId"`
 	Tags                 *ComponentTags                 `pulumi:"tags"`
 	Variants             []ComponentVariant             `pulumi:"variants"`
@@ -107,6 +109,7 @@ type ComponentArgs struct {
 	Name                 pulumi.StringPtrInput
 	Overrides            ComponentOverridesInput
 	Properties           ComponentPropertiesInput
+	SchemaVersion        pulumi.StringPtrInput
 	SourceId             pulumi.StringPtrInput
 	Tags                 ComponentTagsPtrInput
 	Variants             ComponentVariantArrayInput

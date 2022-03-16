@@ -14,17 +14,16 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:inspector:getResourceGroup", {
-        "id": args.id,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetResourceGroupArgs {
-    id: string;
+    arn: string;
 }
 
 export interface GetResourceGroupResult {
     readonly arn?: string;
-    readonly id?: string;
 }
 
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
@@ -32,5 +31,5 @@ export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: 
 }
 
 export interface GetResourceGroupOutputArgs {
-    id: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

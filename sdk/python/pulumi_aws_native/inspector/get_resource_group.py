@@ -17,23 +17,15 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceGroupResult:
-    def __init__(__self__, arn=None, id=None):
+    def __init__(__self__, arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
 
 class AwaitableGetResourceGroupResult(GetResourceGroupResult):
@@ -42,17 +34,16 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
         if False:
             yield self
         return GetResourceGroupResult(
-            arn=self.arn,
-            id=self.id)
+            arn=self.arn)
 
 
-def get_resource_group(id: Optional[str] = None,
+def get_resource_group(arn: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGroupResult:
     """
     Resource Type definition for AWS::Inspector::ResourceGroup
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -60,12 +51,11 @@ def get_resource_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:inspector:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult).value
 
     return AwaitableGetResourceGroupResult(
-        arn=__ret__.arn,
-        id=__ret__.id)
+        arn=__ret__.arn)
 
 
 @_utilities.lift_output_func(get_resource_group)
-def get_resource_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_resource_group_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
     Resource Type definition for AWS::Inspector::ResourceGroup

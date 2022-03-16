@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleTimestreamActionArgs : Pulumi.ResourceArgs
     {
-        [Input("batchMode")]
-        public Input<bool>? BatchMode { get; set; }
-
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 

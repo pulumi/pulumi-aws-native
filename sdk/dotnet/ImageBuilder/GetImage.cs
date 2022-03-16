@@ -60,13 +60,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
-        /// </summary>
-        public readonly string? ContainerRecipeArn;
-        /// <summary>
         /// The AMI ID of the EC2 AMI in current region.
         /// </summary>
         public readonly string? ImageId;
+        /// <summary>
+        /// URI for containers created in current Region with default ECR image tag
+        /// </summary>
+        public readonly string? ImageUri;
         /// <summary>
         /// The name of the image.
         /// </summary>
@@ -76,15 +76,15 @@ namespace Pulumi.AwsNative.ImageBuilder
         private GetImageResult(
             string? arn,
 
-            string? containerRecipeArn,
-
             string? imageId,
+
+            string? imageUri,
 
             string? name)
         {
             Arn = arn;
-            ContainerRecipeArn = containerRecipeArn;
             ImageId = imageId;
+            ImageUri = imageUri;
             Name = name;
         }
     }

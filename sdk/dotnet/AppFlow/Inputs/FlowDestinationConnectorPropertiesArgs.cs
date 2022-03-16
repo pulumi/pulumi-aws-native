@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("lookoutMetrics")]
         public Input<Inputs.FlowLookoutMetricsDestinationPropertiesArgs>? LookoutMetrics { get; set; }
 
+        [Input("marketo")]
+        public Input<Inputs.FlowMarketoDestinationPropertiesArgs>? Marketo { get; set; }
+
         [Input("redshift")]
         public Input<Inputs.FlowRedshiftDestinationPropertiesArgs>? Redshift { get; set; }
 
         [Input("s3")]
         public Input<Inputs.FlowS3DestinationPropertiesArgs>? S3 { get; set; }
+
+        [Input("sAPOData")]
+        public Input<Inputs.FlowSAPODataDestinationPropertiesArgs>? SAPOData { get; set; }
 
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceDestinationPropertiesArgs>? Salesforce { get; set; }

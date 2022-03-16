@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -21,13 +22,16 @@ class ClusterArgs:
                  client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
+                 current_version: Optional[pulumi.Input[str]] = None,
                  encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
-                 enhanced_monitoring: Optional[pulumi.Input[str]] = None,
+                 enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[str] current_version: The current version of the MSK cluster
+        :param Any tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
         pulumi.set(__self__, "kafka_version", kafka_version)
@@ -38,6 +42,8 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if configuration_info is not None:
             pulumi.set(__self__, "configuration_info", configuration_info)
+        if current_version is not None:
+            pulumi.set(__self__, "current_version", current_version)
         if encryption_info is not None:
             pulumi.set(__self__, "encryption_info", encryption_info)
         if enhanced_monitoring is not None:
@@ -104,6 +110,18 @@ class ClusterArgs:
         pulumi.set(self, "configuration_info", value)
 
     @property
+    @pulumi.getter(name="currentVersion")
+    def current_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version of the MSK cluster
+        """
+        return pulumi.get(self, "current_version")
+
+    @current_version.setter
+    def current_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_version", value)
+
+    @property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> Optional[pulumi.Input['ClusterEncryptionInfoArgs']]:
         return pulumi.get(self, "encryption_info")
@@ -114,11 +132,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="enhancedMonitoring")
-    def enhanced_monitoring(self) -> Optional[pulumi.Input[str]]:
+    def enhanced_monitoring(self) -> Optional[pulumi.Input['ClusterEnhancedMonitoring']]:
         return pulumi.get(self, "enhanced_monitoring")
 
     @enhanced_monitoring.setter
-    def enhanced_monitoring(self, value: Optional[pulumi.Input[str]]):
+    def enhanced_monitoring(self, value: Optional[pulumi.Input['ClusterEnhancedMonitoring']]):
         pulumi.set(self, "enhanced_monitoring", value)
 
     @property
@@ -142,6 +160,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,12 +170,7 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Cluster(pulumi.CustomResource):
-    warnings.warn("""Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -163,8 +179,9 @@ class Cluster(pulumi.CustomResource):
                  client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
+                 current_version: Optional[pulumi.Input[str]] = None,
                  encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
-                 enhanced_monitoring: Optional[pulumi.Input[str]] = None,
+                 enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  kafka_version: Optional[pulumi.Input[str]] = None,
                  logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
@@ -176,6 +193,8 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] current_version: The current version of the MSK cluster
+        :param Any tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -205,15 +224,15 @@ class Cluster(pulumi.CustomResource):
                  client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
+                 current_version: Optional[pulumi.Input[str]] = None,
                  encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
-                 enhanced_monitoring: Optional[pulumi.Input[str]] = None,
+                 enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  kafka_version: Optional[pulumi.Input[str]] = None,
                  logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,6 +250,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["client_authentication"] = client_authentication
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_info"] = configuration_info
+            __props__.__dict__["current_version"] = current_version
             __props__.__dict__["encryption_info"] = encryption_info
             __props__.__dict__["enhanced_monitoring"] = enhanced_monitoring
             if kafka_version is None and not opts.urn:
@@ -242,6 +262,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
             __props__.__dict__["open_monitoring"] = open_monitoring
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Cluster, __self__).__init__(
             'aws-native:msk:Cluster',
             resource_name,
@@ -264,10 +285,12 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["broker_node_group_info"] = None
         __props__.__dict__["client_authentication"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["configuration_info"] = None
+        __props__.__dict__["current_version"] = None
         __props__.__dict__["encryption_info"] = None
         __props__.__dict__["enhanced_monitoring"] = None
         __props__.__dict__["kafka_version"] = None
@@ -276,6 +299,11 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["open_monitoring"] = None
         __props__.__dict__["tags"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
@@ -298,13 +326,21 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "configuration_info")
 
     @property
+    @pulumi.getter(name="currentVersion")
+    def current_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The current version of the MSK cluster
+        """
+        return pulumi.get(self, "current_version")
+
+    @property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> pulumi.Output[Optional['outputs.ClusterEncryptionInfo']]:
         return pulumi.get(self, "encryption_info")
 
     @property
     @pulumi.getter(name="enhancedMonitoring")
-    def enhanced_monitoring(self) -> pulumi.Output[Optional[str]]:
+    def enhanced_monitoring(self) -> pulumi.Output[Optional['ClusterEnhancedMonitoring']]:
         return pulumi.get(self, "enhanced_monitoring")
 
     @property
@@ -330,5 +366,8 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 

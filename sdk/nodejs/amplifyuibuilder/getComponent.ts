@@ -39,6 +39,7 @@ export interface GetComponentResult {
     readonly name?: string;
     readonly overrides?: outputs.amplifyuibuilder.ComponentOverrides;
     readonly properties?: outputs.amplifyuibuilder.ComponentProperties;
+    readonly schemaVersion?: string;
     readonly sourceId?: string;
     readonly variants?: outputs.amplifyuibuilder.ComponentVariant[];
 }

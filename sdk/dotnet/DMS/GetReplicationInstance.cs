@@ -59,8 +59,8 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? PreferredMaintenanceWindow;
         public readonly string? ReplicationInstanceClass;
         public readonly string? ReplicationInstanceIdentifier;
-        public readonly ImmutableArray<string> ReplicationInstancePrivateIpAddresses;
-        public readonly ImmutableArray<string> ReplicationInstancePublicIpAddresses;
+        public readonly string? ReplicationInstancePrivateIpAddresses;
+        public readonly string? ReplicationInstancePublicIpAddresses;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -85,9 +85,9 @@ namespace Pulumi.AwsNative.DMS
 
             string? replicationInstanceIdentifier,
 
-            ImmutableArray<string> replicationInstancePrivateIpAddresses,
+            string? replicationInstancePrivateIpAddresses,
 
-            ImmutableArray<string> replicationInstancePublicIpAddresses,
+            string? replicationInstancePublicIpAddresses,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

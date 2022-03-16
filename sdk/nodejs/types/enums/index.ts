@@ -67,10 +67,12 @@ import * as macie from "./macie";
 import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
 import * as memorydb from "./memorydb";
+import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
 import * as panorama from "./panorama";
+import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
@@ -166,10 +168,12 @@ export {
     mediaconnect,
     mediapackage,
     memorydb,
+    msk,
     mwaa,
     networkfirewall,
     nimblestudio,
     panorama,
+    personalize,
     pinpoint,
     quicksight,
     rds,

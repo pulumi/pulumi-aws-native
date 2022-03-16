@@ -68,4 +68,34 @@ namespace Pulumi.AwsNative.EKS
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of the identity provider configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityProviderConfigType : IEquatable<IdentityProviderConfigType>
+    {
+        private readonly string _value;
+
+        private IdentityProviderConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityProviderConfigType Oidc { get; } = new IdentityProviderConfigType("oidc");
+
+        public static bool operator ==(IdentityProviderConfigType left, IdentityProviderConfigType right) => left.Equals(right);
+        public static bool operator !=(IdentityProviderConfigType left, IdentityProviderConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityProviderConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityProviderConfigType other && Equals(other);
+        public bool Equals(IdentityProviderConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

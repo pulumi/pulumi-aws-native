@@ -1205,6 +1205,8 @@ class JobOutput(dict):
             suggest = "compression_format"
         elif key == "formatOptions":
             suggest = "format_options"
+        elif key == "maxOutputFiles":
+            suggest = "max_output_files"
         elif key == "partitionColumns":
             suggest = "partition_columns"
 
@@ -1224,6 +1226,7 @@ class JobOutput(dict):
                  compression_format: Optional['JobOutputCompressionFormat'] = None,
                  format: Optional['JobOutputFormat'] = None,
                  format_options: Optional['outputs.JobOutputFormatOptions'] = None,
+                 max_output_files: Optional[int] = None,
                  overwrite: Optional[bool] = None,
                  partition_columns: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "location", location)
@@ -1233,6 +1236,8 @@ class JobOutput(dict):
             pulumi.set(__self__, "format", format)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
+        if max_output_files is not None:
+            pulumi.set(__self__, "max_output_files", max_output_files)
         if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if partition_columns is not None:
@@ -1257,6 +1262,11 @@ class JobOutput(dict):
     @pulumi.getter(name="formatOptions")
     def format_options(self) -> Optional['outputs.JobOutputFormatOptions']:
         return pulumi.get(self, "format_options")
+
+    @property
+    @pulumi.getter(name="maxOutputFiles")
+    def max_output_files(self) -> Optional[int]:
+        return pulumi.get(self, "max_output_files")
 
     @property
     @pulumi.getter

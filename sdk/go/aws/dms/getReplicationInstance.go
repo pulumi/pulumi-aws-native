@@ -35,8 +35,8 @@ type LookupReplicationInstanceResult struct {
 	PreferredMaintenanceWindow            *string  `pulumi:"preferredMaintenanceWindow"`
 	ReplicationInstanceClass              *string  `pulumi:"replicationInstanceClass"`
 	ReplicationInstanceIdentifier         *string  `pulumi:"replicationInstanceIdentifier"`
-	ReplicationInstancePrivateIpAddresses []string `pulumi:"replicationInstancePrivateIpAddresses"`
-	ReplicationInstancePublicIpAddresses  []string `pulumi:"replicationInstancePublicIpAddresses"`
+	ReplicationInstancePrivateIpAddresses *string  `pulumi:"replicationInstancePrivateIpAddresses"`
+	ReplicationInstancePublicIpAddresses  *string  `pulumi:"replicationInstancePublicIpAddresses"`
 	VpcSecurityGroupIds                   []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -111,12 +111,12 @@ func (o LookupReplicationInstanceResultOutput) ReplicationInstanceIdentifier() p
 	return o.ApplyT(func(v LookupReplicationInstanceResult) *string { return v.ReplicationInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationInstanceResultOutput) ReplicationInstancePrivateIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupReplicationInstanceResult) []string { return v.ReplicationInstancePrivateIpAddresses }).(pulumi.StringArrayOutput)
+func (o LookupReplicationInstanceResultOutput) ReplicationInstancePrivateIpAddresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) *string { return v.ReplicationInstancePrivateIpAddresses }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationInstanceResultOutput) ReplicationInstancePublicIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupReplicationInstanceResult) []string { return v.ReplicationInstancePublicIpAddresses }).(pulumi.StringArrayOutput)
+func (o LookupReplicationInstanceResultOutput) ReplicationInstancePublicIpAddresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) *string { return v.ReplicationInstancePublicIpAddresses }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReplicationInstanceResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

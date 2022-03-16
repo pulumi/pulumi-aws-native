@@ -25,12 +25,13 @@ type LookupExperimentTemplateArgs struct {
 }
 
 type LookupExperimentTemplateResult struct {
-	Actions        *ExperimentTemplateActionMap      `pulumi:"actions"`
-	Description    *string                           `pulumi:"description"`
-	Id             *string                           `pulumi:"id"`
-	RoleArn        *string                           `pulumi:"roleArn"`
-	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	Targets        *ExperimentTemplateTargetMap      `pulumi:"targets"`
+	Actions          *ExperimentTemplateActionMap        `pulumi:"actions"`
+	Description      *string                             `pulumi:"description"`
+	Id               *string                             `pulumi:"id"`
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
+	RoleArn          *string                             `pulumi:"roleArn"`
+	StopConditions   []ExperimentTemplateStopCondition   `pulumi:"stopConditions"`
+	Targets          *ExperimentTemplateTargetMap        `pulumi:"targets"`
 }
 
 func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTemplateResultOutput {
@@ -74,6 +75,10 @@ func (o LookupExperimentTemplateResultOutput) Description() pulumi.StringPtrOutp
 
 func (o LookupExperimentTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupExperimentTemplateResultOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateLogConfiguration { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
 func (o LookupExperimentTemplateResultOutput) RoleArn() pulumi.StringPtrOutput {

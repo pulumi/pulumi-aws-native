@@ -21,12 +21,11 @@ func LookupAssessmentTarget(ctx *pulumi.Context, args *LookupAssessmentTargetArg
 }
 
 type LookupAssessmentTargetArgs struct {
-	Id string `pulumi:"id"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupAssessmentTargetResult struct {
 	Arn              *string `pulumi:"arn"`
-	Id               *string `pulumi:"id"`
 	ResourceGroupArn *string `pulumi:"resourceGroupArn"`
 }
 
@@ -40,7 +39,7 @@ func LookupAssessmentTargetOutput(ctx *pulumi.Context, args LookupAssessmentTarg
 }
 
 type LookupAssessmentTargetOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupAssessmentTargetOutputArgs) ElementType() reflect.Type {
@@ -63,10 +62,6 @@ func (o LookupAssessmentTargetResultOutput) ToLookupAssessmentTargetResultOutput
 
 func (o LookupAssessmentTargetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentTargetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupAssessmentTargetResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAssessmentTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAssessmentTargetResultOutput) ResourceGroupArn() pulumi.StringPtrOutput {

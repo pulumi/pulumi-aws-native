@@ -70,6 +70,7 @@ class OriginEndpointDashPackageProfile(str, Enum):
     """
     NONE = "NONE"
     HBBTV15 = "HBBTV_1_5"
+    HYBRIDCAST = "HYBRIDCAST"
 
 
 class OriginEndpointDashPackageSegmentTemplateFormat(str, Enum):

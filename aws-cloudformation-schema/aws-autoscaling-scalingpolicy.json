@@ -45,50 +45,49 @@
     }
   },
   "definitions" : {
-    "PredictiveScalingMetricSpecification" : {
+    "PredictiveScalingCustomizedCapacityMetric" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "PredefinedLoadMetricSpecification" : {
-          "$ref" : "#/definitions/PredictiveScalingPredefinedLoadMetric"
-        },
-        "TargetValue" : {
-          "type" : "number"
-        },
-        "PredefinedScalingMetricSpecification" : {
-          "$ref" : "#/definitions/PredictiveScalingPredefinedScalingMetric"
-        },
-        "PredefinedMetricPairSpecification" : {
-          "$ref" : "#/definitions/PredictiveScalingPredefinedMetricPair"
-        }
-      },
-      "required" : [ "TargetValue" ]
-    },
-    "PredictiveScalingConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MetricSpecifications" : {
+        "MetricDataQueries" : {
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/PredictiveScalingMetricSpecification"
+            "$ref" : "#/definitions/MetricDataQuery"
           }
+        }
+      },
+      "required" : [ "MetricDataQueries" ]
+    },
+    "PredictiveScalingCustomizedScalingMetric" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MetricDataQueries" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/MetricDataQuery"
+          }
+        }
+      },
+      "required" : [ "MetricDataQueries" ]
+    },
+    "MetricStat" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Metric" : {
+          "$ref" : "#/definitions/Metric"
         },
-        "MaxCapacityBreachBehavior" : {
+        "Stat" : {
           "type" : "string"
         },
-        "MaxCapacityBuffer" : {
-          "type" : "integer"
-        },
-        "SchedulingBufferTime" : {
-          "type" : "integer"
-        },
-        "Mode" : {
+        "Unit" : {
           "type" : "string"
         }
       },
-      "required" : [ "MetricSpecifications" ]
+      "required" : [ "Stat", "Metric" ]
     },
     "CustomizedMetricSpecification" : {
       "type" : "object",
@@ -215,6 +214,116 @@
         }
       },
       "required" : [ "PredefinedMetricType" ]
+    },
+    "PredictiveScalingMetricSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CustomizedLoadMetricSpecification" : {
+          "$ref" : "#/definitions/PredictiveScalingCustomizedLoadMetric"
+        },
+        "PredefinedLoadMetricSpecification" : {
+          "$ref" : "#/definitions/PredictiveScalingPredefinedLoadMetric"
+        },
+        "TargetValue" : {
+          "type" : "number"
+        },
+        "PredefinedScalingMetricSpecification" : {
+          "$ref" : "#/definitions/PredictiveScalingPredefinedScalingMetric"
+        },
+        "CustomizedCapacityMetricSpecification" : {
+          "$ref" : "#/definitions/PredictiveScalingCustomizedCapacityMetric"
+        },
+        "CustomizedScalingMetricSpecification" : {
+          "$ref" : "#/definitions/PredictiveScalingCustomizedScalingMetric"
+        },
+        "PredefinedMetricPairSpecification" : {
+          "$ref" : "#/definitions/PredictiveScalingPredefinedMetricPair"
+        }
+      },
+      "required" : [ "TargetValue" ]
+    },
+    "PredictiveScalingConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MetricSpecifications" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/PredictiveScalingMetricSpecification"
+          }
+        },
+        "MaxCapacityBreachBehavior" : {
+          "type" : "string"
+        },
+        "MaxCapacityBuffer" : {
+          "type" : "integer"
+        },
+        "SchedulingBufferTime" : {
+          "type" : "integer"
+        },
+        "Mode" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "MetricSpecifications" ]
+    },
+    "PredictiveScalingCustomizedLoadMetric" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MetricDataQueries" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/MetricDataQuery"
+          }
+        }
+      },
+      "required" : [ "MetricDataQueries" ]
+    },
+    "Metric" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MetricName" : {
+          "type" : "string"
+        },
+        "Dimensions" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/MetricDimension"
+          }
+        },
+        "Namespace" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "MetricName", "Namespace" ]
+    },
+    "MetricDataQuery" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Label" : {
+          "type" : "string"
+        },
+        "MetricStat" : {
+          "$ref" : "#/definitions/MetricStat"
+        },
+        "Id" : {
+          "type" : "string"
+        },
+        "ReturnData" : {
+          "type" : "boolean"
+        },
+        "Expression" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Id" ]
     }
   },
   "required" : [ "AutoScalingGroupName" ],

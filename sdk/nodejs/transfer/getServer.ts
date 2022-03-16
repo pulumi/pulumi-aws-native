@@ -30,6 +30,8 @@ export interface GetServerResult {
     readonly endpointType?: string;
     readonly identityProviderDetails?: outputs.transfer.ServerIdentityProviderDetails;
     readonly loggingRole?: string;
+    readonly postAuthenticationLoginBanner?: string;
+    readonly preAuthenticationLoginBanner?: string;
     readonly protocolDetails?: outputs.transfer.ServerProtocolDetails;
     readonly protocols?: outputs.transfer.ServerProtocol[];
     readonly securityPolicyName?: string;

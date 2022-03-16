@@ -45,6 +45,7 @@ export class Component extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ComponentOverrides>;
     public readonly properties!: pulumi.Output<outputs.amplifyuibuilder.ComponentProperties>;
+    public readonly schemaVersion!: pulumi.Output<string | undefined>;
     public readonly sourceId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplifyuibuilder.ComponentTags | undefined>;
     public readonly variants!: pulumi.Output<outputs.amplifyuibuilder.ComponentVariant[]>;
@@ -83,6 +84,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["schemaVersion"] = args ? args.schemaVersion : undefined;
             resourceInputs["sourceId"] = args ? args.sourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["variants"] = args ? args.variants : undefined;
@@ -99,6 +101,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["overrides"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["schemaVersion"] = undefined /*out*/;
             resourceInputs["sourceId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["variants"] = undefined /*out*/;
@@ -120,6 +123,7 @@ export interface ComponentArgs {
     name?: pulumi.Input<string>;
     overrides: pulumi.Input<inputs.amplifyuibuilder.ComponentOverridesArgs>;
     properties: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertiesArgs>;
+    schemaVersion?: pulumi.Input<string>;
     sourceId?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.amplifyuibuilder.ComponentTagsArgs>;
     variants: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentVariantArgs>[]>;

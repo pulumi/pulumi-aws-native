@@ -29,12 +29,16 @@ type LookupServiceResult struct {
 	CapacityProviderStrategy      []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	DeploymentConfiguration       *ServiceDeploymentConfiguration       `pulumi:"deploymentConfiguration"`
 	DesiredCount                  *int                                  `pulumi:"desiredCount"`
+	EnableECSManagedTags          *bool                                 `pulumi:"enableECSManagedTags"`
 	EnableExecuteCommand          *bool                                 `pulumi:"enableExecuteCommand"`
 	HealthCheckGracePeriodSeconds *int                                  `pulumi:"healthCheckGracePeriodSeconds"`
+	LoadBalancers                 []ServiceLoadBalancer                 `pulumi:"loadBalancers"`
 	Name                          *string                               `pulumi:"name"`
 	NetworkConfiguration          *ServiceNetworkConfiguration          `pulumi:"networkConfiguration"`
 	PlatformVersion               *string                               `pulumi:"platformVersion"`
+	PropagateTags                 *ServicePropagateTags                 `pulumi:"propagateTags"`
 	ServiceArn                    *string                               `pulumi:"serviceArn"`
+	ServiceRegistries             []ServiceRegistry                     `pulumi:"serviceRegistries"`
 	Tags                          []ServiceTag                          `pulumi:"tags"`
 	TaskDefinition                *string                               `pulumi:"taskDefinition"`
 }
@@ -83,12 +87,20 @@ func (o LookupServiceResultOutput) DesiredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *int { return v.DesiredCount }).(pulumi.IntPtrOutput)
 }
 
+func (o LookupServiceResultOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *bool { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupServiceResultOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupServiceResultOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *int { return v.HealthCheckGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupServiceResultOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []ServiceLoadBalancer { return v.LoadBalancers }).(ServiceLoadBalancerArrayOutput)
 }
 
 func (o LookupServiceResultOutput) Name() pulumi.StringPtrOutput {
@@ -103,8 +115,16 @@ func (o LookupServiceResultOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupServiceResultOutput) PropagateTags() ServicePropagateTagsPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServicePropagateTags { return v.PropagateTags }).(ServicePropagateTagsPtrOutput)
+}
+
 func (o LookupServiceResultOutput) ServiceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServiceResultOutput) ServiceRegistries() ServiceRegistryArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []ServiceRegistry { return v.ServiceRegistries }).(ServiceRegistryArrayOutput)
 }
 
 func (o LookupServiceResultOutput) Tags() ServiceTagArrayOutput {

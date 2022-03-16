@@ -1143,6 +1143,7 @@ class JobOutputArgs:
                  compression_format: Optional[pulumi.Input['JobOutputCompressionFormat']] = None,
                  format: Optional[pulumi.Input['JobOutputFormat']] = None,
                  format_options: Optional[pulumi.Input['JobOutputFormatOptionsArgs']] = None,
+                 max_output_files: Optional[pulumi.Input[int]] = None,
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "location", location)
@@ -1152,6 +1153,8 @@ class JobOutputArgs:
             pulumi.set(__self__, "format", format)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
+        if max_output_files is not None:
+            pulumi.set(__self__, "max_output_files", max_output_files)
         if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if partition_columns is not None:
@@ -1192,6 +1195,15 @@ class JobOutputArgs:
     @format_options.setter
     def format_options(self, value: Optional[pulumi.Input['JobOutputFormatOptionsArgs']]):
         pulumi.set(self, "format_options", value)
+
+    @property
+    @pulumi.getter(name="maxOutputFiles")
+    def max_output_files(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_output_files")
+
+    @max_output_files.setter
+    def max_output_files(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_output_files", value)
 
     @property
     @pulumi.getter

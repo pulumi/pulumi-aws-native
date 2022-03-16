@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     public sealed class ScalingPolicyPredictiveScalingMetricSpecificationArgs : Pulumi.ResourceArgs
     {
+        [Input("customizedCapacityMetricSpecification")]
+        public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs>? CustomizedCapacityMetricSpecification { get; set; }
+
+        [Input("customizedLoadMetricSpecification")]
+        public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs>? CustomizedLoadMetricSpecification { get; set; }
+
+        [Input("customizedScalingMetricSpecification")]
+        public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs>? CustomizedScalingMetricSpecification { get; set; }
+
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs>? PredefinedLoadMetricSpecification { get; set; }
 

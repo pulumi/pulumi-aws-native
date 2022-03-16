@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("location", required: true)]
         public Input<Inputs.JobS3LocationArgs> Location { get; set; } = null!;
 
+        [Input("maxOutputFiles")]
+        public Input<int>? MaxOutputFiles { get; set; }
+
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
 

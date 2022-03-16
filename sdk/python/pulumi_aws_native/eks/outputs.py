@@ -21,6 +21,9 @@ __all__ = [
     'FargateProfileLabel',
     'FargateProfileSelector',
     'FargateProfileTag',
+    'IdentityProviderConfigOidcIdentityProviderConfig',
+    'IdentityProviderConfigRequiredClaim',
+    'IdentityProviderConfigTag',
     'NodegroupLaunchTemplateSpecification',
     'NodegroupRemoteAccess',
     'NodegroupScalingConfig',
@@ -454,6 +457,190 @@ class FargateProfileTag(dict):
     def value(self) -> str:
         """
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IdentityProviderConfigOidcIdentityProviderConfig(dict):
+    """
+    An object representing an OpenID Connect (OIDC) configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "issuerUrl":
+            suggest = "issuer_url"
+        elif key == "groupsClaim":
+            suggest = "groups_claim"
+        elif key == "groupsPrefix":
+            suggest = "groups_prefix"
+        elif key == "requiredClaims":
+            suggest = "required_claims"
+        elif key == "usernameClaim":
+            suggest = "username_claim"
+        elif key == "usernamePrefix":
+            suggest = "username_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityProviderConfigOidcIdentityProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityProviderConfigOidcIdentityProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityProviderConfigOidcIdentityProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 issuer_url: str,
+                 groups_claim: Optional[str] = None,
+                 groups_prefix: Optional[str] = None,
+                 required_claims: Optional[Sequence['outputs.IdentityProviderConfigRequiredClaim']] = None,
+                 username_claim: Optional[str] = None,
+                 username_prefix: Optional[str] = None):
+        """
+        An object representing an OpenID Connect (OIDC) configuration.
+        :param str client_id: This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+        :param str issuer_url: The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+        :param str groups_claim: The JWT claim that the provider uses to return your groups.
+        :param str groups_prefix: The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+        :param str username_claim: The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+        :param str username_prefix: The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "issuer_url", issuer_url)
+        if groups_claim is not None:
+            pulumi.set(__self__, "groups_claim", groups_claim)
+        if groups_prefix is not None:
+            pulumi.set(__self__, "groups_prefix", groups_prefix)
+        if required_claims is not None:
+            pulumi.set(__self__, "required_claims", required_claims)
+        if username_claim is not None:
+            pulumi.set(__self__, "username_claim", username_claim)
+        if username_prefix is not None:
+            pulumi.set(__self__, "username_prefix", username_prefix)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> str:
+        """
+        The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
+        """
+        return pulumi.get(self, "issuer_url")
+
+    @property
+    @pulumi.getter(name="groupsClaim")
+    def groups_claim(self) -> Optional[str]:
+        """
+        The JWT claim that the provider uses to return your groups.
+        """
+        return pulumi.get(self, "groups_claim")
+
+    @property
+    @pulumi.getter(name="groupsPrefix")
+    def groups_prefix(self) -> Optional[str]:
+        """
+        The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
+        """
+        return pulumi.get(self, "groups_prefix")
+
+    @property
+    @pulumi.getter(name="requiredClaims")
+    def required_claims(self) -> Optional[Sequence['outputs.IdentityProviderConfigRequiredClaim']]:
+        return pulumi.get(self, "required_claims")
+
+    @property
+    @pulumi.getter(name="usernameClaim")
+    def username_claim(self) -> Optional[str]:
+        """
+        The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
+        """
+        return pulumi.get(self, "username_claim")
+
+    @property
+    @pulumi.getter(name="usernamePrefix")
+    def username_prefix(self) -> Optional[str]:
+        """
+        The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
+        """
+        return pulumi.get(self, "username_prefix")
+
+
+@pulumi.output_type
+class IdentityProviderConfigRequiredClaim(dict):
+    """
+    The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        :param str key: The key of the requiredClaims.
+        :param str value: The value for the requiredClaims.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the requiredClaims.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the requiredClaims.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IdentityProviderConfigTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
 

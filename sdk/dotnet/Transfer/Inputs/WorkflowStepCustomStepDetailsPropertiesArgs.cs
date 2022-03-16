@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies which file to use as input to the workflow step.
+        /// </summary>
+        [Input("sourceFileLocation")]
+        public Input<string>? SourceFileLocation { get; set; }
+
+        /// <summary>
         /// The ARN for the lambda function that is being called.
         /// </summary>
         [Input("target")]

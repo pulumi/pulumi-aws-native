@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainTag
     {
+        /// <summary>
+        /// The value of the tag.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The key of the tag.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

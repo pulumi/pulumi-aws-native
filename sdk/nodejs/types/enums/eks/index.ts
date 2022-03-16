@@ -21,3 +21,12 @@ export const ClusterKubernetesNetworkConfigIpFamily = {
  * Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
  */
 export type ClusterKubernetesNetworkConfigIpFamily = (typeof ClusterKubernetesNetworkConfigIpFamily)[keyof typeof ClusterKubernetesNetworkConfigIpFamily];
+
+export const IdentityProviderConfigType = {
+    Oidc: "oidc",
+} as const;
+
+/**
+ * The type of the identity provider configuration.
+ */
+export type IdentityProviderConfigType = (typeof IdentityProviderConfigType)[keyof typeof IdentityProviderConfigType];

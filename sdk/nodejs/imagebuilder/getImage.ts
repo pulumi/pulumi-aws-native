@@ -31,13 +31,13 @@ export interface GetImageResult {
      */
     readonly arn?: string;
     /**
-     * The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
-     */
-    readonly containerRecipeArn?: string;
-    /**
      * The AMI ID of the EC2 AMI in current region.
      */
     readonly imageId?: string;
+    /**
+     * URI for containers created in current Region with default ECR image tag
+     */
+    readonly imageUri?: string;
     /**
      * The name of the image.
      */

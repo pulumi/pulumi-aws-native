@@ -54,6 +54,7 @@ type LookupEndpointResult struct {
 	ServerName                 *string                             `pulumi:"serverName"`
 	SslMode                    *string                             `pulumi:"sslMode"`
 	SybaseSettings             *EndpointSybaseSettings             `pulumi:"sybaseSettings"`
+	Tags                       []EndpointTag                       `pulumi:"tags"`
 	Username                   *string                             `pulumi:"username"`
 }
 
@@ -202,6 +203,10 @@ func (o LookupEndpointResultOutput) SslMode() pulumi.StringPtrOutput {
 
 func (o LookupEndpointResultOutput) SybaseSettings() EndpointSybaseSettingsPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointSybaseSettings { return v.SybaseSettings }).(EndpointSybaseSettingsPtrOutput)
+}
+
+func (o LookupEndpointResultOutput) Tags() EndpointTagArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []EndpointTag { return v.Tags }).(EndpointTagArrayOutput)
 }
 
 func (o LookupEndpointResultOutput) Username() pulumi.StringPtrOutput {

@@ -72,6 +72,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public readonly string? Name;
         public readonly Outputs.ComponentOverrides? Overrides;
         public readonly Outputs.ComponentProperties? Properties;
+        public readonly string? SchemaVersion;
         public readonly string? SourceId;
         public readonly ImmutableArray<Outputs.ComponentVariant> Variants;
 
@@ -99,6 +100,8 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
             Outputs.ComponentProperties? properties,
 
+            string? schemaVersion,
+
             string? sourceId,
 
             ImmutableArray<Outputs.ComponentVariant> variants)
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
             Name = name;
             Overrides = overrides;
             Properties = properties;
+            SchemaVersion = schemaVersion;
             SourceId = sourceId;
             Variants = variants;
         }

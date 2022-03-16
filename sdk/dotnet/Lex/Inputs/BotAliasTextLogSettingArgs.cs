@@ -15,11 +15,11 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotAliasTextLogSettingArgs : Pulumi.ResourceArgs
     {
-        [Input("destination")]
-        public Input<Inputs.BotAliasTextLogDestinationArgs>? Destination { get; set; }
+        [Input("destination", required: true)]
+        public Input<Inputs.BotAliasTextLogDestinationArgs> Destination { get; set; } = null!;
 
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
         public BotAliasTextLogSettingArgs()
         {

@@ -400,12 +400,12 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstancePrivateIpAddresses")
-    def replication_instance_private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def replication_instance_private_ip_addresses(self) -> pulumi.Output[str]:
         return pulumi.get(self, "replication_instance_private_ip_addresses")
 
     @property
     @pulumi.getter(name="replicationInstancePublicIpAddresses")
-    def replication_instance_public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def replication_instance_public_ip_addresses(self) -> pulumi.Output[str]:
         return pulumi.get(self, "replication_instance_public_ip_addresses")
 
     @property

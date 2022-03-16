@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::MSK::Cluster
- *
- * @deprecated Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
-        pulumi.log.warn("Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,16 +35,24 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     public readonly clusterName!: pulumi.Output<string>;
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
+    /**
+     * The current version of the MSK cluster
+     */
+    public readonly currentVersion!: pulumi.Output<string | undefined>;
     public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
-    public readonly enhancedMonitoring!: pulumi.Output<string | undefined>;
+    public readonly enhancedMonitoring!: pulumi.Output<enums.msk.ClusterEnhancedMonitoring | undefined>;
     public readonly kafkaVersion!: pulumi.Output<string>;
     public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -57,9 +62,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -76,6 +79,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
+            resourceInputs["currentVersion"] = args ? args.currentVersion : undefined;
             resourceInputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
             resourceInputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
             resourceInputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
@@ -83,11 +87,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["brokerNodeGroupInfo"] = undefined /*out*/;
             resourceInputs["clientAuthentication"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["configurationInfo"] = undefined /*out*/;
+            resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["encryptionInfo"] = undefined /*out*/;
             resourceInputs["enhancedMonitoring"] = undefined /*out*/;
             resourceInputs["kafkaVersion"] = undefined /*out*/;
@@ -109,11 +116,18 @@ export interface ClusterArgs {
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
     clusterName?: pulumi.Input<string>;
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
+    /**
+     * The current version of the MSK cluster
+     */
+    currentVersion?: pulumi.Input<string>;
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
-    enhancedMonitoring?: pulumi.Input<string>;
+    enhancedMonitoring?: pulumi.Input<enums.msk.ClusterEnhancedMonitoring>;
     kafkaVersion: pulumi.Input<string>;
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs>;
     numberOfBrokerNodes: pulumi.Input<number>;
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     tags?: any;
 }

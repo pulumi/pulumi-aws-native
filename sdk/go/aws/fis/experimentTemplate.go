@@ -15,12 +15,13 @@ import (
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
 
-	Actions        ExperimentTemplateActionMapPtrOutput       `pulumi:"actions"`
-	Description    pulumi.StringOutput                        `pulumi:"description"`
-	RoleArn        pulumi.StringOutput                        `pulumi:"roleArn"`
-	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
-	Tags           pulumi.AnyOutput                           `pulumi:"tags"`
-	Targets        ExperimentTemplateTargetMapOutput          `pulumi:"targets"`
+	Actions          ExperimentTemplateActionMapPtrOutput        `pulumi:"actions"`
+	Description      pulumi.StringOutput                         `pulumi:"description"`
+	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
+	RoleArn          pulumi.StringOutput                         `pulumi:"roleArn"`
+	StopConditions   ExperimentTemplateStopConditionArrayOutput  `pulumi:"stopConditions"`
+	Tags             pulumi.AnyOutput                            `pulumi:"tags"`
+	Targets          ExperimentTemplateTargetMapOutput           `pulumi:"targets"`
 }
 
 // NewExperimentTemplate registers a new resource with the given unique name, arguments, and options.
@@ -77,22 +78,24 @@ func (ExperimentTemplateState) ElementType() reflect.Type {
 }
 
 type experimentTemplateArgs struct {
-	Actions        *ExperimentTemplateActionMap      `pulumi:"actions"`
-	Description    string                            `pulumi:"description"`
-	RoleArn        string                            `pulumi:"roleArn"`
-	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	Tags           interface{}                       `pulumi:"tags"`
-	Targets        ExperimentTemplateTargetMap       `pulumi:"targets"`
+	Actions          *ExperimentTemplateActionMap        `pulumi:"actions"`
+	Description      string                              `pulumi:"description"`
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
+	RoleArn          string                              `pulumi:"roleArn"`
+	StopConditions   []ExperimentTemplateStopCondition   `pulumi:"stopConditions"`
+	Tags             interface{}                         `pulumi:"tags"`
+	Targets          ExperimentTemplateTargetMap         `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a ExperimentTemplate resource.
 type ExperimentTemplateArgs struct {
-	Actions        ExperimentTemplateActionMapPtrInput
-	Description    pulumi.StringInput
-	RoleArn        pulumi.StringInput
-	StopConditions ExperimentTemplateStopConditionArrayInput
-	Tags           pulumi.Input
-	Targets        ExperimentTemplateTargetMapInput
+	Actions          ExperimentTemplateActionMapPtrInput
+	Description      pulumi.StringInput
+	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
+	RoleArn          pulumi.StringInput
+	StopConditions   ExperimentTemplateStopConditionArrayInput
+	Tags             pulumi.Input
+	Targets          ExperimentTemplateTargetMapInput
 }
 
 func (ExperimentTemplateArgs) ElementType() reflect.Type {

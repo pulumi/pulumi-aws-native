@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExperimentTemplateResult:
-    def __init__(__self__, actions=None, description=None, id=None, role_arn=None, stop_conditions=None, targets=None):
+    def __init__(__self__, actions=None, description=None, id=None, log_configuration=None, role_arn=None, stop_conditions=None, targets=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -28,6 +28,9 @@ class GetExperimentTemplateResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if log_configuration and not isinstance(log_configuration, dict):
+            raise TypeError("Expected argument 'log_configuration' to be a dict")
+        pulumi.set(__self__, "log_configuration", log_configuration)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -54,6 +57,11 @@ class GetExperimentTemplateResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfiguration']:
+        return pulumi.get(self, "log_configuration")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
@@ -78,6 +86,7 @@ class AwaitableGetExperimentTemplateResult(GetExperimentTemplateResult):
             actions=self.actions,
             description=self.description,
             id=self.id,
+            log_configuration=self.log_configuration,
             role_arn=self.role_arn,
             stop_conditions=self.stop_conditions,
             targets=self.targets)
@@ -100,6 +109,7 @@ def get_experiment_template(id: Optional[str] = None,
         actions=__ret__.actions,
         description=__ret__.description,
         id=__ret__.id,
+        log_configuration=__ret__.log_configuration,
         role_arn=__ret__.role_arn,
         stop_conditions=__ret__.stop_conditions,
         targets=__ret__.targets)

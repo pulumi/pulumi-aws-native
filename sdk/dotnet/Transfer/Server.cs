@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Transfer
         [Output("loggingRole")]
         public Output<string?> LoggingRole { get; private set; } = null!;
 
+        [Output("postAuthenticationLoginBanner")]
+        public Output<string?> PostAuthenticationLoginBanner { get; private set; } = null!;
+
+        [Output("preAuthenticationLoginBanner")]
+        public Output<string?> PreAuthenticationLoginBanner { get; private set; } = null!;
+
         [Output("protocolDetails")]
         public Output<Outputs.ServerProtocolDetails?> ProtocolDetails { get; private set; } = null!;
 
@@ -123,6 +129,12 @@ namespace Pulumi.AwsNative.Transfer
 
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        [Input("postAuthenticationLoginBanner")]
+        public Input<string>? PostAuthenticationLoginBanner { get; set; }
+
+        [Input("preAuthenticationLoginBanner")]
+        public Input<string>? PreAuthenticationLoginBanner { get; set; }
 
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsArgs>? ProtocolDetails { get; set; }

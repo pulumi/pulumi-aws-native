@@ -1945,6 +1945,8 @@ type WorkflowStepCopyStepDetailsProperties struct {
 	Name *string `pulumi:"name"`
 	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
 	OverwriteExisting *WorkflowStepCopyStepDetailsPropertiesOverwriteExisting `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 }
 
 // WorkflowStepCopyStepDetailsPropertiesInput is an input type that accepts WorkflowStepCopyStepDetailsPropertiesArgs and WorkflowStepCopyStepDetailsPropertiesOutput values.
@@ -1965,6 +1967,8 @@ type WorkflowStepCopyStepDetailsPropertiesArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
 	OverwriteExisting WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrInput `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 }
 
 func (WorkflowStepCopyStepDetailsPropertiesArgs) ElementType() reflect.Type {
@@ -2063,6 +2067,11 @@ func (o WorkflowStepCopyStepDetailsPropertiesOutput) OverwriteExisting() Workflo
 	}).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCopyStepDetailsProperties) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
+}
+
 type WorkflowStepCopyStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepCopyStepDetailsPropertiesPtrOutput) ElementType() reflect.Type {
@@ -2116,10 +2125,22 @@ func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) OverwriteExisting() Work
 	}).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceFileLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details for a step that invokes a lambda function.
 type WorkflowStepCustomStepDetailsProperties struct {
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 	// The ARN for the lambda function that is being called.
 	Target *string `pulumi:"target"`
 	// Timeout, in seconds, for the step.
@@ -2141,6 +2162,8 @@ type WorkflowStepCustomStepDetailsPropertiesInput interface {
 type WorkflowStepCustomStepDetailsPropertiesArgs struct {
 	// The name of the step, used as an identifier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 	// The ARN for the lambda function that is being called.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// Timeout, in seconds, for the step.
@@ -2230,6 +2253,11 @@ func (o WorkflowStepCustomStepDetailsPropertiesOutput) Name() pulumi.StringPtrOu
 	return o.ApplyT(func(v WorkflowStepCustomStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCustomStepDetailsProperties) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
+}
+
 // The ARN for the lambda function that is being called.
 func (o WorkflowStepCustomStepDetailsPropertiesOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCustomStepDetailsProperties) *string { return v.Target }).(pulumi.StringPtrOutput)
@@ -2274,6 +2302,16 @@ func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCustomStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceFileLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN for the lambda function that is being called.
 func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCustomStepDetailsProperties) *string {
@@ -2298,6 +2336,8 @@ func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) TimeoutSeconds() pulum
 type WorkflowStepDeleteStepDetailsProperties struct {
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 }
 
 // WorkflowStepDeleteStepDetailsPropertiesInput is an input type that accepts WorkflowStepDeleteStepDetailsPropertiesArgs and WorkflowStepDeleteStepDetailsPropertiesOutput values.
@@ -2315,6 +2355,8 @@ type WorkflowStepDeleteStepDetailsPropertiesInput interface {
 type WorkflowStepDeleteStepDetailsPropertiesArgs struct {
 	// The name of the step, used as an identifier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 }
 
 func (WorkflowStepDeleteStepDetailsPropertiesArgs) ElementType() reflect.Type {
@@ -2400,6 +2442,11 @@ func (o WorkflowStepDeleteStepDetailsPropertiesOutput) Name() pulumi.StringPtrOu
 	return o.ApplyT(func(v WorkflowStepDeleteStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepDeleteStepDetailsPropertiesOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDeleteStepDetailsProperties) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
+}
+
 type WorkflowStepDeleteStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ElementType() reflect.Type {
@@ -2434,10 +2481,22 @@ func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDeleteStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceFileLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details for a step that creates one or more tags.
 type WorkflowStepTagStepDetailsProperties struct {
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 	// Array that contains from 1 to 10 key/value pairs.
 	Tags []WorkflowS3Tag `pulumi:"tags"`
 }
@@ -2457,6 +2516,8 @@ type WorkflowStepTagStepDetailsPropertiesInput interface {
 type WorkflowStepTagStepDetailsPropertiesArgs struct {
 	// The name of the step, used as an identifier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 	// Array that contains from 1 to 10 key/value pairs.
 	Tags WorkflowS3TagArrayInput `pulumi:"tags"`
 }
@@ -2544,6 +2605,11 @@ func (o WorkflowStepTagStepDetailsPropertiesOutput) Name() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepTagStepDetailsPropertiesOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepTagStepDetailsProperties) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
+}
+
 // Array that contains from 1 to 10 key/value pairs.
 func (o WorkflowStepTagStepDetailsPropertiesOutput) Tags() WorkflowS3TagArrayOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsProperties) []WorkflowS3Tag { return v.Tags }).(WorkflowS3TagArrayOutput)
@@ -2580,6 +2646,16 @@ func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) Name() pulumi.StringPtrOu
 			return nil
 		}
 		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies which file to use as input to the workflow step.
+func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepTagStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceFileLocation
 	}).(pulumi.StringPtrOutput)
 }
 

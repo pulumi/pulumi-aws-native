@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetReplicationSubnetGroupResult',
@@ -17,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationSubnetGroupResult:
-    def __init__(__self__, id=None, replication_subnet_group_description=None, subnet_ids=None):
+    def __init__(__self__, id=None, replication_subnet_group_description=None, subnet_ids=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -27,6 +28,9 @@ class GetReplicationSubnetGroupResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -43,6 +47,11 @@ class GetReplicationSubnetGroupResult:
     def subnet_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subnet_ids")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.ReplicationSubnetGroupTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetReplicationSubnetGroupResult(GetReplicationSubnetGroupResult):
     # pylint: disable=using-constant-test
@@ -52,7 +61,8 @@ class AwaitableGetReplicationSubnetGroupResult(GetReplicationSubnetGroupResult):
         return GetReplicationSubnetGroupResult(
             id=self.id,
             replication_subnet_group_description=self.replication_subnet_group_description,
-            subnet_ids=self.subnet_ids)
+            subnet_ids=self.subnet_ids,
+            tags=self.tags)
 
 
 def get_replication_subnet_group(id: Optional[str] = None,
@@ -71,7 +81,8 @@ def get_replication_subnet_group(id: Optional[str] = None,
     return AwaitableGetReplicationSubnetGroupResult(
         id=__ret__.id,
         replication_subnet_group_description=__ret__.replication_subnet_group_description,
-        subnet_ids=__ret__.subnet_ids)
+        subnet_ids=__ret__.subnet_ids,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_replication_subnet_group)

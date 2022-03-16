@@ -38,6 +38,7 @@ type LookupComponentResult struct {
 	Name                 *string                        `pulumi:"name"`
 	Overrides            *ComponentOverrides            `pulumi:"overrides"`
 	Properties           *ComponentProperties           `pulumi:"properties"`
+	SchemaVersion        *string                        `pulumi:"schemaVersion"`
 	SourceId             *string                        `pulumi:"sourceId"`
 	Variants             []ComponentVariant             `pulumi:"variants"`
 }
@@ -117,6 +118,10 @@ func (o LookupComponentResultOutput) Overrides() ComponentOverridesPtrOutput {
 
 func (o LookupComponentResultOutput) Properties() ComponentPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *ComponentProperties { return v.Properties }).(ComponentPropertiesPtrOutput)
+}
+
+func (o LookupComponentResultOutput) SchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupComponentResultOutput) SourceId() pulumi.StringPtrOutput {

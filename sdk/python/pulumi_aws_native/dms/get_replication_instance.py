@@ -48,11 +48,11 @@ class GetReplicationInstanceResult:
         if replication_instance_identifier and not isinstance(replication_instance_identifier, str):
             raise TypeError("Expected argument 'replication_instance_identifier' to be a str")
         pulumi.set(__self__, "replication_instance_identifier", replication_instance_identifier)
-        if replication_instance_private_ip_addresses and not isinstance(replication_instance_private_ip_addresses, list):
-            raise TypeError("Expected argument 'replication_instance_private_ip_addresses' to be a list")
+        if replication_instance_private_ip_addresses and not isinstance(replication_instance_private_ip_addresses, str):
+            raise TypeError("Expected argument 'replication_instance_private_ip_addresses' to be a str")
         pulumi.set(__self__, "replication_instance_private_ip_addresses", replication_instance_private_ip_addresses)
-        if replication_instance_public_ip_addresses and not isinstance(replication_instance_public_ip_addresses, list):
-            raise TypeError("Expected argument 'replication_instance_public_ip_addresses' to be a list")
+        if replication_instance_public_ip_addresses and not isinstance(replication_instance_public_ip_addresses, str):
+            raise TypeError("Expected argument 'replication_instance_public_ip_addresses' to be a str")
         pulumi.set(__self__, "replication_instance_public_ip_addresses", replication_instance_public_ip_addresses)
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
@@ -110,12 +110,12 @@ class GetReplicationInstanceResult:
 
     @property
     @pulumi.getter(name="replicationInstancePrivateIpAddresses")
-    def replication_instance_private_ip_addresses(self) -> Optional[Sequence[str]]:
+    def replication_instance_private_ip_addresses(self) -> Optional[str]:
         return pulumi.get(self, "replication_instance_private_ip_addresses")
 
     @property
     @pulumi.getter(name="replicationInstancePublicIpAddresses")
-    def replication_instance_public_ip_addresses(self) -> Optional[Sequence[str]]:
+    def replication_instance_public_ip_addresses(self) -> Optional[str]:
         return pulumi.get(self, "replication_instance_public_ip_addresses")
 
     @property

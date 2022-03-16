@@ -3824,14 +3824,15 @@ func (in *flowSlackConnectorOperatorPtr) ToFlowSlackConnectorOperatorPtrOutputWi
 type FlowTaskType string
 
 const (
-	FlowTaskTypeArithmetic = FlowTaskType("Arithmetic")
-	FlowTaskTypeFilter     = FlowTaskType("Filter")
-	FlowTaskTypeMap        = FlowTaskType("Map")
-	FlowTaskTypeMapAll     = FlowTaskType("Map_all")
-	FlowTaskTypeMask       = FlowTaskType("Mask")
-	FlowTaskTypeMerge      = FlowTaskType("Merge")
-	FlowTaskTypeTruncate   = FlowTaskType("Truncate")
-	FlowTaskTypeValidate   = FlowTaskType("Validate")
+	FlowTaskTypeArithmetic  = FlowTaskType("Arithmetic")
+	FlowTaskTypeFilter      = FlowTaskType("Filter")
+	FlowTaskTypeMap         = FlowTaskType("Map")
+	FlowTaskTypeMapAll      = FlowTaskType("Map_all")
+	FlowTaskTypeMask        = FlowTaskType("Mask")
+	FlowTaskTypeMerge       = FlowTaskType("Merge")
+	FlowTaskTypePassthrough = FlowTaskType("Passthrough")
+	FlowTaskTypeTruncate    = FlowTaskType("Truncate")
+	FlowTaskTypeValidate    = FlowTaskType("Validate")
 )
 
 func (FlowTaskType) ElementType() reflect.Type {

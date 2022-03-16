@@ -29,12 +29,16 @@ export interface GetServiceResult {
     readonly capacityProviderStrategy?: outputs.ecs.ServiceCapacityProviderStrategyItem[];
     readonly deploymentConfiguration?: outputs.ecs.ServiceDeploymentConfiguration;
     readonly desiredCount?: number;
+    readonly enableECSManagedTags?: boolean;
     readonly enableExecuteCommand?: boolean;
     readonly healthCheckGracePeriodSeconds?: number;
+    readonly loadBalancers?: outputs.ecs.ServiceLoadBalancer[];
     readonly name?: string;
     readonly networkConfiguration?: outputs.ecs.ServiceNetworkConfiguration;
     readonly platformVersion?: string;
+    readonly propagateTags?: enums.ecs.ServicePropagateTags;
     readonly serviceArn?: string;
+    readonly serviceRegistries?: outputs.ecs.ServiceRegistry[];
     readonly tags?: outputs.ecs.ServiceTag[];
     readonly taskDefinition?: string;
 }

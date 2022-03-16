@@ -1721,7 +1721,9 @@ func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntP
 }
 
 type DomainTag struct {
-	Key   string `pulumi:"key"`
+	// The value of the tag.
+	Key string `pulumi:"key"`
+	// The key of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -1737,7 +1739,9 @@ type DomainTagInput interface {
 }
 
 type DomainTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The value of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The key of the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1792,10 +1796,12 @@ func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) Domai
 	return o
 }
 
+// The value of the tag.
 func (o DomainTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The key of the tag.
 func (o DomainTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainTag) string { return v.Value }).(pulumi.StringOutput)
 }

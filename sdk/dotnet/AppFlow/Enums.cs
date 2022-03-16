@@ -844,6 +844,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static FlowTaskType MapAll { get; } = new FlowTaskType("Map_all");
         public static FlowTaskType Mask { get; } = new FlowTaskType("Mask");
         public static FlowTaskType Merge { get; } = new FlowTaskType("Merge");
+        public static FlowTaskType Passthrough { get; } = new FlowTaskType("Passthrough");
         public static FlowTaskType Truncate { get; } = new FlowTaskType("Truncate");
         public static FlowTaskType Validate { get; } = new FlowTaskType("Validate");
 

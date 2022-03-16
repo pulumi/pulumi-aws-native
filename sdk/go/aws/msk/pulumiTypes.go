@@ -1204,8 +1204,8 @@ func (o ClusterEncryptionAtRestPtrOutput) DataVolumeKMSKeyId() pulumi.StringPtrO
 }
 
 type ClusterEncryptionInTransit struct {
-	ClientBroker *string `pulumi:"clientBroker"`
-	InCluster    *bool   `pulumi:"inCluster"`
+	ClientBroker *ClusterEncryptionInTransitClientBroker `pulumi:"clientBroker"`
+	InCluster    *bool                                   `pulumi:"inCluster"`
 }
 
 // ClusterEncryptionInTransitInput is an input type that accepts ClusterEncryptionInTransitArgs and ClusterEncryptionInTransitOutput values.
@@ -1220,8 +1220,8 @@ type ClusterEncryptionInTransitInput interface {
 }
 
 type ClusterEncryptionInTransitArgs struct {
-	ClientBroker pulumi.StringPtrInput `pulumi:"clientBroker"`
-	InCluster    pulumi.BoolPtrInput   `pulumi:"inCluster"`
+	ClientBroker ClusterEncryptionInTransitClientBrokerPtrInput `pulumi:"clientBroker"`
+	InCluster    pulumi.BoolPtrInput                            `pulumi:"inCluster"`
 }
 
 func (ClusterEncryptionInTransitArgs) ElementType() reflect.Type {
@@ -1301,8 +1301,8 @@ func (o ClusterEncryptionInTransitOutput) ToClusterEncryptionInTransitPtrOutputW
 	}).(ClusterEncryptionInTransitPtrOutput)
 }
 
-func (o ClusterEncryptionInTransitOutput) ClientBroker() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
+func (o ClusterEncryptionInTransitOutput) ClientBroker() ClusterEncryptionInTransitClientBrokerPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionInTransit) *ClusterEncryptionInTransitClientBroker { return v.ClientBroker }).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
 func (o ClusterEncryptionInTransitOutput) InCluster() pulumi.BoolPtrOutput {
@@ -1333,13 +1333,13 @@ func (o ClusterEncryptionInTransitPtrOutput) Elem() ClusterEncryptionInTransitOu
 	}).(ClusterEncryptionInTransitOutput)
 }
 
-func (o ClusterEncryptionInTransitPtrOutput) ClientBroker() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterEncryptionInTransit) *string {
+func (o ClusterEncryptionInTransitPtrOutput) ClientBroker() ClusterEncryptionInTransitClientBrokerPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionInTransit) *ClusterEncryptionInTransitClientBroker {
 		if v == nil {
 			return nil
 		}
 		return v.ClientBroker
-	}).(pulumi.StringPtrOutput)
+	}).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
 func (o ClusterEncryptionInTransitPtrOutput) InCluster() pulumi.BoolPtrOutput {

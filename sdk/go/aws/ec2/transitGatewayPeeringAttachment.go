@@ -17,8 +17,6 @@ type TransitGatewayPeeringAttachment struct {
 
 	// The time the transit gateway peering attachment was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Options for transit gateway peering attachment
-	Options TransitGatewayPeeringAttachmentOptionsPtrOutput `pulumi:"options"`
 	// The ID of the peer account
 	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
 	// Peer Region
@@ -88,8 +86,6 @@ func (TransitGatewayPeeringAttachmentState) ElementType() reflect.Type {
 }
 
 type transitGatewayPeeringAttachmentArgs struct {
-	// Options for transit gateway peering attachment
-	Options *TransitGatewayPeeringAttachmentOptions `pulumi:"options"`
 	// The ID of the peer account
 	PeerAccountId string `pulumi:"peerAccountId"`
 	// Peer Region
@@ -104,8 +100,6 @@ type transitGatewayPeeringAttachmentArgs struct {
 
 // The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
 type TransitGatewayPeeringAttachmentArgs struct {
-	// Options for transit gateway peering attachment
-	Options TransitGatewayPeeringAttachmentOptionsPtrInput
 	// The ID of the peer account
 	PeerAccountId pulumi.StringInput
 	// Peer Region

@@ -368,6 +368,7 @@ export const FlowTaskType = {
     MapAll: "Map_all",
     Mask: "Mask",
     Merge: "Merge",
+    Passthrough: "Passthrough",
     Truncate: "Truncate",
     Validate: "Validate",
 } as const;

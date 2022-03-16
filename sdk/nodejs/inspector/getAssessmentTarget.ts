@@ -14,17 +14,16 @@ export function getAssessmentTarget(args: GetAssessmentTargetArgs, opts?: pulumi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:inspector:getAssessmentTarget", {
-        "id": args.id,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetAssessmentTargetArgs {
-    id: string;
+    arn: string;
 }
 
 export interface GetAssessmentTargetResult {
     readonly arn?: string;
-    readonly id?: string;
     readonly resourceGroupArn?: string;
 }
 
@@ -33,5 +32,5 @@ export function getAssessmentTargetOutput(args: GetAssessmentTargetOutputArgs, o
 }
 
 export interface GetAssessmentTargetOutputArgs {
-    id: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

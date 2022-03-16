@@ -5,18 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./batchScramSecret";
 export * from "./cluster";
+export * from "./configuration";
+export * from "./getBatchScramSecret";
 export * from "./getCluster";
+export * from "./getConfiguration";
+
+// Export enums:
+export * from "../types/enums/msk";
 
 // Import resources to register:
+import { BatchScramSecret } from "./batchScramSecret";
 import { Cluster } from "./cluster";
+import { Configuration } from "./configuration";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:msk:BatchScramSecret":
+                return new BatchScramSecret(name, <any>undefined, { urn })
             case "aws-native:msk:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:msk:Configuration":
+                return new Configuration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// The name of the step, used as an identifier.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Specifies which file to use as input to the workflow step.
+        /// </summary>
+        public readonly string? SourceFileLocation;
 
         [OutputConstructor]
-        private WorkflowStepDeleteStepDetailsProperties(string? name)
+        private WorkflowStepDeleteStepDetailsProperties(
+            string? name,
+
+            string? sourceFileLocation)
         {
             Name = name;
+            SourceFileLocation = sourceFileLocation;
         }
     }
 }

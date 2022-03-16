@@ -64,6 +64,10 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageTestsConfiguration | undefined>;
     /**
+     * URI for containers created in current Region with default ECR image tag
+     */
+    public /*out*/ readonly imageUri!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string | undefined>;
@@ -96,6 +100,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["imageUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -105,6 +110,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageRecipeArn"] = undefined /*out*/;
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
+            resourceInputs["imageUri"] = undefined /*out*/;
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

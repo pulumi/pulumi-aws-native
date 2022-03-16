@@ -6916,8 +6916,10 @@ func (o FlowDatadogSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 type FlowDestinationConnectorProperties struct {
 	EventBridge    *FlowEventBridgeDestinationProperties    `pulumi:"eventBridge"`
 	LookoutMetrics *FlowLookoutMetricsDestinationProperties `pulumi:"lookoutMetrics"`
+	Marketo        *FlowMarketoDestinationProperties        `pulumi:"marketo"`
 	Redshift       *FlowRedshiftDestinationProperties       `pulumi:"redshift"`
 	S3             *FlowS3DestinationProperties             `pulumi:"s3"`
+	SAPOData       *FlowSAPODataDestinationProperties       `pulumi:"sAPOData"`
 	Salesforce     *FlowSalesforceDestinationProperties     `pulumi:"salesforce"`
 	Snowflake      *FlowSnowflakeDestinationProperties      `pulumi:"snowflake"`
 	Upsolver       *FlowUpsolverDestinationProperties       `pulumi:"upsolver"`
@@ -6939,8 +6941,10 @@ type FlowDestinationConnectorPropertiesInput interface {
 type FlowDestinationConnectorPropertiesArgs struct {
 	EventBridge    FlowEventBridgeDestinationPropertiesPtrInput    `pulumi:"eventBridge"`
 	LookoutMetrics FlowLookoutMetricsDestinationPropertiesPtrInput `pulumi:"lookoutMetrics"`
+	Marketo        FlowMarketoDestinationPropertiesPtrInput        `pulumi:"marketo"`
 	Redshift       FlowRedshiftDestinationPropertiesPtrInput       `pulumi:"redshift"`
 	S3             FlowS3DestinationPropertiesPtrInput             `pulumi:"s3"`
+	SAPOData       FlowSAPODataDestinationPropertiesPtrInput       `pulumi:"sAPOData"`
 	Salesforce     FlowSalesforceDestinationPropertiesPtrInput     `pulumi:"salesforce"`
 	Snowflake      FlowSnowflakeDestinationPropertiesPtrInput      `pulumi:"snowflake"`
 	Upsolver       FlowUpsolverDestinationPropertiesPtrInput       `pulumi:"upsolver"`
@@ -6984,12 +6988,20 @@ func (o FlowDestinationConnectorPropertiesOutput) LookoutMetrics() FlowLookoutMe
 	}).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
 }
 
+func (o FlowDestinationConnectorPropertiesOutput) Marketo() FlowMarketoDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowMarketoDestinationProperties { return v.Marketo }).(FlowMarketoDestinationPropertiesPtrOutput)
+}
+
 func (o FlowDestinationConnectorPropertiesOutput) Redshift() FlowRedshiftDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowRedshiftDestinationProperties { return v.Redshift }).(FlowRedshiftDestinationPropertiesPtrOutput)
 }
 
 func (o FlowDestinationConnectorPropertiesOutput) S3() FlowS3DestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowS3DestinationProperties { return v.S3 }).(FlowS3DestinationPropertiesPtrOutput)
+}
+
+func (o FlowDestinationConnectorPropertiesOutput) SAPOData() FlowSAPODataDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSAPODataDestinationProperties { return v.SAPOData }).(FlowSAPODataDestinationPropertiesPtrOutput)
 }
 
 func (o FlowDestinationConnectorPropertiesOutput) Salesforce() FlowSalesforceDestinationPropertiesPtrOutput {
@@ -8107,6 +8119,154 @@ func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) Object() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowMarketoDestinationProperties struct {
+	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	Object              string                   `pulumi:"object"`
+}
+
+// FlowMarketoDestinationPropertiesInput is an input type that accepts FlowMarketoDestinationPropertiesArgs and FlowMarketoDestinationPropertiesOutput values.
+// You can construct a concrete instance of `FlowMarketoDestinationPropertiesInput` via:
+//
+//          FlowMarketoDestinationPropertiesArgs{...}
+type FlowMarketoDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowMarketoDestinationPropertiesOutput() FlowMarketoDestinationPropertiesOutput
+	ToFlowMarketoDestinationPropertiesOutputWithContext(context.Context) FlowMarketoDestinationPropertiesOutput
+}
+
+type FlowMarketoDestinationPropertiesArgs struct {
+	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	Object              pulumi.StringInput              `pulumi:"object"`
+}
+
+func (FlowMarketoDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMarketoDestinationProperties)(nil)).Elem()
+}
+
+func (i FlowMarketoDestinationPropertiesArgs) ToFlowMarketoDestinationPropertiesOutput() FlowMarketoDestinationPropertiesOutput {
+	return i.ToFlowMarketoDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowMarketoDestinationPropertiesArgs) ToFlowMarketoDestinationPropertiesOutputWithContext(ctx context.Context) FlowMarketoDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMarketoDestinationPropertiesOutput)
+}
+
+func (i FlowMarketoDestinationPropertiesArgs) ToFlowMarketoDestinationPropertiesPtrOutput() FlowMarketoDestinationPropertiesPtrOutput {
+	return i.ToFlowMarketoDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMarketoDestinationPropertiesArgs) ToFlowMarketoDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowMarketoDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMarketoDestinationPropertiesOutput).ToFlowMarketoDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowMarketoDestinationPropertiesPtrInput is an input type that accepts FlowMarketoDestinationPropertiesArgs, FlowMarketoDestinationPropertiesPtr and FlowMarketoDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowMarketoDestinationPropertiesPtrInput` via:
+//
+//          FlowMarketoDestinationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowMarketoDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowMarketoDestinationPropertiesPtrOutput() FlowMarketoDestinationPropertiesPtrOutput
+	ToFlowMarketoDestinationPropertiesPtrOutputWithContext(context.Context) FlowMarketoDestinationPropertiesPtrOutput
+}
+
+type flowMarketoDestinationPropertiesPtrType FlowMarketoDestinationPropertiesArgs
+
+func FlowMarketoDestinationPropertiesPtr(v *FlowMarketoDestinationPropertiesArgs) FlowMarketoDestinationPropertiesPtrInput {
+	return (*flowMarketoDestinationPropertiesPtrType)(v)
+}
+
+func (*flowMarketoDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMarketoDestinationProperties)(nil)).Elem()
+}
+
+func (i *flowMarketoDestinationPropertiesPtrType) ToFlowMarketoDestinationPropertiesPtrOutput() FlowMarketoDestinationPropertiesPtrOutput {
+	return i.ToFlowMarketoDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMarketoDestinationPropertiesPtrType) ToFlowMarketoDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowMarketoDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMarketoDestinationPropertiesPtrOutput)
+}
+
+type FlowMarketoDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowMarketoDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMarketoDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowMarketoDestinationPropertiesOutput) ToFlowMarketoDestinationPropertiesOutput() FlowMarketoDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowMarketoDestinationPropertiesOutput) ToFlowMarketoDestinationPropertiesOutputWithContext(ctx context.Context) FlowMarketoDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowMarketoDestinationPropertiesOutput) ToFlowMarketoDestinationPropertiesPtrOutput() FlowMarketoDestinationPropertiesPtrOutput {
+	return o.ToFlowMarketoDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMarketoDestinationPropertiesOutput) ToFlowMarketoDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowMarketoDestinationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMarketoDestinationProperties) *FlowMarketoDestinationProperties {
+		return &v
+	}).(FlowMarketoDestinationPropertiesPtrOutput)
+}
+
+func (o FlowMarketoDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v FlowMarketoDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
+}
+
+func (o FlowMarketoDestinationPropertiesOutput) Object() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMarketoDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
+}
+
+type FlowMarketoDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMarketoDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMarketoDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowMarketoDestinationPropertiesPtrOutput) ToFlowMarketoDestinationPropertiesPtrOutput() FlowMarketoDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowMarketoDestinationPropertiesPtrOutput) ToFlowMarketoDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowMarketoDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowMarketoDestinationPropertiesPtrOutput) Elem() FlowMarketoDestinationPropertiesOutput {
+	return o.ApplyT(func(v *FlowMarketoDestinationProperties) FlowMarketoDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMarketoDestinationProperties
+		return ret
+	}).(FlowMarketoDestinationPropertiesOutput)
+}
+
+func (o FlowMarketoDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v *FlowMarketoDestinationProperties) *FlowErrorHandlingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorHandlingConfig
+	}).(FlowErrorHandlingConfigPtrOutput)
+}
+
+func (o FlowMarketoDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMarketoDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Object
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlowMarketoSourceProperties struct {
 	Object string `pulumi:"object"`
 }
@@ -9186,6 +9346,205 @@ func (o FlowS3SourcePropertiesPtrOutput) S3InputFormatConfig() FlowS3InputFormat
 		}
 		return v.S3InputFormatConfig
 	}).(FlowS3InputFormatConfigPtrOutput)
+}
+
+type FlowSAPODataDestinationProperties struct {
+	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames                  []string                           `pulumi:"idFieldNames"`
+	ObjectPath                    string                             `pulumi:"objectPath"`
+	SuccessResponseHandlingConfig *FlowSuccessResponseHandlingConfig `pulumi:"successResponseHandlingConfig"`
+	WriteOperationType            *FlowWriteOperationType            `pulumi:"writeOperationType"`
+}
+
+// FlowSAPODataDestinationPropertiesInput is an input type that accepts FlowSAPODataDestinationPropertiesArgs and FlowSAPODataDestinationPropertiesOutput values.
+// You can construct a concrete instance of `FlowSAPODataDestinationPropertiesInput` via:
+//
+//          FlowSAPODataDestinationPropertiesArgs{...}
+type FlowSAPODataDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowSAPODataDestinationPropertiesOutput() FlowSAPODataDestinationPropertiesOutput
+	ToFlowSAPODataDestinationPropertiesOutputWithContext(context.Context) FlowSAPODataDestinationPropertiesOutput
+}
+
+type FlowSAPODataDestinationPropertiesArgs struct {
+	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames                  pulumi.StringArrayInput                   `pulumi:"idFieldNames"`
+	ObjectPath                    pulumi.StringInput                        `pulumi:"objectPath"`
+	SuccessResponseHandlingConfig FlowSuccessResponseHandlingConfigPtrInput `pulumi:"successResponseHandlingConfig"`
+	WriteOperationType            FlowWriteOperationTypePtrInput            `pulumi:"writeOperationType"`
+}
+
+func (FlowSAPODataDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSAPODataDestinationProperties)(nil)).Elem()
+}
+
+func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesOutput() FlowSAPODataDestinationPropertiesOutput {
+	return i.ToFlowSAPODataDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataDestinationPropertiesOutput)
+}
+
+func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
+	return i.ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSAPODataDestinationPropertiesArgs) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataDestinationPropertiesOutput).ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowSAPODataDestinationPropertiesPtrInput is an input type that accepts FlowSAPODataDestinationPropertiesArgs, FlowSAPODataDestinationPropertiesPtr and FlowSAPODataDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowSAPODataDestinationPropertiesPtrInput` via:
+//
+//          FlowSAPODataDestinationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowSAPODataDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput
+	ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Context) FlowSAPODataDestinationPropertiesPtrOutput
+}
+
+type flowSAPODataDestinationPropertiesPtrType FlowSAPODataDestinationPropertiesArgs
+
+func FlowSAPODataDestinationPropertiesPtr(v *FlowSAPODataDestinationPropertiesArgs) FlowSAPODataDestinationPropertiesPtrInput {
+	return (*flowSAPODataDestinationPropertiesPtrType)(v)
+}
+
+func (*flowSAPODataDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSAPODataDestinationProperties)(nil)).Elem()
+}
+
+func (i *flowSAPODataDestinationPropertiesPtrType) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
+	return i.ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSAPODataDestinationPropertiesPtrType) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSAPODataDestinationPropertiesPtrOutput)
+}
+
+type FlowSAPODataDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowSAPODataDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSAPODataDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesOutput() FlowSAPODataDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
+	return o.ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSAPODataDestinationProperties) *FlowSAPODataDestinationProperties {
+		return &v
+	}).(FlowSAPODataDestinationPropertiesPtrOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v FlowSAPODataDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
+}
+
+// List of fields used as ID when performing a write operation.
+func (o FlowSAPODataDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowSAPODataDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) ObjectPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSAPODataDestinationProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
+	return o.ApplyT(func(v FlowSAPODataDestinationProperties) *FlowSuccessResponseHandlingConfig {
+		return v.SuccessResponseHandlingConfig
+	}).(FlowSuccessResponseHandlingConfigPtrOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v FlowSAPODataDestinationProperties) *FlowWriteOperationType { return v.WriteOperationType }).(FlowWriteOperationTypePtrOutput)
+}
+
+type FlowSAPODataDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSAPODataDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSAPODataDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) ToFlowSAPODataDestinationPropertiesPtrOutput() FlowSAPODataDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) ToFlowSAPODataDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowSAPODataDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) Elem() FlowSAPODataDestinationPropertiesOutput {
+	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) FlowSAPODataDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSAPODataDestinationProperties
+		return ret
+	}).(FlowSAPODataDestinationPropertiesOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *FlowErrorHandlingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorHandlingConfig
+	}).(FlowErrorHandlingConfigPtrOutput)
+}
+
+// List of fields used as ID when performing a write operation.
+func (o FlowSAPODataDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdFieldNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *FlowSuccessResponseHandlingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessResponseHandlingConfig
+	}).(FlowSuccessResponseHandlingConfigPtrOutput)
+}
+
+func (o FlowSAPODataDestinationPropertiesPtrOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v *FlowSAPODataDestinationProperties) *FlowWriteOperationType {
+		if v == nil {
+			return nil
+		}
+		return v.WriteOperationType
+	}).(FlowWriteOperationTypePtrOutput)
 }
 
 type FlowSAPODataSourceProperties struct {
@@ -10897,6 +11256,154 @@ func (o FlowSourceFlowConfigPtrOutput) SourceConnectorProperties() FlowSourceCon
 	}).(FlowSourceConnectorPropertiesPtrOutput)
 }
 
+type FlowSuccessResponseHandlingConfig struct {
+	BucketName   *string `pulumi:"bucketName"`
+	BucketPrefix *string `pulumi:"bucketPrefix"`
+}
+
+// FlowSuccessResponseHandlingConfigInput is an input type that accepts FlowSuccessResponseHandlingConfigArgs and FlowSuccessResponseHandlingConfigOutput values.
+// You can construct a concrete instance of `FlowSuccessResponseHandlingConfigInput` via:
+//
+//          FlowSuccessResponseHandlingConfigArgs{...}
+type FlowSuccessResponseHandlingConfigInput interface {
+	pulumi.Input
+
+	ToFlowSuccessResponseHandlingConfigOutput() FlowSuccessResponseHandlingConfigOutput
+	ToFlowSuccessResponseHandlingConfigOutputWithContext(context.Context) FlowSuccessResponseHandlingConfigOutput
+}
+
+type FlowSuccessResponseHandlingConfigArgs struct {
+	BucketName   pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+}
+
+func (FlowSuccessResponseHandlingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSuccessResponseHandlingConfig)(nil)).Elem()
+}
+
+func (i FlowSuccessResponseHandlingConfigArgs) ToFlowSuccessResponseHandlingConfigOutput() FlowSuccessResponseHandlingConfigOutput {
+	return i.ToFlowSuccessResponseHandlingConfigOutputWithContext(context.Background())
+}
+
+func (i FlowSuccessResponseHandlingConfigArgs) ToFlowSuccessResponseHandlingConfigOutputWithContext(ctx context.Context) FlowSuccessResponseHandlingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSuccessResponseHandlingConfigOutput)
+}
+
+func (i FlowSuccessResponseHandlingConfigArgs) ToFlowSuccessResponseHandlingConfigPtrOutput() FlowSuccessResponseHandlingConfigPtrOutput {
+	return i.ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSuccessResponseHandlingConfigArgs) ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(ctx context.Context) FlowSuccessResponseHandlingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSuccessResponseHandlingConfigOutput).ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(ctx)
+}
+
+// FlowSuccessResponseHandlingConfigPtrInput is an input type that accepts FlowSuccessResponseHandlingConfigArgs, FlowSuccessResponseHandlingConfigPtr and FlowSuccessResponseHandlingConfigPtrOutput values.
+// You can construct a concrete instance of `FlowSuccessResponseHandlingConfigPtrInput` via:
+//
+//          FlowSuccessResponseHandlingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowSuccessResponseHandlingConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowSuccessResponseHandlingConfigPtrOutput() FlowSuccessResponseHandlingConfigPtrOutput
+	ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(context.Context) FlowSuccessResponseHandlingConfigPtrOutput
+}
+
+type flowSuccessResponseHandlingConfigPtrType FlowSuccessResponseHandlingConfigArgs
+
+func FlowSuccessResponseHandlingConfigPtr(v *FlowSuccessResponseHandlingConfigArgs) FlowSuccessResponseHandlingConfigPtrInput {
+	return (*flowSuccessResponseHandlingConfigPtrType)(v)
+}
+
+func (*flowSuccessResponseHandlingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSuccessResponseHandlingConfig)(nil)).Elem()
+}
+
+func (i *flowSuccessResponseHandlingConfigPtrType) ToFlowSuccessResponseHandlingConfigPtrOutput() FlowSuccessResponseHandlingConfigPtrOutput {
+	return i.ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSuccessResponseHandlingConfigPtrType) ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(ctx context.Context) FlowSuccessResponseHandlingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSuccessResponseHandlingConfigPtrOutput)
+}
+
+type FlowSuccessResponseHandlingConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowSuccessResponseHandlingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSuccessResponseHandlingConfig)(nil)).Elem()
+}
+
+func (o FlowSuccessResponseHandlingConfigOutput) ToFlowSuccessResponseHandlingConfigOutput() FlowSuccessResponseHandlingConfigOutput {
+	return o
+}
+
+func (o FlowSuccessResponseHandlingConfigOutput) ToFlowSuccessResponseHandlingConfigOutputWithContext(ctx context.Context) FlowSuccessResponseHandlingConfigOutput {
+	return o
+}
+
+func (o FlowSuccessResponseHandlingConfigOutput) ToFlowSuccessResponseHandlingConfigPtrOutput() FlowSuccessResponseHandlingConfigPtrOutput {
+	return o.ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSuccessResponseHandlingConfigOutput) ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(ctx context.Context) FlowSuccessResponseHandlingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSuccessResponseHandlingConfig) *FlowSuccessResponseHandlingConfig {
+		return &v
+	}).(FlowSuccessResponseHandlingConfigPtrOutput)
+}
+
+func (o FlowSuccessResponseHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSuccessResponseHandlingConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o FlowSuccessResponseHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSuccessResponseHandlingConfig) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+}
+
+type FlowSuccessResponseHandlingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSuccessResponseHandlingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSuccessResponseHandlingConfig)(nil)).Elem()
+}
+
+func (o FlowSuccessResponseHandlingConfigPtrOutput) ToFlowSuccessResponseHandlingConfigPtrOutput() FlowSuccessResponseHandlingConfigPtrOutput {
+	return o
+}
+
+func (o FlowSuccessResponseHandlingConfigPtrOutput) ToFlowSuccessResponseHandlingConfigPtrOutputWithContext(ctx context.Context) FlowSuccessResponseHandlingConfigPtrOutput {
+	return o
+}
+
+func (o FlowSuccessResponseHandlingConfigPtrOutput) Elem() FlowSuccessResponseHandlingConfigOutput {
+	return o.ApplyT(func(v *FlowSuccessResponseHandlingConfig) FlowSuccessResponseHandlingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSuccessResponseHandlingConfig
+		return ret
+	}).(FlowSuccessResponseHandlingConfigOutput)
+}
+
+func (o FlowSuccessResponseHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSuccessResponseHandlingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowSuccessResponseHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSuccessResponseHandlingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // A label for tagging AppFlow resources
 type FlowTag struct {
 	// A string used to identify this tag
@@ -12415,6 +12922,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInforNexusSourcePropertiesPtrInput)(nil)).Elem(), FlowInforNexusSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLookoutMetricsDestinationPropertiesInput)(nil)).Elem(), FlowLookoutMetricsDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLookoutMetricsDestinationPropertiesPtrInput)(nil)).Elem(), FlowLookoutMetricsDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoDestinationPropertiesInput)(nil)).Elem(), FlowMarketoDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoDestinationPropertiesPtrInput)(nil)).Elem(), FlowMarketoDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoSourcePropertiesInput)(nil)).Elem(), FlowMarketoSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoSourcePropertiesPtrInput)(nil)).Elem(), FlowMarketoSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixConfigInput)(nil)).Elem(), FlowPrefixConfigArgs{})
@@ -12429,6 +12938,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3OutputFormatConfigPtrInput)(nil)).Elem(), FlowS3OutputFormatConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3SourcePropertiesInput)(nil)).Elem(), FlowS3SourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3SourcePropertiesPtrInput)(nil)).Elem(), FlowS3SourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataDestinationPropertiesInput)(nil)).Elem(), FlowSAPODataDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataDestinationPropertiesPtrInput)(nil)).Elem(), FlowSAPODataDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataSourcePropertiesInput)(nil)).Elem(), FlowSAPODataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSAPODataSourcePropertiesPtrInput)(nil)).Elem(), FlowSAPODataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSalesforceDestinationPropertiesInput)(nil)).Elem(), FlowSalesforceDestinationPropertiesArgs{})
@@ -12447,6 +12958,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSnowflakeDestinationPropertiesPtrInput)(nil)).Elem(), FlowSnowflakeDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceConnectorPropertiesInput)(nil)).Elem(), FlowSourceConnectorPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSuccessResponseHandlingConfigInput)(nil)).Elem(), FlowSuccessResponseHandlingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSuccessResponseHandlingConfigPtrInput)(nil)).Elem(), FlowSuccessResponseHandlingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagInput)(nil)).Elem(), FlowTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagArrayInput)(nil)).Elem(), FlowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskInput)(nil)).Elem(), FlowTaskArgs{})
@@ -12561,6 +13074,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowInforNexusSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowLookoutMetricsDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowLookoutMetricsDestinationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowMarketoDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowMarketoDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowPrefixConfigOutput{})
@@ -12575,6 +13090,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowS3OutputFormatConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowS3SourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowS3SourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowSAPODataDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowSAPODataDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSAPODataSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowSAPODataSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSalesforceDestinationPropertiesOutput{})
@@ -12595,6 +13112,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceConnectorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowSuccessResponseHandlingConfigOutput{})
+	pulumi.RegisterOutputType(FlowSuccessResponseHandlingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowTagOutput{})
 	pulumi.RegisterOutputType(FlowTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowTaskOutput{})

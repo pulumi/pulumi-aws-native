@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         /// </summary>
         public readonly Pulumi.AwsNative.Transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting? OverwriteExisting;
+        /// <summary>
+        /// Specifies which file to use as input to the workflow step.
+        /// </summary>
+        public readonly string? SourceFileLocation;
 
         [OutputConstructor]
         private WorkflowStepCopyStepDetailsProperties(
@@ -32,11 +36,14 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             string? name,
 
-            Pulumi.AwsNative.Transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting? overwriteExisting)
+            Pulumi.AwsNative.Transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting? overwriteExisting,
+
+            string? sourceFileLocation)
         {
             DestinationFileLocation = destinationFileLocation;
             Name = name;
             OverwriteExisting = overwriteExisting;
+            SourceFileLocation = sourceFileLocation;
         }
     }
 }

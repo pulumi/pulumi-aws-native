@@ -58,6 +58,7 @@ __all__ = [
     'FlowIncrementalPullConfigArgs',
     'FlowInforNexusSourcePropertiesArgs',
     'FlowLookoutMetricsDestinationPropertiesArgs',
+    'FlowMarketoDestinationPropertiesArgs',
     'FlowMarketoSourcePropertiesArgs',
     'FlowPrefixConfigArgs',
     'FlowRedshiftDestinationPropertiesArgs',
@@ -65,6 +66,7 @@ __all__ = [
     'FlowS3InputFormatConfigArgs',
     'FlowS3OutputFormatConfigArgs',
     'FlowS3SourcePropertiesArgs',
+    'FlowSAPODataDestinationPropertiesArgs',
     'FlowSAPODataSourcePropertiesArgs',
     'FlowSalesforceDestinationPropertiesArgs',
     'FlowSalesforceSourcePropertiesArgs',
@@ -75,6 +77,7 @@ __all__ = [
     'FlowSnowflakeDestinationPropertiesArgs',
     'FlowSourceConnectorPropertiesArgs',
     'FlowSourceFlowConfigArgs',
+    'FlowSuccessResponseHandlingConfigArgs',
     'FlowTagArgs',
     'FlowTaskPropertiesObjectArgs',
     'FlowTaskArgs',
@@ -2127,8 +2130,10 @@ class FlowDestinationConnectorPropertiesArgs:
     def __init__(__self__, *,
                  event_bridge: Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']] = None,
                  lookout_metrics: Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']] = None,
+                 marketo: Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']] = None,
                  redshift: Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']] = None,
                  s3: Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']] = None,
+                 s_apo_data: Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']] = None,
                  snowflake: Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']] = None,
                  upsolver: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']] = None,
@@ -2140,10 +2145,14 @@ class FlowDestinationConnectorPropertiesArgs:
             pulumi.set(__self__, "event_bridge", event_bridge)
         if lookout_metrics is not None:
             pulumi.set(__self__, "lookout_metrics", lookout_metrics)
+        if marketo is not None:
+            pulumi.set(__self__, "marketo", marketo)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if snowflake is not None:
@@ -2173,6 +2182,15 @@ class FlowDestinationConnectorPropertiesArgs:
 
     @property
     @pulumi.getter
+    def marketo(self) -> Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']]:
+        return pulumi.get(self, "marketo")
+
+    @marketo.setter
+    def marketo(self, value: Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']]):
+        pulumi.set(self, "marketo", value)
+
+    @property
+    @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']]:
         return pulumi.get(self, "redshift")
 
@@ -2188,6 +2206,15 @@ class FlowDestinationConnectorPropertiesArgs:
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']]:
+        return pulumi.get(self, "s_apo_data")
+
+    @s_apo_data.setter
+    def s_apo_data(self, value: Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']]):
+        pulumi.set(self, "s_apo_data", value)
 
     @property
     @pulumi.getter
@@ -2435,6 +2462,34 @@ class FlowLookoutMetricsDestinationPropertiesArgs:
 
 
 @pulumi.input_type
+class FlowMarketoDestinationPropertiesArgs:
+    def __init__(__self__, *,
+                 object: pulumi.Input[str],
+                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None):
+        pulumi.set(__self__, "object", object)
+        if error_handling_config is not None:
+            pulumi.set(__self__, "error_handling_config", error_handling_config)
+
+    @property
+    @pulumi.getter
+    def object(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object")
+
+    @object.setter
+    def object(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object", value)
+
+    @property
+    @pulumi.getter(name="errorHandlingConfig")
+    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+        return pulumi.get(self, "error_handling_config")
+
+    @error_handling_config.setter
+    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+        pulumi.set(self, "error_handling_config", value)
+
+
+@pulumi.input_type
 class FlowMarketoSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
@@ -2665,6 +2720,76 @@ class FlowS3SourcePropertiesArgs:
     @s3_input_format_config.setter
     def s3_input_format_config(self, value: Optional[pulumi.Input['FlowS3InputFormatConfigArgs']]):
         pulumi.set(self, "s3_input_format_config", value)
+
+
+@pulumi.input_type
+class FlowSAPODataDestinationPropertiesArgs:
+    def __init__(__self__, *,
+                 object_path: pulumi.Input[str],
+                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 success_response_handling_config: Optional[pulumi.Input['FlowSuccessResponseHandlingConfigArgs']] = None,
+                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: List of fields used as ID when performing a write operation.
+        """
+        pulumi.set(__self__, "object_path", object_path)
+        if error_handling_config is not None:
+            pulumi.set(__self__, "error_handling_config", error_handling_config)
+        if id_field_names is not None:
+            pulumi.set(__self__, "id_field_names", id_field_names)
+        if success_response_handling_config is not None:
+            pulumi.set(__self__, "success_response_handling_config", success_response_handling_config)
+        if write_operation_type is not None:
+            pulumi.set(__self__, "write_operation_type", write_operation_type)
+
+    @property
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object_path")
+
+    @object_path.setter
+    def object_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_path", value)
+
+    @property
+    @pulumi.getter(name="errorHandlingConfig")
+    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+        return pulumi.get(self, "error_handling_config")
+
+    @error_handling_config.setter
+    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+        pulumi.set(self, "error_handling_config", value)
+
+    @property
+    @pulumi.getter(name="idFieldNames")
+    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of fields used as ID when performing a write operation.
+        """
+        return pulumi.get(self, "id_field_names")
+
+    @id_field_names.setter
+    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "id_field_names", value)
+
+    @property
+    @pulumi.getter(name="successResponseHandlingConfig")
+    def success_response_handling_config(self) -> Optional[pulumi.Input['FlowSuccessResponseHandlingConfigArgs']]:
+        return pulumi.get(self, "success_response_handling_config")
+
+    @success_response_handling_config.setter
+    def success_response_handling_config(self, value: Optional[pulumi.Input['FlowSuccessResponseHandlingConfigArgs']]):
+        pulumi.set(self, "success_response_handling_config", value)
+
+    @property
+    @pulumi.getter(name="writeOperationType")
+    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
+        return pulumi.get(self, "write_operation_type")
+
+    @write_operation_type.setter
+    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
+        pulumi.set(self, "write_operation_type", value)
 
 
 @pulumi.input_type
@@ -3215,6 +3340,35 @@ class FlowSourceFlowConfigArgs:
     @incremental_pull_config.setter
     def incremental_pull_config(self, value: Optional[pulumi.Input['FlowIncrementalPullConfigArgs']]):
         pulumi.set(self, "incremental_pull_config", value)
+
+
+@pulumi.input_type
+class FlowSuccessResponseHandlingConfigArgs:
+    def __init__(__self__, *,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 bucket_prefix: Optional[pulumi.Input[str]] = None):
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_prefix is not None:
+            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketPrefix")
+    def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_prefix")
+
+    @bucket_prefix.setter
+    def bucket_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_prefix", value)
 
 
 @pulumi.input_type

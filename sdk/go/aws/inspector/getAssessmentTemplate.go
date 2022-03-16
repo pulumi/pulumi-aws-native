@@ -21,12 +21,11 @@ func LookupAssessmentTemplate(ctx *pulumi.Context, args *LookupAssessmentTemplat
 }
 
 type LookupAssessmentTemplateArgs struct {
-	Id string `pulumi:"id"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupAssessmentTemplateResult struct {
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
 }
 
 func LookupAssessmentTemplateOutput(ctx *pulumi.Context, args LookupAssessmentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentTemplateResultOutput {
@@ -39,7 +38,7 @@ func LookupAssessmentTemplateOutput(ctx *pulumi.Context, args LookupAssessmentTe
 }
 
 type LookupAssessmentTemplateOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupAssessmentTemplateOutputArgs) ElementType() reflect.Type {
@@ -62,10 +61,6 @@ func (o LookupAssessmentTemplateResultOutput) ToLookupAssessmentTemplateResultOu
 
 func (o LookupAssessmentTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupAssessmentTemplateResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAssessmentTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

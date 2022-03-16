@@ -17,16 +17,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageResult:
-    def __init__(__self__, arn=None, container_recipe_arn=None, image_id=None, name=None):
+    def __init__(__self__, arn=None, image_id=None, image_uri=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if container_recipe_arn and not isinstance(container_recipe_arn, str):
-            raise TypeError("Expected argument 'container_recipe_arn' to be a str")
-        pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")
         pulumi.set(__self__, "image_id", image_id)
+        if image_uri and not isinstance(image_uri, str):
+            raise TypeError("Expected argument 'image_uri' to be a str")
+        pulumi.set(__self__, "image_uri", image_uri)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,20 +40,20 @@ class GetImageResult:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="containerRecipeArn")
-    def container_recipe_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
-        """
-        return pulumi.get(self, "container_recipe_arn")
-
-    @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[str]:
         """
         The AMI ID of the EC2 AMI in current region.
         """
         return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> Optional[str]:
+        """
+        URI for containers created in current Region with default ECR image tag
+        """
+        return pulumi.get(self, "image_uri")
 
     @property
     @pulumi.getter
@@ -71,8 +71,8 @@ class AwaitableGetImageResult(GetImageResult):
             yield self
         return GetImageResult(
             arn=self.arn,
-            container_recipe_arn=self.container_recipe_arn,
             image_id=self.image_id,
+            image_uri=self.image_uri,
             name=self.name)
 
 
@@ -94,8 +94,8 @@ def get_image(arn: Optional[str] = None,
 
     return AwaitableGetImageResult(
         arn=__ret__.arn,
-        container_recipe_arn=__ret__.container_recipe_arn,
         image_id=__ret__.image_id,
+        image_uri=__ret__.image_uri,
         name=__ret__.name)
 
 

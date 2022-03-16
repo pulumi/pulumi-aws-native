@@ -3450,14 +3450,11 @@ class TopicRuleTimestreamActionArgs:
                  dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]],
                  role_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str],
-                 batch_mode: Optional[pulumi.Input[bool]] = None,
                  timestamp: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "table_name", table_name)
-        if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
         if timestamp is not None:
             pulumi.set(__self__, "timestamp", timestamp)
 
@@ -3496,15 +3493,6 @@ class TopicRuleTimestreamActionArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_name", value)
-
-    @property
-    @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "batch_mode")
-
-    @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "batch_mode", value)
 
     @property
     @pulumi.getter

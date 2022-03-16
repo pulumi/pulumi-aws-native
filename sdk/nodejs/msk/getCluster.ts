@@ -15,21 +15,25 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:msk:getCluster", {
-        "id": args.id,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetClusterArgs {
-    id: string;
+    arn: string;
 }
 
 export interface GetClusterResult {
+    readonly arn?: string;
     readonly brokerNodeGroupInfo?: outputs.msk.ClusterBrokerNodeGroupInfo;
     readonly clientAuthentication?: outputs.msk.ClusterClientAuthentication;
     readonly configurationInfo?: outputs.msk.ClusterConfigurationInfo;
+    /**
+     * The current version of the MSK cluster
+     */
+    readonly currentVersion?: string;
     readonly encryptionInfo?: outputs.msk.ClusterEncryptionInfo;
-    readonly enhancedMonitoring?: string;
-    readonly id?: string;
+    readonly enhancedMonitoring?: enums.msk.ClusterEnhancedMonitoring;
     readonly kafkaVersion?: string;
     readonly loggingInfo?: outputs.msk.ClusterLoggingInfo;
     readonly numberOfBrokerNodes?: number;
@@ -41,5 +45,5 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetClusterOutputArgs {
-    id: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

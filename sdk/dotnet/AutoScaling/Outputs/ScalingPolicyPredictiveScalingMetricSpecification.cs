@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingMetricSpecification
     {
+        public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric? CustomizedCapacityMetricSpecification;
+        public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric? CustomizedLoadMetricSpecification;
+        public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric? CustomizedScalingMetricSpecification;
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric? PredefinedLoadMetricSpecification;
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair? PredefinedMetricPairSpecification;
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric? PredefinedScalingMetricSpecification;
@@ -20,6 +23,12 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
         [OutputConstructor]
         private ScalingPolicyPredictiveScalingMetricSpecification(
+            Outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric? customizedCapacityMetricSpecification,
+
+            Outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric? customizedLoadMetricSpecification,
+
+            Outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric? customizedScalingMetricSpecification,
+
             Outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric? predefinedLoadMetricSpecification,
 
             Outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair? predefinedMetricPairSpecification,
@@ -28,6 +37,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             double targetValue)
         {
+            CustomizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
+            CustomizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            CustomizedScalingMetricSpecification = customizedScalingMetricSpecification;
             PredefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
             PredefinedMetricPairSpecification = predefinedMetricPairSpecification;
             PredefinedScalingMetricSpecification = predefinedScalingMetricSpecification;

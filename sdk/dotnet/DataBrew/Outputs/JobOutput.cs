@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         public readonly Pulumi.AwsNative.DataBrew.JobOutputFormat? Format;
         public readonly Outputs.JobOutputFormatOptions? FormatOptions;
         public readonly Outputs.JobS3Location Location;
+        public readonly int? MaxOutputFiles;
         public readonly bool? Overwrite;
         public readonly ImmutableArray<string> PartitionColumns;
 
@@ -30,6 +31,8 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
             Outputs.JobS3Location location,
 
+            int? maxOutputFiles,
+
             bool? overwrite,
 
             ImmutableArray<string> partitionColumns)
@@ -38,6 +41,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
             Format = format;
             FormatOptions = formatOptions;
             Location = location;
+            MaxOutputFiles = maxOutputFiles;
             Overwrite = overwrite;
             PartitionColumns = partitionColumns;
         }

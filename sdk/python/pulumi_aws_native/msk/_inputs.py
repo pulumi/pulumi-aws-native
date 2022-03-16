@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ClusterBrokerLogsArgs',
@@ -313,7 +314,7 @@ class ClusterEncryptionAtRestArgs:
 @pulumi.input_type
 class ClusterEncryptionInTransitArgs:
     def __init__(__self__, *,
-                 client_broker: Optional[pulumi.Input[str]] = None,
+                 client_broker: Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']] = None,
                  in_cluster: Optional[pulumi.Input[bool]] = None):
         if client_broker is not None:
             pulumi.set(__self__, "client_broker", client_broker)
@@ -322,11 +323,11 @@ class ClusterEncryptionInTransitArgs:
 
     @property
     @pulumi.getter(name="clientBroker")
-    def client_broker(self) -> Optional[pulumi.Input[str]]:
+    def client_broker(self) -> Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']]:
         return pulumi.get(self, "client_broker")
 
     @client_broker.setter
-    def client_broker(self, value: Optional[pulumi.Input[str]]):
+    def client_broker(self, value: Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']]):
         pulumi.set(self, "client_broker", value)
 
     @property

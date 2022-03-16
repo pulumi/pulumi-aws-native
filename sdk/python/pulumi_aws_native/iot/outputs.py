@@ -3756,8 +3756,6 @@ class TopicRuleTimestreamAction(dict):
             suggest = "role_arn"
         elif key == "tableName":
             suggest = "table_name"
-        elif key == "batchMode":
-            suggest = "batch_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleTimestreamAction. Access the value via the '{suggest}' property getter instead.")
@@ -3775,14 +3773,11 @@ class TopicRuleTimestreamAction(dict):
                  dimensions: Sequence['outputs.TopicRuleTimestreamDimension'],
                  role_arn: str,
                  table_name: str,
-                 batch_mode: Optional[bool] = None,
                  timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "table_name", table_name)
-        if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
         if timestamp is not None:
             pulumi.set(__self__, "timestamp", timestamp)
 
@@ -3805,11 +3800,6 @@ class TopicRuleTimestreamAction(dict):
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
         return pulumi.get(self, "table_name")
-
-    @property
-    @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[bool]:
-        return pulumi.get(self, "batch_mode")
 
     @property
     @pulumi.getter

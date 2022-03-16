@@ -24,6 +24,7 @@ class ComponentArgs:
                  collection_properties: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']] = None,
                  events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 schema_version: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['ComponentTagsArgs']] = None):
         """
@@ -42,6 +43,8 @@ class ComponentArgs:
             pulumi.set(__self__, "events", events)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if schema_version is not None:
+            pulumi.set(__self__, "schema_version", schema_version)
         if source_id is not None:
             pulumi.set(__self__, "source_id", source_id)
         if tags is not None:
@@ -129,6 +132,15 @@ class ComponentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_version")
+
+    @schema_version.setter
+    def schema_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_version", value)
+
+    @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "source_id")
@@ -160,6 +172,7 @@ class Component(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ComponentPropertiesArgs']]] = None,
+                 schema_version: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ComponentTagsArgs']]] = None,
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]]] = None,
@@ -202,6 +215,7 @@ class Component(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ComponentPropertiesArgs']]] = None,
+                 schema_version: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ComponentTagsArgs']]] = None,
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]]] = None,
@@ -233,6 +247,7 @@ class Component(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["schema_version"] = schema_version
             __props__.__dict__["source_id"] = source_id
             __props__.__dict__["tags"] = tags
             if variants is None and not opts.urn:
@@ -272,6 +287,7 @@ class Component(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["overrides"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["schema_version"] = None
         __props__.__dict__["source_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["variants"] = None
@@ -326,6 +342,11 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.ComponentProperties']:
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter(name="sourceId")

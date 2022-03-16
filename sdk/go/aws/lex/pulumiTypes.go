@@ -12,7 +12,7 @@ import (
 
 // The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAliasAudioLogDestination struct {
-	S3Bucket *BotAliasS3BucketLogDestination `pulumi:"s3Bucket"`
+	S3Bucket BotAliasS3BucketLogDestination `pulumi:"s3Bucket"`
 }
 
 // BotAliasAudioLogDestinationInput is an input type that accepts BotAliasAudioLogDestinationArgs and BotAliasAudioLogDestinationOutput values.
@@ -28,7 +28,7 @@ type BotAliasAudioLogDestinationInput interface {
 
 // The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAliasAudioLogDestinationArgs struct {
-	S3Bucket BotAliasS3BucketLogDestinationPtrInput `pulumi:"s3Bucket"`
+	S3Bucket BotAliasS3BucketLogDestinationInput `pulumi:"s3Bucket"`
 }
 
 func (BotAliasAudioLogDestinationArgs) ElementType() reflect.Type {
@@ -58,8 +58,8 @@ func (o BotAliasAudioLogDestinationOutput) ToBotAliasAudioLogDestinationOutputWi
 	return o
 }
 
-func (o BotAliasAudioLogDestinationOutput) S3Bucket() BotAliasS3BucketLogDestinationPtrOutput {
-	return o.ApplyT(func(v BotAliasAudioLogDestination) *BotAliasS3BucketLogDestination { return v.S3Bucket }).(BotAliasS3BucketLogDestinationPtrOutput)
+func (o BotAliasAudioLogDestinationOutput) S3Bucket() BotAliasS3BucketLogDestinationOutput {
+	return o.ApplyT(func(v BotAliasAudioLogDestination) BotAliasS3BucketLogDestination { return v.S3Bucket }).(BotAliasS3BucketLogDestinationOutput)
 }
 
 // Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
@@ -202,47 +202,6 @@ func (i BotAliasCloudWatchLogGroupLogDestinationArgs) ToBotAliasCloudWatchLogGro
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasCloudWatchLogGroupLogDestinationOutput)
 }
 
-func (i BotAliasCloudWatchLogGroupLogDestinationArgs) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutput() BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return i.ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i BotAliasCloudWatchLogGroupLogDestinationArgs) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasCloudWatchLogGroupLogDestinationOutput).ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(ctx)
-}
-
-// BotAliasCloudWatchLogGroupLogDestinationPtrInput is an input type that accepts BotAliasCloudWatchLogGroupLogDestinationArgs, BotAliasCloudWatchLogGroupLogDestinationPtr and BotAliasCloudWatchLogGroupLogDestinationPtrOutput values.
-// You can construct a concrete instance of `BotAliasCloudWatchLogGroupLogDestinationPtrInput` via:
-//
-//          BotAliasCloudWatchLogGroupLogDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type BotAliasCloudWatchLogGroupLogDestinationPtrInput interface {
-	pulumi.Input
-
-	ToBotAliasCloudWatchLogGroupLogDestinationPtrOutput() BotAliasCloudWatchLogGroupLogDestinationPtrOutput
-	ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(context.Context) BotAliasCloudWatchLogGroupLogDestinationPtrOutput
-}
-
-type botAliasCloudWatchLogGroupLogDestinationPtrType BotAliasCloudWatchLogGroupLogDestinationArgs
-
-func BotAliasCloudWatchLogGroupLogDestinationPtr(v *BotAliasCloudWatchLogGroupLogDestinationArgs) BotAliasCloudWatchLogGroupLogDestinationPtrInput {
-	return (*botAliasCloudWatchLogGroupLogDestinationPtrType)(v)
-}
-
-func (*botAliasCloudWatchLogGroupLogDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasCloudWatchLogGroupLogDestination)(nil)).Elem()
-}
-
-func (i *botAliasCloudWatchLogGroupLogDestinationPtrType) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutput() BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return i.ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *botAliasCloudWatchLogGroupLogDestinationPtrType) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasCloudWatchLogGroupLogDestinationPtrOutput)
-}
-
 type BotAliasCloudWatchLogGroupLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (BotAliasCloudWatchLogGroupLogDestinationOutput) ElementType() reflect.Type {
@@ -257,16 +216,6 @@ func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToBotAliasCloudWatchLogG
 	return o
 }
 
-func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutput() BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return o.ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAliasCloudWatchLogGroupLogDestination) *BotAliasCloudWatchLogGroupLogDestination {
-		return &v
-	}).(BotAliasCloudWatchLogGroupLogDestinationPtrOutput)
-}
-
 // A string used to identify this tag
 func (o BotAliasCloudWatchLogGroupLogDestinationOutput) CloudWatchLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasCloudWatchLogGroupLogDestination) string { return v.CloudWatchLogGroupArn }).(pulumi.StringOutput)
@@ -275,50 +224,6 @@ func (o BotAliasCloudWatchLogGroupLogDestinationOutput) CloudWatchLogGroupArn() 
 // A string containing the value for the tag
 func (o BotAliasCloudWatchLogGroupLogDestinationOutput) LogPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasCloudWatchLogGroupLogDestination) string { return v.LogPrefix }).(pulumi.StringOutput)
-}
-
-type BotAliasCloudWatchLogGroupLogDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAliasCloudWatchLogGroupLogDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasCloudWatchLogGroupLogDestination)(nil)).Elem()
-}
-
-func (o BotAliasCloudWatchLogGroupLogDestinationPtrOutput) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutput() BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return o
-}
-
-func (o BotAliasCloudWatchLogGroupLogDestinationPtrOutput) ToBotAliasCloudWatchLogGroupLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return o
-}
-
-func (o BotAliasCloudWatchLogGroupLogDestinationPtrOutput) Elem() BotAliasCloudWatchLogGroupLogDestinationOutput {
-	return o.ApplyT(func(v *BotAliasCloudWatchLogGroupLogDestination) BotAliasCloudWatchLogGroupLogDestination {
-		if v != nil {
-			return *v
-		}
-		var ret BotAliasCloudWatchLogGroupLogDestination
-		return ret
-	}).(BotAliasCloudWatchLogGroupLogDestinationOutput)
-}
-
-// A string used to identify this tag
-func (o BotAliasCloudWatchLogGroupLogDestinationPtrOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAliasCloudWatchLogGroupLogDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CloudWatchLogGroupArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string containing the value for the tag
-func (o BotAliasCloudWatchLogGroupLogDestinationPtrOutput) LogPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAliasCloudWatchLogGroupLogDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LogPrefix
-	}).(pulumi.StringPtrOutput)
 }
 
 // Contains information about code hooks that Amazon Lex calls during a conversation.
@@ -977,47 +882,6 @@ func (i BotAliasS3BucketLogDestinationArgs) ToBotAliasS3BucketLogDestinationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasS3BucketLogDestinationOutput)
 }
 
-func (i BotAliasS3BucketLogDestinationArgs) ToBotAliasS3BucketLogDestinationPtrOutput() BotAliasS3BucketLogDestinationPtrOutput {
-	return i.ToBotAliasS3BucketLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i BotAliasS3BucketLogDestinationArgs) ToBotAliasS3BucketLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasS3BucketLogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasS3BucketLogDestinationOutput).ToBotAliasS3BucketLogDestinationPtrOutputWithContext(ctx)
-}
-
-// BotAliasS3BucketLogDestinationPtrInput is an input type that accepts BotAliasS3BucketLogDestinationArgs, BotAliasS3BucketLogDestinationPtr and BotAliasS3BucketLogDestinationPtrOutput values.
-// You can construct a concrete instance of `BotAliasS3BucketLogDestinationPtrInput` via:
-//
-//          BotAliasS3BucketLogDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type BotAliasS3BucketLogDestinationPtrInput interface {
-	pulumi.Input
-
-	ToBotAliasS3BucketLogDestinationPtrOutput() BotAliasS3BucketLogDestinationPtrOutput
-	ToBotAliasS3BucketLogDestinationPtrOutputWithContext(context.Context) BotAliasS3BucketLogDestinationPtrOutput
-}
-
-type botAliasS3BucketLogDestinationPtrType BotAliasS3BucketLogDestinationArgs
-
-func BotAliasS3BucketLogDestinationPtr(v *BotAliasS3BucketLogDestinationArgs) BotAliasS3BucketLogDestinationPtrInput {
-	return (*botAliasS3BucketLogDestinationPtrType)(v)
-}
-
-func (*botAliasS3BucketLogDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasS3BucketLogDestination)(nil)).Elem()
-}
-
-func (i *botAliasS3BucketLogDestinationPtrType) ToBotAliasS3BucketLogDestinationPtrOutput() BotAliasS3BucketLogDestinationPtrOutput {
-	return i.ToBotAliasS3BucketLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *botAliasS3BucketLogDestinationPtrType) ToBotAliasS3BucketLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasS3BucketLogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasS3BucketLogDestinationPtrOutput)
-}
-
 // Specifies an Amazon S3 bucket for logging audio conversations
 type BotAliasS3BucketLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -1033,16 +897,6 @@ func (o BotAliasS3BucketLogDestinationOutput) ToBotAliasS3BucketLogDestinationOu
 	return o
 }
 
-func (o BotAliasS3BucketLogDestinationOutput) ToBotAliasS3BucketLogDestinationPtrOutput() BotAliasS3BucketLogDestinationPtrOutput {
-	return o.ToBotAliasS3BucketLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o BotAliasS3BucketLogDestinationOutput) ToBotAliasS3BucketLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasS3BucketLogDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAliasS3BucketLogDestination) *BotAliasS3BucketLogDestination {
-		return &v
-	}).(BotAliasS3BucketLogDestinationPtrOutput)
-}
-
 // The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
 func (o BotAliasS3BucketLogDestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotAliasS3BucketLogDestination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
@@ -1056,60 +910,6 @@ func (o BotAliasS3BucketLogDestinationOutput) LogPrefix() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
 func (o BotAliasS3BucketLogDestinationOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasS3BucketLogDestination) string { return v.S3BucketArn }).(pulumi.StringOutput)
-}
-
-type BotAliasS3BucketLogDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAliasS3BucketLogDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasS3BucketLogDestination)(nil)).Elem()
-}
-
-func (o BotAliasS3BucketLogDestinationPtrOutput) ToBotAliasS3BucketLogDestinationPtrOutput() BotAliasS3BucketLogDestinationPtrOutput {
-	return o
-}
-
-func (o BotAliasS3BucketLogDestinationPtrOutput) ToBotAliasS3BucketLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasS3BucketLogDestinationPtrOutput {
-	return o
-}
-
-func (o BotAliasS3BucketLogDestinationPtrOutput) Elem() BotAliasS3BucketLogDestinationOutput {
-	return o.ApplyT(func(v *BotAliasS3BucketLogDestination) BotAliasS3BucketLogDestination {
-		if v != nil {
-			return *v
-		}
-		var ret BotAliasS3BucketLogDestination
-		return ret
-	}).(BotAliasS3BucketLogDestinationOutput)
-}
-
-// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
-func (o BotAliasS3BucketLogDestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAliasS3BucketLogDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon S3 key of the deployment package.
-func (o BotAliasS3BucketLogDestinationPtrOutput) LogPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAliasS3BucketLogDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LogPrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-func (o BotAliasS3BucketLogDestinationPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAliasS3BucketLogDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3BucketArn
-	}).(pulumi.StringPtrOutput)
 }
 
 // A label for tagging Lex resources
@@ -1223,7 +1023,7 @@ func (o BotAliasTagArrayOutput) Index(i pulumi.IntInput) BotAliasTagOutput {
 
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotAliasTextLogDestination struct {
-	CloudWatch *BotAliasCloudWatchLogGroupLogDestination `pulumi:"cloudWatch"`
+	CloudWatch BotAliasCloudWatchLogGroupLogDestination `pulumi:"cloudWatch"`
 }
 
 // BotAliasTextLogDestinationInput is an input type that accepts BotAliasTextLogDestinationArgs and BotAliasTextLogDestinationOutput values.
@@ -1239,7 +1039,7 @@ type BotAliasTextLogDestinationInput interface {
 
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotAliasTextLogDestinationArgs struct {
-	CloudWatch BotAliasCloudWatchLogGroupLogDestinationPtrInput `pulumi:"cloudWatch"`
+	CloudWatch BotAliasCloudWatchLogGroupLogDestinationInput `pulumi:"cloudWatch"`
 }
 
 func (BotAliasTextLogDestinationArgs) ElementType() reflect.Type {
@@ -1252,47 +1052,6 @@ func (i BotAliasTextLogDestinationArgs) ToBotAliasTextLogDestinationOutput() Bot
 
 func (i BotAliasTextLogDestinationArgs) ToBotAliasTextLogDestinationOutputWithContext(ctx context.Context) BotAliasTextLogDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTextLogDestinationOutput)
-}
-
-func (i BotAliasTextLogDestinationArgs) ToBotAliasTextLogDestinationPtrOutput() BotAliasTextLogDestinationPtrOutput {
-	return i.ToBotAliasTextLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i BotAliasTextLogDestinationArgs) ToBotAliasTextLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasTextLogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTextLogDestinationOutput).ToBotAliasTextLogDestinationPtrOutputWithContext(ctx)
-}
-
-// BotAliasTextLogDestinationPtrInput is an input type that accepts BotAliasTextLogDestinationArgs, BotAliasTextLogDestinationPtr and BotAliasTextLogDestinationPtrOutput values.
-// You can construct a concrete instance of `BotAliasTextLogDestinationPtrInput` via:
-//
-//          BotAliasTextLogDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type BotAliasTextLogDestinationPtrInput interface {
-	pulumi.Input
-
-	ToBotAliasTextLogDestinationPtrOutput() BotAliasTextLogDestinationPtrOutput
-	ToBotAliasTextLogDestinationPtrOutputWithContext(context.Context) BotAliasTextLogDestinationPtrOutput
-}
-
-type botAliasTextLogDestinationPtrType BotAliasTextLogDestinationArgs
-
-func BotAliasTextLogDestinationPtr(v *BotAliasTextLogDestinationArgs) BotAliasTextLogDestinationPtrInput {
-	return (*botAliasTextLogDestinationPtrType)(v)
-}
-
-func (*botAliasTextLogDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasTextLogDestination)(nil)).Elem()
-}
-
-func (i *botAliasTextLogDestinationPtrType) ToBotAliasTextLogDestinationPtrOutput() BotAliasTextLogDestinationPtrOutput {
-	return i.ToBotAliasTextLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *botAliasTextLogDestinationPtrType) ToBotAliasTextLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasTextLogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTextLogDestinationPtrOutput)
 }
 
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
@@ -1310,57 +1069,14 @@ func (o BotAliasTextLogDestinationOutput) ToBotAliasTextLogDestinationOutputWith
 	return o
 }
 
-func (o BotAliasTextLogDestinationOutput) ToBotAliasTextLogDestinationPtrOutput() BotAliasTextLogDestinationPtrOutput {
-	return o.ToBotAliasTextLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o BotAliasTextLogDestinationOutput) ToBotAliasTextLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasTextLogDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAliasTextLogDestination) *BotAliasTextLogDestination {
-		return &v
-	}).(BotAliasTextLogDestinationPtrOutput)
-}
-
-func (o BotAliasTextLogDestinationOutput) CloudWatch() BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return o.ApplyT(func(v BotAliasTextLogDestination) *BotAliasCloudWatchLogGroupLogDestination { return v.CloudWatch }).(BotAliasCloudWatchLogGroupLogDestinationPtrOutput)
-}
-
-type BotAliasTextLogDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAliasTextLogDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasTextLogDestination)(nil)).Elem()
-}
-
-func (o BotAliasTextLogDestinationPtrOutput) ToBotAliasTextLogDestinationPtrOutput() BotAliasTextLogDestinationPtrOutput {
-	return o
-}
-
-func (o BotAliasTextLogDestinationPtrOutput) ToBotAliasTextLogDestinationPtrOutputWithContext(ctx context.Context) BotAliasTextLogDestinationPtrOutput {
-	return o
-}
-
-func (o BotAliasTextLogDestinationPtrOutput) Elem() BotAliasTextLogDestinationOutput {
-	return o.ApplyT(func(v *BotAliasTextLogDestination) BotAliasTextLogDestination {
-		if v != nil {
-			return *v
-		}
-		var ret BotAliasTextLogDestination
-		return ret
-	}).(BotAliasTextLogDestinationOutput)
-}
-
-func (o BotAliasTextLogDestinationPtrOutput) CloudWatch() BotAliasCloudWatchLogGroupLogDestinationPtrOutput {
-	return o.ApplyT(func(v *BotAliasTextLogDestination) *BotAliasCloudWatchLogGroupLogDestination {
-		if v == nil {
-			return nil
-		}
-		return v.CloudWatch
-	}).(BotAliasCloudWatchLogGroupLogDestinationPtrOutput)
+func (o BotAliasTextLogDestinationOutput) CloudWatch() BotAliasCloudWatchLogGroupLogDestinationOutput {
+	return o.ApplyT(func(v BotAliasTextLogDestination) BotAliasCloudWatchLogGroupLogDestination { return v.CloudWatch }).(BotAliasCloudWatchLogGroupLogDestinationOutput)
 }
 
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotAliasTextLogSetting struct {
-	Destination *BotAliasTextLogDestination `pulumi:"destination"`
-	Enabled     *bool                       `pulumi:"enabled"`
+	Destination BotAliasTextLogDestination `pulumi:"destination"`
+	Enabled     bool                       `pulumi:"enabled"`
 }
 
 // BotAliasTextLogSettingInput is an input type that accepts BotAliasTextLogSettingArgs and BotAliasTextLogSettingOutput values.
@@ -1376,8 +1092,8 @@ type BotAliasTextLogSettingInput interface {
 
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotAliasTextLogSettingArgs struct {
-	Destination BotAliasTextLogDestinationPtrInput `pulumi:"destination"`
-	Enabled     pulumi.BoolPtrInput                `pulumi:"enabled"`
+	Destination BotAliasTextLogDestinationInput `pulumi:"destination"`
+	Enabled     pulumi.BoolInput                `pulumi:"enabled"`
 }
 
 func (BotAliasTextLogSettingArgs) ElementType() reflect.Type {
@@ -1432,12 +1148,12 @@ func (o BotAliasTextLogSettingOutput) ToBotAliasTextLogSettingOutputWithContext(
 	return o
 }
 
-func (o BotAliasTextLogSettingOutput) Destination() BotAliasTextLogDestinationPtrOutput {
-	return o.ApplyT(func(v BotAliasTextLogSetting) *BotAliasTextLogDestination { return v.Destination }).(BotAliasTextLogDestinationPtrOutput)
+func (o BotAliasTextLogSettingOutput) Destination() BotAliasTextLogDestinationOutput {
+	return o.ApplyT(func(v BotAliasTextLogSetting) BotAliasTextLogDestination { return v.Destination }).(BotAliasTextLogDestinationOutput)
 }
 
-func (o BotAliasTextLogSettingOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BotAliasTextLogSetting) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o BotAliasTextLogSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotAliasTextLogSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type BotAliasTextLogSettingArrayOutput struct{ *pulumi.OutputState }
@@ -8023,7 +7739,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasAudioLogSettingInput)(nil)).Elem(), BotAliasAudioLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasAudioLogSettingArrayInput)(nil)).Elem(), BotAliasAudioLogSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasCloudWatchLogGroupLogDestinationInput)(nil)).Elem(), BotAliasCloudWatchLogGroupLogDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasCloudWatchLogGroupLogDestinationPtrInput)(nil)).Elem(), BotAliasCloudWatchLogGroupLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasCodeHookSpecificationInput)(nil)).Elem(), BotAliasCodeHookSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasCodeHookSpecificationPtrInput)(nil)).Elem(), BotAliasCodeHookSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasConversationLogSettingsInput)(nil)).Elem(), BotAliasConversationLogSettingsArgs{})
@@ -8034,11 +7749,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsItemInput)(nil)).Elem(), BotAliasLocaleSettingsItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsItemArrayInput)(nil)).Elem(), BotAliasLocaleSettingsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasS3BucketLogDestinationInput)(nil)).Elem(), BotAliasS3BucketLogDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasS3BucketLogDestinationPtrInput)(nil)).Elem(), BotAliasS3BucketLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTagInput)(nil)).Elem(), BotAliasTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTagArrayInput)(nil)).Elem(), BotAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogDestinationInput)(nil)).Elem(), BotAliasTextLogDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogDestinationPtrInput)(nil)).Elem(), BotAliasTextLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingInput)(nil)).Elem(), BotAliasTextLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingArrayInput)(nil)).Elem(), BotAliasTextLogSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonInput)(nil)).Elem(), BotButtonArgs{})
@@ -8137,7 +7850,6 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasAudioLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAliasAudioLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasCloudWatchLogGroupLogDestinationOutput{})
-	pulumi.RegisterOutputType(BotAliasCloudWatchLogGroupLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasCodeHookSpecificationOutput{})
 	pulumi.RegisterOutputType(BotAliasCodeHookSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasConversationLogSettingsOutput{})
@@ -8148,11 +7860,9 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsItemOutput{})
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsItemArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasS3BucketLogDestinationOutput{})
-	pulumi.RegisterOutputType(BotAliasS3BucketLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasTagOutput{})
 	pulumi.RegisterOutputType(BotAliasTagArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogDestinationOutput{})
-	pulumi.RegisterOutputType(BotAliasTextLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotButtonOutput{})

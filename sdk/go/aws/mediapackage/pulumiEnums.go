@@ -769,8 +769,9 @@ func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.I
 type OriginEndpointDashPackageProfile string
 
 const (
-	OriginEndpointDashPackageProfileNone    = OriginEndpointDashPackageProfile("NONE")
-	OriginEndpointDashPackageProfileHbbtv15 = OriginEndpointDashPackageProfile("HBBTV_1_5")
+	OriginEndpointDashPackageProfileNone       = OriginEndpointDashPackageProfile("NONE")
+	OriginEndpointDashPackageProfileHbbtv15    = OriginEndpointDashPackageProfile("HBBTV_1_5")
+	OriginEndpointDashPackageProfileHybridcast = OriginEndpointDashPackageProfile("HYBRIDCAST")
 )
 
 func (OriginEndpointDashPackageProfile) ElementType() reflect.Type {

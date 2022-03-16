@@ -303,6 +303,8 @@ if typing.TYPE_CHECKING:
     opsworkscm = __opsworkscm
     import pulumi_aws_native.panorama as __panorama
     panorama = __panorama
+    import pulumi_aws_native.personalize as __personalize
+    personalize = __personalize
     import pulumi_aws_native.pinpoint as __pinpoint
     pinpoint = __pinpoint
     import pulumi_aws_native.pinpointemail as __pinpointemail
@@ -535,6 +537,7 @@ else:
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
     panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
+    personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pinpointemail = _utilities.lazy_import('pulumi_aws_native.pinpointemail')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
@@ -1392,6 +1395,7 @@ _utilities.register(
    "aws-native:eks:Addon": "Addon",
    "aws-native:eks:Cluster": "Cluster",
    "aws-native:eks:FargateProfile": "FargateProfile",
+   "aws-native:eks:IdentityProviderConfig": "IdentityProviderConfig",
    "aws-native:eks:Nodegroup": "Nodegroup"
   }
  },
@@ -2135,7 +2139,9 @@ _utilities.register(
   "mod": "msk",
   "fqn": "pulumi_aws_native.msk",
   "classes": {
-   "aws-native:msk:Cluster": "Cluster"
+   "aws-native:msk:BatchScramSecret": "BatchScramSecret",
+   "aws-native:msk:Cluster": "Cluster",
+   "aws-native:msk:Configuration": "Configuration"
   }
  },
  {
@@ -2232,6 +2238,17 @@ _utilities.register(
    "aws-native:panorama:ApplicationInstance": "ApplicationInstance",
    "aws-native:panorama:Package": "Package",
    "aws-native:panorama:PackageVersion": "PackageVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "personalize",
+  "fqn": "pulumi_aws_native.personalize",
+  "classes": {
+   "aws-native:personalize:Dataset": "Dataset",
+   "aws-native:personalize:DatasetGroup": "DatasetGroup",
+   "aws-native:personalize:Schema": "Schema",
+   "aws-native:personalize:Solution": "Solution"
   }
  },
  {

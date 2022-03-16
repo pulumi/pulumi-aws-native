@@ -11368,7 +11368,6 @@ func (o TopicRuleTagArrayOutput) Index(i pulumi.IntInput) TopicRuleTagOutput {
 }
 
 type TopicRuleTimestreamAction struct {
-	BatchMode    *bool                          `pulumi:"batchMode"`
 	DatabaseName string                         `pulumi:"databaseName"`
 	Dimensions   []TopicRuleTimestreamDimension `pulumi:"dimensions"`
 	RoleArn      string                         `pulumi:"roleArn"`
@@ -11388,7 +11387,6 @@ type TopicRuleTimestreamActionInput interface {
 }
 
 type TopicRuleTimestreamActionArgs struct {
-	BatchMode    pulumi.BoolPtrInput                    `pulumi:"batchMode"`
 	DatabaseName pulumi.StringInput                     `pulumi:"databaseName"`
 	Dimensions   TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
 	RoleArn      pulumi.StringInput                     `pulumi:"roleArn"`
@@ -11473,10 +11471,6 @@ func (o TopicRuleTimestreamActionOutput) ToTopicRuleTimestreamActionPtrOutputWit
 	}).(TopicRuleTimestreamActionPtrOutput)
 }
 
-func (o TopicRuleTimestreamActionOutput) BatchMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TopicRuleTimestreamAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
-}
-
 func (o TopicRuleTimestreamActionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -11519,15 +11513,6 @@ func (o TopicRuleTimestreamActionPtrOutput) Elem() TopicRuleTimestreamActionOutp
 		var ret TopicRuleTimestreamAction
 		return ret
 	}).(TopicRuleTimestreamActionOutput)
-}
-
-func (o TopicRuleTimestreamActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TopicRuleTimestreamAction) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.BatchMode
-	}).(pulumi.BoolPtrOutput)
 }
 
 func (o TopicRuleTimestreamActionPtrOutput) DatabaseName() pulumi.StringPtrOutput {

@@ -28,10 +28,10 @@ type LookupImageArgs struct {
 type LookupImageResult struct {
 	// The Amazon Resource Name (ARN) of the image.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
-	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// The AMI ID of the EC2 AMI in current region.
 	ImageId *string `pulumi:"imageId"`
+	// URI for containers created in current Region with default ECR image tag
+	ImageUri *string `pulumi:"imageUri"`
 	// The name of the image.
 	Name *string `pulumi:"name"`
 }
@@ -73,14 +73,14 @@ func (o LookupImageResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
-func (o LookupImageResultOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupImageResult) *string { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
-}
-
 // The AMI ID of the EC2 AMI in current region.
 func (o LookupImageResultOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageResult) *string { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+// URI for containers created in current Region with default ECR image tag
+func (o LookupImageResultOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
 // The name of the image.

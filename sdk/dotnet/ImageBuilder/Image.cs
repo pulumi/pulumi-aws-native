@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<Outputs.ImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// URI for containers created in current Region with default ECR image tag
+        /// </summary>
+        [Output("imageUri")]
+        public Output<string> ImageUri { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
         [Output("infrastructureConfigurationArn")]

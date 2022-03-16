@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "aws-native:eks:FargateProfile":
 		r = &FargateProfile{}
+	case "aws-native:eks:IdentityProviderConfig":
+		r = &IdentityProviderConfig{}
 	case "aws-native:eks:Nodegroup":
 		r = &Nodegroup{}
 	default:

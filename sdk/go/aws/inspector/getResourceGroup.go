@@ -21,12 +21,11 @@ func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opt
 }
 
 type LookupResourceGroupArgs struct {
-	Id string `pulumi:"id"`
+	Arn string `pulumi:"arn"`
 }
 
 type LookupResourceGroupResult struct {
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
 }
 
 func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupResultOutput {
@@ -39,7 +38,7 @@ func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutp
 }
 
 type LookupResourceGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupResourceGroupOutputArgs) ElementType() reflect.Type {
@@ -62,10 +61,6 @@ func (o LookupResourceGroupResultOutput) ToLookupResourceGroupResultOutputWithCo
 
 func (o LookupResourceGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupResourceGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResourceGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

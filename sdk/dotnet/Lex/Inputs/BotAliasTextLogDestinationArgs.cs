@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotAliasTextLogDestinationArgs : Pulumi.ResourceArgs
     {
-        [Input("cloudWatch")]
-        public Input<Inputs.BotAliasCloudWatchLogGroupLogDestinationArgs>? CloudWatch { get; set; }
+        [Input("cloudWatch", required: true)]
+        public Input<Inputs.BotAliasCloudWatchLogGroupLogDestinationArgs> CloudWatch { get; set; } = null!;
 
         public BotAliasTextLogDestinationArgs()
         {

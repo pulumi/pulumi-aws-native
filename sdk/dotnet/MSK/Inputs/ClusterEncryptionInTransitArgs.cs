@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MSK.Inputs
     public sealed class ClusterEncryptionInTransitArgs : Pulumi.ResourceArgs
     {
         [Input("clientBroker")]
-        public Input<string>? ClientBroker { get; set; }
+        public Input<Pulumi.AwsNative.MSK.ClusterEncryptionInTransitClientBroker>? ClientBroker { get; set; }
 
         [Input("inCluster")]
         public Input<bool>? InCluster { get; set; }

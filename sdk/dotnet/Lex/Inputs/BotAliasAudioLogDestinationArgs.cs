@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotAliasAudioLogDestinationArgs : Pulumi.ResourceArgs
     {
-        [Input("s3Bucket")]
-        public Input<Inputs.BotAliasS3BucketLogDestinationArgs>? S3Bucket { get; set; }
+        [Input("s3Bucket", required: true)]
+        public Input<Inputs.BotAliasS3BucketLogDestinationArgs> S3Bucket { get; set; } = null!;
 
         public BotAliasAudioLogDestinationArgs()
         {

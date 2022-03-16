@@ -37,6 +37,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
 
     public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateActionMap | undefined>;
     public readonly description!: pulumi.Output<string>;
+    public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     public readonly tags!: pulumi.Output<any>;
@@ -70,6 +71,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -77,6 +79,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["logConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["stopConditions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -93,6 +96,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
 export interface ExperimentTemplateArgs {
     actions?: pulumi.Input<inputs.fis.ExperimentTemplateActionMapArgs>;
     description: pulumi.Input<string>;
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
     roleArn: pulumi.Input<string>;
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopConditionArgs>[]>;
     tags: any;

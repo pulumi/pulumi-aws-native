@@ -28,8 +28,8 @@ type ReplicationInstance struct {
 	PubliclyAccessible                    pulumi.BoolPtrOutput              `pulumi:"publiclyAccessible"`
 	ReplicationInstanceClass              pulumi.StringOutput               `pulumi:"replicationInstanceClass"`
 	ReplicationInstanceIdentifier         pulumi.StringPtrOutput            `pulumi:"replicationInstanceIdentifier"`
-	ReplicationInstancePrivateIpAddresses pulumi.StringArrayOutput          `pulumi:"replicationInstancePrivateIpAddresses"`
-	ReplicationInstancePublicIpAddresses  pulumi.StringArrayOutput          `pulumi:"replicationInstancePublicIpAddresses"`
+	ReplicationInstancePrivateIpAddresses pulumi.StringOutput               `pulumi:"replicationInstancePrivateIpAddresses"`
+	ReplicationInstancePublicIpAddresses  pulumi.StringOutput               `pulumi:"replicationInstancePublicIpAddresses"`
 	ReplicationSubnetGroupIdentifier      pulumi.StringPtrOutput            `pulumi:"replicationSubnetGroupIdentifier"`
 	ResourceIdentifier                    pulumi.StringPtrOutput            `pulumi:"resourceIdentifier"`
 	Tags                                  ReplicationInstanceTagArrayOutput `pulumi:"tags"`
