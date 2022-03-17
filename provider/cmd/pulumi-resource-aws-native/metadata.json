@@ -37650,6 +37650,17 @@
                 }
             }
         },
+        "aws-native:acmpca:CertificateAuthorityCustomAttribute": {
+            "type": "object",
+            "properties": {
+                "objectIdentifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:acmpca:CertificateAuthorityEdiPartyName": {
             "type": "object",
             "properties": {
@@ -37764,6 +37775,12 @@
                 "country": {
                     "type": "string"
                 },
+                "customAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:acmpca:CertificateAuthorityCustomAttribute"
+                    }
+                },
                 "distinguishedNameQualifier": {
                     "type": "string"
                 },
@@ -37813,6 +37830,31 @@
                 }
             }
         },
+        "aws-native:acmpca:CertificateCustomAttribute": {
+            "type": "object",
+            "properties": {
+                "objectIdentifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:acmpca:CertificateCustomExtension": {
+            "type": "object",
+            "properties": {
+                "critical": {
+                    "type": "boolean"
+                },
+                "objectIdentifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:acmpca:CertificateEdiPartyName": {
             "type": "object",
             "properties": {
@@ -37842,6 +37884,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:acmpca:CertificatePolicyInformation"
+                    }
+                },
+                "customExtensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:acmpca:CertificateCustomExtension"
                     }
                 },
                 "extendedKeyUsage": {
@@ -37974,6 +38022,12 @@
                 },
                 "country": {
                     "type": "string"
+                },
+                "customAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:acmpca:CertificateCustomAttribute"
+                    }
                 },
                 "distinguishedNameQualifier": {
                     "type": "string"
@@ -45620,6 +45674,28 @@
             "properties": {
                 "cloudFormation": {
                     "$ref": "#/types/aws-native:devopsguru:ResourceCollectionCloudFormationCollectionFilter"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsguru:ResourceCollectionTagCollection"
+                    }
+                }
+            }
+        },
+        "aws-native:devopsguru:ResourceCollectionTagCollection": {
+            "type": "object",
+            "properties": {
+                "appBoundaryKey": {
+                    "type": "string",
+                    "description": "A Tag key for DevOps Guru app boundary."
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tag values of DevOps Guru app boundary."
                 }
             }
         },
@@ -61086,6 +61162,25 @@
         "aws-native:mediapackage:OriginEndpointDashPackageUtcTiming": {
             "type": "string"
         },
+        "aws-native:mediapackage:OriginEndpointEncryptionContractConfiguration": {
+            "type": "object",
+            "properties": {
+                "presetSpeke20Audio": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio",
+                    "description": "A collection of audio encryption presets."
+                },
+                "presetSpeke20Video": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Video",
+                    "description": "A collection of video encryption presets."
+                }
+            }
+        },
+        "aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio": {
+            "type": "string"
+        },
+        "aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Video": {
+            "type": "string"
+        },
         "aws-native:mediapackage:OriginEndpointHlsEncryption": {
             "type": "object",
             "properties": {
@@ -61263,6 +61358,9 @@
                 "certificateArn": {
                     "type": "string",
                     "description": "An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service."
+                },
+                "encryptionContractConfiguration": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointEncryptionContractConfiguration"
                 },
                 "resourceId": {
                     "type": "string",

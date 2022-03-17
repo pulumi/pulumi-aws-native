@@ -47,7 +47,7 @@
               "maxLength" : 1024
             }
           },
-          "minItems" : 1,
+          "minProperties" : 1,
           "additionalProperties" : false
         }
       },
