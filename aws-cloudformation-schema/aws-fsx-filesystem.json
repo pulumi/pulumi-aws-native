@@ -72,6 +72,13 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Options" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "WeeklyMaintenanceStartTime" : {
           "type" : "string"
         },
@@ -290,6 +297,9 @@
         "ReadOnly" : {
           "type" : "boolean"
         },
+        "DataCompressionType" : {
+          "type" : "string"
+        },
         "NfsExports" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -297,11 +307,11 @@
             "$ref" : "#/definitions/NfsExports"
           }
         },
-        "DataCompressionType" : {
-          "type" : "string"
-        },
         "CopyTagsToSnapshots" : {
           "type" : "boolean"
+        },
+        "RecordSizeKiB" : {
+          "type" : "integer"
         },
         "UserAndGroupQuotas" : {
           "type" : "array",

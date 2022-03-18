@@ -22527,6 +22527,9 @@
                 "roleArn": {
                     "type": "string"
                 },
+                "testBotAliasSettings": {
+                    "$ref": "#/types/aws-native:lex:BotTestBotAliasSettings"
+                },
                 "testBotAliasTags": {
                     "type": "array",
                     "items": {
@@ -22576,6 +22579,9 @@
                 },
                 "roleArn": {
                     "type": "string"
+                },
+                "testBotAliasSettings": {
+                    "$ref": "#/types/aws-native:lex:BotTestBotAliasSettings"
                 },
                 "testBotAliasTags": {
                     "type": "array",
@@ -37650,6 +37656,17 @@
                 }
             }
         },
+        "aws-native:acmpca:CertificateAuthorityCustomAttribute": {
+            "type": "object",
+            "properties": {
+                "objectIdentifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:acmpca:CertificateAuthorityEdiPartyName": {
             "type": "object",
             "properties": {
@@ -37764,6 +37781,12 @@
                 "country": {
                     "type": "string"
                 },
+                "customAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:acmpca:CertificateAuthorityCustomAttribute"
+                    }
+                },
                 "distinguishedNameQualifier": {
                     "type": "string"
                 },
@@ -37813,6 +37836,31 @@
                 }
             }
         },
+        "aws-native:acmpca:CertificateCustomAttribute": {
+            "type": "object",
+            "properties": {
+                "objectIdentifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:acmpca:CertificateCustomExtension": {
+            "type": "object",
+            "properties": {
+                "critical": {
+                    "type": "boolean"
+                },
+                "objectIdentifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:acmpca:CertificateEdiPartyName": {
             "type": "object",
             "properties": {
@@ -37842,6 +37890,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:acmpca:CertificatePolicyInformation"
+                    }
+                },
+                "customExtensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:acmpca:CertificateCustomExtension"
                     }
                 },
                 "extendedKeyUsage": {
@@ -37974,6 +38028,12 @@
                 },
                 "country": {
                     "type": "string"
+                },
+                "customAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:acmpca:CertificateCustomAttribute"
+                    }
                 },
                 "distinguishedNameQualifier": {
                     "type": "string"
@@ -45620,6 +45680,28 @@
             "properties": {
                 "cloudFormation": {
                     "$ref": "#/types/aws-native:devopsguru:ResourceCollectionCloudFormationCollectionFilter"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsguru:ResourceCollectionTagCollection"
+                    }
+                }
+            }
+        },
+        "aws-native:devopsguru:ResourceCollectionTagCollection": {
+            "type": "object",
+            "properties": {
+                "appBoundaryKey": {
+                    "type": "string",
+                    "description": "A Tag key for DevOps Guru app boundary."
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tag values of DevOps Guru app boundary."
                 }
             }
         },
@@ -58739,6 +58821,14 @@
                 }
             }
         },
+        "aws-native:lex:BotAdvancedRecognitionSetting": {
+            "type": "object",
+            "properties": {
+                "audioRecognitionStrategy": {
+                    "$ref": "#/types/aws-native:lex:BotAudioRecognitionStrategy"
+                }
+            }
+        },
         "aws-native:lex:BotAliasAudioLogDestination": {
             "type": "object",
             "properties": {
@@ -58763,11 +58853,11 @@
             "properties": {
                 "cloudWatchLogGroupArn": {
                     "type": "string",
-                    "description": "A string used to identify this tag"
+                    "description": "A string used to identify the groupArn for the Cloudwatch Log Group"
                 },
                 "logPrefix": {
                     "type": "string",
-                    "description": "A string containing the value for the tag"
+                    "description": "A string containing the value for the Log Prefix"
                 }
             }
         },
@@ -58885,6 +58975,28 @@
                 }
             }
         },
+        "aws-native:lex:BotAudioLogDestination": {
+            "type": "object",
+            "properties": {
+                "s3Bucket": {
+                    "$ref": "#/types/aws-native:lex:BotS3BucketLogDestination"
+                }
+            }
+        },
+        "aws-native:lex:BotAudioLogSetting": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:lex:BotAudioLogDestination"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:lex:BotAudioRecognitionStrategy": {
+            "type": "string"
+        },
         "aws-native:lex:BotButton": {
             "type": "object",
             "properties": {
@@ -58898,12 +59010,74 @@
                 }
             }
         },
+        "aws-native:lex:BotCloudWatchLogGroupLogDestination": {
+            "type": "object",
+            "properties": {
+                "cloudWatchLogGroupArn": {
+                    "type": "string",
+                    "description": "A string used to identify the groupArn for the Cloudwatch Log Group"
+                },
+                "logPrefix": {
+                    "type": "string",
+                    "description": "A string containing the value for the Log Prefix"
+                }
+            }
+        },
+        "aws-native:lex:BotCodeHookSpecification": {
+            "type": "object",
+            "properties": {
+                "lambdaCodeHook": {
+                    "$ref": "#/types/aws-native:lex:BotLambdaCodeHook"
+                }
+            }
+        },
+        "aws-native:lex:BotConversationLogSettings": {
+            "type": "object",
+            "properties": {
+                "audioLogSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotAudioLogSetting"
+                    }
+                },
+                "textLogSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotTextLogSetting"
+                    }
+                }
+            }
+        },
         "aws-native:lex:BotCustomPayload": {
             "type": "object",
             "properties": {
                 "value": {
                     "type": "string",
                     "description": "The string that is sent to your application."
+                }
+            }
+        },
+        "aws-native:lex:BotCustomVocabulary": {
+            "type": "object",
+            "properties": {
+                "customVocabularyItems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotCustomVocabularyItem"
+                    }
+                }
+            }
+        },
+        "aws-native:lex:BotCustomVocabularyItem": {
+            "type": "object",
+            "properties": {
+                "phrase": {
+                    "type": "string",
+                    "description": "Phrase that should be recognized."
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "The degree to which the phrase recognition is boosted."
                 }
             }
         },
@@ -59152,9 +59326,25 @@
                 }
             }
         },
+        "aws-native:lex:BotLambdaCodeHook": {
+            "type": "object",
+            "properties": {
+                "codeHookInterfaceVersion": {
+                    "type": "string",
+                    "description": "The version of the request-response that you want Amazon Lex to use to invoke your Lambda function."
+                },
+                "lambdaArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Lambda function."
+                }
+            }
+        },
         "aws-native:lex:BotLocale": {
             "type": "object",
             "properties": {
+                "customVocabulary": {
+                    "$ref": "#/types/aws-native:lex:BotCustomVocabulary"
+                },
                 "description": {
                     "type": "string"
                 },
@@ -59302,6 +59492,23 @@
                     "items": {
                         "$ref": "#/types/aws-native:lex:BotMessageGroup"
                     }
+                }
+            }
+        },
+        "aws-native:lex:BotS3BucketLogDestination": {
+            "type": "object",
+            "properties": {
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket."
+                },
+                "logPrefix": {
+                    "type": "string",
+                    "description": "The Amazon S3 key of the deployment package."
+                },
+                "s3BucketArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored."
                 }
             }
         },
@@ -59490,6 +59697,9 @@
         "aws-native:lex:BotSlotValueSelectionSetting": {
             "type": "object",
             "properties": {
+                "advancedRecognitionSetting": {
+                    "$ref": "#/types/aws-native:lex:BotAdvancedRecognitionSetting"
+                },
                 "regexFilter": {
                     "$ref": "#/types/aws-native:lex:BotSlotValueRegexFilter"
                 },
@@ -59529,6 +59739,55 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:lex:BotTestBotAliasSettings": {
+            "type": "object",
+            "properties": {
+                "botAliasLocaleSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotAliasLocaleSettingsItem"
+                    }
+                },
+                "conversationLogSettings": {
+                    "$ref": "#/types/aws-native:lex:BotConversationLogSettings"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "sentimentAnalysisSettings": {
+                    "$ref": "#/types/aws-native:lex:BotTestBotAliasSettingsSentimentAnalysisSettingsProperties",
+                    "description": "Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances."
+                }
+            }
+        },
+        "aws-native:lex:BotTestBotAliasSettingsSentimentAnalysisSettingsProperties": {
+            "type": "object",
+            "properties": {
+                "detectSentiment": {
+                    "type": "boolean",
+                    "description": "Enable to call Amazon Comprehend for Sentiment natively within Lex"
+                }
+            }
+        },
+        "aws-native:lex:BotTextLogDestination": {
+            "type": "object",
+            "properties": {
+                "cloudWatch": {
+                    "$ref": "#/types/aws-native:lex:BotCloudWatchLogGroupLogDestination"
+                }
+            }
+        },
+        "aws-native:lex:BotTextLogSetting": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:lex:BotTextLogDestination"
+                },
+                "enabled": {
+                    "type": "boolean"
                 }
             }
         },
@@ -61086,6 +61345,25 @@
         "aws-native:mediapackage:OriginEndpointDashPackageUtcTiming": {
             "type": "string"
         },
+        "aws-native:mediapackage:OriginEndpointEncryptionContractConfiguration": {
+            "type": "object",
+            "properties": {
+                "presetSpeke20Audio": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio",
+                    "description": "A collection of audio encryption presets."
+                },
+                "presetSpeke20Video": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Video",
+                    "description": "A collection of video encryption presets."
+                }
+            }
+        },
+        "aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio": {
+            "type": "string"
+        },
+        "aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Video": {
+            "type": "string"
+        },
         "aws-native:mediapackage:OriginEndpointHlsEncryption": {
             "type": "object",
             "properties": {
@@ -61263,6 +61541,9 @@
                 "certificateArn": {
                     "type": "string",
                     "description": "An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service."
+                },
+                "encryptionContractConfiguration": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointEncryptionContractConfiguration"
                 },
                 "resourceId": {
                     "type": "string",

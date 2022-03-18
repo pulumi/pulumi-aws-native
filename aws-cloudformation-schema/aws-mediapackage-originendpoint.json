@@ -447,6 +447,27 @@
         "CertificateArn" : {
           "description" : "An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.",
           "type" : "string"
+        },
+        "EncryptionContractConfiguration" : {
+          "$ref" : "#/definitions/EncryptionContractConfiguration"
+        }
+      }
+    },
+    "EncryptionContractConfiguration" : {
+      "description" : "The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "required" : [ "PresetSpeke20Audio", "PresetSpeke20Video" ],
+      "properties" : {
+        "PresetSpeke20Audio" : {
+          "description" : "A collection of audio encryption presets.",
+          "type" : "string",
+          "enum" : [ "PRESET-AUDIO-1" ]
+        },
+        "PresetSpeke20Video" : {
+          "description" : "A collection of video encryption presets.",
+          "type" : "string",
+          "enum" : [ "PRESET-VIDEO-1" ]
         }
       }
     },
