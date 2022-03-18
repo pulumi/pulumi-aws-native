@@ -1088,6 +1088,7 @@ type FileSystemOpenZFSConfiguration struct {
 	DailyAutomaticBackupStartTime *string                            `pulumi:"dailyAutomaticBackupStartTime"`
 	DeploymentType                string                             `pulumi:"deploymentType"`
 	DiskIopsConfiguration         *FileSystemDiskIopsConfiguration   `pulumi:"diskIopsConfiguration"`
+	Options                       []string                           `pulumi:"options"`
 	RootVolumeConfiguration       *FileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
 	ThroughputCapacity            *int                               `pulumi:"throughputCapacity"`
 	WeeklyMaintenanceStartTime    *string                            `pulumi:"weeklyMaintenanceStartTime"`
@@ -1111,6 +1112,7 @@ type FileSystemOpenZFSConfigurationArgs struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput                     `pulumi:"dailyAutomaticBackupStartTime"`
 	DeploymentType                pulumi.StringInput                        `pulumi:"deploymentType"`
 	DiskIopsConfiguration         FileSystemDiskIopsConfigurationPtrInput   `pulumi:"diskIopsConfiguration"`
+	Options                       pulumi.StringArrayInput                   `pulumi:"options"`
 	RootVolumeConfiguration       FileSystemRootVolumeConfigurationPtrInput `pulumi:"rootVolumeConfiguration"`
 	ThroughputCapacity            pulumi.IntPtrInput                        `pulumi:"throughputCapacity"`
 	WeeklyMaintenanceStartTime    pulumi.StringPtrInput                     `pulumi:"weeklyMaintenanceStartTime"`
@@ -1219,6 +1221,10 @@ func (o FileSystemOpenZFSConfigurationOutput) DiskIopsConfiguration() FileSystem
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
+func (o FileSystemOpenZFSConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
 func (o FileSystemOpenZFSConfigurationOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *FileSystemRootVolumeConfiguration {
 		return v.RootVolumeConfiguration
@@ -1311,6 +1317,15 @@ func (o FileSystemOpenZFSConfigurationPtrOutput) DiskIopsConfiguration() FileSys
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
+func (o FileSystemOpenZFSConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o FileSystemOpenZFSConfigurationPtrOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *FileSystemRootVolumeConfiguration {
 		if v == nil {
@@ -1343,6 +1358,7 @@ type FileSystemRootVolumeConfiguration struct {
 	DataCompressionType *string                        `pulumi:"dataCompressionType"`
 	NfsExports          []FileSystemNfsExports         `pulumi:"nfsExports"`
 	ReadOnly            *bool                          `pulumi:"readOnly"`
+	RecordSizeKiB       *int                           `pulumi:"recordSizeKiB"`
 	UserAndGroupQuotas  []FileSystemUserAndGroupQuotas `pulumi:"userAndGroupQuotas"`
 }
 
@@ -1362,6 +1378,7 @@ type FileSystemRootVolumeConfigurationArgs struct {
 	DataCompressionType pulumi.StringPtrInput                  `pulumi:"dataCompressionType"`
 	NfsExports          FileSystemNfsExportsArrayInput         `pulumi:"nfsExports"`
 	ReadOnly            pulumi.BoolPtrInput                    `pulumi:"readOnly"`
+	RecordSizeKiB       pulumi.IntPtrInput                     `pulumi:"recordSizeKiB"`
 	UserAndGroupQuotas  FileSystemUserAndGroupQuotasArrayInput `pulumi:"userAndGroupQuotas"`
 }
 
@@ -1458,6 +1475,10 @@ func (o FileSystemRootVolumeConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
+func (o FileSystemRootVolumeConfigurationOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) *int { return v.RecordSizeKiB }).(pulumi.IntPtrOutput)
+}
+
 func (o FileSystemRootVolumeConfigurationOutput) UserAndGroupQuotas() FileSystemUserAndGroupQuotasArrayOutput {
 	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) []FileSystemUserAndGroupQuotas { return v.UserAndGroupQuotas }).(FileSystemUserAndGroupQuotasArrayOutput)
 }
@@ -1520,6 +1541,15 @@ func (o FileSystemRootVolumeConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOut
 		}
 		return v.ReadOnly
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordSizeKiB
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o FileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() FileSystemUserAndGroupQuotasArrayOutput {

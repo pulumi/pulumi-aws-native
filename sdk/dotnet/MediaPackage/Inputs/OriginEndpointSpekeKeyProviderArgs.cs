@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
+        [Input("encryptionContractConfiguration")]
+        public Input<Inputs.OriginEndpointEncryptionContractConfigurationArgs>? EncryptionContractConfiguration { get; set; }
+
         /// <summary>
         /// The resource ID to include in key requests.
         /// </summary>

@@ -229,6 +229,66 @@ namespace Pulumi.AwsNative.MediaPackage
     }
 
     /// <summary>
+    /// A collection of audio encryption presets.
+    /// </summary>
+    [EnumType]
+    public readonly struct OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio : IEquatable<OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio>
+    {
+        private readonly string _value;
+
+        private OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio PresetAudio1 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1");
+
+        public static bool operator ==(OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio other && Equals(other);
+        public bool Equals(OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A collection of video encryption presets.
+    /// </summary>
+    [EnumType]
+    public readonly struct OriginEndpointEncryptionContractConfigurationPresetSpeke20Video : IEquatable<OriginEndpointEncryptionContractConfigurationPresetSpeke20Video>
+    {
+        private readonly string _value;
+
+        private OriginEndpointEncryptionContractConfigurationPresetSpeke20Video(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo1 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1");
+
+        public static bool operator ==(OriginEndpointEncryptionContractConfigurationPresetSpeke20Video left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Video right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointEncryptionContractConfigurationPresetSpeke20Video left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Video right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointEncryptionContractConfigurationPresetSpeke20Video value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointEncryptionContractConfigurationPresetSpeke20Video other && Equals(other);
+        public bool Equals(OriginEndpointEncryptionContractConfigurationPresetSpeke20Video other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The encryption method to use.
     /// </summary>
     [EnumType]

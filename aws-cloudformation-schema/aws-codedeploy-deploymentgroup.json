@@ -28,6 +28,9 @@
     "Ec2TagSet" : {
       "$ref" : "#/definitions/EC2TagSet"
     },
+    "OutdatedInstancesStrategy" : {
+      "type" : "string"
+    },
     "TriggerConfigurations" : {
       "type" : "array",
       "uniqueItems" : true,
@@ -69,6 +72,13 @@
     },
     "DeploymentGroupName" : {
       "type" : "string"
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     },
     "OnPremisesInstanceTagFilters" : {
       "type" : "array",
@@ -119,6 +129,21 @@
         }
       }
     },
+    "TagFilter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Type" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      }
+    },
     "TriggerConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -135,21 +160,6 @@
           "items" : {
             "type" : "string"
           }
-        }
-      }
-    },
-    "TagFilter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
-        "Type" : {
-          "type" : "string"
-        },
-        "Key" : {
-          "type" : "string"
         }
       }
     },
@@ -181,38 +191,6 @@
         }
       },
       "required" : [ "Revision" ]
-    },
-    "EC2TagSet" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Ec2TagSetList" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "$ref" : "#/definitions/EC2TagSetListObject"
-          }
-        }
-      }
-    },
-    "AlarmConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Alarms" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "$ref" : "#/definitions/Alarm"
-          }
-        },
-        "IgnorePollAlarmFailure" : {
-          "type" : "boolean"
-        },
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      }
     },
     "ELBInfo" : {
       "type" : "object",
@@ -286,19 +264,6 @@
         }
       }
     },
-    "ECSService" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ServiceName" : {
-          "type" : "string"
-        },
-        "ClusterName" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "ServiceName", "ClusterName" ]
-    },
     "EC2TagFilter" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -329,15 +294,6 @@
         }
       }
     },
-    "Alarm" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
     "GreenFleetProvisioningOption" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -364,6 +320,99 @@
           "items" : {
             "$ref" : "#/definitions/ELBInfo"
           }
+        },
+        "TargetGroupPairInfoList" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/TargetGroupPairInfo"
+          }
+        }
+      }
+    },
+    "AlarmConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Alarms" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/Alarm"
+          }
+        },
+        "IgnorePollAlarmFailure" : {
+          "type" : "boolean"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "EC2TagSet" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Ec2TagSetList" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/EC2TagSetListObject"
+          }
+        }
+      }
+    },
+    "TrafficRoute" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ListenerArns" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ECSService" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ServiceName" : {
+          "type" : "string"
+        },
+        "ClusterName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ServiceName", "ClusterName" ]
+    },
+    "TargetGroupPairInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ProdTrafficRoute" : {
+          "$ref" : "#/definitions/TrafficRoute"
+        },
+        "TestTrafficRoute" : {
+          "$ref" : "#/definitions/TrafficRoute"
+        },
+        "TargetGroups" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/TargetGroupInfo"
+          }
+        }
+      }
+    },
+    "Alarm" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Name" : {
+          "type" : "string"
         }
       }
     },
@@ -388,6 +437,19 @@
           }
         }
       }
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
     },
     "BlueInstanceTerminationOption" : {
       "type" : "object",

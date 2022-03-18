@@ -35,7 +35,10 @@ __all__ = [
     'DeploymentGroupRevisionLocationArgs',
     'DeploymentGroupS3LocationArgs',
     'DeploymentGroupTagFilterArgs',
+    'DeploymentGroupTagArgs',
     'DeploymentGroupTargetGroupInfoArgs',
+    'DeploymentGroupTargetGroupPairInfoArgs',
+    'DeploymentGroupTrafficRouteArgs',
     'DeploymentGroupTriggerConfigArgs',
 ]
 
@@ -609,11 +612,14 @@ class DeploymentGroupGreenFleetProvisioningOptionArgs:
 class DeploymentGroupLoadBalancerInfoArgs:
     def __init__(__self__, *,
                  elb_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupELBInfoArgs']]]] = None,
-                 target_group_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None):
+                 target_group_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
+                 target_group_pair_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]] = None):
         if elb_info_list is not None:
             pulumi.set(__self__, "elb_info_list", elb_info_list)
         if target_group_info_list is not None:
             pulumi.set(__self__, "target_group_info_list", target_group_info_list)
+        if target_group_pair_info_list is not None:
+            pulumi.set(__self__, "target_group_pair_info_list", target_group_pair_info_list)
 
     @property
     @pulumi.getter(name="elbInfoList")
@@ -632,6 +638,15 @@ class DeploymentGroupLoadBalancerInfoArgs:
     @target_group_info_list.setter
     def target_group_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]):
         pulumi.set(self, "target_group_info_list", value)
+
+    @property
+    @pulumi.getter(name="targetGroupPairInfoList")
+    def target_group_pair_info_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]]:
+        return pulumi.get(self, "target_group_pair_info_list")
+
+    @target_group_pair_info_list.setter
+    def target_group_pair_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]]):
+        pulumi.set(self, "target_group_pair_info_list", value)
 
 
 @pulumi.input_type
@@ -814,6 +829,33 @@ class DeploymentGroupTagFilterArgs:
 
 
 @pulumi.input_type
+class DeploymentGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DeploymentGroupTargetGroupInfoArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -828,6 +870,64 @@ class DeploymentGroupTargetGroupInfoArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DeploymentGroupTargetGroupPairInfoArgs:
+    def __init__(__self__, *,
+                 prod_traffic_route: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']] = None,
+                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
+                 test_traffic_route: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']] = None):
+        if prod_traffic_route is not None:
+            pulumi.set(__self__, "prod_traffic_route", prod_traffic_route)
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
+        if test_traffic_route is not None:
+            pulumi.set(__self__, "test_traffic_route", test_traffic_route)
+
+    @property
+    @pulumi.getter(name="prodTrafficRoute")
+    def prod_traffic_route(self) -> Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]:
+        return pulumi.get(self, "prod_traffic_route")
+
+    @prod_traffic_route.setter
+    def prod_traffic_route(self, value: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]):
+        pulumi.set(self, "prod_traffic_route", value)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]:
+        return pulumi.get(self, "target_groups")
+
+    @target_groups.setter
+    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]):
+        pulumi.set(self, "target_groups", value)
+
+    @property
+    @pulumi.getter(name="testTrafficRoute")
+    def test_traffic_route(self) -> Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]:
+        return pulumi.get(self, "test_traffic_route")
+
+    @test_traffic_route.setter
+    def test_traffic_route(self, value: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]):
+        pulumi.set(self, "test_traffic_route", value)
+
+
+@pulumi.input_type
+class DeploymentGroupTrafficRouteArgs:
+    def __init__(__self__, *,
+                 listener_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if listener_arns is not None:
+            pulumi.set(__self__, "listener_arns", listener_arns)
+
+    @property
+    @pulumi.getter(name="listenerArns")
+    def listener_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "listener_arns")
+
+    @listener_arns.setter
+    def listener_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "listener_arns", value)
 
 
 @pulumi.input_type

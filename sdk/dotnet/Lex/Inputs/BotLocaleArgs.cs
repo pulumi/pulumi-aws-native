@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotLocaleArgs : Pulumi.ResourceArgs
     {
+        [Input("customVocabulary")]
+        public Input<Inputs.BotCustomVocabularyArgs>? CustomVocabulary { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

@@ -37,6 +37,7 @@ export interface GetBotResult {
     readonly idleSessionTTLInSeconds?: number;
     readonly name?: string;
     readonly roleArn?: string;
+    readonly testBotAliasSettings?: outputs.lex.BotTestBotAliasSettings;
 }
 
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {

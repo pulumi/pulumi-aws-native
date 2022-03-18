@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        [Input("recordSizeKiB")]
+        public Input<int>? RecordSizeKiB { get; set; }
+
         [Input("userAndGroupQuotas")]
         private InputList<Inputs.FileSystemUserAndGroupQuotasArgs>? _userAndGroupQuotas;
         public InputList<Inputs.FileSystemUserAndGroupQuotasArgs> UserAndGroupQuotas

@@ -10,6 +10,7 @@ import * as apprunner from "./apprunner";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as batch from "./batch";
+import * as billingconductor from "./billingconductor";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
@@ -111,6 +112,7 @@ export {
     athena,
     auditmanager,
     batch,
+    billingconductor,
     budgets,
     cassandra,
     ce,

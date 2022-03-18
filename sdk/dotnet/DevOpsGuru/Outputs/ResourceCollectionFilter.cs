@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
     public sealed class ResourceCollectionFilter
     {
         public readonly Outputs.ResourceCollectionCloudFormationCollectionFilter? CloudFormation;
+        public readonly ImmutableArray<Outputs.ResourceCollectionTagCollection> Tags;
 
         [OutputConstructor]
-        private ResourceCollectionFilter(Outputs.ResourceCollectionCloudFormationCollectionFilter? cloudFormation)
+        private ResourceCollectionFilter(
+            Outputs.ResourceCollectionCloudFormationCollectionFilter? cloudFormation,
+
+            ImmutableArray<Outputs.ResourceCollectionTagCollection> tags)
         {
             CloudFormation = cloudFormation;
+            Tags = tags;
         }
     }
 }

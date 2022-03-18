@@ -53,7 +53,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo | undefined>;
     public readonly onPremisesInstanceTagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupTagFilter[] | undefined>;
     public readonly onPremisesTagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesTagSet | undefined>;
+    public readonly outdatedInstancesStrategy!: pulumi.Output<string | undefined>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.codedeploy.DeploymentGroupTag[] | undefined>;
     public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfig[] | undefined>;
 
     /**
@@ -90,7 +92,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
             resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             resourceInputs["onPremisesTagSet"] = args ? args.onPremisesTagSet : undefined;
+            resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
         } else {
             resourceInputs["alarmConfiguration"] = undefined /*out*/;
@@ -108,7 +112,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["loadBalancerInfo"] = undefined /*out*/;
             resourceInputs["onPremisesInstanceTagFilters"] = undefined /*out*/;
             resourceInputs["onPremisesTagSet"] = undefined /*out*/;
+            resourceInputs["outdatedInstancesStrategy"] = undefined /*out*/;
             resourceInputs["serviceRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["triggerConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -135,6 +141,8 @@ export interface DeploymentGroupArgs {
     loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfoArgs>;
     onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagFilterArgs>[]>;
     onPremisesTagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesTagSetArgs>;
+    outdatedInstancesStrategy?: pulumi.Input<string>;
     serviceRoleArn: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagArgs>[]>;
     triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfigArgs>[]>;
 }

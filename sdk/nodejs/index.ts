@@ -45,6 +45,7 @@ import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as billingconductor from "./billingconductor";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
@@ -235,6 +236,7 @@ export {
     autoscalingplans,
     backup,
     batch,
+    billingconductor,
     budgets,
     cassandra,
     ce,

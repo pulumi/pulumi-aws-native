@@ -11,6 +11,15 @@ export const BotAliasStatus = {
 
 export type BotAliasStatus = (typeof BotAliasStatus)[keyof typeof BotAliasStatus];
 
+export const BotAudioRecognitionStrategy = {
+    UseSlotValuesAsCustomVocabulary: "UseSlotValuesAsCustomVocabulary",
+} as const;
+
+/**
+ * Enables using slot values as a custom vocabulary when recognizing user utterances.
+ */
+export type BotAudioRecognitionStrategy = (typeof BotAudioRecognitionStrategy)[keyof typeof BotAudioRecognitionStrategy];
+
 export const BotObfuscationSettingObfuscationSettingType = {
     None: "None",
     DefaultObfuscation: "DefaultObfuscation",

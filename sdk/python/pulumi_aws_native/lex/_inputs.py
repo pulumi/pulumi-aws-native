@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BotAdvancedRecognitionSettingArgs',
     'BotAliasAudioLogDestinationArgs',
     'BotAliasAudioLogSettingArgs',
     'BotAliasCloudWatchLogGroupLogDestinationArgs',
@@ -22,8 +23,14 @@ __all__ = [
     'BotAliasTagArgs',
     'BotAliasTextLogDestinationArgs',
     'BotAliasTextLogSettingArgs',
+    'BotAudioLogDestinationArgs',
+    'BotAudioLogSettingArgs',
     'BotButtonArgs',
+    'BotCloudWatchLogGroupLogDestinationArgs',
+    'BotConversationLogSettingsArgs',
     'BotCustomPayloadArgs',
+    'BotCustomVocabularyItemArgs',
+    'BotCustomVocabularyArgs',
     'BotDialogCodeHookSettingArgs',
     'BotExternalSourceSettingArgs',
     'BotFulfillmentCodeHookSettingArgs',
@@ -48,6 +55,7 @@ __all__ = [
     'BotPostFulfillmentStatusSpecificationArgs',
     'BotPromptSpecificationArgs',
     'BotResponseSpecificationArgs',
+    'BotS3BucketLogDestinationArgs',
     'BotS3LocationArgs',
     'BotSSMLMessageArgs',
     'BotSampleUtteranceArgs',
@@ -63,6 +71,10 @@ __all__ = [
     'BotSlotArgs',
     'BotStillWaitingResponseSpecificationArgs',
     'BotTagArgs',
+    'BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs',
+    'BotTestBotAliasSettingsArgs',
+    'BotTextLogDestinationArgs',
+    'BotTextLogSettingArgs',
     'BotVersionLocaleDetailsArgs',
     'BotVersionLocaleSpecificationArgs',
     'BotVoiceSettingsArgs',
@@ -71,6 +83,26 @@ __all__ = [
     'ResourcePolicyPolicyArgs',
     'SentimentAnalysisSettingsPropertiesArgs',
 ]
+
+@pulumi.input_type
+class BotAdvancedRecognitionSettingArgs:
+    def __init__(__self__, *,
+                 audio_recognition_strategy: Optional[pulumi.Input['BotAudioRecognitionStrategy']] = None):
+        """
+        Provides settings that enable advanced recognition settings for slot values.
+        """
+        if audio_recognition_strategy is not None:
+            pulumi.set(__self__, "audio_recognition_strategy", audio_recognition_strategy)
+
+    @property
+    @pulumi.getter(name="audioRecognitionStrategy")
+    def audio_recognition_strategy(self) -> Optional[pulumi.Input['BotAudioRecognitionStrategy']]:
+        return pulumi.get(self, "audio_recognition_strategy")
+
+    @audio_recognition_strategy.setter
+    def audio_recognition_strategy(self, value: Optional[pulumi.Input['BotAudioRecognitionStrategy']]):
+        pulumi.set(self, "audio_recognition_strategy", value)
+
 
 @pulumi.input_type
 class BotAliasAudioLogDestinationArgs:
@@ -127,8 +159,8 @@ class BotAliasCloudWatchLogGroupLogDestinationArgs:
                  cloud_watch_log_group_arn: pulumi.Input[str],
                  log_prefix: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] cloud_watch_log_group_arn: A string used to identify this tag
-        :param pulumi.Input[str] log_prefix: A string containing the value for the tag
+        :param pulumi.Input[str] cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
+        :param pulumi.Input[str] log_prefix: A string containing the value for the Log Prefix
         """
         pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         pulumi.set(__self__, "log_prefix", log_prefix)
@@ -137,7 +169,7 @@ class BotAliasCloudWatchLogGroupLogDestinationArgs:
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> pulumi.Input[str]:
         """
-        A string used to identify this tag
+        A string used to identify the groupArn for the Cloudwatch Log Group
         """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
@@ -149,7 +181,7 @@ class BotAliasCloudWatchLogGroupLogDestinationArgs:
     @pulumi.getter(name="logPrefix")
     def log_prefix(self) -> pulumi.Input[str]:
         """
-        A string containing the value for the tag
+        A string containing the value for the Log Prefix
         """
         return pulumi.get(self, "log_prefix")
 
@@ -458,6 +490,55 @@ class BotAliasTextLogSettingArgs:
 
 
 @pulumi.input_type
+class BotAudioLogDestinationArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input['BotS3BucketLogDestinationArgs']):
+        """
+        The location of audio log files collected when conversation logging is enabled for a bot.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input['BotS3BucketLogDestinationArgs']:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input['BotS3BucketLogDestinationArgs']):
+        pulumi.set(self, "s3_bucket", value)
+
+
+@pulumi.input_type
+class BotAudioLogSettingArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['BotAudioLogDestinationArgs'],
+                 enabled: pulumi.Input[bool]):
+        """
+        Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['BotAudioLogDestinationArgs']:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['BotAudioLogDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class BotButtonArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[str],
@@ -496,6 +577,75 @@ class BotButtonArgs:
 
 
 @pulumi.input_type
+class BotCloudWatchLogGroupLogDestinationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_log_group_arn: pulumi.Input[str],
+                 log_prefix: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
+        :param pulumi.Input[str] log_prefix: A string containing the value for the Log Prefix
+        """
+        pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+        pulumi.set(__self__, "log_prefix", log_prefix)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogGroupArn")
+    def cloud_watch_log_group_arn(self) -> pulumi.Input[str]:
+        """
+        A string used to identify the groupArn for the Cloudwatch Log Group
+        """
+        return pulumi.get(self, "cloud_watch_log_group_arn")
+
+    @cloud_watch_log_group_arn.setter
+    def cloud_watch_log_group_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cloud_watch_log_group_arn", value)
+
+    @property
+    @pulumi.getter(name="logPrefix")
+    def log_prefix(self) -> pulumi.Input[str]:
+        """
+        A string containing the value for the Log Prefix
+        """
+        return pulumi.get(self, "log_prefix")
+
+    @log_prefix.setter
+    def log_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_prefix", value)
+
+
+@pulumi.input_type
+class BotConversationLogSettingsArgs:
+    def __init__(__self__, *,
+                 audio_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]]] = None,
+                 text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]] = None):
+        """
+        Contains information about code hooks that Amazon Lex calls during a conversation.
+        """
+        if audio_log_settings is not None:
+            pulumi.set(__self__, "audio_log_settings", audio_log_settings)
+        if text_log_settings is not None:
+            pulumi.set(__self__, "text_log_settings", text_log_settings)
+
+    @property
+    @pulumi.getter(name="audioLogSettings")
+    def audio_log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]]]:
+        return pulumi.get(self, "audio_log_settings")
+
+    @audio_log_settings.setter
+    def audio_log_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]]]):
+        pulumi.set(self, "audio_log_settings", value)
+
+    @property
+    @pulumi.getter(name="textLogSettings")
+    def text_log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]]:
+        return pulumi.get(self, "text_log_settings")
+
+    @text_log_settings.setter
+    def text_log_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]]):
+        pulumi.set(self, "text_log_settings", value)
+
+
+@pulumi.input_type
 class BotCustomPayloadArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
@@ -516,6 +666,64 @@ class BotCustomPayloadArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class BotCustomVocabularyItemArgs:
+    def __init__(__self__, *,
+                 phrase: pulumi.Input[str],
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+        :param pulumi.Input[str] phrase: Phrase that should be recognized.
+        :param pulumi.Input[int] weight: The degree to which the phrase recognition is boosted.
+        """
+        pulumi.set(__self__, "phrase", phrase)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def phrase(self) -> pulumi.Input[str]:
+        """
+        Phrase that should be recognized.
+        """
+        return pulumi.get(self, "phrase")
+
+    @phrase.setter
+    def phrase(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phrase", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The degree to which the phrase recognition is boosted.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class BotCustomVocabularyArgs:
+    def __init__(__self__, *,
+                 custom_vocabulary_items: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]):
+        """
+        A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+        """
+        pulumi.set(__self__, "custom_vocabulary_items", custom_vocabulary_items)
+
+    @property
+    @pulumi.getter(name="customVocabularyItems")
+    def custom_vocabulary_items(self) -> pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]:
+        return pulumi.get(self, "custom_vocabulary_items")
+
+    @custom_vocabulary_items.setter
+    def custom_vocabulary_items(self, value: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]):
+        pulumi.set(self, "custom_vocabulary_items", value)
 
 
 @pulumi.input_type
@@ -1223,6 +1431,7 @@ class BotLocaleArgs:
     def __init__(__self__, *,
                  locale_id: pulumi.Input[str],
                  nlu_confidence_threshold: pulumi.Input[float],
+                 custom_vocabulary: Optional[pulumi.Input['BotCustomVocabularyArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
                  slot_types: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]]] = None,
@@ -1234,6 +1443,8 @@ class BotLocaleArgs:
         """
         pulumi.set(__self__, "locale_id", locale_id)
         pulumi.set(__self__, "nlu_confidence_threshold", nlu_confidence_threshold)
+        if custom_vocabulary is not None:
+            pulumi.set(__self__, "custom_vocabulary", custom_vocabulary)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if intents is not None:
@@ -1260,6 +1471,15 @@ class BotLocaleArgs:
     @nlu_confidence_threshold.setter
     def nlu_confidence_threshold(self, value: pulumi.Input[float]):
         pulumi.set(self, "nlu_confidence_threshold", value)
+
+    @property
+    @pulumi.getter(name="customVocabulary")
+    def custom_vocabulary(self) -> Optional[pulumi.Input['BotCustomVocabularyArgs']]:
+        return pulumi.get(self, "custom_vocabulary")
+
+    @custom_vocabulary.setter
+    def custom_vocabulary(self, value: Optional[pulumi.Input['BotCustomVocabularyArgs']]):
+        pulumi.set(self, "custom_vocabulary", value)
 
     @property
     @pulumi.getter
@@ -1625,6 +1845,60 @@ class BotResponseSpecificationArgs:
     @allow_interrupt.setter
     def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_interrupt", value)
+
+
+@pulumi.input_type
+class BotS3BucketLogDestinationArgs:
+    def __init__(__self__, *,
+                 log_prefix: pulumi.Input[str],
+                 s3_bucket_arn: pulumi.Input[str],
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies an Amazon S3 bucket for logging audio conversations
+        :param pulumi.Input[str] log_prefix: The Amazon S3 key of the deployment package.
+        :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+        """
+        pulumi.set(__self__, "log_prefix", log_prefix)
+        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="logPrefix")
+    def log_prefix(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 key of the deployment package.
+        """
+        return pulumi.get(self, "log_prefix")
+
+    @log_prefix.setter
+    def log_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_prefix", value)
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @s3_bucket_arn.setter
+    def s3_bucket_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket_arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type
@@ -2050,11 +2324,14 @@ class BotSlotValueRegexFilterArgs:
 class BotSlotValueSelectionSettingArgs:
     def __init__(__self__, *,
                  resolution_strategy: pulumi.Input['BotSlotValueResolutionStrategy'],
+                 advanced_recognition_setting: Optional[pulumi.Input['BotAdvancedRecognitionSettingArgs']] = None,
                  regex_filter: Optional[pulumi.Input['BotSlotValueRegexFilterArgs']] = None):
         """
         Contains settings used by Amazon Lex to select a slot value.
         """
         pulumi.set(__self__, "resolution_strategy", resolution_strategy)
+        if advanced_recognition_setting is not None:
+            pulumi.set(__self__, "advanced_recognition_setting", advanced_recognition_setting)
         if regex_filter is not None:
             pulumi.set(__self__, "regex_filter", regex_filter)
 
@@ -2066,6 +2343,15 @@ class BotSlotValueSelectionSettingArgs:
     @resolution_strategy.setter
     def resolution_strategy(self, value: pulumi.Input['BotSlotValueResolutionStrategy']):
         pulumi.set(self, "resolution_strategy", value)
+
+    @property
+    @pulumi.getter(name="advancedRecognitionSetting")
+    def advanced_recognition_setting(self) -> Optional[pulumi.Input['BotAdvancedRecognitionSettingArgs']]:
+        return pulumi.get(self, "advanced_recognition_setting")
+
+    @advanced_recognition_setting.setter
+    def advanced_recognition_setting(self, value: Optional[pulumi.Input['BotAdvancedRecognitionSettingArgs']]):
+        pulumi.set(self, "advanced_recognition_setting", value)
 
     @property
     @pulumi.getter(name="regexFilter")
@@ -2247,6 +2533,138 @@ class BotTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 detect_sentiment: pulumi.Input[bool]):
+        """
+        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        :param pulumi.Input[bool] detect_sentiment: Enable to call Amazon Comprehend for Sentiment natively within Lex
+        """
+        pulumi.set(__self__, "detect_sentiment", detect_sentiment)
+
+    @property
+    @pulumi.getter(name="detectSentiment")
+    def detect_sentiment(self) -> pulumi.Input[bool]:
+        """
+        Enable to call Amazon Comprehend for Sentiment natively within Lex
+        """
+        return pulumi.get(self, "detect_sentiment")
+
+    @detect_sentiment.setter
+    def detect_sentiment(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "detect_sentiment", value)
+
+
+@pulumi.input_type
+class BotTestBotAliasSettingsArgs:
+    def __init__(__self__, *,
+                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]] = None,
+                 conversation_log_settings: Optional[pulumi.Input['BotConversationLogSettingsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 sentiment_analysis_settings: Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']] = None):
+        """
+        Configuring the test bot alias settings for a given bot
+        :param pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs'] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        """
+        if bot_alias_locale_settings is not None:
+            pulumi.set(__self__, "bot_alias_locale_settings", bot_alias_locale_settings)
+        if conversation_log_settings is not None:
+            pulumi.set(__self__, "conversation_log_settings", conversation_log_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if sentiment_analysis_settings is not None:
+            pulumi.set(__self__, "sentiment_analysis_settings", sentiment_analysis_settings)
+
+    @property
+    @pulumi.getter(name="botAliasLocaleSettings")
+    def bot_alias_locale_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]:
+        return pulumi.get(self, "bot_alias_locale_settings")
+
+    @bot_alias_locale_settings.setter
+    def bot_alias_locale_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]):
+        pulumi.set(self, "bot_alias_locale_settings", value)
+
+    @property
+    @pulumi.getter(name="conversationLogSettings")
+    def conversation_log_settings(self) -> Optional[pulumi.Input['BotConversationLogSettingsArgs']]:
+        return pulumi.get(self, "conversation_log_settings")
+
+    @conversation_log_settings.setter
+    def conversation_log_settings(self, value: Optional[pulumi.Input['BotConversationLogSettingsArgs']]):
+        pulumi.set(self, "conversation_log_settings", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="sentimentAnalysisSettings")
+    def sentiment_analysis_settings(self) -> Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']]:
+        """
+        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        """
+        return pulumi.get(self, "sentiment_analysis_settings")
+
+    @sentiment_analysis_settings.setter
+    def sentiment_analysis_settings(self, value: Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']]):
+        pulumi.set(self, "sentiment_analysis_settings", value)
+
+
+@pulumi.input_type
+class BotTextLogDestinationArgs:
+    def __init__(__self__, *,
+                 cloud_watch: pulumi.Input['BotCloudWatchLogGroupLogDestinationArgs']):
+        """
+        Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+        """
+        pulumi.set(__self__, "cloud_watch", cloud_watch)
+
+    @property
+    @pulumi.getter(name="cloudWatch")
+    def cloud_watch(self) -> pulumi.Input['BotCloudWatchLogGroupLogDestinationArgs']:
+        return pulumi.get(self, "cloud_watch")
+
+    @cloud_watch.setter
+    def cloud_watch(self, value: pulumi.Input['BotCloudWatchLogGroupLogDestinationArgs']):
+        pulumi.set(self, "cloud_watch", value)
+
+
+@pulumi.input_type
+class BotTextLogSettingArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['BotTextLogDestinationArgs'],
+                 enabled: pulumi.Input[bool]):
+        """
+        Contains information about code hooks that Amazon Lex calls during a conversation.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['BotTextLogDestinationArgs']:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['BotTextLogDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type

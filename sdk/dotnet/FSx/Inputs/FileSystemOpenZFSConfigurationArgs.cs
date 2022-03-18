@@ -30,6 +30,14 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("diskIopsConfiguration")]
         public Input<Inputs.FileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
 
+        [Input("options")]
+        private InputList<string>? _options;
+        public InputList<string> Options
+        {
+            get => _options ?? (_options = new InputList<string>());
+            set => _options = value;
+        }
+
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.FileSystemRootVolumeConfigurationArgs>? RootVolumeConfiguration { get; set; }
 

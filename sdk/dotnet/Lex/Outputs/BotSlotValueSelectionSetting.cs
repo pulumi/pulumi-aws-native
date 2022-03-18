@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSlotValueSelectionSetting
     {
+        public readonly Outputs.BotAdvancedRecognitionSetting? AdvancedRecognitionSetting;
         public readonly Outputs.BotSlotValueRegexFilter? RegexFilter;
         public readonly Pulumi.AwsNative.Lex.BotSlotValueResolutionStrategy ResolutionStrategy;
 
         [OutputConstructor]
         private BotSlotValueSelectionSetting(
+            Outputs.BotAdvancedRecognitionSetting? advancedRecognitionSetting,
+
             Outputs.BotSlotValueRegexFilter? regexFilter,
 
             Pulumi.AwsNative.Lex.BotSlotValueResolutionStrategy resolutionStrategy)
         {
+            AdvancedRecognitionSetting = advancedRecognitionSetting;
             RegexFilter = regexFilter;
             ResolutionStrategy = resolutionStrategy;
         }

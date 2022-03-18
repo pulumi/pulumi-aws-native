@@ -21,6 +21,14 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         [Input("country")]
         public Input<string>? Country { get; set; }
 
+        [Input("customAttributes")]
+        private InputList<Inputs.CertificateAuthorityCustomAttributeArgs>? _customAttributes;
+        public InputList<Inputs.CertificateAuthorityCustomAttributeArgs> CustomAttributes
+        {
+            get => _customAttributes ?? (_customAttributes = new InputList<Inputs.CertificateAuthorityCustomAttributeArgs>());
+            set => _customAttributes = value;
+        }
+
         [Input("distinguishedNameQualifier")]
         public Input<string>? DistinguishedNameQualifier { get; set; }
 

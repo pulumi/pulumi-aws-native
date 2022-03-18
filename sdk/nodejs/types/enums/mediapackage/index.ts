@@ -76,6 +76,24 @@ export const OriginEndpointDashPackageUtcTiming = {
  */
 export type OriginEndpointDashPackageUtcTiming = (typeof OriginEndpointDashPackageUtcTiming)[keyof typeof OriginEndpointDashPackageUtcTiming];
 
+export const OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio = {
+    PresetAudio1: "PRESET-AUDIO-1",
+} as const;
+
+/**
+ * A collection of audio encryption presets.
+ */
+export type OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio = (typeof OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio)[keyof typeof OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio];
+
+export const OriginEndpointEncryptionContractConfigurationPresetSpeke20Video = {
+    PresetVideo1: "PRESET-VIDEO-1",
+} as const;
+
+/**
+ * A collection of video encryption presets.
+ */
+export type OriginEndpointEncryptionContractConfigurationPresetSpeke20Video = (typeof OriginEndpointEncryptionContractConfigurationPresetSpeke20Video)[keyof typeof OriginEndpointEncryptionContractConfigurationPresetSpeke20Video];
+
 export const OriginEndpointHlsEncryptionEncryptionMethod = {
     Aes128: "AES_128",
     SampleAes: "SAMPLE_AES",

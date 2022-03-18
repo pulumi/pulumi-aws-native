@@ -63,7 +63,9 @@ namespace Pulumi.AwsNative.CodeDeploy
         public readonly Outputs.DeploymentGroupLoadBalancerInfo? LoadBalancerInfo;
         public readonly ImmutableArray<Outputs.DeploymentGroupTagFilter> OnPremisesInstanceTagFilters;
         public readonly Outputs.DeploymentGroupOnPremisesTagSet? OnPremisesTagSet;
+        public readonly string? OutdatedInstancesStrategy;
         public readonly string? ServiceRoleArn;
+        public readonly ImmutableArray<Outputs.DeploymentGroupTag> Tags;
         public readonly ImmutableArray<Outputs.DeploymentGroupTriggerConfig> TriggerConfigurations;
 
         [OutputConstructor]
@@ -96,7 +98,11 @@ namespace Pulumi.AwsNative.CodeDeploy
 
             Outputs.DeploymentGroupOnPremisesTagSet? onPremisesTagSet,
 
+            string? outdatedInstancesStrategy,
+
             string? serviceRoleArn,
+
+            ImmutableArray<Outputs.DeploymentGroupTag> tags,
 
             ImmutableArray<Outputs.DeploymentGroupTriggerConfig> triggerConfigurations)
         {
@@ -114,7 +120,9 @@ namespace Pulumi.AwsNative.CodeDeploy
             LoadBalancerInfo = loadBalancerInfo;
             OnPremisesInstanceTagFilters = onPremisesInstanceTagFilters;
             OnPremisesTagSet = onPremisesTagSet;
+            OutdatedInstancesStrategy = outdatedInstancesStrategy;
             ServiceRoleArn = serviceRoleArn;
+            Tags = tags;
             TriggerConfigurations = triggerConfigurations;
         }
     }

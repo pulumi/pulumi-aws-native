@@ -4,6 +4,7 @@
 
 export const ResourceCollectionType = {
     AwsCloudFormation: "AWS_CLOUD_FORMATION",
+    AwsTags: "AWS_TAGS",
 } as const;
 
 /**

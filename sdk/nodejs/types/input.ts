@@ -787,6 +787,14 @@ export namespace acmpca {
     }
 
     /**
+     * Structure that contains X.500 attribute type and value.
+     */
+    export interface CertificateAuthorityCustomAttributeArgs {
+        objectIdentifier: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Structure that contains X.509 EdiPartyName information.
      */
     export interface CertificateAuthorityEdiPartyNameArgs {
@@ -853,6 +861,7 @@ export namespace acmpca {
     export interface CertificateAuthoritySubjectArgs {
         commonName?: pulumi.Input<string>;
         country?: pulumi.Input<string>;
+        customAttributes?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateAuthorityCustomAttributeArgs>[]>;
         distinguishedNameQualifier?: pulumi.Input<string>;
         generationQualifier?: pulumi.Input<string>;
         givenName?: pulumi.Input<string>;
@@ -870,6 +879,23 @@ export namespace acmpca {
     export interface CertificateAuthorityTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Structure that contains X.500 attribute type and value.
+     */
+    export interface CertificateCustomAttributeArgs {
+        objectIdentifier: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Structure that contains X.509 extension information for a certificate.
+     */
+    export interface CertificateCustomExtensionArgs {
+        critical?: pulumi.Input<boolean>;
+        objectIdentifier: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -893,6 +919,7 @@ export namespace acmpca {
      */
     export interface CertificateExtensionsArgs {
         certificatePolicies?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificatePolicyInformationArgs>[]>;
+        customExtensions?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateCustomExtensionArgs>[]>;
         extendedKeyUsage?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateExtendedKeyUsageArgs>[]>;
         keyUsage?: pulumi.Input<inputs.acmpca.CertificateKeyUsageArgs>;
         subjectAlternativeNames?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateGeneralNameArgs>[]>;
@@ -964,6 +991,7 @@ export namespace acmpca {
     export interface CertificateSubjectArgs {
         commonName?: pulumi.Input<string>;
         country?: pulumi.Input<string>;
+        customAttributes?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateCustomAttributeArgs>[]>;
         distinguishedNameQualifier?: pulumi.Input<string>;
         generationQualifier?: pulumi.Input<string>;
         givenName?: pulumi.Input<string>;
@@ -5010,6 +5038,39 @@ export namespace batch {
     }
 }
 
+export namespace billingconductor {
+    export interface BillingGroupAccountGroupingArgs {
+        linkedAccountIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BillingGroupComputationPreferenceArgs {
+        /**
+         * ARN of the attached pricing plan
+         */
+        pricingPlanArn: pulumi.Input<string>;
+    }
+
+    export interface CustomLineItemBillingPeriodRangeArgs {
+        exclusiveEndBillingPeriod?: pulumi.Input<string>;
+        inclusiveStartBillingPeriod?: pulumi.Input<string>;
+    }
+
+    export interface CustomLineItemChargeDetailsArgs {
+        flat?: pulumi.Input<inputs.billingconductor.CustomLineItemFlatChargeDetailsArgs>;
+        percentage?: pulumi.Input<inputs.billingconductor.CustomLineItemPercentageChargeDetailsArgs>;
+        type: pulumi.Input<enums.billingconductor.CustomLineItemType>;
+    }
+
+    export interface CustomLineItemFlatChargeDetailsArgs {
+        chargeValue: pulumi.Input<number>;
+    }
+
+    export interface CustomLineItemPercentageChargeDetailsArgs {
+        childAssociatedResources?: pulumi.Input<pulumi.Input<string>[]>;
+        percentageValue: pulumi.Input<number>;
+    }
+}
+
 export namespace budgets {
     export interface BudgetCostTypesArgs {
         includeCredit?: pulumi.Input<boolean>;
@@ -6193,6 +6254,7 @@ export namespace codedeploy {
     export interface DeploymentGroupLoadBalancerInfoArgs {
         elbInfoList?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupELBInfoArgs>[]>;
         targetGroupInfoList?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTargetGroupInfoArgs>[]>;
+        targetGroupPairInfoList?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTargetGroupPairInfoArgs>[]>;
     }
 
     export interface DeploymentGroupOnPremisesTagSetArgs {
@@ -6217,6 +6279,11 @@ export namespace codedeploy {
         version?: pulumi.Input<string>;
     }
 
+    export interface DeploymentGroupTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface DeploymentGroupTagFilterArgs {
         key?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
@@ -6227,12 +6294,21 @@ export namespace codedeploy {
         name?: pulumi.Input<string>;
     }
 
+    export interface DeploymentGroupTargetGroupPairInfoArgs {
+        prodTrafficRoute?: pulumi.Input<inputs.codedeploy.DeploymentGroupTrafficRouteArgs>;
+        targetGroups?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTargetGroupInfoArgs>[]>;
+        testTrafficRoute?: pulumi.Input<inputs.codedeploy.DeploymentGroupTrafficRouteArgs>;
+    }
+
+    export interface DeploymentGroupTrafficRouteArgs {
+        listenerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DeploymentGroupTriggerConfigArgs {
         triggerEvents?: pulumi.Input<pulumi.Input<string>[]>;
         triggerName?: pulumi.Input<string>;
         triggerTargetArn?: pulumi.Input<string>;
     }
-
 }
 
 export namespace codeguruprofiler {
@@ -8141,6 +8217,21 @@ export namespace devopsguru {
      */
     export interface ResourceCollectionFilterArgs {
         cloudFormation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudFormationCollectionFilterArgs>;
+        tags?: pulumi.Input<pulumi.Input<inputs.devopsguru.ResourceCollectionTagCollectionArgs>[]>;
+    }
+
+    /**
+     * Tagged resource for DevOps Guru to monitor
+     */
+    export interface ResourceCollectionTagCollectionArgs {
+        /**
+         * A Tag key for DevOps Guru app boundary.
+         */
+        appBoundaryKey?: pulumi.Input<string>;
+        /**
+         * Tag values of DevOps Guru app boundary.
+         */
+        tagValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -12474,6 +12565,7 @@ export namespace fsx {
         dailyAutomaticBackupStartTime?: pulumi.Input<string>;
         deploymentType: pulumi.Input<string>;
         diskIopsConfiguration?: pulumi.Input<inputs.fsx.FileSystemDiskIopsConfigurationArgs>;
+        options?: pulumi.Input<pulumi.Input<string>[]>;
         rootVolumeConfiguration?: pulumi.Input<inputs.fsx.FileSystemRootVolumeConfigurationArgs>;
         throughputCapacity?: pulumi.Input<number>;
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
@@ -12484,6 +12576,7 @@ export namespace fsx {
         dataCompressionType?: pulumi.Input<string>;
         nfsExports?: pulumi.Input<pulumi.Input<inputs.fsx.FileSystemNfsExportsArgs>[]>;
         readOnly?: pulumi.Input<boolean>;
+        recordSizeKiB?: pulumi.Input<number>;
         userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.FileSystemUserAndGroupQuotasArgs>[]>;
     }
 
@@ -18253,6 +18346,13 @@ export namespace lambda {
 
 export namespace lex {
     /**
+     * Provides settings that enable advanced recognition settings for slot values.
+     */
+    export interface BotAdvancedRecognitionSettingArgs {
+        audioRecognitionStrategy?: pulumi.Input<enums.lex.BotAudioRecognitionStrategy>;
+    }
+
+    /**
      * The location of audio log files collected when conversation logging is enabled for a bot.
      */
     export interface BotAliasAudioLogDestinationArgs {
@@ -18269,11 +18369,11 @@ export namespace lex {
 
     export interface BotAliasCloudWatchLogGroupLogDestinationArgs {
         /**
-         * A string used to identify this tag
+         * A string used to identify the groupArn for the Cloudwatch Log Group
          */
         cloudWatchLogGroupArn: pulumi.Input<string>;
         /**
-         * A string containing the value for the tag
+         * A string containing the value for the Log Prefix
          */
         logPrefix: pulumi.Input<string>;
     }
@@ -18377,6 +18477,21 @@ export namespace lex {
     }
 
     /**
+     * The location of audio log files collected when conversation logging is enabled for a bot.
+     */
+    export interface BotAudioLogDestinationArgs {
+        s3Bucket: pulumi.Input<inputs.lex.BotS3BucketLogDestinationArgs>;
+    }
+
+    /**
+     * Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+     */
+    export interface BotAudioLogSettingArgs {
+        destination: pulumi.Input<inputs.lex.BotAudioLogDestinationArgs>;
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
      * A button to use on a response card used to gather slot values from a user.
      */
     export interface BotButtonArgs {
@@ -18390,6 +18505,25 @@ export namespace lex {
         value: pulumi.Input<string>;
     }
 
+    export interface BotCloudWatchLogGroupLogDestinationArgs {
+        /**
+         * A string used to identify the groupArn for the Cloudwatch Log Group
+         */
+        cloudWatchLogGroupArn: pulumi.Input<string>;
+        /**
+         * A string containing the value for the Log Prefix
+         */
+        logPrefix: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotConversationLogSettingsArgs {
+        audioLogSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAudioLogSettingArgs>[]>;
+        textLogSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotTextLogSettingArgs>[]>;
+    }
+
     /**
      * A message in a custom format defined by the client application.
      */
@@ -18398,6 +18532,27 @@ export namespace lex {
          * The string that is sent to your application.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+     */
+    export interface BotCustomVocabularyArgs {
+        customVocabularyItems: pulumi.Input<pulumi.Input<inputs.lex.BotCustomVocabularyItemArgs>[]>;
+    }
+
+    /**
+     * A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+     */
+    export interface BotCustomVocabularyItemArgs {
+        /**
+         * Phrase that should be recognized.
+         */
+        phrase: pulumi.Input<string>;
+        /**
+         * The degree to which the phrase recognition is boosted.
+         */
+        weight?: pulumi.Input<number>;
     }
 
     /**
@@ -18581,6 +18736,7 @@ export namespace lex {
      * A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
      */
     export interface BotLocaleArgs {
+        customVocabulary?: pulumi.Input<inputs.lex.BotCustomVocabularyArgs>;
         description?: pulumi.Input<string>;
         /**
          * List of intents
@@ -18682,6 +18838,24 @@ export namespace lex {
          */
         allowInterrupt?: pulumi.Input<boolean>;
         messageGroupsList: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
+    }
+
+    /**
+     * Specifies an Amazon S3 bucket for logging audio conversations
+     */
+    export interface BotS3BucketLogDestinationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The Amazon S3 key of the deployment package.
+         */
+        logPrefix: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+         */
+        s3BucketArn: pulumi.Input<string>;
     }
 
     /**
@@ -18832,6 +19006,7 @@ export namespace lex {
      * Contains settings used by Amazon Lex to select a slot value.
      */
     export interface BotSlotValueSelectionSettingArgs {
+        advancedRecognitionSetting?: pulumi.Input<inputs.lex.BotAdvancedRecognitionSettingArgs>;
         regexFilter?: pulumi.Input<inputs.lex.BotSlotValueRegexFilterArgs>;
         resolutionStrategy: pulumi.Input<enums.lex.BotSlotValueResolutionStrategy>;
     }
@@ -18861,6 +19036,44 @@ export namespace lex {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuring the test bot alias settings for a given bot
+     */
+    export interface BotTestBotAliasSettingsArgs {
+        botAliasLocaleSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasLocaleSettingsItemArgs>[]>;
+        conversationLogSettings?: pulumi.Input<inputs.lex.BotConversationLogSettingsArgs>;
+        description?: pulumi.Input<string>;
+        /**
+         * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+         */
+        sentimentAnalysisSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs>;
+    }
+
+    /**
+     * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+     */
+    export interface BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs {
+        /**
+         * Enable to call Amazon Comprehend for Sentiment natively within Lex
+         */
+        detectSentiment: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+     */
+    export interface BotTextLogDestinationArgs {
+        cloudWatch: pulumi.Input<inputs.lex.BotCloudWatchLogGroupLogDestinationArgs>;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotTextLogSettingArgs {
+        destination: pulumi.Input<inputs.lex.BotTextLogDestinationArgs>;
+        enabled: pulumi.Input<boolean>;
     }
 
     /**
@@ -21404,6 +21617,20 @@ export namespace mediapackage {
     }
 
     /**
+     * The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+     */
+    export interface OriginEndpointEncryptionContractConfigurationArgs {
+        /**
+         * A collection of audio encryption presets.
+         */
+        presetSpeke20Audio: pulumi.Input<enums.mediapackage.OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio>;
+        /**
+         * A collection of video encryption presets.
+         */
+        presetSpeke20Video: pulumi.Input<enums.mediapackage.OriginEndpointEncryptionContractConfigurationPresetSpeke20Video>;
+    }
+
+    /**
      * An HTTP Live Streaming (HLS) encryption configuration.
      */
     export interface OriginEndpointHlsEncryptionArgs {
@@ -21541,6 +21768,7 @@ export namespace mediapackage {
          * An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
          */
         certificateArn?: pulumi.Input<string>;
+        encryptionContractConfiguration?: pulumi.Input<inputs.mediapackage.OriginEndpointEncryptionContractConfigurationArgs>;
         /**
          * The resource ID to include in key requests.
          */

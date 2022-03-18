@@ -15,6 +15,7 @@ __all__ = [
     'NotificationChannelSnsChannelConfig',
     'ResourceCollectionCloudFormationCollectionFilter',
     'ResourceCollectionFilter',
+    'ResourceCollectionTagCollection',
 ]
 
 @pulumi.output_type
@@ -135,16 +136,78 @@ class ResourceCollectionFilter(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cloud_formation: Optional['outputs.ResourceCollectionCloudFormationCollectionFilter'] = None):
+                 cloud_formation: Optional['outputs.ResourceCollectionCloudFormationCollectionFilter'] = None,
+                 tags: Optional[Sequence['outputs.ResourceCollectionTagCollection']] = None):
         """
         Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         if cloud_formation is not None:
             pulumi.set(__self__, "cloud_formation", cloud_formation)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cloudFormation")
     def cloud_formation(self) -> Optional['outputs.ResourceCollectionCloudFormationCollectionFilter']:
         return pulumi.get(self, "cloud_formation")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.ResourceCollectionTagCollection']]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ResourceCollectionTagCollection(dict):
+    """
+    Tagged resource for DevOps Guru to monitor
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appBoundaryKey":
+            suggest = "app_boundary_key"
+        elif key == "tagValues":
+            suggest = "tag_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceCollectionTagCollection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceCollectionTagCollection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceCollectionTagCollection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_boundary_key: Optional[str] = None,
+                 tag_values: Optional[Sequence[str]] = None):
+        """
+        Tagged resource for DevOps Guru to monitor
+        :param str app_boundary_key: A Tag key for DevOps Guru app boundary.
+        :param Sequence[str] tag_values: Tag values of DevOps Guru app boundary.
+        """
+        if app_boundary_key is not None:
+            pulumi.set(__self__, "app_boundary_key", app_boundary_key)
+        if tag_values is not None:
+            pulumi.set(__self__, "tag_values", tag_values)
+
+    @property
+    @pulumi.getter(name="appBoundaryKey")
+    def app_boundary_key(self) -> Optional[str]:
+        """
+        A Tag key for DevOps Guru app boundary.
+        """
+        return pulumi.get(self, "app_boundary_key")
+
+    @property
+    @pulumi.getter(name="tagValues")
+    def tag_values(self) -> Optional[Sequence[str]]:
+        """
+        Tag values of DevOps Guru app boundary.
+        """
+        return pulumi.get(self, "tag_values")
 
 

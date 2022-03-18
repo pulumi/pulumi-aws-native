@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.Lex
         public readonly int? IdleSessionTTLInSeconds;
         public readonly string? Name;
         public readonly string? RoleArn;
+        public readonly Outputs.BotTestBotAliasSettings? TestBotAliasSettings;
 
         [OutputConstructor]
         private GetBotResult(
@@ -77,7 +78,9 @@ namespace Pulumi.AwsNative.Lex
 
             string? name,
 
-            string? roleArn)
+            string? roleArn,
+
+            Outputs.BotTestBotAliasSettings? testBotAliasSettings)
         {
             Arn = arn;
             DataPrivacy = dataPrivacy;
@@ -86,6 +89,7 @@ namespace Pulumi.AwsNative.Lex
             IdleSessionTTLInSeconds = idleSessionTTLInSeconds;
             Name = name;
             RoleArn = roleArn;
+            TestBotAliasSettings = testBotAliasSettings;
         }
     }
 }

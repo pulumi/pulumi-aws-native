@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
     {
         public readonly string? CommonName;
         public readonly string? Country;
+        public readonly ImmutableArray<Outputs.CertificateAuthorityCustomAttribute> CustomAttributes;
         public readonly string? DistinguishedNameQualifier;
         public readonly string? GenerationQualifier;
         public readonly string? GivenName;
@@ -36,6 +37,8 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
             string? commonName,
 
             string? country,
+
+            ImmutableArray<Outputs.CertificateAuthorityCustomAttribute> customAttributes,
 
             string? distinguishedNameQualifier,
 
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
         {
             CommonName = commonName;
             Country = country;
+            CustomAttributes = customAttributes;
             DistinguishedNameQualifier = distinguishedNameQualifier;
             GenerationQualifier = generationQualifier;
             GivenName = givenName;

@@ -69,6 +69,8 @@ if typing.TYPE_CHECKING:
     backup = __backup
     import pulumi_aws_native.batch as __batch
     batch = __batch
+    import pulumi_aws_native.billingconductor as __billingconductor
+    billingconductor = __billingconductor
     import pulumi_aws_native.budgets as __budgets
     budgets = __budgets
     import pulumi_aws_native.cassandra as __cassandra
@@ -420,6 +422,7 @@ else:
     autoscalingplans = _utilities.lazy_import('pulumi_aws_native.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws_native.backup')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
+    billingconductor = _utilities.lazy_import('pulumi_aws_native.billingconductor')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
     cassandra = _utilities.lazy_import('pulumi_aws_native.cassandra')
     ce = _utilities.lazy_import('pulumi_aws_native.ce')
@@ -865,6 +868,17 @@ _utilities.register(
    "aws-native:batch:JobDefinition": "JobDefinition",
    "aws-native:batch:JobQueue": "JobQueue",
    "aws-native:batch:SchedulingPolicy": "SchedulingPolicy"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "billingconductor",
+  "fqn": "pulumi_aws_native.billingconductor",
+  "classes": {
+   "aws-native:billingconductor:BillingGroup": "BillingGroup",
+   "aws-native:billingconductor:CustomLineItem": "CustomLineItem",
+   "aws-native:billingconductor:PricingPlan": "PricingPlan",
+   "aws-native:billingconductor:PricingRule": "PricingRule"
   }
  },
  {

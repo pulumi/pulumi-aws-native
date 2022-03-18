@@ -85,6 +85,14 @@ export namespace acmpca {
     }
 
     /**
+     * Structure that contains X.500 attribute type and value.
+     */
+    export interface CertificateAuthorityCustomAttribute {
+        objectIdentifier: string;
+        value: string;
+    }
+
+    /**
      * Structure that contains X.509 EdiPartyName information.
      */
     export interface CertificateAuthorityEdiPartyName {
@@ -151,6 +159,7 @@ export namespace acmpca {
     export interface CertificateAuthoritySubject {
         commonName?: string;
         country?: string;
+        customAttributes?: outputs.acmpca.CertificateAuthorityCustomAttribute[];
         distinguishedNameQualifier?: string;
         generationQualifier?: string;
         givenName?: string;
@@ -168,6 +177,23 @@ export namespace acmpca {
     export interface CertificateAuthorityTag {
         key?: string;
         value?: string;
+    }
+
+    /**
+     * Structure that contains X.500 attribute type and value.
+     */
+    export interface CertificateCustomAttribute {
+        objectIdentifier: string;
+        value: string;
+    }
+
+    /**
+     * Structure that contains X.509 extension information for a certificate.
+     */
+    export interface CertificateCustomExtension {
+        critical?: boolean;
+        objectIdentifier: string;
+        value: string;
     }
 
     /**
@@ -191,6 +217,7 @@ export namespace acmpca {
      */
     export interface CertificateExtensions {
         certificatePolicies?: outputs.acmpca.CertificatePolicyInformation[];
+        customExtensions?: outputs.acmpca.CertificateCustomExtension[];
         extendedKeyUsage?: outputs.acmpca.CertificateExtendedKeyUsage[];
         keyUsage?: outputs.acmpca.CertificateKeyUsage;
         subjectAlternativeNames?: outputs.acmpca.CertificateGeneralName[];
@@ -262,6 +289,7 @@ export namespace acmpca {
     export interface CertificateSubject {
         commonName?: string;
         country?: string;
+        customAttributes?: outputs.acmpca.CertificateCustomAttribute[];
         distinguishedNameQualifier?: string;
         generationQualifier?: string;
         givenName?: string;
@@ -4377,6 +4405,40 @@ export namespace batch {
 
 }
 
+export namespace billingconductor {
+    export interface BillingGroupAccountGrouping {
+        linkedAccountIds: string[];
+    }
+
+    export interface BillingGroupComputationPreference {
+        /**
+         * ARN of the attached pricing plan
+         */
+        pricingPlanArn: string;
+    }
+
+    export interface CustomLineItemBillingPeriodRange {
+        exclusiveEndBillingPeriod?: string;
+        inclusiveStartBillingPeriod?: string;
+    }
+
+    export interface CustomLineItemChargeDetails {
+        flat?: outputs.billingconductor.CustomLineItemFlatChargeDetails;
+        percentage?: outputs.billingconductor.CustomLineItemPercentageChargeDetails;
+        type: enums.billingconductor.CustomLineItemType;
+    }
+
+    export interface CustomLineItemFlatChargeDetails {
+        chargeValue: number;
+    }
+
+    export interface CustomLineItemPercentageChargeDetails {
+        childAssociatedResources?: string[];
+        percentageValue: number;
+    }
+
+}
+
 export namespace budgets {
     export interface BudgetCostTypes {
         includeCredit?: boolean;
@@ -5572,6 +5634,7 @@ export namespace codedeploy {
     export interface DeploymentGroupLoadBalancerInfo {
         elbInfoList?: outputs.codedeploy.DeploymentGroupELBInfo[];
         targetGroupInfoList?: outputs.codedeploy.DeploymentGroupTargetGroupInfo[];
+        targetGroupPairInfoList?: outputs.codedeploy.DeploymentGroupTargetGroupPairInfo[];
     }
 
     export interface DeploymentGroupOnPremisesTagSet {
@@ -5596,6 +5659,11 @@ export namespace codedeploy {
         version?: string;
     }
 
+    export interface DeploymentGroupTag {
+        key: string;
+        value: string;
+    }
+
     export interface DeploymentGroupTagFilter {
         key?: string;
         type?: string;
@@ -5604,6 +5672,16 @@ export namespace codedeploy {
 
     export interface DeploymentGroupTargetGroupInfo {
         name?: string;
+    }
+
+    export interface DeploymentGroupTargetGroupPairInfo {
+        prodTrafficRoute?: outputs.codedeploy.DeploymentGroupTrafficRoute;
+        targetGroups?: outputs.codedeploy.DeploymentGroupTargetGroupInfo[];
+        testTrafficRoute?: outputs.codedeploy.DeploymentGroupTrafficRoute;
+    }
+
+    export interface DeploymentGroupTrafficRoute {
+        listenerArns?: string[];
     }
 
     export interface DeploymentGroupTriggerConfig {
@@ -8240,6 +8318,21 @@ export namespace devopsguru {
      */
     export interface ResourceCollectionFilter {
         cloudFormation?: outputs.devopsguru.ResourceCollectionCloudFormationCollectionFilter;
+        tags?: outputs.devopsguru.ResourceCollectionTagCollection[];
+    }
+
+    /**
+     * Tagged resource for DevOps Guru to monitor
+     */
+    export interface ResourceCollectionTagCollection {
+        /**
+         * A Tag key for DevOps Guru app boundary.
+         */
+        appBoundaryKey?: string;
+        /**
+         * Tag values of DevOps Guru app boundary.
+         */
+        tagValues?: string[];
     }
 
 }
@@ -12735,6 +12828,7 @@ export namespace fsx {
         dailyAutomaticBackupStartTime?: string;
         deploymentType: string;
         diskIopsConfiguration?: outputs.fsx.FileSystemDiskIopsConfiguration;
+        options?: string[];
         rootVolumeConfiguration?: outputs.fsx.FileSystemRootVolumeConfiguration;
         throughputCapacity?: number;
         weeklyMaintenanceStartTime?: string;
@@ -12745,6 +12839,7 @@ export namespace fsx {
         dataCompressionType?: string;
         nfsExports?: outputs.fsx.FileSystemNfsExports[];
         readOnly?: boolean;
+        recordSizeKiB?: number;
         userAndGroupQuotas?: outputs.fsx.FileSystemUserAndGroupQuotas[];
     }
 
@@ -18566,6 +18661,13 @@ export namespace lambda {
 
 export namespace lex {
     /**
+     * Provides settings that enable advanced recognition settings for slot values.
+     */
+    export interface BotAdvancedRecognitionSetting {
+        audioRecognitionStrategy?: enums.lex.BotAudioRecognitionStrategy;
+    }
+
+    /**
      * The location of audio log files collected when conversation logging is enabled for a bot.
      */
     export interface BotAliasAudioLogDestination {
@@ -18582,11 +18684,11 @@ export namespace lex {
 
     export interface BotAliasCloudWatchLogGroupLogDestination {
         /**
-         * A string used to identify this tag
+         * A string used to identify the groupArn for the Cloudwatch Log Group
          */
         cloudWatchLogGroupArn: string;
         /**
-         * A string containing the value for the tag
+         * A string containing the value for the Log Prefix
          */
         logPrefix: string;
     }
@@ -18690,6 +18792,21 @@ export namespace lex {
     }
 
     /**
+     * The location of audio log files collected when conversation logging is enabled for a bot.
+     */
+    export interface BotAudioLogDestination {
+        s3Bucket: outputs.lex.BotS3BucketLogDestination;
+    }
+
+    /**
+     * Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+     */
+    export interface BotAudioLogSetting {
+        destination: outputs.lex.BotAudioLogDestination;
+        enabled: boolean;
+    }
+
+    /**
      * A button to use on a response card used to gather slot values from a user.
      */
     export interface BotButton {
@@ -18703,6 +18820,25 @@ export namespace lex {
         value: string;
     }
 
+    export interface BotCloudWatchLogGroupLogDestination {
+        /**
+         * A string used to identify the groupArn for the Cloudwatch Log Group
+         */
+        cloudWatchLogGroupArn: string;
+        /**
+         * A string containing the value for the Log Prefix
+         */
+        logPrefix: string;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotConversationLogSettings {
+        audioLogSettings?: outputs.lex.BotAudioLogSetting[];
+        textLogSettings?: outputs.lex.BotTextLogSetting[];
+    }
+
     /**
      * A message in a custom format defined by the client application.
      */
@@ -18711,6 +18847,27 @@ export namespace lex {
          * The string that is sent to your application.
          */
         value: string;
+    }
+
+    /**
+     * A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+     */
+    export interface BotCustomVocabulary {
+        customVocabularyItems: outputs.lex.BotCustomVocabularyItem[];
+    }
+
+    /**
+     * A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+     */
+    export interface BotCustomVocabularyItem {
+        /**
+         * Phrase that should be recognized.
+         */
+        phrase: string;
+        /**
+         * The degree to which the phrase recognition is boosted.
+         */
+        weight?: number;
     }
 
     /**
@@ -18894,6 +19051,7 @@ export namespace lex {
      * A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
      */
     export interface BotLocale {
+        customVocabulary?: outputs.lex.BotCustomVocabulary;
         description?: string;
         /**
          * List of intents
@@ -18995,6 +19153,24 @@ export namespace lex {
          */
         allowInterrupt?: boolean;
         messageGroupsList: outputs.lex.BotMessageGroup[];
+    }
+
+    /**
+     * Specifies an Amazon S3 bucket for logging audio conversations
+     */
+    export interface BotS3BucketLogDestination {
+        /**
+         * The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The Amazon S3 key of the deployment package.
+         */
+        logPrefix: string;
+        /**
+         * The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+         */
+        s3BucketArn: string;
     }
 
     /**
@@ -19145,6 +19321,7 @@ export namespace lex {
      * Contains settings used by Amazon Lex to select a slot value.
      */
     export interface BotSlotValueSelectionSetting {
+        advancedRecognitionSetting?: outputs.lex.BotAdvancedRecognitionSetting;
         regexFilter?: outputs.lex.BotSlotValueRegexFilter;
         resolutionStrategy: enums.lex.BotSlotValueResolutionStrategy;
     }
@@ -19174,6 +19351,44 @@ export namespace lex {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
+    }
+
+    /**
+     * Configuring the test bot alias settings for a given bot
+     */
+    export interface BotTestBotAliasSettings {
+        botAliasLocaleSettings?: outputs.lex.BotAliasLocaleSettingsItem[];
+        conversationLogSettings?: outputs.lex.BotConversationLogSettings;
+        description?: string;
+        /**
+         * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+         */
+        sentimentAnalysisSettings?: outputs.lex.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties;
+    }
+
+    /**
+     * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+     */
+    export interface BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
+        /**
+         * Enable to call Amazon Comprehend for Sentiment natively within Lex
+         */
+        detectSentiment: boolean;
+    }
+
+    /**
+     * Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+     */
+    export interface BotTextLogDestination {
+        cloudWatch: outputs.lex.BotCloudWatchLogGroupLogDestination;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotTextLogSetting {
+        destination: outputs.lex.BotTextLogDestination;
+        enabled: boolean;
     }
 
     /**
@@ -19242,6 +19457,7 @@ export namespace lex {
          */
         detectSentiment: boolean;
     }
+
 }
 
 export namespace licensemanager {
@@ -21792,6 +22008,20 @@ export namespace mediapackage {
     }
 
     /**
+     * The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+     */
+    export interface OriginEndpointEncryptionContractConfiguration {
+        /**
+         * A collection of audio encryption presets.
+         */
+        presetSpeke20Audio: enums.mediapackage.OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio;
+        /**
+         * A collection of video encryption presets.
+         */
+        presetSpeke20Video: enums.mediapackage.OriginEndpointEncryptionContractConfigurationPresetSpeke20Video;
+    }
+
+    /**
      * An HTTP Live Streaming (HLS) encryption configuration.
      */
     export interface OriginEndpointHlsEncryption {
@@ -21929,6 +22159,7 @@ export namespace mediapackage {
          * An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
          */
         certificateArn?: string;
+        encryptionContractConfiguration?: outputs.mediapackage.OriginEndpointEncryptionContractConfiguration;
         /**
          * The resource ID to include in key requests.
          */

@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBotResult:
-    def __init__(__self__, arn=None, data_privacy=None, description=None, id=None, idle_session_ttl_in_seconds=None, name=None, role_arn=None):
+    def __init__(__self__, arn=None, data_privacy=None, description=None, id=None, idle_session_ttl_in_seconds=None, name=None, role_arn=None, test_bot_alias_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetBotResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if test_bot_alias_settings and not isinstance(test_bot_alias_settings, dict):
+            raise TypeError("Expected argument 'test_bot_alias_settings' to be a dict")
+        pulumi.set(__self__, "test_bot_alias_settings", test_bot_alias_settings)
 
     @property
     @pulumi.getter
@@ -82,6 +85,11 @@ class GetBotResult:
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter(name="testBotAliasSettings")
+    def test_bot_alias_settings(self) -> Optional['outputs.BotTestBotAliasSettings']:
+        return pulumi.get(self, "test_bot_alias_settings")
+
 
 class AwaitableGetBotResult(GetBotResult):
     # pylint: disable=using-constant-test
@@ -95,7 +103,8 @@ class AwaitableGetBotResult(GetBotResult):
             id=self.id,
             idle_session_ttl_in_seconds=self.idle_session_ttl_in_seconds,
             name=self.name,
-            role_arn=self.role_arn)
+            role_arn=self.role_arn,
+            test_bot_alias_settings=self.test_bot_alias_settings)
 
 
 def get_bot(id: Optional[str] = None,
@@ -118,7 +127,8 @@ def get_bot(id: Optional[str] = None,
         id=__ret__.id,
         idle_session_ttl_in_seconds=__ret__.idle_session_ttl_in_seconds,
         name=__ret__.name,
-        role_arn=__ret__.role_arn)
+        role_arn=__ret__.role_arn,
+        test_bot_alias_settings=__ret__.test_bot_alias_settings)
 
 
 @_utilities.lift_output_func(get_bot)

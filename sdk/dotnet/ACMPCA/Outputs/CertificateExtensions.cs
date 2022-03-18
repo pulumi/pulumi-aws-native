@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
     public sealed class CertificateExtensions
     {
         public readonly ImmutableArray<Outputs.CertificatePolicyInformation> CertificatePolicies;
+        public readonly ImmutableArray<Outputs.CertificateCustomExtension> CustomExtensions;
         public readonly ImmutableArray<Outputs.CertificateExtendedKeyUsage> ExtendedKeyUsage;
         public readonly Outputs.CertificateKeyUsage? KeyUsage;
         public readonly ImmutableArray<Outputs.CertificateGeneralName> SubjectAlternativeNames;
@@ -25,6 +26,8 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
         private CertificateExtensions(
             ImmutableArray<Outputs.CertificatePolicyInformation> certificatePolicies,
 
+            ImmutableArray<Outputs.CertificateCustomExtension> customExtensions,
+
             ImmutableArray<Outputs.CertificateExtendedKeyUsage> extendedKeyUsage,
 
             Outputs.CertificateKeyUsage? keyUsage,
@@ -32,6 +35,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
             ImmutableArray<Outputs.CertificateGeneralName> subjectAlternativeNames)
         {
             CertificatePolicies = certificatePolicies;
+            CustomExtensions = customExtensions;
             ExtendedKeyUsage = extendedKeyUsage;
             KeyUsage = keyUsage;
             SubjectAlternativeNames = subjectAlternativeNames;

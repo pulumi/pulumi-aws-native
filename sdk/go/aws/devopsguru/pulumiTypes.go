@@ -341,6 +341,7 @@ func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) StackNames() 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionFilter struct {
 	CloudFormation *ResourceCollectionCloudFormationCollectionFilter `pulumi:"cloudFormation"`
+	Tags           []ResourceCollectionTagCollection                 `pulumi:"tags"`
 }
 
 // ResourceCollectionFilterInput is an input type that accepts ResourceCollectionFilterArgs and ResourceCollectionFilterOutput values.
@@ -357,6 +358,7 @@ type ResourceCollectionFilterInput interface {
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionFilterArgs struct {
 	CloudFormation ResourceCollectionCloudFormationCollectionFilterPtrInput `pulumi:"cloudFormation"`
+	Tags           ResourceCollectionTagCollectionArrayInput                `pulumi:"tags"`
 }
 
 func (ResourceCollectionFilterArgs) ElementType() reflect.Type {
@@ -392,6 +394,10 @@ func (o ResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloud
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+func (o ResourceCollectionFilterOutput) Tags() ResourceCollectionTagCollectionArrayOutput {
+	return o.ApplyT(func(v ResourceCollectionFilter) []ResourceCollectionTagCollection { return v.Tags }).(ResourceCollectionTagCollectionArrayOutput)
+}
+
 type ResourceCollectionFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceCollectionFilterPtrOutput) ElementType() reflect.Type {
@@ -425,6 +431,124 @@ func (o ResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCl
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+func (o ResourceCollectionFilterPtrOutput) Tags() ResourceCollectionTagCollectionArrayOutput {
+	return o.ApplyT(func(v *ResourceCollectionFilter) []ResourceCollectionTagCollection {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(ResourceCollectionTagCollectionArrayOutput)
+}
+
+// Tagged resource for DevOps Guru to monitor
+type ResourceCollectionTagCollection struct {
+	// A Tag key for DevOps Guru app boundary.
+	AppBoundaryKey *string `pulumi:"appBoundaryKey"`
+	// Tag values of DevOps Guru app boundary.
+	TagValues []string `pulumi:"tagValues"`
+}
+
+// ResourceCollectionTagCollectionInput is an input type that accepts ResourceCollectionTagCollectionArgs and ResourceCollectionTagCollectionOutput values.
+// You can construct a concrete instance of `ResourceCollectionTagCollectionInput` via:
+//
+//          ResourceCollectionTagCollectionArgs{...}
+type ResourceCollectionTagCollectionInput interface {
+	pulumi.Input
+
+	ToResourceCollectionTagCollectionOutput() ResourceCollectionTagCollectionOutput
+	ToResourceCollectionTagCollectionOutputWithContext(context.Context) ResourceCollectionTagCollectionOutput
+}
+
+// Tagged resource for DevOps Guru to monitor
+type ResourceCollectionTagCollectionArgs struct {
+	// A Tag key for DevOps Guru app boundary.
+	AppBoundaryKey pulumi.StringPtrInput `pulumi:"appBoundaryKey"`
+	// Tag values of DevOps Guru app boundary.
+	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+}
+
+func (ResourceCollectionTagCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionTagCollection)(nil)).Elem()
+}
+
+func (i ResourceCollectionTagCollectionArgs) ToResourceCollectionTagCollectionOutput() ResourceCollectionTagCollectionOutput {
+	return i.ToResourceCollectionTagCollectionOutputWithContext(context.Background())
+}
+
+func (i ResourceCollectionTagCollectionArgs) ToResourceCollectionTagCollectionOutputWithContext(ctx context.Context) ResourceCollectionTagCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionTagCollectionOutput)
+}
+
+// ResourceCollectionTagCollectionArrayInput is an input type that accepts ResourceCollectionTagCollectionArray and ResourceCollectionTagCollectionArrayOutput values.
+// You can construct a concrete instance of `ResourceCollectionTagCollectionArrayInput` via:
+//
+//          ResourceCollectionTagCollectionArray{ ResourceCollectionTagCollectionArgs{...} }
+type ResourceCollectionTagCollectionArrayInput interface {
+	pulumi.Input
+
+	ToResourceCollectionTagCollectionArrayOutput() ResourceCollectionTagCollectionArrayOutput
+	ToResourceCollectionTagCollectionArrayOutputWithContext(context.Context) ResourceCollectionTagCollectionArrayOutput
+}
+
+type ResourceCollectionTagCollectionArray []ResourceCollectionTagCollectionInput
+
+func (ResourceCollectionTagCollectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceCollectionTagCollection)(nil)).Elem()
+}
+
+func (i ResourceCollectionTagCollectionArray) ToResourceCollectionTagCollectionArrayOutput() ResourceCollectionTagCollectionArrayOutput {
+	return i.ToResourceCollectionTagCollectionArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceCollectionTagCollectionArray) ToResourceCollectionTagCollectionArrayOutputWithContext(ctx context.Context) ResourceCollectionTagCollectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionTagCollectionArrayOutput)
+}
+
+// Tagged resource for DevOps Guru to monitor
+type ResourceCollectionTagCollectionOutput struct{ *pulumi.OutputState }
+
+func (ResourceCollectionTagCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionTagCollection)(nil)).Elem()
+}
+
+func (o ResourceCollectionTagCollectionOutput) ToResourceCollectionTagCollectionOutput() ResourceCollectionTagCollectionOutput {
+	return o
+}
+
+func (o ResourceCollectionTagCollectionOutput) ToResourceCollectionTagCollectionOutputWithContext(ctx context.Context) ResourceCollectionTagCollectionOutput {
+	return o
+}
+
+// A Tag key for DevOps Guru app boundary.
+func (o ResourceCollectionTagCollectionOutput) AppBoundaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceCollectionTagCollection) *string { return v.AppBoundaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Tag values of DevOps Guru app boundary.
+func (o ResourceCollectionTagCollectionOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceCollectionTagCollection) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+}
+
+type ResourceCollectionTagCollectionArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceCollectionTagCollectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceCollectionTagCollection)(nil)).Elem()
+}
+
+func (o ResourceCollectionTagCollectionArrayOutput) ToResourceCollectionTagCollectionArrayOutput() ResourceCollectionTagCollectionArrayOutput {
+	return o
+}
+
+func (o ResourceCollectionTagCollectionArrayOutput) ToResourceCollectionTagCollectionArrayOutputWithContext(ctx context.Context) ResourceCollectionTagCollectionArrayOutput {
+	return o
+}
+
+func (o ResourceCollectionTagCollectionArrayOutput) Index(i pulumi.IntInput) ResourceCollectionTagCollectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceCollectionTagCollection {
+		return vs[0].([]ResourceCollectionTagCollection)[vs[1].(int)]
+	}).(ResourceCollectionTagCollectionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelConfigInput)(nil)).Elem(), NotificationChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsChannelConfigInput)(nil)).Elem(), NotificationChannelSnsChannelConfigArgs{})
@@ -432,6 +556,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudFormationCollectionFilterInput)(nil)).Elem(), ResourceCollectionCloudFormationCollectionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudFormationCollectionFilterPtrInput)(nil)).Elem(), ResourceCollectionCloudFormationCollectionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionFilterInput)(nil)).Elem(), ResourceCollectionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTagCollectionInput)(nil)).Elem(), ResourceCollectionTagCollectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTagCollectionArrayInput)(nil)).Elem(), ResourceCollectionTagCollectionArray{})
 	pulumi.RegisterOutputType(NotificationChannelConfigOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigPtrOutput{})
@@ -439,4 +565,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceCollectionCloudFormationCollectionFilterPtrOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionFilterOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionFilterPtrOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionTagCollectionOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionTagCollectionArrayOutput{})
 }

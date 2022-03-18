@@ -14,6 +14,7 @@ __all__ = [
     'CertificateAuthorityAccessMethodArgs',
     'CertificateAuthorityCrlConfigurationArgs',
     'CertificateAuthorityCsrExtensionsArgs',
+    'CertificateAuthorityCustomAttributeArgs',
     'CertificateAuthorityEdiPartyNameArgs',
     'CertificateAuthorityGeneralNameArgs',
     'CertificateAuthorityKeyUsageArgs',
@@ -22,6 +23,8 @@ __all__ = [
     'CertificateAuthorityRevocationConfigurationArgs',
     'CertificateAuthoritySubjectArgs',
     'CertificateAuthorityTagArgs',
+    'CertificateCustomAttributeArgs',
+    'CertificateCustomExtensionArgs',
     'CertificateEdiPartyNameArgs',
     'CertificateExtendedKeyUsageArgs',
     'CertificateExtensionsArgs',
@@ -227,6 +230,36 @@ class CertificateAuthorityCsrExtensionsArgs:
     @subject_information_access.setter
     def subject_information_access(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]):
         pulumi.set(self, "subject_information_access", value)
+
+
+@pulumi.input_type
+class CertificateAuthorityCustomAttributeArgs:
+    def __init__(__self__, *,
+                 object_identifier: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Structure that contains X.500 attribute type and value.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object_identifier")
+
+    @object_identifier.setter
+    def object_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_identifier", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -578,6 +611,7 @@ class CertificateAuthoritySubjectArgs:
     def __init__(__self__, *,
                  common_name: Optional[pulumi.Input[str]] = None,
                  country: Optional[pulumi.Input[str]] = None,
+                 custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]] = None,
                  distinguished_name_qualifier: Optional[pulumi.Input[str]] = None,
                  generation_qualifier: Optional[pulumi.Input[str]] = None,
                  given_name: Optional[pulumi.Input[str]] = None,
@@ -597,6 +631,8 @@ class CertificateAuthoritySubjectArgs:
             pulumi.set(__self__, "common_name", common_name)
         if country is not None:
             pulumi.set(__self__, "country", country)
+        if custom_attributes is not None:
+            pulumi.set(__self__, "custom_attributes", custom_attributes)
         if distinguished_name_qualifier is not None:
             pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
@@ -639,6 +675,15 @@ class CertificateAuthoritySubjectArgs:
     @country.setter
     def country(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "country", value)
+
+    @property
+    @pulumi.getter(name="customAttributes")
+    def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]:
+        return pulumi.get(self, "custom_attributes")
+
+    @custom_attributes.setter
+    def custom_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]):
+        pulumi.set(self, "custom_attributes", value)
 
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
@@ -779,6 +824,78 @@ class CertificateAuthorityTagArgs:
 
 
 @pulumi.input_type
+class CertificateCustomAttributeArgs:
+    def __init__(__self__, *,
+                 object_identifier: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Structure that contains X.500 attribute type and value.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object_identifier")
+
+    @object_identifier.setter
+    def object_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_identifier", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CertificateCustomExtensionArgs:
+    def __init__(__self__, *,
+                 object_identifier: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 critical: Optional[pulumi.Input[bool]] = None):
+        """
+        Structure that contains X.509 extension information for a certificate.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "value", value)
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object_identifier")
+
+    @object_identifier.setter
+    def object_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_identifier", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "critical", value)
+
+
+@pulumi.input_type
 class CertificateEdiPartyNameArgs:
     def __init__(__self__, *,
                  name_assigner: pulumi.Input[str],
@@ -844,6 +961,7 @@ class CertificateExtendedKeyUsageArgs:
 class CertificateExtensionsArgs:
     def __init__(__self__, *,
                  certificate_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]] = None,
+                 custom_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]] = None,
                  extended_key_usage: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]] = None,
                  key_usage: Optional[pulumi.Input['CertificateKeyUsageArgs']] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
@@ -852,6 +970,8 @@ class CertificateExtensionsArgs:
         """
         if certificate_policies is not None:
             pulumi.set(__self__, "certificate_policies", certificate_policies)
+        if custom_extensions is not None:
+            pulumi.set(__self__, "custom_extensions", custom_extensions)
         if extended_key_usage is not None:
             pulumi.set(__self__, "extended_key_usage", extended_key_usage)
         if key_usage is not None:
@@ -867,6 +987,15 @@ class CertificateExtensionsArgs:
     @certificate_policies.setter
     def certificate_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]):
         pulumi.set(self, "certificate_policies", value)
+
+    @property
+    @pulumi.getter(name="customExtensions")
+    def custom_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]:
+        return pulumi.get(self, "custom_extensions")
+
+    @custom_extensions.setter
+    def custom_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]):
+        pulumi.set(self, "custom_extensions", value)
 
     @property
     @pulumi.getter(name="extendedKeyUsage")
@@ -1231,6 +1360,7 @@ class CertificateSubjectArgs:
     def __init__(__self__, *,
                  common_name: Optional[pulumi.Input[str]] = None,
                  country: Optional[pulumi.Input[str]] = None,
+                 custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]] = None,
                  distinguished_name_qualifier: Optional[pulumi.Input[str]] = None,
                  generation_qualifier: Optional[pulumi.Input[str]] = None,
                  given_name: Optional[pulumi.Input[str]] = None,
@@ -1250,6 +1380,8 @@ class CertificateSubjectArgs:
             pulumi.set(__self__, "common_name", common_name)
         if country is not None:
             pulumi.set(__self__, "country", country)
+        if custom_attributes is not None:
+            pulumi.set(__self__, "custom_attributes", custom_attributes)
         if distinguished_name_qualifier is not None:
             pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
@@ -1292,6 +1424,15 @@ class CertificateSubjectArgs:
     @country.setter
     def country(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "country", value)
+
+    @property
+    @pulumi.getter(name="customAttributes")
+    def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]:
+        return pulumi.get(self, "custom_attributes")
+
+    @custom_attributes.setter
+    def custom_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]):
+        pulumi.set(self, "custom_attributes", value)
 
     @property
     @pulumi.getter(name="distinguishedNameQualifier")

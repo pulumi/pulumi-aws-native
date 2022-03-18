@@ -32,7 +32,9 @@ type DeploymentGroup struct {
 	LoadBalancerInfo                 DeploymentGroupLoadBalancerInfoPtrOutput                 `pulumi:"loadBalancerInfo"`
 	OnPremisesInstanceTagFilters     DeploymentGroupTagFilterArrayOutput                      `pulumi:"onPremisesInstanceTagFilters"`
 	OnPremisesTagSet                 DeploymentGroupOnPremisesTagSetPtrOutput                 `pulumi:"onPremisesTagSet"`
+	OutdatedInstancesStrategy        pulumi.StringPtrOutput                                   `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   pulumi.StringOutput                                      `pulumi:"serviceRoleArn"`
+	Tags                             DeploymentGroupTagArrayOutput                            `pulumi:"tags"`
 	TriggerConfigurations            DeploymentGroupTriggerConfigArrayOutput                  `pulumi:"triggerConfigurations"`
 }
 
@@ -96,7 +98,9 @@ type deploymentGroupArgs struct {
 	LoadBalancerInfo                 *DeploymentGroupLoadBalancerInfo                 `pulumi:"loadBalancerInfo"`
 	OnPremisesInstanceTagFilters     []DeploymentGroupTagFilter                       `pulumi:"onPremisesInstanceTagFilters"`
 	OnPremisesTagSet                 *DeploymentGroupOnPremisesTagSet                 `pulumi:"onPremisesTagSet"`
+	OutdatedInstancesStrategy        *string                                          `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   string                                           `pulumi:"serviceRoleArn"`
+	Tags                             []DeploymentGroupTag                             `pulumi:"tags"`
 	TriggerConfigurations            []DeploymentGroupTriggerConfig                   `pulumi:"triggerConfigurations"`
 }
 
@@ -117,7 +121,9 @@ type DeploymentGroupArgs struct {
 	LoadBalancerInfo                 DeploymentGroupLoadBalancerInfoPtrInput
 	OnPremisesInstanceTagFilters     DeploymentGroupTagFilterArrayInput
 	OnPremisesTagSet                 DeploymentGroupOnPremisesTagSetPtrInput
+	OutdatedInstancesStrategy        pulumi.StringPtrInput
 	ServiceRoleArn                   pulumi.StringInput
+	Tags                             DeploymentGroupTagArrayInput
 	TriggerConfigurations            DeploymentGroupTriggerConfigArrayInput
 }
 

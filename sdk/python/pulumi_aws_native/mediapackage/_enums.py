@@ -12,6 +12,8 @@ __all__ = [
     'OriginEndpointDashPackageProfile',
     'OriginEndpointDashPackageSegmentTemplateFormat',
     'OriginEndpointDashPackageUtcTiming',
+    'OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio',
+    'OriginEndpointEncryptionContractConfigurationPresetSpeke20Video',
     'OriginEndpointHlsEncryptionEncryptionMethod',
     'OriginEndpointHlsManifestAdMarkers',
     'OriginEndpointHlsManifestAdTriggersItem',
@@ -89,6 +91,20 @@ class OriginEndpointDashPackageUtcTiming(str, Enum):
     HTTP_ISO = "HTTP-ISO"
     HTTP_HEAD = "HTTP-HEAD"
     NONE = "NONE"
+
+
+class OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio(str, Enum):
+    """
+    A collection of audio encryption presets.
+    """
+    PRESET_AUDIO1 = "PRESET-AUDIO-1"
+
+
+class OriginEndpointEncryptionContractConfigurationPresetSpeke20Video(str, Enum):
+    """
+    A collection of video encryption presets.
+    """
+    PRESET_VIDEO1 = "PRESET-VIDEO-1"
 
 
 class OriginEndpointHlsEncryptionEncryptionMethod(str, Enum):

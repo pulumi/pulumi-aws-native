@@ -2711,8 +2711,9 @@ func (o DeploymentGroupGreenFleetProvisioningOptionPtrOutput) Action() pulumi.St
 }
 
 type DeploymentGroupLoadBalancerInfo struct {
-	ElbInfoList         []DeploymentGroupELBInfo         `pulumi:"elbInfoList"`
-	TargetGroupInfoList []DeploymentGroupTargetGroupInfo `pulumi:"targetGroupInfoList"`
+	ElbInfoList             []DeploymentGroupELBInfo             `pulumi:"elbInfoList"`
+	TargetGroupInfoList     []DeploymentGroupTargetGroupInfo     `pulumi:"targetGroupInfoList"`
+	TargetGroupPairInfoList []DeploymentGroupTargetGroupPairInfo `pulumi:"targetGroupPairInfoList"`
 }
 
 // DeploymentGroupLoadBalancerInfoInput is an input type that accepts DeploymentGroupLoadBalancerInfoArgs and DeploymentGroupLoadBalancerInfoOutput values.
@@ -2727,8 +2728,9 @@ type DeploymentGroupLoadBalancerInfoInput interface {
 }
 
 type DeploymentGroupLoadBalancerInfoArgs struct {
-	ElbInfoList         DeploymentGroupELBInfoArrayInput         `pulumi:"elbInfoList"`
-	TargetGroupInfoList DeploymentGroupTargetGroupInfoArrayInput `pulumi:"targetGroupInfoList"`
+	ElbInfoList             DeploymentGroupELBInfoArrayInput             `pulumi:"elbInfoList"`
+	TargetGroupInfoList     DeploymentGroupTargetGroupInfoArrayInput     `pulumi:"targetGroupInfoList"`
+	TargetGroupPairInfoList DeploymentGroupTargetGroupPairInfoArrayInput `pulumi:"targetGroupPairInfoList"`
 }
 
 func (DeploymentGroupLoadBalancerInfoArgs) ElementType() reflect.Type {
@@ -2816,6 +2818,12 @@ func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupInfoList() DeploymentG
 	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupInfo { return v.TargetGroupInfoList }).(DeploymentGroupTargetGroupInfoArrayOutput)
 }
 
+func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupPairInfoList() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupPairInfo {
+		return v.TargetGroupPairInfoList
+	}).(DeploymentGroupTargetGroupPairInfoArrayOutput)
+}
+
 type DeploymentGroupLoadBalancerInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoPtrOutput) ElementType() reflect.Type {
@@ -2856,6 +2864,15 @@ func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupInfoList() Deployme
 		}
 		return v.TargetGroupInfoList
 	}).(DeploymentGroupTargetGroupInfoArrayOutput)
+}
+
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupPairInfoList() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupPairInfo {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroupPairInfoList
+	}).(DeploymentGroupTargetGroupPairInfoArrayOutput)
 }
 
 type DeploymentGroupOnPremisesTagSet struct {
@@ -3445,6 +3462,106 @@ func (o DeploymentGroupS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DeploymentGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DeploymentGroupTagInput is an input type that accepts DeploymentGroupTagArgs and DeploymentGroupTagOutput values.
+// You can construct a concrete instance of `DeploymentGroupTagInput` via:
+//
+//          DeploymentGroupTagArgs{...}
+type DeploymentGroupTagInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTagOutput() DeploymentGroupTagOutput
+	ToDeploymentGroupTagOutputWithContext(context.Context) DeploymentGroupTagOutput
+}
+
+type DeploymentGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeploymentGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTag)(nil)).Elem()
+}
+
+func (i DeploymentGroupTagArgs) ToDeploymentGroupTagOutput() DeploymentGroupTagOutput {
+	return i.ToDeploymentGroupTagOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTagArgs) ToDeploymentGroupTagOutputWithContext(ctx context.Context) DeploymentGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTagOutput)
+}
+
+// DeploymentGroupTagArrayInput is an input type that accepts DeploymentGroupTagArray and DeploymentGroupTagArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTagArrayInput` via:
+//
+//          DeploymentGroupTagArray{ DeploymentGroupTagArgs{...} }
+type DeploymentGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTagArrayOutput() DeploymentGroupTagArrayOutput
+	ToDeploymentGroupTagArrayOutputWithContext(context.Context) DeploymentGroupTagArrayOutput
+}
+
+type DeploymentGroupTagArray []DeploymentGroupTagInput
+
+func (DeploymentGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTag)(nil)).Elem()
+}
+
+func (i DeploymentGroupTagArray) ToDeploymentGroupTagArrayOutput() DeploymentGroupTagArrayOutput {
+	return i.ToDeploymentGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTagArray) ToDeploymentGroupTagArrayOutputWithContext(ctx context.Context) DeploymentGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTagArrayOutput)
+}
+
+type DeploymentGroupTagOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTag)(nil)).Elem()
+}
+
+func (o DeploymentGroupTagOutput) ToDeploymentGroupTagOutput() DeploymentGroupTagOutput {
+	return o
+}
+
+func (o DeploymentGroupTagOutput) ToDeploymentGroupTagOutputWithContext(ctx context.Context) DeploymentGroupTagOutput {
+	return o
+}
+
+func (o DeploymentGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DeploymentGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeploymentGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTag)(nil)).Elem()
+}
+
+func (o DeploymentGroupTagArrayOutput) ToDeploymentGroupTagArrayOutput() DeploymentGroupTagArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTagArrayOutput) ToDeploymentGroupTagArrayOutputWithContext(ctx context.Context) DeploymentGroupTagArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTagArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTag {
+		return vs[0].([]DeploymentGroupTag)[vs[1].(int)]
+	}).(DeploymentGroupTagOutput)
+}
+
 type DeploymentGroupTagFilter struct {
 	Key   *string `pulumi:"key"`
 	Type  *string `pulumi:"type"`
@@ -3645,6 +3762,245 @@ func (o DeploymentGroupTargetGroupInfoArrayOutput) Index(i pulumi.IntInput) Depl
 	}).(DeploymentGroupTargetGroupInfoOutput)
 }
 
+type DeploymentGroupTargetGroupPairInfo struct {
+	ProdTrafficRoute *DeploymentGroupTrafficRoute     `pulumi:"prodTrafficRoute"`
+	TargetGroups     []DeploymentGroupTargetGroupInfo `pulumi:"targetGroups"`
+	TestTrafficRoute *DeploymentGroupTrafficRoute     `pulumi:"testTrafficRoute"`
+}
+
+// DeploymentGroupTargetGroupPairInfoInput is an input type that accepts DeploymentGroupTargetGroupPairInfoArgs and DeploymentGroupTargetGroupPairInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupTargetGroupPairInfoInput` via:
+//
+//          DeploymentGroupTargetGroupPairInfoArgs{...}
+type DeploymentGroupTargetGroupPairInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTargetGroupPairInfoOutput() DeploymentGroupTargetGroupPairInfoOutput
+	ToDeploymentGroupTargetGroupPairInfoOutputWithContext(context.Context) DeploymentGroupTargetGroupPairInfoOutput
+}
+
+type DeploymentGroupTargetGroupPairInfoArgs struct {
+	ProdTrafficRoute DeploymentGroupTrafficRoutePtrInput      `pulumi:"prodTrafficRoute"`
+	TargetGroups     DeploymentGroupTargetGroupInfoArrayInput `pulumi:"targetGroups"`
+	TestTrafficRoute DeploymentGroupTrafficRoutePtrInput      `pulumi:"testTrafficRoute"`
+}
+
+func (DeploymentGroupTargetGroupPairInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArgs) ToDeploymentGroupTargetGroupPairInfoOutput() DeploymentGroupTargetGroupPairInfoOutput {
+	return i.ToDeploymentGroupTargetGroupPairInfoOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArgs) ToDeploymentGroupTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTargetGroupPairInfoOutput)
+}
+
+// DeploymentGroupTargetGroupPairInfoArrayInput is an input type that accepts DeploymentGroupTargetGroupPairInfoArray and DeploymentGroupTargetGroupPairInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTargetGroupPairInfoArrayInput` via:
+//
+//          DeploymentGroupTargetGroupPairInfoArray{ DeploymentGroupTargetGroupPairInfoArgs{...} }
+type DeploymentGroupTargetGroupPairInfoArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTargetGroupPairInfoArrayOutput() DeploymentGroupTargetGroupPairInfoArrayOutput
+	ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(context.Context) DeploymentGroupTargetGroupPairInfoArrayOutput
+}
+
+type DeploymentGroupTargetGroupPairInfoArray []DeploymentGroupTargetGroupPairInfoInput
+
+func (DeploymentGroupTargetGroupPairInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArray) ToDeploymentGroupTargetGroupPairInfoArrayOutput() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return i.ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArray) ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTargetGroupPairInfoArrayOutput)
+}
+
+type DeploymentGroupTargetGroupPairInfoOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTargetGroupPairInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) ToDeploymentGroupTargetGroupPairInfoOutput() DeploymentGroupTargetGroupPairInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) ToDeploymentGroupTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) ProdTrafficRoute() DeploymentGroupTrafficRoutePtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupPairInfo) *DeploymentGroupTrafficRoute { return v.ProdTrafficRoute }).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) TargetGroups() DeploymentGroupTargetGroupInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupPairInfo) []DeploymentGroupTargetGroupInfo { return v.TargetGroups }).(DeploymentGroupTargetGroupInfoArrayOutput)
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) TestTrafficRoute() DeploymentGroupTrafficRoutePtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupPairInfo) *DeploymentGroupTrafficRoute { return v.TestTrafficRoute }).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+type DeploymentGroupTargetGroupPairInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTargetGroupPairInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupTargetGroupPairInfoArrayOutput) ToDeploymentGroupTargetGroupPairInfoArrayOutput() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoArrayOutput) ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTargetGroupPairInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTargetGroupPairInfo {
+		return vs[0].([]DeploymentGroupTargetGroupPairInfo)[vs[1].(int)]
+	}).(DeploymentGroupTargetGroupPairInfoOutput)
+}
+
+type DeploymentGroupTrafficRoute struct {
+	ListenerArns []string `pulumi:"listenerArns"`
+}
+
+// DeploymentGroupTrafficRouteInput is an input type that accepts DeploymentGroupTrafficRouteArgs and DeploymentGroupTrafficRouteOutput values.
+// You can construct a concrete instance of `DeploymentGroupTrafficRouteInput` via:
+//
+//          DeploymentGroupTrafficRouteArgs{...}
+type DeploymentGroupTrafficRouteInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTrafficRouteOutput() DeploymentGroupTrafficRouteOutput
+	ToDeploymentGroupTrafficRouteOutputWithContext(context.Context) DeploymentGroupTrafficRouteOutput
+}
+
+type DeploymentGroupTrafficRouteArgs struct {
+	ListenerArns pulumi.StringArrayInput `pulumi:"listenerArns"`
+}
+
+func (DeploymentGroupTrafficRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRouteOutput() DeploymentGroupTrafficRouteOutput {
+	return i.ToDeploymentGroupTrafficRouteOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupTrafficRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTrafficRouteOutput)
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return i.ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTrafficRouteOutput).ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupTrafficRoutePtrInput is an input type that accepts DeploymentGroupTrafficRouteArgs, DeploymentGroupTrafficRoutePtr and DeploymentGroupTrafficRoutePtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupTrafficRoutePtrInput` via:
+//
+//          DeploymentGroupTrafficRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentGroupTrafficRoutePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput
+	ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Context) DeploymentGroupTrafficRoutePtrOutput
+}
+
+type deploymentGroupTrafficRoutePtrType DeploymentGroupTrafficRouteArgs
+
+func DeploymentGroupTrafficRoutePtr(v *DeploymentGroupTrafficRouteArgs) DeploymentGroupTrafficRoutePtrInput {
+	return (*deploymentGroupTrafficRoutePtrType)(v)
+}
+
+func (*deploymentGroupTrafficRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (i *deploymentGroupTrafficRoutePtrType) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return i.ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupTrafficRoutePtrType) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+type DeploymentGroupTrafficRouteOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTrafficRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRouteOutput() DeploymentGroupTrafficRouteOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupTrafficRouteOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return o.ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupTrafficRoute) *DeploymentGroupTrafficRoute {
+		return &v
+	}).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupTrafficRoute) []string { return v.ListenerArns }).(pulumi.StringArrayOutput)
+}
+
+type DeploymentGroupTrafficRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTrafficRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) Elem() DeploymentGroupTrafficRouteOutput {
+	return o.ApplyT(func(v *DeploymentGroupTrafficRoute) DeploymentGroupTrafficRoute {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupTrafficRoute
+		return ret
+	}).(DeploymentGroupTrafficRouteOutput)
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) ListenerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupTrafficRoute) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
+}
+
 type DeploymentGroupTriggerConfig struct {
 	TriggerEvents    []string `pulumi:"triggerEvents"`
 	TriggerName      *string  `pulumi:"triggerName"`
@@ -3802,10 +4158,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupRevisionLocationPtrInput)(nil)).Elem(), DeploymentGroupRevisionLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupS3LocationInput)(nil)).Elem(), DeploymentGroupS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupS3LocationPtrInput)(nil)).Elem(), DeploymentGroupS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagInput)(nil)).Elem(), DeploymentGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagArrayInput)(nil)).Elem(), DeploymentGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagFilterInput)(nil)).Elem(), DeploymentGroupTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagFilterArrayInput)(nil)).Elem(), DeploymentGroupTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupInfoInput)(nil)).Elem(), DeploymentGroupTargetGroupInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupInfoArrayInput)(nil)).Elem(), DeploymentGroupTargetGroupInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupPairInfoInput)(nil)).Elem(), DeploymentGroupTargetGroupPairInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupPairInfoArrayInput)(nil)).Elem(), DeploymentGroupTargetGroupPairInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTrafficRouteInput)(nil)).Elem(), DeploymentGroupTrafficRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTrafficRoutePtrInput)(nil)).Elem(), DeploymentGroupTrafficRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTriggerConfigInput)(nil)).Elem(), DeploymentGroupTriggerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTriggerConfigArrayInput)(nil)).Elem(), DeploymentGroupTriggerConfigArray{})
 	pulumi.RegisterOutputType(ApplicationTagOutput{})
@@ -3858,10 +4220,16 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentGroupRevisionLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupS3LocationOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTagOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTagFilterOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTargetGroupInfoOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTargetGroupInfoArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTargetGroupPairInfoOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTargetGroupPairInfoArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTrafficRouteOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTrafficRoutePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTriggerConfigOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTriggerConfigArrayOutput{})
 }

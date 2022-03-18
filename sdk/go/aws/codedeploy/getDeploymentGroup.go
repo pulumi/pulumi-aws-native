@@ -39,7 +39,9 @@ type LookupDeploymentGroupResult struct {
 	LoadBalancerInfo                 *DeploymentGroupLoadBalancerInfo                 `pulumi:"loadBalancerInfo"`
 	OnPremisesInstanceTagFilters     []DeploymentGroupTagFilter                       `pulumi:"onPremisesInstanceTagFilters"`
 	OnPremisesTagSet                 *DeploymentGroupOnPremisesTagSet                 `pulumi:"onPremisesTagSet"`
+	OutdatedInstancesStrategy        *string                                          `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   *string                                          `pulumi:"serviceRoleArn"`
+	Tags                             []DeploymentGroupTag                             `pulumi:"tags"`
 	TriggerConfigurations            []DeploymentGroupTriggerConfig                   `pulumi:"triggerConfigurations"`
 }
 
@@ -134,8 +136,16 @@ func (o LookupDeploymentGroupResultOutput) OnPremisesTagSet() DeploymentGroupOnP
 	return o.ApplyT(func(v LookupDeploymentGroupResult) *DeploymentGroupOnPremisesTagSet { return v.OnPremisesTagSet }).(DeploymentGroupOnPremisesTagSetPtrOutput)
 }
 
+func (o LookupDeploymentGroupResultOutput) OutdatedInstancesStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) *string { return v.OutdatedInstancesStrategy }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupDeploymentGroupResultOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentGroupResult) *string { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDeploymentGroupResultOutput) Tags() DeploymentGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupTag { return v.Tags }).(DeploymentGroupTagArrayOutput)
 }
 
 func (o LookupDeploymentGroupResultOutput) TriggerConfigurations() DeploymentGroupTriggerConfigArrayOutput {

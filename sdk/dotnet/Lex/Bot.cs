@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.Lex
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        [Output("testBotAliasSettings")]
+        public Output<Outputs.BotTestBotAliasSettings?> TestBotAliasSettings { get; private set; } = null!;
+
         /// <summary>
         /// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
         /// </summary>
@@ -164,6 +167,9 @@ namespace Pulumi.AwsNative.Lex
 
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("testBotAliasSettings")]
+        public Input<Inputs.BotTestBotAliasSettingsArgs>? TestBotAliasSettings { get; set; }
 
         [Input("testBotAliasTags")]
         private InputList<Inputs.BotTagArgs>? _testBotAliasTags;

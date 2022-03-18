@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
         public readonly string? DataCompressionType;
         public readonly ImmutableArray<Outputs.FileSystemNfsExports> NfsExports;
         public readonly bool? ReadOnly;
+        public readonly int? RecordSizeKiB;
         public readonly ImmutableArray<Outputs.FileSystemUserAndGroupQuotas> UserAndGroupQuotas;
 
         [OutputConstructor]
@@ -29,12 +30,15 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             bool? readOnly,
 
+            int? recordSizeKiB,
+
             ImmutableArray<Outputs.FileSystemUserAndGroupQuotas> userAndGroupQuotas)
         {
             CopyTagsToSnapshots = copyTagsToSnapshots;
             DataCompressionType = dataCompressionType;
             NfsExports = nfsExports;
             ReadOnly = readOnly;
+            RecordSizeKiB = recordSizeKiB;
             UserAndGroupQuotas = userAndGroupQuotas;
         }
     }

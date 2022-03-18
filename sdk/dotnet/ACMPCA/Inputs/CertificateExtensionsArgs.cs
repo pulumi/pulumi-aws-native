@@ -23,6 +23,14 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
             set => _certificatePolicies = value;
         }
 
+        [Input("customExtensions")]
+        private InputList<Inputs.CertificateCustomExtensionArgs>? _customExtensions;
+        public InputList<Inputs.CertificateCustomExtensionArgs> CustomExtensions
+        {
+            get => _customExtensions ?? (_customExtensions = new InputList<Inputs.CertificateCustomExtensionArgs>());
+            set => _customExtensions = value;
+        }
+
         [Input("extendedKeyUsage")]
         private InputList<Inputs.CertificateExtendedKeyUsageArgs>? _extendedKeyUsage;
         public InputList<Inputs.CertificateExtendedKeyUsageArgs> ExtendedKeyUsage

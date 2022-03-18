@@ -1623,6 +1623,169 @@ func (o OriginEndpointDashPackagePtrOutput) UtcTimingUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+type OriginEndpointEncryptionContractConfiguration struct {
+	// A collection of audio encryption presets.
+	PresetSpeke20Audio OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio `pulumi:"presetSpeke20Audio"`
+	// A collection of video encryption presets.
+	PresetSpeke20Video OriginEndpointEncryptionContractConfigurationPresetSpeke20Video `pulumi:"presetSpeke20Video"`
+}
+
+// OriginEndpointEncryptionContractConfigurationInput is an input type that accepts OriginEndpointEncryptionContractConfigurationArgs and OriginEndpointEncryptionContractConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationInput` via:
+//
+//          OriginEndpointEncryptionContractConfigurationArgs{...}
+type OriginEndpointEncryptionContractConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointEncryptionContractConfigurationOutput() OriginEndpointEncryptionContractConfigurationOutput
+	ToOriginEndpointEncryptionContractConfigurationOutputWithContext(context.Context) OriginEndpointEncryptionContractConfigurationOutput
+}
+
+// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+type OriginEndpointEncryptionContractConfigurationArgs struct {
+	// A collection of audio encryption presets.
+	PresetSpeke20Audio OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput `pulumi:"presetSpeke20Audio"`
+	// A collection of video encryption presets.
+	PresetSpeke20Video OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput `pulumi:"presetSpeke20Video"`
+}
+
+func (OriginEndpointEncryptionContractConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncryptionContractConfigurationOutput() OriginEndpointEncryptionContractConfigurationOutput {
+	return i.ToOriginEndpointEncryptionContractConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncryptionContractConfigurationOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationOutput)
+}
+
+func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return i.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationOutput).ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointEncryptionContractConfigurationPtrInput is an input type that accepts OriginEndpointEncryptionContractConfigurationArgs, OriginEndpointEncryptionContractConfigurationPtr and OriginEndpointEncryptionContractConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationPtrInput` via:
+//
+//          OriginEndpointEncryptionContractConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginEndpointEncryptionContractConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput
+	ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput
+}
+
+type originEndpointEncryptionContractConfigurationPtrType OriginEndpointEncryptionContractConfigurationArgs
+
+func OriginEndpointEncryptionContractConfigurationPtr(v *OriginEndpointEncryptionContractConfigurationArgs) OriginEndpointEncryptionContractConfigurationPtrInput {
+	return (*originEndpointEncryptionContractConfigurationPtrType)(v)
+}
+
+func (*originEndpointEncryptionContractConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointEncryptionContractConfigurationPtrType) ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return i.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointEncryptionContractConfigurationPtrType) ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationPtrOutput)
+}
+
+// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+type OriginEndpointEncryptionContractConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointEncryptionContractConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEncryptionContractConfigurationOutput() OriginEndpointEncryptionContractConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEncryptionContractConfigurationOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return o.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointEncryptionContractConfiguration) *OriginEndpointEncryptionContractConfiguration {
+		return &v
+	}).(OriginEndpointEncryptionContractConfigurationPtrOutput)
+}
+
+// A collection of audio encryption presets.
+func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Audio() OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return o.ApplyT(func(v OriginEndpointEncryptionContractConfiguration) OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio {
+		return v.PresetSpeke20Audio
+	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput)
+}
+
+// A collection of video encryption presets.
+func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Video() OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return o.ApplyT(func(v OriginEndpointEncryptionContractConfiguration) OriginEndpointEncryptionContractConfigurationPresetSpeke20Video {
+		return v.PresetSpeke20Video
+	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput)
+}
+
+type OriginEndpointEncryptionContractConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointEncryptionContractConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointEncryptionContractConfigurationPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfiguration) OriginEndpointEncryptionContractConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointEncryptionContractConfiguration
+		return ret
+	}).(OriginEndpointEncryptionContractConfigurationOutput)
+}
+
+// A collection of audio encryption presets.
+func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Audio() OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfiguration) *OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio {
+		if v == nil {
+			return nil
+		}
+		return &v.PresetSpeke20Audio
+	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+// A collection of video encryption presets.
+func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Video() OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfiguration) *OriginEndpointEncryptionContractConfigurationPresetSpeke20Video {
+		if v == nil {
+			return nil
+		}
+		return &v.PresetSpeke20Video
+	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
 // An HTTP Live Streaming (HLS) encryption configuration.
 type OriginEndpointHlsEncryption struct {
 	// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
@@ -2665,7 +2828,8 @@ func (o OriginEndpointMssPackagePtrOutput) StreamSelection() OriginEndpointStrea
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProvider struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
-	CertificateArn *string `pulumi:"certificateArn"`
+	CertificateArn                  *string                                        `pulumi:"certificateArn"`
+	EncryptionContractConfiguration *OriginEndpointEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
 	// The resource ID to include in key requests.
 	ResourceId string `pulumi:"resourceId"`
 	// An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
@@ -2690,7 +2854,8 @@ type OriginEndpointSpekeKeyProviderInput interface {
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProviderArgs struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
-	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	CertificateArn                  pulumi.StringPtrInput                                 `pulumi:"certificateArn"`
+	EncryptionContractConfiguration OriginEndpointEncryptionContractConfigurationPtrInput `pulumi:"encryptionContractConfiguration"`
 	// The resource ID to include in key requests.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
@@ -2784,6 +2949,12 @@ func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrO
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+func (o OriginEndpointSpekeKeyProviderOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
+		return v.EncryptionContractConfiguration
+	}).(OriginEndpointEncryptionContractConfigurationPtrOutput)
+}
+
 // The resource ID to include in key requests.
 func (o OriginEndpointSpekeKeyProviderOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) string { return v.ResourceId }).(pulumi.StringOutput)
@@ -2836,6 +3007,15 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringP
 		}
 		return v.CertificateArn
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginEndpointSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionContractConfiguration
+	}).(OriginEndpointEncryptionContractConfigurationPtrOutput)
 }
 
 // The resource ID to include in key requests.
@@ -5775,6 +5955,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashEncryptionPtrInput)(nil)).Elem(), OriginEndpointDashEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageInput)(nil)).Elem(), OriginEndpointDashPackageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackagePtrInput)(nil)).Elem(), OriginEndpointDashPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationPtrInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsEncryptionInput)(nil)).Elem(), OriginEndpointHlsEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsEncryptionPtrInput)(nil)).Elem(), OriginEndpointHlsEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestInput)(nil)).Elem(), OriginEndpointHlsManifestArgs{})
@@ -5847,6 +6029,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointDashEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPackageOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPackagePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointEncryptionContractConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointEncryptionContractConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsEncryptionOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestOutput{})

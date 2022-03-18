@@ -14,6 +14,7 @@ __all__ = [
     'NotificationChannelSnsChannelConfigArgs',
     'ResourceCollectionCloudFormationCollectionFilterArgs',
     'ResourceCollectionFilterArgs',
+    'ResourceCollectionTagCollectionArgs',
 ]
 
 @pulumi.input_type
@@ -83,12 +84,15 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
 @pulumi.input_type
 class ResourceCollectionFilterArgs:
     def __init__(__self__, *,
-                 cloud_formation: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']] = None):
+                 cloud_formation: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]] = None):
         """
         Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         if cloud_formation is not None:
             pulumi.set(__self__, "cloud_formation", cloud_formation)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cloudFormation")
@@ -98,5 +102,54 @@ class ResourceCollectionFilterArgs:
     @cloud_formation.setter
     def cloud_formation(self, value: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']]):
         pulumi.set(self, "cloud_formation", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class ResourceCollectionTagCollectionArgs:
+    def __init__(__self__, *,
+                 app_boundary_key: Optional[pulumi.Input[str]] = None,
+                 tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Tagged resource for DevOps Guru to monitor
+        :param pulumi.Input[str] app_boundary_key: A Tag key for DevOps Guru app boundary.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_values: Tag values of DevOps Guru app boundary.
+        """
+        if app_boundary_key is not None:
+            pulumi.set(__self__, "app_boundary_key", app_boundary_key)
+        if tag_values is not None:
+            pulumi.set(__self__, "tag_values", tag_values)
+
+    @property
+    @pulumi.getter(name="appBoundaryKey")
+    def app_boundary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Tag key for DevOps Guru app boundary.
+        """
+        return pulumi.get(self, "app_boundary_key")
+
+    @app_boundary_key.setter
+    def app_boundary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_boundary_key", value)
+
+    @property
+    @pulumi.getter(name="tagValues")
+    def tag_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tag values of DevOps Guru app boundary.
+        """
+        return pulumi.get(self, "tag_values")
+
+    @tag_values.setter
+    def tag_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tag_values", value)
 
 

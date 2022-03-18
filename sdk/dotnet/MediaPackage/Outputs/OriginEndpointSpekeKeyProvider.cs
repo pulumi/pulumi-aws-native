@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
         /// </summary>
         public readonly string? CertificateArn;
+        public readonly Outputs.OriginEndpointEncryptionContractConfiguration? EncryptionContractConfiguration;
         /// <summary>
         /// The resource ID to include in key requests.
         /// </summary>
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         private OriginEndpointSpekeKeyProvider(
             string? certificateArn,
 
+            Outputs.OriginEndpointEncryptionContractConfiguration? encryptionContractConfiguration,
+
             string resourceId,
 
             string roleArn,
@@ -50,6 +53,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
             string url)
         {
             CertificateArn = certificateArn;
+            EncryptionContractConfiguration = encryptionContractConfiguration;
             ResourceId = resourceId;
             RoleArn = roleArn;
             SystemIds = systemIds;

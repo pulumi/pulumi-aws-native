@@ -27,9 +27,10 @@ type Bot struct {
 	DataPrivacy DataPrivacyPropertiesOutput `pulumi:"dataPrivacy"`
 	Description pulumi.StringPtrOutput      `pulumi:"description"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTTLInSeconds pulumi.IntOutput    `pulumi:"idleSessionTTLInSeconds"`
-	Name                    pulumi.StringOutput `pulumi:"name"`
-	RoleArn                 pulumi.StringOutput `pulumi:"roleArn"`
+	IdleSessionTTLInSeconds pulumi.IntOutput                 `pulumi:"idleSessionTTLInSeconds"`
+	Name                    pulumi.StringOutput              `pulumi:"name"`
+	RoleArn                 pulumi.StringOutput              `pulumi:"roleArn"`
+	TestBotAliasSettings    BotTestBotAliasSettingsPtrOutput `pulumi:"testBotAliasSettings"`
 	// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
 	TestBotAliasTags BotTagArrayOutput `pulumi:"testBotAliasTags"`
 }
@@ -93,9 +94,10 @@ type botArgs struct {
 	DataPrivacy DataPrivacyProperties `pulumi:"dataPrivacy"`
 	Description *string               `pulumi:"description"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTTLInSeconds int     `pulumi:"idleSessionTTLInSeconds"`
-	Name                    *string `pulumi:"name"`
-	RoleArn                 string  `pulumi:"roleArn"`
+	IdleSessionTTLInSeconds int                      `pulumi:"idleSessionTTLInSeconds"`
+	Name                    *string                  `pulumi:"name"`
+	RoleArn                 string                   `pulumi:"roleArn"`
+	TestBotAliasSettings    *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
 	// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
 	TestBotAliasTags []BotTag `pulumi:"testBotAliasTags"`
 }
@@ -116,6 +118,7 @@ type BotArgs struct {
 	IdleSessionTTLInSeconds pulumi.IntInput
 	Name                    pulumi.StringPtrInput
 	RoleArn                 pulumi.StringInput
+	TestBotAliasSettings    BotTestBotAliasSettingsPtrInput
 	// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
 	TestBotAliasTags BotTagArrayInput
 }

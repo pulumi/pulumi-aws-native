@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BotAdvancedRecognitionSetting',
     'BotAliasAudioLogDestination',
     'BotAliasAudioLogSetting',
     'BotAliasCloudWatchLogGroupLogDestination',
@@ -23,8 +24,14 @@ __all__ = [
     'BotAliasTag',
     'BotAliasTextLogDestination',
     'BotAliasTextLogSetting',
+    'BotAudioLogDestination',
+    'BotAudioLogSetting',
     'BotButton',
+    'BotCloudWatchLogGroupLogDestination',
+    'BotConversationLogSettings',
     'BotCustomPayload',
+    'BotCustomVocabulary',
+    'BotCustomVocabularyItem',
     'BotDialogCodeHookSetting',
     'BotExternalSourceSetting',
     'BotFulfillmentCodeHookSetting',
@@ -49,6 +56,7 @@ __all__ = [
     'BotPostFulfillmentStatusSpecification',
     'BotPromptSpecification',
     'BotResponseSpecification',
+    'BotS3BucketLogDestination',
     'BotS3Location',
     'BotSSMLMessage',
     'BotSampleUtterance',
@@ -64,6 +72,10 @@ __all__ = [
     'BotSlotValueSelectionSetting',
     'BotStillWaitingResponseSpecification',
     'BotTag',
+    'BotTestBotAliasSettings',
+    'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties',
+    'BotTextLogDestination',
+    'BotTextLogSetting',
     'BotVersionLocaleDetails',
     'BotVersionLocaleSpecification',
     'BotVoiceSettings',
@@ -72,6 +84,42 @@ __all__ = [
     'ResourcePolicyPolicy',
     'SentimentAnalysisSettingsProperties',
 ]
+
+@pulumi.output_type
+class BotAdvancedRecognitionSetting(dict):
+    """
+    Provides settings that enable advanced recognition settings for slot values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioRecognitionStrategy":
+            suggest = "audio_recognition_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAdvancedRecognitionSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAdvancedRecognitionSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAdvancedRecognitionSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_recognition_strategy: Optional['BotAudioRecognitionStrategy'] = None):
+        """
+        Provides settings that enable advanced recognition settings for slot values.
+        """
+        if audio_recognition_strategy is not None:
+            pulumi.set(__self__, "audio_recognition_strategy", audio_recognition_strategy)
+
+    @property
+    @pulumi.getter(name="audioRecognitionStrategy")
+    def audio_recognition_strategy(self) -> Optional['BotAudioRecognitionStrategy']:
+        return pulumi.get(self, "audio_recognition_strategy")
+
 
 @pulumi.output_type
 class BotAliasAudioLogDestination(dict):
@@ -158,8 +206,8 @@ class BotAliasCloudWatchLogGroupLogDestination(dict):
                  cloud_watch_log_group_arn: str,
                  log_prefix: str):
         """
-        :param str cloud_watch_log_group_arn: A string used to identify this tag
-        :param str log_prefix: A string containing the value for the tag
+        :param str cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
+        :param str log_prefix: A string containing the value for the Log Prefix
         """
         pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         pulumi.set(__self__, "log_prefix", log_prefix)
@@ -168,7 +216,7 @@ class BotAliasCloudWatchLogGroupLogDestination(dict):
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> str:
         """
-        A string used to identify this tag
+        A string used to identify the groupArn for the Cloudwatch Log Group
         """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
@@ -176,7 +224,7 @@ class BotAliasCloudWatchLogGroupLogDestination(dict):
     @pulumi.getter(name="logPrefix")
     def log_prefix(self) -> str:
         """
-        A string containing the value for the tag
+        A string containing the value for the Log Prefix
         """
         return pulumi.get(self, "log_prefix")
 
@@ -569,6 +617,66 @@ class BotAliasTextLogSetting(dict):
 
 
 @pulumi.output_type
+class BotAudioLogDestination(dict):
+    """
+    The location of audio log files collected when conversation logging is enabled for a bot.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAudioLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAudioLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAudioLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: 'outputs.BotS3BucketLogDestination'):
+        """
+        The location of audio log files collected when conversation logging is enabled for a bot.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> 'outputs.BotS3BucketLogDestination':
+        return pulumi.get(self, "s3_bucket")
+
+
+@pulumi.output_type
+class BotAudioLogSetting(dict):
+    """
+    Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+    """
+    def __init__(__self__, *,
+                 destination: 'outputs.BotAudioLogDestination',
+                 enabled: bool):
+        """
+        Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.BotAudioLogDestination':
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class BotButton(dict):
     """
     A button to use on a response card used to gather slot values from a user.
@@ -602,6 +710,100 @@ class BotButton(dict):
 
 
 @pulumi.output_type
+class BotCloudWatchLogGroupLogDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logPrefix":
+            suggest = "log_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotCloudWatchLogGroupLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotCloudWatchLogGroupLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotCloudWatchLogGroupLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_log_group_arn: str,
+                 log_prefix: str):
+        """
+        :param str cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
+        :param str log_prefix: A string containing the value for the Log Prefix
+        """
+        pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+        pulumi.set(__self__, "log_prefix", log_prefix)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogGroupArn")
+    def cloud_watch_log_group_arn(self) -> str:
+        """
+        A string used to identify the groupArn for the Cloudwatch Log Group
+        """
+        return pulumi.get(self, "cloud_watch_log_group_arn")
+
+    @property
+    @pulumi.getter(name="logPrefix")
+    def log_prefix(self) -> str:
+        """
+        A string containing the value for the Log Prefix
+        """
+        return pulumi.get(self, "log_prefix")
+
+
+@pulumi.output_type
+class BotConversationLogSettings(dict):
+    """
+    Contains information about code hooks that Amazon Lex calls during a conversation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioLogSettings":
+            suggest = "audio_log_settings"
+        elif key == "textLogSettings":
+            suggest = "text_log_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotConversationLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotConversationLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotConversationLogSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_log_settings: Optional[Sequence['outputs.BotAudioLogSetting']] = None,
+                 text_log_settings: Optional[Sequence['outputs.BotTextLogSetting']] = None):
+        """
+        Contains information about code hooks that Amazon Lex calls during a conversation.
+        """
+        if audio_log_settings is not None:
+            pulumi.set(__self__, "audio_log_settings", audio_log_settings)
+        if text_log_settings is not None:
+            pulumi.set(__self__, "text_log_settings", text_log_settings)
+
+    @property
+    @pulumi.getter(name="audioLogSettings")
+    def audio_log_settings(self) -> Optional[Sequence['outputs.BotAudioLogSetting']]:
+        return pulumi.get(self, "audio_log_settings")
+
+    @property
+    @pulumi.getter(name="textLogSettings")
+    def text_log_settings(self) -> Optional[Sequence['outputs.BotTextLogSetting']]:
+        return pulumi.get(self, "text_log_settings")
+
+
+@pulumi.output_type
 class BotCustomPayload(dict):
     """
     A message in a custom format defined by the client application.
@@ -621,6 +823,75 @@ class BotCustomPayload(dict):
         The string that is sent to your application.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BotCustomVocabulary(dict):
+    """
+    A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customVocabularyItems":
+            suggest = "custom_vocabulary_items"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotCustomVocabulary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotCustomVocabulary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotCustomVocabulary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_vocabulary_items: Sequence['outputs.BotCustomVocabularyItem']):
+        """
+        A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+        """
+        pulumi.set(__self__, "custom_vocabulary_items", custom_vocabulary_items)
+
+    @property
+    @pulumi.getter(name="customVocabularyItems")
+    def custom_vocabulary_items(self) -> Sequence['outputs.BotCustomVocabularyItem']:
+        return pulumi.get(self, "custom_vocabulary_items")
+
+
+@pulumi.output_type
+class BotCustomVocabularyItem(dict):
+    """
+    A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+    """
+    def __init__(__self__, *,
+                 phrase: str,
+                 weight: Optional[int] = None):
+        """
+        A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+        :param str phrase: Phrase that should be recognized.
+        :param int weight: The degree to which the phrase recognition is boosted.
+        """
+        pulumi.set(__self__, "phrase", phrase)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def phrase(self) -> str:
+        """
+        Phrase that should be recognized.
+        """
+        return pulumi.get(self, "phrase")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        The degree to which the phrase recognition is boosted.
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -1430,6 +1701,8 @@ class BotLocale(dict):
             suggest = "locale_id"
         elif key == "nluConfidenceThreshold":
             suggest = "nlu_confidence_threshold"
+        elif key == "customVocabulary":
+            suggest = "custom_vocabulary"
         elif key == "slotTypes":
             suggest = "slot_types"
         elif key == "voiceSettings":
@@ -1449,6 +1722,7 @@ class BotLocale(dict):
     def __init__(__self__, *,
                  locale_id: str,
                  nlu_confidence_threshold: float,
+                 custom_vocabulary: Optional['outputs.BotCustomVocabulary'] = None,
                  description: Optional[str] = None,
                  intents: Optional[Sequence['outputs.BotIntent']] = None,
                  slot_types: Optional[Sequence['outputs.BotSlotType']] = None,
@@ -1460,6 +1734,8 @@ class BotLocale(dict):
         """
         pulumi.set(__self__, "locale_id", locale_id)
         pulumi.set(__self__, "nlu_confidence_threshold", nlu_confidence_threshold)
+        if custom_vocabulary is not None:
+            pulumi.set(__self__, "custom_vocabulary", custom_vocabulary)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if intents is not None:
@@ -1478,6 +1754,11 @@ class BotLocale(dict):
     @pulumi.getter(name="nluConfidenceThreshold")
     def nlu_confidence_threshold(self) -> float:
         return pulumi.get(self, "nlu_confidence_threshold")
+
+    @property
+    @pulumi.getter(name="customVocabulary")
+    def custom_vocabulary(self) -> Optional['outputs.BotCustomVocabulary']:
+        return pulumi.get(self, "custom_vocabulary")
 
     @property
     @pulumi.getter
@@ -1911,6 +2192,72 @@ class BotResponseSpecification(dict):
         Indicates whether the user can interrupt a speech prompt from the bot.
         """
         return pulumi.get(self, "allow_interrupt")
+
+
+@pulumi.output_type
+class BotS3BucketLogDestination(dict):
+    """
+    Specifies an Amazon S3 bucket for logging audio conversations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logPrefix":
+            suggest = "log_prefix"
+        elif key == "s3BucketArn":
+            suggest = "s3_bucket_arn"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotS3BucketLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotS3BucketLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotS3BucketLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_prefix: str,
+                 s3_bucket_arn: str,
+                 kms_key_arn: Optional[str] = None):
+        """
+        Specifies an Amazon S3 bucket for logging audio conversations
+        :param str log_prefix: The Amazon S3 key of the deployment package.
+        :param str s3_bucket_arn: The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+        :param str kms_key_arn: The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+        """
+        pulumi.set(__self__, "log_prefix", log_prefix)
+        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="logPrefix")
+    def log_prefix(self) -> str:
+        """
+        The Amazon S3 key of the deployment package.
+        """
+        return pulumi.get(self, "log_prefix")
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
@@ -2495,6 +2842,8 @@ class BotSlotValueSelectionSetting(dict):
         suggest = None
         if key == "resolutionStrategy":
             suggest = "resolution_strategy"
+        elif key == "advancedRecognitionSetting":
+            suggest = "advanced_recognition_setting"
         elif key == "regexFilter":
             suggest = "regex_filter"
 
@@ -2511,11 +2860,14 @@ class BotSlotValueSelectionSetting(dict):
 
     def __init__(__self__, *,
                  resolution_strategy: 'BotSlotValueResolutionStrategy',
+                 advanced_recognition_setting: Optional['outputs.BotAdvancedRecognitionSetting'] = None,
                  regex_filter: Optional['outputs.BotSlotValueRegexFilter'] = None):
         """
         Contains settings used by Amazon Lex to select a slot value.
         """
         pulumi.set(__self__, "resolution_strategy", resolution_strategy)
+        if advanced_recognition_setting is not None:
+            pulumi.set(__self__, "advanced_recognition_setting", advanced_recognition_setting)
         if regex_filter is not None:
             pulumi.set(__self__, "regex_filter", regex_filter)
 
@@ -2523,6 +2875,11 @@ class BotSlotValueSelectionSetting(dict):
     @pulumi.getter(name="resolutionStrategy")
     def resolution_strategy(self) -> 'BotSlotValueResolutionStrategy':
         return pulumi.get(self, "resolution_strategy")
+
+    @property
+    @pulumi.getter(name="advancedRecognitionSetting")
+    def advanced_recognition_setting(self) -> Optional['outputs.BotAdvancedRecognitionSetting']:
+        return pulumi.get(self, "advanced_recognition_setting")
 
     @property
     @pulumi.getter(name="regexFilter")
@@ -2628,6 +2985,173 @@ class BotTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BotTestBotAliasSettings(dict):
+    """
+    Configuring the test bot alias settings for a given bot
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "botAliasLocaleSettings":
+            suggest = "bot_alias_locale_settings"
+        elif key == "conversationLogSettings":
+            suggest = "conversation_log_settings"
+        elif key == "sentimentAnalysisSettings":
+            suggest = "sentiment_analysis_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotTestBotAliasSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotTestBotAliasSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotTestBotAliasSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bot_alias_locale_settings: Optional[Sequence['outputs.BotAliasLocaleSettingsItem']] = None,
+                 conversation_log_settings: Optional['outputs.BotConversationLogSettings'] = None,
+                 description: Optional[str] = None,
+                 sentiment_analysis_settings: Optional['outputs.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties'] = None):
+        """
+        Configuring the test bot alias settings for a given bot
+        :param 'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties' sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        """
+        if bot_alias_locale_settings is not None:
+            pulumi.set(__self__, "bot_alias_locale_settings", bot_alias_locale_settings)
+        if conversation_log_settings is not None:
+            pulumi.set(__self__, "conversation_log_settings", conversation_log_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if sentiment_analysis_settings is not None:
+            pulumi.set(__self__, "sentiment_analysis_settings", sentiment_analysis_settings)
+
+    @property
+    @pulumi.getter(name="botAliasLocaleSettings")
+    def bot_alias_locale_settings(self) -> Optional[Sequence['outputs.BotAliasLocaleSettingsItem']]:
+        return pulumi.get(self, "bot_alias_locale_settings")
+
+    @property
+    @pulumi.getter(name="conversationLogSettings")
+    def conversation_log_settings(self) -> Optional['outputs.BotConversationLogSettings']:
+        return pulumi.get(self, "conversation_log_settings")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="sentimentAnalysisSettings")
+    def sentiment_analysis_settings(self) -> Optional['outputs.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties']:
+        """
+        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        """
+        return pulumi.get(self, "sentiment_analysis_settings")
+
+
+@pulumi.output_type
+class BotTestBotAliasSettingsSentimentAnalysisSettingsProperties(dict):
+    """
+    Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detectSentiment":
+            suggest = "detect_sentiment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotTestBotAliasSettingsSentimentAnalysisSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotTestBotAliasSettingsSentimentAnalysisSettingsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotTestBotAliasSettingsSentimentAnalysisSettingsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 detect_sentiment: bool):
+        """
+        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        :param bool detect_sentiment: Enable to call Amazon Comprehend for Sentiment natively within Lex
+        """
+        pulumi.set(__self__, "detect_sentiment", detect_sentiment)
+
+    @property
+    @pulumi.getter(name="detectSentiment")
+    def detect_sentiment(self) -> bool:
+        """
+        Enable to call Amazon Comprehend for Sentiment natively within Lex
+        """
+        return pulumi.get(self, "detect_sentiment")
+
+
+@pulumi.output_type
+class BotTextLogDestination(dict):
+    """
+    Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatch":
+            suggest = "cloud_watch"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotTextLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotTextLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotTextLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch: 'outputs.BotCloudWatchLogGroupLogDestination'):
+        """
+        Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+        """
+        pulumi.set(__self__, "cloud_watch", cloud_watch)
+
+    @property
+    @pulumi.getter(name="cloudWatch")
+    def cloud_watch(self) -> 'outputs.BotCloudWatchLogGroupLogDestination':
+        return pulumi.get(self, "cloud_watch")
+
+
+@pulumi.output_type
+class BotTextLogSetting(dict):
+    """
+    Contains information about code hooks that Amazon Lex calls during a conversation.
+    """
+    def __init__(__self__, *,
+                 destination: 'outputs.BotTextLogDestination',
+                 enabled: bool):
+        """
+        Contains information about code hooks that Amazon Lex calls during a conversation.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.BotTextLogDestination':
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

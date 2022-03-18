@@ -31,9 +31,10 @@ type LookupBotResult struct {
 	Description *string                `pulumi:"description"`
 	Id          *string                `pulumi:"id"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTTLInSeconds *int    `pulumi:"idleSessionTTLInSeconds"`
-	Name                    *string `pulumi:"name"`
-	RoleArn                 *string `pulumi:"roleArn"`
+	IdleSessionTTLInSeconds *int                     `pulumi:"idleSessionTTLInSeconds"`
+	Name                    *string                  `pulumi:"name"`
+	RoleArn                 *string                  `pulumi:"roleArn"`
+	TestBotAliasSettings    *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
 }
 
 func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulumi.InvokeOption) LookupBotResultOutput {
@@ -95,6 +96,10 @@ func (o LookupBotResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupBotResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBotResultOutput) TestBotAliasSettings() BotTestBotAliasSettingsPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *BotTestBotAliasSettings { return v.TestBotAliasSettings }).(BotTestBotAliasSettingsPtrOutput)
 }
 
 func init() {

@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
         }
 
         public static ResourceCollectionType AwsCloudFormation { get; } = new ResourceCollectionType("AWS_CLOUD_FORMATION");
+        public static ResourceCollectionType AwsTags { get; } = new ResourceCollectionType("AWS_TAGS");
 
         public static bool operator ==(ResourceCollectionType left, ResourceCollectionType right) => left.Equals(right);
         public static bool operator !=(ResourceCollectionType left, ResourceCollectionType right) => !left.Equals(right);

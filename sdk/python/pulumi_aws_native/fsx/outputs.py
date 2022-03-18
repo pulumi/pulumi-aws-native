@@ -445,6 +445,7 @@ class FileSystemOpenZFSConfiguration(dict):
                  copy_tags_to_volumes: Optional[bool] = None,
                  daily_automatic_backup_start_time: Optional[str] = None,
                  disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
+                 options: Optional[Sequence[str]] = None,
                  root_volume_configuration: Optional['outputs.FileSystemRootVolumeConfiguration'] = None,
                  throughput_capacity: Optional[int] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
@@ -459,6 +460,8 @@ class FileSystemOpenZFSConfiguration(dict):
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if disk_iops_configuration is not None:
             pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if root_volume_configuration is not None:
             pulumi.set(__self__, "root_volume_configuration", root_volume_configuration)
         if throughput_capacity is not None:
@@ -497,6 +500,11 @@ class FileSystemOpenZFSConfiguration(dict):
         return pulumi.get(self, "disk_iops_configuration")
 
     @property
+    @pulumi.getter
+    def options(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "options")
+
+    @property
     @pulumi.getter(name="rootVolumeConfiguration")
     def root_volume_configuration(self) -> Optional['outputs.FileSystemRootVolumeConfiguration']:
         return pulumi.get(self, "root_volume_configuration")
@@ -525,6 +533,8 @@ class FileSystemRootVolumeConfiguration(dict):
             suggest = "nfs_exports"
         elif key == "readOnly":
             suggest = "read_only"
+        elif key == "recordSizeKiB":
+            suggest = "record_size_ki_b"
         elif key == "userAndGroupQuotas":
             suggest = "user_and_group_quotas"
 
@@ -544,6 +554,7 @@ class FileSystemRootVolumeConfiguration(dict):
                  data_compression_type: Optional[str] = None,
                  nfs_exports: Optional[Sequence['outputs.FileSystemNfsExports']] = None,
                  read_only: Optional[bool] = None,
+                 record_size_ki_b: Optional[int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.FileSystemUserAndGroupQuotas']] = None):
         if copy_tags_to_snapshots is not None:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -553,6 +564,8 @@ class FileSystemRootVolumeConfiguration(dict):
             pulumi.set(__self__, "nfs_exports", nfs_exports)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if record_size_ki_b is not None:
+            pulumi.set(__self__, "record_size_ki_b", record_size_ki_b)
         if user_and_group_quotas is not None:
             pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
 
@@ -575,6 +588,11 @@ class FileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[bool]:
         return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="recordSizeKiB")
+    def record_size_ki_b(self) -> Optional[int]:
+        return pulumi.get(self, "record_size_ki_b")
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")

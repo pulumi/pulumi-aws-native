@@ -35,8 +35,11 @@ __all__ = [
     'DeploymentGroupOnPremisesTagSetListObject',
     'DeploymentGroupRevisionLocation',
     'DeploymentGroupS3Location',
+    'DeploymentGroupTag',
     'DeploymentGroupTagFilter',
     'DeploymentGroupTargetGroupInfo',
+    'DeploymentGroupTargetGroupPairInfo',
+    'DeploymentGroupTrafficRoute',
     'DeploymentGroupTriggerConfig',
 ]
 
@@ -692,6 +695,8 @@ class DeploymentGroupLoadBalancerInfo(dict):
             suggest = "elb_info_list"
         elif key == "targetGroupInfoList":
             suggest = "target_group_info_list"
+        elif key == "targetGroupPairInfoList":
+            suggest = "target_group_pair_info_list"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupLoadBalancerInfo. Access the value via the '{suggest}' property getter instead.")
@@ -706,11 +711,14 @@ class DeploymentGroupLoadBalancerInfo(dict):
 
     def __init__(__self__, *,
                  elb_info_list: Optional[Sequence['outputs.DeploymentGroupELBInfo']] = None,
-                 target_group_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None):
+                 target_group_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
+                 target_group_pair_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupPairInfo']] = None):
         if elb_info_list is not None:
             pulumi.set(__self__, "elb_info_list", elb_info_list)
         if target_group_info_list is not None:
             pulumi.set(__self__, "target_group_info_list", target_group_info_list)
+        if target_group_pair_info_list is not None:
+            pulumi.set(__self__, "target_group_pair_info_list", target_group_pair_info_list)
 
     @property
     @pulumi.getter(name="elbInfoList")
@@ -721,6 +729,11 @@ class DeploymentGroupLoadBalancerInfo(dict):
     @pulumi.getter(name="targetGroupInfoList")
     def target_group_info_list(self) -> Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']]:
         return pulumi.get(self, "target_group_info_list")
+
+    @property
+    @pulumi.getter(name="targetGroupPairInfoList")
+    def target_group_pair_info_list(self) -> Optional[Sequence['outputs.DeploymentGroupTargetGroupPairInfo']]:
+        return pulumi.get(self, "target_group_pair_info_list")
 
 
 @pulumi.output_type
@@ -896,6 +909,25 @@ class DeploymentGroupS3Location(dict):
 
 
 @pulumi.output_type
+class DeploymentGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DeploymentGroupTagFilter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -935,6 +967,86 @@ class DeploymentGroupTargetGroupInfo(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DeploymentGroupTargetGroupPairInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prodTrafficRoute":
+            suggest = "prod_traffic_route"
+        elif key == "targetGroups":
+            suggest = "target_groups"
+        elif key == "testTrafficRoute":
+            suggest = "test_traffic_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupTargetGroupPairInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupTargetGroupPairInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupTargetGroupPairInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prod_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None,
+                 target_groups: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
+                 test_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None):
+        if prod_traffic_route is not None:
+            pulumi.set(__self__, "prod_traffic_route", prod_traffic_route)
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
+        if test_traffic_route is not None:
+            pulumi.set(__self__, "test_traffic_route", test_traffic_route)
+
+    @property
+    @pulumi.getter(name="prodTrafficRoute")
+    def prod_traffic_route(self) -> Optional['outputs.DeploymentGroupTrafficRoute']:
+        return pulumi.get(self, "prod_traffic_route")
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']]:
+        return pulumi.get(self, "target_groups")
+
+    @property
+    @pulumi.getter(name="testTrafficRoute")
+    def test_traffic_route(self) -> Optional['outputs.DeploymentGroupTrafficRoute']:
+        return pulumi.get(self, "test_traffic_route")
+
+
+@pulumi.output_type
+class DeploymentGroupTrafficRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listenerArns":
+            suggest = "listener_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupTrafficRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupTrafficRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupTrafficRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 listener_arns: Optional[Sequence[str]] = None):
+        if listener_arns is not None:
+            pulumi.set(__self__, "listener_arns", listener_arns)
+
+    @property
+    @pulumi.getter(name="listenerArns")
+    def listener_arns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "listener_arns")
 
 
 @pulumi.output_type

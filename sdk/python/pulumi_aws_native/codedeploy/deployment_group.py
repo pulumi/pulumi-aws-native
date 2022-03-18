@@ -31,6 +31,8 @@ class DeploymentGroupArgs:
                  load_balancer_info: Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]] = None,
                  on_premises_tag_set: Optional[pulumi.Input['DeploymentGroupOnPremisesTagSetArgs']] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagArgs']]]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
@@ -65,6 +67,10 @@ class DeploymentGroupArgs:
             pulumi.set(__self__, "on_premises_instance_tag_filters", on_premises_instance_tag_filters)
         if on_premises_tag_set is not None:
             pulumi.set(__self__, "on_premises_tag_set", on_premises_tag_set)
+        if outdated_instances_strategy is not None:
+            pulumi.set(__self__, "outdated_instances_strategy", outdated_instances_strategy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if trigger_configurations is not None:
             pulumi.set(__self__, "trigger_configurations", trigger_configurations)
 
@@ -213,6 +219,24 @@ class DeploymentGroupArgs:
         pulumi.set(self, "on_premises_tag_set", value)
 
     @property
+    @pulumi.getter(name="outdatedInstancesStrategy")
+    def outdated_instances_strategy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outdated_instances_strategy")
+
+    @outdated_instances_strategy.setter
+    def outdated_instances_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outdated_instances_strategy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]]:
         return pulumi.get(self, "trigger_configurations")
@@ -247,7 +271,9 @@ class DeploymentGroup(pulumi.CustomResource):
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagFilterArgs']]]]] = None,
                  on_premises_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesTagSetArgs']]] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagArgs']]]]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigArgs']]]]] = None,
                  __props__=None):
         """
@@ -295,7 +321,9 @@ class DeploymentGroup(pulumi.CustomResource):
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagFilterArgs']]]]] = None,
                  on_premises_tag_set: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesTagSetArgs']]] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagArgs']]]]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""DeploymentGroup is deprecated: DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -327,9 +355,11 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__.__dict__["load_balancer_info"] = load_balancer_info
             __props__.__dict__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
             __props__.__dict__["on_premises_tag_set"] = on_premises_tag_set
+            __props__.__dict__["outdated_instances_strategy"] = outdated_instances_strategy
             if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__.__dict__["service_role_arn"] = service_role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["trigger_configurations"] = trigger_configurations
         super(DeploymentGroup, __self__).__init__(
             'aws-native:codedeploy:DeploymentGroup',
@@ -368,7 +398,9 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__.__dict__["load_balancer_info"] = None
         __props__.__dict__["on_premises_instance_tag_filters"] = None
         __props__.__dict__["on_premises_tag_set"] = None
+        __props__.__dict__["outdated_instances_strategy"] = None
         __props__.__dict__["service_role_arn"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["trigger_configurations"] = None
         return DeploymentGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -448,9 +480,19 @@ class DeploymentGroup(pulumi.CustomResource):
         return pulumi.get(self, "on_premises_tag_set")
 
     @property
+    @pulumi.getter(name="outdatedInstancesStrategy")
+    def outdated_instances_strategy(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "outdated_instances_strategy")
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "service_role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupTag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="triggerConfigurations")

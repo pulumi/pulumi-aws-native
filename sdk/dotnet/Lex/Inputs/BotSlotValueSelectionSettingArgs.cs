@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotSlotValueSelectionSettingArgs : Pulumi.ResourceArgs
     {
+        [Input("advancedRecognitionSetting")]
+        public Input<Inputs.BotAdvancedRecognitionSettingArgs>? AdvancedRecognitionSetting { get; set; }
+
         [Input("regexFilter")]
         public Input<Inputs.BotSlotValueRegexFilterArgs>? RegexFilter { get; set; }
 

@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
         public readonly string? DailyAutomaticBackupStartTime;
         public readonly string DeploymentType;
         public readonly Outputs.FileSystemDiskIopsConfiguration? DiskIopsConfiguration;
+        public readonly ImmutableArray<string> Options;
         public readonly Outputs.FileSystemRootVolumeConfiguration? RootVolumeConfiguration;
         public readonly int? ThroughputCapacity;
         public readonly string? WeeklyMaintenanceStartTime;
@@ -37,6 +38,8 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             Outputs.FileSystemDiskIopsConfiguration? diskIopsConfiguration,
 
+            ImmutableArray<string> options,
+
             Outputs.FileSystemRootVolumeConfiguration? rootVolumeConfiguration,
 
             int? throughputCapacity,
@@ -49,6 +52,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
             DailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             DeploymentType = deploymentType;
             DiskIopsConfiguration = diskIopsConfiguration;
+            Options = options;
             RootVolumeConfiguration = rootVolumeConfiguration;
             ThroughputCapacity = throughputCapacity;
             WeeklyMaintenanceStartTime = weeklyMaintenanceStartTime;

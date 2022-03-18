@@ -14,3 +14,4 @@ class ResourceCollectionType(str, Enum):
     The type of ResourceCollection
     """
     AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION"
+    AWS_TAGS = "AWS_TAGS"

@@ -102,6 +102,170 @@ func (o BotAliasStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables using slot values as a custom vocabulary when recognizing user utterances.
+type BotAudioRecognitionStrategy string
+
+const (
+	BotAudioRecognitionStrategyUseSlotValuesAsCustomVocabulary = BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary")
+)
+
+func (BotAudioRecognitionStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioRecognitionStrategy)(nil)).Elem()
+}
+
+func (e BotAudioRecognitionStrategy) ToBotAudioRecognitionStrategyOutput() BotAudioRecognitionStrategyOutput {
+	return pulumi.ToOutput(e).(BotAudioRecognitionStrategyOutput)
+}
+
+func (e BotAudioRecognitionStrategy) ToBotAudioRecognitionStrategyOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotAudioRecognitionStrategyOutput)
+}
+
+func (e BotAudioRecognitionStrategy) ToBotAudioRecognitionStrategyPtrOutput() BotAudioRecognitionStrategyPtrOutput {
+	return e.ToBotAudioRecognitionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e BotAudioRecognitionStrategy) ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyPtrOutput {
+	return BotAudioRecognitionStrategy(e).ToBotAudioRecognitionStrategyOutputWithContext(ctx).ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx)
+}
+
+func (e BotAudioRecognitionStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotAudioRecognitionStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotAudioRecognitionStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotAudioRecognitionStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotAudioRecognitionStrategyOutput struct{ *pulumi.OutputState }
+
+func (BotAudioRecognitionStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioRecognitionStrategy)(nil)).Elem()
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToBotAudioRecognitionStrategyOutput() BotAudioRecognitionStrategyOutput {
+	return o
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToBotAudioRecognitionStrategyOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyOutput {
+	return o
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToBotAudioRecognitionStrategyPtrOutput() BotAudioRecognitionStrategyPtrOutput {
+	return o.ToBotAudioRecognitionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAudioRecognitionStrategy) *BotAudioRecognitionStrategy {
+		return &v
+	}).(BotAudioRecognitionStrategyPtrOutput)
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotAudioRecognitionStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioRecognitionStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotAudioRecognitionStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotAudioRecognitionStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAudioRecognitionStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioRecognitionStrategy)(nil)).Elem()
+}
+
+func (o BotAudioRecognitionStrategyPtrOutput) ToBotAudioRecognitionStrategyPtrOutput() BotAudioRecognitionStrategyPtrOutput {
+	return o
+}
+
+func (o BotAudioRecognitionStrategyPtrOutput) ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyPtrOutput {
+	return o
+}
+
+func (o BotAudioRecognitionStrategyPtrOutput) Elem() BotAudioRecognitionStrategyOutput {
+	return o.ApplyT(func(v *BotAudioRecognitionStrategy) BotAudioRecognitionStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret BotAudioRecognitionStrategy
+		return ret
+	}).(BotAudioRecognitionStrategyOutput)
+}
+
+func (o BotAudioRecognitionStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioRecognitionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotAudioRecognitionStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotAudioRecognitionStrategyInput is an input type that accepts BotAudioRecognitionStrategyArgs and BotAudioRecognitionStrategyOutput values.
+// You can construct a concrete instance of `BotAudioRecognitionStrategyInput` via:
+//
+//          BotAudioRecognitionStrategyArgs{...}
+type BotAudioRecognitionStrategyInput interface {
+	pulumi.Input
+
+	ToBotAudioRecognitionStrategyOutput() BotAudioRecognitionStrategyOutput
+	ToBotAudioRecognitionStrategyOutputWithContext(context.Context) BotAudioRecognitionStrategyOutput
+}
+
+var botAudioRecognitionStrategyPtrType = reflect.TypeOf((**BotAudioRecognitionStrategy)(nil)).Elem()
+
+type BotAudioRecognitionStrategyPtrInput interface {
+	pulumi.Input
+
+	ToBotAudioRecognitionStrategyPtrOutput() BotAudioRecognitionStrategyPtrOutput
+	ToBotAudioRecognitionStrategyPtrOutputWithContext(context.Context) BotAudioRecognitionStrategyPtrOutput
+}
+
+type botAudioRecognitionStrategyPtr string
+
+func BotAudioRecognitionStrategyPtr(v string) BotAudioRecognitionStrategyPtrInput {
+	return (*botAudioRecognitionStrategyPtr)(&v)
+}
+
+func (*botAudioRecognitionStrategyPtr) ElementType() reflect.Type {
+	return botAudioRecognitionStrategyPtrType
+}
+
+func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutput() BotAudioRecognitionStrategyPtrOutput {
+	return pulumi.ToOutput(in).(BotAudioRecognitionStrategyPtrOutput)
+}
+
+func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotAudioRecognitionStrategyPtrOutput)
+}
+
 // Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
 type BotObfuscationSettingObfuscationSettingType string
 
@@ -596,6 +760,8 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyPtrInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypeInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypePtrInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotConstraintInput)(nil)).Elem(), BotSlotConstraint("Required"))
@@ -604,6 +770,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueResolutionStrategyPtrInput)(nil)).Elem(), BotSlotValueResolutionStrategy("ORIGINAL_VALUE"))
 	pulumi.RegisterOutputType(BotAliasStatusOutput{})
 	pulumi.RegisterOutputType(BotAliasStatusPtrOutput{})
+	pulumi.RegisterOutputType(BotAudioRecognitionStrategyOutput{})
+	pulumi.RegisterOutputType(BotAudioRecognitionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypeOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypePtrOutput{})
 	pulumi.RegisterOutputType(BotSlotConstraintOutput{})

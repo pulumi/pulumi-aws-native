@@ -25,6 +25,7 @@ class BotArgs:
                  bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bot resource.
@@ -50,6 +51,8 @@ class BotArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if test_bot_alias_settings is not None:
+            pulumi.set(__self__, "test_bot_alias_settings", test_bot_alias_settings)
         if test_bot_alias_tags is not None:
             pulumi.set(__self__, "test_bot_alias_tags", test_bot_alias_tags)
 
@@ -150,6 +153,15 @@ class BotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="testBotAliasSettings")
+    def test_bot_alias_settings(self) -> Optional[pulumi.Input['BotTestBotAliasSettingsArgs']]:
+        return pulumi.get(self, "test_bot_alias_settings")
+
+    @test_bot_alias_settings.setter
+    def test_bot_alias_settings(self, value: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']]):
+        pulumi.set(self, "test_bot_alias_settings", value)
+
+    @property
     @pulumi.getter(name="testBotAliasTags")
     def test_bot_alias_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]:
         """
@@ -176,6 +188,7 @@ class Bot(pulumi.CustomResource):
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 test_bot_alias_settings: Optional[pulumi.Input[pulumi.InputType['BotTestBotAliasSettingsArgs']]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -223,6 +236,7 @@ class Bot(pulumi.CustomResource):
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 test_bot_alias_settings: Optional[pulumi.Input[pulumi.InputType['BotTestBotAliasSettingsArgs']]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -251,6 +265,7 @@ class Bot(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["test_bot_alias_settings"] = test_bot_alias_settings
             __props__.__dict__["test_bot_alias_tags"] = test_bot_alias_tags
             __props__.__dict__["arn"] = None
         super(Bot, __self__).__init__(
@@ -285,6 +300,7 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["idle_session_ttl_in_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["test_bot_alias_settings"] = None
         __props__.__dict__["test_bot_alias_tags"] = None
         return Bot(resource_name, opts=opts, __props__=__props__)
 
@@ -352,6 +368,11 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="testBotAliasSettings")
+    def test_bot_alias_settings(self) -> pulumi.Output[Optional['outputs.BotTestBotAliasSettings']]:
+        return pulumi.get(self, "test_bot_alias_settings")
 
     @property
     @pulumi.getter(name="testBotAliasTags")

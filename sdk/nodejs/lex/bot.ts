@@ -60,6 +60,7 @@ export class Bot extends pulumi.CustomResource {
     public readonly idleSessionTTLInSeconds!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
+    public readonly testBotAliasSettings!: pulumi.Output<outputs.lex.BotTestBotAliasSettings | undefined>;
     /**
      * A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
      */
@@ -94,6 +95,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["idleSessionTTLInSeconds"] = args ? args.idleSessionTTLInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["testBotAliasSettings"] = args ? args.testBotAliasSettings : undefined;
             resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -107,6 +109,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["idleSessionTTLInSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["testBotAliasSettings"] = undefined /*out*/;
             resourceInputs["testBotAliasTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -142,6 +145,7 @@ export interface BotArgs {
     idleSessionTTLInSeconds: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
+    testBotAliasSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsArgs>;
     /**
      * A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
      */

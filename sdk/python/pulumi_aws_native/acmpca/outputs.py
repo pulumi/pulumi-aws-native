@@ -15,6 +15,7 @@ __all__ = [
     'CertificateAuthorityAccessMethod',
     'CertificateAuthorityCrlConfiguration',
     'CertificateAuthorityCsrExtensions',
+    'CertificateAuthorityCustomAttribute',
     'CertificateAuthorityEdiPartyName',
     'CertificateAuthorityGeneralName',
     'CertificateAuthorityKeyUsage',
@@ -23,6 +24,8 @@ __all__ = [
     'CertificateAuthorityRevocationConfiguration',
     'CertificateAuthoritySubject',
     'CertificateAuthorityTag',
+    'CertificateCustomAttribute',
+    'CertificateCustomExtension',
     'CertificateEdiPartyName',
     'CertificateExtendedKeyUsage',
     'CertificateExtensions',
@@ -271,6 +274,48 @@ class CertificateAuthorityCsrExtensions(dict):
     @pulumi.getter(name="subjectInformationAccess")
     def subject_information_access(self) -> Optional[Sequence['outputs.CertificateAuthorityAccessDescription']]:
         return pulumi.get(self, "subject_information_access")
+
+
+@pulumi.output_type
+class CertificateAuthorityCustomAttribute(dict):
+    """
+    Structure that contains X.500 attribute type and value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectIdentifier":
+            suggest = "object_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCustomAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityCustomAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityCustomAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_identifier: str,
+                 value: str):
+        """
+        Structure that contains X.500 attribute type and value.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> str:
+        return pulumi.get(self, "object_identifier")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -681,6 +726,8 @@ class CertificateAuthoritySubject(dict):
         suggest = None
         if key == "commonName":
             suggest = "common_name"
+        elif key == "customAttributes":
+            suggest = "custom_attributes"
         elif key == "distinguishedNameQualifier":
             suggest = "distinguished_name_qualifier"
         elif key == "generationQualifier":
@@ -706,6 +753,7 @@ class CertificateAuthoritySubject(dict):
     def __init__(__self__, *,
                  common_name: Optional[str] = None,
                  country: Optional[str] = None,
+                 custom_attributes: Optional[Sequence['outputs.CertificateAuthorityCustomAttribute']] = None,
                  distinguished_name_qualifier: Optional[str] = None,
                  generation_qualifier: Optional[str] = None,
                  given_name: Optional[str] = None,
@@ -725,6 +773,8 @@ class CertificateAuthoritySubject(dict):
             pulumi.set(__self__, "common_name", common_name)
         if country is not None:
             pulumi.set(__self__, "country", country)
+        if custom_attributes is not None:
+            pulumi.set(__self__, "custom_attributes", custom_attributes)
         if distinguished_name_qualifier is not None:
             pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
@@ -759,6 +809,11 @@ class CertificateAuthoritySubject(dict):
     @pulumi.getter
     def country(self) -> Optional[str]:
         return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="customAttributes")
+    def custom_attributes(self) -> Optional[Sequence['outputs.CertificateAuthorityCustomAttribute']]:
+        return pulumi.get(self, "custom_attributes")
 
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
@@ -840,6 +895,98 @@ class CertificateAuthorityTag(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CertificateCustomAttribute(dict):
+    """
+    Structure that contains X.500 attribute type and value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectIdentifier":
+            suggest = "object_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateCustomAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateCustomAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateCustomAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_identifier: str,
+                 value: str):
+        """
+        Structure that contains X.500 attribute type and value.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> str:
+        return pulumi.get(self, "object_identifier")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CertificateCustomExtension(dict):
+    """
+    Structure that contains X.509 extension information for a certificate.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectIdentifier":
+            suggest = "object_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateCustomExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateCustomExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateCustomExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_identifier: str,
+                 value: str,
+                 critical: Optional[bool] = None):
+        """
+        Structure that contains X.509 extension information for a certificate.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "value", value)
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> str:
+        return pulumi.get(self, "object_identifier")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def critical(self) -> Optional[bool]:
+        return pulumi.get(self, "critical")
 
 
 @pulumi.output_type
@@ -942,6 +1089,8 @@ class CertificateExtensions(dict):
         suggest = None
         if key == "certificatePolicies":
             suggest = "certificate_policies"
+        elif key == "customExtensions":
+            suggest = "custom_extensions"
         elif key == "extendedKeyUsage":
             suggest = "extended_key_usage"
         elif key == "keyUsage":
@@ -962,6 +1111,7 @@ class CertificateExtensions(dict):
 
     def __init__(__self__, *,
                  certificate_policies: Optional[Sequence['outputs.CertificatePolicyInformation']] = None,
+                 custom_extensions: Optional[Sequence['outputs.CertificateCustomExtension']] = None,
                  extended_key_usage: Optional[Sequence['outputs.CertificateExtendedKeyUsage']] = None,
                  key_usage: Optional['outputs.CertificateKeyUsage'] = None,
                  subject_alternative_names: Optional[Sequence['outputs.CertificateGeneralName']] = None):
@@ -970,6 +1120,8 @@ class CertificateExtensions(dict):
         """
         if certificate_policies is not None:
             pulumi.set(__self__, "certificate_policies", certificate_policies)
+        if custom_extensions is not None:
+            pulumi.set(__self__, "custom_extensions", custom_extensions)
         if extended_key_usage is not None:
             pulumi.set(__self__, "extended_key_usage", extended_key_usage)
         if key_usage is not None:
@@ -981,6 +1133,11 @@ class CertificateExtensions(dict):
     @pulumi.getter(name="certificatePolicies")
     def certificate_policies(self) -> Optional[Sequence['outputs.CertificatePolicyInformation']]:
         return pulumi.get(self, "certificate_policies")
+
+    @property
+    @pulumi.getter(name="customExtensions")
+    def custom_extensions(self) -> Optional[Sequence['outputs.CertificateCustomExtension']]:
+        return pulumi.get(self, "custom_extensions")
 
     @property
     @pulumi.getter(name="extendedKeyUsage")
@@ -1394,6 +1551,8 @@ class CertificateSubject(dict):
         suggest = None
         if key == "commonName":
             suggest = "common_name"
+        elif key == "customAttributes":
+            suggest = "custom_attributes"
         elif key == "distinguishedNameQualifier":
             suggest = "distinguished_name_qualifier"
         elif key == "generationQualifier":
@@ -1419,6 +1578,7 @@ class CertificateSubject(dict):
     def __init__(__self__, *,
                  common_name: Optional[str] = None,
                  country: Optional[str] = None,
+                 custom_attributes: Optional[Sequence['outputs.CertificateCustomAttribute']] = None,
                  distinguished_name_qualifier: Optional[str] = None,
                  generation_qualifier: Optional[str] = None,
                  given_name: Optional[str] = None,
@@ -1438,6 +1598,8 @@ class CertificateSubject(dict):
             pulumi.set(__self__, "common_name", common_name)
         if country is not None:
             pulumi.set(__self__, "country", country)
+        if custom_attributes is not None:
+            pulumi.set(__self__, "custom_attributes", custom_attributes)
         if distinguished_name_qualifier is not None:
             pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
@@ -1472,6 +1634,11 @@ class CertificateSubject(dict):
     @pulumi.getter
     def country(self) -> Optional[str]:
         return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="customAttributes")
+    def custom_attributes(self) -> Optional[Sequence['outputs.CertificateCustomAttribute']]:
+        return pulumi.get(self, "custom_attributes")
 
     @property
     @pulumi.getter(name="distinguishedNameQualifier")

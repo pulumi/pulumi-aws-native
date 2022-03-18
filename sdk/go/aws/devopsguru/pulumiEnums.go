@@ -15,6 +15,7 @@ type ResourceCollectionType string
 
 const (
 	ResourceCollectionTypeAwsCloudFormation = ResourceCollectionType("AWS_CLOUD_FORMATION")
+	ResourceCollectionTypeAwsTags           = ResourceCollectionType("AWS_TAGS")
 )
 
 func (ResourceCollectionType) ElementType() reflect.Type {

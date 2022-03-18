@@ -28,6 +28,14 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
             set => _targetGroupInfoList = value;
         }
 
+        [Input("targetGroupPairInfoList")]
+        private InputList<Inputs.DeploymentGroupTargetGroupPairInfoArgs>? _targetGroupPairInfoList;
+        public InputList<Inputs.DeploymentGroupTargetGroupPairInfoArgs> TargetGroupPairInfoList
+        {
+            get => _targetGroupPairInfoList ?? (_targetGroupPairInfoList = new InputList<Inputs.DeploymentGroupTargetGroupPairInfoArgs>());
+            set => _targetGroupPairInfoList = value;
+        }
+
         public DeploymentGroupLoadBalancerInfoArgs()
         {
         }

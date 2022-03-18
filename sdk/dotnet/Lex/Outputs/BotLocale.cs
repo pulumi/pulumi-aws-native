@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotLocale
     {
+        public readonly Outputs.BotCustomVocabulary? CustomVocabulary;
         public readonly string? Description;
         /// <summary>
         /// List of intents
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
         [OutputConstructor]
         private BotLocale(
+            Outputs.BotCustomVocabulary? customVocabulary,
+
             string? description,
 
             ImmutableArray<Outputs.BotIntent> intents,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Outputs.BotVoiceSettings? voiceSettings)
         {
+            CustomVocabulary = customVocabulary;
             Description = description;
             Intents = intents;
             LocaleId = localeId;

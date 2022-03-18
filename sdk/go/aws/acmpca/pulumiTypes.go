@@ -671,6 +671,109 @@ func (o CertificateAuthorityCsrExtensionsPtrOutput) SubjectInformationAccess() C
 	}).(CertificateAuthorityAccessDescriptionArrayOutput)
 }
 
+// Structure that contains X.500 attribute type and value.
+type CertificateAuthorityCustomAttribute struct {
+	ObjectIdentifier string `pulumi:"objectIdentifier"`
+	Value            string `pulumi:"value"`
+}
+
+// CertificateAuthorityCustomAttributeInput is an input type that accepts CertificateAuthorityCustomAttributeArgs and CertificateAuthorityCustomAttributeOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCustomAttributeInput` via:
+//
+//          CertificateAuthorityCustomAttributeArgs{...}
+type CertificateAuthorityCustomAttributeInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCustomAttributeOutput() CertificateAuthorityCustomAttributeOutput
+	ToCertificateAuthorityCustomAttributeOutputWithContext(context.Context) CertificateAuthorityCustomAttributeOutput
+}
+
+// Structure that contains X.500 attribute type and value.
+type CertificateAuthorityCustomAttributeArgs struct {
+	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
+	Value            pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateAuthorityCustomAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityCustomAttribute)(nil)).Elem()
+}
+
+func (i CertificateAuthorityCustomAttributeArgs) ToCertificateAuthorityCustomAttributeOutput() CertificateAuthorityCustomAttributeOutput {
+	return i.ToCertificateAuthorityCustomAttributeOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCustomAttributeArgs) ToCertificateAuthorityCustomAttributeOutputWithContext(ctx context.Context) CertificateAuthorityCustomAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCustomAttributeOutput)
+}
+
+// CertificateAuthorityCustomAttributeArrayInput is an input type that accepts CertificateAuthorityCustomAttributeArray and CertificateAuthorityCustomAttributeArrayOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCustomAttributeArrayInput` via:
+//
+//          CertificateAuthorityCustomAttributeArray{ CertificateAuthorityCustomAttributeArgs{...} }
+type CertificateAuthorityCustomAttributeArrayInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCustomAttributeArrayOutput() CertificateAuthorityCustomAttributeArrayOutput
+	ToCertificateAuthorityCustomAttributeArrayOutputWithContext(context.Context) CertificateAuthorityCustomAttributeArrayOutput
+}
+
+type CertificateAuthorityCustomAttributeArray []CertificateAuthorityCustomAttributeInput
+
+func (CertificateAuthorityCustomAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateAuthorityCustomAttribute)(nil)).Elem()
+}
+
+func (i CertificateAuthorityCustomAttributeArray) ToCertificateAuthorityCustomAttributeArrayOutput() CertificateAuthorityCustomAttributeArrayOutput {
+	return i.ToCertificateAuthorityCustomAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCustomAttributeArray) ToCertificateAuthorityCustomAttributeArrayOutputWithContext(ctx context.Context) CertificateAuthorityCustomAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCustomAttributeArrayOutput)
+}
+
+// Structure that contains X.500 attribute type and value.
+type CertificateAuthorityCustomAttributeOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCustomAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityCustomAttribute)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCustomAttributeOutput) ToCertificateAuthorityCustomAttributeOutput() CertificateAuthorityCustomAttributeOutput {
+	return o
+}
+
+func (o CertificateAuthorityCustomAttributeOutput) ToCertificateAuthorityCustomAttributeOutputWithContext(ctx context.Context) CertificateAuthorityCustomAttributeOutput {
+	return o
+}
+
+func (o CertificateAuthorityCustomAttributeOutput) ObjectIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAuthorityCustomAttribute) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
+}
+
+func (o CertificateAuthorityCustomAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAuthorityCustomAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateAuthorityCustomAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCustomAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateAuthorityCustomAttribute)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCustomAttributeArrayOutput) ToCertificateAuthorityCustomAttributeArrayOutput() CertificateAuthorityCustomAttributeArrayOutput {
+	return o
+}
+
+func (o CertificateAuthorityCustomAttributeArrayOutput) ToCertificateAuthorityCustomAttributeArrayOutputWithContext(ctx context.Context) CertificateAuthorityCustomAttributeArrayOutput {
+	return o
+}
+
+func (o CertificateAuthorityCustomAttributeArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityCustomAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateAuthorityCustomAttribute {
+		return vs[0].([]CertificateAuthorityCustomAttribute)[vs[1].(int)]
+	}).(CertificateAuthorityCustomAttributeOutput)
+}
+
 // Structure that contains X.509 EdiPartyName information.
 type CertificateAuthorityEdiPartyName struct {
 	NameAssigner string `pulumi:"nameAssigner"`
@@ -1631,20 +1734,21 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration(
 
 // Structure that contains X.500 distinguished name information for your CA.
 type CertificateAuthoritySubject struct {
-	CommonName                 *string `pulumi:"commonName"`
-	Country                    *string `pulumi:"country"`
-	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
-	GenerationQualifier        *string `pulumi:"generationQualifier"`
-	GivenName                  *string `pulumi:"givenName"`
-	Initials                   *string `pulumi:"initials"`
-	Locality                   *string `pulumi:"locality"`
-	Organization               *string `pulumi:"organization"`
-	OrganizationalUnit         *string `pulumi:"organizationalUnit"`
-	Pseudonym                  *string `pulumi:"pseudonym"`
-	SerialNumber               *string `pulumi:"serialNumber"`
-	State                      *string `pulumi:"state"`
-	Surname                    *string `pulumi:"surname"`
-	Title                      *string `pulumi:"title"`
+	CommonName                 *string                               `pulumi:"commonName"`
+	Country                    *string                               `pulumi:"country"`
+	CustomAttributes           []CertificateAuthorityCustomAttribute `pulumi:"customAttributes"`
+	DistinguishedNameQualifier *string                               `pulumi:"distinguishedNameQualifier"`
+	GenerationQualifier        *string                               `pulumi:"generationQualifier"`
+	GivenName                  *string                               `pulumi:"givenName"`
+	Initials                   *string                               `pulumi:"initials"`
+	Locality                   *string                               `pulumi:"locality"`
+	Organization               *string                               `pulumi:"organization"`
+	OrganizationalUnit         *string                               `pulumi:"organizationalUnit"`
+	Pseudonym                  *string                               `pulumi:"pseudonym"`
+	SerialNumber               *string                               `pulumi:"serialNumber"`
+	State                      *string                               `pulumi:"state"`
+	Surname                    *string                               `pulumi:"surname"`
+	Title                      *string                               `pulumi:"title"`
 }
 
 // CertificateAuthoritySubjectInput is an input type that accepts CertificateAuthoritySubjectArgs and CertificateAuthoritySubjectOutput values.
@@ -1660,20 +1764,21 @@ type CertificateAuthoritySubjectInput interface {
 
 // Structure that contains X.500 distinguished name information for your CA.
 type CertificateAuthoritySubjectArgs struct {
-	CommonName                 pulumi.StringPtrInput `pulumi:"commonName"`
-	Country                    pulumi.StringPtrInput `pulumi:"country"`
-	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
-	GenerationQualifier        pulumi.StringPtrInput `pulumi:"generationQualifier"`
-	GivenName                  pulumi.StringPtrInput `pulumi:"givenName"`
-	Initials                   pulumi.StringPtrInput `pulumi:"initials"`
-	Locality                   pulumi.StringPtrInput `pulumi:"locality"`
-	Organization               pulumi.StringPtrInput `pulumi:"organization"`
-	OrganizationalUnit         pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	Pseudonym                  pulumi.StringPtrInput `pulumi:"pseudonym"`
-	SerialNumber               pulumi.StringPtrInput `pulumi:"serialNumber"`
-	State                      pulumi.StringPtrInput `pulumi:"state"`
-	Surname                    pulumi.StringPtrInput `pulumi:"surname"`
-	Title                      pulumi.StringPtrInput `pulumi:"title"`
+	CommonName                 pulumi.StringPtrInput                         `pulumi:"commonName"`
+	Country                    pulumi.StringPtrInput                         `pulumi:"country"`
+	CustomAttributes           CertificateAuthorityCustomAttributeArrayInput `pulumi:"customAttributes"`
+	DistinguishedNameQualifier pulumi.StringPtrInput                         `pulumi:"distinguishedNameQualifier"`
+	GenerationQualifier        pulumi.StringPtrInput                         `pulumi:"generationQualifier"`
+	GivenName                  pulumi.StringPtrInput                         `pulumi:"givenName"`
+	Initials                   pulumi.StringPtrInput                         `pulumi:"initials"`
+	Locality                   pulumi.StringPtrInput                         `pulumi:"locality"`
+	Organization               pulumi.StringPtrInput                         `pulumi:"organization"`
+	OrganizationalUnit         pulumi.StringPtrInput                         `pulumi:"organizationalUnit"`
+	Pseudonym                  pulumi.StringPtrInput                         `pulumi:"pseudonym"`
+	SerialNumber               pulumi.StringPtrInput                         `pulumi:"serialNumber"`
+	State                      pulumi.StringPtrInput                         `pulumi:"state"`
+	Surname                    pulumi.StringPtrInput                         `pulumi:"surname"`
+	Title                      pulumi.StringPtrInput                         `pulumi:"title"`
 }
 
 func (CertificateAuthoritySubjectArgs) ElementType() reflect.Type {
@@ -1760,6 +1865,10 @@ func (o CertificateAuthoritySubjectOutput) CommonName() pulumi.StringPtrOutput {
 
 func (o CertificateAuthoritySubjectOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateAuthoritySubjectOutput) CustomAttributes() CertificateAuthorityCustomAttributeArrayOutput {
+	return o.ApplyT(func(v CertificateAuthoritySubject) []CertificateAuthorityCustomAttribute { return v.CustomAttributes }).(CertificateAuthorityCustomAttributeArrayOutput)
 }
 
 func (o CertificateAuthoritySubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
@@ -1850,6 +1959,15 @@ func (o CertificateAuthoritySubjectPtrOutput) Country() pulumi.StringPtrOutput {
 		}
 		return v.Country
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateAuthoritySubjectPtrOutput) CustomAttributes() CertificateAuthorityCustomAttributeArrayOutput {
+	return o.ApplyT(func(v *CertificateAuthoritySubject) []CertificateAuthorityCustomAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAttributes
+	}).(CertificateAuthorityCustomAttributeArrayOutput)
 }
 
 func (o CertificateAuthoritySubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
@@ -2058,6 +2176,218 @@ func (o CertificateAuthorityTagArrayOutput) Index(i pulumi.IntInput) Certificate
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateAuthorityTag {
 		return vs[0].([]CertificateAuthorityTag)[vs[1].(int)]
 	}).(CertificateAuthorityTagOutput)
+}
+
+// Structure that contains X.500 attribute type and value.
+type CertificateCustomAttribute struct {
+	ObjectIdentifier string `pulumi:"objectIdentifier"`
+	Value            string `pulumi:"value"`
+}
+
+// CertificateCustomAttributeInput is an input type that accepts CertificateCustomAttributeArgs and CertificateCustomAttributeOutput values.
+// You can construct a concrete instance of `CertificateCustomAttributeInput` via:
+//
+//          CertificateCustomAttributeArgs{...}
+type CertificateCustomAttributeInput interface {
+	pulumi.Input
+
+	ToCertificateCustomAttributeOutput() CertificateCustomAttributeOutput
+	ToCertificateCustomAttributeOutputWithContext(context.Context) CertificateCustomAttributeOutput
+}
+
+// Structure that contains X.500 attribute type and value.
+type CertificateCustomAttributeArgs struct {
+	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
+	Value            pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateCustomAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCustomAttribute)(nil)).Elem()
+}
+
+func (i CertificateCustomAttributeArgs) ToCertificateCustomAttributeOutput() CertificateCustomAttributeOutput {
+	return i.ToCertificateCustomAttributeOutputWithContext(context.Background())
+}
+
+func (i CertificateCustomAttributeArgs) ToCertificateCustomAttributeOutputWithContext(ctx context.Context) CertificateCustomAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomAttributeOutput)
+}
+
+// CertificateCustomAttributeArrayInput is an input type that accepts CertificateCustomAttributeArray and CertificateCustomAttributeArrayOutput values.
+// You can construct a concrete instance of `CertificateCustomAttributeArrayInput` via:
+//
+//          CertificateCustomAttributeArray{ CertificateCustomAttributeArgs{...} }
+type CertificateCustomAttributeArrayInput interface {
+	pulumi.Input
+
+	ToCertificateCustomAttributeArrayOutput() CertificateCustomAttributeArrayOutput
+	ToCertificateCustomAttributeArrayOutputWithContext(context.Context) CertificateCustomAttributeArrayOutput
+}
+
+type CertificateCustomAttributeArray []CertificateCustomAttributeInput
+
+func (CertificateCustomAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateCustomAttribute)(nil)).Elem()
+}
+
+func (i CertificateCustomAttributeArray) ToCertificateCustomAttributeArrayOutput() CertificateCustomAttributeArrayOutput {
+	return i.ToCertificateCustomAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateCustomAttributeArray) ToCertificateCustomAttributeArrayOutputWithContext(ctx context.Context) CertificateCustomAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomAttributeArrayOutput)
+}
+
+// Structure that contains X.500 attribute type and value.
+type CertificateCustomAttributeOutput struct{ *pulumi.OutputState }
+
+func (CertificateCustomAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCustomAttribute)(nil)).Elem()
+}
+
+func (o CertificateCustomAttributeOutput) ToCertificateCustomAttributeOutput() CertificateCustomAttributeOutput {
+	return o
+}
+
+func (o CertificateCustomAttributeOutput) ToCertificateCustomAttributeOutputWithContext(ctx context.Context) CertificateCustomAttributeOutput {
+	return o
+}
+
+func (o CertificateCustomAttributeOutput) ObjectIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateCustomAttribute) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
+}
+
+func (o CertificateCustomAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateCustomAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateCustomAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateCustomAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateCustomAttribute)(nil)).Elem()
+}
+
+func (o CertificateCustomAttributeArrayOutput) ToCertificateCustomAttributeArrayOutput() CertificateCustomAttributeArrayOutput {
+	return o
+}
+
+func (o CertificateCustomAttributeArrayOutput) ToCertificateCustomAttributeArrayOutputWithContext(ctx context.Context) CertificateCustomAttributeArrayOutput {
+	return o
+}
+
+func (o CertificateCustomAttributeArrayOutput) Index(i pulumi.IntInput) CertificateCustomAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateCustomAttribute {
+		return vs[0].([]CertificateCustomAttribute)[vs[1].(int)]
+	}).(CertificateCustomAttributeOutput)
+}
+
+// Structure that contains X.509 extension information for a certificate.
+type CertificateCustomExtension struct {
+	Critical         *bool  `pulumi:"critical"`
+	ObjectIdentifier string `pulumi:"objectIdentifier"`
+	Value            string `pulumi:"value"`
+}
+
+// CertificateCustomExtensionInput is an input type that accepts CertificateCustomExtensionArgs and CertificateCustomExtensionOutput values.
+// You can construct a concrete instance of `CertificateCustomExtensionInput` via:
+//
+//          CertificateCustomExtensionArgs{...}
+type CertificateCustomExtensionInput interface {
+	pulumi.Input
+
+	ToCertificateCustomExtensionOutput() CertificateCustomExtensionOutput
+	ToCertificateCustomExtensionOutputWithContext(context.Context) CertificateCustomExtensionOutput
+}
+
+// Structure that contains X.509 extension information for a certificate.
+type CertificateCustomExtensionArgs struct {
+	Critical         pulumi.BoolPtrInput `pulumi:"critical"`
+	ObjectIdentifier pulumi.StringInput  `pulumi:"objectIdentifier"`
+	Value            pulumi.StringInput  `pulumi:"value"`
+}
+
+func (CertificateCustomExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCustomExtension)(nil)).Elem()
+}
+
+func (i CertificateCustomExtensionArgs) ToCertificateCustomExtensionOutput() CertificateCustomExtensionOutput {
+	return i.ToCertificateCustomExtensionOutputWithContext(context.Background())
+}
+
+func (i CertificateCustomExtensionArgs) ToCertificateCustomExtensionOutputWithContext(ctx context.Context) CertificateCustomExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomExtensionOutput)
+}
+
+// CertificateCustomExtensionArrayInput is an input type that accepts CertificateCustomExtensionArray and CertificateCustomExtensionArrayOutput values.
+// You can construct a concrete instance of `CertificateCustomExtensionArrayInput` via:
+//
+//          CertificateCustomExtensionArray{ CertificateCustomExtensionArgs{...} }
+type CertificateCustomExtensionArrayInput interface {
+	pulumi.Input
+
+	ToCertificateCustomExtensionArrayOutput() CertificateCustomExtensionArrayOutput
+	ToCertificateCustomExtensionArrayOutputWithContext(context.Context) CertificateCustomExtensionArrayOutput
+}
+
+type CertificateCustomExtensionArray []CertificateCustomExtensionInput
+
+func (CertificateCustomExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateCustomExtension)(nil)).Elem()
+}
+
+func (i CertificateCustomExtensionArray) ToCertificateCustomExtensionArrayOutput() CertificateCustomExtensionArrayOutput {
+	return i.ToCertificateCustomExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateCustomExtensionArray) ToCertificateCustomExtensionArrayOutputWithContext(ctx context.Context) CertificateCustomExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomExtensionArrayOutput)
+}
+
+// Structure that contains X.509 extension information for a certificate.
+type CertificateCustomExtensionOutput struct{ *pulumi.OutputState }
+
+func (CertificateCustomExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCustomExtension)(nil)).Elem()
+}
+
+func (o CertificateCustomExtensionOutput) ToCertificateCustomExtensionOutput() CertificateCustomExtensionOutput {
+	return o
+}
+
+func (o CertificateCustomExtensionOutput) ToCertificateCustomExtensionOutputWithContext(ctx context.Context) CertificateCustomExtensionOutput {
+	return o
+}
+
+func (o CertificateCustomExtensionOutput) Critical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateCustomExtension) *bool { return v.Critical }).(pulumi.BoolPtrOutput)
+}
+
+func (o CertificateCustomExtensionOutput) ObjectIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateCustomExtension) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
+}
+
+func (o CertificateCustomExtensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateCustomExtension) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateCustomExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateCustomExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateCustomExtension)(nil)).Elem()
+}
+
+func (o CertificateCustomExtensionArrayOutput) ToCertificateCustomExtensionArrayOutput() CertificateCustomExtensionArrayOutput {
+	return o
+}
+
+func (o CertificateCustomExtensionArrayOutput) ToCertificateCustomExtensionArrayOutputWithContext(ctx context.Context) CertificateCustomExtensionArrayOutput {
+	return o
+}
+
+func (o CertificateCustomExtensionArrayOutput) Index(i pulumi.IntInput) CertificateCustomExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateCustomExtension {
+		return vs[0].([]CertificateCustomExtension)[vs[1].(int)]
+	}).(CertificateCustomExtensionOutput)
 }
 
 // Structure that contains X.509 EdiPartyName information.
@@ -2317,6 +2647,7 @@ func (o CertificateExtendedKeyUsageArrayOutput) Index(i pulumi.IntInput) Certifi
 // Structure that contains X.500 extensions for a Certificate.
 type CertificateExtensions struct {
 	CertificatePolicies     []CertificatePolicyInformation `pulumi:"certificatePolicies"`
+	CustomExtensions        []CertificateCustomExtension   `pulumi:"customExtensions"`
 	ExtendedKeyUsage        []CertificateExtendedKeyUsage  `pulumi:"extendedKeyUsage"`
 	KeyUsage                *CertificateKeyUsage           `pulumi:"keyUsage"`
 	SubjectAlternativeNames []CertificateGeneralName       `pulumi:"subjectAlternativeNames"`
@@ -2336,6 +2667,7 @@ type CertificateExtensionsInput interface {
 // Structure that contains X.500 extensions for a Certificate.
 type CertificateExtensionsArgs struct {
 	CertificatePolicies     CertificatePolicyInformationArrayInput `pulumi:"certificatePolicies"`
+	CustomExtensions        CertificateCustomExtensionArrayInput   `pulumi:"customExtensions"`
 	ExtendedKeyUsage        CertificateExtendedKeyUsageArrayInput  `pulumi:"extendedKeyUsage"`
 	KeyUsage                CertificateKeyUsagePtrInput            `pulumi:"keyUsage"`
 	SubjectAlternativeNames CertificateGeneralNameArrayInput       `pulumi:"subjectAlternativeNames"`
@@ -2423,6 +2755,10 @@ func (o CertificateExtensionsOutput) CertificatePolicies() CertificatePolicyInfo
 	return o.ApplyT(func(v CertificateExtensions) []CertificatePolicyInformation { return v.CertificatePolicies }).(CertificatePolicyInformationArrayOutput)
 }
 
+func (o CertificateExtensionsOutput) CustomExtensions() CertificateCustomExtensionArrayOutput {
+	return o.ApplyT(func(v CertificateExtensions) []CertificateCustomExtension { return v.CustomExtensions }).(CertificateCustomExtensionArrayOutput)
+}
+
 func (o CertificateExtensionsOutput) ExtendedKeyUsage() CertificateExtendedKeyUsageArrayOutput {
 	return o.ApplyT(func(v CertificateExtensions) []CertificateExtendedKeyUsage { return v.ExtendedKeyUsage }).(CertificateExtendedKeyUsageArrayOutput)
 }
@@ -2466,6 +2802,15 @@ func (o CertificateExtensionsPtrOutput) CertificatePolicies() CertificatePolicyI
 		}
 		return v.CertificatePolicies
 	}).(CertificatePolicyInformationArrayOutput)
+}
+
+func (o CertificateExtensionsPtrOutput) CustomExtensions() CertificateCustomExtensionArrayOutput {
+	return o.ApplyT(func(v *CertificateExtensions) []CertificateCustomExtension {
+		if v == nil {
+			return nil
+		}
+		return v.CustomExtensions
+	}).(CertificateCustomExtensionArrayOutput)
 }
 
 func (o CertificateExtensionsPtrOutput) ExtendedKeyUsage() CertificateExtendedKeyUsageArrayOutput {
@@ -3301,20 +3646,21 @@ func (o CertificateQualifierOutput) CpsUri() pulumi.StringOutput {
 
 // Structure that contains X.500 distinguished name information.
 type CertificateSubject struct {
-	CommonName                 *string `pulumi:"commonName"`
-	Country                    *string `pulumi:"country"`
-	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
-	GenerationQualifier        *string `pulumi:"generationQualifier"`
-	GivenName                  *string `pulumi:"givenName"`
-	Initials                   *string `pulumi:"initials"`
-	Locality                   *string `pulumi:"locality"`
-	Organization               *string `pulumi:"organization"`
-	OrganizationalUnit         *string `pulumi:"organizationalUnit"`
-	Pseudonym                  *string `pulumi:"pseudonym"`
-	SerialNumber               *string `pulumi:"serialNumber"`
-	State                      *string `pulumi:"state"`
-	Surname                    *string `pulumi:"surname"`
-	Title                      *string `pulumi:"title"`
+	CommonName                 *string                      `pulumi:"commonName"`
+	Country                    *string                      `pulumi:"country"`
+	CustomAttributes           []CertificateCustomAttribute `pulumi:"customAttributes"`
+	DistinguishedNameQualifier *string                      `pulumi:"distinguishedNameQualifier"`
+	GenerationQualifier        *string                      `pulumi:"generationQualifier"`
+	GivenName                  *string                      `pulumi:"givenName"`
+	Initials                   *string                      `pulumi:"initials"`
+	Locality                   *string                      `pulumi:"locality"`
+	Organization               *string                      `pulumi:"organization"`
+	OrganizationalUnit         *string                      `pulumi:"organizationalUnit"`
+	Pseudonym                  *string                      `pulumi:"pseudonym"`
+	SerialNumber               *string                      `pulumi:"serialNumber"`
+	State                      *string                      `pulumi:"state"`
+	Surname                    *string                      `pulumi:"surname"`
+	Title                      *string                      `pulumi:"title"`
 }
 
 // CertificateSubjectInput is an input type that accepts CertificateSubjectArgs and CertificateSubjectOutput values.
@@ -3330,20 +3676,21 @@ type CertificateSubjectInput interface {
 
 // Structure that contains X.500 distinguished name information.
 type CertificateSubjectArgs struct {
-	CommonName                 pulumi.StringPtrInput `pulumi:"commonName"`
-	Country                    pulumi.StringPtrInput `pulumi:"country"`
-	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
-	GenerationQualifier        pulumi.StringPtrInput `pulumi:"generationQualifier"`
-	GivenName                  pulumi.StringPtrInput `pulumi:"givenName"`
-	Initials                   pulumi.StringPtrInput `pulumi:"initials"`
-	Locality                   pulumi.StringPtrInput `pulumi:"locality"`
-	Organization               pulumi.StringPtrInput `pulumi:"organization"`
-	OrganizationalUnit         pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	Pseudonym                  pulumi.StringPtrInput `pulumi:"pseudonym"`
-	SerialNumber               pulumi.StringPtrInput `pulumi:"serialNumber"`
-	State                      pulumi.StringPtrInput `pulumi:"state"`
-	Surname                    pulumi.StringPtrInput `pulumi:"surname"`
-	Title                      pulumi.StringPtrInput `pulumi:"title"`
+	CommonName                 pulumi.StringPtrInput                `pulumi:"commonName"`
+	Country                    pulumi.StringPtrInput                `pulumi:"country"`
+	CustomAttributes           CertificateCustomAttributeArrayInput `pulumi:"customAttributes"`
+	DistinguishedNameQualifier pulumi.StringPtrInput                `pulumi:"distinguishedNameQualifier"`
+	GenerationQualifier        pulumi.StringPtrInput                `pulumi:"generationQualifier"`
+	GivenName                  pulumi.StringPtrInput                `pulumi:"givenName"`
+	Initials                   pulumi.StringPtrInput                `pulumi:"initials"`
+	Locality                   pulumi.StringPtrInput                `pulumi:"locality"`
+	Organization               pulumi.StringPtrInput                `pulumi:"organization"`
+	OrganizationalUnit         pulumi.StringPtrInput                `pulumi:"organizationalUnit"`
+	Pseudonym                  pulumi.StringPtrInput                `pulumi:"pseudonym"`
+	SerialNumber               pulumi.StringPtrInput                `pulumi:"serialNumber"`
+	State                      pulumi.StringPtrInput                `pulumi:"state"`
+	Surname                    pulumi.StringPtrInput                `pulumi:"surname"`
+	Title                      pulumi.StringPtrInput                `pulumi:"title"`
 }
 
 func (CertificateSubjectArgs) ElementType() reflect.Type {
@@ -3430,6 +3777,10 @@ func (o CertificateSubjectOutput) CommonName() pulumi.StringPtrOutput {
 
 func (o CertificateSubjectOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateSubjectOutput) CustomAttributes() CertificateCustomAttributeArrayOutput {
+	return o.ApplyT(func(v CertificateSubject) []CertificateCustomAttribute { return v.CustomAttributes }).(CertificateCustomAttributeArrayOutput)
 }
 
 func (o CertificateSubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
@@ -3520,6 +3871,15 @@ func (o CertificateSubjectPtrOutput) Country() pulumi.StringPtrOutput {
 		}
 		return v.Country
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateSubjectPtrOutput) CustomAttributes() CertificateCustomAttributeArrayOutput {
+	return o.ApplyT(func(v *CertificateSubject) []CertificateCustomAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAttributes
+	}).(CertificateCustomAttributeArrayOutput)
 }
 
 func (o CertificateSubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
@@ -3791,6 +4151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCrlConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityCrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCsrExtensionsInput)(nil)).Elem(), CertificateAuthorityCsrExtensionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCsrExtensionsPtrInput)(nil)).Elem(), CertificateAuthorityCsrExtensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCustomAttributeInput)(nil)).Elem(), CertificateAuthorityCustomAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCustomAttributeArrayInput)(nil)).Elem(), CertificateAuthorityCustomAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityEdiPartyNameInput)(nil)).Elem(), CertificateAuthorityEdiPartyNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityEdiPartyNamePtrInput)(nil)).Elem(), CertificateAuthorityEdiPartyNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityGeneralNameInput)(nil)).Elem(), CertificateAuthorityGeneralNameArgs{})
@@ -3806,6 +4168,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthoritySubjectPtrInput)(nil)).Elem(), CertificateAuthoritySubjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityTagInput)(nil)).Elem(), CertificateAuthorityTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityTagArrayInput)(nil)).Elem(), CertificateAuthorityTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomAttributeInput)(nil)).Elem(), CertificateCustomAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomAttributeArrayInput)(nil)).Elem(), CertificateCustomAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomExtensionInput)(nil)).Elem(), CertificateCustomExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomExtensionArrayInput)(nil)).Elem(), CertificateCustomExtensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateEdiPartyNameInput)(nil)).Elem(), CertificateEdiPartyNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateEdiPartyNamePtrInput)(nil)).Elem(), CertificateEdiPartyNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateExtendedKeyUsageInput)(nil)).Elem(), CertificateExtendedKeyUsageArgs{})
@@ -3836,6 +4202,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityCrlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCsrExtensionsOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCsrExtensionsPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCustomAttributeOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCustomAttributeArrayOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityEdiPartyNameOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityEdiPartyNamePtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityGeneralNameOutput{})
@@ -3851,6 +4219,10 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthoritySubjectPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityTagOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityTagArrayOutput{})
+	pulumi.RegisterOutputType(CertificateCustomAttributeOutput{})
+	pulumi.RegisterOutputType(CertificateCustomAttributeArrayOutput{})
+	pulumi.RegisterOutputType(CertificateCustomExtensionOutput{})
+	pulumi.RegisterOutputType(CertificateCustomExtensionArrayOutput{})
 	pulumi.RegisterOutputType(CertificateEdiPartyNameOutput{})
 	pulumi.RegisterOutputType(CertificateEdiPartyNamePtrOutput{})
 	pulumi.RegisterOutputType(CertificateExtendedKeyUsageOutput{})

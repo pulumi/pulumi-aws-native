@@ -18,6 +18,7 @@ __all__ = [
     'OriginEndpointCmafPackageArgs',
     'OriginEndpointDashEncryptionArgs',
     'OriginEndpointDashPackageArgs',
+    'OriginEndpointEncryptionContractConfigurationArgs',
     'OriginEndpointHlsEncryptionArgs',
     'OriginEndpointHlsManifestArgs',
     'OriginEndpointHlsPackageArgs',
@@ -563,6 +564,44 @@ class OriginEndpointDashPackageArgs:
 
 
 @pulumi.input_type
+class OriginEndpointEncryptionContractConfigurationArgs:
+    def __init__(__self__, *,
+                 preset_speke20_audio: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio'],
+                 preset_speke20_video: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video']):
+        """
+        The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+        :param pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio'] preset_speke20_audio: A collection of audio encryption presets.
+        :param pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video'] preset_speke20_video: A collection of video encryption presets.
+        """
+        pulumi.set(__self__, "preset_speke20_audio", preset_speke20_audio)
+        pulumi.set(__self__, "preset_speke20_video", preset_speke20_video)
+
+    @property
+    @pulumi.getter(name="presetSpeke20Audio")
+    def preset_speke20_audio(self) -> pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio']:
+        """
+        A collection of audio encryption presets.
+        """
+        return pulumi.get(self, "preset_speke20_audio")
+
+    @preset_speke20_audio.setter
+    def preset_speke20_audio(self, value: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio']):
+        pulumi.set(self, "preset_speke20_audio", value)
+
+    @property
+    @pulumi.getter(name="presetSpeke20Video")
+    def preset_speke20_video(self) -> pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video']:
+        """
+        A collection of video encryption presets.
+        """
+        return pulumi.get(self, "preset_speke20_video")
+
+    @preset_speke20_video.setter
+    def preset_speke20_video(self, value: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video']):
+        pulumi.set(self, "preset_speke20_video", value)
+
+
+@pulumi.input_type
 class OriginEndpointHlsEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
@@ -1070,7 +1109,8 @@ class OriginEndpointSpekeKeyProviderArgs:
                  role_arn: pulumi.Input[str],
                  system_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  url: pulumi.Input[str],
-                 certificate_arn: Optional[pulumi.Input[str]] = None):
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 encryption_contract_configuration: Optional[pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs']] = None):
         """
         A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
         :param pulumi.Input[str] resource_id: The resource ID to include in key requests.
@@ -1085,6 +1125,8 @@ class OriginEndpointSpekeKeyProviderArgs:
         pulumi.set(__self__, "url", url)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if encryption_contract_configuration is not None:
+            pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -1145,6 +1187,15 @@ class OriginEndpointSpekeKeyProviderArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="encryptionContractConfiguration")
+    def encryption_contract_configuration(self) -> Optional[pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs']]:
+        return pulumi.get(self, "encryption_contract_configuration")
+
+    @encryption_contract_configuration.setter
+    def encryption_contract_configuration(self, value: Optional[pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs']]):
+        pulumi.set(self, "encryption_contract_configuration", value)
 
 
 @pulumi.input_type

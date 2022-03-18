@@ -18,6 +18,14 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         [Input("cloudFormation")]
         public Input<Inputs.ResourceCollectionCloudFormationCollectionFilterArgs>? CloudFormation { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.ResourceCollectionTagCollectionArgs>? _tags;
+        public InputList<Inputs.ResourceCollectionTagCollectionArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ResourceCollectionTagCollectionArgs>());
+            set => _tags = value;
+        }
+
         public ResourceCollectionFilterArgs()
         {
         }

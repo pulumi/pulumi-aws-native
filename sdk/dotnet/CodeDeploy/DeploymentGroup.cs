@@ -61,8 +61,14 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Output("onPremisesTagSet")]
         public Output<Outputs.DeploymentGroupOnPremisesTagSet?> OnPremisesTagSet { get; private set; } = null!;
 
+        [Output("outdatedInstancesStrategy")]
+        public Output<string?> OutdatedInstancesStrategy { get; private set; } = null!;
+
         [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.DeploymentGroupTag>> Tags { get; private set; } = null!;
 
         [Output("triggerConfigurations")]
         public Output<ImmutableArray<Outputs.DeploymentGroupTriggerConfig>> TriggerConfigurations { get; private set; } = null!;
@@ -177,8 +183,19 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Input("onPremisesTagSet")]
         public Input<Inputs.DeploymentGroupOnPremisesTagSetArgs>? OnPremisesTagSet { get; set; }
 
+        [Input("outdatedInstancesStrategy")]
+        public Input<string>? OutdatedInstancesStrategy { get; set; }
+
         [Input("serviceRoleArn", required: true)]
         public Input<string> ServiceRoleArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.DeploymentGroupTagArgs>? _tags;
+        public InputList<Inputs.DeploymentGroupTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.DeploymentGroupTagArgs>());
+            set => _tags = value;
+        }
 
         [Input("triggerConfigurations")]
         private InputList<Inputs.DeploymentGroupTriggerConfigArgs>? _triggerConfigurations;

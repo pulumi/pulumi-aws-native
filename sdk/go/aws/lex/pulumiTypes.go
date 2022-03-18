@@ -10,6 +10,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides settings that enable advanced recognition settings for slot values.
+type BotAdvancedRecognitionSetting struct {
+	AudioRecognitionStrategy *BotAudioRecognitionStrategy `pulumi:"audioRecognitionStrategy"`
+}
+
+// BotAdvancedRecognitionSettingInput is an input type that accepts BotAdvancedRecognitionSettingArgs and BotAdvancedRecognitionSettingOutput values.
+// You can construct a concrete instance of `BotAdvancedRecognitionSettingInput` via:
+//
+//          BotAdvancedRecognitionSettingArgs{...}
+type BotAdvancedRecognitionSettingInput interface {
+	pulumi.Input
+
+	ToBotAdvancedRecognitionSettingOutput() BotAdvancedRecognitionSettingOutput
+	ToBotAdvancedRecognitionSettingOutputWithContext(context.Context) BotAdvancedRecognitionSettingOutput
+}
+
+// Provides settings that enable advanced recognition settings for slot values.
+type BotAdvancedRecognitionSettingArgs struct {
+	AudioRecognitionStrategy BotAudioRecognitionStrategyPtrInput `pulumi:"audioRecognitionStrategy"`
+}
+
+func (BotAdvancedRecognitionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAdvancedRecognitionSetting)(nil)).Elem()
+}
+
+func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingOutput() BotAdvancedRecognitionSettingOutput {
+	return i.ToBotAdvancedRecognitionSettingOutputWithContext(context.Background())
+}
+
+func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAdvancedRecognitionSettingOutput)
+}
+
+func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingPtrOutput() BotAdvancedRecognitionSettingPtrOutput {
+	return i.ToBotAdvancedRecognitionSettingPtrOutputWithContext(context.Background())
+}
+
+func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAdvancedRecognitionSettingOutput).ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx)
+}
+
+// BotAdvancedRecognitionSettingPtrInput is an input type that accepts BotAdvancedRecognitionSettingArgs, BotAdvancedRecognitionSettingPtr and BotAdvancedRecognitionSettingPtrOutput values.
+// You can construct a concrete instance of `BotAdvancedRecognitionSettingPtrInput` via:
+//
+//          BotAdvancedRecognitionSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type BotAdvancedRecognitionSettingPtrInput interface {
+	pulumi.Input
+
+	ToBotAdvancedRecognitionSettingPtrOutput() BotAdvancedRecognitionSettingPtrOutput
+	ToBotAdvancedRecognitionSettingPtrOutputWithContext(context.Context) BotAdvancedRecognitionSettingPtrOutput
+}
+
+type botAdvancedRecognitionSettingPtrType BotAdvancedRecognitionSettingArgs
+
+func BotAdvancedRecognitionSettingPtr(v *BotAdvancedRecognitionSettingArgs) BotAdvancedRecognitionSettingPtrInput {
+	return (*botAdvancedRecognitionSettingPtrType)(v)
+}
+
+func (*botAdvancedRecognitionSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAdvancedRecognitionSetting)(nil)).Elem()
+}
+
+func (i *botAdvancedRecognitionSettingPtrType) ToBotAdvancedRecognitionSettingPtrOutput() BotAdvancedRecognitionSettingPtrOutput {
+	return i.ToBotAdvancedRecognitionSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *botAdvancedRecognitionSettingPtrType) ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAdvancedRecognitionSettingPtrOutput)
+}
+
+// Provides settings that enable advanced recognition settings for slot values.
+type BotAdvancedRecognitionSettingOutput struct{ *pulumi.OutputState }
+
+func (BotAdvancedRecognitionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAdvancedRecognitionSetting)(nil)).Elem()
+}
+
+func (o BotAdvancedRecognitionSettingOutput) ToBotAdvancedRecognitionSettingOutput() BotAdvancedRecognitionSettingOutput {
+	return o
+}
+
+func (o BotAdvancedRecognitionSettingOutput) ToBotAdvancedRecognitionSettingOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingOutput {
+	return o
+}
+
+func (o BotAdvancedRecognitionSettingOutput) ToBotAdvancedRecognitionSettingPtrOutput() BotAdvancedRecognitionSettingPtrOutput {
+	return o.ToBotAdvancedRecognitionSettingPtrOutputWithContext(context.Background())
+}
+
+func (o BotAdvancedRecognitionSettingOutput) ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAdvancedRecognitionSetting) *BotAdvancedRecognitionSetting {
+		return &v
+	}).(BotAdvancedRecognitionSettingPtrOutput)
+}
+
+func (o BotAdvancedRecognitionSettingOutput) AudioRecognitionStrategy() BotAudioRecognitionStrategyPtrOutput {
+	return o.ApplyT(func(v BotAdvancedRecognitionSetting) *BotAudioRecognitionStrategy { return v.AudioRecognitionStrategy }).(BotAudioRecognitionStrategyPtrOutput)
+}
+
+type BotAdvancedRecognitionSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAdvancedRecognitionSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAdvancedRecognitionSetting)(nil)).Elem()
+}
+
+func (o BotAdvancedRecognitionSettingPtrOutput) ToBotAdvancedRecognitionSettingPtrOutput() BotAdvancedRecognitionSettingPtrOutput {
+	return o
+}
+
+func (o BotAdvancedRecognitionSettingPtrOutput) ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingPtrOutput {
+	return o
+}
+
+func (o BotAdvancedRecognitionSettingPtrOutput) Elem() BotAdvancedRecognitionSettingOutput {
+	return o.ApplyT(func(v *BotAdvancedRecognitionSetting) BotAdvancedRecognitionSetting {
+		if v != nil {
+			return *v
+		}
+		var ret BotAdvancedRecognitionSetting
+		return ret
+	}).(BotAdvancedRecognitionSettingOutput)
+}
+
+func (o BotAdvancedRecognitionSettingPtrOutput) AudioRecognitionStrategy() BotAudioRecognitionStrategyPtrOutput {
+	return o.ApplyT(func(v *BotAdvancedRecognitionSetting) *BotAudioRecognitionStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.AudioRecognitionStrategy
+	}).(BotAudioRecognitionStrategyPtrOutput)
+}
+
 // The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAliasAudioLogDestination struct {
 	S3Bucket BotAliasS3BucketLogDestination `pulumi:"s3Bucket"`
@@ -166,9 +302,9 @@ func (o BotAliasAudioLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasAud
 }
 
 type BotAliasCloudWatchLogGroupLogDestination struct {
-	// A string used to identify this tag
+	// A string used to identify the groupArn for the Cloudwatch Log Group
 	CloudWatchLogGroupArn string `pulumi:"cloudWatchLogGroupArn"`
-	// A string containing the value for the tag
+	// A string containing the value for the Log Prefix
 	LogPrefix string `pulumi:"logPrefix"`
 }
 
@@ -184,9 +320,9 @@ type BotAliasCloudWatchLogGroupLogDestinationInput interface {
 }
 
 type BotAliasCloudWatchLogGroupLogDestinationArgs struct {
-	// A string used to identify this tag
+	// A string used to identify the groupArn for the Cloudwatch Log Group
 	CloudWatchLogGroupArn pulumi.StringInput `pulumi:"cloudWatchLogGroupArn"`
-	// A string containing the value for the tag
+	// A string containing the value for the Log Prefix
 	LogPrefix pulumi.StringInput `pulumi:"logPrefix"`
 }
 
@@ -216,12 +352,12 @@ func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToBotAliasCloudWatchLogG
 	return o
 }
 
-// A string used to identify this tag
+// A string used to identify the groupArn for the Cloudwatch Log Group
 func (o BotAliasCloudWatchLogGroupLogDestinationOutput) CloudWatchLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasCloudWatchLogGroupLogDestination) string { return v.CloudWatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// A string containing the value for the tag
+// A string containing the value for the Log Prefix
 func (o BotAliasCloudWatchLogGroupLogDestinationOutput) LogPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasCloudWatchLogGroupLogDestination) string { return v.LogPrefix }).(pulumi.StringOutput)
 }
@@ -1176,6 +1312,161 @@ func (o BotAliasTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasText
 	}).(BotAliasTextLogSettingOutput)
 }
 
+// The location of audio log files collected when conversation logging is enabled for a bot.
+type BotAudioLogDestination struct {
+	S3Bucket BotS3BucketLogDestination `pulumi:"s3Bucket"`
+}
+
+// BotAudioLogDestinationInput is an input type that accepts BotAudioLogDestinationArgs and BotAudioLogDestinationOutput values.
+// You can construct a concrete instance of `BotAudioLogDestinationInput` via:
+//
+//          BotAudioLogDestinationArgs{...}
+type BotAudioLogDestinationInput interface {
+	pulumi.Input
+
+	ToBotAudioLogDestinationOutput() BotAudioLogDestinationOutput
+	ToBotAudioLogDestinationOutputWithContext(context.Context) BotAudioLogDestinationOutput
+}
+
+// The location of audio log files collected when conversation logging is enabled for a bot.
+type BotAudioLogDestinationArgs struct {
+	S3Bucket BotS3BucketLogDestinationInput `pulumi:"s3Bucket"`
+}
+
+func (BotAudioLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioLogDestination)(nil)).Elem()
+}
+
+func (i BotAudioLogDestinationArgs) ToBotAudioLogDestinationOutput() BotAudioLogDestinationOutput {
+	return i.ToBotAudioLogDestinationOutputWithContext(context.Background())
+}
+
+func (i BotAudioLogDestinationArgs) ToBotAudioLogDestinationOutputWithContext(ctx context.Context) BotAudioLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogDestinationOutput)
+}
+
+// The location of audio log files collected when conversation logging is enabled for a bot.
+type BotAudioLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (BotAudioLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioLogDestination)(nil)).Elem()
+}
+
+func (o BotAudioLogDestinationOutput) ToBotAudioLogDestinationOutput() BotAudioLogDestinationOutput {
+	return o
+}
+
+func (o BotAudioLogDestinationOutput) ToBotAudioLogDestinationOutputWithContext(ctx context.Context) BotAudioLogDestinationOutput {
+	return o
+}
+
+func (o BotAudioLogDestinationOutput) S3Bucket() BotS3BucketLogDestinationOutput {
+	return o.ApplyT(func(v BotAudioLogDestination) BotS3BucketLogDestination { return v.S3Bucket }).(BotS3BucketLogDestinationOutput)
+}
+
+// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+type BotAudioLogSetting struct {
+	Destination BotAudioLogDestination `pulumi:"destination"`
+	Enabled     bool                   `pulumi:"enabled"`
+}
+
+// BotAudioLogSettingInput is an input type that accepts BotAudioLogSettingArgs and BotAudioLogSettingOutput values.
+// You can construct a concrete instance of `BotAudioLogSettingInput` via:
+//
+//          BotAudioLogSettingArgs{...}
+type BotAudioLogSettingInput interface {
+	pulumi.Input
+
+	ToBotAudioLogSettingOutput() BotAudioLogSettingOutput
+	ToBotAudioLogSettingOutputWithContext(context.Context) BotAudioLogSettingOutput
+}
+
+// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+type BotAudioLogSettingArgs struct {
+	Destination BotAudioLogDestinationInput `pulumi:"destination"`
+	Enabled     pulumi.BoolInput            `pulumi:"enabled"`
+}
+
+func (BotAudioLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioLogSetting)(nil)).Elem()
+}
+
+func (i BotAudioLogSettingArgs) ToBotAudioLogSettingOutput() BotAudioLogSettingOutput {
+	return i.ToBotAudioLogSettingOutputWithContext(context.Background())
+}
+
+func (i BotAudioLogSettingArgs) ToBotAudioLogSettingOutputWithContext(ctx context.Context) BotAudioLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogSettingOutput)
+}
+
+// BotAudioLogSettingArrayInput is an input type that accepts BotAudioLogSettingArray and BotAudioLogSettingArrayOutput values.
+// You can construct a concrete instance of `BotAudioLogSettingArrayInput` via:
+//
+//          BotAudioLogSettingArray{ BotAudioLogSettingArgs{...} }
+type BotAudioLogSettingArrayInput interface {
+	pulumi.Input
+
+	ToBotAudioLogSettingArrayOutput() BotAudioLogSettingArrayOutput
+	ToBotAudioLogSettingArrayOutputWithContext(context.Context) BotAudioLogSettingArrayOutput
+}
+
+type BotAudioLogSettingArray []BotAudioLogSettingInput
+
+func (BotAudioLogSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAudioLogSetting)(nil)).Elem()
+}
+
+func (i BotAudioLogSettingArray) ToBotAudioLogSettingArrayOutput() BotAudioLogSettingArrayOutput {
+	return i.ToBotAudioLogSettingArrayOutputWithContext(context.Background())
+}
+
+func (i BotAudioLogSettingArray) ToBotAudioLogSettingArrayOutputWithContext(ctx context.Context) BotAudioLogSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogSettingArrayOutput)
+}
+
+// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+type BotAudioLogSettingOutput struct{ *pulumi.OutputState }
+
+func (BotAudioLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioLogSetting)(nil)).Elem()
+}
+
+func (o BotAudioLogSettingOutput) ToBotAudioLogSettingOutput() BotAudioLogSettingOutput {
+	return o
+}
+
+func (o BotAudioLogSettingOutput) ToBotAudioLogSettingOutputWithContext(ctx context.Context) BotAudioLogSettingOutput {
+	return o
+}
+
+func (o BotAudioLogSettingOutput) Destination() BotAudioLogDestinationOutput {
+	return o.ApplyT(func(v BotAudioLogSetting) BotAudioLogDestination { return v.Destination }).(BotAudioLogDestinationOutput)
+}
+
+func (o BotAudioLogSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotAudioLogSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type BotAudioLogSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (BotAudioLogSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAudioLogSetting)(nil)).Elem()
+}
+
+func (o BotAudioLogSettingArrayOutput) ToBotAudioLogSettingArrayOutput() BotAudioLogSettingArrayOutput {
+	return o
+}
+
+func (o BotAudioLogSettingArrayOutput) ToBotAudioLogSettingArrayOutputWithContext(ctx context.Context) BotAudioLogSettingArrayOutput {
+	return o
+}
+
+func (o BotAudioLogSettingArrayOutput) Index(i pulumi.IntInput) BotAudioLogSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAudioLogSetting {
+		return vs[0].([]BotAudioLogSetting)[vs[1].(int)]
+	}).(BotAudioLogSettingOutput)
+}
+
 // A button to use on a response card used to gather slot values from a user.
 type BotButton struct {
 	// The text that appears on the button.
@@ -1283,6 +1574,223 @@ func (o BotButtonArrayOutput) Index(i pulumi.IntInput) BotButtonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotButton {
 		return vs[0].([]BotButton)[vs[1].(int)]
 	}).(BotButtonOutput)
+}
+
+type BotCloudWatchLogGroupLogDestination struct {
+	// A string used to identify the groupArn for the Cloudwatch Log Group
+	CloudWatchLogGroupArn string `pulumi:"cloudWatchLogGroupArn"`
+	// A string containing the value for the Log Prefix
+	LogPrefix string `pulumi:"logPrefix"`
+}
+
+// BotCloudWatchLogGroupLogDestinationInput is an input type that accepts BotCloudWatchLogGroupLogDestinationArgs and BotCloudWatchLogGroupLogDestinationOutput values.
+// You can construct a concrete instance of `BotCloudWatchLogGroupLogDestinationInput` via:
+//
+//          BotCloudWatchLogGroupLogDestinationArgs{...}
+type BotCloudWatchLogGroupLogDestinationInput interface {
+	pulumi.Input
+
+	ToBotCloudWatchLogGroupLogDestinationOutput() BotCloudWatchLogGroupLogDestinationOutput
+	ToBotCloudWatchLogGroupLogDestinationOutputWithContext(context.Context) BotCloudWatchLogGroupLogDestinationOutput
+}
+
+type BotCloudWatchLogGroupLogDestinationArgs struct {
+	// A string used to identify the groupArn for the Cloudwatch Log Group
+	CloudWatchLogGroupArn pulumi.StringInput `pulumi:"cloudWatchLogGroupArn"`
+	// A string containing the value for the Log Prefix
+	LogPrefix pulumi.StringInput `pulumi:"logPrefix"`
+}
+
+func (BotCloudWatchLogGroupLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCloudWatchLogGroupLogDestination)(nil)).Elem()
+}
+
+func (i BotCloudWatchLogGroupLogDestinationArgs) ToBotCloudWatchLogGroupLogDestinationOutput() BotCloudWatchLogGroupLogDestinationOutput {
+	return i.ToBotCloudWatchLogGroupLogDestinationOutputWithContext(context.Background())
+}
+
+func (i BotCloudWatchLogGroupLogDestinationArgs) ToBotCloudWatchLogGroupLogDestinationOutputWithContext(ctx context.Context) BotCloudWatchLogGroupLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCloudWatchLogGroupLogDestinationOutput)
+}
+
+type BotCloudWatchLogGroupLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (BotCloudWatchLogGroupLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCloudWatchLogGroupLogDestination)(nil)).Elem()
+}
+
+func (o BotCloudWatchLogGroupLogDestinationOutput) ToBotCloudWatchLogGroupLogDestinationOutput() BotCloudWatchLogGroupLogDestinationOutput {
+	return o
+}
+
+func (o BotCloudWatchLogGroupLogDestinationOutput) ToBotCloudWatchLogGroupLogDestinationOutputWithContext(ctx context.Context) BotCloudWatchLogGroupLogDestinationOutput {
+	return o
+}
+
+// A string used to identify the groupArn for the Cloudwatch Log Group
+func (o BotCloudWatchLogGroupLogDestinationOutput) CloudWatchLogGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotCloudWatchLogGroupLogDestination) string { return v.CloudWatchLogGroupArn }).(pulumi.StringOutput)
+}
+
+// A string containing the value for the Log Prefix
+func (o BotCloudWatchLogGroupLogDestinationOutput) LogPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v BotCloudWatchLogGroupLogDestination) string { return v.LogPrefix }).(pulumi.StringOutput)
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotCodeHookSpecification struct {
+	LambdaCodeHook BotLambdaCodeHook `pulumi:"lambdaCodeHook"`
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotConversationLogSettings struct {
+	AudioLogSettings []BotAudioLogSetting `pulumi:"audioLogSettings"`
+	TextLogSettings  []BotTextLogSetting  `pulumi:"textLogSettings"`
+}
+
+// BotConversationLogSettingsInput is an input type that accepts BotConversationLogSettingsArgs and BotConversationLogSettingsOutput values.
+// You can construct a concrete instance of `BotConversationLogSettingsInput` via:
+//
+//          BotConversationLogSettingsArgs{...}
+type BotConversationLogSettingsInput interface {
+	pulumi.Input
+
+	ToBotConversationLogSettingsOutput() BotConversationLogSettingsOutput
+	ToBotConversationLogSettingsOutputWithContext(context.Context) BotConversationLogSettingsOutput
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotConversationLogSettingsArgs struct {
+	AudioLogSettings BotAudioLogSettingArrayInput `pulumi:"audioLogSettings"`
+	TextLogSettings  BotTextLogSettingArrayInput  `pulumi:"textLogSettings"`
+}
+
+func (BotConversationLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotConversationLogSettings)(nil)).Elem()
+}
+
+func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsOutput() BotConversationLogSettingsOutput {
+	return i.ToBotConversationLogSettingsOutputWithContext(context.Background())
+}
+
+func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsOutputWithContext(ctx context.Context) BotConversationLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotConversationLogSettingsOutput)
+}
+
+func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsPtrOutput() BotConversationLogSettingsPtrOutput {
+	return i.ToBotConversationLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsPtrOutputWithContext(ctx context.Context) BotConversationLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotConversationLogSettingsOutput).ToBotConversationLogSettingsPtrOutputWithContext(ctx)
+}
+
+// BotConversationLogSettingsPtrInput is an input type that accepts BotConversationLogSettingsArgs, BotConversationLogSettingsPtr and BotConversationLogSettingsPtrOutput values.
+// You can construct a concrete instance of `BotConversationLogSettingsPtrInput` via:
+//
+//          BotConversationLogSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type BotConversationLogSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotConversationLogSettingsPtrOutput() BotConversationLogSettingsPtrOutput
+	ToBotConversationLogSettingsPtrOutputWithContext(context.Context) BotConversationLogSettingsPtrOutput
+}
+
+type botConversationLogSettingsPtrType BotConversationLogSettingsArgs
+
+func BotConversationLogSettingsPtr(v *BotConversationLogSettingsArgs) BotConversationLogSettingsPtrInput {
+	return (*botConversationLogSettingsPtrType)(v)
+}
+
+func (*botConversationLogSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotConversationLogSettings)(nil)).Elem()
+}
+
+func (i *botConversationLogSettingsPtrType) ToBotConversationLogSettingsPtrOutput() BotConversationLogSettingsPtrOutput {
+	return i.ToBotConversationLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botConversationLogSettingsPtrType) ToBotConversationLogSettingsPtrOutputWithContext(ctx context.Context) BotConversationLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotConversationLogSettingsPtrOutput)
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotConversationLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotConversationLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotConversationLogSettings)(nil)).Elem()
+}
+
+func (o BotConversationLogSettingsOutput) ToBotConversationLogSettingsOutput() BotConversationLogSettingsOutput {
+	return o
+}
+
+func (o BotConversationLogSettingsOutput) ToBotConversationLogSettingsOutputWithContext(ctx context.Context) BotConversationLogSettingsOutput {
+	return o
+}
+
+func (o BotConversationLogSettingsOutput) ToBotConversationLogSettingsPtrOutput() BotConversationLogSettingsPtrOutput {
+	return o.ToBotConversationLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotConversationLogSettingsOutput) ToBotConversationLogSettingsPtrOutputWithContext(ctx context.Context) BotConversationLogSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotConversationLogSettings) *BotConversationLogSettings {
+		return &v
+	}).(BotConversationLogSettingsPtrOutput)
+}
+
+func (o BotConversationLogSettingsOutput) AudioLogSettings() BotAudioLogSettingArrayOutput {
+	return o.ApplyT(func(v BotConversationLogSettings) []BotAudioLogSetting { return v.AudioLogSettings }).(BotAudioLogSettingArrayOutput)
+}
+
+func (o BotConversationLogSettingsOutput) TextLogSettings() BotTextLogSettingArrayOutput {
+	return o.ApplyT(func(v BotConversationLogSettings) []BotTextLogSetting { return v.TextLogSettings }).(BotTextLogSettingArrayOutput)
+}
+
+type BotConversationLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotConversationLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotConversationLogSettings)(nil)).Elem()
+}
+
+func (o BotConversationLogSettingsPtrOutput) ToBotConversationLogSettingsPtrOutput() BotConversationLogSettingsPtrOutput {
+	return o
+}
+
+func (o BotConversationLogSettingsPtrOutput) ToBotConversationLogSettingsPtrOutputWithContext(ctx context.Context) BotConversationLogSettingsPtrOutput {
+	return o
+}
+
+func (o BotConversationLogSettingsPtrOutput) Elem() BotConversationLogSettingsOutput {
+	return o.ApplyT(func(v *BotConversationLogSettings) BotConversationLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotConversationLogSettings
+		return ret
+	}).(BotConversationLogSettingsOutput)
+}
+
+func (o BotConversationLogSettingsPtrOutput) AudioLogSettings() BotAudioLogSettingArrayOutput {
+	return o.ApplyT(func(v *BotConversationLogSettings) []BotAudioLogSetting {
+		if v == nil {
+			return nil
+		}
+		return v.AudioLogSettings
+	}).(BotAudioLogSettingArrayOutput)
+}
+
+func (o BotConversationLogSettingsPtrOutput) TextLogSettings() BotTextLogSettingArrayOutput {
+	return o.ApplyT(func(v *BotConversationLogSettings) []BotTextLogSetting {
+		if v == nil {
+			return nil
+		}
+		return v.TextLogSettings
+	}).(BotTextLogSettingArrayOutput)
 }
 
 // A message in a custom format defined by the client application.
@@ -1423,6 +1931,251 @@ func (o BotCustomPayloadPtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return &v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+type BotCustomVocabulary struct {
+	CustomVocabularyItems []BotCustomVocabularyItem `pulumi:"customVocabularyItems"`
+}
+
+// BotCustomVocabularyInput is an input type that accepts BotCustomVocabularyArgs and BotCustomVocabularyOutput values.
+// You can construct a concrete instance of `BotCustomVocabularyInput` via:
+//
+//          BotCustomVocabularyArgs{...}
+type BotCustomVocabularyInput interface {
+	pulumi.Input
+
+	ToBotCustomVocabularyOutput() BotCustomVocabularyOutput
+	ToBotCustomVocabularyOutputWithContext(context.Context) BotCustomVocabularyOutput
+}
+
+// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+type BotCustomVocabularyArgs struct {
+	CustomVocabularyItems BotCustomVocabularyItemArrayInput `pulumi:"customVocabularyItems"`
+}
+
+func (BotCustomVocabularyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCustomVocabulary)(nil)).Elem()
+}
+
+func (i BotCustomVocabularyArgs) ToBotCustomVocabularyOutput() BotCustomVocabularyOutput {
+	return i.ToBotCustomVocabularyOutputWithContext(context.Background())
+}
+
+func (i BotCustomVocabularyArgs) ToBotCustomVocabularyOutputWithContext(ctx context.Context) BotCustomVocabularyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyOutput)
+}
+
+func (i BotCustomVocabularyArgs) ToBotCustomVocabularyPtrOutput() BotCustomVocabularyPtrOutput {
+	return i.ToBotCustomVocabularyPtrOutputWithContext(context.Background())
+}
+
+func (i BotCustomVocabularyArgs) ToBotCustomVocabularyPtrOutputWithContext(ctx context.Context) BotCustomVocabularyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyOutput).ToBotCustomVocabularyPtrOutputWithContext(ctx)
+}
+
+// BotCustomVocabularyPtrInput is an input type that accepts BotCustomVocabularyArgs, BotCustomVocabularyPtr and BotCustomVocabularyPtrOutput values.
+// You can construct a concrete instance of `BotCustomVocabularyPtrInput` via:
+//
+//          BotCustomVocabularyArgs{...}
+//
+//  or:
+//
+//          nil
+type BotCustomVocabularyPtrInput interface {
+	pulumi.Input
+
+	ToBotCustomVocabularyPtrOutput() BotCustomVocabularyPtrOutput
+	ToBotCustomVocabularyPtrOutputWithContext(context.Context) BotCustomVocabularyPtrOutput
+}
+
+type botCustomVocabularyPtrType BotCustomVocabularyArgs
+
+func BotCustomVocabularyPtr(v *BotCustomVocabularyArgs) BotCustomVocabularyPtrInput {
+	return (*botCustomVocabularyPtrType)(v)
+}
+
+func (*botCustomVocabularyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotCustomVocabulary)(nil)).Elem()
+}
+
+func (i *botCustomVocabularyPtrType) ToBotCustomVocabularyPtrOutput() BotCustomVocabularyPtrOutput {
+	return i.ToBotCustomVocabularyPtrOutputWithContext(context.Background())
+}
+
+func (i *botCustomVocabularyPtrType) ToBotCustomVocabularyPtrOutputWithContext(ctx context.Context) BotCustomVocabularyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyPtrOutput)
+}
+
+// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+type BotCustomVocabularyOutput struct{ *pulumi.OutputState }
+
+func (BotCustomVocabularyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCustomVocabulary)(nil)).Elem()
+}
+
+func (o BotCustomVocabularyOutput) ToBotCustomVocabularyOutput() BotCustomVocabularyOutput {
+	return o
+}
+
+func (o BotCustomVocabularyOutput) ToBotCustomVocabularyOutputWithContext(ctx context.Context) BotCustomVocabularyOutput {
+	return o
+}
+
+func (o BotCustomVocabularyOutput) ToBotCustomVocabularyPtrOutput() BotCustomVocabularyPtrOutput {
+	return o.ToBotCustomVocabularyPtrOutputWithContext(context.Background())
+}
+
+func (o BotCustomVocabularyOutput) ToBotCustomVocabularyPtrOutputWithContext(ctx context.Context) BotCustomVocabularyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotCustomVocabulary) *BotCustomVocabulary {
+		return &v
+	}).(BotCustomVocabularyPtrOutput)
+}
+
+func (o BotCustomVocabularyOutput) CustomVocabularyItems() BotCustomVocabularyItemArrayOutput {
+	return o.ApplyT(func(v BotCustomVocabulary) []BotCustomVocabularyItem { return v.CustomVocabularyItems }).(BotCustomVocabularyItemArrayOutput)
+}
+
+type BotCustomVocabularyPtrOutput struct{ *pulumi.OutputState }
+
+func (BotCustomVocabularyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotCustomVocabulary)(nil)).Elem()
+}
+
+func (o BotCustomVocabularyPtrOutput) ToBotCustomVocabularyPtrOutput() BotCustomVocabularyPtrOutput {
+	return o
+}
+
+func (o BotCustomVocabularyPtrOutput) ToBotCustomVocabularyPtrOutputWithContext(ctx context.Context) BotCustomVocabularyPtrOutput {
+	return o
+}
+
+func (o BotCustomVocabularyPtrOutput) Elem() BotCustomVocabularyOutput {
+	return o.ApplyT(func(v *BotCustomVocabulary) BotCustomVocabulary {
+		if v != nil {
+			return *v
+		}
+		var ret BotCustomVocabulary
+		return ret
+	}).(BotCustomVocabularyOutput)
+}
+
+func (o BotCustomVocabularyPtrOutput) CustomVocabularyItems() BotCustomVocabularyItemArrayOutput {
+	return o.ApplyT(func(v *BotCustomVocabulary) []BotCustomVocabularyItem {
+		if v == nil {
+			return nil
+		}
+		return v.CustomVocabularyItems
+	}).(BotCustomVocabularyItemArrayOutput)
+}
+
+// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+type BotCustomVocabularyItem struct {
+	// Phrase that should be recognized.
+	Phrase string `pulumi:"phrase"`
+	// The degree to which the phrase recognition is boosted.
+	Weight *int `pulumi:"weight"`
+}
+
+// BotCustomVocabularyItemInput is an input type that accepts BotCustomVocabularyItemArgs and BotCustomVocabularyItemOutput values.
+// You can construct a concrete instance of `BotCustomVocabularyItemInput` via:
+//
+//          BotCustomVocabularyItemArgs{...}
+type BotCustomVocabularyItemInput interface {
+	pulumi.Input
+
+	ToBotCustomVocabularyItemOutput() BotCustomVocabularyItemOutput
+	ToBotCustomVocabularyItemOutputWithContext(context.Context) BotCustomVocabularyItemOutput
+}
+
+// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+type BotCustomVocabularyItemArgs struct {
+	// Phrase that should be recognized.
+	Phrase pulumi.StringInput `pulumi:"phrase"`
+	// The degree to which the phrase recognition is boosted.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (BotCustomVocabularyItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCustomVocabularyItem)(nil)).Elem()
+}
+
+func (i BotCustomVocabularyItemArgs) ToBotCustomVocabularyItemOutput() BotCustomVocabularyItemOutput {
+	return i.ToBotCustomVocabularyItemOutputWithContext(context.Background())
+}
+
+func (i BotCustomVocabularyItemArgs) ToBotCustomVocabularyItemOutputWithContext(ctx context.Context) BotCustomVocabularyItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyItemOutput)
+}
+
+// BotCustomVocabularyItemArrayInput is an input type that accepts BotCustomVocabularyItemArray and BotCustomVocabularyItemArrayOutput values.
+// You can construct a concrete instance of `BotCustomVocabularyItemArrayInput` via:
+//
+//          BotCustomVocabularyItemArray{ BotCustomVocabularyItemArgs{...} }
+type BotCustomVocabularyItemArrayInput interface {
+	pulumi.Input
+
+	ToBotCustomVocabularyItemArrayOutput() BotCustomVocabularyItemArrayOutput
+	ToBotCustomVocabularyItemArrayOutputWithContext(context.Context) BotCustomVocabularyItemArrayOutput
+}
+
+type BotCustomVocabularyItemArray []BotCustomVocabularyItemInput
+
+func (BotCustomVocabularyItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotCustomVocabularyItem)(nil)).Elem()
+}
+
+func (i BotCustomVocabularyItemArray) ToBotCustomVocabularyItemArrayOutput() BotCustomVocabularyItemArrayOutput {
+	return i.ToBotCustomVocabularyItemArrayOutputWithContext(context.Background())
+}
+
+func (i BotCustomVocabularyItemArray) ToBotCustomVocabularyItemArrayOutputWithContext(ctx context.Context) BotCustomVocabularyItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyItemArrayOutput)
+}
+
+// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
+type BotCustomVocabularyItemOutput struct{ *pulumi.OutputState }
+
+func (BotCustomVocabularyItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCustomVocabularyItem)(nil)).Elem()
+}
+
+func (o BotCustomVocabularyItemOutput) ToBotCustomVocabularyItemOutput() BotCustomVocabularyItemOutput {
+	return o
+}
+
+func (o BotCustomVocabularyItemOutput) ToBotCustomVocabularyItemOutputWithContext(ctx context.Context) BotCustomVocabularyItemOutput {
+	return o
+}
+
+// Phrase that should be recognized.
+func (o BotCustomVocabularyItemOutput) Phrase() pulumi.StringOutput {
+	return o.ApplyT(func(v BotCustomVocabularyItem) string { return v.Phrase }).(pulumi.StringOutput)
+}
+
+// The degree to which the phrase recognition is boosted.
+func (o BotCustomVocabularyItemOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotCustomVocabularyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type BotCustomVocabularyItemArrayOutput struct{ *pulumi.OutputState }
+
+func (BotCustomVocabularyItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotCustomVocabularyItem)(nil)).Elem()
+}
+
+func (o BotCustomVocabularyItemArrayOutput) ToBotCustomVocabularyItemArrayOutput() BotCustomVocabularyItemArrayOutput {
+	return o
+}
+
+func (o BotCustomVocabularyItemArrayOutput) ToBotCustomVocabularyItemArrayOutputWithContext(ctx context.Context) BotCustomVocabularyItemArrayOutput {
+	return o
+}
+
+func (o BotCustomVocabularyItemArrayOutput) Index(i pulumi.IntInput) BotCustomVocabularyItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotCustomVocabularyItem {
+		return vs[0].([]BotCustomVocabularyItem)[vs[1].(int)]
+	}).(BotCustomVocabularyItemOutput)
 }
 
 // Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
@@ -3678,9 +4431,18 @@ func (o BotKendraConfigurationPtrOutput) QueryFilterStringEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotLambdaCodeHook struct {
+	// The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
+	CodeHookInterfaceVersion string `pulumi:"codeHookInterfaceVersion"`
+	// The Amazon Resource Name (ARN) of the Lambda function.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
 // A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocale struct {
-	Description *string `pulumi:"description"`
+	CustomVocabulary *BotCustomVocabulary `pulumi:"customVocabulary"`
+	Description      *string              `pulumi:"description"`
 	// List of intents
 	Intents                []BotIntent `pulumi:"intents"`
 	LocaleId               string      `pulumi:"localeId"`
@@ -3703,7 +4465,8 @@ type BotLocaleInput interface {
 
 // A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocaleArgs struct {
-	Description pulumi.StringPtrInput `pulumi:"description"`
+	CustomVocabulary BotCustomVocabularyPtrInput `pulumi:"customVocabulary"`
+	Description      pulumi.StringPtrInput       `pulumi:"description"`
 	// List of intents
 	Intents                BotIntentArrayInput `pulumi:"intents"`
 	LocaleId               pulumi.StringInput  `pulumi:"localeId"`
@@ -3763,6 +4526,10 @@ func (o BotLocaleOutput) ToBotLocaleOutput() BotLocaleOutput {
 
 func (o BotLocaleOutput) ToBotLocaleOutputWithContext(ctx context.Context) BotLocaleOutput {
 	return o
+}
+
+func (o BotLocaleOutput) CustomVocabulary() BotCustomVocabularyPtrOutput {
+	return o.ApplyT(func(v BotLocale) *BotCustomVocabulary { return v.CustomVocabulary }).(BotCustomVocabularyPtrOutput)
 }
 
 func (o BotLocaleOutput) Description() pulumi.StringPtrOutput {
@@ -5048,6 +5815,79 @@ func (o BotResponseSpecificationPtrOutput) MessageGroupsList() BotMessageGroupAr
 		}
 		return v.MessageGroupsList
 	}).(BotMessageGroupArrayOutput)
+}
+
+// Specifies an Amazon S3 bucket for logging audio conversations
+type BotS3BucketLogDestination struct {
+	// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The Amazon S3 key of the deployment package.
+	LogPrefix string `pulumi:"logPrefix"`
+	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+	S3BucketArn string `pulumi:"s3BucketArn"`
+}
+
+// BotS3BucketLogDestinationInput is an input type that accepts BotS3BucketLogDestinationArgs and BotS3BucketLogDestinationOutput values.
+// You can construct a concrete instance of `BotS3BucketLogDestinationInput` via:
+//
+//          BotS3BucketLogDestinationArgs{...}
+type BotS3BucketLogDestinationInput interface {
+	pulumi.Input
+
+	ToBotS3BucketLogDestinationOutput() BotS3BucketLogDestinationOutput
+	ToBotS3BucketLogDestinationOutputWithContext(context.Context) BotS3BucketLogDestinationOutput
+}
+
+// Specifies an Amazon S3 bucket for logging audio conversations
+type BotS3BucketLogDestinationArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The Amazon S3 key of the deployment package.
+	LogPrefix pulumi.StringInput `pulumi:"logPrefix"`
+	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
+}
+
+func (BotS3BucketLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotS3BucketLogDestination)(nil)).Elem()
+}
+
+func (i BotS3BucketLogDestinationArgs) ToBotS3BucketLogDestinationOutput() BotS3BucketLogDestinationOutput {
+	return i.ToBotS3BucketLogDestinationOutputWithContext(context.Background())
+}
+
+func (i BotS3BucketLogDestinationArgs) ToBotS3BucketLogDestinationOutputWithContext(ctx context.Context) BotS3BucketLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotS3BucketLogDestinationOutput)
+}
+
+// Specifies an Amazon S3 bucket for logging audio conversations
+type BotS3BucketLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (BotS3BucketLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotS3BucketLogDestination)(nil)).Elem()
+}
+
+func (o BotS3BucketLogDestinationOutput) ToBotS3BucketLogDestinationOutput() BotS3BucketLogDestinationOutput {
+	return o
+}
+
+func (o BotS3BucketLogDestinationOutput) ToBotS3BucketLogDestinationOutputWithContext(ctx context.Context) BotS3BucketLogDestinationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+func (o BotS3BucketLogDestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotS3BucketLogDestination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 key of the deployment package.
+func (o BotS3BucketLogDestinationOutput) LogPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v BotS3BucketLogDestination) string { return v.LogPrefix }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+func (o BotS3BucketLogDestinationOutput) S3BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotS3BucketLogDestination) string { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
 // S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
@@ -6505,8 +7345,9 @@ func (o BotSlotValueRegexFilterPtrOutput) Pattern() pulumi.StringPtrOutput {
 
 // Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSetting struct {
-	RegexFilter        *BotSlotValueRegexFilter       `pulumi:"regexFilter"`
-	ResolutionStrategy BotSlotValueResolutionStrategy `pulumi:"resolutionStrategy"`
+	AdvancedRecognitionSetting *BotAdvancedRecognitionSetting `pulumi:"advancedRecognitionSetting"`
+	RegexFilter                *BotSlotValueRegexFilter       `pulumi:"regexFilter"`
+	ResolutionStrategy         BotSlotValueResolutionStrategy `pulumi:"resolutionStrategy"`
 }
 
 // BotSlotValueSelectionSettingInput is an input type that accepts BotSlotValueSelectionSettingArgs and BotSlotValueSelectionSettingOutput values.
@@ -6522,8 +7363,9 @@ type BotSlotValueSelectionSettingInput interface {
 
 // Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSettingArgs struct {
-	RegexFilter        BotSlotValueRegexFilterPtrInput     `pulumi:"regexFilter"`
-	ResolutionStrategy BotSlotValueResolutionStrategyInput `pulumi:"resolutionStrategy"`
+	AdvancedRecognitionSetting BotAdvancedRecognitionSettingPtrInput `pulumi:"advancedRecognitionSetting"`
+	RegexFilter                BotSlotValueRegexFilterPtrInput       `pulumi:"regexFilter"`
+	ResolutionStrategy         BotSlotValueResolutionStrategyInput   `pulumi:"resolutionStrategy"`
 }
 
 func (BotSlotValueSelectionSettingArgs) ElementType() reflect.Type {
@@ -6604,6 +7446,12 @@ func (o BotSlotValueSelectionSettingOutput) ToBotSlotValueSelectionSettingPtrOut
 	}).(BotSlotValueSelectionSettingPtrOutput)
 }
 
+func (o BotSlotValueSelectionSettingOutput) AdvancedRecognitionSetting() BotAdvancedRecognitionSettingPtrOutput {
+	return o.ApplyT(func(v BotSlotValueSelectionSetting) *BotAdvancedRecognitionSetting {
+		return v.AdvancedRecognitionSetting
+	}).(BotAdvancedRecognitionSettingPtrOutput)
+}
+
 func (o BotSlotValueSelectionSettingOutput) RegexFilter() BotSlotValueRegexFilterPtrOutput {
 	return o.ApplyT(func(v BotSlotValueSelectionSetting) *BotSlotValueRegexFilter { return v.RegexFilter }).(BotSlotValueRegexFilterPtrOutput)
 }
@@ -6634,6 +7482,15 @@ func (o BotSlotValueSelectionSettingPtrOutput) Elem() BotSlotValueSelectionSetti
 		var ret BotSlotValueSelectionSetting
 		return ret
 	}).(BotSlotValueSelectionSettingOutput)
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) AdvancedRecognitionSetting() BotAdvancedRecognitionSettingPtrOutput {
+	return o.ApplyT(func(v *BotSlotValueSelectionSetting) *BotAdvancedRecognitionSetting {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedRecognitionSetting
+	}).(BotAdvancedRecognitionSettingPtrOutput)
 }
 
 func (o BotSlotValueSelectionSettingPtrOutput) RegexFilter() BotSlotValueRegexFilterPtrOutput {
@@ -6946,6 +7803,488 @@ func (o BotTagArrayOutput) Index(i pulumi.IntInput) BotTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotTag {
 		return vs[0].([]BotTag)[vs[1].(int)]
 	}).(BotTagOutput)
+}
+
+// Configuring the test bot alias settings for a given bot
+type BotTestBotAliasSettings struct {
+	BotAliasLocaleSettings  []BotAliasLocaleSettingsItem `pulumi:"botAliasLocaleSettings"`
+	ConversationLogSettings *BotConversationLogSettings  `pulumi:"conversationLogSettings"`
+	Description             *string                      `pulumi:"description"`
+	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+	SentimentAnalysisSettings *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties `pulumi:"sentimentAnalysisSettings"`
+}
+
+// BotTestBotAliasSettingsInput is an input type that accepts BotTestBotAliasSettingsArgs and BotTestBotAliasSettingsOutput values.
+// You can construct a concrete instance of `BotTestBotAliasSettingsInput` via:
+//
+//          BotTestBotAliasSettingsArgs{...}
+type BotTestBotAliasSettingsInput interface {
+	pulumi.Input
+
+	ToBotTestBotAliasSettingsOutput() BotTestBotAliasSettingsOutput
+	ToBotTestBotAliasSettingsOutputWithContext(context.Context) BotTestBotAliasSettingsOutput
+}
+
+// Configuring the test bot alias settings for a given bot
+type BotTestBotAliasSettingsArgs struct {
+	BotAliasLocaleSettings  BotAliasLocaleSettingsItemArrayInput `pulumi:"botAliasLocaleSettings"`
+	ConversationLogSettings BotConversationLogSettingsPtrInput   `pulumi:"conversationLogSettings"`
+	Description             pulumi.StringPtrInput                `pulumi:"description"`
+	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+	SentimentAnalysisSettings BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput `pulumi:"sentimentAnalysisSettings"`
+}
+
+func (BotTestBotAliasSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTestBotAliasSettings)(nil)).Elem()
+}
+
+func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsOutput() BotTestBotAliasSettingsOutput {
+	return i.ToBotTestBotAliasSettingsOutputWithContext(context.Background())
+}
+
+func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsOutputWithContext(ctx context.Context) BotTestBotAliasSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsOutput)
+}
+
+func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsPtrOutput() BotTestBotAliasSettingsPtrOutput {
+	return i.ToBotTestBotAliasSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsOutput).ToBotTestBotAliasSettingsPtrOutputWithContext(ctx)
+}
+
+// BotTestBotAliasSettingsPtrInput is an input type that accepts BotTestBotAliasSettingsArgs, BotTestBotAliasSettingsPtr and BotTestBotAliasSettingsPtrOutput values.
+// You can construct a concrete instance of `BotTestBotAliasSettingsPtrInput` via:
+//
+//          BotTestBotAliasSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type BotTestBotAliasSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotTestBotAliasSettingsPtrOutput() BotTestBotAliasSettingsPtrOutput
+	ToBotTestBotAliasSettingsPtrOutputWithContext(context.Context) BotTestBotAliasSettingsPtrOutput
+}
+
+type botTestBotAliasSettingsPtrType BotTestBotAliasSettingsArgs
+
+func BotTestBotAliasSettingsPtr(v *BotTestBotAliasSettingsArgs) BotTestBotAliasSettingsPtrInput {
+	return (*botTestBotAliasSettingsPtrType)(v)
+}
+
+func (*botTestBotAliasSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotTestBotAliasSettings)(nil)).Elem()
+}
+
+func (i *botTestBotAliasSettingsPtrType) ToBotTestBotAliasSettingsPtrOutput() BotTestBotAliasSettingsPtrOutput {
+	return i.ToBotTestBotAliasSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botTestBotAliasSettingsPtrType) ToBotTestBotAliasSettingsPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsPtrOutput)
+}
+
+// Configuring the test bot alias settings for a given bot
+type BotTestBotAliasSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotTestBotAliasSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTestBotAliasSettings)(nil)).Elem()
+}
+
+func (o BotTestBotAliasSettingsOutput) ToBotTestBotAliasSettingsOutput() BotTestBotAliasSettingsOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsOutput) ToBotTestBotAliasSettingsOutputWithContext(ctx context.Context) BotTestBotAliasSettingsOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsOutput) ToBotTestBotAliasSettingsPtrOutput() BotTestBotAliasSettingsPtrOutput {
+	return o.ToBotTestBotAliasSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotTestBotAliasSettingsOutput) ToBotTestBotAliasSettingsPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotTestBotAliasSettings) *BotTestBotAliasSettings {
+		return &v
+	}).(BotTestBotAliasSettingsPtrOutput)
+}
+
+func (o BotTestBotAliasSettingsOutput) BotAliasLocaleSettings() BotAliasLocaleSettingsItemArrayOutput {
+	return o.ApplyT(func(v BotTestBotAliasSettings) []BotAliasLocaleSettingsItem { return v.BotAliasLocaleSettings }).(BotAliasLocaleSettingsItemArrayOutput)
+}
+
+func (o BotTestBotAliasSettingsOutput) ConversationLogSettings() BotConversationLogSettingsPtrOutput {
+	return o.ApplyT(func(v BotTestBotAliasSettings) *BotConversationLogSettings { return v.ConversationLogSettings }).(BotConversationLogSettingsPtrOutput)
+}
+
+func (o BotTestBotAliasSettingsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotTestBotAliasSettings) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+func (o BotTestBotAliasSettingsOutput) SentimentAnalysisSettings() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v BotTestBotAliasSettings) *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
+		return v.SentimentAnalysisSettings
+	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
+}
+
+type BotTestBotAliasSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotTestBotAliasSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotTestBotAliasSettings)(nil)).Elem()
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) ToBotTestBotAliasSettingsPtrOutput() BotTestBotAliasSettingsPtrOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) ToBotTestBotAliasSettingsPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsPtrOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) Elem() BotTestBotAliasSettingsOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettings) BotTestBotAliasSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotTestBotAliasSettings
+		return ret
+	}).(BotTestBotAliasSettingsOutput)
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) BotAliasLocaleSettings() BotAliasLocaleSettingsItemArrayOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettings) []BotAliasLocaleSettingsItem {
+		if v == nil {
+			return nil
+		}
+		return v.BotAliasLocaleSettings
+	}).(BotAliasLocaleSettingsItemArrayOutput)
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) ConversationLogSettings() BotConversationLogSettingsPtrOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettings) *BotConversationLogSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ConversationLogSettings
+	}).(BotConversationLogSettingsPtrOutput)
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+func (o BotTestBotAliasSettingsPtrOutput) SentimentAnalysisSettings() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettings) *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SentimentAnalysisSettings
+	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
+}
+
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+type BotTestBotAliasSettingsSentimentAnalysisSettingsProperties struct {
+	// Enable to call Amazon Comprehend for Sentiment natively within Lex
+	DetectSentiment bool `pulumi:"detectSentiment"`
+}
+
+// BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput is an input type that accepts BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs and BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput values.
+// You can construct a concrete instance of `BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput` via:
+//
+//          BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{...}
+type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput
+	ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutputWithContext(context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput
+}
+
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs struct {
+	// Enable to call Amazon Comprehend for Sentiment natively within Lex
+	DetectSentiment pulumi.BoolInput `pulumi:"detectSentiment"`
+}
+
+func (BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTestBotAliasSettingsSentimentAnalysisSettingsProperties)(nil)).Elem()
+}
+
+func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput {
+	return i.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput)
+}
+
+func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return i.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput).ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput is an input type that accepts BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs, BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtr and BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput` via:
+//
+//          BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput
+	ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput
+}
+
+type botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs
+
+func BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtr(v *BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput {
+	return (*botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType)(v)
+}
+
+func (*botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotTestBotAliasSettingsSentimentAnalysisSettingsProperties)(nil)).Elem()
+}
+
+func (i *botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return i.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
+}
+
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTestBotAliasSettingsSentimentAnalysisSettingsProperties)(nil)).Elem()
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return o.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
+		return &v
+	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
+}
+
+// Enable to call Amazon Comprehend for Sentiment natively within Lex
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) DetectSentiment() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) bool { return v.DetectSentiment }).(pulumi.BoolOutput)
+}
+
+type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotTestBotAliasSettingsSentimentAnalysisSettingsProperties)(nil)).Elem()
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) Elem() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotTestBotAliasSettingsSentimentAnalysisSettingsProperties
+		return ret
+	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput)
+}
+
+// Enable to call Amazon Comprehend for Sentiment natively within Lex
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) DetectSentiment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DetectSentiment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+type BotTextLogDestination struct {
+	CloudWatch BotCloudWatchLogGroupLogDestination `pulumi:"cloudWatch"`
+}
+
+// BotTextLogDestinationInput is an input type that accepts BotTextLogDestinationArgs and BotTextLogDestinationOutput values.
+// You can construct a concrete instance of `BotTextLogDestinationInput` via:
+//
+//          BotTextLogDestinationArgs{...}
+type BotTextLogDestinationInput interface {
+	pulumi.Input
+
+	ToBotTextLogDestinationOutput() BotTextLogDestinationOutput
+	ToBotTextLogDestinationOutputWithContext(context.Context) BotTextLogDestinationOutput
+}
+
+// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+type BotTextLogDestinationArgs struct {
+	CloudWatch BotCloudWatchLogGroupLogDestinationInput `pulumi:"cloudWatch"`
+}
+
+func (BotTextLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTextLogDestination)(nil)).Elem()
+}
+
+func (i BotTextLogDestinationArgs) ToBotTextLogDestinationOutput() BotTextLogDestinationOutput {
+	return i.ToBotTextLogDestinationOutputWithContext(context.Background())
+}
+
+func (i BotTextLogDestinationArgs) ToBotTextLogDestinationOutputWithContext(ctx context.Context) BotTextLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogDestinationOutput)
+}
+
+// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+type BotTextLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (BotTextLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTextLogDestination)(nil)).Elem()
+}
+
+func (o BotTextLogDestinationOutput) ToBotTextLogDestinationOutput() BotTextLogDestinationOutput {
+	return o
+}
+
+func (o BotTextLogDestinationOutput) ToBotTextLogDestinationOutputWithContext(ctx context.Context) BotTextLogDestinationOutput {
+	return o
+}
+
+func (o BotTextLogDestinationOutput) CloudWatch() BotCloudWatchLogGroupLogDestinationOutput {
+	return o.ApplyT(func(v BotTextLogDestination) BotCloudWatchLogGroupLogDestination { return v.CloudWatch }).(BotCloudWatchLogGroupLogDestinationOutput)
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotTextLogSetting struct {
+	Destination BotTextLogDestination `pulumi:"destination"`
+	Enabled     bool                  `pulumi:"enabled"`
+}
+
+// BotTextLogSettingInput is an input type that accepts BotTextLogSettingArgs and BotTextLogSettingOutput values.
+// You can construct a concrete instance of `BotTextLogSettingInput` via:
+//
+//          BotTextLogSettingArgs{...}
+type BotTextLogSettingInput interface {
+	pulumi.Input
+
+	ToBotTextLogSettingOutput() BotTextLogSettingOutput
+	ToBotTextLogSettingOutputWithContext(context.Context) BotTextLogSettingOutput
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotTextLogSettingArgs struct {
+	Destination BotTextLogDestinationInput `pulumi:"destination"`
+	Enabled     pulumi.BoolInput           `pulumi:"enabled"`
+}
+
+func (BotTextLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTextLogSetting)(nil)).Elem()
+}
+
+func (i BotTextLogSettingArgs) ToBotTextLogSettingOutput() BotTextLogSettingOutput {
+	return i.ToBotTextLogSettingOutputWithContext(context.Background())
+}
+
+func (i BotTextLogSettingArgs) ToBotTextLogSettingOutputWithContext(ctx context.Context) BotTextLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogSettingOutput)
+}
+
+// BotTextLogSettingArrayInput is an input type that accepts BotTextLogSettingArray and BotTextLogSettingArrayOutput values.
+// You can construct a concrete instance of `BotTextLogSettingArrayInput` via:
+//
+//          BotTextLogSettingArray{ BotTextLogSettingArgs{...} }
+type BotTextLogSettingArrayInput interface {
+	pulumi.Input
+
+	ToBotTextLogSettingArrayOutput() BotTextLogSettingArrayOutput
+	ToBotTextLogSettingArrayOutputWithContext(context.Context) BotTextLogSettingArrayOutput
+}
+
+type BotTextLogSettingArray []BotTextLogSettingInput
+
+func (BotTextLogSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotTextLogSetting)(nil)).Elem()
+}
+
+func (i BotTextLogSettingArray) ToBotTextLogSettingArrayOutput() BotTextLogSettingArrayOutput {
+	return i.ToBotTextLogSettingArrayOutputWithContext(context.Background())
+}
+
+func (i BotTextLogSettingArray) ToBotTextLogSettingArrayOutputWithContext(ctx context.Context) BotTextLogSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogSettingArrayOutput)
+}
+
+// Contains information about code hooks that Amazon Lex calls during a conversation.
+type BotTextLogSettingOutput struct{ *pulumi.OutputState }
+
+func (BotTextLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTextLogSetting)(nil)).Elem()
+}
+
+func (o BotTextLogSettingOutput) ToBotTextLogSettingOutput() BotTextLogSettingOutput {
+	return o
+}
+
+func (o BotTextLogSettingOutput) ToBotTextLogSettingOutputWithContext(ctx context.Context) BotTextLogSettingOutput {
+	return o
+}
+
+func (o BotTextLogSettingOutput) Destination() BotTextLogDestinationOutput {
+	return o.ApplyT(func(v BotTextLogSetting) BotTextLogDestination { return v.Destination }).(BotTextLogDestinationOutput)
+}
+
+func (o BotTextLogSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotTextLogSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type BotTextLogSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (BotTextLogSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotTextLogSetting)(nil)).Elem()
+}
+
+func (o BotTextLogSettingArrayOutput) ToBotTextLogSettingArrayOutput() BotTextLogSettingArrayOutput {
+	return o
+}
+
+func (o BotTextLogSettingArrayOutput) ToBotTextLogSettingArrayOutputWithContext(ctx context.Context) BotTextLogSettingArrayOutput {
+	return o
+}
+
+func (o BotTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotTextLogSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotTextLogSetting {
+		return vs[0].([]BotTextLogSetting)[vs[1].(int)]
+	}).(BotTextLogSettingOutput)
 }
 
 // The version of a bot used for a bot locale.
@@ -7735,6 +9074,8 @@ func (o SentimentAnalysisSettingsPropertiesPtrOutput) DetectSentiment() pulumi.B
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAdvancedRecognitionSettingInput)(nil)).Elem(), BotAdvancedRecognitionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAdvancedRecognitionSettingPtrInput)(nil)).Elem(), BotAdvancedRecognitionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasAudioLogDestinationInput)(nil)).Elem(), BotAliasAudioLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasAudioLogSettingInput)(nil)).Elem(), BotAliasAudioLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasAudioLogSettingArrayInput)(nil)).Elem(), BotAliasAudioLogSettingArray{})
@@ -7754,10 +9095,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogDestinationInput)(nil)).Elem(), BotAliasTextLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingInput)(nil)).Elem(), BotAliasTextLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingArrayInput)(nil)).Elem(), BotAliasTextLogSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogDestinationInput)(nil)).Elem(), BotAudioLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingInput)(nil)).Elem(), BotAudioLogSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingArrayInput)(nil)).Elem(), BotAudioLogSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonInput)(nil)).Elem(), BotButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonArrayInput)(nil)).Elem(), BotButtonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCloudWatchLogGroupLogDestinationInput)(nil)).Elem(), BotCloudWatchLogGroupLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotConversationLogSettingsInput)(nil)).Elem(), BotConversationLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotConversationLogSettingsPtrInput)(nil)).Elem(), BotConversationLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomPayloadInput)(nil)).Elem(), BotCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomPayloadPtrInput)(nil)).Elem(), BotCustomPayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyInput)(nil)).Elem(), BotCustomVocabularyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyPtrInput)(nil)).Elem(), BotCustomVocabularyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyItemInput)(nil)).Elem(), BotCustomVocabularyItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyItemArrayInput)(nil)).Elem(), BotCustomVocabularyItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogCodeHookSettingInput)(nil)).Elem(), BotDialogCodeHookSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogCodeHookSettingPtrInput)(nil)).Elem(), BotDialogCodeHookSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotExternalSourceSettingInput)(nil)).Elem(), BotExternalSourceSettingArgs{})
@@ -7806,6 +9157,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationPtrInput)(nil)).Elem(), BotPromptSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotResponseSpecificationInput)(nil)).Elem(), BotResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotResponseSpecificationPtrInput)(nil)).Elem(), BotResponseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotS3BucketLogDestinationInput)(nil)).Elem(), BotS3BucketLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotS3LocationInput)(nil)).Elem(), BotS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotS3LocationPtrInput)(nil)).Elem(), BotS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSSMLMessageInput)(nil)).Elem(), BotSSMLMessageArgs{})
@@ -7835,6 +9187,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationPtrInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagInput)(nil)).Elem(), BotTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagArrayInput)(nil)).Elem(), BotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsInput)(nil)).Elem(), BotTestBotAliasSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsPtrInput)(nil)).Elem(), BotTestBotAliasSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput)(nil)).Elem(), BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput)(nil)).Elem(), BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogDestinationInput)(nil)).Elem(), BotTextLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogSettingInput)(nil)).Elem(), BotTextLogSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogSettingArrayInput)(nil)).Elem(), BotTextLogSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleDetailsInput)(nil)).Elem(), BotVersionLocaleDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationInput)(nil)).Elem(), BotVersionLocaleSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationArrayInput)(nil)).Elem(), BotVersionLocaleSpecificationArray{})
@@ -7846,6 +9205,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyPolicyInput)(nil)).Elem(), ResourcePolicyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SentimentAnalysisSettingsPropertiesInput)(nil)).Elem(), SentimentAnalysisSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SentimentAnalysisSettingsPropertiesPtrInput)(nil)).Elem(), SentimentAnalysisSettingsPropertiesArgs{})
+	pulumi.RegisterOutputType(BotAdvancedRecognitionSettingOutput{})
+	pulumi.RegisterOutputType(BotAdvancedRecognitionSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasAudioLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotAliasAudioLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAliasAudioLogSettingArrayOutput{})
@@ -7865,10 +9226,20 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasTextLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingArrayOutput{})
+	pulumi.RegisterOutputType(BotAudioLogDestinationOutput{})
+	pulumi.RegisterOutputType(BotAudioLogSettingOutput{})
+	pulumi.RegisterOutputType(BotAudioLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotButtonOutput{})
 	pulumi.RegisterOutputType(BotButtonArrayOutput{})
+	pulumi.RegisterOutputType(BotCloudWatchLogGroupLogDestinationOutput{})
+	pulumi.RegisterOutputType(BotConversationLogSettingsOutput{})
+	pulumi.RegisterOutputType(BotConversationLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotCustomPayloadOutput{})
 	pulumi.RegisterOutputType(BotCustomPayloadPtrOutput{})
+	pulumi.RegisterOutputType(BotCustomVocabularyOutput{})
+	pulumi.RegisterOutputType(BotCustomVocabularyPtrOutput{})
+	pulumi.RegisterOutputType(BotCustomVocabularyItemOutput{})
+	pulumi.RegisterOutputType(BotCustomVocabularyItemArrayOutput{})
 	pulumi.RegisterOutputType(BotDialogCodeHookSettingOutput{})
 	pulumi.RegisterOutputType(BotDialogCodeHookSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotExternalSourceSettingOutput{})
@@ -7917,6 +9288,7 @@ func init() {
 	pulumi.RegisterOutputType(BotPromptSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotResponseSpecificationOutput{})
 	pulumi.RegisterOutputType(BotResponseSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotS3BucketLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotS3LocationOutput{})
 	pulumi.RegisterOutputType(BotS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(BotSSMLMessageOutput{})
@@ -7946,6 +9318,13 @@ func init() {
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotTagOutput{})
 	pulumi.RegisterOutputType(BotTagArrayOutput{})
+	pulumi.RegisterOutputType(BotTestBotAliasSettingsOutput{})
+	pulumi.RegisterOutputType(BotTestBotAliasSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotTextLogDestinationOutput{})
+	pulumi.RegisterOutputType(BotTextLogSettingOutput{})
+	pulumi.RegisterOutputType(BotTextLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleDetailsOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleSpecificationOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleSpecificationArrayOutput{})

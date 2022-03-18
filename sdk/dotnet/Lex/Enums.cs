@@ -38,6 +38,36 @@ namespace Pulumi.AwsNative.Lex
     }
 
     /// <summary>
+    /// Enables using slot values as a custom vocabulary when recognizing user utterances.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotAudioRecognitionStrategy : IEquatable<BotAudioRecognitionStrategy>
+    {
+        private readonly string _value;
+
+        private BotAudioRecognitionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotAudioRecognitionStrategy UseSlotValuesAsCustomVocabulary { get; } = new BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary");
+
+        public static bool operator ==(BotAudioRecognitionStrategy left, BotAudioRecognitionStrategy right) => left.Equals(right);
+        public static bool operator !=(BotAudioRecognitionStrategy left, BotAudioRecognitionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(BotAudioRecognitionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotAudioRecognitionStrategy other && Equals(other);
+        public bool Equals(BotAudioRecognitionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
     /// </summary>
     [EnumType]

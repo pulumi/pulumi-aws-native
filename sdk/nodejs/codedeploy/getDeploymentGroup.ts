@@ -38,7 +38,9 @@ export interface GetDeploymentGroupResult {
     readonly loadBalancerInfo?: outputs.codedeploy.DeploymentGroupLoadBalancerInfo;
     readonly onPremisesInstanceTagFilters?: outputs.codedeploy.DeploymentGroupTagFilter[];
     readonly onPremisesTagSet?: outputs.codedeploy.DeploymentGroupOnPremisesTagSet;
+    readonly outdatedInstancesStrategy?: string;
     readonly serviceRoleArn?: string;
+    readonly tags?: outputs.codedeploy.DeploymentGroupTag[];
     readonly triggerConfigurations?: outputs.codedeploy.DeploymentGroupTriggerConfig[];
 }
 

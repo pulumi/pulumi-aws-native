@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentGroupResult:
-    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, e_cs_services=None, ec2_tag_filters=None, ec2_tag_set=None, id=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, service_role_arn=None, trigger_configurations=None):
+    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, e_cs_services=None, ec2_tag_filters=None, ec2_tag_set=None, id=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, trigger_configurations=None):
         if alarm_configuration and not isinstance(alarm_configuration, dict):
             raise TypeError("Expected argument 'alarm_configuration' to be a dict")
         pulumi.set(__self__, "alarm_configuration", alarm_configuration)
@@ -61,9 +61,15 @@ class GetDeploymentGroupResult:
         if on_premises_tag_set and not isinstance(on_premises_tag_set, dict):
             raise TypeError("Expected argument 'on_premises_tag_set' to be a dict")
         pulumi.set(__self__, "on_premises_tag_set", on_premises_tag_set)
+        if outdated_instances_strategy and not isinstance(outdated_instances_strategy, str):
+            raise TypeError("Expected argument 'outdated_instances_strategy' to be a str")
+        pulumi.set(__self__, "outdated_instances_strategy", outdated_instances_strategy)
         if service_role_arn and not isinstance(service_role_arn, str):
             raise TypeError("Expected argument 'service_role_arn' to be a str")
         pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if trigger_configurations and not isinstance(trigger_configurations, list):
             raise TypeError("Expected argument 'trigger_configurations' to be a list")
         pulumi.set(__self__, "trigger_configurations", trigger_configurations)
@@ -139,9 +145,19 @@ class GetDeploymentGroupResult:
         return pulumi.get(self, "on_premises_tag_set")
 
     @property
+    @pulumi.getter(name="outdatedInstancesStrategy")
+    def outdated_instances_strategy(self) -> Optional[str]:
+        return pulumi.get(self, "outdated_instances_strategy")
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "service_role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.DeploymentGroupTag']]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="triggerConfigurations")
@@ -169,7 +185,9 @@ class AwaitableGetDeploymentGroupResult(GetDeploymentGroupResult):
             load_balancer_info=self.load_balancer_info,
             on_premises_instance_tag_filters=self.on_premises_instance_tag_filters,
             on_premises_tag_set=self.on_premises_tag_set,
+            outdated_instances_strategy=self.outdated_instances_strategy,
             service_role_arn=self.service_role_arn,
+            tags=self.tags,
             trigger_configurations=self.trigger_configurations)
 
 
@@ -201,7 +219,9 @@ def get_deployment_group(id: Optional[str] = None,
         load_balancer_info=__ret__.load_balancer_info,
         on_premises_instance_tag_filters=__ret__.on_premises_instance_tag_filters,
         on_premises_tag_set=__ret__.on_premises_tag_set,
+        outdated_instances_strategy=__ret__.outdated_instances_strategy,
         service_role_arn=__ret__.service_role_arn,
+        tags=__ret__.tags,
         trigger_configurations=__ret__.trigger_configurations)
 
 

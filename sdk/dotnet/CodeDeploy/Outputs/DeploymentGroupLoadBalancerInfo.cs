@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.CodeDeploy.Outputs
     {
         public readonly ImmutableArray<Outputs.DeploymentGroupELBInfo> ElbInfoList;
         public readonly ImmutableArray<Outputs.DeploymentGroupTargetGroupInfo> TargetGroupInfoList;
+        public readonly ImmutableArray<Outputs.DeploymentGroupTargetGroupPairInfo> TargetGroupPairInfoList;
 
         [OutputConstructor]
         private DeploymentGroupLoadBalancerInfo(
             ImmutableArray<Outputs.DeploymentGroupELBInfo> elbInfoList,
 
-            ImmutableArray<Outputs.DeploymentGroupTargetGroupInfo> targetGroupInfoList)
+            ImmutableArray<Outputs.DeploymentGroupTargetGroupInfo> targetGroupInfoList,
+
+            ImmutableArray<Outputs.DeploymentGroupTargetGroupPairInfo> targetGroupPairInfoList)
         {
             ElbInfoList = elbInfoList;
             TargetGroupInfoList = targetGroupInfoList;
+            TargetGroupPairInfoList = targetGroupPairInfoList;
         }
     }
 }
