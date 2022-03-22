@@ -9898,14 +9898,14 @@
             "inputs": {
                 "deliverLogsPermissionArn": {
                     "type": "string",
-                    "description": "The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName."
+                    "description": "The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName."
                 },
                 "destinationOptions": {
                     "$ref": "#/types/aws-native:ec2:DestinationOptionsProperties"
                 },
                 "logDestination": {
                     "type": "string",
-                    "description": "Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType."
+                    "description": "Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType."
                 },
                 "logDestinationType": {
                     "$ref": "#/types/aws-native:ec2:FlowLogLogDestinationType",
@@ -9917,7 +9917,7 @@
                 },
                 "logGroupName": {
                     "type": "string",
-                    "description": "The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName."
+                    "description": "The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName."
                 },
                 "maxAggregationInterval": {
                     "type": "integer",
@@ -9946,14 +9946,14 @@
             "outputs": {
                 "deliverLogsPermissionArn": {
                     "type": "string",
-                    "description": "The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName."
+                    "description": "The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName."
                 },
                 "destinationOptions": {
                     "$ref": "#/types/aws-native:ec2:DestinationOptionsProperties"
                 },
                 "logDestination": {
                     "type": "string",
-                    "description": "Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType."
+                    "description": "Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType."
                 },
                 "logDestinationType": {
                     "$ref": "#/types/aws-native:ec2:FlowLogLogDestinationType",
@@ -9965,7 +9965,7 @@
                 },
                 "logGroupName": {
                     "type": "string",
-                    "description": "The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName."
+                    "description": "The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName."
                 },
                 "maxAggregationInterval": {
                     "type": "integer",
