@@ -3789,8 +3789,9 @@ func (in *flowLogDestinationOptionsPropertiesFileFormatPtr) ToFlowLogDestination
 type FlowLogLogDestinationType string
 
 const (
-	FlowLogLogDestinationTypeCloudWatchLogs = FlowLogLogDestinationType("cloud-watch-logs")
-	FlowLogLogDestinationTypeS3             = FlowLogLogDestinationType("s3")
+	FlowLogLogDestinationTypeCloudWatchLogs      = FlowLogLogDestinationType("cloud-watch-logs")
+	FlowLogLogDestinationTypeS3                  = FlowLogLogDestinationType("s3")
+	FlowLogLogDestinationTypeKinesisDataFirehose = FlowLogLogDestinationType("kinesis-data-firehose")
 )
 
 func (FlowLogLogDestinationType) ElementType() reflect.Type {

@@ -213,6 +213,7 @@ export type FlowLogDestinationOptionsPropertiesFileFormat = (typeof FlowLogDesti
 export const FlowLogLogDestinationType = {
     CloudWatchLogs: "cloud-watch-logs",
     S3: "s3",
+    KinesisDataFirehose: "kinesis-data-firehose",
 } as const;
 
 /**

@@ -231,6 +231,7 @@ class FlowLogLogDestinationType(str, Enum):
     """
     CLOUD_WATCH_LOGS = "cloud-watch-logs"
     S3 = "s3"
+    KINESIS_DATA_FIREHOSE = "kinesis-data-firehose"
 
 
 class FlowLogResourceType(str, Enum):

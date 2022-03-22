@@ -671,6 +671,7 @@ namespace Pulumi.AwsNative.EC2
 
         public static FlowLogLogDestinationType CloudWatchLogs { get; } = new FlowLogLogDestinationType("cloud-watch-logs");
         public static FlowLogLogDestinationType S3 { get; } = new FlowLogLogDestinationType("s3");
+        public static FlowLogLogDestinationType KinesisDataFirehose { get; } = new FlowLogLogDestinationType("kinesis-data-firehose");
 
         public static bool operator ==(FlowLogLogDestinationType left, FlowLogLogDestinationType right) => left.Equals(right);
         public static bool operator !=(FlowLogLogDestinationType left, FlowLogLogDestinationType right) => !left.Equals(right);

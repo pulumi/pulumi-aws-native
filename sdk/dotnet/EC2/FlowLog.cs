@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.EC2
     public partial class FlowLog : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
+        /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         /// </summary>
         [Output("deliverLogsPermissionArn")]
         public Output<string?> DeliverLogsPermissionArn { get; private set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<Outputs.DestinationOptionsProperties?> DestinationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
+        /// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         /// </summary>
         [Output("logDestination")]
         public Output<string?> LogDestination { get; private set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string?> LogFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
+        /// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         /// </summary>
         [Output("logGroupName")]
         public Output<string?> LogGroupName { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class FlowLogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
+        /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         /// </summary>
         [Input("deliverLogsPermissionArn")]
         public Input<string>? DeliverLogsPermissionArn { get; set; }
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.EC2
         public Input<Inputs.DestinationOptionsPropertiesArgs>? DestinationOptions { get; set; }
 
         /// <summary>
-        /// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
+        /// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         /// </summary>
         [Input("logDestination")]
         public Input<string>? LogDestination { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.EC2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
+        /// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
