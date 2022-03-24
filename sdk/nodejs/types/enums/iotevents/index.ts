@@ -2,6 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AlarmModelSimpleRuleComparisonOperator = {
+    Greater: "GREATER",
+    GreaterOrEqual: "GREATER_OR_EQUAL",
+    Less: "LESS",
+    LessOrEqual: "LESS_OR_EQUAL",
+    Equal: "EQUAL",
+    NotEqual: "NOT_EQUAL",
+} as const;
+
+/**
+ * The comparison operator.
+ */
+export type AlarmModelSimpleRuleComparisonOperator = (typeof AlarmModelSimpleRuleComparisonOperator)[keyof typeof AlarmModelSimpleRuleComparisonOperator];
+
 export const DetectorModelEvaluationMethod = {
     Batch: "BATCH",
     Serial: "SERIAL",

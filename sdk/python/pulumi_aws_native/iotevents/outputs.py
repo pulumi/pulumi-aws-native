@@ -11,6 +11,27 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AlarmModelAcknowledgeFlow',
+    'AlarmModelAlarmAction',
+    'AlarmModelAlarmCapabilities',
+    'AlarmModelAlarmEventActions',
+    'AlarmModelAlarmRule',
+    'AlarmModelAssetPropertyTimestamp',
+    'AlarmModelAssetPropertyValue',
+    'AlarmModelAssetPropertyVariant',
+    'AlarmModelDynamoDB',
+    'AlarmModelDynamoDBv2',
+    'AlarmModelFirehose',
+    'AlarmModelInitializationConfiguration',
+    'AlarmModelIotEvents',
+    'AlarmModelIotSiteWise',
+    'AlarmModelIotTopicPublish',
+    'AlarmModelLambda',
+    'AlarmModelPayload',
+    'AlarmModelSimpleRule',
+    'AlarmModelSns',
+    'AlarmModelSqs',
+    'AlarmModelTag',
     'DetectorModelAction',
     'DetectorModelAssetPropertyTimestamp',
     'DetectorModelAssetPropertyValue',
@@ -41,6 +62,1260 @@ __all__ = [
     'InputDefinition',
     'InputTag',
 ]
+
+@pulumi.output_type
+class AlarmModelAcknowledgeFlow(dict):
+    """
+    Specifies whether to get notified for alarm state changes.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Specifies whether to get notified for alarm state changes.
+        :param bool enabled: The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AlarmModelAlarmAction(dict):
+    """
+    The actions to be performed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamoDB":
+            suggest = "dynamo_db"
+        elif key == "dynamoDBv2":
+            suggest = "dynamo_d_bv2"
+        elif key == "iotEvents":
+            suggest = "iot_events"
+        elif key == "iotSiteWise":
+            suggest = "iot_site_wise"
+        elif key == "iotTopicPublish":
+            suggest = "iot_topic_publish"
+        elif key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelAlarmAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelAlarmAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelAlarmAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamo_db: Optional['outputs.AlarmModelDynamoDB'] = None,
+                 dynamo_d_bv2: Optional['outputs.AlarmModelDynamoDBv2'] = None,
+                 firehose: Optional['outputs.AlarmModelFirehose'] = None,
+                 iot_events: Optional['outputs.AlarmModelIotEvents'] = None,
+                 iot_site_wise: Optional['outputs.AlarmModelIotSiteWise'] = None,
+                 iot_topic_publish: Optional['outputs.AlarmModelIotTopicPublish'] = None,
+                 lambda_: Optional['outputs.AlarmModelLambda'] = None,
+                 sns: Optional['outputs.AlarmModelSns'] = None,
+                 sqs: Optional['outputs.AlarmModelSqs'] = None):
+        """
+        The actions to be performed.
+        """
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
+        if dynamo_d_bv2 is not None:
+            pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if iot_events is not None:
+            pulumi.set(__self__, "iot_events", iot_events)
+        if iot_site_wise is not None:
+            pulumi.set(__self__, "iot_site_wise", iot_site_wise)
+        if iot_topic_publish is not None:
+            pulumi.set(__self__, "iot_topic_publish", iot_topic_publish)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+        if sns is not None:
+            pulumi.set(__self__, "sns", sns)
+        if sqs is not None:
+            pulumi.set(__self__, "sqs", sqs)
+
+    @property
+    @pulumi.getter(name="dynamoDB")
+    def dynamo_db(self) -> Optional['outputs.AlarmModelDynamoDB']:
+        return pulumi.get(self, "dynamo_db")
+
+    @property
+    @pulumi.getter(name="dynamoDBv2")
+    def dynamo_d_bv2(self) -> Optional['outputs.AlarmModelDynamoDBv2']:
+        return pulumi.get(self, "dynamo_d_bv2")
+
+    @property
+    @pulumi.getter
+    def firehose(self) -> Optional['outputs.AlarmModelFirehose']:
+        return pulumi.get(self, "firehose")
+
+    @property
+    @pulumi.getter(name="iotEvents")
+    def iot_events(self) -> Optional['outputs.AlarmModelIotEvents']:
+        return pulumi.get(self, "iot_events")
+
+    @property
+    @pulumi.getter(name="iotSiteWise")
+    def iot_site_wise(self) -> Optional['outputs.AlarmModelIotSiteWise']:
+        return pulumi.get(self, "iot_site_wise")
+
+    @property
+    @pulumi.getter(name="iotTopicPublish")
+    def iot_topic_publish(self) -> Optional['outputs.AlarmModelIotTopicPublish']:
+        return pulumi.get(self, "iot_topic_publish")
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional['outputs.AlarmModelLambda']:
+        return pulumi.get(self, "lambda_")
+
+    @property
+    @pulumi.getter
+    def sns(self) -> Optional['outputs.AlarmModelSns']:
+        return pulumi.get(self, "sns")
+
+    @property
+    @pulumi.getter
+    def sqs(self) -> Optional['outputs.AlarmModelSqs']:
+        return pulumi.get(self, "sqs")
+
+
+@pulumi.output_type
+class AlarmModelAlarmCapabilities(dict):
+    """
+    Contains the configuration information of alarm state changes
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acknowledgeFlow":
+            suggest = "acknowledge_flow"
+        elif key == "initializationConfiguration":
+            suggest = "initialization_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelAlarmCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelAlarmCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelAlarmCapabilities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acknowledge_flow: Optional['outputs.AlarmModelAcknowledgeFlow'] = None,
+                 initialization_configuration: Optional['outputs.AlarmModelInitializationConfiguration'] = None):
+        """
+        Contains the configuration information of alarm state changes
+        """
+        if acknowledge_flow is not None:
+            pulumi.set(__self__, "acknowledge_flow", acknowledge_flow)
+        if initialization_configuration is not None:
+            pulumi.set(__self__, "initialization_configuration", initialization_configuration)
+
+    @property
+    @pulumi.getter(name="acknowledgeFlow")
+    def acknowledge_flow(self) -> Optional['outputs.AlarmModelAcknowledgeFlow']:
+        return pulumi.get(self, "acknowledge_flow")
+
+    @property
+    @pulumi.getter(name="initializationConfiguration")
+    def initialization_configuration(self) -> Optional['outputs.AlarmModelInitializationConfiguration']:
+        return pulumi.get(self, "initialization_configuration")
+
+
+@pulumi.output_type
+class AlarmModelAlarmEventActions(dict):
+    """
+    Contains information about one or more alarm actions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmActions":
+            suggest = "alarm_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelAlarmEventActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelAlarmEventActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelAlarmEventActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_actions: Optional[Sequence['outputs.AlarmModelAlarmAction']] = None):
+        """
+        Contains information about one or more alarm actions.
+        """
+        if alarm_actions is not None:
+            pulumi.set(__self__, "alarm_actions", alarm_actions)
+
+    @property
+    @pulumi.getter(name="alarmActions")
+    def alarm_actions(self) -> Optional[Sequence['outputs.AlarmModelAlarmAction']]:
+        return pulumi.get(self, "alarm_actions")
+
+
+@pulumi.output_type
+class AlarmModelAlarmRule(dict):
+    """
+    Defines when your alarm is invoked.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleRule":
+            suggest = "simple_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelAlarmRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelAlarmRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelAlarmRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_rule: Optional['outputs.AlarmModelSimpleRule'] = None):
+        """
+        Defines when your alarm is invoked.
+        """
+        if simple_rule is not None:
+            pulumi.set(__self__, "simple_rule", simple_rule)
+
+    @property
+    @pulumi.getter(name="simpleRule")
+    def simple_rule(self) -> Optional['outputs.AlarmModelSimpleRule']:
+        return pulumi.get(self, "simple_rule")
+
+
+@pulumi.output_type
+class AlarmModelAssetPropertyTimestamp(dict):
+    """
+    A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInSeconds":
+            suggest = "time_in_seconds"
+        elif key == "offsetInNanos":
+            suggest = "offset_in_nanos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelAssetPropertyTimestamp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelAssetPropertyTimestamp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelAssetPropertyTimestamp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_in_seconds: str,
+                 offset_in_nanos: Optional[str] = None):
+        """
+        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+        :param str time_in_seconds: The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+        :param str offset_in_nanos: The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+        """
+        pulumi.set(__self__, "time_in_seconds", time_in_seconds)
+        if offset_in_nanos is not None:
+            pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
+
+    @property
+    @pulumi.getter(name="timeInSeconds")
+    def time_in_seconds(self) -> str:
+        """
+        The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+        """
+        return pulumi.get(self, "time_in_seconds")
+
+    @property
+    @pulumi.getter(name="offsetInNanos")
+    def offset_in_nanos(self) -> Optional[str]:
+        """
+        The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+        """
+        return pulumi.get(self, "offset_in_nanos")
+
+
+@pulumi.output_type
+class AlarmModelAssetPropertyValue(dict):
+    """
+    A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+    """
+    def __init__(__self__, *,
+                 value: 'outputs.AlarmModelAssetPropertyVariant',
+                 quality: Optional[str] = None,
+                 timestamp: Optional['outputs.AlarmModelAssetPropertyTimestamp'] = None):
+        """
+        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+        :param str quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        """
+        pulumi.set(__self__, "value", value)
+        if quality is not None:
+            pulumi.set(__self__, "quality", quality)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.AlarmModelAssetPropertyVariant':
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def quality(self) -> Optional[str]:
+        """
+        The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        """
+        return pulumi.get(self, "quality")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional['outputs.AlarmModelAssetPropertyTimestamp']:
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class AlarmModelAssetPropertyVariant(dict):
+    """
+    A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanValue":
+            suggest = "boolean_value"
+        elif key == "doubleValue":
+            suggest = "double_value"
+        elif key == "integerValue":
+            suggest = "integer_value"
+        elif key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelAssetPropertyVariant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelAssetPropertyVariant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelAssetPropertyVariant.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_value: Optional[str] = None,
+                 double_value: Optional[str] = None,
+                 integer_value: Optional[str] = None,
+                 string_value: Optional[str] = None):
+        """
+        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+        :param str boolean_value: The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+        :param str double_value: The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+        :param str integer_value: The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+        :param str string_value: The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if double_value is not None:
+            pulumi.set(__self__, "double_value", double_value)
+        if integer_value is not None:
+            pulumi.set(__self__, "integer_value", integer_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> Optional[str]:
+        """
+        The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+        """
+        return pulumi.get(self, "boolean_value")
+
+    @property
+    @pulumi.getter(name="doubleValue")
+    def double_value(self) -> Optional[str]:
+        """
+        The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+        """
+        return pulumi.get(self, "double_value")
+
+    @property
+    @pulumi.getter(name="integerValue")
+    def integer_value(self) -> Optional[str]:
+        """
+        The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+        """
+        return pulumi.get(self, "integer_value")
+
+    @property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[str]:
+        """
+        The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+        """
+        return pulumi.get(self, "string_value")
+
+
+@pulumi.output_type
+class AlarmModelDynamoDB(dict):
+    """
+    Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hashKeyField":
+            suggest = "hash_key_field"
+        elif key == "hashKeyValue":
+            suggest = "hash_key_value"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "hashKeyType":
+            suggest = "hash_key_type"
+        elif key == "payloadField":
+            suggest = "payload_field"
+        elif key == "rangeKeyField":
+            suggest = "range_key_field"
+        elif key == "rangeKeyType":
+            suggest = "range_key_type"
+        elif key == "rangeKeyValue":
+            suggest = "range_key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelDynamoDB. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelDynamoDB.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelDynamoDB.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hash_key_field: str,
+                 hash_key_value: str,
+                 table_name: str,
+                 hash_key_type: Optional[str] = None,
+                 operation: Optional[str] = None,
+                 payload: Optional['outputs.AlarmModelPayload'] = None,
+                 payload_field: Optional[str] = None,
+                 range_key_field: Optional[str] = None,
+                 range_key_type: Optional[str] = None,
+                 range_key_value: Optional[str] = None):
+        """
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+        :param str hash_key_field: The name of the hash key (also called the partition key).
+        :param str hash_key_value: The value of the hash key (also called the partition key).
+        :param str table_name: The name of the DynamoDB table.
+        :param str hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
+               
+               * `STRING` - The hash key is a string.
+               
+               * `NUMBER` - The hash key is a number.
+               
+               If you don't specify `hashKeyType`, the default value is `STRING`.
+        :param str operation: The type of operation to perform. You can specify the following values:
+               
+               * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+               
+               * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+               
+               * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+               
+               If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+        :param str payload_field: The name of the DynamoDB column that receives the action payload.
+               
+               If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+        :param str range_key_field: The name of the range key (also called the sort key).
+        :param str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
+               
+               * `STRING` - The range key is a string.
+               
+               * `NUMBER` - The range key is number.
+               
+               If you don't specify `rangeKeyField`, the default value is `STRING`.
+        :param str range_key_value: The value of the range key (also called the sort key).
+        """
+        pulumi.set(__self__, "hash_key_field", hash_key_field)
+        pulumi.set(__self__, "hash_key_value", hash_key_value)
+        pulumi.set(__self__, "table_name", table_name)
+        if hash_key_type is not None:
+            pulumi.set(__self__, "hash_key_type", hash_key_type)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if payload_field is not None:
+            pulumi.set(__self__, "payload_field", payload_field)
+        if range_key_field is not None:
+            pulumi.set(__self__, "range_key_field", range_key_field)
+        if range_key_type is not None:
+            pulumi.set(__self__, "range_key_type", range_key_type)
+        if range_key_value is not None:
+            pulumi.set(__self__, "range_key_value", range_key_value)
+
+    @property
+    @pulumi.getter(name="hashKeyField")
+    def hash_key_field(self) -> str:
+        """
+        The name of the hash key (also called the partition key).
+        """
+        return pulumi.get(self, "hash_key_field")
+
+    @property
+    @pulumi.getter(name="hashKeyValue")
+    def hash_key_value(self) -> str:
+        """
+        The value of the hash key (also called the partition key).
+        """
+        return pulumi.get(self, "hash_key_value")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the DynamoDB table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="hashKeyType")
+    def hash_key_type(self) -> Optional[str]:
+        """
+        The data type for the hash key (also called the partition key). You can specify the following values:
+
+        * `STRING` - The hash key is a string.
+
+        * `NUMBER` - The hash key is a number.
+
+        If you don't specify `hashKeyType`, the default value is `STRING`.
+        """
+        return pulumi.get(self, "hash_key_type")
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[str]:
+        """
+        The type of operation to perform. You can specify the following values:
+
+        * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+
+        * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+
+        * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+
+        If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter(name="payloadField")
+    def payload_field(self) -> Optional[str]:
+        """
+        The name of the DynamoDB column that receives the action payload.
+
+        If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+        """
+        return pulumi.get(self, "payload_field")
+
+    @property
+    @pulumi.getter(name="rangeKeyField")
+    def range_key_field(self) -> Optional[str]:
+        """
+        The name of the range key (also called the sort key).
+        """
+        return pulumi.get(self, "range_key_field")
+
+    @property
+    @pulumi.getter(name="rangeKeyType")
+    def range_key_type(self) -> Optional[str]:
+        """
+        The data type for the range key (also called the sort key), You can specify the following values:
+
+        * `STRING` - The range key is a string.
+
+        * `NUMBER` - The range key is number.
+
+        If you don't specify `rangeKeyField`, the default value is `STRING`.
+        """
+        return pulumi.get(self, "range_key_type")
+
+    @property
+    @pulumi.getter(name="rangeKeyValue")
+    def range_key_value(self) -> Optional[str]:
+        """
+        The value of the range key (also called the sort key).
+        """
+        return pulumi.get(self, "range_key_value")
+
+
+@pulumi.output_type
+class AlarmModelDynamoDBv2(dict):
+    """
+    Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+
+    You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelDynamoDBv2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelDynamoDBv2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelDynamoDBv2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_name: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None):
+        """
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+
+        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+        :param str table_name: The name of the DynamoDB table.
+        """
+        pulumi.set(__self__, "table_name", table_name)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the DynamoDB table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AlarmModelFirehose(dict):
+    """
+    Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamName":
+            suggest = "delivery_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelFirehose.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_stream_name: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None,
+                 separator: Optional[str] = None):
+        """
+        Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
+        :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        """
+        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if separator is not None:
+            pulumi.set(__self__, "separator", separator)
+
+    @property
+    @pulumi.getter(name="deliveryStreamName")
+    def delivery_stream_name(self) -> str:
+        """
+        The name of the Kinesis Data Firehose delivery stream where the data is written.
+        """
+        return pulumi.get(self, "delivery_stream_name")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def separator(self) -> Optional[str]:
+        """
+        A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        """
+        return pulumi.get(self, "separator")
+
+
+@pulumi.output_type
+class AlarmModelInitializationConfiguration(dict):
+    """
+    Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledOnInitialization":
+            suggest = "disabled_on_initialization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelInitializationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelInitializationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelInitializationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disabled_on_initialization: bool):
+        """
+        Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
+        :param bool disabled_on_initialization: The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+        """
+        pulumi.set(__self__, "disabled_on_initialization", disabled_on_initialization)
+
+    @property
+    @pulumi.getter(name="disabledOnInitialization")
+    def disabled_on_initialization(self) -> bool:
+        """
+        The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+        """
+        return pulumi.get(self, "disabled_on_initialization")
+
+
+@pulumi.output_type
+class AlarmModelIotEvents(dict):
+    """
+    Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputName":
+            suggest = "input_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelIotEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelIotEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelIotEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_name: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None):
+        """
+        Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+        :param str input_name: The name of the AWS IoT Events input where the data is sent.
+        """
+        pulumi.set(__self__, "input_name", input_name)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="inputName")
+    def input_name(self) -> str:
+        """
+        The name of the AWS IoT Events input where the data is sent.
+        """
+        return pulumi.get(self, "input_name")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AlarmModelIotSiteWise(dict):
+    """
+    Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyValue":
+            suggest = "property_value"
+        elif key == "assetId":
+            suggest = "asset_id"
+        elif key == "entryId":
+            suggest = "entry_id"
+        elif key == "propertyAlias":
+            suggest = "property_alias"
+        elif key == "propertyId":
+            suggest = "property_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelIotSiteWise. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelIotSiteWise.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelIotSiteWise.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 property_value: 'outputs.AlarmModelAssetPropertyValue',
+                 asset_id: Optional[str] = None,
+                 entry_id: Optional[str] = None,
+                 property_alias: Optional[str] = None,
+                 property_id: Optional[str] = None):
+        """
+        Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+        :param str asset_id: The ID of the asset that has the specified property. You can specify an expression.
+        :param str entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+        :param str property_alias: The alias of the asset property. You can also specify an expression.
+        :param str property_id: The ID of the asset property. You can specify an expression.
+        """
+        pulumi.set(__self__, "property_value", property_value)
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
+        if entry_id is not None:
+            pulumi.set(__self__, "entry_id", entry_id)
+        if property_alias is not None:
+            pulumi.set(__self__, "property_alias", property_alias)
+        if property_id is not None:
+            pulumi.set(__self__, "property_id", property_id)
+
+    @property
+    @pulumi.getter(name="propertyValue")
+    def property_value(self) -> 'outputs.AlarmModelAssetPropertyValue':
+        return pulumi.get(self, "property_value")
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[str]:
+        """
+        The ID of the asset that has the specified property. You can specify an expression.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter(name="entryId")
+    def entry_id(self) -> Optional[str]:
+        """
+        A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+        """
+        return pulumi.get(self, "entry_id")
+
+    @property
+    @pulumi.getter(name="propertyAlias")
+    def property_alias(self) -> Optional[str]:
+        """
+        The alias of the asset property. You can also specify an expression.
+        """
+        return pulumi.get(self, "property_alias")
+
+    @property
+    @pulumi.getter(name="propertyId")
+    def property_id(self) -> Optional[str]:
+        """
+        The ID of the asset property. You can specify an expression.
+        """
+        return pulumi.get(self, "property_id")
+
+
+@pulumi.output_type
+class AlarmModelIotTopicPublish(dict):
+    """
+    Information required to publish the MQTT message through the AWS IoT message broker.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mqttTopic":
+            suggest = "mqtt_topic"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelIotTopicPublish. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelIotTopicPublish.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelIotTopicPublish.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mqtt_topic: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None):
+        """
+        Information required to publish the MQTT message through the AWS IoT message broker.
+        :param str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+        """
+        pulumi.set(__self__, "mqtt_topic", mqtt_topic)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="mqttTopic")
+    def mqtt_topic(self) -> str:
+        """
+        The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+        """
+        return pulumi.get(self, "mqtt_topic")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AlarmModelLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelLambda.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_arn: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None):
+        """
+        :param str function_arn: The ARN of the Lambda function that is executed.
+        """
+        pulumi.set(__self__, "function_arn", function_arn)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> str:
+        """
+        The ARN of the Lambda function that is executed.
+        """
+        return pulumi.get(self, "function_arn")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AlarmModelPayload(dict):
+    """
+    Information needed to configure the payload.
+
+    By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentExpression":
+            suggest = "content_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelPayload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelPayload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelPayload.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_expression: str,
+                 type: str):
+        """
+        Information needed to configure the payload.
+
+        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+        :param str content_expression: The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+        :param str type: The value of the payload type can be either `STRING` or `JSON`.
+        """
+        pulumi.set(__self__, "content_expression", content_expression)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="contentExpression")
+    def content_expression(self) -> str:
+        """
+        The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+        """
+        return pulumi.get(self, "content_expression")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The value of the payload type can be either `STRING` or `JSON`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AlarmModelSimpleRule(dict):
+    """
+    A rule that compares an input property value to a threshold value with a comparison operator.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "inputProperty":
+            suggest = "input_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelSimpleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelSimpleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelSimpleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: 'AlarmModelSimpleRuleComparisonOperator',
+                 input_property: str,
+                 threshold: str):
+        """
+        A rule that compares an input property value to a threshold value with a comparison operator.
+        :param 'AlarmModelSimpleRuleComparisonOperator' comparison_operator: The comparison operator.
+        :param str input_property: The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+        :param str threshold: The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "input_property", input_property)
+        pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> 'AlarmModelSimpleRuleComparisonOperator':
+        """
+        The comparison operator.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @property
+    @pulumi.getter(name="inputProperty")
+    def input_property(self) -> str:
+        """
+        The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+        """
+        return pulumi.get(self, "input_property")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> str:
+        """
+        The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class AlarmModelSns(dict):
+    """
+    Information required to publish the Amazon SNS message.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetArn":
+            suggest = "target_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelSns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelSns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelSns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_arn: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None):
+        """
+        Information required to publish the Amazon SNS message.
+        :param str target_arn: The ARN of the Amazon SNS target where the message is sent.
+        """
+        pulumi.set(__self__, "target_arn", target_arn)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> str:
+        """
+        The ARN of the Amazon SNS target where the message is sent.
+        """
+        return pulumi.get(self, "target_arn")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AlarmModelSqs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueUrl":
+            suggest = "queue_url"
+        elif key == "useBase64":
+            suggest = "use_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmModelSqs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmModelSqs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmModelSqs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 queue_url: str,
+                 payload: Optional['outputs.AlarmModelPayload'] = None,
+                 use_base64: Optional[bool] = None):
+        """
+        :param str queue_url: The URL of the SQS queue where the data is written.
+        :param bool use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        """
+        pulumi.set(__self__, "queue_url", queue_url)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if use_base64 is not None:
+            pulumi.set(__self__, "use_base64", use_base64)
+
+    @property
+    @pulumi.getter(name="queueUrl")
+    def queue_url(self) -> str:
+        """
+        The URL of the SQS queue where the data is written.
+        """
+        return pulumi.get(self, "queue_url")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional['outputs.AlarmModelPayload']:
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter(name="useBase64")
+    def use_base64(self) -> Optional[bool]:
+        """
+        Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        """
+        return pulumi.get(self, "use_base64")
+
+
+@pulumi.output_type
+class AlarmModelTag(dict):
+    """
+    Tags to be applied to Input.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Tags to be applied to Input.
+        :param str key: Key of the Tag.
+        :param str value: Value of the Tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Key of the Tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the Tag.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class DetectorModelAction(dict):

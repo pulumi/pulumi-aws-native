@@ -1812,6 +1812,7 @@ _utilities.register(
   "mod": "iotevents",
   "fqn": "pulumi_aws_native.iotevents",
   "classes": {
+   "aws-native:iotevents:AlarmModel": "AlarmModel",
    "aws-native:iotevents:DetectorModel": "DetectorModel",
    "aws-native:iotevents:Input": "Input"
   }

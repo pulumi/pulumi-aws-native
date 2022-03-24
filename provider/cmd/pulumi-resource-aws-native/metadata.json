@@ -19549,6 +19549,98 @@
                 "suiteDefinitionConfiguration"
             ]
         },
+        "aws-native:iotevents:AlarmModel": {
+            "cf": "AWS::IoTEvents::AlarmModel",
+            "inputs": {
+                "alarmCapabilities": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmCapabilities"
+                },
+                "alarmEventActions": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmEventActions"
+                },
+                "alarmModelDescription": {
+                    "type": "string",
+                    "description": "A brief description of the alarm model."
+                },
+                "alarmModelName": {
+                    "type": "string",
+                    "description": "The name of the alarm model."
+                },
+                "alarmRule": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmRule"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.\n\nThis parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations."
+                },
+                "severity": {
+                    "type": "integer",
+                    "description": "A non-negative integer that reflects the severity level of the alarm.\n\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotevents:AlarmModelTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)."
+                }
+            },
+            "outputs": {
+                "alarmCapabilities": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmCapabilities"
+                },
+                "alarmEventActions": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmEventActions"
+                },
+                "alarmModelDescription": {
+                    "type": "string",
+                    "description": "A brief description of the alarm model."
+                },
+                "alarmModelName": {
+                    "type": "string",
+                    "description": "The name of the alarm model."
+                },
+                "alarmRule": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmRule"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.\n\nThis parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations."
+                },
+                "severity": {
+                    "type": "integer",
+                    "description": "A non-negative integer that reflects the severity level of the alarm.\n\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotevents:AlarmModelTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "alarmModelName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "alarmRule",
+                "roleArn"
+            ],
+            "createOnly": [
+                "alarmModelName",
+                "key"
+            ]
+        },
         "aws-native:iotevents:DetectorModel": {
             "cf": "AWS::IoTEvents::DetectorModel",
             "inputs": {
@@ -54879,6 +54971,341 @@
                 }
             }
         },
+        "aws-native:iotevents:AlarmModelAcknowledgeFlow": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAlarmAction": {
+            "type": "object",
+            "properties": {
+                "dynamoDB": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelDynamoDB"
+                },
+                "dynamoDBv2": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelDynamoDBv2"
+                },
+                "firehose": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelFirehose"
+                },
+                "iotEvents": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelIotEvents"
+                },
+                "iotSiteWise": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelIotSiteWise"
+                },
+                "iotTopicPublish": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelIotTopicPublish"
+                },
+                "lambda": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelLambda"
+                },
+                "sns": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelSns"
+                },
+                "sqs": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelSqs"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAlarmCapabilities": {
+            "type": "object",
+            "properties": {
+                "acknowledgeFlow": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAcknowledgeFlow"
+                },
+                "initializationConfiguration": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelInitializationConfiguration"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAlarmEventActions": {
+            "type": "object",
+            "properties": {
+                "alarmActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotevents:AlarmModelAlarmAction"
+                    }
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAlarmRule": {
+            "type": "object",
+            "properties": {
+                "simpleRule": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelSimpleRule"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAssetPropertyTimestamp": {
+            "type": "object",
+            "properties": {
+                "offsetInNanos": {
+                    "type": "string",
+                    "description": "The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression."
+                },
+                "timeInSeconds": {
+                    "type": "string",
+                    "description": "The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAssetPropertyValue": {
+            "type": "object",
+            "properties": {
+                "quality": {
+                    "type": "string",
+                    "description": "The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression."
+                },
+                "timestamp": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAssetPropertyTimestamp"
+                },
+                "value": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAssetPropertyVariant"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelAssetPropertyVariant": {
+            "type": "object",
+            "properties": {
+                "booleanValue": {
+                    "type": "string",
+                    "description": "The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value."
+                },
+                "doubleValue": {
+                    "type": "string",
+                    "description": "The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double."
+                },
+                "integerValue": {
+                    "type": "string",
+                    "description": "The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer."
+                },
+                "stringValue": {
+                    "type": "string",
+                    "description": "The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelDynamoDB": {
+            "type": "object",
+            "properties": {
+                "hashKeyField": {
+                    "type": "string",
+                    "description": "The name of the hash key (also called the partition key)."
+                },
+                "hashKeyType": {
+                    "type": "string",
+                    "description": "The data type for the hash key (also called the partition key). You can specify the following values:\n\n* `STRING` - The hash key is a string.\n\n* `NUMBER` - The hash key is a number.\n\nIf you don't specify `hashKeyType`, the default value is `STRING`."
+                },
+                "hashKeyValue": {
+                    "type": "string",
+                    "description": "The value of the hash key (also called the partition key)."
+                },
+                "operation": {
+                    "type": "string",
+                    "description": "The type of operation to perform. You can specify the following values:\n\n* `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.\n\n* `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.\n\n* `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.\n\nIf you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation."
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                },
+                "payloadField": {
+                    "type": "string",
+                    "description": "The name of the DynamoDB column that receives the action payload.\n\nIf you don't specify this parameter, the name of the DynamoDB column is `payload`."
+                },
+                "rangeKeyField": {
+                    "type": "string",
+                    "description": "The name of the range key (also called the sort key)."
+                },
+                "rangeKeyType": {
+                    "type": "string",
+                    "description": "The data type for the range key (also called the sort key), You can specify the following values:\n\n* `STRING` - The range key is a string.\n\n* `NUMBER` - The range key is number.\n\nIf you don't specify `rangeKeyField`, the default value is `STRING`."
+                },
+                "rangeKeyValue": {
+                    "type": "string",
+                    "description": "The value of the range key (also called the sort key)."
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the DynamoDB table."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelDynamoDBv2": {
+            "type": "object",
+            "properties": {
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the DynamoDB table."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelFirehose": {
+            "type": "object",
+            "properties": {
+                "deliveryStreamName": {
+                    "type": "string",
+                    "description": "The name of the Kinesis Data Firehose delivery stream where the data is written."
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                },
+                "separator": {
+                    "type": "string",
+                    "description": "A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma)."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelInitializationConfiguration": {
+            "type": "object",
+            "properties": {
+                "disabledOnInitialization": {
+                    "type": "boolean",
+                    "description": "The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelIotEvents": {
+            "type": "object",
+            "properties": {
+                "inputName": {
+                    "type": "string",
+                    "description": "The name of the AWS IoT Events input where the data is sent."
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelIotSiteWise": {
+            "type": "object",
+            "properties": {
+                "assetId": {
+                    "type": "string",
+                    "description": "The ID of the asset that has the specified property. You can specify an expression."
+                },
+                "entryId": {
+                    "type": "string",
+                    "description": "A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression."
+                },
+                "propertyAlias": {
+                    "type": "string",
+                    "description": "The alias of the asset property. You can also specify an expression."
+                },
+                "propertyId": {
+                    "type": "string",
+                    "description": "The ID of the asset property. You can specify an expression."
+                },
+                "propertyValue": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelAssetPropertyValue"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelIotTopicPublish": {
+            "type": "object",
+            "properties": {
+                "mqttTopic": {
+                    "type": "string",
+                    "description": "The MQTT topic of the message. You can use a string expression that includes variables (`$variable.\u003cvariable-name\u003e`) and input values (`$input.\u003cinput-name\u003e.\u003cpath-to-datum\u003e`) as the topic string."
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelLambda": {
+            "type": "object",
+            "properties": {
+                "functionArn": {
+                    "type": "string",
+                    "description": "The ARN of the Lambda function that is executed."
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelPayload": {
+            "type": "object",
+            "properties": {
+                "contentExpression": {
+                    "type": "string",
+                    "description": "The content of the payload. You can use a string expression that includes quoted strings (`'\u003cstring\u003e'`), variables (`$variable.\u003cvariable-name\u003e`), input values (`$input.\u003cinput-name\u003e.\u003cpath-to-datum\u003e`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The value of the payload type can be either `STRING` or `JSON`."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelSimpleRule": {
+            "type": "object",
+            "properties": {
+                "comparisonOperator": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelSimpleRuleComparisonOperator",
+                    "description": "The comparison operator."
+                },
+                "inputProperty": {
+                    "type": "string",
+                    "description": "The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property."
+                },
+                "threshold": {
+                    "type": "string",
+                    "description": "The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelSimpleRuleComparisonOperator": {
+            "type": "string"
+        },
+        "aws-native:iotevents:AlarmModelSns": {
+            "type": "object",
+            "properties": {
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon SNS target where the message is sent."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelSqs": {
+            "type": "object",
+            "properties": {
+                "payload": {
+                    "$ref": "#/types/aws-native:iotevents:AlarmModelPayload"
+                },
+                "queueUrl": {
+                    "type": "string",
+                    "description": "The URL of the SQS queue where the data is written."
+                },
+                "useBase64": {
+                    "type": "boolean",
+                    "description": "Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`."
+                }
+            }
+        },
+        "aws-native:iotevents:AlarmModelTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Key of the Tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the Tag."
+                }
+            }
+        },
         "aws-native:iotevents:DetectorModelAction": {
             "type": "object",
             "properties": {
@@ -74542,6 +74969,12 @@
             "cf": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
             "ids": [
                 "suiteDefinitionId"
+            ]
+        },
+        "aws-native:iotevents:getAlarmModel": {
+            "cf": "AWS::IoTEvents::AlarmModel",
+            "ids": [
+                "alarmModelName"
             ]
         },
         "aws-native:iotevents:getDetectorModel": {

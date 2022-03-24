@@ -15848,6 +15848,328 @@ export namespace iotcoredeviceadvisor {
 
 export namespace iotevents {
     /**
+     * Specifies whether to get notified for alarm state changes.
+     */
+    export interface AlarmModelAcknowledgeFlow {
+        /**
+         * The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+         */
+        enabled?: boolean;
+    }
+
+    /**
+     * The actions to be performed.
+     */
+    export interface AlarmModelAlarmAction {
+        dynamoDB?: outputs.iotevents.AlarmModelDynamoDB;
+        dynamoDBv2?: outputs.iotevents.AlarmModelDynamoDBv2;
+        firehose?: outputs.iotevents.AlarmModelFirehose;
+        iotEvents?: outputs.iotevents.AlarmModelIotEvents;
+        iotSiteWise?: outputs.iotevents.AlarmModelIotSiteWise;
+        iotTopicPublish?: outputs.iotevents.AlarmModelIotTopicPublish;
+        lambda?: outputs.iotevents.AlarmModelLambda;
+        sns?: outputs.iotevents.AlarmModelSns;
+        sqs?: outputs.iotevents.AlarmModelSqs;
+    }
+
+    /**
+     * Contains the configuration information of alarm state changes
+     */
+    export interface AlarmModelAlarmCapabilities {
+        acknowledgeFlow?: outputs.iotevents.AlarmModelAcknowledgeFlow;
+        initializationConfiguration?: outputs.iotevents.AlarmModelInitializationConfiguration;
+    }
+
+    /**
+     * Contains information about one or more alarm actions.
+     */
+    export interface AlarmModelAlarmEventActions {
+        alarmActions?: outputs.iotevents.AlarmModelAlarmAction[];
+    }
+
+    /**
+     * Defines when your alarm is invoked.
+     */
+    export interface AlarmModelAlarmRule {
+        simpleRule?: outputs.iotevents.AlarmModelSimpleRule;
+    }
+
+    /**
+     * A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+     */
+    export interface AlarmModelAssetPropertyTimestamp {
+        /**
+         * The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+         */
+        offsetInNanos?: string;
+        /**
+         * The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+         */
+        timeInSeconds: string;
+    }
+
+    /**
+     * A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+     */
+    export interface AlarmModelAssetPropertyValue {
+        /**
+         * The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+         */
+        quality?: string;
+        timestamp?: outputs.iotevents.AlarmModelAssetPropertyTimestamp;
+        value: outputs.iotevents.AlarmModelAssetPropertyVariant;
+    }
+
+    /**
+     * A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+     */
+    export interface AlarmModelAssetPropertyVariant {
+        /**
+         * The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+         */
+        booleanValue?: string;
+        /**
+         * The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+         */
+        doubleValue?: string;
+        /**
+         * The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+         */
+        integerValue?: string;
+        /**
+         * The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+         */
+        stringValue?: string;
+    }
+
+    /**
+     * Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+     */
+    export interface AlarmModelDynamoDB {
+        /**
+         * The name of the hash key (also called the partition key).
+         */
+        hashKeyField: string;
+        /**
+         * The data type for the hash key (also called the partition key). You can specify the following values:
+         *
+         * * `STRING` - The hash key is a string.
+         *
+         * * `NUMBER` - The hash key is a number.
+         *
+         * If you don't specify `hashKeyType`, the default value is `STRING`.
+         */
+        hashKeyType?: string;
+        /**
+         * The value of the hash key (also called the partition key).
+         */
+        hashKeyValue: string;
+        /**
+         * The type of operation to perform. You can specify the following values:
+         *
+         * * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+         *
+         * * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+         *
+         * * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+         *
+         * If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+         */
+        operation?: string;
+        payload?: outputs.iotevents.AlarmModelPayload;
+        /**
+         * The name of the DynamoDB column that receives the action payload.
+         *
+         * If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+         */
+        payloadField?: string;
+        /**
+         * The name of the range key (also called the sort key).
+         */
+        rangeKeyField?: string;
+        /**
+         * The data type for the range key (also called the sort key), You can specify the following values:
+         *
+         * * `STRING` - The range key is a string.
+         *
+         * * `NUMBER` - The range key is number.
+         *
+         * If you don't specify `rangeKeyField`, the default value is `STRING`.
+         */
+        rangeKeyType?: string;
+        /**
+         * The value of the range key (also called the sort key).
+         */
+        rangeKeyValue?: string;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: string;
+    }
+
+    /**
+     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+     *
+     * You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+     */
+    export interface AlarmModelDynamoDBv2 {
+        payload?: outputs.iotevents.AlarmModelPayload;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: string;
+    }
+
+    /**
+     * Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+     */
+    export interface AlarmModelFirehose {
+        /**
+         * The name of the Kinesis Data Firehose delivery stream where the data is written.
+         */
+        deliveryStreamName: string;
+        payload?: outputs.iotevents.AlarmModelPayload;
+        /**
+         * A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+         */
+        separator?: string;
+    }
+
+    /**
+     * Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
+     */
+    export interface AlarmModelInitializationConfiguration {
+        /**
+         * The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+         */
+        disabledOnInitialization: boolean;
+    }
+
+    /**
+     * Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+     */
+    export interface AlarmModelIotEvents {
+        /**
+         * The name of the AWS IoT Events input where the data is sent.
+         */
+        inputName: string;
+        payload?: outputs.iotevents.AlarmModelPayload;
+    }
+
+    /**
+     * Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+     */
+    export interface AlarmModelIotSiteWise {
+        /**
+         * The ID of the asset that has the specified property. You can specify an expression.
+         */
+        assetId?: string;
+        /**
+         * A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+         */
+        entryId?: string;
+        /**
+         * The alias of the asset property. You can also specify an expression.
+         */
+        propertyAlias?: string;
+        /**
+         * The ID of the asset property. You can specify an expression.
+         */
+        propertyId?: string;
+        propertyValue: outputs.iotevents.AlarmModelAssetPropertyValue;
+    }
+
+    /**
+     * Information required to publish the MQTT message through the AWS IoT message broker.
+     */
+    export interface AlarmModelIotTopicPublish {
+        /**
+         * The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+         */
+        mqttTopic: string;
+        payload?: outputs.iotevents.AlarmModelPayload;
+    }
+
+    export interface AlarmModelLambda {
+        /**
+         * The ARN of the Lambda function that is executed.
+         */
+        functionArn: string;
+        payload?: outputs.iotevents.AlarmModelPayload;
+    }
+
+    /**
+     * Information needed to configure the payload.
+     *
+     * By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+     */
+    export interface AlarmModelPayload {
+        /**
+         * The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+         */
+        contentExpression: string;
+        /**
+         * The value of the payload type can be either `STRING` or `JSON`.
+         */
+        type: string;
+    }
+
+    /**
+     * A rule that compares an input property value to a threshold value with a comparison operator.
+     */
+    export interface AlarmModelSimpleRule {
+        /**
+         * The comparison operator.
+         */
+        comparisonOperator: enums.iotevents.AlarmModelSimpleRuleComparisonOperator;
+        /**
+         * The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+         */
+        inputProperty: string;
+        /**
+         * The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+         */
+        threshold: string;
+    }
+
+    /**
+     * Information required to publish the Amazon SNS message.
+     */
+    export interface AlarmModelSns {
+        payload?: outputs.iotevents.AlarmModelPayload;
+        /**
+         * The ARN of the Amazon SNS target where the message is sent.
+         */
+        targetArn: string;
+    }
+
+    export interface AlarmModelSqs {
+        payload?: outputs.iotevents.AlarmModelPayload;
+        /**
+         * The URL of the SQS queue where the data is written.
+         */
+        queueUrl: string;
+        /**
+         * Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+         */
+        useBase64?: boolean;
+    }
+
+    /**
+     * Tags to be applied to Input.
+     */
+    export interface AlarmModelTag {
+        /**
+         * Key of the Tag.
+         */
+        key: string;
+        /**
+         * Value of the Tag.
+         */
+        value: string;
+    }
+
+    /**
      * The actions to be performed.
      */
     export interface DetectorModelAction {

@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./alarmModel";
 export * from "./detectorModel";
+export * from "./getAlarmModel";
 export * from "./getDetectorModel";
 export * from "./getInput";
 export * from "./input";
@@ -14,6 +16,7 @@ export * from "./input";
 export * from "../types/enums/iotevents";
 
 // Import resources to register:
+import { AlarmModel } from "./alarmModel";
 import { DetectorModel } from "./detectorModel";
 import { Input } from "./input";
 
@@ -21,6 +24,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:iotevents:AlarmModel":
+                return new AlarmModel(name, <any>undefined, { urn })
             case "aws-native:iotevents:DetectorModel":
                 return new DetectorModel(name, <any>undefined, { urn })
             case "aws-native:iotevents:Input":

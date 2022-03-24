@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .alarm_model import *
 from .detector_model import *
+from .get_alarm_model import *
 from .get_detector_model import *
 from .get_input import *
 from .input import *
