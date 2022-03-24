@@ -272,6 +272,7 @@ AWS::IoTAnalytics::Dataset
 AWS::IoTAnalytics::Datastore
 AWS::IoTAnalytics::Pipeline
 AWS::IoTCoreDeviceAdvisor::SuiteDefinition
+AWS::IoTEvents::AlarmModel
 AWS::IoTEvents::DetectorModel
 AWS::IoTEvents::Input
 AWS::IoTFleetHub::Application
