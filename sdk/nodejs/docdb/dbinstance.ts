@@ -43,6 +43,7 @@ export class DBInstance extends pulumi.CustomResource {
     public readonly dBClusterIdentifier!: pulumi.Output<string>;
     public readonly dBInstanceClass!: pulumi.Output<string>;
     public readonly dBInstanceIdentifier!: pulumi.Output<string | undefined>;
+    public readonly enablePerformanceInsights!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<string>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
@@ -72,6 +73,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
             resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
             resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
+            resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -82,6 +84,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dBInstanceClass"] = undefined /*out*/;
             resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["enablePerformanceInsights"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
@@ -101,6 +104,7 @@ export interface DBInstanceArgs {
     dBClusterIdentifier: pulumi.Input<string>;
     dBInstanceClass: pulumi.Input<string>;
     dBInstanceIdentifier?: pulumi.Input<string>;
+    enablePerformanceInsights?: pulumi.Input<boolean>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.docdb.DBInstanceTagArgs>[]>;
 }

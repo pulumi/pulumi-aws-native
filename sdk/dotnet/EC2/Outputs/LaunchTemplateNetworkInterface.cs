@@ -20,8 +20,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly int? DeviceIndex;
         public readonly ImmutableArray<string> Groups;
         public readonly string? InterfaceType;
+        public readonly int? Ipv4PrefixCount;
+        public readonly ImmutableArray<Outputs.LaunchTemplateIpv4PrefixSpecification> Ipv4Prefixes;
         public readonly int? Ipv6AddressCount;
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv6Add> Ipv6Addresses;
+        public readonly int? Ipv6PrefixCount;
+        public readonly ImmutableArray<Outputs.LaunchTemplateIpv6PrefixSpecification> Ipv6Prefixes;
         public readonly int? NetworkCardIndex;
         public readonly string? NetworkInterfaceId;
         public readonly string? PrivateIpAddress;
@@ -45,9 +49,17 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? interfaceType,
 
+            int? ipv4PrefixCount,
+
+            ImmutableArray<Outputs.LaunchTemplateIpv4PrefixSpecification> ipv4Prefixes,
+
             int? ipv6AddressCount,
 
             ImmutableArray<Outputs.LaunchTemplateIpv6Add> ipv6Addresses,
+
+            int? ipv6PrefixCount,
+
+            ImmutableArray<Outputs.LaunchTemplateIpv6PrefixSpecification> ipv6Prefixes,
 
             int? networkCardIndex,
 
@@ -68,8 +80,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
             DeviceIndex = deviceIndex;
             Groups = groups;
             InterfaceType = interfaceType;
+            Ipv4PrefixCount = ipv4PrefixCount;
+            Ipv4Prefixes = ipv4Prefixes;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;
+            Ipv6PrefixCount = ipv6PrefixCount;
+            Ipv6Prefixes = ipv6Prefixes;
             NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
             PrivateIpAddress = privateIpAddress;

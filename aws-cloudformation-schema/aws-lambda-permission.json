@@ -3,7 +3,7 @@
   "description" : "Resource Type definition for AWS::Lambda::Permission",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "FunctionName" : {
       "type" : "string"
     },
     "Action" : {
@@ -12,21 +12,24 @@
     "EventSourceToken" : {
       "type" : "string"
     },
-    "FunctionName" : {
-      "type" : "string"
-    },
-    "Principal" : {
+    "SourceArn" : {
       "type" : "string"
     },
     "SourceAccount" : {
       "type" : "string"
     },
-    "SourceArn" : {
+    "PrincipalOrgID" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "Principal" : {
       "type" : "string"
     }
   },
   "required" : [ "FunctionName", "Action", "Principal" ],
-  "createOnlyProperties" : [ "/properties/FunctionName", "/properties/SourceAccount", "/properties/SourceArn", "/properties/Principal", "/properties/Action", "/properties/EventSourceToken" ],
+  "createOnlyProperties" : [ "/properties/SourceAccount", "/properties/SourceArn", "/properties/Principal", "/properties/Action", "/properties/FunctionName", "/properties/EventSourceToken", "/properties/PrincipalOrgID" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

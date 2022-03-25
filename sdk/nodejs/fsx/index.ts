@@ -7,9 +7,18 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./fileSystem";
 export * from "./getFileSystem";
+export * from "./getSnapshot";
+export * from "./getStorageVirtualMachine";
+export * from "./getVolume";
+export * from "./snapshot";
+export * from "./storageVirtualMachine";
+export * from "./volume";
 
 // Import resources to register:
 import { FileSystem } from "./fileSystem";
+import { Snapshot } from "./snapshot";
+import { StorageVirtualMachine } from "./storageVirtualMachine";
+import { Volume } from "./volume";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,6 +26,12 @@ const _module = {
         switch (type) {
             case "aws-native:fsx:FileSystem":
                 return new FileSystem(name, <any>undefined, { urn })
+            case "aws-native:fsx:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
+            case "aws-native:fsx:StorageVirtualMachine":
+                return new StorageVirtualMachine(name, <any>undefined, { urn })
+            case "aws-native:fsx:Volume":
+                return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

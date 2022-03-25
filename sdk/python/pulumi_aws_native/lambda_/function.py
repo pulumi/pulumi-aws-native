@@ -23,6 +23,7 @@ class FunctionArgs:
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
+                 ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
         :param pulumi.Input[str] description: A description of the function.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Environment variables that are accessible from function code during execution.
+        :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: A function's ephemeral storage settings.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
@@ -72,6 +74,8 @@ class FunctionArgs:
             pulumi.set(__self__, "description", description)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if file_system_configs is not None:
             pulumi.set(__self__, "file_system_configs", file_system_configs)
         if function_name is not None:
@@ -181,6 +185,18 @@ class FunctionArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input['FunctionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['FunctionEphemeralStorageArgs']]:
+        """
+        A function's ephemeral storage settings.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['FunctionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="fileSystemConfigs")
@@ -362,6 +378,7 @@ class Function(pulumi.CustomResource):
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
@@ -388,6 +405,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
         :param pulumi.Input[str] description: A description of the function.
         :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: Environment variables that are accessible from function code during execution.
+        :param pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']] ephemeral_storage: A function's ephemeral storage settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
@@ -434,6 +452,7 @@ class Function(pulumi.CustomResource):
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
@@ -469,6 +488,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["file_system_configs"] = file_system_configs
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["handler"] = handler
@@ -516,6 +536,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["dead_letter_config"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["environment"] = None
+        __props__.__dict__["ephemeral_storage"] = None
         __props__.__dict__["file_system_configs"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["handler"] = None
@@ -585,6 +606,14 @@ class Function(pulumi.CustomResource):
         Environment variables that are accessible from function code during execution.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> pulumi.Output[Optional['outputs.FunctionEphemeralStorage']]:
+        """
+        A function's ephemeral storage settings.
+        """
+        return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="fileSystemConfigs")

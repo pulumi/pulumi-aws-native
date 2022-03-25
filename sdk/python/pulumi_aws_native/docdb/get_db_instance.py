@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, auto_minor_version_upgrade=None, d_b_instance_class=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
+    def __init__(__self__, auto_minor_version_upgrade=None, d_b_instance_class=None, enable_performance_insights=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if d_b_instance_class and not isinstance(d_b_instance_class, str):
             raise TypeError("Expected argument 'd_b_instance_class' to be a str")
         pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
+        if enable_performance_insights and not isinstance(enable_performance_insights, bool):
+            raise TypeError("Expected argument 'enable_performance_insights' to be a bool")
+        pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -50,6 +53,11 @@ class GetDBInstanceResult:
     @pulumi.getter(name="dBInstanceClass")
     def d_b_instance_class(self) -> Optional[str]:
         return pulumi.get(self, "d_b_instance_class")
+
+    @property
+    @pulumi.getter(name="enablePerformanceInsights")
+    def enable_performance_insights(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_performance_insights")
 
     @property
     @pulumi.getter
@@ -85,6 +93,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
         return GetDBInstanceResult(
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             d_b_instance_class=self.d_b_instance_class,
+            enable_performance_insights=self.enable_performance_insights,
             endpoint=self.endpoint,
             id=self.id,
             port=self.port,
@@ -108,6 +117,7 @@ def get_db_instance(id: Optional[str] = None,
     return AwaitableGetDBInstanceResult(
         auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
         d_b_instance_class=__ret__.d_b_instance_class,
+        enable_performance_insights=__ret__.enable_performance_insights,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
         port=__ret__.port,

@@ -21,6 +21,18 @@ __all__ = [
     'FileSystemTagArgs',
     'FileSystemUserAndGroupQuotasArgs',
     'FileSystemWindowsConfigurationArgs',
+    'SnapshotTagArgs',
+    'StorageVirtualMachineActiveDirectoryConfigurationArgs',
+    'StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs',
+    'StorageVirtualMachineTagArgs',
+    'VolumeClientConfigurationsArgs',
+    'VolumeNfsExportsArgs',
+    'VolumeOntapConfigurationArgs',
+    'VolumeOpenZFSConfigurationArgs',
+    'VolumeOriginSnapshotArgs',
+    'VolumeTagArgs',
+    'VolumeTieringPolicyArgs',
+    'VolumeUserAndGroupQuotasArgs',
 ]
 
 @pulumi.input_type
@@ -890,5 +902,538 @@ class FileSystemWindowsConfigurationArgs:
     @weekly_maintenance_start_time.setter
     def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
+
+
+@pulumi.input_type
+class SnapshotTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class StorageVirtualMachineActiveDirectoryConfigurationArgs:
+    def __init__(__self__, *,
+                 net_bios_name: Optional[pulumi.Input[str]] = None,
+                 self_managed_active_directory_configuration: Optional[pulumi.Input['StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs']] = None):
+        if net_bios_name is not None:
+            pulumi.set(__self__, "net_bios_name", net_bios_name)
+        if self_managed_active_directory_configuration is not None:
+            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+
+    @property
+    @pulumi.getter(name="netBiosName")
+    def net_bios_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "net_bios_name")
+
+    @net_bios_name.setter
+    def net_bios_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "net_bios_name", value)
+
+    @property
+    @pulumi.getter(name="selfManagedActiveDirectoryConfiguration")
+    def self_managed_active_directory_configuration(self) -> Optional[pulumi.Input['StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs']]:
+        return pulumi.get(self, "self_managed_active_directory_configuration")
+
+    @self_managed_active_directory_configuration.setter
+    def self_managed_active_directory_configuration(self, value: Optional[pulumi.Input['StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs']]):
+        pulumi.set(self, "self_managed_active_directory_configuration", value)
+
+
+@pulumi.input_type
+class StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs:
+    def __init__(__self__, *,
+                 dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 file_system_administrators_group: Optional[pulumi.Input[str]] = None,
+                 organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        if dns_ips is not None:
+            pulumi.set(__self__, "dns_ips", dns_ips)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if file_system_administrators_group is not None:
+            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "dns_ips")
+
+    @dns_ips.setter
+    def dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_ips", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="fileSystemAdministratorsGroup")
+    def file_system_administrators_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_administrators_group")
+
+    @file_system_administrators_group.setter
+    def file_system_administrators_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_administrators_group", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @organizational_unit_distinguished_name.setter
+    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class StorageVirtualMachineTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VolumeClientConfigurationsArgs:
+    def __init__(__self__, *,
+                 clients: pulumi.Input[str],
+                 options: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "clients")
+
+    @clients.setter
+    def clients(self, value: pulumi.Input[str]):
+        pulumi.set(self, "clients", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
+class VolumeNfsExportsArgs:
+    def __init__(__self__, *,
+                 client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]):
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]:
+        return pulumi.get(self, "client_configurations")
+
+    @client_configurations.setter
+    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]):
+        pulumi.set(self, "client_configurations", value)
+
+
+@pulumi.input_type
+class VolumeOntapConfigurationArgs:
+    def __init__(__self__, *,
+                 junction_path: pulumi.Input[str],
+                 size_in_megabytes: pulumi.Input[str],
+                 storage_efficiency_enabled: pulumi.Input[str],
+                 storage_virtual_machine_id: pulumi.Input[str],
+                 security_style: Optional[pulumi.Input[str]] = None,
+                 tiering_policy: Optional[pulumi.Input['VolumeTieringPolicyArgs']] = None):
+        pulumi.set(__self__, "junction_path", junction_path)
+        pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+        pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
+        pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        if security_style is not None:
+            pulumi.set(__self__, "security_style", security_style)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
+
+    @property
+    @pulumi.getter(name="junctionPath")
+    def junction_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "junction_path")
+
+    @junction_path.setter
+    def junction_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "junction_path", value)
+
+    @property
+    @pulumi.getter(name="sizeInMegabytes")
+    def size_in_megabytes(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "size_in_megabytes")
+
+    @size_in_megabytes.setter
+    def size_in_megabytes(self, value: pulumi.Input[str]):
+        pulumi.set(self, "size_in_megabytes", value)
+
+    @property
+    @pulumi.getter(name="storageEfficiencyEnabled")
+    def storage_efficiency_enabled(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "storage_efficiency_enabled")
+
+    @storage_efficiency_enabled.setter
+    def storage_efficiency_enabled(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_efficiency_enabled", value)
+
+    @property
+    @pulumi.getter(name="storageVirtualMachineId")
+    def storage_virtual_machine_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "storage_virtual_machine_id")
+
+    @storage_virtual_machine_id.setter
+    def storage_virtual_machine_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="securityStyle")
+    def security_style(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_style")
+
+    @security_style.setter
+    def security_style(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_style", value)
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[pulumi.Input['VolumeTieringPolicyArgs']]:
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: Optional[pulumi.Input['VolumeTieringPolicyArgs']]):
+        pulumi.set(self, "tiering_policy", value)
+
+
+@pulumi.input_type
+class VolumeOpenZFSConfigurationArgs:
+    def __init__(__self__, *,
+                 parent_volume_id: pulumi.Input[str],
+                 copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
+                 nfs_exports: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 origin_snapshot: Optional[pulumi.Input['VolumeOriginSnapshotArgs']] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 record_size_ki_b: Optional[pulumi.Input[int]] = None,
+                 storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
+                 storage_capacity_reservation_gi_b: Optional[pulumi.Input[int]] = None,
+                 user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]] = None):
+        pulumi.set(__self__, "parent_volume_id", parent_volume_id)
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if origin_snapshot is not None:
+            pulumi.set(__self__, "origin_snapshot", origin_snapshot)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if record_size_ki_b is not None:
+            pulumi.set(__self__, "record_size_ki_b", record_size_ki_b)
+        if storage_capacity_quota_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        if storage_capacity_reservation_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_reservation_gi_b", storage_capacity_reservation_gi_b)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @property
+    @pulumi.getter(name="parentVolumeId")
+    def parent_volume_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "parent_volume_id")
+
+    @parent_volume_id.setter
+    def parent_volume_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parent_volume_id", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @copy_tags_to_snapshots.setter
+    def copy_tags_to_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshots", value)
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_compression_type")
+
+    @data_compression_type.setter
+    def data_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]]:
+        return pulumi.get(self, "nfs_exports")
+
+    @nfs_exports.setter
+    def nfs_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]]):
+        pulumi.set(self, "nfs_exports", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="originSnapshot")
+    def origin_snapshot(self) -> Optional[pulumi.Input['VolumeOriginSnapshotArgs']]:
+        return pulumi.get(self, "origin_snapshot")
+
+    @origin_snapshot.setter
+    def origin_snapshot(self, value: Optional[pulumi.Input['VolumeOriginSnapshotArgs']]):
+        pulumi.set(self, "origin_snapshot", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="recordSizeKiB")
+    def record_size_ki_b(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "record_size_ki_b")
+
+    @record_size_ki_b.setter
+    def record_size_ki_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "record_size_ki_b", value)
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @storage_capacity_quota_gi_b.setter
+    def storage_capacity_quota_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_capacity_quota_gi_b", value)
+
+    @property
+    @pulumi.getter(name="storageCapacityReservationGiB")
+    def storage_capacity_reservation_gi_b(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "storage_capacity_reservation_gi_b")
+
+    @storage_capacity_reservation_gi_b.setter
+    def storage_capacity_reservation_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_capacity_reservation_gi_b", value)
+
+    @property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]]:
+        return pulumi.get(self, "user_and_group_quotas")
+
+    @user_and_group_quotas.setter
+    def user_and_group_quotas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]]):
+        pulumi.set(self, "user_and_group_quotas", value)
+
+
+@pulumi.input_type
+class VolumeOriginSnapshotArgs:
+    def __init__(__self__, *,
+                 copy_strategy: pulumi.Input[str],
+                 snapshot_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "copy_strategy", copy_strategy)
+        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+
+    @property
+    @pulumi.getter(name="copyStrategy")
+    def copy_strategy(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "copy_strategy")
+
+    @copy_strategy.setter
+    def copy_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "copy_strategy", value)
+
+    @property
+    @pulumi.getter(name="snapshotARN")
+    def snapshot_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_arn", value)
+
+
+@pulumi.input_type
+class VolumeTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VolumeTieringPolicyArgs:
+    def __init__(__self__, *,
+                 cooling_period: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if cooling_period is not None:
+            pulumi.set(__self__, "cooling_period", cooling_period)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="coolingPeriod")
+    def cooling_period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "cooling_period")
+
+    @cooling_period.setter
+    def cooling_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cooling_period", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class VolumeUserAndGroupQuotasArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[int],
+                 storage_capacity_quota_gi_b: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @storage_capacity_quota_gi_b.setter
+    def storage_capacity_quota_gi_b(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_capacity_quota_gi_b", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 

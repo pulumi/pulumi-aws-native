@@ -93,7 +93,9 @@ __all__ = [
     'LaunchTemplateIamInstanceProfileArgs',
     'LaunchTemplateInstanceMarketOptionsArgs',
     'LaunchTemplateInstanceRequirementsArgs',
+    'LaunchTemplateIpv4PrefixSpecificationArgs',
     'LaunchTemplateIpv6AddArgs',
+    'LaunchTemplateIpv6PrefixSpecificationArgs',
     'LaunchTemplateLicenseSpecificationArgs',
     'LaunchTemplateMemoryGiBPerVCpuArgs',
     'LaunchTemplateMemoryMiBArgs',
@@ -3892,6 +3894,23 @@ class LaunchTemplateInstanceRequirementsArgs:
 
 
 @pulumi.input_type
+class LaunchTemplateIpv4PrefixSpecificationArgs:
+    def __init__(__self__, *,
+                 ipv4_prefix: Optional[pulumi.Input[str]] = None):
+        if ipv4_prefix is not None:
+            pulumi.set(__self__, "ipv4_prefix", ipv4_prefix)
+
+    @property
+    @pulumi.getter(name="ipv4Prefix")
+    def ipv4_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv4_prefix")
+
+    @ipv4_prefix.setter
+    def ipv4_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_prefix", value)
+
+
+@pulumi.input_type
 class LaunchTemplateIpv6AddArgs:
     def __init__(__self__, *,
                  ipv6_address: Optional[pulumi.Input[str]] = None):
@@ -3906,6 +3925,23 @@ class LaunchTemplateIpv6AddArgs:
     @ipv6_address.setter
     def ipv6_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_address", value)
+
+
+@pulumi.input_type
+class LaunchTemplateIpv6PrefixSpecificationArgs:
+    def __init__(__self__, *,
+                 ipv6_prefix: Optional[pulumi.Input[str]] = None):
+        if ipv6_prefix is not None:
+            pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
+
+    @property
+    @pulumi.getter(name="ipv6Prefix")
+    def ipv6_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_prefix")
+
+    @ipv6_prefix.setter
+    def ipv6_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_prefix", value)
 
 
 @pulumi.input_type
@@ -4104,8 +4140,12 @@ class LaunchTemplateNetworkInterfaceArgs:
                  device_index: Optional[pulumi.Input[int]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
+                 ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
+                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv4PrefixSpecificationArgs']]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgs']]]] = None,
+                 ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgs']]]] = None,
                  network_card_index: Optional[pulumi.Input[int]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -4126,10 +4166,18 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "groups", groups)
         if interface_type is not None:
             pulumi.set(__self__, "interface_type", interface_type)
+        if ipv4_prefix_count is not None:
+            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+        if ipv4_prefixes is not None:
+            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if ipv6_prefix_count is not None:
+            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+        if ipv6_prefixes is not None:
+            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
         if network_card_index is not None:
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
@@ -4207,6 +4255,24 @@ class LaunchTemplateNetworkInterfaceArgs:
         pulumi.set(self, "interface_type", value)
 
     @property
+    @pulumi.getter(name="ipv4PrefixCount")
+    def ipv4_prefix_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv4_prefix_count")
+
+    @ipv4_prefix_count.setter
+    def ipv4_prefix_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_prefix_count", value)
+
+    @property
+    @pulumi.getter(name="ipv4Prefixes")
+    def ipv4_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv4PrefixSpecificationArgs']]]]:
+        return pulumi.get(self, "ipv4_prefixes")
+
+    @ipv4_prefixes.setter
+    def ipv4_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv4PrefixSpecificationArgs']]]]):
+        pulumi.set(self, "ipv4_prefixes", value)
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "ipv6_address_count")
@@ -4223,6 +4289,24 @@ class LaunchTemplateNetworkInterfaceArgs:
     @ipv6_addresses.setter
     def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgs']]]]):
         pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="ipv6PrefixCount")
+    def ipv6_prefix_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6_prefix_count")
+
+    @ipv6_prefix_count.setter
+    def ipv6_prefix_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_prefix_count", value)
+
+    @property
+    @pulumi.getter(name="ipv6Prefixes")
+    def ipv6_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgs']]]]:
+        return pulumi.get(self, "ipv6_prefixes")
+
+    @ipv6_prefixes.setter
+    def ipv6_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgs']]]]):
+        pulumi.set(self, "ipv6_prefixes", value)
 
     @property
     @pulumi.getter(name="networkCardIndex")

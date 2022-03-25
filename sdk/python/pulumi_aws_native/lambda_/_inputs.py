@@ -28,6 +28,7 @@ __all__ = [
     'FunctionCodeArgs',
     'FunctionDeadLetterConfigArgs',
     'FunctionEnvironmentArgs',
+    'FunctionEphemeralStorageArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
     'FunctionTagArgs',
@@ -521,6 +522,29 @@ class FunctionEnvironmentArgs:
     @variables.setter
     def variables(self, value: Optional[Any]):
         pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class FunctionEphemeralStorageArgs:
+    def __init__(__self__, *,
+                 size: pulumi.Input[int]):
+        """
+        A function's ephemeral storage settings.
+        :param pulumi.Input[int] size: The amount of ephemeral storage that your function has access to.
+        """
+        pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        The amount of ephemeral storage that your function has access to.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
 
 
 @pulumi.input_type

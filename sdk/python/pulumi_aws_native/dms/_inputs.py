@@ -931,10 +931,85 @@ class EndpointNeptuneSettingsArgs:
 @pulumi.input_type
 class EndpointOracleSettingsArgs:
     def __init__(__self__, *,
+                 access_alternate_directly: Optional[pulumi.Input[bool]] = None,
+                 add_supplemental_logging: Optional[pulumi.Input[bool]] = None,
+                 additional_archived_log_dest_id: Optional[pulumi.Input[int]] = None,
+                 allow_select_nested_tables: Optional[pulumi.Input[bool]] = None,
+                 archived_log_dest_id: Optional[pulumi.Input[int]] = None,
+                 archived_logs_only: Optional[pulumi.Input[bool]] = None,
+                 asm_password: Optional[pulumi.Input[str]] = None,
+                 asm_server: Optional[pulumi.Input[str]] = None,
+                 asm_user: Optional[pulumi.Input[str]] = None,
+                 char_length_semantics: Optional[pulumi.Input[str]] = None,
+                 direct_path_no_log: Optional[pulumi.Input[bool]] = None,
+                 direct_path_parallel_load: Optional[pulumi.Input[bool]] = None,
+                 enable_homogenous_tablespace: Optional[pulumi.Input[bool]] = None,
+                 extra_archived_log_dest_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 fail_tasks_on_lob_truncation: Optional[pulumi.Input[bool]] = None,
+                 number_datatype_scale: Optional[pulumi.Input[int]] = None,
+                 oracle_path_prefix: Optional[pulumi.Input[str]] = None,
+                 parallel_asm_read_threads: Optional[pulumi.Input[int]] = None,
+                 read_ahead_blocks: Optional[pulumi.Input[int]] = None,
+                 read_table_space_name: Optional[pulumi.Input[bool]] = None,
+                 replace_path_prefix: Optional[pulumi.Input[bool]] = None,
+                 retry_interval: Optional[pulumi.Input[int]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 security_db_encryption: Optional[pulumi.Input[str]] = None,
+                 security_db_encryption_name: Optional[pulumi.Input[str]] = None,
+                 spatial_data_option_to_geo_json_function_name: Optional[pulumi.Input[str]] = None,
+                 standby_delay_time: Optional[pulumi.Input[int]] = None,
+                 use_alternate_folder_for_online: Optional[pulumi.Input[bool]] = None,
+                 use_b_file: Optional[pulumi.Input[bool]] = None,
+                 use_direct_path_full_load: Optional[pulumi.Input[bool]] = None,
+                 use_logminer_reader: Optional[pulumi.Input[bool]] = None,
+                 use_path_prefix: Optional[pulumi.Input[str]] = None):
+        if access_alternate_directly is not None:
+            pulumi.set(__self__, "access_alternate_directly", access_alternate_directly)
+        if add_supplemental_logging is not None:
+            pulumi.set(__self__, "add_supplemental_logging", add_supplemental_logging)
+        if additional_archived_log_dest_id is not None:
+            pulumi.set(__self__, "additional_archived_log_dest_id", additional_archived_log_dest_id)
+        if allow_select_nested_tables is not None:
+            pulumi.set(__self__, "allow_select_nested_tables", allow_select_nested_tables)
+        if archived_log_dest_id is not None:
+            pulumi.set(__self__, "archived_log_dest_id", archived_log_dest_id)
+        if archived_logs_only is not None:
+            pulumi.set(__self__, "archived_logs_only", archived_logs_only)
+        if asm_password is not None:
+            pulumi.set(__self__, "asm_password", asm_password)
+        if asm_server is not None:
+            pulumi.set(__self__, "asm_server", asm_server)
+        if asm_user is not None:
+            pulumi.set(__self__, "asm_user", asm_user)
+        if char_length_semantics is not None:
+            pulumi.set(__self__, "char_length_semantics", char_length_semantics)
+        if direct_path_no_log is not None:
+            pulumi.set(__self__, "direct_path_no_log", direct_path_no_log)
+        if direct_path_parallel_load is not None:
+            pulumi.set(__self__, "direct_path_parallel_load", direct_path_parallel_load)
+        if enable_homogenous_tablespace is not None:
+            pulumi.set(__self__, "enable_homogenous_tablespace", enable_homogenous_tablespace)
+        if extra_archived_log_dest_ids is not None:
+            pulumi.set(__self__, "extra_archived_log_dest_ids", extra_archived_log_dest_ids)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if number_datatype_scale is not None:
+            pulumi.set(__self__, "number_datatype_scale", number_datatype_scale)
+        if oracle_path_prefix is not None:
+            pulumi.set(__self__, "oracle_path_prefix", oracle_path_prefix)
+        if parallel_asm_read_threads is not None:
+            pulumi.set(__self__, "parallel_asm_read_threads", parallel_asm_read_threads)
+        if read_ahead_blocks is not None:
+            pulumi.set(__self__, "read_ahead_blocks", read_ahead_blocks)
+        if read_table_space_name is not None:
+            pulumi.set(__self__, "read_table_space_name", read_table_space_name)
+        if replace_path_prefix is not None:
+            pulumi.set(__self__, "replace_path_prefix", replace_path_prefix)
+        if retry_interval is not None:
+            pulumi.set(__self__, "retry_interval", retry_interval)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_oracle_asm_access_role_arn is not None:
@@ -943,6 +1018,222 @@ class EndpointOracleSettingsArgs:
             pulumi.set(__self__, "secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if security_db_encryption is not None:
+            pulumi.set(__self__, "security_db_encryption", security_db_encryption)
+        if security_db_encryption_name is not None:
+            pulumi.set(__self__, "security_db_encryption_name", security_db_encryption_name)
+        if spatial_data_option_to_geo_json_function_name is not None:
+            pulumi.set(__self__, "spatial_data_option_to_geo_json_function_name", spatial_data_option_to_geo_json_function_name)
+        if standby_delay_time is not None:
+            pulumi.set(__self__, "standby_delay_time", standby_delay_time)
+        if use_alternate_folder_for_online is not None:
+            pulumi.set(__self__, "use_alternate_folder_for_online", use_alternate_folder_for_online)
+        if use_b_file is not None:
+            pulumi.set(__self__, "use_b_file", use_b_file)
+        if use_direct_path_full_load is not None:
+            pulumi.set(__self__, "use_direct_path_full_load", use_direct_path_full_load)
+        if use_logminer_reader is not None:
+            pulumi.set(__self__, "use_logminer_reader", use_logminer_reader)
+        if use_path_prefix is not None:
+            pulumi.set(__self__, "use_path_prefix", use_path_prefix)
+
+    @property
+    @pulumi.getter(name="accessAlternateDirectly")
+    def access_alternate_directly(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "access_alternate_directly")
+
+    @access_alternate_directly.setter
+    def access_alternate_directly(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "access_alternate_directly", value)
+
+    @property
+    @pulumi.getter(name="addSupplementalLogging")
+    def add_supplemental_logging(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "add_supplemental_logging")
+
+    @add_supplemental_logging.setter
+    def add_supplemental_logging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "add_supplemental_logging", value)
+
+    @property
+    @pulumi.getter(name="additionalArchivedLogDestId")
+    def additional_archived_log_dest_id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "additional_archived_log_dest_id")
+
+    @additional_archived_log_dest_id.setter
+    def additional_archived_log_dest_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "additional_archived_log_dest_id", value)
+
+    @property
+    @pulumi.getter(name="allowSelectNestedTables")
+    def allow_select_nested_tables(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_select_nested_tables")
+
+    @allow_select_nested_tables.setter
+    def allow_select_nested_tables(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_select_nested_tables", value)
+
+    @property
+    @pulumi.getter(name="archivedLogDestId")
+    def archived_log_dest_id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "archived_log_dest_id")
+
+    @archived_log_dest_id.setter
+    def archived_log_dest_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "archived_log_dest_id", value)
+
+    @property
+    @pulumi.getter(name="archivedLogsOnly")
+    def archived_logs_only(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "archived_logs_only")
+
+    @archived_logs_only.setter
+    def archived_logs_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "archived_logs_only", value)
+
+    @property
+    @pulumi.getter(name="asmPassword")
+    def asm_password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "asm_password")
+
+    @asm_password.setter
+    def asm_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asm_password", value)
+
+    @property
+    @pulumi.getter(name="asmServer")
+    def asm_server(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "asm_server")
+
+    @asm_server.setter
+    def asm_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asm_server", value)
+
+    @property
+    @pulumi.getter(name="asmUser")
+    def asm_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "asm_user")
+
+    @asm_user.setter
+    def asm_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asm_user", value)
+
+    @property
+    @pulumi.getter(name="charLengthSemantics")
+    def char_length_semantics(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "char_length_semantics")
+
+    @char_length_semantics.setter
+    def char_length_semantics(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "char_length_semantics", value)
+
+    @property
+    @pulumi.getter(name="directPathNoLog")
+    def direct_path_no_log(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "direct_path_no_log")
+
+    @direct_path_no_log.setter
+    def direct_path_no_log(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "direct_path_no_log", value)
+
+    @property
+    @pulumi.getter(name="directPathParallelLoad")
+    def direct_path_parallel_load(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "direct_path_parallel_load")
+
+    @direct_path_parallel_load.setter
+    def direct_path_parallel_load(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "direct_path_parallel_load", value)
+
+    @property
+    @pulumi.getter(name="enableHomogenousTablespace")
+    def enable_homogenous_tablespace(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_homogenous_tablespace")
+
+    @enable_homogenous_tablespace.setter
+    def enable_homogenous_tablespace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_homogenous_tablespace", value)
+
+    @property
+    @pulumi.getter(name="extraArchivedLogDestIds")
+    def extra_archived_log_dest_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "extra_archived_log_dest_ids")
+
+    @extra_archived_log_dest_ids.setter
+    def extra_archived_log_dest_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "extra_archived_log_dest_ids", value)
+
+    @property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @fail_tasks_on_lob_truncation.setter
+    def fail_tasks_on_lob_truncation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_tasks_on_lob_truncation", value)
+
+    @property
+    @pulumi.getter(name="numberDatatypeScale")
+    def number_datatype_scale(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "number_datatype_scale")
+
+    @number_datatype_scale.setter
+    def number_datatype_scale(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_datatype_scale", value)
+
+    @property
+    @pulumi.getter(name="oraclePathPrefix")
+    def oracle_path_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "oracle_path_prefix")
+
+    @oracle_path_prefix.setter
+    def oracle_path_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oracle_path_prefix", value)
+
+    @property
+    @pulumi.getter(name="parallelAsmReadThreads")
+    def parallel_asm_read_threads(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallel_asm_read_threads")
+
+    @parallel_asm_read_threads.setter
+    def parallel_asm_read_threads(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallel_asm_read_threads", value)
+
+    @property
+    @pulumi.getter(name="readAheadBlocks")
+    def read_ahead_blocks(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "read_ahead_blocks")
+
+    @read_ahead_blocks.setter
+    def read_ahead_blocks(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_ahead_blocks", value)
+
+    @property
+    @pulumi.getter(name="readTableSpaceName")
+    def read_table_space_name(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_table_space_name")
+
+    @read_table_space_name.setter
+    def read_table_space_name(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_table_space_name", value)
+
+    @property
+    @pulumi.getter(name="replacePathPrefix")
+    def replace_path_prefix(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "replace_path_prefix")
+
+    @replace_path_prefix.setter
+    def replace_path_prefix(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace_path_prefix", value)
+
+    @property
+    @pulumi.getter(name="retryInterval")
+    def retry_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "retry_interval")
+
+    @retry_interval.setter
+    def retry_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry_interval", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -979,6 +1270,87 @@ class EndpointOracleSettingsArgs:
     @secrets_manager_secret_id.setter
     def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="securityDbEncryption")
+    def security_db_encryption(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_db_encryption")
+
+    @security_db_encryption.setter
+    def security_db_encryption(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_db_encryption", value)
+
+    @property
+    @pulumi.getter(name="securityDbEncryptionName")
+    def security_db_encryption_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_db_encryption_name")
+
+    @security_db_encryption_name.setter
+    def security_db_encryption_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_db_encryption_name", value)
+
+    @property
+    @pulumi.getter(name="spatialDataOptionToGeoJsonFunctionName")
+    def spatial_data_option_to_geo_json_function_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "spatial_data_option_to_geo_json_function_name")
+
+    @spatial_data_option_to_geo_json_function_name.setter
+    def spatial_data_option_to_geo_json_function_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spatial_data_option_to_geo_json_function_name", value)
+
+    @property
+    @pulumi.getter(name="standbyDelayTime")
+    def standby_delay_time(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "standby_delay_time")
+
+    @standby_delay_time.setter
+    def standby_delay_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "standby_delay_time", value)
+
+    @property
+    @pulumi.getter(name="useAlternateFolderForOnline")
+    def use_alternate_folder_for_online(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_alternate_folder_for_online")
+
+    @use_alternate_folder_for_online.setter
+    def use_alternate_folder_for_online(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_alternate_folder_for_online", value)
+
+    @property
+    @pulumi.getter(name="useBFile")
+    def use_b_file(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_b_file")
+
+    @use_b_file.setter
+    def use_b_file(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_b_file", value)
+
+    @property
+    @pulumi.getter(name="useDirectPathFullLoad")
+    def use_direct_path_full_load(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_direct_path_full_load")
+
+    @use_direct_path_full_load.setter
+    def use_direct_path_full_load(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_direct_path_full_load", value)
+
+    @property
+    @pulumi.getter(name="useLogminerReader")
+    def use_logminer_reader(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_logminer_reader")
+
+    @use_logminer_reader.setter
+    def use_logminer_reader(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_logminer_reader", value)
+
+    @property
+    @pulumi.getter(name="usePathPrefix")
+    def use_path_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "use_path_prefix")
+
+    @use_path_prefix.setter
+    def use_path_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "use_path_prefix", value)
 
 
 @pulumi.input_type

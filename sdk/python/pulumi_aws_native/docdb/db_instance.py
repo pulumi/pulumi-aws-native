@@ -20,6 +20,7 @@ class DBInstanceArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]] = None):
         """
@@ -33,6 +34,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if d_b_instance_identifier is not None:
             pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
+        if enable_performance_insights is not None:
+            pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if tags is not None:
@@ -84,6 +87,15 @@ class DBInstanceArgs:
         pulumi.set(self, "d_b_instance_identifier", value)
 
     @property
+    @pulumi.getter(name="enablePerformanceInsights")
+    def enable_performance_insights(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_performance_insights")
+
+    @enable_performance_insights.setter
+    def enable_performance_insights(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_performance_insights", value)
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "preferred_maintenance_window")
@@ -117,6 +129,7 @@ class DBInstance(pulumi.CustomResource):
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
                  __props__=None):
@@ -155,6 +168,7 @@ class DBInstance(pulumi.CustomResource):
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
                  __props__=None):
@@ -179,6 +193,7 @@ class DBInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'd_b_instance_class'")
             __props__.__dict__["d_b_instance_class"] = d_b_instance_class
             __props__.__dict__["d_b_instance_identifier"] = d_b_instance_identifier
+            __props__.__dict__["enable_performance_insights"] = enable_performance_insights
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
@@ -210,6 +225,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["d_b_cluster_identifier"] = None
         __props__.__dict__["d_b_instance_class"] = None
         __props__.__dict__["d_b_instance_identifier"] = None
+        __props__.__dict__["enable_performance_insights"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
@@ -240,6 +256,11 @@ class DBInstance(pulumi.CustomResource):
     @pulumi.getter(name="dBInstanceIdentifier")
     def d_b_instance_identifier(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "d_b_instance_identifier")
+
+    @property
+    @pulumi.getter(name="enablePerformanceInsights")
+    def enable_performance_insights(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_performance_insights")
 
     @property
     @pulumi.getter

@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.DocDB
     {
         public readonly bool? AutoMinorVersionUpgrade;
         public readonly string? DBInstanceClass;
+        public readonly bool? EnablePerformanceInsights;
         public readonly string? Endpoint;
         public readonly string? Id;
         public readonly string? Port;
@@ -62,6 +63,8 @@ namespace Pulumi.AwsNative.DocDB
             bool? autoMinorVersionUpgrade,
 
             string? dBInstanceClass,
+
+            bool? enablePerformanceInsights,
 
             string? endpoint,
 
@@ -75,6 +78,7 @@ namespace Pulumi.AwsNative.DocDB
         {
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             DBInstanceClass = dBInstanceClass;
+            EnablePerformanceInsights = enablePerformanceInsights;
             Endpoint = endpoint;
             Id = id;
             Port = port;

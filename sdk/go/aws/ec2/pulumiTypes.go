@@ -11972,6 +11972,100 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateV
 	}).(LaunchTemplateVCpuCountPtrOutput)
 }
 
+type LaunchTemplateIpv4PrefixSpecification struct {
+	Ipv4Prefix *string `pulumi:"ipv4Prefix"`
+}
+
+// LaunchTemplateIpv4PrefixSpecificationInput is an input type that accepts LaunchTemplateIpv4PrefixSpecificationArgs and LaunchTemplateIpv4PrefixSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv4PrefixSpecificationInput` via:
+//
+//          LaunchTemplateIpv4PrefixSpecificationArgs{...}
+type LaunchTemplateIpv4PrefixSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv4PrefixSpecificationOutput() LaunchTemplateIpv4PrefixSpecificationOutput
+	ToLaunchTemplateIpv4PrefixSpecificationOutputWithContext(context.Context) LaunchTemplateIpv4PrefixSpecificationOutput
+}
+
+type LaunchTemplateIpv4PrefixSpecificationArgs struct {
+	Ipv4Prefix pulumi.StringPtrInput `pulumi:"ipv4Prefix"`
+}
+
+func (LaunchTemplateIpv4PrefixSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv4PrefixSpecificationArgs) ToLaunchTemplateIpv4PrefixSpecificationOutput() LaunchTemplateIpv4PrefixSpecificationOutput {
+	return i.ToLaunchTemplateIpv4PrefixSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv4PrefixSpecificationArgs) ToLaunchTemplateIpv4PrefixSpecificationOutputWithContext(ctx context.Context) LaunchTemplateIpv4PrefixSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv4PrefixSpecificationOutput)
+}
+
+// LaunchTemplateIpv4PrefixSpecificationArrayInput is an input type that accepts LaunchTemplateIpv4PrefixSpecificationArray and LaunchTemplateIpv4PrefixSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv4PrefixSpecificationArrayInput` via:
+//
+//          LaunchTemplateIpv4PrefixSpecificationArray{ LaunchTemplateIpv4PrefixSpecificationArgs{...} }
+type LaunchTemplateIpv4PrefixSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv4PrefixSpecificationArrayOutput() LaunchTemplateIpv4PrefixSpecificationArrayOutput
+	ToLaunchTemplateIpv4PrefixSpecificationArrayOutputWithContext(context.Context) LaunchTemplateIpv4PrefixSpecificationArrayOutput
+}
+
+type LaunchTemplateIpv4PrefixSpecificationArray []LaunchTemplateIpv4PrefixSpecificationInput
+
+func (LaunchTemplateIpv4PrefixSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv4PrefixSpecificationArray) ToLaunchTemplateIpv4PrefixSpecificationArrayOutput() LaunchTemplateIpv4PrefixSpecificationArrayOutput {
+	return i.ToLaunchTemplateIpv4PrefixSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv4PrefixSpecificationArray) ToLaunchTemplateIpv4PrefixSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv4PrefixSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv4PrefixSpecificationArrayOutput)
+}
+
+type LaunchTemplateIpv4PrefixSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv4PrefixSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv4PrefixSpecificationOutput) ToLaunchTemplateIpv4PrefixSpecificationOutput() LaunchTemplateIpv4PrefixSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv4PrefixSpecificationOutput) ToLaunchTemplateIpv4PrefixSpecificationOutputWithContext(ctx context.Context) LaunchTemplateIpv4PrefixSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIpv4PrefixSpecification) *string { return v.Ipv4Prefix }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateIpv4PrefixSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv4PrefixSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv4PrefixSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv4PrefixSpecificationArrayOutput) ToLaunchTemplateIpv4PrefixSpecificationArrayOutput() LaunchTemplateIpv4PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv4PrefixSpecificationArrayOutput) ToLaunchTemplateIpv4PrefixSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv4PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv4PrefixSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateIpv4PrefixSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateIpv4PrefixSpecification {
+		return vs[0].([]LaunchTemplateIpv4PrefixSpecification)[vs[1].(int)]
+	}).(LaunchTemplateIpv4PrefixSpecificationOutput)
+}
+
 type LaunchTemplateIpv6Add struct {
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
@@ -12064,6 +12158,100 @@ func (o LaunchTemplateIpv6AddArrayOutput) Index(i pulumi.IntInput) LaunchTemplat
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateIpv6Add {
 		return vs[0].([]LaunchTemplateIpv6Add)[vs[1].(int)]
 	}).(LaunchTemplateIpv6AddOutput)
+}
+
+type LaunchTemplateIpv6PrefixSpecification struct {
+	Ipv6Prefix *string `pulumi:"ipv6Prefix"`
+}
+
+// LaunchTemplateIpv6PrefixSpecificationInput is an input type that accepts LaunchTemplateIpv6PrefixSpecificationArgs and LaunchTemplateIpv6PrefixSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv6PrefixSpecificationInput` via:
+//
+//          LaunchTemplateIpv6PrefixSpecificationArgs{...}
+type LaunchTemplateIpv6PrefixSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv6PrefixSpecificationOutput() LaunchTemplateIpv6PrefixSpecificationOutput
+	ToLaunchTemplateIpv6PrefixSpecificationOutputWithContext(context.Context) LaunchTemplateIpv6PrefixSpecificationOutput
+}
+
+type LaunchTemplateIpv6PrefixSpecificationArgs struct {
+	Ipv6Prefix pulumi.StringPtrInput `pulumi:"ipv6Prefix"`
+}
+
+func (LaunchTemplateIpv6PrefixSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv6PrefixSpecificationArgs) ToLaunchTemplateIpv6PrefixSpecificationOutput() LaunchTemplateIpv6PrefixSpecificationOutput {
+	return i.ToLaunchTemplateIpv6PrefixSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv6PrefixSpecificationArgs) ToLaunchTemplateIpv6PrefixSpecificationOutputWithContext(ctx context.Context) LaunchTemplateIpv6PrefixSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6PrefixSpecificationOutput)
+}
+
+// LaunchTemplateIpv6PrefixSpecificationArrayInput is an input type that accepts LaunchTemplateIpv6PrefixSpecificationArray and LaunchTemplateIpv6PrefixSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv6PrefixSpecificationArrayInput` via:
+//
+//          LaunchTemplateIpv6PrefixSpecificationArray{ LaunchTemplateIpv6PrefixSpecificationArgs{...} }
+type LaunchTemplateIpv6PrefixSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv6PrefixSpecificationArrayOutput() LaunchTemplateIpv6PrefixSpecificationArrayOutput
+	ToLaunchTemplateIpv6PrefixSpecificationArrayOutputWithContext(context.Context) LaunchTemplateIpv6PrefixSpecificationArrayOutput
+}
+
+type LaunchTemplateIpv6PrefixSpecificationArray []LaunchTemplateIpv6PrefixSpecificationInput
+
+func (LaunchTemplateIpv6PrefixSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv6PrefixSpecificationArray) ToLaunchTemplateIpv6PrefixSpecificationArrayOutput() LaunchTemplateIpv6PrefixSpecificationArrayOutput {
+	return i.ToLaunchTemplateIpv6PrefixSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv6PrefixSpecificationArray) ToLaunchTemplateIpv6PrefixSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv6PrefixSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6PrefixSpecificationArrayOutput)
+}
+
+type LaunchTemplateIpv6PrefixSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv6PrefixSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv6PrefixSpecificationOutput) ToLaunchTemplateIpv6PrefixSpecificationOutput() LaunchTemplateIpv6PrefixSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6PrefixSpecificationOutput) ToLaunchTemplateIpv6PrefixSpecificationOutputWithContext(ctx context.Context) LaunchTemplateIpv6PrefixSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6PrefixSpecificationOutput) Ipv6Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIpv6PrefixSpecification) *string { return v.Ipv6Prefix }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateIpv6PrefixSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv6PrefixSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv6PrefixSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv6PrefixSpecificationArrayOutput) ToLaunchTemplateIpv6PrefixSpecificationArrayOutput() LaunchTemplateIpv6PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6PrefixSpecificationArrayOutput) ToLaunchTemplateIpv6PrefixSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv6PrefixSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6PrefixSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateIpv6PrefixSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateIpv6PrefixSpecification {
+		return vs[0].([]LaunchTemplateIpv6PrefixSpecification)[vs[1].(int)]
+	}).(LaunchTemplateIpv6PrefixSpecificationOutput)
 }
 
 type LaunchTemplateLicenseSpecification struct {
@@ -12783,21 +12971,25 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type LaunchTemplateNetworkInterface struct {
-	AssociateCarrierIpAddress      *bool                        `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress       *bool                        `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            *bool                        `pulumi:"deleteOnTermination"`
-	Description                    *string                      `pulumi:"description"`
-	DeviceIndex                    *int                         `pulumi:"deviceIndex"`
-	Groups                         []string                     `pulumi:"groups"`
-	InterfaceType                  *string                      `pulumi:"interfaceType"`
-	Ipv6AddressCount               *int                         `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  []LaunchTemplateIpv6Add      `pulumi:"ipv6Addresses"`
-	NetworkCardIndex               *int                         `pulumi:"networkCardIndex"`
-	NetworkInterfaceId             *string                      `pulumi:"networkInterfaceId"`
-	PrivateIpAddress               *string                      `pulumi:"privateIpAddress"`
-	PrivateIpAddresses             []LaunchTemplatePrivateIpAdd `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount *int                         `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       *string                      `pulumi:"subnetId"`
+	AssociateCarrierIpAddress      *bool                                   `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress       *bool                                   `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            *bool                                   `pulumi:"deleteOnTermination"`
+	Description                    *string                                 `pulumi:"description"`
+	DeviceIndex                    *int                                    `pulumi:"deviceIndex"`
+	Groups                         []string                                `pulumi:"groups"`
+	InterfaceType                  *string                                 `pulumi:"interfaceType"`
+	Ipv4PrefixCount                *int                                    `pulumi:"ipv4PrefixCount"`
+	Ipv4Prefixes                   []LaunchTemplateIpv4PrefixSpecification `pulumi:"ipv4Prefixes"`
+	Ipv6AddressCount               *int                                    `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  []LaunchTemplateIpv6Add                 `pulumi:"ipv6Addresses"`
+	Ipv6PrefixCount                *int                                    `pulumi:"ipv6PrefixCount"`
+	Ipv6Prefixes                   []LaunchTemplateIpv6PrefixSpecification `pulumi:"ipv6Prefixes"`
+	NetworkCardIndex               *int                                    `pulumi:"networkCardIndex"`
+	NetworkInterfaceId             *string                                 `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               *string                                 `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             []LaunchTemplatePrivateIpAdd            `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount *int                                    `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       *string                                 `pulumi:"subnetId"`
 }
 
 // LaunchTemplateNetworkInterfaceInput is an input type that accepts LaunchTemplateNetworkInterfaceArgs and LaunchTemplateNetworkInterfaceOutput values.
@@ -12812,21 +13004,25 @@ type LaunchTemplateNetworkInterfaceInput interface {
 }
 
 type LaunchTemplateNetworkInterfaceArgs struct {
-	AssociateCarrierIpAddress      pulumi.BoolPtrInput                  `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress       pulumi.BoolPtrInput                  `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            pulumi.BoolPtrInput                  `pulumi:"deleteOnTermination"`
-	Description                    pulumi.StringPtrInput                `pulumi:"description"`
-	DeviceIndex                    pulumi.IntPtrInput                   `pulumi:"deviceIndex"`
-	Groups                         pulumi.StringArrayInput              `pulumi:"groups"`
-	InterfaceType                  pulumi.StringPtrInput                `pulumi:"interfaceType"`
-	Ipv6AddressCount               pulumi.IntPtrInput                   `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  LaunchTemplateIpv6AddArrayInput      `pulumi:"ipv6Addresses"`
-	NetworkCardIndex               pulumi.IntPtrInput                   `pulumi:"networkCardIndex"`
-	NetworkInterfaceId             pulumi.StringPtrInput                `pulumi:"networkInterfaceId"`
-	PrivateIpAddress               pulumi.StringPtrInput                `pulumi:"privateIpAddress"`
-	PrivateIpAddresses             LaunchTemplatePrivateIpAddArrayInput `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                   `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       pulumi.StringPtrInput                `pulumi:"subnetId"`
+	AssociateCarrierIpAddress      pulumi.BoolPtrInput                             `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress       pulumi.BoolPtrInput                             `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            pulumi.BoolPtrInput                             `pulumi:"deleteOnTermination"`
+	Description                    pulumi.StringPtrInput                           `pulumi:"description"`
+	DeviceIndex                    pulumi.IntPtrInput                              `pulumi:"deviceIndex"`
+	Groups                         pulumi.StringArrayInput                         `pulumi:"groups"`
+	InterfaceType                  pulumi.StringPtrInput                           `pulumi:"interfaceType"`
+	Ipv4PrefixCount                pulumi.IntPtrInput                              `pulumi:"ipv4PrefixCount"`
+	Ipv4Prefixes                   LaunchTemplateIpv4PrefixSpecificationArrayInput `pulumi:"ipv4Prefixes"`
+	Ipv6AddressCount               pulumi.IntPtrInput                              `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  LaunchTemplateIpv6AddArrayInput                 `pulumi:"ipv6Addresses"`
+	Ipv6PrefixCount                pulumi.IntPtrInput                              `pulumi:"ipv6PrefixCount"`
+	Ipv6Prefixes                   LaunchTemplateIpv6PrefixSpecificationArrayInput `pulumi:"ipv6Prefixes"`
+	NetworkCardIndex               pulumi.IntPtrInput                              `pulumi:"networkCardIndex"`
+	NetworkInterfaceId             pulumi.StringPtrInput                           `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               pulumi.StringPtrInput                           `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             LaunchTemplatePrivateIpAddArrayInput            `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                              `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       pulumi.StringPtrInput                           `pulumi:"subnetId"`
 }
 
 func (LaunchTemplateNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -12908,12 +13104,28 @@ func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOu
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
 
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv4PrefixCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv4PrefixCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv4Prefixes() LaunchTemplateIpv4PrefixSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv4PrefixSpecification { return v.Ipv4Prefixes }).(LaunchTemplateIpv4PrefixSpecificationArrayOutput)
+}
+
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() LaunchTemplateIpv6AddArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6Add { return v.Ipv6Addresses }).(LaunchTemplateIpv6AddArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv6PrefixCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6PrefixCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Prefixes() LaunchTemplateIpv6PrefixSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6PrefixSpecification { return v.Ipv6Prefixes }).(LaunchTemplateIpv6PrefixSpecificationArrayOutput)
 }
 
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
@@ -25806,8 +26018,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsPtrInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv4PrefixSpecificationInput)(nil)).Elem(), LaunchTemplateIpv4PrefixSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv4PrefixSpecificationArrayInput)(nil)).Elem(), LaunchTemplateIpv4PrefixSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6AddInput)(nil)).Elem(), LaunchTemplateIpv6AddArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6AddArrayInput)(nil)).Elem(), LaunchTemplateIpv6AddArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6PrefixSpecificationInput)(nil)).Elem(), LaunchTemplateIpv6PrefixSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6PrefixSpecificationArrayInput)(nil)).Elem(), LaunchTemplateIpv6PrefixSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpuInput)(nil)).Elem(), LaunchTemplateMemoryGiBPerVCpuArgs{})
@@ -26154,8 +26370,12 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv4PrefixSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv4PrefixSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIpv6AddOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIpv6AddArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv6PrefixSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv6PrefixSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMemoryGiBPerVCpuOutput{})

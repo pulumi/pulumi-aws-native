@@ -55,6 +55,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
 
         /// <summary>
+        /// A function's ephemeral storage settings.
+        /// </summary>
+        [Output("ephemeralStorage")]
+        public Output<Outputs.FunctionEphemeralStorage?> EphemeralStorage { get; private set; } = null!;
+
+        /// <summary>
         /// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         /// </summary>
         [Output("fileSystemConfigs")]
@@ -226,6 +232,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
+
+        /// <summary>
+        /// A function's ephemeral storage settings.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<Inputs.FunctionEphemeralStorageArgs>? EphemeralStorage { get; set; }
 
         [Input("fileSystemConfigs")]
         private InputList<Inputs.FunctionFileSystemConfigArgs>? _fileSystemConfigs;

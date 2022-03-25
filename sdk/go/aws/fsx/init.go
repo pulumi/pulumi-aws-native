@@ -23,6 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:fsx:FileSystem":
 		r = &FileSystem{}
+	case "aws-native:fsx:Snapshot":
+		r = &Snapshot{}
+	case "aws-native:fsx:StorageVirtualMachine":
+		r = &StorageVirtualMachine{}
+	case "aws-native:fsx:Volume":
+		r = &Volume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

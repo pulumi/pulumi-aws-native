@@ -21,6 +21,7 @@ type Permission struct {
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
 	FunctionName     pulumi.StringOutput    `pulumi:"functionName"`
 	Principal        pulumi.StringOutput    `pulumi:"principal"`
+	PrincipalOrgID   pulumi.StringPtrOutput `pulumi:"principalOrgID"`
 	SourceAccount    pulumi.StringPtrOutput `pulumi:"sourceAccount"`
 	SourceArn        pulumi.StringPtrOutput `pulumi:"sourceArn"`
 }
@@ -77,6 +78,7 @@ type permissionArgs struct {
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	FunctionName     string  `pulumi:"functionName"`
 	Principal        string  `pulumi:"principal"`
+	PrincipalOrgID   *string `pulumi:"principalOrgID"`
 	SourceAccount    *string `pulumi:"sourceAccount"`
 	SourceArn        *string `pulumi:"sourceArn"`
 }
@@ -87,6 +89,7 @@ type PermissionArgs struct {
 	EventSourceToken pulumi.StringPtrInput
 	FunctionName     pulumi.StringInput
 	Principal        pulumi.StringInput
+	PrincipalOrgID   pulumi.StringPtrInput
 	SourceAccount    pulumi.StringPtrInput
 	SourceArn        pulumi.StringPtrInput
 }

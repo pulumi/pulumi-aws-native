@@ -28,6 +28,8 @@ type Function struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Environment variables that are accessible from function code during execution.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
+	// A function's ephemeral storage settings.
+	EphemeralStorage FunctionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
 	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
 	FileSystemConfigs FunctionFileSystemConfigArrayOutput `pulumi:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
@@ -116,6 +118,8 @@ type functionArgs struct {
 	Description *string `pulumi:"description"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
+	// A function's ephemeral storage settings.
+	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
 	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
@@ -161,6 +165,8 @@ type FunctionArgs struct {
 	Description pulumi.StringPtrInput
 	// Environment variables that are accessible from function code during execution.
 	Environment FunctionEnvironmentPtrInput
+	// A function's ephemeral storage settings.
+	EphemeralStorage FunctionEphemeralStoragePtrInput
 	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
 	FileSystemConfigs FunctionFileSystemConfigArrayInput
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.

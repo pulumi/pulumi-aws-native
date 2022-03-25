@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
+        [Output("principalOrgID")]
+        public Output<string?> PrincipalOrgID { get; private set; } = null!;
+
         [Output("sourceAccount")]
         public Output<string?> SourceAccount { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.Lambda
 
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
+
+        [Input("principalOrgID")]
+        public Input<string>? PrincipalOrgID { get; set; }
 
         [Input("sourceAccount")]
         public Input<string>? SourceAccount { get; set; }

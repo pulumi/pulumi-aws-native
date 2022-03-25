@@ -41,6 +41,7 @@ export class Permission extends pulumi.CustomResource {
     public readonly eventSourceToken!: pulumi.Output<string | undefined>;
     public readonly functionName!: pulumi.Output<string>;
     public readonly principal!: pulumi.Output<string>;
+    public readonly principalOrgID!: pulumi.Output<string | undefined>;
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
     public readonly sourceArn!: pulumi.Output<string | undefined>;
 
@@ -70,6 +71,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["principalOrgID"] = args ? args.principalOrgID : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
         } else {
@@ -77,6 +79,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["eventSourceToken"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["principalOrgID"] = undefined /*out*/;
             resourceInputs["sourceAccount"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
         }
@@ -93,6 +96,7 @@ export interface PermissionArgs {
     eventSourceToken?: pulumi.Input<string>;
     functionName: pulumi.Input<string>;
     principal: pulumi.Input<string>;
+    principalOrgID?: pulumi.Input<string>;
     sourceAccount?: pulumi.Input<string>;
     sourceArn?: pulumi.Input<string>;
 }

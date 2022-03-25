@@ -38,6 +38,17 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("interfaceType")]
         public Input<string>? InterfaceType { get; set; }
 
+        [Input("ipv4PrefixCount")]
+        public Input<int>? Ipv4PrefixCount { get; set; }
+
+        [Input("ipv4Prefixes")]
+        private InputList<Inputs.LaunchTemplateIpv4PrefixSpecificationArgs>? _ipv4Prefixes;
+        public InputList<Inputs.LaunchTemplateIpv4PrefixSpecificationArgs> Ipv4Prefixes
+        {
+            get => _ipv4Prefixes ?? (_ipv4Prefixes = new InputList<Inputs.LaunchTemplateIpv4PrefixSpecificationArgs>());
+            set => _ipv4Prefixes = value;
+        }
+
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
@@ -47,6 +58,17 @@ namespace Pulumi.AwsNative.EC2.Inputs
         {
             get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<Inputs.LaunchTemplateIpv6AddArgs>());
             set => _ipv6Addresses = value;
+        }
+
+        [Input("ipv6PrefixCount")]
+        public Input<int>? Ipv6PrefixCount { get; set; }
+
+        [Input("ipv6Prefixes")]
+        private InputList<Inputs.LaunchTemplateIpv6PrefixSpecificationArgs>? _ipv6Prefixes;
+        public InputList<Inputs.LaunchTemplateIpv6PrefixSpecificationArgs> Ipv6Prefixes
+        {
+            get => _ipv6Prefixes ?? (_ipv6Prefixes = new InputList<Inputs.LaunchTemplateIpv6PrefixSpecificationArgs>());
+            set => _ipv6Prefixes = value;
         }
 
         [Input("networkCardIndex")]

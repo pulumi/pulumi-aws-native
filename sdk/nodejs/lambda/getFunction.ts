@@ -49,6 +49,10 @@ export interface GetFunctionResult {
      */
     readonly environment?: outputs.lambda.FunctionEnvironment;
     /**
+     * A function's ephemeral storage settings.
+     */
+    readonly ephemeralStorage?: outputs.lambda.FunctionEphemeralStorage;
+    /**
      * Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
      */
     readonly fileSystemConfigs?: outputs.lambda.FunctionFileSystemConfig[];

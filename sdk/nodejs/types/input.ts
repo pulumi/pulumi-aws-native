@@ -8468,10 +8468,41 @@ export namespace dms {
     }
 
     export interface EndpointOracleSettingsArgs {
+        accessAlternateDirectly?: pulumi.Input<boolean>;
+        addSupplementalLogging?: pulumi.Input<boolean>;
+        additionalArchivedLogDestId?: pulumi.Input<number>;
+        allowSelectNestedTables?: pulumi.Input<boolean>;
+        archivedLogDestId?: pulumi.Input<number>;
+        archivedLogsOnly?: pulumi.Input<boolean>;
+        asmPassword?: pulumi.Input<string>;
+        asmServer?: pulumi.Input<string>;
+        asmUser?: pulumi.Input<string>;
+        charLengthSemantics?: pulumi.Input<string>;
+        directPathNoLog?: pulumi.Input<boolean>;
+        directPathParallelLoad?: pulumi.Input<boolean>;
+        enableHomogenousTablespace?: pulumi.Input<boolean>;
+        extraArchivedLogDestIds?: pulumi.Input<pulumi.Input<number>[]>;
+        failTasksOnLobTruncation?: pulumi.Input<boolean>;
+        numberDatatypeScale?: pulumi.Input<number>;
+        oraclePathPrefix?: pulumi.Input<string>;
+        parallelAsmReadThreads?: pulumi.Input<number>;
+        readAheadBlocks?: pulumi.Input<number>;
+        readTableSpaceName?: pulumi.Input<boolean>;
+        replacePathPrefix?: pulumi.Input<boolean>;
+        retryInterval?: pulumi.Input<number>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerOracleAsmAccessRoleArn?: pulumi.Input<string>;
         secretsManagerOracleAsmSecretId?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        securityDbEncryption?: pulumi.Input<string>;
+        securityDbEncryptionName?: pulumi.Input<string>;
+        spatialDataOptionToGeoJsonFunctionName?: pulumi.Input<string>;
+        standbyDelayTime?: pulumi.Input<number>;
+        useAlternateFolderForOnline?: pulumi.Input<boolean>;
+        useBFile?: pulumi.Input<boolean>;
+        useDirectPathFullLoad?: pulumi.Input<boolean>;
+        useLogminerReader?: pulumi.Input<boolean>;
+        usePathPrefix?: pulumi.Input<string>;
     }
 
     export interface EndpointPostgreSqlSettingsArgs {
@@ -9317,8 +9348,16 @@ export namespace ec2 {
         vCpuCount?: pulumi.Input<inputs.ec2.LaunchTemplateVCpuCountArgs>;
     }
 
+    export interface LaunchTemplateIpv4PrefixSpecificationArgs {
+        ipv4Prefix?: pulumi.Input<string>;
+    }
+
     export interface LaunchTemplateIpv6AddArgs {
         ipv6Address?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateIpv6PrefixSpecificationArgs {
+        ipv6Prefix?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateLicenseSpecificationArgs {
@@ -9355,8 +9394,12 @@ export namespace ec2 {
         deviceIndex?: pulumi.Input<number>;
         groups?: pulumi.Input<pulumi.Input<string>[]>;
         interfaceType?: pulumi.Input<string>;
+        ipv4PrefixCount?: pulumi.Input<number>;
+        ipv4Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateIpv4PrefixSpecificationArgs>[]>;
         ipv6AddressCount?: pulumi.Input<number>;
         ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateIpv6AddArgs>[]>;
+        ipv6PrefixCount?: pulumi.Input<number>;
+        ipv6Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateIpv6PrefixSpecificationArgs>[]>;
         networkCardIndex?: pulumi.Input<number>;
         networkInterfaceId?: pulumi.Input<string>;
         privateIpAddress?: pulumi.Input<string>;
@@ -12612,6 +12655,83 @@ export namespace fsx {
         selfManagedActiveDirectoryConfiguration?: pulumi.Input<inputs.fsx.FileSystemSelfManagedActiveDirectoryConfigurationArgs>;
         throughputCapacity: pulumi.Input<number>;
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    }
+
+    export interface SnapshotTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface StorageVirtualMachineActiveDirectoryConfigurationArgs {
+        netBiosName?: pulumi.Input<string>;
+        selfManagedActiveDirectoryConfiguration?: pulumi.Input<inputs.fsx.StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs>;
+    }
+
+    export interface StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs {
+        dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+        domainName?: pulumi.Input<string>;
+        fileSystemAdministratorsGroup?: pulumi.Input<string>;
+        organizationalUnitDistinguishedName?: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
+        userName?: pulumi.Input<string>;
+    }
+
+    export interface StorageVirtualMachineTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface VolumeClientConfigurationsArgs {
+        clients: pulumi.Input<string>;
+        options: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VolumeNfsExportsArgs {
+        clientConfigurations: pulumi.Input<pulumi.Input<inputs.fsx.VolumeClientConfigurationsArgs>[]>;
+    }
+
+    export interface VolumeOntapConfigurationArgs {
+        junctionPath: pulumi.Input<string>;
+        securityStyle?: pulumi.Input<string>;
+        sizeInMegabytes: pulumi.Input<string>;
+        storageEfficiencyEnabled: pulumi.Input<string>;
+        storageVirtualMachineId: pulumi.Input<string>;
+        tieringPolicy?: pulumi.Input<inputs.fsx.VolumeTieringPolicyArgs>;
+    }
+
+    export interface VolumeOpenZFSConfigurationArgs {
+        copyTagsToSnapshots?: pulumi.Input<boolean>;
+        dataCompressionType?: pulumi.Input<string>;
+        nfsExports?: pulumi.Input<pulumi.Input<inputs.fsx.VolumeNfsExportsArgs>[]>;
+        options?: pulumi.Input<pulumi.Input<string>[]>;
+        originSnapshot?: pulumi.Input<inputs.fsx.VolumeOriginSnapshotArgs>;
+        parentVolumeId: pulumi.Input<string>;
+        readOnly?: pulumi.Input<boolean>;
+        recordSizeKiB?: pulumi.Input<number>;
+        storageCapacityQuotaGiB?: pulumi.Input<number>;
+        storageCapacityReservationGiB?: pulumi.Input<number>;
+        userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.VolumeUserAndGroupQuotasArgs>[]>;
+    }
+
+    export interface VolumeOriginSnapshotArgs {
+        copyStrategy: pulumi.Input<string>;
+        snapshotARN: pulumi.Input<string>;
+    }
+
+    export interface VolumeTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface VolumeTieringPolicyArgs {
+        coolingPeriod?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+    }
+
+    export interface VolumeUserAndGroupQuotasArgs {
+        id: pulumi.Input<number>;
+        storageCapacityQuotaGiB: pulumi.Input<number>;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -18567,6 +18687,16 @@ export namespace lambda {
          * Environment variable key-value pairs.
          */
         variables?: any;
+    }
+
+    /**
+     * A function's ephemeral storage settings.
+     */
+    export interface FunctionEphemeralStorageArgs {
+        /**
+         * The amount of ephemeral storage that your function has access to.
+         */
+        size: pulumi.Input<number>;
     }
 
     export interface FunctionFileSystemConfigArgs {

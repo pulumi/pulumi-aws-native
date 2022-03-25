@@ -37,6 +37,8 @@ type LookupFunctionResult struct {
 	Description *string `pulumi:"description"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
+	// A function's ephemeral storage settings.
+	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
 	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	// The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
@@ -126,6 +128,11 @@ func (o LookupFunctionResultOutput) Description() pulumi.StringPtrOutput {
 // Environment variables that are accessible from function code during execution.
 func (o LookupFunctionResultOutput) Environment() FunctionEnvironmentPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionEnvironment { return v.Environment }).(FunctionEnvironmentPtrOutput)
+}
+
+// A function's ephemeral storage settings.
+func (o LookupFunctionResultOutput) EphemeralStorage() FunctionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionEphemeralStorage { return v.EphemeralStorage }).(FunctionEphemeralStoragePtrOutput)
 }
 
 // Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.

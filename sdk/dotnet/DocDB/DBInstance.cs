@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.DocDB
         [Output("dBInstanceIdentifier")]
         public Output<string?> DBInstanceIdentifier { get; private set; } = null!;
 
+        [Output("enablePerformanceInsights")]
+        public Output<bool?> EnablePerformanceInsights { get; private set; } = null!;
+
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
@@ -102,6 +105,9 @@ namespace Pulumi.AwsNative.DocDB
 
         [Input("dBInstanceIdentifier")]
         public Input<string>? DBInstanceIdentifier { get; set; }
+
+        [Input("enablePerformanceInsights")]
+        public Input<bool>? EnablePerformanceInsights { get; set; }
 
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

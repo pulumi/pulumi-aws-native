@@ -29,6 +29,7 @@ __all__ = [
     'FunctionCode',
     'FunctionDeadLetterConfig',
     'FunctionEnvironment',
+    'FunctionEphemeralStorage',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
     'FunctionTag',
@@ -654,6 +655,28 @@ class FunctionEnvironment(dict):
         Environment variable key-value pairs.
         """
         return pulumi.get(self, "variables")
+
+
+@pulumi.output_type
+class FunctionEphemeralStorage(dict):
+    """
+    A function's ephemeral storage settings.
+    """
+    def __init__(__self__, *,
+                 size: int):
+        """
+        A function's ephemeral storage settings.
+        :param int size: The amount of ephemeral storage that your function has access to.
+        """
+        pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The amount of ephemeral storage that your function has access to.
+        """
+        return pulumi.get(self, "size")
 
 
 @pulumi.output_type

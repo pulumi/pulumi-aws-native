@@ -8572,10 +8572,41 @@ export namespace dms {
     }
 
     export interface EndpointOracleSettings {
+        accessAlternateDirectly?: boolean;
+        addSupplementalLogging?: boolean;
+        additionalArchivedLogDestId?: number;
+        allowSelectNestedTables?: boolean;
+        archivedLogDestId?: number;
+        archivedLogsOnly?: boolean;
+        asmPassword?: string;
+        asmServer?: string;
+        asmUser?: string;
+        charLengthSemantics?: string;
+        directPathNoLog?: boolean;
+        directPathParallelLoad?: boolean;
+        enableHomogenousTablespace?: boolean;
+        extraArchivedLogDestIds?: number[];
+        failTasksOnLobTruncation?: boolean;
+        numberDatatypeScale?: number;
+        oraclePathPrefix?: string;
+        parallelAsmReadThreads?: number;
+        readAheadBlocks?: number;
+        readTableSpaceName?: boolean;
+        replacePathPrefix?: boolean;
+        retryInterval?: number;
         secretsManagerAccessRoleArn?: string;
         secretsManagerOracleAsmAccessRoleArn?: string;
         secretsManagerOracleAsmSecretId?: string;
         secretsManagerSecretId?: string;
+        securityDbEncryption?: string;
+        securityDbEncryptionName?: string;
+        spatialDataOptionToGeoJsonFunctionName?: string;
+        standbyDelayTime?: number;
+        useAlternateFolderForOnline?: boolean;
+        useBFile?: boolean;
+        useDirectPathFullLoad?: boolean;
+        useLogminerReader?: boolean;
+        usePathPrefix?: string;
     }
 
     export interface EndpointPostgreSqlSettings {
@@ -9423,8 +9454,16 @@ export namespace ec2 {
         vCpuCount?: outputs.ec2.LaunchTemplateVCpuCount;
     }
 
+    export interface LaunchTemplateIpv4PrefixSpecification {
+        ipv4Prefix?: string;
+    }
+
     export interface LaunchTemplateIpv6Add {
         ipv6Address?: string;
+    }
+
+    export interface LaunchTemplateIpv6PrefixSpecification {
+        ipv6Prefix?: string;
     }
 
     export interface LaunchTemplateLicenseSpecification {
@@ -9461,8 +9500,12 @@ export namespace ec2 {
         deviceIndex?: number;
         groups?: string[];
         interfaceType?: string;
+        ipv4PrefixCount?: number;
+        ipv4Prefixes?: outputs.ec2.LaunchTemplateIpv4PrefixSpecification[];
         ipv6AddressCount?: number;
         ipv6Addresses?: outputs.ec2.LaunchTemplateIpv6Add[];
+        ipv6PrefixCount?: number;
+        ipv6Prefixes?: outputs.ec2.LaunchTemplateIpv6PrefixSpecification[];
         networkCardIndex?: number;
         networkInterfaceId?: string;
         privateIpAddress?: string;
@@ -12875,6 +12918,83 @@ export namespace fsx {
         selfManagedActiveDirectoryConfiguration?: outputs.fsx.FileSystemSelfManagedActiveDirectoryConfiguration;
         throughputCapacity: number;
         weeklyMaintenanceStartTime?: string;
+    }
+
+    export interface SnapshotTag {
+        key: string;
+        value: string;
+    }
+
+    export interface StorageVirtualMachineActiveDirectoryConfiguration {
+        netBiosName?: string;
+        selfManagedActiveDirectoryConfiguration?: outputs.fsx.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration;
+    }
+
+    export interface StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+        dnsIps?: string[];
+        domainName?: string;
+        fileSystemAdministratorsGroup?: string;
+        organizationalUnitDistinguishedName?: string;
+        password?: string;
+        userName?: string;
+    }
+
+    export interface StorageVirtualMachineTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VolumeClientConfigurations {
+        clients: string;
+        options: string[];
+    }
+
+    export interface VolumeNfsExports {
+        clientConfigurations: outputs.fsx.VolumeClientConfigurations[];
+    }
+
+    export interface VolumeOntapConfiguration {
+        junctionPath: string;
+        securityStyle?: string;
+        sizeInMegabytes: string;
+        storageEfficiencyEnabled: string;
+        storageVirtualMachineId: string;
+        tieringPolicy?: outputs.fsx.VolumeTieringPolicy;
+    }
+
+    export interface VolumeOpenZFSConfiguration {
+        copyTagsToSnapshots?: boolean;
+        dataCompressionType?: string;
+        nfsExports?: outputs.fsx.VolumeNfsExports[];
+        options?: string[];
+        originSnapshot?: outputs.fsx.VolumeOriginSnapshot;
+        parentVolumeId: string;
+        readOnly?: boolean;
+        recordSizeKiB?: number;
+        storageCapacityQuotaGiB?: number;
+        storageCapacityReservationGiB?: number;
+        userAndGroupQuotas?: outputs.fsx.VolumeUserAndGroupQuotas[];
+    }
+
+    export interface VolumeOriginSnapshot {
+        copyStrategy: string;
+        snapshotARN: string;
+    }
+
+    export interface VolumeTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VolumeTieringPolicy {
+        coolingPeriod?: number;
+        name?: string;
+    }
+
+    export interface VolumeUserAndGroupQuotas {
+        id: number;
+        storageCapacityQuotaGiB: number;
+        type: string;
     }
 
 }
@@ -18882,6 +19002,16 @@ export namespace lambda {
          * Environment variable key-value pairs.
          */
         variables?: any;
+    }
+
+    /**
+     * A function's ephemeral storage settings.
+     */
+    export interface FunctionEphemeralStorage {
+        /**
+         * The amount of ephemeral storage that your function has access to.
+         */
+        size: number;
     }
 
     export interface FunctionFileSystemConfig {

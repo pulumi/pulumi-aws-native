@@ -22,6 +22,7 @@ type DBInstance struct {
 	DBClusterIdentifier        pulumi.StringOutput      `pulumi:"dBClusterIdentifier"`
 	DBInstanceClass            pulumi.StringOutput      `pulumi:"dBInstanceClass"`
 	DBInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dBInstanceIdentifier"`
+	EnablePerformanceInsights  pulumi.BoolPtrOutput     `pulumi:"enablePerformanceInsights"`
 	Endpoint                   pulumi.StringOutput      `pulumi:"endpoint"`
 	Port                       pulumi.StringOutput      `pulumi:"port"`
 	PreferredMaintenanceWindow pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
@@ -78,6 +79,7 @@ type dbinstanceArgs struct {
 	DBClusterIdentifier        string          `pulumi:"dBClusterIdentifier"`
 	DBInstanceClass            string          `pulumi:"dBInstanceClass"`
 	DBInstanceIdentifier       *string         `pulumi:"dBInstanceIdentifier"`
+	EnablePerformanceInsights  *bool           `pulumi:"enablePerformanceInsights"`
 	PreferredMaintenanceWindow *string         `pulumi:"preferredMaintenanceWindow"`
 	Tags                       []DBInstanceTag `pulumi:"tags"`
 }
@@ -89,6 +91,7 @@ type DBInstanceArgs struct {
 	DBClusterIdentifier        pulumi.StringInput
 	DBInstanceClass            pulumi.StringInput
 	DBInstanceIdentifier       pulumi.StringPtrInput
+	EnablePerformanceInsights  pulumi.BoolPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	Tags                       DBInstanceTagArrayInput
 }

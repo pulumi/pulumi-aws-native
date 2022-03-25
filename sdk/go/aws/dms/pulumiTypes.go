@@ -2359,10 +2359,41 @@ func (o EndpointNeptuneSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPt
 }
 
 type EndpointOracleSettings struct {
-	SecretsManagerAccessRoleArn          *string `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerOracleAsmAccessRoleArn *string `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
-	SecretsManagerOracleAsmSecretId      *string `pulumi:"secretsManagerOracleAsmSecretId"`
-	SecretsManagerSecretId               *string `pulumi:"secretsManagerSecretId"`
+	AccessAlternateDirectly                *bool   `pulumi:"accessAlternateDirectly"`
+	AddSupplementalLogging                 *bool   `pulumi:"addSupplementalLogging"`
+	AdditionalArchivedLogDestId            *int    `pulumi:"additionalArchivedLogDestId"`
+	AllowSelectNestedTables                *bool   `pulumi:"allowSelectNestedTables"`
+	ArchivedLogDestId                      *int    `pulumi:"archivedLogDestId"`
+	ArchivedLogsOnly                       *bool   `pulumi:"archivedLogsOnly"`
+	AsmPassword                            *string `pulumi:"asmPassword"`
+	AsmServer                              *string `pulumi:"asmServer"`
+	AsmUser                                *string `pulumi:"asmUser"`
+	CharLengthSemantics                    *string `pulumi:"charLengthSemantics"`
+	DirectPathNoLog                        *bool   `pulumi:"directPathNoLog"`
+	DirectPathParallelLoad                 *bool   `pulumi:"directPathParallelLoad"`
+	EnableHomogenousTablespace             *bool   `pulumi:"enableHomogenousTablespace"`
+	ExtraArchivedLogDestIds                []int   `pulumi:"extraArchivedLogDestIds"`
+	FailTasksOnLobTruncation               *bool   `pulumi:"failTasksOnLobTruncation"`
+	NumberDatatypeScale                    *int    `pulumi:"numberDatatypeScale"`
+	OraclePathPrefix                       *string `pulumi:"oraclePathPrefix"`
+	ParallelAsmReadThreads                 *int    `pulumi:"parallelAsmReadThreads"`
+	ReadAheadBlocks                        *int    `pulumi:"readAheadBlocks"`
+	ReadTableSpaceName                     *bool   `pulumi:"readTableSpaceName"`
+	ReplacePathPrefix                      *bool   `pulumi:"replacePathPrefix"`
+	RetryInterval                          *int    `pulumi:"retryInterval"`
+	SecretsManagerAccessRoleArn            *string `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerOracleAsmAccessRoleArn   *string `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmSecretId        *string `pulumi:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerSecretId                 *string `pulumi:"secretsManagerSecretId"`
+	SecurityDbEncryption                   *string `pulumi:"securityDbEncryption"`
+	SecurityDbEncryptionName               *string `pulumi:"securityDbEncryptionName"`
+	SpatialDataOptionToGeoJsonFunctionName *string `pulumi:"spatialDataOptionToGeoJsonFunctionName"`
+	StandbyDelayTime                       *int    `pulumi:"standbyDelayTime"`
+	UseAlternateFolderForOnline            *bool   `pulumi:"useAlternateFolderForOnline"`
+	UseBFile                               *bool   `pulumi:"useBFile"`
+	UseDirectPathFullLoad                  *bool   `pulumi:"useDirectPathFullLoad"`
+	UseLogminerReader                      *bool   `pulumi:"useLogminerReader"`
+	UsePathPrefix                          *string `pulumi:"usePathPrefix"`
 }
 
 // EndpointOracleSettingsInput is an input type that accepts EndpointOracleSettingsArgs and EndpointOracleSettingsOutput values.
@@ -2377,10 +2408,41 @@ type EndpointOracleSettingsInput interface {
 }
 
 type EndpointOracleSettingsArgs struct {
-	SecretsManagerAccessRoleArn          pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerOracleAsmAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
-	SecretsManagerOracleAsmSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmSecretId"`
-	SecretsManagerSecretId               pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	AccessAlternateDirectly                pulumi.BoolPtrInput   `pulumi:"accessAlternateDirectly"`
+	AddSupplementalLogging                 pulumi.BoolPtrInput   `pulumi:"addSupplementalLogging"`
+	AdditionalArchivedLogDestId            pulumi.IntPtrInput    `pulumi:"additionalArchivedLogDestId"`
+	AllowSelectNestedTables                pulumi.BoolPtrInput   `pulumi:"allowSelectNestedTables"`
+	ArchivedLogDestId                      pulumi.IntPtrInput    `pulumi:"archivedLogDestId"`
+	ArchivedLogsOnly                       pulumi.BoolPtrInput   `pulumi:"archivedLogsOnly"`
+	AsmPassword                            pulumi.StringPtrInput `pulumi:"asmPassword"`
+	AsmServer                              pulumi.StringPtrInput `pulumi:"asmServer"`
+	AsmUser                                pulumi.StringPtrInput `pulumi:"asmUser"`
+	CharLengthSemantics                    pulumi.StringPtrInput `pulumi:"charLengthSemantics"`
+	DirectPathNoLog                        pulumi.BoolPtrInput   `pulumi:"directPathNoLog"`
+	DirectPathParallelLoad                 pulumi.BoolPtrInput   `pulumi:"directPathParallelLoad"`
+	EnableHomogenousTablespace             pulumi.BoolPtrInput   `pulumi:"enableHomogenousTablespace"`
+	ExtraArchivedLogDestIds                pulumi.IntArrayInput  `pulumi:"extraArchivedLogDestIds"`
+	FailTasksOnLobTruncation               pulumi.BoolPtrInput   `pulumi:"failTasksOnLobTruncation"`
+	NumberDatatypeScale                    pulumi.IntPtrInput    `pulumi:"numberDatatypeScale"`
+	OraclePathPrefix                       pulumi.StringPtrInput `pulumi:"oraclePathPrefix"`
+	ParallelAsmReadThreads                 pulumi.IntPtrInput    `pulumi:"parallelAsmReadThreads"`
+	ReadAheadBlocks                        pulumi.IntPtrInput    `pulumi:"readAheadBlocks"`
+	ReadTableSpaceName                     pulumi.BoolPtrInput   `pulumi:"readTableSpaceName"`
+	ReplacePathPrefix                      pulumi.BoolPtrInput   `pulumi:"replacePathPrefix"`
+	RetryInterval                          pulumi.IntPtrInput    `pulumi:"retryInterval"`
+	SecretsManagerAccessRoleArn            pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerOracleAsmAccessRoleArn   pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmSecretId        pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerSecretId                 pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	SecurityDbEncryption                   pulumi.StringPtrInput `pulumi:"securityDbEncryption"`
+	SecurityDbEncryptionName               pulumi.StringPtrInput `pulumi:"securityDbEncryptionName"`
+	SpatialDataOptionToGeoJsonFunctionName pulumi.StringPtrInput `pulumi:"spatialDataOptionToGeoJsonFunctionName"`
+	StandbyDelayTime                       pulumi.IntPtrInput    `pulumi:"standbyDelayTime"`
+	UseAlternateFolderForOnline            pulumi.BoolPtrInput   `pulumi:"useAlternateFolderForOnline"`
+	UseBFile                               pulumi.BoolPtrInput   `pulumi:"useBFile"`
+	UseDirectPathFullLoad                  pulumi.BoolPtrInput   `pulumi:"useDirectPathFullLoad"`
+	UseLogminerReader                      pulumi.BoolPtrInput   `pulumi:"useLogminerReader"`
+	UsePathPrefix                          pulumi.StringPtrInput `pulumi:"usePathPrefix"`
 }
 
 func (EndpointOracleSettingsArgs) ElementType() reflect.Type {
@@ -2460,6 +2522,94 @@ func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutputWithConte
 	}).(EndpointOracleSettingsPtrOutput)
 }
 
+func (o EndpointOracleSettingsOutput) AccessAlternateDirectly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.AccessAlternateDirectly }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) AddSupplementalLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.AddSupplementalLogging }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) AdditionalArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.AdditionalArchivedLogDestId }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) AllowSelectNestedTables() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.AllowSelectNestedTables }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.ArchivedLogDestId }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ArchivedLogsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ArchivedLogsOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) AsmPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AsmPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AsmServer }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) AsmUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AsmUser }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) CharLengthSemantics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.CharLengthSemantics }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) DirectPathNoLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.DirectPathNoLog }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) DirectPathParallelLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.DirectPathParallelLoad }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) EnableHomogenousTablespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.EnableHomogenousTablespace }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ExtraArchivedLogDestIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) []int { return v.ExtraArchivedLogDestIds }).(pulumi.IntArrayOutput)
+}
+
+func (o EndpointOracleSettingsOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.FailTasksOnLobTruncation }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) NumberDatatypeScale() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.NumberDatatypeScale }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) OraclePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.OraclePathPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ParallelAsmReadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.ParallelAsmReadThreads }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ReadAheadBlocks() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.ReadAheadBlocks }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ReadTableSpaceName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ReadTableSpaceName }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) ReplacePathPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ReplacePathPrefix }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) RetryInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.RetryInterval }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointOracleSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2474,6 +2624,42 @@ func (o EndpointOracleSettingsOutput) SecretsManagerOracleAsmSecretId() pulumi.S
 
 func (o EndpointOracleSettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) SecurityDbEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecurityDbEncryption }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) SecurityDbEncryptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecurityDbEncryptionName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) SpatialDataOptionToGeoJsonFunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SpatialDataOptionToGeoJsonFunctionName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) StandbyDelayTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.StandbyDelayTime }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) UseAlternateFolderForOnline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseAlternateFolderForOnline }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) UseBFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseBFile }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) UseDirectPathFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseDirectPathFullLoad }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) UseLogminerReader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseLogminerReader }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsOutput) UsePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.UsePathPrefix }).(pulumi.StringPtrOutput)
 }
 
 type EndpointOracleSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -2498,6 +2684,204 @@ func (o EndpointOracleSettingsPtrOutput) Elem() EndpointOracleSettingsOutput {
 		var ret EndpointOracleSettings
 		return ret
 	}).(EndpointOracleSettingsOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AccessAlternateDirectly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AccessAlternateDirectly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AddSupplementalLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AddSupplementalLogging
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AdditionalArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalArchivedLogDestId
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AllowSelectNestedTables() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowSelectNestedTables
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ArchivedLogDestId
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ArchivedLogsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ArchivedLogsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AsmPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmServer
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) AsmUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmUser
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) CharLengthSemantics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CharLengthSemantics
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) DirectPathNoLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DirectPathNoLog
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) DirectPathParallelLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DirectPathParallelLoad
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) EnableHomogenousTablespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHomogenousTablespace
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ExtraArchivedLogDestIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.ExtraArchivedLogDestIds
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTasksOnLobTruncation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) NumberDatatypeScale() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberDatatypeScale
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) OraclePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OraclePathPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ParallelAsmReadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelAsmReadThreads
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ReadAheadBlocks() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadAheadBlocks
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ReadTableSpaceName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadTableSpaceName
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) ReplacePathPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReplacePathPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) RetryInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryInterval
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointOracleSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
@@ -2533,6 +2917,87 @@ func (o EndpointOracleSettingsPtrOutput) SecretsManagerSecretId() pulumi.StringP
 			return nil
 		}
 		return v.SecretsManagerSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) SecurityDbEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityDbEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) SecurityDbEncryptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityDbEncryptionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) SpatialDataOptionToGeoJsonFunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpatialDataOptionToGeoJsonFunctionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) StandbyDelayTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyDelayTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) UseAlternateFolderForOnline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAlternateFolderForOnline
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) UseBFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBFile
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) UseDirectPathFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseDirectPathFullLoad
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) UseLogminerReader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLogminerReader
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOracleSettingsPtrOutput) UsePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsePathPrefix
 	}).(pulumi.StringPtrOutput)
 }
 

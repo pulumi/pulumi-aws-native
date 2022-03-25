@@ -22,6 +22,18 @@ __all__ = [
     'FileSystemTag',
     'FileSystemUserAndGroupQuotas',
     'FileSystemWindowsConfiguration',
+    'SnapshotTag',
+    'StorageVirtualMachineActiveDirectoryConfiguration',
+    'StorageVirtualMachineSelfManagedActiveDirectoryConfiguration',
+    'StorageVirtualMachineTag',
+    'VolumeClientConfigurations',
+    'VolumeNfsExports',
+    'VolumeOntapConfiguration',
+    'VolumeOpenZFSConfiguration',
+    'VolumeOriginSnapshot',
+    'VolumeTag',
+    'VolumeTieringPolicy',
+    'VolumeUserAndGroupQuotas',
 ]
 
 @pulumi.output_type
@@ -868,5 +880,550 @@ class FileSystemWindowsConfiguration(dict):
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[str]:
         return pulumi.get(self, "weekly_maintenance_start_time")
+
+
+@pulumi.output_type
+class SnapshotTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StorageVirtualMachineActiveDirectoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "netBiosName":
+            suggest = "net_bios_name"
+        elif key == "selfManagedActiveDirectoryConfiguration":
+            suggest = "self_managed_active_directory_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageVirtualMachineActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageVirtualMachineActiveDirectoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageVirtualMachineActiveDirectoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 net_bios_name: Optional[str] = None,
+                 self_managed_active_directory_configuration: Optional['outputs.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration'] = None):
+        if net_bios_name is not None:
+            pulumi.set(__self__, "net_bios_name", net_bios_name)
+        if self_managed_active_directory_configuration is not None:
+            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+
+    @property
+    @pulumi.getter(name="netBiosName")
+    def net_bios_name(self) -> Optional[str]:
+        return pulumi.get(self, "net_bios_name")
+
+    @property
+    @pulumi.getter(name="selfManagedActiveDirectoryConfiguration")
+    def self_managed_active_directory_configuration(self) -> Optional['outputs.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration']:
+        return pulumi.get(self, "self_managed_active_directory_configuration")
+
+
+@pulumi.output_type
+class StorageVirtualMachineSelfManagedActiveDirectoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsIps":
+            suggest = "dns_ips"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "fileSystemAdministratorsGroup":
+            suggest = "file_system_administrators_group"
+        elif key == "organizationalUnitDistinguishedName":
+            suggest = "organizational_unit_distinguished_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageVirtualMachineSelfManagedActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageVirtualMachineSelfManagedActiveDirectoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageVirtualMachineSelfManagedActiveDirectoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_ips: Optional[Sequence[str]] = None,
+                 domain_name: Optional[str] = None,
+                 file_system_administrators_group: Optional[str] = None,
+                 organizational_unit_distinguished_name: Optional[str] = None,
+                 password: Optional[str] = None,
+                 user_name: Optional[str] = None):
+        if dns_ips is not None:
+            pulumi.set(__self__, "dns_ips", dns_ips)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if file_system_administrators_group is not None:
+            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "dns_ips")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="fileSystemAdministratorsGroup")
+    def file_system_administrators_group(self) -> Optional[str]:
+        return pulumi.get(self, "file_system_administrators_group")
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[str]:
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class StorageVirtualMachineTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VolumeClientConfigurations(dict):
+    def __init__(__self__, *,
+                 clients: str,
+                 options: Sequence[str]):
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> str:
+        return pulumi.get(self, "clients")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Sequence[str]:
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class VolumeNfsExports(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientConfigurations":
+            suggest = "client_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeNfsExports. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeNfsExports.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeNfsExports.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_configurations: Sequence['outputs.VolumeClientConfigurations']):
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> Sequence['outputs.VolumeClientConfigurations']:
+        return pulumi.get(self, "client_configurations")
+
+
+@pulumi.output_type
+class VolumeOntapConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "junctionPath":
+            suggest = "junction_path"
+        elif key == "sizeInMegabytes":
+            suggest = "size_in_megabytes"
+        elif key == "storageEfficiencyEnabled":
+            suggest = "storage_efficiency_enabled"
+        elif key == "storageVirtualMachineId":
+            suggest = "storage_virtual_machine_id"
+        elif key == "securityStyle":
+            suggest = "security_style"
+        elif key == "tieringPolicy":
+            suggest = "tiering_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeOntapConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeOntapConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeOntapConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 junction_path: str,
+                 size_in_megabytes: str,
+                 storage_efficiency_enabled: str,
+                 storage_virtual_machine_id: str,
+                 security_style: Optional[str] = None,
+                 tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None):
+        pulumi.set(__self__, "junction_path", junction_path)
+        pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+        pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
+        pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        if security_style is not None:
+            pulumi.set(__self__, "security_style", security_style)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
+
+    @property
+    @pulumi.getter(name="junctionPath")
+    def junction_path(self) -> str:
+        return pulumi.get(self, "junction_path")
+
+    @property
+    @pulumi.getter(name="sizeInMegabytes")
+    def size_in_megabytes(self) -> str:
+        return pulumi.get(self, "size_in_megabytes")
+
+    @property
+    @pulumi.getter(name="storageEfficiencyEnabled")
+    def storage_efficiency_enabled(self) -> str:
+        return pulumi.get(self, "storage_efficiency_enabled")
+
+    @property
+    @pulumi.getter(name="storageVirtualMachineId")
+    def storage_virtual_machine_id(self) -> str:
+        return pulumi.get(self, "storage_virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="securityStyle")
+    def security_style(self) -> Optional[str]:
+        return pulumi.get(self, "security_style")
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional['outputs.VolumeTieringPolicy']:
+        return pulumi.get(self, "tiering_policy")
+
+
+@pulumi.output_type
+class VolumeOpenZFSConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parentVolumeId":
+            suggest = "parent_volume_id"
+        elif key == "copyTagsToSnapshots":
+            suggest = "copy_tags_to_snapshots"
+        elif key == "dataCompressionType":
+            suggest = "data_compression_type"
+        elif key == "nfsExports":
+            suggest = "nfs_exports"
+        elif key == "originSnapshot":
+            suggest = "origin_snapshot"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "recordSizeKiB":
+            suggest = "record_size_ki_b"
+        elif key == "storageCapacityQuotaGiB":
+            suggest = "storage_capacity_quota_gi_b"
+        elif key == "storageCapacityReservationGiB":
+            suggest = "storage_capacity_reservation_gi_b"
+        elif key == "userAndGroupQuotas":
+            suggest = "user_and_group_quotas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeOpenZFSConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeOpenZFSConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeOpenZFSConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parent_volume_id: str,
+                 copy_tags_to_snapshots: Optional[bool] = None,
+                 data_compression_type: Optional[str] = None,
+                 nfs_exports: Optional[Sequence['outputs.VolumeNfsExports']] = None,
+                 options: Optional[Sequence[str]] = None,
+                 origin_snapshot: Optional['outputs.VolumeOriginSnapshot'] = None,
+                 read_only: Optional[bool] = None,
+                 record_size_ki_b: Optional[int] = None,
+                 storage_capacity_quota_gi_b: Optional[int] = None,
+                 storage_capacity_reservation_gi_b: Optional[int] = None,
+                 user_and_group_quotas: Optional[Sequence['outputs.VolumeUserAndGroupQuotas']] = None):
+        pulumi.set(__self__, "parent_volume_id", parent_volume_id)
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if origin_snapshot is not None:
+            pulumi.set(__self__, "origin_snapshot", origin_snapshot)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if record_size_ki_b is not None:
+            pulumi.set(__self__, "record_size_ki_b", record_size_ki_b)
+        if storage_capacity_quota_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        if storage_capacity_reservation_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_reservation_gi_b", storage_capacity_reservation_gi_b)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @property
+    @pulumi.getter(name="parentVolumeId")
+    def parent_volume_id(self) -> str:
+        return pulumi.get(self, "parent_volume_id")
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> Optional[bool]:
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[str]:
+        return pulumi.get(self, "data_compression_type")
+
+    @property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> Optional[Sequence['outputs.VolumeNfsExports']]:
+        return pulumi.get(self, "nfs_exports")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="originSnapshot")
+    def origin_snapshot(self) -> Optional['outputs.VolumeOriginSnapshot']:
+        return pulumi.get(self, "origin_snapshot")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="recordSizeKiB")
+    def record_size_ki_b(self) -> Optional[int]:
+        return pulumi.get(self, "record_size_ki_b")
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> Optional[int]:
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @property
+    @pulumi.getter(name="storageCapacityReservationGiB")
+    def storage_capacity_reservation_gi_b(self) -> Optional[int]:
+        return pulumi.get(self, "storage_capacity_reservation_gi_b")
+
+    @property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> Optional[Sequence['outputs.VolumeUserAndGroupQuotas']]:
+        return pulumi.get(self, "user_and_group_quotas")
+
+
+@pulumi.output_type
+class VolumeOriginSnapshot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyStrategy":
+            suggest = "copy_strategy"
+        elif key == "snapshotARN":
+            suggest = "snapshot_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeOriginSnapshot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeOriginSnapshot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeOriginSnapshot.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_strategy: str,
+                 snapshot_arn: str):
+        pulumi.set(__self__, "copy_strategy", copy_strategy)
+        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+
+    @property
+    @pulumi.getter(name="copyStrategy")
+    def copy_strategy(self) -> str:
+        return pulumi.get(self, "copy_strategy")
+
+    @property
+    @pulumi.getter(name="snapshotARN")
+    def snapshot_arn(self) -> str:
+        return pulumi.get(self, "snapshot_arn")
+
+
+@pulumi.output_type
+class VolumeTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VolumeTieringPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coolingPeriod":
+            suggest = "cooling_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeTieringPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeTieringPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeTieringPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cooling_period: Optional[int] = None,
+                 name: Optional[str] = None):
+        if cooling_period is not None:
+            pulumi.set(__self__, "cooling_period", cooling_period)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="coolingPeriod")
+    def cooling_period(self) -> Optional[int]:
+        return pulumi.get(self, "cooling_period")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class VolumeUserAndGroupQuotas(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageCapacityQuotaGiB":
+            suggest = "storage_capacity_quota_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeUserAndGroupQuotas. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeUserAndGroupQuotas.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeUserAndGroupQuotas.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: int,
+                 storage_capacity_quota_gi_b: int,
+                 type: str):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> int:
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 

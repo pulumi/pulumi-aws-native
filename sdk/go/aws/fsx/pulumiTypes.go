@@ -2266,6 +2266,1755 @@ func (o FileSystemWindowsConfigurationPtrOutput) WeeklyMaintenanceStartTime() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type SnapshotTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// SnapshotTagInput is an input type that accepts SnapshotTagArgs and SnapshotTagOutput values.
+// You can construct a concrete instance of `SnapshotTagInput` via:
+//
+//          SnapshotTagArgs{...}
+type SnapshotTagInput interface {
+	pulumi.Input
+
+	ToSnapshotTagOutput() SnapshotTagOutput
+	ToSnapshotTagOutputWithContext(context.Context) SnapshotTagOutput
+}
+
+type SnapshotTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SnapshotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotTag)(nil)).Elem()
+}
+
+func (i SnapshotTagArgs) ToSnapshotTagOutput() SnapshotTagOutput {
+	return i.ToSnapshotTagOutputWithContext(context.Background())
+}
+
+func (i SnapshotTagArgs) ToSnapshotTagOutputWithContext(ctx context.Context) SnapshotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTagOutput)
+}
+
+// SnapshotTagArrayInput is an input type that accepts SnapshotTagArray and SnapshotTagArrayOutput values.
+// You can construct a concrete instance of `SnapshotTagArrayInput` via:
+//
+//          SnapshotTagArray{ SnapshotTagArgs{...} }
+type SnapshotTagArrayInput interface {
+	pulumi.Input
+
+	ToSnapshotTagArrayOutput() SnapshotTagArrayOutput
+	ToSnapshotTagArrayOutputWithContext(context.Context) SnapshotTagArrayOutput
+}
+
+type SnapshotTagArray []SnapshotTagInput
+
+func (SnapshotTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotTag)(nil)).Elem()
+}
+
+func (i SnapshotTagArray) ToSnapshotTagArrayOutput() SnapshotTagArrayOutput {
+	return i.ToSnapshotTagArrayOutputWithContext(context.Background())
+}
+
+func (i SnapshotTagArray) ToSnapshotTagArrayOutputWithContext(ctx context.Context) SnapshotTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTagArrayOutput)
+}
+
+type SnapshotTagOutput struct{ *pulumi.OutputState }
+
+func (SnapshotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotTag)(nil)).Elem()
+}
+
+func (o SnapshotTagOutput) ToSnapshotTagOutput() SnapshotTagOutput {
+	return o
+}
+
+func (o SnapshotTagOutput) ToSnapshotTagOutputWithContext(ctx context.Context) SnapshotTagOutput {
+	return o
+}
+
+func (o SnapshotTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SnapshotTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SnapshotTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapshotTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotTag)(nil)).Elem()
+}
+
+func (o SnapshotTagArrayOutput) ToSnapshotTagArrayOutput() SnapshotTagArrayOutput {
+	return o
+}
+
+func (o SnapshotTagArrayOutput) ToSnapshotTagArrayOutputWithContext(ctx context.Context) SnapshotTagArrayOutput {
+	return o
+}
+
+func (o SnapshotTagArrayOutput) Index(i pulumi.IntInput) SnapshotTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotTag {
+		return vs[0].([]SnapshotTag)[vs[1].(int)]
+	}).(SnapshotTagOutput)
+}
+
+type StorageVirtualMachineActiveDirectoryConfiguration struct {
+	NetBiosName                             *string                                                       `pulumi:"netBiosName"`
+	SelfManagedActiveDirectoryConfiguration *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
+}
+
+// StorageVirtualMachineActiveDirectoryConfigurationInput is an input type that accepts StorageVirtualMachineActiveDirectoryConfigurationArgs and StorageVirtualMachineActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineActiveDirectoryConfigurationInput` via:
+//
+//          StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+type StorageVirtualMachineActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineActiveDirectoryConfigurationOutput() StorageVirtualMachineActiveDirectoryConfigurationOutput
+	ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput
+}
+
+type StorageVirtualMachineActiveDirectoryConfigurationArgs struct {
+	NetBiosName                             pulumi.StringPtrInput                                                `pulumi:"netBiosName"`
+	SelfManagedActiveDirectoryConfiguration StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput `pulumi:"selfManagedActiveDirectoryConfiguration"`
+}
+
+func (StorageVirtualMachineActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationOutput() StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return i.ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationOutput)
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationOutput).ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageVirtualMachineActiveDirectoryConfigurationPtrInput is an input type that accepts StorageVirtualMachineActiveDirectoryConfigurationArgs, StorageVirtualMachineActiveDirectoryConfigurationPtr and StorageVirtualMachineActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineActiveDirectoryConfigurationPtrInput` via:
+//
+//          StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageVirtualMachineActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput
+	ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput
+}
+
+type storageVirtualMachineActiveDirectoryConfigurationPtrType StorageVirtualMachineActiveDirectoryConfigurationArgs
+
+func StorageVirtualMachineActiveDirectoryConfigurationPtr(v *StorageVirtualMachineActiveDirectoryConfigurationArgs) StorageVirtualMachineActiveDirectoryConfigurationPtrInput {
+	return (*storageVirtualMachineActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*storageVirtualMachineActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *storageVirtualMachineActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageVirtualMachineActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationOutput() StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachineActiveDirectoryConfiguration) *StorageVirtualMachineActiveDirectoryConfiguration {
+		return &v
+	}).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) NetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetBiosName }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) SelfManagedActiveDirectoryConfiguration() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		return v.SelfManagedActiveDirectoryConfiguration
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineActiveDirectoryConfiguration) StorageVirtualMachineActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachineActiveDirectoryConfiguration
+		return ret
+	}).(StorageVirtualMachineActiveDirectoryConfigurationOutput)
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) NetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfManagedActiveDirectoryConfiguration() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedActiveDirectoryConfiguration
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfiguration struct {
+	DnsIps                              []string `pulumi:"dnsIps"`
+	DomainName                          *string  `pulumi:"domainName"`
+	FileSystemAdministratorsGroup       *string  `pulumi:"fileSystemAdministratorsGroup"`
+	OrganizationalUnitDistinguishedName *string  `pulumi:"organizationalUnitDistinguishedName"`
+	Password                            *string  `pulumi:"password"`
+	UserName                            *string  `pulumi:"userName"`
+}
+
+// StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput is an input type that accepts StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs and StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput` via:
+//
+//          StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs struct {
+	DnsIps                              pulumi.StringArrayInput `pulumi:"dnsIps"`
+	DomainName                          pulumi.StringPtrInput   `pulumi:"domainName"`
+	FileSystemAdministratorsGroup       pulumi.StringPtrInput   `pulumi:"fileSystemAdministratorsGroup"`
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput   `pulumi:"organizationalUnitDistinguishedName"`
+	Password                            pulumi.StringPtrInput   `pulumi:"password"`
+	UserName                            pulumi.StringPtrInput   `pulumi:"userName"`
+}
+
+func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput)
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput).ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput is an input type that accepts StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs, StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtr and StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput` via:
+//
+//          StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput
+}
+
+type storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs
+
+func StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtr(v *StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput {
+	return (*storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		return &v
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) Elem() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachineSelfManagedActiveDirectoryConfiguration
+		return ret
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsIps
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachineTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StorageVirtualMachineTagInput is an input type that accepts StorageVirtualMachineTagArgs and StorageVirtualMachineTagOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineTagInput` via:
+//
+//          StorageVirtualMachineTagArgs{...}
+type StorageVirtualMachineTagInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineTagOutput() StorageVirtualMachineTagOutput
+	ToStorageVirtualMachineTagOutputWithContext(context.Context) StorageVirtualMachineTagOutput
+}
+
+type StorageVirtualMachineTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StorageVirtualMachineTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineTag)(nil)).Elem()
+}
+
+func (i StorageVirtualMachineTagArgs) ToStorageVirtualMachineTagOutput() StorageVirtualMachineTagOutput {
+	return i.ToStorageVirtualMachineTagOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineTagArgs) ToStorageVirtualMachineTagOutputWithContext(ctx context.Context) StorageVirtualMachineTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineTagOutput)
+}
+
+// StorageVirtualMachineTagArrayInput is an input type that accepts StorageVirtualMachineTagArray and StorageVirtualMachineTagArrayOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineTagArrayInput` via:
+//
+//          StorageVirtualMachineTagArray{ StorageVirtualMachineTagArgs{...} }
+type StorageVirtualMachineTagArrayInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineTagArrayOutput() StorageVirtualMachineTagArrayOutput
+	ToStorageVirtualMachineTagArrayOutputWithContext(context.Context) StorageVirtualMachineTagArrayOutput
+}
+
+type StorageVirtualMachineTagArray []StorageVirtualMachineTagInput
+
+func (StorageVirtualMachineTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageVirtualMachineTag)(nil)).Elem()
+}
+
+func (i StorageVirtualMachineTagArray) ToStorageVirtualMachineTagArrayOutput() StorageVirtualMachineTagArrayOutput {
+	return i.ToStorageVirtualMachineTagArrayOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineTagArray) ToStorageVirtualMachineTagArrayOutputWithContext(ctx context.Context) StorageVirtualMachineTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineTagArrayOutput)
+}
+
+type StorageVirtualMachineTagOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineTag)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineTagOutput) ToStorageVirtualMachineTagOutput() StorageVirtualMachineTagOutput {
+	return o
+}
+
+func (o StorageVirtualMachineTagOutput) ToStorageVirtualMachineTagOutputWithContext(ctx context.Context) StorageVirtualMachineTagOutput {
+	return o
+}
+
+func (o StorageVirtualMachineTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageVirtualMachineTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachineTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageVirtualMachineTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageVirtualMachineTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageVirtualMachineTag)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineTagArrayOutput) ToStorageVirtualMachineTagArrayOutput() StorageVirtualMachineTagArrayOutput {
+	return o
+}
+
+func (o StorageVirtualMachineTagArrayOutput) ToStorageVirtualMachineTagArrayOutputWithContext(ctx context.Context) StorageVirtualMachineTagArrayOutput {
+	return o
+}
+
+func (o StorageVirtualMachineTagArrayOutput) Index(i pulumi.IntInput) StorageVirtualMachineTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageVirtualMachineTag {
+		return vs[0].([]StorageVirtualMachineTag)[vs[1].(int)]
+	}).(StorageVirtualMachineTagOutput)
+}
+
+type VolumeClientConfigurations struct {
+	Clients string   `pulumi:"clients"`
+	Options []string `pulumi:"options"`
+}
+
+// VolumeClientConfigurationsInput is an input type that accepts VolumeClientConfigurationsArgs and VolumeClientConfigurationsOutput values.
+// You can construct a concrete instance of `VolumeClientConfigurationsInput` via:
+//
+//          VolumeClientConfigurationsArgs{...}
+type VolumeClientConfigurationsInput interface {
+	pulumi.Input
+
+	ToVolumeClientConfigurationsOutput() VolumeClientConfigurationsOutput
+	ToVolumeClientConfigurationsOutputWithContext(context.Context) VolumeClientConfigurationsOutput
+}
+
+type VolumeClientConfigurationsArgs struct {
+	Clients pulumi.StringInput      `pulumi:"clients"`
+	Options pulumi.StringArrayInput `pulumi:"options"`
+}
+
+func (VolumeClientConfigurationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (i VolumeClientConfigurationsArgs) ToVolumeClientConfigurationsOutput() VolumeClientConfigurationsOutput {
+	return i.ToVolumeClientConfigurationsOutputWithContext(context.Background())
+}
+
+func (i VolumeClientConfigurationsArgs) ToVolumeClientConfigurationsOutputWithContext(ctx context.Context) VolumeClientConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeClientConfigurationsOutput)
+}
+
+// VolumeClientConfigurationsArrayInput is an input type that accepts VolumeClientConfigurationsArray and VolumeClientConfigurationsArrayOutput values.
+// You can construct a concrete instance of `VolumeClientConfigurationsArrayInput` via:
+//
+//          VolumeClientConfigurationsArray{ VolumeClientConfigurationsArgs{...} }
+type VolumeClientConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToVolumeClientConfigurationsArrayOutput() VolumeClientConfigurationsArrayOutput
+	ToVolumeClientConfigurationsArrayOutputWithContext(context.Context) VolumeClientConfigurationsArrayOutput
+}
+
+type VolumeClientConfigurationsArray []VolumeClientConfigurationsInput
+
+func (VolumeClientConfigurationsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (i VolumeClientConfigurationsArray) ToVolumeClientConfigurationsArrayOutput() VolumeClientConfigurationsArrayOutput {
+	return i.ToVolumeClientConfigurationsArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeClientConfigurationsArray) ToVolumeClientConfigurationsArrayOutputWithContext(ctx context.Context) VolumeClientConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeClientConfigurationsArrayOutput)
+}
+
+type VolumeClientConfigurationsOutput struct{ *pulumi.OutputState }
+
+func (VolumeClientConfigurationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (o VolumeClientConfigurationsOutput) ToVolumeClientConfigurationsOutput() VolumeClientConfigurationsOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsOutput) ToVolumeClientConfigurationsOutputWithContext(ctx context.Context) VolumeClientConfigurationsOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsOutput) Clients() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeClientConfigurations) string { return v.Clients }).(pulumi.StringOutput)
+}
+
+func (o VolumeClientConfigurationsOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeClientConfigurations) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+type VolumeClientConfigurationsArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeClientConfigurationsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (o VolumeClientConfigurationsArrayOutput) ToVolumeClientConfigurationsArrayOutput() VolumeClientConfigurationsArrayOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsArrayOutput) ToVolumeClientConfigurationsArrayOutputWithContext(ctx context.Context) VolumeClientConfigurationsArrayOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsArrayOutput) Index(i pulumi.IntInput) VolumeClientConfigurationsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeClientConfigurations {
+		return vs[0].([]VolumeClientConfigurations)[vs[1].(int)]
+	}).(VolumeClientConfigurationsOutput)
+}
+
+type VolumeNfsExports struct {
+	ClientConfigurations []VolumeClientConfigurations `pulumi:"clientConfigurations"`
+}
+
+// VolumeNfsExportsInput is an input type that accepts VolumeNfsExportsArgs and VolumeNfsExportsOutput values.
+// You can construct a concrete instance of `VolumeNfsExportsInput` via:
+//
+//          VolumeNfsExportsArgs{...}
+type VolumeNfsExportsInput interface {
+	pulumi.Input
+
+	ToVolumeNfsExportsOutput() VolumeNfsExportsOutput
+	ToVolumeNfsExportsOutputWithContext(context.Context) VolumeNfsExportsOutput
+}
+
+type VolumeNfsExportsArgs struct {
+	ClientConfigurations VolumeClientConfigurationsArrayInput `pulumi:"clientConfigurations"`
+}
+
+func (VolumeNfsExportsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeNfsExports)(nil)).Elem()
+}
+
+func (i VolumeNfsExportsArgs) ToVolumeNfsExportsOutput() VolumeNfsExportsOutput {
+	return i.ToVolumeNfsExportsOutputWithContext(context.Background())
+}
+
+func (i VolumeNfsExportsArgs) ToVolumeNfsExportsOutputWithContext(ctx context.Context) VolumeNfsExportsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeNfsExportsOutput)
+}
+
+// VolumeNfsExportsArrayInput is an input type that accepts VolumeNfsExportsArray and VolumeNfsExportsArrayOutput values.
+// You can construct a concrete instance of `VolumeNfsExportsArrayInput` via:
+//
+//          VolumeNfsExportsArray{ VolumeNfsExportsArgs{...} }
+type VolumeNfsExportsArrayInput interface {
+	pulumi.Input
+
+	ToVolumeNfsExportsArrayOutput() VolumeNfsExportsArrayOutput
+	ToVolumeNfsExportsArrayOutputWithContext(context.Context) VolumeNfsExportsArrayOutput
+}
+
+type VolumeNfsExportsArray []VolumeNfsExportsInput
+
+func (VolumeNfsExportsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeNfsExports)(nil)).Elem()
+}
+
+func (i VolumeNfsExportsArray) ToVolumeNfsExportsArrayOutput() VolumeNfsExportsArrayOutput {
+	return i.ToVolumeNfsExportsArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeNfsExportsArray) ToVolumeNfsExportsArrayOutputWithContext(ctx context.Context) VolumeNfsExportsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeNfsExportsArrayOutput)
+}
+
+type VolumeNfsExportsOutput struct{ *pulumi.OutputState }
+
+func (VolumeNfsExportsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeNfsExports)(nil)).Elem()
+}
+
+func (o VolumeNfsExportsOutput) ToVolumeNfsExportsOutput() VolumeNfsExportsOutput {
+	return o
+}
+
+func (o VolumeNfsExportsOutput) ToVolumeNfsExportsOutputWithContext(ctx context.Context) VolumeNfsExportsOutput {
+	return o
+}
+
+func (o VolumeNfsExportsOutput) ClientConfigurations() VolumeClientConfigurationsArrayOutput {
+	return o.ApplyT(func(v VolumeNfsExports) []VolumeClientConfigurations { return v.ClientConfigurations }).(VolumeClientConfigurationsArrayOutput)
+}
+
+type VolumeNfsExportsArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeNfsExportsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeNfsExports)(nil)).Elem()
+}
+
+func (o VolumeNfsExportsArrayOutput) ToVolumeNfsExportsArrayOutput() VolumeNfsExportsArrayOutput {
+	return o
+}
+
+func (o VolumeNfsExportsArrayOutput) ToVolumeNfsExportsArrayOutputWithContext(ctx context.Context) VolumeNfsExportsArrayOutput {
+	return o
+}
+
+func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeNfsExports {
+		return vs[0].([]VolumeNfsExports)[vs[1].(int)]
+	}).(VolumeNfsExportsOutput)
+}
+
+type VolumeOntapConfiguration struct {
+	JunctionPath             string               `pulumi:"junctionPath"`
+	SecurityStyle            *string              `pulumi:"securityStyle"`
+	SizeInMegabytes          string               `pulumi:"sizeInMegabytes"`
+	StorageEfficiencyEnabled string               `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  string               `pulumi:"storageVirtualMachineId"`
+	TieringPolicy            *VolumeTieringPolicy `pulumi:"tieringPolicy"`
+}
+
+// VolumeOntapConfigurationInput is an input type that accepts VolumeOntapConfigurationArgs and VolumeOntapConfigurationOutput values.
+// You can construct a concrete instance of `VolumeOntapConfigurationInput` via:
+//
+//          VolumeOntapConfigurationArgs{...}
+type VolumeOntapConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeOntapConfigurationOutput() VolumeOntapConfigurationOutput
+	ToVolumeOntapConfigurationOutputWithContext(context.Context) VolumeOntapConfigurationOutput
+}
+
+type VolumeOntapConfigurationArgs struct {
+	JunctionPath             pulumi.StringInput          `pulumi:"junctionPath"`
+	SecurityStyle            pulumi.StringPtrInput       `pulumi:"securityStyle"`
+	SizeInMegabytes          pulumi.StringInput          `pulumi:"sizeInMegabytes"`
+	StorageEfficiencyEnabled pulumi.StringInput          `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  pulumi.StringInput          `pulumi:"storageVirtualMachineId"`
+	TieringPolicy            VolumeTieringPolicyPtrInput `pulumi:"tieringPolicy"`
+}
+
+func (VolumeOntapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationOutput() VolumeOntapConfigurationOutput {
+	return i.ToVolumeOntapConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationOutputWithContext(ctx context.Context) VolumeOntapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationOutput)
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return i.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationOutput).ToVolumeOntapConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeOntapConfigurationPtrInput is an input type that accepts VolumeOntapConfigurationArgs, VolumeOntapConfigurationPtr and VolumeOntapConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeOntapConfigurationPtrInput` via:
+//
+//          VolumeOntapConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeOntapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput
+	ToVolumeOntapConfigurationPtrOutputWithContext(context.Context) VolumeOntapConfigurationPtrOutput
+}
+
+type volumeOntapConfigurationPtrType VolumeOntapConfigurationArgs
+
+func VolumeOntapConfigurationPtr(v *VolumeOntapConfigurationArgs) VolumeOntapConfigurationPtrInput {
+	return (*volumeOntapConfigurationPtrType)(v)
+}
+
+func (*volumeOntapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (i *volumeOntapConfigurationPtrType) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return i.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeOntapConfigurationPtrType) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationPtrOutput)
+}
+
+type VolumeOntapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeOntapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationOutput() VolumeOntapConfigurationOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationOutputWithContext(ctx context.Context) VolumeOntapConfigurationOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return o.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOntapConfiguration) *VolumeOntapConfiguration {
+		return &v
+	}).(VolumeOntapConfigurationPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) JunctionPath() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.JunctionPath }).(pulumi.StringOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SecurityStyle }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) SizeInMegabytes() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.SizeInMegabytes }).(pulumi.StringOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) StorageEfficiencyEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.StorageEfficiencyEnabled }).(pulumi.StringOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) StorageVirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.StorageVirtualMachineId }).(pulumi.StringOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) TieringPolicy() VolumeTieringPolicyPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeTieringPolicy { return v.TieringPolicy }).(VolumeTieringPolicyPtrOutput)
+}
+
+type VolumeOntapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeOntapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOntapConfigurationPtrOutput) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationPtrOutput) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationPtrOutput) Elem() VolumeOntapConfigurationOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) VolumeOntapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeOntapConfiguration
+		return ret
+	}).(VolumeOntapConfigurationOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) JunctionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JunctionPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityStyle
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) SizeInMegabytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInMegabytes
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) StorageEfficiencyEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageEfficiencyEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) StorageVirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageVirtualMachineId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) TieringPolicy() VolumeTieringPolicyPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeTieringPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.TieringPolicy
+	}).(VolumeTieringPolicyPtrOutput)
+}
+
+type VolumeOpenZFSConfiguration struct {
+	CopyTagsToSnapshots           *bool                      `pulumi:"copyTagsToSnapshots"`
+	DataCompressionType           *string                    `pulumi:"dataCompressionType"`
+	NfsExports                    []VolumeNfsExports         `pulumi:"nfsExports"`
+	Options                       []string                   `pulumi:"options"`
+	OriginSnapshot                *VolumeOriginSnapshot      `pulumi:"originSnapshot"`
+	ParentVolumeId                string                     `pulumi:"parentVolumeId"`
+	ReadOnly                      *bool                      `pulumi:"readOnly"`
+	RecordSizeKiB                 *int                       `pulumi:"recordSizeKiB"`
+	StorageCapacityQuotaGiB       *int                       `pulumi:"storageCapacityQuotaGiB"`
+	StorageCapacityReservationGiB *int                       `pulumi:"storageCapacityReservationGiB"`
+	UserAndGroupQuotas            []VolumeUserAndGroupQuotas `pulumi:"userAndGroupQuotas"`
+}
+
+// VolumeOpenZFSConfigurationInput is an input type that accepts VolumeOpenZFSConfigurationArgs and VolumeOpenZFSConfigurationOutput values.
+// You can construct a concrete instance of `VolumeOpenZFSConfigurationInput` via:
+//
+//          VolumeOpenZFSConfigurationArgs{...}
+type VolumeOpenZFSConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeOpenZFSConfigurationOutput() VolumeOpenZFSConfigurationOutput
+	ToVolumeOpenZFSConfigurationOutputWithContext(context.Context) VolumeOpenZFSConfigurationOutput
+}
+
+type VolumeOpenZFSConfigurationArgs struct {
+	CopyTagsToSnapshots           pulumi.BoolPtrInput                `pulumi:"copyTagsToSnapshots"`
+	DataCompressionType           pulumi.StringPtrInput              `pulumi:"dataCompressionType"`
+	NfsExports                    VolumeNfsExportsArrayInput         `pulumi:"nfsExports"`
+	Options                       pulumi.StringArrayInput            `pulumi:"options"`
+	OriginSnapshot                VolumeOriginSnapshotPtrInput       `pulumi:"originSnapshot"`
+	ParentVolumeId                pulumi.StringInput                 `pulumi:"parentVolumeId"`
+	ReadOnly                      pulumi.BoolPtrInput                `pulumi:"readOnly"`
+	RecordSizeKiB                 pulumi.IntPtrInput                 `pulumi:"recordSizeKiB"`
+	StorageCapacityQuotaGiB       pulumi.IntPtrInput                 `pulumi:"storageCapacityQuotaGiB"`
+	StorageCapacityReservationGiB pulumi.IntPtrInput                 `pulumi:"storageCapacityReservationGiB"`
+	UserAndGroupQuotas            VolumeUserAndGroupQuotasArrayInput `pulumi:"userAndGroupQuotas"`
+}
+
+func (VolumeOpenZFSConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationOutput() VolumeOpenZFSConfigurationOutput {
+	return i.ToVolumeOpenZFSConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZFSConfigurationOutput)
+}
+
+func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
+	return i.ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZFSConfigurationOutput).ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeOpenZFSConfigurationPtrInput is an input type that accepts VolumeOpenZFSConfigurationArgs, VolumeOpenZFSConfigurationPtr and VolumeOpenZFSConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeOpenZFSConfigurationPtrInput` via:
+//
+//          VolumeOpenZFSConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeOpenZFSConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput
+	ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Context) VolumeOpenZFSConfigurationPtrOutput
+}
+
+type volumeOpenZFSConfigurationPtrType VolumeOpenZFSConfigurationArgs
+
+func VolumeOpenZFSConfigurationPtr(v *VolumeOpenZFSConfigurationArgs) VolumeOpenZFSConfigurationPtrInput {
+	return (*volumeOpenZFSConfigurationPtrType)(v)
+}
+
+func (*volumeOpenZFSConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (i *volumeOpenZFSConfigurationPtrType) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
+	return i.ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeOpenZFSConfigurationPtrType) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZFSConfigurationPtrOutput)
+}
+
+type VolumeOpenZFSConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeOpenZFSConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationOutput() VolumeOpenZFSConfigurationOutput {
+	return o
+}
+
+func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationOutput {
+	return o
+}
+
+func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
+	return o.ToVolumeOpenZFSConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeOpenZFSConfigurationOutput) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOpenZFSConfiguration) *VolumeOpenZFSConfiguration {
+		return &v
+	}).(VolumeOpenZFSConfigurationPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) NfsExports() VolumeNfsExportsArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) []VolumeNfsExports { return v.NfsExports }).(VolumeNfsExportsArrayOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *VolumeOriginSnapshot { return v.OriginSnapshot }).(VolumeOriginSnapshotPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) ParentVolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) string { return v.ParentVolumeId }).(pulumi.StringOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *int { return v.RecordSizeKiB }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *int { return v.StorageCapacityQuotaGiB }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) *int { return v.StorageCapacityReservationGiB }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZFSConfiguration) []VolumeUserAndGroupQuotas { return v.UserAndGroupQuotas }).(VolumeUserAndGroupQuotasArrayOutput)
+}
+
+type VolumeOpenZFSConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeOpenZFSConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) ToVolumeOpenZFSConfigurationPtrOutput() VolumeOpenZFSConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) ToVolumeOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZFSConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) Elem() VolumeOpenZFSConfigurationOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) VolumeOpenZFSConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeOpenZFSConfiguration
+		return ret
+	}).(VolumeOpenZFSConfigurationOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) NfsExports() VolumeNfsExportsArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) []VolumeNfsExports {
+		if v == nil {
+			return nil
+		}
+		return v.NfsExports
+	}).(VolumeNfsExportsArrayOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *VolumeOriginSnapshot {
+		if v == nil {
+			return nil
+		}
+		return v.OriginSnapshot
+	}).(VolumeOriginSnapshotPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) ParentVolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParentVolumeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordSizeKiB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageCapacityQuotaGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageCapacityReservationGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOpenZFSConfigurationPtrOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZFSConfiguration) []VolumeUserAndGroupQuotas {
+		if v == nil {
+			return nil
+		}
+		return v.UserAndGroupQuotas
+	}).(VolumeUserAndGroupQuotasArrayOutput)
+}
+
+type VolumeOriginSnapshot struct {
+	CopyStrategy string `pulumi:"copyStrategy"`
+	SnapshotARN  string `pulumi:"snapshotARN"`
+}
+
+// VolumeOriginSnapshotInput is an input type that accepts VolumeOriginSnapshotArgs and VolumeOriginSnapshotOutput values.
+// You can construct a concrete instance of `VolumeOriginSnapshotInput` via:
+//
+//          VolumeOriginSnapshotArgs{...}
+type VolumeOriginSnapshotInput interface {
+	pulumi.Input
+
+	ToVolumeOriginSnapshotOutput() VolumeOriginSnapshotOutput
+	ToVolumeOriginSnapshotOutputWithContext(context.Context) VolumeOriginSnapshotOutput
+}
+
+type VolumeOriginSnapshotArgs struct {
+	CopyStrategy pulumi.StringInput `pulumi:"copyStrategy"`
+	SnapshotARN  pulumi.StringInput `pulumi:"snapshotARN"`
+}
+
+func (VolumeOriginSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotOutput() VolumeOriginSnapshotOutput {
+	return i.ToVolumeOriginSnapshotOutputWithContext(context.Background())
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotOutputWithContext(ctx context.Context) VolumeOriginSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotOutput)
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return i.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotOutput).ToVolumeOriginSnapshotPtrOutputWithContext(ctx)
+}
+
+// VolumeOriginSnapshotPtrInput is an input type that accepts VolumeOriginSnapshotArgs, VolumeOriginSnapshotPtr and VolumeOriginSnapshotPtrOutput values.
+// You can construct a concrete instance of `VolumeOriginSnapshotPtrInput` via:
+//
+//          VolumeOriginSnapshotArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeOriginSnapshotPtrInput interface {
+	pulumi.Input
+
+	ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput
+	ToVolumeOriginSnapshotPtrOutputWithContext(context.Context) VolumeOriginSnapshotPtrOutput
+}
+
+type volumeOriginSnapshotPtrType VolumeOriginSnapshotArgs
+
+func VolumeOriginSnapshotPtr(v *VolumeOriginSnapshotArgs) VolumeOriginSnapshotPtrInput {
+	return (*volumeOriginSnapshotPtrType)(v)
+}
+
+func (*volumeOriginSnapshotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (i *volumeOriginSnapshotPtrType) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return i.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeOriginSnapshotPtrType) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotPtrOutput)
+}
+
+type VolumeOriginSnapshotOutput struct{ *pulumi.OutputState }
+
+func (VolumeOriginSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotOutput() VolumeOriginSnapshotOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotOutputWithContext(ctx context.Context) VolumeOriginSnapshotOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return o.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOriginSnapshot) *VolumeOriginSnapshot {
+		return &v
+	}).(VolumeOriginSnapshotPtrOutput)
+}
+
+func (o VolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
+}
+
+func (o VolumeOriginSnapshotOutput) SnapshotARN() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.SnapshotARN }).(pulumi.StringOutput)
+}
+
+type VolumeOriginSnapshotPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeOriginSnapshotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (o VolumeOriginSnapshotPtrOutput) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotPtrOutput) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotPtrOutput) Elem() VolumeOriginSnapshotOutput {
+	return o.ApplyT(func(v *VolumeOriginSnapshot) VolumeOriginSnapshot {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeOriginSnapshot
+		return ret
+	}).(VolumeOriginSnapshotOutput)
+}
+
+func (o VolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOriginSnapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CopyStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOriginSnapshotPtrOutput) SnapshotARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOriginSnapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotARN
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VolumeTagInput is an input type that accepts VolumeTagArgs and VolumeTagOutput values.
+// You can construct a concrete instance of `VolumeTagInput` via:
+//
+//          VolumeTagArgs{...}
+type VolumeTagInput interface {
+	pulumi.Input
+
+	ToVolumeTagOutput() VolumeTagOutput
+	ToVolumeTagOutputWithContext(context.Context) VolumeTagOutput
+}
+
+type VolumeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VolumeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
+}
+
+func (i VolumeTagArgs) ToVolumeTagOutput() VolumeTagOutput {
+	return i.ToVolumeTagOutputWithContext(context.Background())
+}
+
+func (i VolumeTagArgs) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagOutput)
+}
+
+// VolumeTagArrayInput is an input type that accepts VolumeTagArray and VolumeTagArrayOutput values.
+// You can construct a concrete instance of `VolumeTagArrayInput` via:
+//
+//          VolumeTagArray{ VolumeTagArgs{...} }
+type VolumeTagArrayInput interface {
+	pulumi.Input
+
+	ToVolumeTagArrayOutput() VolumeTagArrayOutput
+	ToVolumeTagArrayOutputWithContext(context.Context) VolumeTagArrayOutput
+}
+
+type VolumeTagArray []VolumeTagInput
+
+func (VolumeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
+}
+
+func (i VolumeTagArray) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
+	return i.ToVolumeTagArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeTagArray) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagArrayOutput)
+}
+
+type VolumeTagOutput struct{ *pulumi.OutputState }
+
+func (VolumeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
+}
+
+func (o VolumeTagOutput) ToVolumeTagOutput() VolumeTagOutput {
+	return o
+}
+
+func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
+	return o
+}
+
+func (o VolumeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VolumeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VolumeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
+}
+
+func (o VolumeTagArrayOutput) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
+	return o
+}
+
+func (o VolumeTagArrayOutput) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
+	return o
+}
+
+func (o VolumeTagArrayOutput) Index(i pulumi.IntInput) VolumeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeTag {
+		return vs[0].([]VolumeTag)[vs[1].(int)]
+	}).(VolumeTagOutput)
+}
+
+type VolumeTieringPolicy struct {
+	CoolingPeriod *int    `pulumi:"coolingPeriod"`
+	Name          *string `pulumi:"name"`
+}
+
+// VolumeTieringPolicyInput is an input type that accepts VolumeTieringPolicyArgs and VolumeTieringPolicyOutput values.
+// You can construct a concrete instance of `VolumeTieringPolicyInput` via:
+//
+//          VolumeTieringPolicyArgs{...}
+type VolumeTieringPolicyInput interface {
+	pulumi.Input
+
+	ToVolumeTieringPolicyOutput() VolumeTieringPolicyOutput
+	ToVolumeTieringPolicyOutputWithContext(context.Context) VolumeTieringPolicyOutput
+}
+
+type VolumeTieringPolicyArgs struct {
+	CoolingPeriod pulumi.IntPtrInput    `pulumi:"coolingPeriod"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (VolumeTieringPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyOutput() VolumeTieringPolicyOutput {
+	return i.ToVolumeTieringPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyOutputWithContext(ctx context.Context) VolumeTieringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyOutput)
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return i.ToVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyOutput).ToVolumeTieringPolicyPtrOutputWithContext(ctx)
+}
+
+// VolumeTieringPolicyPtrInput is an input type that accepts VolumeTieringPolicyArgs, VolumeTieringPolicyPtr and VolumeTieringPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumeTieringPolicyPtrInput` via:
+//
+//          VolumeTieringPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeTieringPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput
+	ToVolumeTieringPolicyPtrOutputWithContext(context.Context) VolumeTieringPolicyPtrOutput
+}
+
+type volumeTieringPolicyPtrType VolumeTieringPolicyArgs
+
+func VolumeTieringPolicyPtr(v *VolumeTieringPolicyArgs) VolumeTieringPolicyPtrInput {
+	return (*volumeTieringPolicyPtrType)(v)
+}
+
+func (*volumeTieringPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (i *volumeTieringPolicyPtrType) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return i.ToVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeTieringPolicyPtrType) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyPtrOutput)
+}
+
+type VolumeTieringPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumeTieringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyOutput() VolumeTieringPolicyOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyOutputWithContext(ctx context.Context) VolumeTieringPolicyOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return o.ToVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeTieringPolicy) *VolumeTieringPolicy {
+		return &v
+	}).(VolumeTieringPolicyPtrOutput)
+}
+
+func (o VolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeTieringPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeTieringPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type VolumeTieringPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeTieringPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (o VolumeTieringPolicyPtrOutput) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyPtrOutput) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyPtrOutput) Elem() VolumeTieringPolicyOutput {
+	return o.ApplyT(func(v *VolumeTieringPolicy) VolumeTieringPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeTieringPolicy
+		return ret
+	}).(VolumeTieringPolicyOutput)
+}
+
+func (o VolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeTieringPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoolingPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeTieringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeUserAndGroupQuotas struct {
+	Id                      int    `pulumi:"id"`
+	StorageCapacityQuotaGiB int    `pulumi:"storageCapacityQuotaGiB"`
+	Type                    string `pulumi:"type"`
+}
+
+// VolumeUserAndGroupQuotasInput is an input type that accepts VolumeUserAndGroupQuotasArgs and VolumeUserAndGroupQuotasOutput values.
+// You can construct a concrete instance of `VolumeUserAndGroupQuotasInput` via:
+//
+//          VolumeUserAndGroupQuotasArgs{...}
+type VolumeUserAndGroupQuotasInput interface {
+	pulumi.Input
+
+	ToVolumeUserAndGroupQuotasOutput() VolumeUserAndGroupQuotasOutput
+	ToVolumeUserAndGroupQuotasOutputWithContext(context.Context) VolumeUserAndGroupQuotasOutput
+}
+
+type VolumeUserAndGroupQuotasArgs struct {
+	Id                      pulumi.IntInput    `pulumi:"id"`
+	StorageCapacityQuotaGiB pulumi.IntInput    `pulumi:"storageCapacityQuotaGiB"`
+	Type                    pulumi.StringInput `pulumi:"type"`
+}
+
+func (VolumeUserAndGroupQuotasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (i VolumeUserAndGroupQuotasArgs) ToVolumeUserAndGroupQuotasOutput() VolumeUserAndGroupQuotasOutput {
+	return i.ToVolumeUserAndGroupQuotasOutputWithContext(context.Background())
+}
+
+func (i VolumeUserAndGroupQuotasArgs) ToVolumeUserAndGroupQuotasOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeUserAndGroupQuotasOutput)
+}
+
+// VolumeUserAndGroupQuotasArrayInput is an input type that accepts VolumeUserAndGroupQuotasArray and VolumeUserAndGroupQuotasArrayOutput values.
+// You can construct a concrete instance of `VolumeUserAndGroupQuotasArrayInput` via:
+//
+//          VolumeUserAndGroupQuotasArray{ VolumeUserAndGroupQuotasArgs{...} }
+type VolumeUserAndGroupQuotasArrayInput interface {
+	pulumi.Input
+
+	ToVolumeUserAndGroupQuotasArrayOutput() VolumeUserAndGroupQuotasArrayOutput
+	ToVolumeUserAndGroupQuotasArrayOutputWithContext(context.Context) VolumeUserAndGroupQuotasArrayOutput
+}
+
+type VolumeUserAndGroupQuotasArray []VolumeUserAndGroupQuotasInput
+
+func (VolumeUserAndGroupQuotasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (i VolumeUserAndGroupQuotasArray) ToVolumeUserAndGroupQuotasArrayOutput() VolumeUserAndGroupQuotasArrayOutput {
+	return i.ToVolumeUserAndGroupQuotasArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeUserAndGroupQuotasArray) ToVolumeUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeUserAndGroupQuotasArrayOutput)
+}
+
+type VolumeUserAndGroupQuotasOutput struct{ *pulumi.OutputState }
+
+func (VolumeUserAndGroupQuotasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (o VolumeUserAndGroupQuotasOutput) ToVolumeUserAndGroupQuotasOutput() VolumeUserAndGroupQuotasOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasOutput) ToVolumeUserAndGroupQuotasOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeUserAndGroupQuotas) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o VolumeUserAndGroupQuotasOutput) StorageCapacityQuotaGiB() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeUserAndGroupQuotas) int { return v.StorageCapacityQuotaGiB }).(pulumi.IntOutput)
+}
+
+func (o VolumeUserAndGroupQuotasOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeUserAndGroupQuotas) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VolumeUserAndGroupQuotasArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeUserAndGroupQuotasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (o VolumeUserAndGroupQuotasArrayOutput) ToVolumeUserAndGroupQuotasArrayOutput() VolumeUserAndGroupQuotasArrayOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasArrayOutput) ToVolumeUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasArrayOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasArrayOutput) Index(i pulumi.IntInput) VolumeUserAndGroupQuotasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeUserAndGroupQuotas {
+		return vs[0].([]VolumeUserAndGroupQuotas)[vs[1].(int)]
+	}).(VolumeUserAndGroupQuotasOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
@@ -2291,6 +4040,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemUserAndGroupQuotasArrayInput)(nil)).Elem(), FileSystemUserAndGroupQuotasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationPtrInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotTagInput)(nil)).Elem(), SnapshotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotTagArrayInput)(nil)).Elem(), SnapshotTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagInput)(nil)).Elem(), StorageVirtualMachineTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagArrayInput)(nil)).Elem(), StorageVirtualMachineTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsInput)(nil)).Elem(), VolumeClientConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsArrayInput)(nil)).Elem(), VolumeClientConfigurationsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsInput)(nil)).Elem(), VolumeNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsArrayInput)(nil)).Elem(), VolumeNfsExportsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationPtrInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZFSConfigurationInput)(nil)).Elem(), VolumeOpenZFSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZFSConfigurationPtrInput)(nil)).Elem(), VolumeOpenZFSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotPtrInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagInput)(nil)).Elem(), VolumeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagArrayInput)(nil)).Elem(), VolumeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyPtrInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasInput)(nil)).Elem(), VolumeUserAndGroupQuotasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasArrayInput)(nil)).Elem(), VolumeUserAndGroupQuotasArray{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemClientConfigurationsOutput{})
@@ -2315,4 +4088,28 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemUserAndGroupQuotasArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemWindowsConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemWindowsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotTagOutput{})
+	pulumi.RegisterOutputType(SnapshotTagArrayOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineTagOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineTagArrayOutput{})
+	pulumi.RegisterOutputType(VolumeClientConfigurationsOutput{})
+	pulumi.RegisterOutputType(VolumeClientConfigurationsArrayOutput{})
+	pulumi.RegisterOutputType(VolumeNfsExportsOutput{})
+	pulumi.RegisterOutputType(VolumeNfsExportsArrayOutput{})
+	pulumi.RegisterOutputType(VolumeOntapConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeOntapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeOpenZFSConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeOpenZFSConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeOriginSnapshotOutput{})
+	pulumi.RegisterOutputType(VolumeOriginSnapshotPtrOutput{})
+	pulumi.RegisterOutputType(VolumeTagOutput{})
+	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
+	pulumi.RegisterOutputType(VolumeTieringPolicyOutput{})
+	pulumi.RegisterOutputType(VolumeTieringPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VolumeUserAndGroupQuotasOutput{})
+	pulumi.RegisterOutputType(VolumeUserAndGroupQuotasArrayOutput{})
 }

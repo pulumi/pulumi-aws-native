@@ -2300,6 +2300,146 @@ func (o FunctionEnvironmentPtrOutput) Variables() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// A function's ephemeral storage settings.
+type FunctionEphemeralStorage struct {
+	// The amount of ephemeral storage that your function has access to.
+	Size int `pulumi:"size"`
+}
+
+// FunctionEphemeralStorageInput is an input type that accepts FunctionEphemeralStorageArgs and FunctionEphemeralStorageOutput values.
+// You can construct a concrete instance of `FunctionEphemeralStorageInput` via:
+//
+//          FunctionEphemeralStorageArgs{...}
+type FunctionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToFunctionEphemeralStorageOutput() FunctionEphemeralStorageOutput
+	ToFunctionEphemeralStorageOutputWithContext(context.Context) FunctionEphemeralStorageOutput
+}
+
+// A function's ephemeral storage settings.
+type FunctionEphemeralStorageArgs struct {
+	// The amount of ephemeral storage that your function has access to.
+	Size pulumi.IntInput `pulumi:"size"`
+}
+
+func (FunctionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStorageOutput() FunctionEphemeralStorageOutput {
+	return i.ToFunctionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStorageOutputWithContext(ctx context.Context) FunctionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStorageOutput)
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return i.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStorageOutput).ToFunctionEphemeralStoragePtrOutputWithContext(ctx)
+}
+
+// FunctionEphemeralStoragePtrInput is an input type that accepts FunctionEphemeralStorageArgs, FunctionEphemeralStoragePtr and FunctionEphemeralStoragePtrOutput values.
+// You can construct a concrete instance of `FunctionEphemeralStoragePtrInput` via:
+//
+//          FunctionEphemeralStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionEphemeralStoragePtrInput interface {
+	pulumi.Input
+
+	ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput
+	ToFunctionEphemeralStoragePtrOutputWithContext(context.Context) FunctionEphemeralStoragePtrOutput
+}
+
+type functionEphemeralStoragePtrType FunctionEphemeralStorageArgs
+
+func FunctionEphemeralStoragePtr(v *FunctionEphemeralStorageArgs) FunctionEphemeralStoragePtrInput {
+	return (*functionEphemeralStoragePtrType)(v)
+}
+
+func (*functionEphemeralStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (i *functionEphemeralStoragePtrType) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return i.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *functionEphemeralStoragePtrType) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStoragePtrOutput)
+}
+
+// A function's ephemeral storage settings.
+type FunctionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (FunctionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStorageOutput() FunctionEphemeralStorageOutput {
+	return o
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStorageOutputWithContext(ctx context.Context) FunctionEphemeralStorageOutput {
+	return o
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return o.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEphemeralStorage) *FunctionEphemeralStorage {
+		return &v
+	}).(FunctionEphemeralStoragePtrOutput)
+}
+
+// The amount of ephemeral storage that your function has access to.
+func (o FunctionEphemeralStorageOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionEphemeralStorage) int { return v.Size }).(pulumi.IntOutput)
+}
+
+type FunctionEphemeralStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionEphemeralStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (o FunctionEphemeralStoragePtrOutput) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o FunctionEphemeralStoragePtrOutput) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o FunctionEphemeralStoragePtrOutput) Elem() FunctionEphemeralStorageOutput {
+	return o.ApplyT(func(v *FunctionEphemeralStorage) FunctionEphemeralStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionEphemeralStorage
+		return ret
+	}).(FunctionEphemeralStorageOutput)
+}
+
+// The amount of ephemeral storage that your function has access to.
+func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionEphemeralStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
 type FunctionFileSystemConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
 	Arn string `pulumi:"arn"`
@@ -3443,6 +3583,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentInput)(nil)).Elem(), FunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentPtrInput)(nil)).Elem(), FunctionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEphemeralStorageInput)(nil)).Elem(), FunctionEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEphemeralStoragePtrInput)(nil)).Elem(), FunctionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigInput)(nil)).Elem(), FunctionFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigArrayInput)(nil)).Elem(), FunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
@@ -3493,6 +3635,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FunctionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(FunctionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(FunctionFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})

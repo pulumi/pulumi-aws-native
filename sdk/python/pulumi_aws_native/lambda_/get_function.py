@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -38,6 +38,9 @@ class GetFunctionResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
+        if ephemeral_storage and not isinstance(ephemeral_storage, dict):
+            raise TypeError("Expected argument 'ephemeral_storage' to be a dict")
+        pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if file_system_configs and not isinstance(file_system_configs, list):
             raise TypeError("Expected argument 'file_system_configs' to be a list")
         pulumi.set(__self__, "file_system_configs", file_system_configs)
@@ -125,6 +128,14 @@ class GetFunctionResult:
         Environment variables that are accessible from function code during execution.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional['outputs.FunctionEphemeralStorage']:
+        """
+        A function's ephemeral storage settings.
+        """
+        return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="fileSystemConfigs")
@@ -251,6 +262,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             dead_letter_config=self.dead_letter_config,
             description=self.description,
             environment=self.environment,
+            ephemeral_storage=self.ephemeral_storage,
             file_system_configs=self.file_system_configs,
             handler=self.handler,
             image_config=self.image_config,
@@ -290,6 +302,7 @@ def get_function(function_name: Optional[str] = None,
         dead_letter_config=__ret__.dead_letter_config,
         description=__ret__.description,
         environment=__ret__.environment,
+        ephemeral_storage=__ret__.ephemeral_storage,
         file_system_configs=__ret__.file_system_configs,
         handler=__ret__.handler,
         image_config=__ret__.image_config,

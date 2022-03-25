@@ -61,6 +61,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
     /**
+     * A function's ephemeral storage settings.
+     */
+    public readonly ephemeralStorage!: pulumi.Output<outputs.lambda.FunctionEphemeralStorage | undefined>;
+    /**
      * Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
      */
     public readonly fileSystemConfigs!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig[] | undefined>;
@@ -144,6 +148,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
             resourceInputs["fileSystemConfigs"] = args ? args.fileSystemConfigs : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["handler"] = args ? args.handler : undefined;
@@ -168,6 +173,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["deadLetterConfig"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["environment"] = undefined /*out*/;
+            resourceInputs["ephemeralStorage"] = undefined /*out*/;
             resourceInputs["fileSystemConfigs"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["handler"] = undefined /*out*/;
@@ -214,6 +220,10 @@ export interface FunctionArgs {
      * Environment variables that are accessible from function code during execution.
      */
     environment?: pulumi.Input<inputs.lambda.FunctionEnvironmentArgs>;
+    /**
+     * A function's ephemeral storage settings.
+     */
+    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorageArgs>;
     /**
      * Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
      */

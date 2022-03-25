@@ -215,6 +215,15 @@
         }
       }
     },
+    "Ipv4PrefixSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Ipv4Prefix" : {
+          "type" : "string"
+        }
+      }
+    },
     "Placement" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -418,8 +427,28 @@
         "SecondaryPrivateIpAddressCount" : {
           "type" : "integer"
         },
+        "Ipv6PrefixCount" : {
+          "type" : "integer"
+        },
+        "Ipv4Prefixes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Ipv4PrefixSpecification"
+          }
+        },
         "DeviceIndex" : {
           "type" : "integer"
+        },
+        "Ipv4PrefixCount" : {
+          "type" : "integer"
+        },
+        "Ipv6Prefixes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Ipv6PrefixSpecification"
+          }
         },
         "SubnetId" : {
           "type" : "string"
@@ -485,6 +514,15 @@
         },
         "Primary" : {
           "type" : "boolean"
+        }
+      }
+    },
+    "Ipv6PrefixSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Ipv6Prefix" : {
+          "type" : "string"
         }
       }
     },

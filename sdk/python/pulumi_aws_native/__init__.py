@@ -1577,7 +1577,10 @@ _utilities.register(
   "mod": "fsx",
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
-   "aws-native:fsx:FileSystem": "FileSystem"
+   "aws-native:fsx:FileSystem": "FileSystem",
+   "aws-native:fsx:Snapshot": "Snapshot",
+   "aws-native:fsx:StorageVirtualMachine": "StorageVirtualMachine",
+   "aws-native:fsx:Volume": "Volume"
   }
  },
  {

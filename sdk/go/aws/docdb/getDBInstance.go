@@ -27,6 +27,7 @@ type LookupDBInstanceArgs struct {
 type LookupDBInstanceResult struct {
 	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
 	DBInstanceClass            *string         `pulumi:"dBInstanceClass"`
+	EnablePerformanceInsights  *bool           `pulumi:"enablePerformanceInsights"`
 	Endpoint                   *string         `pulumi:"endpoint"`
 	Id                         *string         `pulumi:"id"`
 	Port                       *string         `pulumi:"port"`
@@ -71,6 +72,10 @@ func (o LookupDBInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOu
 
 func (o LookupDBInstanceResultOutput) DBInstanceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBInstanceClass }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDBInstanceResultOutput) EnablePerformanceInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.EnablePerformanceInsights }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDBInstanceResultOutput) Endpoint() pulumi.StringPtrOutput {
