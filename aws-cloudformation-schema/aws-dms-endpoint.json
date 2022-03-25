@@ -163,14 +163,111 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "AsmPassword" : {
+          "type" : "string"
+        },
+        "DirectPathParallelLoad" : {
+          "type" : "boolean"
+        },
+        "AdditionalArchivedLogDestId" : {
+          "type" : "integer"
+        },
+        "SpatialDataOptionToGeoJsonFunctionName" : {
+          "type" : "string"
+        },
+        "ReplacePathPrefix" : {
+          "type" : "boolean"
+        },
+        "FailTasksOnLobTruncation" : {
+          "type" : "boolean"
+        },
+        "AsmServer" : {
+          "type" : "string"
+        },
         "SecretsManagerOracleAsmAccessRoleArn" : {
           "type" : "string"
+        },
+        "OraclePathPrefix" : {
+          "type" : "string"
+        },
+        "ReadAheadBlocks" : {
+          "type" : "integer"
+        },
+        "StandbyDelayTime" : {
+          "type" : "integer"
+        },
+        "AllowSelectNestedTables" : {
+          "type" : "boolean"
+        },
+        "AddSupplementalLogging" : {
+          "type" : "boolean"
         },
         "SecretsManagerSecretId" : {
           "type" : "string"
         },
+        "UseBFile" : {
+          "type" : "boolean"
+        },
+        "EnableHomogenousTablespace" : {
+          "type" : "boolean"
+        },
+        "AsmUser" : {
+          "type" : "string"
+        },
+        "UseDirectPathFullLoad" : {
+          "type" : "boolean"
+        },
+        "SecurityDbEncryption" : {
+          "type" : "string"
+        },
+        "ParallelAsmReadThreads" : {
+          "type" : "integer"
+        },
+        "ArchivedLogDestId" : {
+          "type" : "integer"
+        },
+        "UsePathPrefix" : {
+          "type" : "string"
+        },
+        "UseLogminerReader" : {
+          "type" : "boolean"
+        },
+        "SecurityDbEncryptionName" : {
+          "type" : "string"
+        },
+        "DirectPathNoLog" : {
+          "type" : "boolean"
+        },
         "SecretsManagerOracleAsmSecretId" : {
           "type" : "string"
+        },
+        "CharLengthSemantics" : {
+          "type" : "string"
+        },
+        "NumberDatatypeScale" : {
+          "type" : "integer"
+        },
+        "ReadTableSpaceName" : {
+          "type" : "boolean"
+        },
+        "AccessAlternateDirectly" : {
+          "type" : "boolean"
+        },
+        "UseAlternateFolderForOnline" : {
+          "type" : "boolean"
+        },
+        "ArchivedLogsOnly" : {
+          "type" : "boolean"
+        },
+        "ExtraArchivedLogDestIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "RetryInterval" : {
+          "type" : "integer"
         },
         "SecretsManagerAccessRoleArn" : {
           "type" : "string"
