@@ -1,8 +1,13 @@
 ## HEAD (Unreleased)
 
-- Update pulumi codegen dependency to fix secret property handling in Go SDK
+_(none)_
 
 ---
+
+## 0.14.0 (Mar 25, 2022)
+
+- Update pulumi codegen dependency to fix secret property handling in Go SDK
+- Update to include the latest resource definitions
 
 ## 0.13.0 (Feb 23, 2022)
 
