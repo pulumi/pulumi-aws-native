@@ -49341,7 +49341,7 @@
             "type": "object",
             "properties": {
                 "provider": {
-                    "$ref": "#/types/aws-native:eks:ClusterEncryptionConfigProviderProperties",
+                    "$ref": "#/types/aws-native:eks:ClusterProvider",
                     "description": "The encryption provider for the cluster."
                 },
                 "resources": {
@@ -49350,15 +49350,6 @@
                         "type": "string"
                     },
                     "description": "Specifies the resources to be encrypted. The only supported value is \"secrets\"."
-                }
-            }
-        },
-        "aws-native:eks:ClusterEncryptionConfigProviderProperties": {
-            "type": "object",
-            "properties": {
-                "keyArn": {
-                    "type": "string",
-                    "description": "Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key."
                 }
             }
         },
@@ -49393,6 +49384,15 @@
                             "name": "ClusterLoggingValue"
                         }
                     }
+                }
+            }
+        },
+        "aws-native:eks:ClusterProvider": {
+            "type": "object",
+            "properties": {
+                "keyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key."
                 }
             }
         },
