@@ -14442,6 +14442,82 @@
                 "name"
             ]
         },
+        "aws-native:events:Endpoint": {
+            "cf": "AWS::Events::Endpoint",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "eventBuses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:EndpointEventBus"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "replicationConfig": {
+                    "$ref": "#/types/aws-native:events:EndpointReplicationConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "routingConfig": {
+                    "$ref": "#/types/aws-native:events:EndpointRoutingConfig"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "endpointId": {
+                    "type": "string"
+                },
+                "endpointUrl": {
+                    "type": "string"
+                },
+                "eventBuses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:EndpointEventBus"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "replicationConfig": {
+                    "$ref": "#/types/aws-native:events:EndpointReplicationConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "routingConfig": {
+                    "$ref": "#/types/aws-native:events:EndpointRoutingConfig"
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:events:EndpointState"
+                },
+                "stateReason": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "required": [
+                "eventBuses",
+                "routingConfig"
+            ],
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:eventschemas:RegistryPolicy": {
             "cf": "AWS::EventSchemas::RegistryPolicy",
             "inputs": {
@@ -49341,7 +49417,7 @@
             "type": "object",
             "properties": {
                 "provider": {
-                    "$ref": "#/types/aws-native:eks:ClusterEncryptionConfigProviderProperties",
+                    "$ref": "#/types/aws-native:eks:ClusterProvider",
                     "description": "The encryption provider for the cluster."
                 },
                 "resources": {
@@ -49350,15 +49426,6 @@
                         "type": "string"
                     },
                     "description": "Specifies the resources to be encrypted. The only supported value is \"secrets\"."
-                }
-            }
-        },
-        "aws-native:eks:ClusterEncryptionConfigProviderProperties": {
-            "type": "object",
-            "properties": {
-                "keyArn": {
-                    "type": "string",
-                    "description": "Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key."
                 }
             }
         },
@@ -49393,6 +49460,15 @@
                             "name": "ClusterLoggingValue"
                         }
                     }
+                }
+            }
+        },
+        "aws-native:eks:ClusterProvider": {
+            "type": "object",
+            "properties": {
+                "keyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key."
                 }
             }
         },
@@ -50315,6 +50391,63 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:events:EndpointEventBus": {
+            "type": "object",
+            "properties": {
+                "eventBusArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:events:EndpointFailoverConfig": {
+            "type": "object",
+            "properties": {
+                "primary": {
+                    "$ref": "#/types/aws-native:events:EndpointPrimary"
+                },
+                "secondary": {
+                    "$ref": "#/types/aws-native:events:EndpointSecondary"
+                }
+            }
+        },
+        "aws-native:events:EndpointPrimary": {
+            "type": "object",
+            "properties": {
+                "healthCheck": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:events:EndpointReplicationConfig": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "$ref": "#/types/aws-native:events:EndpointReplicationState"
+                }
+            }
+        },
+        "aws-native:events:EndpointReplicationState": {
+            "type": "string"
+        },
+        "aws-native:events:EndpointRoutingConfig": {
+            "type": "object",
+            "properties": {
+                "failoverConfig": {
+                    "$ref": "#/types/aws-native:events:EndpointFailoverConfig"
+                }
+            }
+        },
+        "aws-native:events:EndpointSecondary": {
+            "type": "object",
+            "properties": {
+                "route": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:events:EndpointState": {
+            "type": "string"
         },
         "aws-native:evidently:ExperimentMetricGoalObject": {
             "type": "object",
@@ -74567,6 +74700,12 @@
         },
         "aws-native:events:getConnection": {
             "cf": "AWS::Events::Connection",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:events:getEndpoint": {
+            "cf": "AWS::Events::Endpoint",
             "ids": [
                 "name"
             ]
