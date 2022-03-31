@@ -16,8 +16,6 @@ blobs:
 builds:
   - binary: pulumi-resource-aws-native
     dir: provider
-    env:
-      - CGO_ENABLED=0
     goarch:
       - amd64
       - arm64
