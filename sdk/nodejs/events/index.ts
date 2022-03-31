@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./apiDestination";
 export * from "./archive";
 export * from "./connection";
+export * from "./endpoint";
 export * from "./eventBus";
 export * from "./eventBusPolicy";
 export * from "./getApiDestination";
 export * from "./getArchive";
 export * from "./getConnection";
+export * from "./getEndpoint";
 export * from "./getEventBus";
 export * from "./getEventBusPolicy";
 export * from "./getRule";
@@ -25,6 +27,7 @@ export * from "../types/enums/events";
 import { ApiDestination } from "./apiDestination";
 import { Archive } from "./archive";
 import { Connection } from "./connection";
+import { Endpoint } from "./endpoint";
 import { EventBus } from "./eventBus";
 import { EventBusPolicy } from "./eventBusPolicy";
 import { Rule } from "./rule";
@@ -39,6 +42,8 @@ const _module = {
                 return new Archive(name, <any>undefined, { urn })
             case "aws-native:events:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws-native:events:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:events:EventBus":
                 return new EventBus(name, <any>undefined, { urn })
             case "aws-native:events:EventBusPolicy":

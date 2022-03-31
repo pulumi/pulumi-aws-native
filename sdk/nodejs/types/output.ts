@@ -10875,21 +10875,11 @@ export namespace eks {
         /**
          * The encryption provider for the cluster.
          */
-        provider?: outputs.eks.ClusterEncryptionConfigProviderProperties;
+        provider?: outputs.eks.ClusterProvider;
         /**
          * Specifies the resources to be encrypted. The only supported value is "secrets".
          */
         resources?: string[];
-    }
-
-    /**
-     * The encryption provider for the cluster.
-     */
-    export interface ClusterEncryptionConfigProviderProperties {
-        /**
-         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
-         */
-        keyArn?: string;
     }
 
     /**
@@ -10918,6 +10908,13 @@ export namespace eks {
          * The cluster control plane logging configuration for your cluster. 
          */
         clusterLogging?: outputs.eks.ClusterLogging;
+    }
+
+    export interface ClusterProvider {
+        /**
+         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+         */
+        keyArn?: string;
     }
 
     /**
@@ -12071,6 +12068,31 @@ export namespace events {
         value: string;
     }
 
+    export interface EndpointEventBus {
+        eventBusArn: string;
+    }
+
+    export interface EndpointFailoverConfig {
+        primary: outputs.events.EndpointPrimary;
+        secondary: outputs.events.EndpointSecondary;
+    }
+
+    export interface EndpointPrimary {
+        healthCheck: string;
+    }
+
+    export interface EndpointReplicationConfig {
+        state: enums.events.EndpointReplicationState;
+    }
+
+    export interface EndpointRoutingConfig {
+        failoverConfig: outputs.events.EndpointFailoverConfig;
+    }
+
+    export interface EndpointSecondary {
+        route: string;
+    }
+
     export interface EventBusPolicyCondition {
         key?: string;
         type?: string;
@@ -12218,7 +12240,6 @@ export namespace events {
         sageMakerPipelineParameters?: outputs.events.RuleSageMakerPipelineParameters;
         sqsParameters?: outputs.events.RuleSqsParameters;
     }
-
 }
 
 export namespace eventschemas {

@@ -13,9 +13,9 @@ from ._enums import *
 __all__ = [
     'AddonTag',
     'ClusterEncryptionConfig',
-    'ClusterEncryptionConfigProviderProperties',
     'ClusterKubernetesNetworkConfig',
     'ClusterLogging',
+    'ClusterProvider',
     'ClusterResourcesVpcConfig',
     'ClusterTag',
     'FargateProfileLabel',
@@ -70,11 +70,11 @@ class ClusterEncryptionConfig(dict):
     The encryption configuration for the cluster
     """
     def __init__(__self__, *,
-                 provider: Optional['outputs.ClusterEncryptionConfigProviderProperties'] = None,
+                 provider: Optional['outputs.ClusterProvider'] = None,
                  resources: Optional[Sequence[str]] = None):
         """
         The encryption configuration for the cluster
-        :param 'ClusterEncryptionConfigProviderProperties' provider: The encryption provider for the cluster.
+        :param 'ClusterProvider' provider: The encryption provider for the cluster.
         :param Sequence[str] resources: Specifies the resources to be encrypted. The only supported value is "secrets".
         """
         if provider is not None:
@@ -84,7 +84,7 @@ class ClusterEncryptionConfig(dict):
 
     @property
     @pulumi.getter
-    def provider(self) -> Optional['outputs.ClusterEncryptionConfigProviderProperties']:
+    def provider(self) -> Optional['outputs.ClusterProvider']:
         """
         The encryption provider for the cluster.
         """
@@ -97,46 +97,6 @@ class ClusterEncryptionConfig(dict):
         Specifies the resources to be encrypted. The only supported value is "secrets".
         """
         return pulumi.get(self, "resources")
-
-
-@pulumi.output_type
-class ClusterEncryptionConfigProviderProperties(dict):
-    """
-    The encryption provider for the cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyArn":
-            suggest = "key_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterEncryptionConfigProviderProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterEncryptionConfigProviderProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterEncryptionConfigProviderProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_arn: Optional[str] = None):
-        """
-        The encryption provider for the cluster.
-        :param str key_arn: Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
-        """
-        if key_arn is not None:
-            pulumi.set(__self__, "key_arn", key_arn)
-
-    @property
-    @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[str]:
-        """
-        Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
-        """
-        return pulumi.get(self, "key_arn")
 
 
 @pulumi.output_type
@@ -245,6 +205,42 @@ class ClusterLogging(dict):
         The cluster control plane logging configuration for your cluster. 
         """
         return pulumi.get(self, "cluster_logging")
+
+
+@pulumi.output_type
+class ClusterProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyArn":
+            suggest = "key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_arn: Optional[str] = None):
+        """
+        :param str key_arn: Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+        """
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+        """
+        return pulumi.get(self, "key_arn")
 
 
 @pulumi.output_type

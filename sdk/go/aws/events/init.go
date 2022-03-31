@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Archive{}
 	case "aws-native:events:Connection":
 		r = &Connection{}
+	case "aws-native:events:Endpoint":
+		r = &Endpoint{}
 	case "aws-native:events:EventBus":
 		r = &EventBus{}
 	case "aws-native:events:EventBusPolicy":

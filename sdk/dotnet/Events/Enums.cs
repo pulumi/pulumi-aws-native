@@ -97,4 +97,64 @@ namespace Pulumi.AwsNative.Events
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct EndpointReplicationState : IEquatable<EndpointReplicationState>
+    {
+        private readonly string _value;
+
+        private EndpointReplicationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointReplicationState Enabled { get; } = new EndpointReplicationState("ENABLED");
+        public static EndpointReplicationState Disabled { get; } = new EndpointReplicationState("DISABLED");
+
+        public static bool operator ==(EndpointReplicationState left, EndpointReplicationState right) => left.Equals(right);
+        public static bool operator !=(EndpointReplicationState left, EndpointReplicationState right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointReplicationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointReplicationState other && Equals(other);
+        public bool Equals(EndpointReplicationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EndpointState : IEquatable<EndpointState>
+    {
+        private readonly string _value;
+
+        private EndpointState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointState Active { get; } = new EndpointState("ACTIVE");
+        public static EndpointState Creating { get; } = new EndpointState("CREATING");
+        public static EndpointState Updating { get; } = new EndpointState("UPDATING");
+        public static EndpointState Deleting { get; } = new EndpointState("DELETING");
+        public static EndpointState CreateFailed { get; } = new EndpointState("CREATE_FAILED");
+        public static EndpointState UpdateFailed { get; } = new EndpointState("UPDATE_FAILED");
+
+        public static bool operator ==(EndpointState left, EndpointState right) => left.Equals(right);
+        public static bool operator !=(EndpointState left, EndpointState right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointState other && Equals(other);
+        public bool Equals(EndpointState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

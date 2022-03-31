@@ -1498,6 +1498,7 @@ _utilities.register(
    "aws-native:events:ApiDestination": "ApiDestination",
    "aws-native:events:Archive": "Archive",
    "aws-native:events:Connection": "Connection",
+   "aws-native:events:Endpoint": "Endpoint",
    "aws-native:events:EventBus": "EventBus",
    "aws-native:events:EventBusPolicy": "EventBusPolicy",
    "aws-native:events:Rule": "Rule"

@@ -509,6 +509,264 @@ func (in *connectionOAuthParametersHttpMethodPtr) ToConnectionOAuthParametersHtt
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionOAuthParametersHttpMethodPtrOutput)
 }
 
+type EndpointReplicationState string
+
+const (
+	EndpointReplicationStateEnabled  = EndpointReplicationState("ENABLED")
+	EndpointReplicationStateDisabled = EndpointReplicationState("DISABLED")
+)
+
+func (EndpointReplicationState) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointReplicationState)(nil)).Elem()
+}
+
+func (e EndpointReplicationState) ToEndpointReplicationStateOutput() EndpointReplicationStateOutput {
+	return pulumi.ToOutput(e).(EndpointReplicationStateOutput)
+}
+
+func (e EndpointReplicationState) ToEndpointReplicationStateOutputWithContext(ctx context.Context) EndpointReplicationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EndpointReplicationStateOutput)
+}
+
+func (e EndpointReplicationState) ToEndpointReplicationStatePtrOutput() EndpointReplicationStatePtrOutput {
+	return e.ToEndpointReplicationStatePtrOutputWithContext(context.Background())
+}
+
+func (e EndpointReplicationState) ToEndpointReplicationStatePtrOutputWithContext(ctx context.Context) EndpointReplicationStatePtrOutput {
+	return EndpointReplicationState(e).ToEndpointReplicationStateOutputWithContext(ctx).ToEndpointReplicationStatePtrOutputWithContext(ctx)
+}
+
+func (e EndpointReplicationState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointReplicationState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointReplicationState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EndpointReplicationState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EndpointReplicationStateOutput struct{ *pulumi.OutputState }
+
+func (EndpointReplicationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointReplicationState)(nil)).Elem()
+}
+
+func (o EndpointReplicationStateOutput) ToEndpointReplicationStateOutput() EndpointReplicationStateOutput {
+	return o
+}
+
+func (o EndpointReplicationStateOutput) ToEndpointReplicationStateOutputWithContext(ctx context.Context) EndpointReplicationStateOutput {
+	return o
+}
+
+func (o EndpointReplicationStateOutput) ToEndpointReplicationStatePtrOutput() EndpointReplicationStatePtrOutput {
+	return o.ToEndpointReplicationStatePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointReplicationStateOutput) ToEndpointReplicationStatePtrOutputWithContext(ctx context.Context) EndpointReplicationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointReplicationState) *EndpointReplicationState {
+		return &v
+	}).(EndpointReplicationStatePtrOutput)
+}
+
+func (o EndpointReplicationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EndpointReplicationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EndpointReplicationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointReplicationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointReplicationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EndpointReplicationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointReplicationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointReplicationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointReplicationState)(nil)).Elem()
+}
+
+func (o EndpointReplicationStatePtrOutput) ToEndpointReplicationStatePtrOutput() EndpointReplicationStatePtrOutput {
+	return o
+}
+
+func (o EndpointReplicationStatePtrOutput) ToEndpointReplicationStatePtrOutputWithContext(ctx context.Context) EndpointReplicationStatePtrOutput {
+	return o
+}
+
+func (o EndpointReplicationStatePtrOutput) Elem() EndpointReplicationStateOutput {
+	return o.ApplyT(func(v *EndpointReplicationState) EndpointReplicationState {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointReplicationState
+		return ret
+	}).(EndpointReplicationStateOutput)
+}
+
+func (o EndpointReplicationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointReplicationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EndpointReplicationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EndpointReplicationStateInput is an input type that accepts EndpointReplicationStateArgs and EndpointReplicationStateOutput values.
+// You can construct a concrete instance of `EndpointReplicationStateInput` via:
+//
+//          EndpointReplicationStateArgs{...}
+type EndpointReplicationStateInput interface {
+	pulumi.Input
+
+	ToEndpointReplicationStateOutput() EndpointReplicationStateOutput
+	ToEndpointReplicationStateOutputWithContext(context.Context) EndpointReplicationStateOutput
+}
+
+var endpointReplicationStatePtrType = reflect.TypeOf((**EndpointReplicationState)(nil)).Elem()
+
+type EndpointReplicationStatePtrInput interface {
+	pulumi.Input
+
+	ToEndpointReplicationStatePtrOutput() EndpointReplicationStatePtrOutput
+	ToEndpointReplicationStatePtrOutputWithContext(context.Context) EndpointReplicationStatePtrOutput
+}
+
+type endpointReplicationStatePtr string
+
+func EndpointReplicationStatePtr(v string) EndpointReplicationStatePtrInput {
+	return (*endpointReplicationStatePtr)(&v)
+}
+
+func (*endpointReplicationStatePtr) ElementType() reflect.Type {
+	return endpointReplicationStatePtrType
+}
+
+func (in *endpointReplicationStatePtr) ToEndpointReplicationStatePtrOutput() EndpointReplicationStatePtrOutput {
+	return pulumi.ToOutput(in).(EndpointReplicationStatePtrOutput)
+}
+
+func (in *endpointReplicationStatePtr) ToEndpointReplicationStatePtrOutputWithContext(ctx context.Context) EndpointReplicationStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EndpointReplicationStatePtrOutput)
+}
+
+type EndpointStateEnum string
+
+const (
+	EndpointStateEnumActive       = EndpointStateEnum("ACTIVE")
+	EndpointStateEnumCreating     = EndpointStateEnum("CREATING")
+	EndpointStateEnumUpdating     = EndpointStateEnum("UPDATING")
+	EndpointStateEnumDeleting     = EndpointStateEnum("DELETING")
+	EndpointStateEnumCreateFailed = EndpointStateEnum("CREATE_FAILED")
+	EndpointStateEnumUpdateFailed = EndpointStateEnum("UPDATE_FAILED")
+)
+
+type EndpointStateEnumOutput struct{ *pulumi.OutputState }
+
+func (EndpointStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointStateEnum)(nil)).Elem()
+}
+
+func (o EndpointStateEnumOutput) ToEndpointStateEnumOutput() EndpointStateEnumOutput {
+	return o
+}
+
+func (o EndpointStateEnumOutput) ToEndpointStateEnumOutputWithContext(ctx context.Context) EndpointStateEnumOutput {
+	return o
+}
+
+func (o EndpointStateEnumOutput) ToEndpointStateEnumPtrOutput() EndpointStateEnumPtrOutput {
+	return o.ToEndpointStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointStateEnumOutput) ToEndpointStateEnumPtrOutputWithContext(ctx context.Context) EndpointStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointStateEnum) *EndpointStateEnum {
+		return &v
+	}).(EndpointStateEnumPtrOutput)
+}
+
+func (o EndpointStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EndpointStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EndpointStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EndpointStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointStateEnum)(nil)).Elem()
+}
+
+func (o EndpointStateEnumPtrOutput) ToEndpointStateEnumPtrOutput() EndpointStateEnumPtrOutput {
+	return o
+}
+
+func (o EndpointStateEnumPtrOutput) ToEndpointStateEnumPtrOutputWithContext(ctx context.Context) EndpointStateEnumPtrOutput {
+	return o
+}
+
+func (o EndpointStateEnumPtrOutput) Elem() EndpointStateEnumOutput {
+	return o.ApplyT(func(v *EndpointStateEnum) EndpointStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointStateEnum
+		return ret
+	}).(EndpointStateEnumOutput)
+}
+
+func (o EndpointStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EndpointStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiDestinationHttpMethodInput)(nil)).Elem(), ApiDestinationHttpMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiDestinationHttpMethodPtrInput)(nil)).Elem(), ApiDestinationHttpMethod("GET"))
@@ -516,10 +774,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationTypePtrInput)(nil)).Elem(), ConnectionAuthorizationType("API_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersHttpMethodInput)(nil)).Elem(), ConnectionOAuthParametersHttpMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersHttpMethodPtrInput)(nil)).Elem(), ConnectionOAuthParametersHttpMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationStateInput)(nil)).Elem(), EndpointReplicationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationStatePtrInput)(nil)).Elem(), EndpointReplicationState("ENABLED"))
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodOutput{})
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAuthorizationTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionAuthorizationTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuthParametersHttpMethodOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuthParametersHttpMethodPtrOutput{})
+	pulumi.RegisterOutputType(EndpointReplicationStateOutput{})
+	pulumi.RegisterOutputType(EndpointReplicationStatePtrOutput{})
+	pulumi.RegisterOutputType(EndpointStateEnumOutput{})
+	pulumi.RegisterOutputType(EndpointStateEnumPtrOutput{})
 }

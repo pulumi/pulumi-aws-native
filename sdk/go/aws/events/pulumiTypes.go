@@ -968,6 +968,576 @@ func (o ConnectionParameterArrayOutput) Index(i pulumi.IntInput) ConnectionParam
 	}).(ConnectionParameterOutput)
 }
 
+type EndpointEventBus struct {
+	EventBusArn string `pulumi:"eventBusArn"`
+}
+
+// EndpointEventBusInput is an input type that accepts EndpointEventBusArgs and EndpointEventBusOutput values.
+// You can construct a concrete instance of `EndpointEventBusInput` via:
+//
+//          EndpointEventBusArgs{...}
+type EndpointEventBusInput interface {
+	pulumi.Input
+
+	ToEndpointEventBusOutput() EndpointEventBusOutput
+	ToEndpointEventBusOutputWithContext(context.Context) EndpointEventBusOutput
+}
+
+type EndpointEventBusArgs struct {
+	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
+}
+
+func (EndpointEventBusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventBus)(nil)).Elem()
+}
+
+func (i EndpointEventBusArgs) ToEndpointEventBusOutput() EndpointEventBusOutput {
+	return i.ToEndpointEventBusOutputWithContext(context.Background())
+}
+
+func (i EndpointEventBusArgs) ToEndpointEventBusOutputWithContext(ctx context.Context) EndpointEventBusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventBusOutput)
+}
+
+// EndpointEventBusArrayInput is an input type that accepts EndpointEventBusArray and EndpointEventBusArrayOutput values.
+// You can construct a concrete instance of `EndpointEventBusArrayInput` via:
+//
+//          EndpointEventBusArray{ EndpointEventBusArgs{...} }
+type EndpointEventBusArrayInput interface {
+	pulumi.Input
+
+	ToEndpointEventBusArrayOutput() EndpointEventBusArrayOutput
+	ToEndpointEventBusArrayOutputWithContext(context.Context) EndpointEventBusArrayOutput
+}
+
+type EndpointEventBusArray []EndpointEventBusInput
+
+func (EndpointEventBusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointEventBus)(nil)).Elem()
+}
+
+func (i EndpointEventBusArray) ToEndpointEventBusArrayOutput() EndpointEventBusArrayOutput {
+	return i.ToEndpointEventBusArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointEventBusArray) ToEndpointEventBusArrayOutputWithContext(ctx context.Context) EndpointEventBusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventBusArrayOutput)
+}
+
+type EndpointEventBusOutput struct{ *pulumi.OutputState }
+
+func (EndpointEventBusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventBus)(nil)).Elem()
+}
+
+func (o EndpointEventBusOutput) ToEndpointEventBusOutput() EndpointEventBusOutput {
+	return o
+}
+
+func (o EndpointEventBusOutput) ToEndpointEventBusOutputWithContext(ctx context.Context) EndpointEventBusOutput {
+	return o
+}
+
+func (o EndpointEventBusOutput) EventBusArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointEventBus) string { return v.EventBusArn }).(pulumi.StringOutput)
+}
+
+type EndpointEventBusArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointEventBusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointEventBus)(nil)).Elem()
+}
+
+func (o EndpointEventBusArrayOutput) ToEndpointEventBusArrayOutput() EndpointEventBusArrayOutput {
+	return o
+}
+
+func (o EndpointEventBusArrayOutput) ToEndpointEventBusArrayOutputWithContext(ctx context.Context) EndpointEventBusArrayOutput {
+	return o
+}
+
+func (o EndpointEventBusArrayOutput) Index(i pulumi.IntInput) EndpointEventBusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointEventBus {
+		return vs[0].([]EndpointEventBus)[vs[1].(int)]
+	}).(EndpointEventBusOutput)
+}
+
+type EndpointFailoverConfig struct {
+	Primary   EndpointPrimary   `pulumi:"primary"`
+	Secondary EndpointSecondary `pulumi:"secondary"`
+}
+
+// EndpointFailoverConfigInput is an input type that accepts EndpointFailoverConfigArgs and EndpointFailoverConfigOutput values.
+// You can construct a concrete instance of `EndpointFailoverConfigInput` via:
+//
+//          EndpointFailoverConfigArgs{...}
+type EndpointFailoverConfigInput interface {
+	pulumi.Input
+
+	ToEndpointFailoverConfigOutput() EndpointFailoverConfigOutput
+	ToEndpointFailoverConfigOutputWithContext(context.Context) EndpointFailoverConfigOutput
+}
+
+type EndpointFailoverConfigArgs struct {
+	Primary   EndpointPrimaryInput   `pulumi:"primary"`
+	Secondary EndpointSecondaryInput `pulumi:"secondary"`
+}
+
+func (EndpointFailoverConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointFailoverConfig)(nil)).Elem()
+}
+
+func (i EndpointFailoverConfigArgs) ToEndpointFailoverConfigOutput() EndpointFailoverConfigOutput {
+	return i.ToEndpointFailoverConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointFailoverConfigArgs) ToEndpointFailoverConfigOutputWithContext(ctx context.Context) EndpointFailoverConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointFailoverConfigOutput)
+}
+
+type EndpointFailoverConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointFailoverConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointFailoverConfig)(nil)).Elem()
+}
+
+func (o EndpointFailoverConfigOutput) ToEndpointFailoverConfigOutput() EndpointFailoverConfigOutput {
+	return o
+}
+
+func (o EndpointFailoverConfigOutput) ToEndpointFailoverConfigOutputWithContext(ctx context.Context) EndpointFailoverConfigOutput {
+	return o
+}
+
+func (o EndpointFailoverConfigOutput) Primary() EndpointPrimaryOutput {
+	return o.ApplyT(func(v EndpointFailoverConfig) EndpointPrimary { return v.Primary }).(EndpointPrimaryOutput)
+}
+
+func (o EndpointFailoverConfigOutput) Secondary() EndpointSecondaryOutput {
+	return o.ApplyT(func(v EndpointFailoverConfig) EndpointSecondary { return v.Secondary }).(EndpointSecondaryOutput)
+}
+
+type EndpointFailoverConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointFailoverConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointFailoverConfig)(nil)).Elem()
+}
+
+func (o EndpointFailoverConfigPtrOutput) ToEndpointFailoverConfigPtrOutput() EndpointFailoverConfigPtrOutput {
+	return o
+}
+
+func (o EndpointFailoverConfigPtrOutput) ToEndpointFailoverConfigPtrOutputWithContext(ctx context.Context) EndpointFailoverConfigPtrOutput {
+	return o
+}
+
+func (o EndpointFailoverConfigPtrOutput) Elem() EndpointFailoverConfigOutput {
+	return o.ApplyT(func(v *EndpointFailoverConfig) EndpointFailoverConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointFailoverConfig
+		return ret
+	}).(EndpointFailoverConfigOutput)
+}
+
+func (o EndpointFailoverConfigPtrOutput) Primary() EndpointPrimaryPtrOutput {
+	return o.ApplyT(func(v *EndpointFailoverConfig) *EndpointPrimary {
+		if v == nil {
+			return nil
+		}
+		return &v.Primary
+	}).(EndpointPrimaryPtrOutput)
+}
+
+func (o EndpointFailoverConfigPtrOutput) Secondary() EndpointSecondaryPtrOutput {
+	return o.ApplyT(func(v *EndpointFailoverConfig) *EndpointSecondary {
+		if v == nil {
+			return nil
+		}
+		return &v.Secondary
+	}).(EndpointSecondaryPtrOutput)
+}
+
+type EndpointPrimary struct {
+	HealthCheck string `pulumi:"healthCheck"`
+}
+
+// EndpointPrimaryInput is an input type that accepts EndpointPrimaryArgs and EndpointPrimaryOutput values.
+// You can construct a concrete instance of `EndpointPrimaryInput` via:
+//
+//          EndpointPrimaryArgs{...}
+type EndpointPrimaryInput interface {
+	pulumi.Input
+
+	ToEndpointPrimaryOutput() EndpointPrimaryOutput
+	ToEndpointPrimaryOutputWithContext(context.Context) EndpointPrimaryOutput
+}
+
+type EndpointPrimaryArgs struct {
+	HealthCheck pulumi.StringInput `pulumi:"healthCheck"`
+}
+
+func (EndpointPrimaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrimary)(nil)).Elem()
+}
+
+func (i EndpointPrimaryArgs) ToEndpointPrimaryOutput() EndpointPrimaryOutput {
+	return i.ToEndpointPrimaryOutputWithContext(context.Background())
+}
+
+func (i EndpointPrimaryArgs) ToEndpointPrimaryOutputWithContext(ctx context.Context) EndpointPrimaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrimaryOutput)
+}
+
+type EndpointPrimaryOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrimaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrimary)(nil)).Elem()
+}
+
+func (o EndpointPrimaryOutput) ToEndpointPrimaryOutput() EndpointPrimaryOutput {
+	return o
+}
+
+func (o EndpointPrimaryOutput) ToEndpointPrimaryOutputWithContext(ctx context.Context) EndpointPrimaryOutput {
+	return o
+}
+
+func (o EndpointPrimaryOutput) HealthCheck() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointPrimary) string { return v.HealthCheck }).(pulumi.StringOutput)
+}
+
+type EndpointPrimaryPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrimaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPrimary)(nil)).Elem()
+}
+
+func (o EndpointPrimaryPtrOutput) ToEndpointPrimaryPtrOutput() EndpointPrimaryPtrOutput {
+	return o
+}
+
+func (o EndpointPrimaryPtrOutput) ToEndpointPrimaryPtrOutputWithContext(ctx context.Context) EndpointPrimaryPtrOutput {
+	return o
+}
+
+func (o EndpointPrimaryPtrOutput) Elem() EndpointPrimaryOutput {
+	return o.ApplyT(func(v *EndpointPrimary) EndpointPrimary {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPrimary
+		return ret
+	}).(EndpointPrimaryOutput)
+}
+
+func (o EndpointPrimaryPtrOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheck
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointReplicationConfig struct {
+	State EndpointReplicationState `pulumi:"state"`
+}
+
+// EndpointReplicationConfigInput is an input type that accepts EndpointReplicationConfigArgs and EndpointReplicationConfigOutput values.
+// You can construct a concrete instance of `EndpointReplicationConfigInput` via:
+//
+//          EndpointReplicationConfigArgs{...}
+type EndpointReplicationConfigInput interface {
+	pulumi.Input
+
+	ToEndpointReplicationConfigOutput() EndpointReplicationConfigOutput
+	ToEndpointReplicationConfigOutputWithContext(context.Context) EndpointReplicationConfigOutput
+}
+
+type EndpointReplicationConfigArgs struct {
+	State EndpointReplicationStateInput `pulumi:"state"`
+}
+
+func (EndpointReplicationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointReplicationConfig)(nil)).Elem()
+}
+
+func (i EndpointReplicationConfigArgs) ToEndpointReplicationConfigOutput() EndpointReplicationConfigOutput {
+	return i.ToEndpointReplicationConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointReplicationConfigArgs) ToEndpointReplicationConfigOutputWithContext(ctx context.Context) EndpointReplicationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointReplicationConfigOutput)
+}
+
+func (i EndpointReplicationConfigArgs) ToEndpointReplicationConfigPtrOutput() EndpointReplicationConfigPtrOutput {
+	return i.ToEndpointReplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointReplicationConfigArgs) ToEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EndpointReplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointReplicationConfigOutput).ToEndpointReplicationConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointReplicationConfigPtrInput is an input type that accepts EndpointReplicationConfigArgs, EndpointReplicationConfigPtr and EndpointReplicationConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointReplicationConfigPtrInput` via:
+//
+//          EndpointReplicationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointReplicationConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointReplicationConfigPtrOutput() EndpointReplicationConfigPtrOutput
+	ToEndpointReplicationConfigPtrOutputWithContext(context.Context) EndpointReplicationConfigPtrOutput
+}
+
+type endpointReplicationConfigPtrType EndpointReplicationConfigArgs
+
+func EndpointReplicationConfigPtr(v *EndpointReplicationConfigArgs) EndpointReplicationConfigPtrInput {
+	return (*endpointReplicationConfigPtrType)(v)
+}
+
+func (*endpointReplicationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointReplicationConfig)(nil)).Elem()
+}
+
+func (i *endpointReplicationConfigPtrType) ToEndpointReplicationConfigPtrOutput() EndpointReplicationConfigPtrOutput {
+	return i.ToEndpointReplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointReplicationConfigPtrType) ToEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EndpointReplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointReplicationConfigPtrOutput)
+}
+
+type EndpointReplicationConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointReplicationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointReplicationConfig)(nil)).Elem()
+}
+
+func (o EndpointReplicationConfigOutput) ToEndpointReplicationConfigOutput() EndpointReplicationConfigOutput {
+	return o
+}
+
+func (o EndpointReplicationConfigOutput) ToEndpointReplicationConfigOutputWithContext(ctx context.Context) EndpointReplicationConfigOutput {
+	return o
+}
+
+func (o EndpointReplicationConfigOutput) ToEndpointReplicationConfigPtrOutput() EndpointReplicationConfigPtrOutput {
+	return o.ToEndpointReplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointReplicationConfigOutput) ToEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EndpointReplicationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointReplicationConfig) *EndpointReplicationConfig {
+		return &v
+	}).(EndpointReplicationConfigPtrOutput)
+}
+
+func (o EndpointReplicationConfigOutput) State() EndpointReplicationStateOutput {
+	return o.ApplyT(func(v EndpointReplicationConfig) EndpointReplicationState { return v.State }).(EndpointReplicationStateOutput)
+}
+
+type EndpointReplicationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointReplicationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointReplicationConfig)(nil)).Elem()
+}
+
+func (o EndpointReplicationConfigPtrOutput) ToEndpointReplicationConfigPtrOutput() EndpointReplicationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointReplicationConfigPtrOutput) ToEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EndpointReplicationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointReplicationConfigPtrOutput) Elem() EndpointReplicationConfigOutput {
+	return o.ApplyT(func(v *EndpointReplicationConfig) EndpointReplicationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointReplicationConfig
+		return ret
+	}).(EndpointReplicationConfigOutput)
+}
+
+func (o EndpointReplicationConfigPtrOutput) State() EndpointReplicationStatePtrOutput {
+	return o.ApplyT(func(v *EndpointReplicationConfig) *EndpointReplicationState {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(EndpointReplicationStatePtrOutput)
+}
+
+type EndpointRoutingConfig struct {
+	FailoverConfig EndpointFailoverConfig `pulumi:"failoverConfig"`
+}
+
+// EndpointRoutingConfigInput is an input type that accepts EndpointRoutingConfigArgs and EndpointRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointRoutingConfigInput` via:
+//
+//          EndpointRoutingConfigArgs{...}
+type EndpointRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointRoutingConfigOutput() EndpointRoutingConfigOutput
+	ToEndpointRoutingConfigOutputWithContext(context.Context) EndpointRoutingConfigOutput
+}
+
+type EndpointRoutingConfigArgs struct {
+	FailoverConfig EndpointFailoverConfigInput `pulumi:"failoverConfig"`
+}
+
+func (EndpointRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointRoutingConfigArgs) ToEndpointRoutingConfigOutput() EndpointRoutingConfigOutput {
+	return i.ToEndpointRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointRoutingConfigArgs) ToEndpointRoutingConfigOutputWithContext(ctx context.Context) EndpointRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRoutingConfigOutput)
+}
+
+type EndpointRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointRoutingConfigOutput) ToEndpointRoutingConfigOutput() EndpointRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointRoutingConfigOutput) ToEndpointRoutingConfigOutputWithContext(ctx context.Context) EndpointRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointRoutingConfigOutput) FailoverConfig() EndpointFailoverConfigOutput {
+	return o.ApplyT(func(v EndpointRoutingConfig) EndpointFailoverConfig { return v.FailoverConfig }).(EndpointFailoverConfigOutput)
+}
+
+type EndpointRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointRoutingConfigPtrOutput) ToEndpointRoutingConfigPtrOutput() EndpointRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointRoutingConfigPtrOutput) ToEndpointRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointRoutingConfigPtrOutput) Elem() EndpointRoutingConfigOutput {
+	return o.ApplyT(func(v *EndpointRoutingConfig) EndpointRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRoutingConfig
+		return ret
+	}).(EndpointRoutingConfigOutput)
+}
+
+func (o EndpointRoutingConfigPtrOutput) FailoverConfig() EndpointFailoverConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointRoutingConfig) *EndpointFailoverConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.FailoverConfig
+	}).(EndpointFailoverConfigPtrOutput)
+}
+
+type EndpointSecondary struct {
+	Route string `pulumi:"route"`
+}
+
+// EndpointSecondaryInput is an input type that accepts EndpointSecondaryArgs and EndpointSecondaryOutput values.
+// You can construct a concrete instance of `EndpointSecondaryInput` via:
+//
+//          EndpointSecondaryArgs{...}
+type EndpointSecondaryInput interface {
+	pulumi.Input
+
+	ToEndpointSecondaryOutput() EndpointSecondaryOutput
+	ToEndpointSecondaryOutputWithContext(context.Context) EndpointSecondaryOutput
+}
+
+type EndpointSecondaryArgs struct {
+	Route pulumi.StringInput `pulumi:"route"`
+}
+
+func (EndpointSecondaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointSecondary)(nil)).Elem()
+}
+
+func (i EndpointSecondaryArgs) ToEndpointSecondaryOutput() EndpointSecondaryOutput {
+	return i.ToEndpointSecondaryOutputWithContext(context.Background())
+}
+
+func (i EndpointSecondaryArgs) ToEndpointSecondaryOutputWithContext(ctx context.Context) EndpointSecondaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointSecondaryOutput)
+}
+
+type EndpointSecondaryOutput struct{ *pulumi.OutputState }
+
+func (EndpointSecondaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointSecondary)(nil)).Elem()
+}
+
+func (o EndpointSecondaryOutput) ToEndpointSecondaryOutput() EndpointSecondaryOutput {
+	return o
+}
+
+func (o EndpointSecondaryOutput) ToEndpointSecondaryOutputWithContext(ctx context.Context) EndpointSecondaryOutput {
+	return o
+}
+
+func (o EndpointSecondaryOutput) Route() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointSecondary) string { return v.Route }).(pulumi.StringOutput)
+}
+
+type EndpointSecondaryPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointSecondaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointSecondary)(nil)).Elem()
+}
+
+func (o EndpointSecondaryPtrOutput) ToEndpointSecondaryPtrOutput() EndpointSecondaryPtrOutput {
+	return o
+}
+
+func (o EndpointSecondaryPtrOutput) ToEndpointSecondaryPtrOutputWithContext(ctx context.Context) EndpointSecondaryPtrOutput {
+	return o
+}
+
+func (o EndpointSecondaryPtrOutput) Elem() EndpointSecondaryOutput {
+	return o.ApplyT(func(v *EndpointSecondary) EndpointSecondary {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointSecondary
+		return ret
+	}).(EndpointSecondaryOutput)
+}
+
+func (o EndpointSecondaryPtrOutput) Route() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointSecondary) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Route
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventBusPolicyCondition struct {
 	Key   *string `pulumi:"key"`
 	Type  *string `pulumi:"type"`
@@ -4437,6 +5007,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersPtrInput)(nil)).Elem(), ConnectionOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterInput)(nil)).Elem(), ConnectionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterArrayInput)(nil)).Elem(), ConnectionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventBusInput)(nil)).Elem(), EndpointEventBusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventBusArrayInput)(nil)).Elem(), EndpointEventBusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailoverConfigInput)(nil)).Elem(), EndpointFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrimaryInput)(nil)).Elem(), EndpointPrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationConfigInput)(nil)).Elem(), EndpointReplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationConfigPtrInput)(nil)).Elem(), EndpointReplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRoutingConfigInput)(nil)).Elem(), EndpointRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSecondaryInput)(nil)).Elem(), EndpointSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionPtrInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusTagEntryInput)(nil)).Elem(), EventBusTagEntryArgs{})
@@ -4498,6 +5076,18 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionOAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterArrayOutput{})
+	pulumi.RegisterOutputType(EndpointEventBusOutput{})
+	pulumi.RegisterOutputType(EndpointEventBusArrayOutput{})
+	pulumi.RegisterOutputType(EndpointFailoverConfigOutput{})
+	pulumi.RegisterOutputType(EndpointFailoverConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointPrimaryOutput{})
+	pulumi.RegisterOutputType(EndpointPrimaryPtrOutput{})
+	pulumi.RegisterOutputType(EndpointReplicationConfigOutput{})
+	pulumi.RegisterOutputType(EndpointReplicationConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointSecondaryOutput{})
+	pulumi.RegisterOutputType(EndpointSecondaryPtrOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyConditionOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyConditionPtrOutput{})
 	pulumi.RegisterOutputType(EventBusTagEntryOutput{})

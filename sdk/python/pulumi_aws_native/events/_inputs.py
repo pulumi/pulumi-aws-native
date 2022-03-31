@@ -17,6 +17,12 @@ __all__ = [
     'ConnectionHttpParametersArgs',
     'ConnectionOAuthParametersArgs',
     'ConnectionParameterArgs',
+    'EndpointEventBusArgs',
+    'EndpointFailoverConfigArgs',
+    'EndpointPrimaryArgs',
+    'EndpointReplicationConfigArgs',
+    'EndpointRoutingConfigArgs',
+    'EndpointSecondaryArgs',
     'EventBusPolicyConditionArgs',
     'EventBusTagEntryArgs',
     'RuleAwsVpcConfigurationArgs',
@@ -305,6 +311,113 @@ class ConnectionParameterArgs:
     @is_value_secret.setter
     def is_value_secret(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_value_secret", value)
+
+
+@pulumi.input_type
+class EndpointEventBusArgs:
+    def __init__(__self__, *,
+                 event_bus_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_bus_arn", value)
+
+
+@pulumi.input_type
+class EndpointFailoverConfigArgs:
+    def __init__(__self__, *,
+                 primary: pulumi.Input['EndpointPrimaryArgs'],
+                 secondary: pulumi.Input['EndpointSecondaryArgs']):
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input['EndpointPrimaryArgs']:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input['EndpointPrimaryArgs']):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> pulumi.Input['EndpointSecondaryArgs']:
+        return pulumi.get(self, "secondary")
+
+    @secondary.setter
+    def secondary(self, value: pulumi.Input['EndpointSecondaryArgs']):
+        pulumi.set(self, "secondary", value)
+
+
+@pulumi.input_type
+class EndpointPrimaryArgs:
+    def __init__(__self__, *,
+                 health_check: pulumi.Input[str]):
+        pulumi.set(__self__, "health_check", health_check)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: pulumi.Input[str]):
+        pulumi.set(self, "health_check", value)
+
+
+@pulumi.input_type
+class EndpointReplicationConfigArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['EndpointReplicationState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['EndpointReplicationState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['EndpointReplicationState']):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class EndpointRoutingConfigArgs:
+    def __init__(__self__, *,
+                 failover_config: pulumi.Input['EndpointFailoverConfigArgs']):
+        pulumi.set(__self__, "failover_config", failover_config)
+
+    @property
+    @pulumi.getter(name="failoverConfig")
+    def failover_config(self) -> pulumi.Input['EndpointFailoverConfigArgs']:
+        return pulumi.get(self, "failover_config")
+
+    @failover_config.setter
+    def failover_config(self, value: pulumi.Input['EndpointFailoverConfigArgs']):
+        pulumi.set(self, "failover_config", value)
+
+
+@pulumi.input_type
+class EndpointSecondaryArgs:
+    def __init__(__self__, *,
+                 route: pulumi.Input[str]):
+        pulumi.set(__self__, "route", route)
+
+    @property
+    @pulumi.getter
+    def route(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "route")
+
+    @route.setter
+    def route(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route", value)
 
 
 @pulumi.input_type

@@ -18,6 +18,12 @@ __all__ = [
     'ConnectionHttpParameters',
     'ConnectionOAuthParameters',
     'ConnectionParameter',
+    'EndpointEventBus',
+    'EndpointFailoverConfig',
+    'EndpointPrimary',
+    'EndpointReplicationConfig',
+    'EndpointRoutingConfig',
+    'EndpointSecondary',
     'EventBusPolicyCondition',
     'EventBusTagEntry',
     'RuleAwsVpcConfiguration',
@@ -348,6 +354,136 @@ class ConnectionParameter(dict):
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[bool]:
         return pulumi.get(self, "is_value_secret")
+
+
+@pulumi.output_type
+class EndpointEventBus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBusArn":
+            suggest = "event_bus_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointEventBus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointEventBus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointEventBus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bus_arn: str):
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> str:
+        return pulumi.get(self, "event_bus_arn")
+
+
+@pulumi.output_type
+class EndpointFailoverConfig(dict):
+    def __init__(__self__, *,
+                 primary: 'outputs.EndpointPrimary',
+                 secondary: 'outputs.EndpointSecondary'):
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> 'outputs.EndpointPrimary':
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> 'outputs.EndpointSecondary':
+        return pulumi.get(self, "secondary")
+
+
+@pulumi.output_type
+class EndpointPrimary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthCheck":
+            suggest = "health_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointPrimary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointPrimary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointPrimary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_check: str):
+        pulumi.set(__self__, "health_check", health_check)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> str:
+        return pulumi.get(self, "health_check")
+
+
+@pulumi.output_type
+class EndpointReplicationConfig(dict):
+    def __init__(__self__, *,
+                 state: 'EndpointReplicationState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'EndpointReplicationState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class EndpointRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverConfig":
+            suggest = "failover_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failover_config: 'outputs.EndpointFailoverConfig'):
+        pulumi.set(__self__, "failover_config", failover_config)
+
+    @property
+    @pulumi.getter(name="failoverConfig")
+    def failover_config(self) -> 'outputs.EndpointFailoverConfig':
+        return pulumi.get(self, "failover_config")
+
+
+@pulumi.output_type
+class EndpointSecondary(dict):
+    def __init__(__self__, *,
+                 route: str):
+        pulumi.set(__self__, "route", route)
+
+    @property
+    @pulumi.getter
+    def route(self) -> str:
+        return pulumi.get(self, "route")
 
 
 @pulumi.output_type

@@ -8,6 +8,8 @@ __all__ = [
     'ApiDestinationHttpMethod',
     'ConnectionAuthorizationType',
     'ConnectionOAuthParametersHttpMethod',
+    'EndpointReplicationState',
+    'EndpointState',
 ]
 
 
@@ -31,3 +33,17 @@ class ConnectionOAuthParametersHttpMethod(str, Enum):
     GET = "GET"
     POST = "POST"
     PUT = "PUT"
+
+
+class EndpointReplicationState(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class EndpointState(str, Enum):
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"

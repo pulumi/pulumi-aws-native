@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EKS.Outputs
         /// <summary>
         /// The encryption provider for the cluster.
         /// </summary>
-        public readonly Outputs.ClusterEncryptionConfigProviderProperties? Provider;
+        public readonly Outputs.ClusterProvider? Provider;
         /// <summary>
         /// Specifies the resources to be encrypted. The only supported value is "secrets".
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.EKS.Outputs
 
         [OutputConstructor]
         private ClusterEncryptionConfig(
-            Outputs.ClusterEncryptionConfigProviderProperties? provider,
+            Outputs.ClusterProvider? provider,
 
             ImmutableArray<string> resources)
         {

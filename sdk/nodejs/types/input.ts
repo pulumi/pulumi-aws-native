@@ -10628,21 +10628,11 @@ export namespace eks {
         /**
          * The encryption provider for the cluster.
          */
-        provider?: pulumi.Input<inputs.eks.ClusterEncryptionConfigProviderPropertiesArgs>;
+        provider?: pulumi.Input<inputs.eks.ClusterProviderArgs>;
         /**
          * Specifies the resources to be encrypted. The only supported value is "secrets".
          */
         resources?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The encryption provider for the cluster.
-     */
-    export interface ClusterEncryptionConfigProviderPropertiesArgs {
-        /**
-         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
-         */
-        keyArn?: pulumi.Input<string>;
     }
 
     /**
@@ -10671,6 +10661,13 @@ export namespace eks {
          * The cluster control plane logging configuration for your cluster. 
          */
         clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+    }
+
+    export interface ClusterProviderArgs {
+        /**
+         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+         */
+        keyArn?: pulumi.Input<string>;
     }
 
     /**
@@ -11814,6 +11811,31 @@ export namespace events {
         isValueSecret?: pulumi.Input<boolean>;
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface EndpointEventBusArgs {
+        eventBusArn: pulumi.Input<string>;
+    }
+
+    export interface EndpointFailoverConfigArgs {
+        primary: pulumi.Input<inputs.events.EndpointPrimaryArgs>;
+        secondary: pulumi.Input<inputs.events.EndpointSecondaryArgs>;
+    }
+
+    export interface EndpointPrimaryArgs {
+        healthCheck: pulumi.Input<string>;
+    }
+
+    export interface EndpointReplicationConfigArgs {
+        state: pulumi.Input<enums.events.EndpointReplicationState>;
+    }
+
+    export interface EndpointRoutingConfigArgs {
+        failoverConfig: pulumi.Input<inputs.events.EndpointFailoverConfigArgs>;
+    }
+
+    export interface EndpointSecondaryArgs {
+        route: pulumi.Input<string>;
     }
 
     export interface EventBusPolicyConditionArgs {

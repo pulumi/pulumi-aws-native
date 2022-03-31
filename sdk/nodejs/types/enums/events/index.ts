@@ -29,3 +29,21 @@ export const ConnectionOAuthParametersHttpMethod = {
 } as const;
 
 export type ConnectionOAuthParametersHttpMethod = (typeof ConnectionOAuthParametersHttpMethod)[keyof typeof ConnectionOAuthParametersHttpMethod];
+
+export const EndpointReplicationState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type EndpointReplicationState = (typeof EndpointReplicationState)[keyof typeof EndpointReplicationState];
+
+export const EndpointState = {
+    Active: "ACTIVE",
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+} as const;
+
+export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];

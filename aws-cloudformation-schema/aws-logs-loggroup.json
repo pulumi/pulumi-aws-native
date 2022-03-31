@@ -78,5 +78,7 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/LogGroupName" ],
   "additionalProperties" : false,
-  "taggable" : true
+  "tagging" : {
+    "taggable" : true
+  }
 }
