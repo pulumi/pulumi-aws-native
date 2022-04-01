@@ -12601,8 +12601,6 @@
                 "cluster",
                 "deploymentController",
                 "launchType",
-                "placementConstraints",
-                "placementStrategies",
                 "role",
                 "schedulingStrategy",
                 "serviceName"
@@ -14437,82 +14435,6 @@
             "required": [
                 "authParameters",
                 "authorizationType"
-            ],
-            "createOnly": [
-                "name"
-            ]
-        },
-        "aws-native:events:Endpoint": {
-            "cf": "AWS::Events::Endpoint",
-            "inputs": {
-                "description": {
-                    "type": "string"
-                },
-                "eventBuses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:events:EndpointEventBus"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "replicationConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointReplicationConfig"
-                },
-                "roleArn": {
-                    "type": "string"
-                },
-                "routingConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointRoutingConfig"
-                }
-            },
-            "outputs": {
-                "arn": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "endpointId": {
-                    "type": "string"
-                },
-                "endpointUrl": {
-                    "type": "string"
-                },
-                "eventBuses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:events:EndpointEventBus"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "replicationConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointReplicationConfig"
-                },
-                "roleArn": {
-                    "type": "string"
-                },
-                "routingConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointRoutingConfig"
-                },
-                "state": {
-                    "$ref": "#/types/aws-native:events:EndpointState"
-                },
-                "stateReason": {
-                    "type": "string"
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "name",
-                "minLength": 1,
-                "maxLength": 64
-            },
-            "required": [
-                "eventBuses",
-                "routingConfig"
             ],
             "createOnly": [
                 "name"
@@ -33821,6 +33743,10 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainAppNetworkAccessType",
                     "description": "Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly."
                 },
+                "appSecurityGroupManagement": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainAppSecurityGroupManagement",
+                    "description": "The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided."
+                },
                 "authMode": {
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
@@ -33832,6 +33758,9 @@
                 "domainName": {
                     "type": "string",
                     "description": "A name for the domain."
+                },
+                "domainSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainSettings"
                 },
                 "kmsKeyId": {
                     "type": "string",
@@ -33861,6 +33790,10 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainAppNetworkAccessType",
                     "description": "Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly."
                 },
+                "appSecurityGroupManagement": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainAppSecurityGroupManagement",
+                    "description": "The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided."
+                },
                 "authMode": {
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
@@ -33881,6 +33814,9 @@
                     "type": "string",
                     "description": "A name for the domain."
                 },
+                "domainSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainSettings"
+                },
                 "homeEfsFileSystemId": {
                     "type": "string",
                     "description": "The ID of the Amazon Elastic File System (EFS) managed by this Domain."
@@ -33888,6 +33824,10 @@
                 "kmsKeyId": {
                     "type": "string",
                     "description": "SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default."
+                },
+                "securityGroupIdForDomainBoundary": {
+                    "type": "string",
+                    "description": "The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app."
                 },
                 "singleSignOnManagedApplicationInstanceId": {
                     "type": "string",
@@ -33928,8 +33868,12 @@
             ],
             "createOnly": [
                 "appNetworkAccessType",
+                "appSecurityGroupManagement",
                 "authMode",
                 "domainName",
+                "domainSettings/RStudioServerProDomainSettings/DefaultResourceSpec",
+                "domainSettings/RStudioServerProDomainSettings/DomainExecutionRoleArn",
+                "domainSettings/SecurityGroupIds",
                 "kmsKeyId",
                 "subnetIds",
                 "tags",
@@ -34816,7 +34760,9 @@
                 "singleSignOnUserIdentifier",
                 "singleSignOnUserValue",
                 "tags",
-                "userProfileName"
+                "userProfileName",
+                "userSettings/RStudioServerProAppSettings/AccessStatus",
+                "userSettings/RStudioServerProAppSettings/UserGroup"
             ]
         },
         "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
@@ -50391,63 +50337,6 @@
                     "type": "string"
                 }
             }
-        },
-        "aws-native:events:EndpointEventBus": {
-            "type": "object",
-            "properties": {
-                "eventBusArn": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:events:EndpointFailoverConfig": {
-            "type": "object",
-            "properties": {
-                "primary": {
-                    "$ref": "#/types/aws-native:events:EndpointPrimary"
-                },
-                "secondary": {
-                    "$ref": "#/types/aws-native:events:EndpointSecondary"
-                }
-            }
-        },
-        "aws-native:events:EndpointPrimary": {
-            "type": "object",
-            "properties": {
-                "healthCheck": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:events:EndpointReplicationConfig": {
-            "type": "object",
-            "properties": {
-                "state": {
-                    "$ref": "#/types/aws-native:events:EndpointReplicationState"
-                }
-            }
-        },
-        "aws-native:events:EndpointReplicationState": {
-            "type": "string"
-        },
-        "aws-native:events:EndpointRoutingConfig": {
-            "type": "object",
-            "properties": {
-                "failoverConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointFailoverConfig"
-                }
-            }
-        },
-        "aws-native:events:EndpointSecondary": {
-            "type": "object",
-            "properties": {
-                "route": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:events:EndpointState": {
-            "type": "string"
         },
         "aws-native:evidently:ExperimentMetricGoalObject": {
             "type": "object",
@@ -69016,6 +68905,9 @@
         "aws-native:sagemaker:DomainAppNetworkAccessType": {
             "type": "string"
         },
+        "aws-native:sagemaker:DomainAppSecurityGroupManagement": {
+            "type": "string"
+        },
         "aws-native:sagemaker:DomainAuthMode": {
             "type": "string"
         },
@@ -69060,6 +68952,45 @@
                 }
             }
         },
+        "aws-native:sagemaker:DomainRStudioServerProAppSettings": {
+            "type": "object",
+            "properties": {
+                "accessStatus": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettingsAccessStatus",
+                    "description": "Indicates whether the current user has access to the RStudioServerPro app."
+                },
+                "userGroup": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettingsUserGroup",
+                    "description": "The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard."
+                }
+            }
+        },
+        "aws-native:sagemaker:DomainRStudioServerProAppSettingsAccessStatus": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:DomainRStudioServerProAppSettingsUserGroup": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:DomainRStudioServerProDomainSettings": {
+            "type": "object",
+            "properties": {
+                "defaultResourceSpec": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainResourceSpec"
+                },
+                "domainExecutionRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of the execution role for the RStudioServerPro Domain-level app."
+                },
+                "rStudioConnectUrl": {
+                    "type": "string",
+                    "description": "A URL pointing to an RStudio Connect server."
+                },
+                "rStudioPackageManagerUrl": {
+                    "type": "string",
+                    "description": "A URL pointing to an RStudio Package Manager server."
+                }
+            }
+        },
         "aws-native:sagemaker:DomainResourceSpec": {
             "type": "object",
             "properties": {
@@ -69079,6 +69010,21 @@
         },
         "aws-native:sagemaker:DomainResourceSpecInstanceType": {
             "type": "string"
+        },
+        "aws-native:sagemaker:DomainSettings": {
+            "type": "object",
+            "properties": {
+                "rStudioServerProDomainSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProDomainSettings"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps."
+                }
+            }
         },
         "aws-native:sagemaker:DomainSharingSettings": {
             "type": "object",
@@ -69125,6 +69071,9 @@
                 "kernelGatewayAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainKernelGatewayAppSettings",
                     "description": "The kernel gateway app settings."
+                },
+                "rStudioServerProAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettings"
                 },
                 "securityGroups": {
                     "type": "array",
@@ -70410,6 +70359,25 @@
                 }
             }
         },
+        "aws-native:sagemaker:UserProfileRStudioServerProAppSettings": {
+            "type": "object",
+            "properties": {
+                "accessStatus": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileRStudioServerProAppSettingsAccessStatus",
+                    "description": "Indicates whether the current user has access to the RStudioServerPro app."
+                },
+                "userGroup": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileRStudioServerProAppSettingsUserGroup",
+                    "description": "The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard."
+                }
+            }
+        },
+        "aws-native:sagemaker:UserProfileRStudioServerProAppSettingsAccessStatus": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:UserProfileRStudioServerProAppSettingsUserGroup": {
+            "type": "string"
+        },
         "aws-native:sagemaker:UserProfileResourceSpec": {
             "type": "object",
             "properties": {
@@ -70475,6 +70443,9 @@
                 "kernelGatewayAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:UserProfileKernelGatewayAppSettings",
                     "description": "The kernel gateway app settings."
+                },
+                "rStudioServerProAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileRStudioServerProAppSettings"
                 },
                 "securityGroups": {
                     "type": "array",
@@ -74700,12 +74671,6 @@
         },
         "aws-native:events:getConnection": {
             "cf": "AWS::Events::Connection",
-            "ids": [
-                "name"
-            ]
-        },
-        "aws-native:events:getEndpoint": {
-            "cf": "AWS::Events::Endpoint",
             "ids": [
                 "name"
             ]
