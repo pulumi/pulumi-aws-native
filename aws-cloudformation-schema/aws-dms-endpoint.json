@@ -284,6 +284,9 @@
         "SaslPassword" : {
           "type" : "string"
         },
+        "MessageFormat" : {
+          "type" : "string"
+        },
         "SslClientCertificateArn" : {
           "type" : "string"
         },
@@ -302,6 +305,9 @@
         "IncludeControlDetails" : {
           "type" : "boolean"
         },
+        "IncludePartitionValue" : {
+          "type" : "boolean"
+        },
         "NoHexPrefix" : {
           "type" : "boolean"
         },
@@ -313,6 +319,9 @@
         },
         "SaslUserName" : {
           "type" : "string"
+        },
+        "MessageMaxBytes" : {
+          "type" : "integer"
         },
         "Topic" : {
           "type" : "string"
@@ -329,11 +338,32 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "SecretsManagerAccessRoleArn" : {
+        "ServerTimezone" : {
+          "type" : "string"
+        },
+        "EventsPollInterval" : {
+          "type" : "integer"
+        },
+        "ParallelLoadThreads" : {
+          "type" : "integer"
+        },
+        "AfterConnectScript" : {
+          "type" : "string"
+        },
+        "MaxFileSize" : {
+          "type" : "integer"
+        },
+        "TargetDbType" : {
           "type" : "string"
         },
         "SecretsManagerSecretId" : {
           "type" : "string"
+        },
+        "SecretsManagerAccessRoleArn" : {
+          "type" : "string"
+        },
+        "CleanSourceMetadataOnMismatch" : {
+          "type" : "boolean"
         }
       }
     },
@@ -539,6 +569,9 @@
         "IncludeControlDetails" : {
           "type" : "boolean"
         },
+        "IncludePartitionValue" : {
+          "type" : "boolean"
+        },
         "StreamArn" : {
           "type" : "string"
         },
@@ -687,10 +720,43 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "PluginName" : {
+          "type" : "string"
+        },
+        "AfterConnectScript" : {
+          "type" : "string"
+        },
+        "ExecuteTimeout" : {
+          "type" : "integer"
+        },
+        "DdlArtifactsSchema" : {
+          "type" : "string"
+        },
+        "FailTasksOnLobTruncation" : {
+          "type" : "boolean"
+        },
+        "HeartbeatEnable" : {
+          "type" : "boolean"
+        },
+        "CaptureDdls" : {
+          "type" : "boolean"
+        },
+        "MaxFileSize" : {
+          "type" : "integer"
+        },
+        "HeartbeatFrequency" : {
+          "type" : "integer"
+        },
+        "SecretsManagerSecretId" : {
+          "type" : "string"
+        },
         "SecretsManagerAccessRoleArn" : {
           "type" : "string"
         },
-        "SecretsManagerSecretId" : {
+        "HeartbeatSchema" : {
+          "type" : "string"
+        },
+        "SlotName" : {
           "type" : "string"
         }
       }
