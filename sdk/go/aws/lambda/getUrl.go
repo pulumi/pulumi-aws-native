@@ -21,16 +21,16 @@ func LookupUrl(ctx *pulumi.Context, args *LookupUrlArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupUrlArgs struct {
-	// The Amazon Resource Name (ARN) of the Function URL.
-	Arn string `pulumi:"arn"`
+	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	FunctionArn string `pulumi:"functionArn"`
 }
 
 type LookupUrlResult struct {
-	// The Amazon Resource Name (ARN) of the Function URL.
-	Arn *string `pulumi:"arn"`
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-	AuthorizationType *UrlAuthorizationType `pulumi:"authorizationType"`
-	Cors              *UrlCors              `pulumi:"cors"`
+	AuthType *UrlAuthType `pulumi:"authType"`
+	Cors     *UrlCors     `pulumi:"cors"`
+	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	FunctionArn *string `pulumi:"functionArn"`
 	// The generated url for this resource.
 	FunctionUrl *string `pulumi:"functionUrl"`
 }
@@ -45,8 +45,8 @@ func LookupUrlOutput(ctx *pulumi.Context, args LookupUrlOutputArgs, opts ...pulu
 }
 
 type LookupUrlOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the Function URL.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
 func (LookupUrlOutputArgs) ElementType() reflect.Type {
@@ -67,18 +67,18 @@ func (o LookupUrlResultOutput) ToLookupUrlResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Function URL.
-func (o LookupUrlResultOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUrlResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
 // Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-func (o LookupUrlResultOutput) AuthorizationType() UrlAuthorizationTypePtrOutput {
-	return o.ApplyT(func(v LookupUrlResult) *UrlAuthorizationType { return v.AuthorizationType }).(UrlAuthorizationTypePtrOutput)
+func (o LookupUrlResultOutput) AuthType() UrlAuthTypePtrOutput {
+	return o.ApplyT(func(v LookupUrlResult) *UrlAuthType { return v.AuthType }).(UrlAuthTypePtrOutput)
 }
 
 func (o LookupUrlResultOutput) Cors() UrlCorsPtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *UrlCors { return v.Cors }).(UrlCorsPtrOutput)
+}
+
+// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+func (o LookupUrlResultOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUrlResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
 // The generated url for this resource.

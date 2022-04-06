@@ -12,7 +12,7 @@ __all__ = [
     'FunctionPackageType',
     'FunctionTracingConfigMode',
     'UrlAllowMethodsItem',
-    'UrlAuthorizationType',
+    'UrlAuthType',
 ]
 
 
@@ -73,7 +73,7 @@ class UrlAllowMethodsItem(str, Enum):
     ASTERISK = "*"
 
 
-class UrlAuthorizationType(str, Enum):
+class UrlAuthType(str, Enum):
     """
     Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
     """

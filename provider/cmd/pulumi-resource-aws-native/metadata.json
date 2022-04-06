@@ -22661,6 +22661,59 @@
                 "functionName"
             ]
         },
+        "aws-native:lambda:Url": {
+            "cf": "AWS::Lambda::Url",
+            "inputs": {
+                "authType": {
+                    "$ref": "#/types/aws-native:lambda:UrlAuthType",
+                    "description": "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL."
+                },
+                "cors": {
+                    "$ref": "#/types/aws-native:lambda:UrlCors"
+                },
+                "qualifier": {
+                    "type": "string",
+                    "description": "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed."
+                },
+                "targetFunctionArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the function associated with the Function URL."
+                }
+            },
+            "outputs": {
+                "authType": {
+                    "$ref": "#/types/aws-native:lambda:UrlAuthType",
+                    "description": "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL."
+                },
+                "cors": {
+                    "$ref": "#/types/aws-native:lambda:UrlCors"
+                },
+                "functionArn": {
+                    "type": "string",
+                    "description": "The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL."
+                },
+                "functionUrl": {
+                    "type": "string",
+                    "description": "The generated url for this resource."
+                },
+                "qualifier": {
+                    "type": "string",
+                    "description": "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed."
+                },
+                "targetFunctionArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the function associated with the Function URL."
+                }
+            },
+            "required": [
+                "authType",
+                "targetFunctionArn"
+            ],
+            "createOnly": [
+                "qualifier",
+                "targetFunctionArn"
+            ]
+        },
         "aws-native:lex:Bot": {
             "cf": "AWS::Lex::Bot",
             "inputs": {
@@ -59564,6 +59617,52 @@
                 }
             }
         },
+        "aws-native:lambda:UrlAllowMethodsItem": {
+            "type": "string"
+        },
+        "aws-native:lambda:UrlAuthType": {
+            "type": "string"
+        },
+        "aws-native:lambda:UrlCors": {
+            "type": "object",
+            "properties": {
+                "allowCredentials": {
+                    "type": "boolean",
+                    "description": "Specifies whether credentials are included in the CORS request."
+                },
+                "allowHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Represents a collection of allowed headers."
+                },
+                "allowMethods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lambda:UrlAllowMethodsItem"
+                    },
+                    "description": "Represents a collection of allowed HTTP methods."
+                },
+                "allowOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Represents a collection of allowed origins."
+                },
+                "exposeHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Represents a collection of exposed headers."
+                },
+                "maxAge": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:lex:BotAdvancedRecognitionSetting": {
             "type": "object",
             "properties": {
@@ -75700,6 +75799,12 @@
             "cf": "AWS::Lambda::Function",
             "ids": [
                 "functionName"
+            ]
+        },
+        "aws-native:lambda:getUrl": {
+            "cf": "AWS::Lambda::Url",
+            "ids": [
+                "functionArn"
             ]
         },
         "aws-native:lex:getBot": {

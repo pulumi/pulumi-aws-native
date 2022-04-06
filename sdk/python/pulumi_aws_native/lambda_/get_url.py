@@ -19,40 +19,40 @@ __all__ = [
 
 @pulumi.output_type
 class GetUrlResult:
-    def __init__(__self__, arn=None, authorization_type=None, cors=None, function_url=None):
-        if arn and not isinstance(arn, str):
-            raise TypeError("Expected argument 'arn' to be a str")
-        pulumi.set(__self__, "arn", arn)
-        if authorization_type and not isinstance(authorization_type, str):
-            raise TypeError("Expected argument 'authorization_type' to be a str")
-        pulumi.set(__self__, "authorization_type", authorization_type)
+    def __init__(__self__, auth_type=None, cors=None, function_arn=None, function_url=None):
+        if auth_type and not isinstance(auth_type, str):
+            raise TypeError("Expected argument 'auth_type' to be a str")
+        pulumi.set(__self__, "auth_type", auth_type)
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
+        if function_arn and not isinstance(function_arn, str):
+            raise TypeError("Expected argument 'function_arn' to be a str")
+        pulumi.set(__self__, "function_arn", function_arn)
         if function_url and not isinstance(function_url, str):
             raise TypeError("Expected argument 'function_url' to be a str")
         pulumi.set(__self__, "function_url", function_url)
 
     @property
-    @pulumi.getter
-    def arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the Function URL.
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional['UrlAuthorizationType']:
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional['UrlAuthType']:
         """
         Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         """
-        return pulumi.get(self, "authorization_type")
+        return pulumi.get(self, "auth_type")
 
     @property
     @pulumi.getter
     def cors(self) -> Optional['outputs.UrlCors']:
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> Optional[str]:
+        """
+        The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        """
+        return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="functionUrl")
@@ -69,22 +69,22 @@ class AwaitableGetUrlResult(GetUrlResult):
         if False:
             yield self
         return GetUrlResult(
-            arn=self.arn,
-            authorization_type=self.authorization_type,
+            auth_type=self.auth_type,
             cors=self.cors,
+            function_arn=self.function_arn,
             function_url=self.function_url)
 
 
-def get_url(arn: Optional[str] = None,
+def get_url(function_arn: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUrlResult:
     """
     Resource Type definition for AWS::Lambda::Url
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the Function URL.
+    :param str function_arn: The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
     """
     __args__ = dict()
-    __args__['arn'] = arn
+    __args__['functionArn'] = function_arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -92,19 +92,19 @@ def get_url(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getUrl', __args__, opts=opts, typ=GetUrlResult).value
 
     return AwaitableGetUrlResult(
-        arn=__ret__.arn,
-        authorization_type=__ret__.authorization_type,
+        auth_type=__ret__.auth_type,
         cors=__ret__.cors,
+        function_arn=__ret__.function_arn,
         function_url=__ret__.function_url)
 
 
 @_utilities.lift_output_func(get_url)
-def get_url_output(arn: Optional[pulumi.Input[str]] = None,
+def get_url_output(function_arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUrlResult]:
     """
     Resource Type definition for AWS::Lambda::Url
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the Function URL.
+    :param str function_arn: The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
     """
     ...

@@ -12,16 +12,14 @@ import (
 )
 
 // Resource Type definition for AWS::Lambda::Url
-//
-// Deprecated: Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Url struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Function URL.
-	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-	AuthorizationType UrlAuthorizationTypeOutput `pulumi:"authorizationType"`
-	Cors              UrlCorsPtrOutput           `pulumi:"cors"`
+	AuthType UrlAuthTypeOutput `pulumi:"authType"`
+	Cors     UrlCorsPtrOutput  `pulumi:"cors"`
+	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The generated url for this resource.
 	FunctionUrl pulumi.StringOutput `pulumi:"functionUrl"`
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
@@ -37,8 +35,8 @@ func NewUrl(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationType == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationType'")
+	if args.AuthType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthType'")
 	}
 	if args.TargetFunctionArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetFunctionArn'")
@@ -76,8 +74,8 @@ func (UrlState) ElementType() reflect.Type {
 
 type urlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-	AuthorizationType UrlAuthorizationType `pulumi:"authorizationType"`
-	Cors              *UrlCors             `pulumi:"cors"`
+	AuthType UrlAuthType `pulumi:"authType"`
+	Cors     *UrlCors    `pulumi:"cors"`
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
 	Qualifier *string `pulumi:"qualifier"`
 	// The Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -87,8 +85,8 @@ type urlArgs struct {
 // The set of arguments for constructing a Url resource.
 type UrlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-	AuthorizationType UrlAuthorizationTypeInput
-	Cors              UrlCorsPtrInput
+	AuthType UrlAuthTypeInput
+	Cors     UrlCorsPtrInput
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
 	Qualifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the function associated with the Function URL.

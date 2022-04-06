@@ -229,26 +229,26 @@ namespace Pulumi.AwsNative.Lambda
     /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
     /// </summary>
     [EnumType]
-    public readonly struct UrlAuthorizationType : IEquatable<UrlAuthorizationType>
+    public readonly struct UrlAuthType : IEquatable<UrlAuthType>
     {
         private readonly string _value;
 
-        private UrlAuthorizationType(string value)
+        private UrlAuthType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static UrlAuthorizationType AwsIam { get; } = new UrlAuthorizationType("AWS_IAM");
-        public static UrlAuthorizationType None { get; } = new UrlAuthorizationType("NONE");
+        public static UrlAuthType AwsIam { get; } = new UrlAuthType("AWS_IAM");
+        public static UrlAuthType None { get; } = new UrlAuthType("NONE");
 
-        public static bool operator ==(UrlAuthorizationType left, UrlAuthorizationType right) => left.Equals(right);
-        public static bool operator !=(UrlAuthorizationType left, UrlAuthorizationType right) => !left.Equals(right);
+        public static bool operator ==(UrlAuthType left, UrlAuthType right) => left.Equals(right);
+        public static bool operator !=(UrlAuthType left, UrlAuthType right) => !left.Equals(right);
 
-        public static explicit operator string(UrlAuthorizationType value) => value._value;
+        public static explicit operator string(UrlAuthType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UrlAuthorizationType other && Equals(other);
-        public bool Equals(UrlAuthorizationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is UrlAuthType other && Equals(other);
+        public bool Equals(UrlAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

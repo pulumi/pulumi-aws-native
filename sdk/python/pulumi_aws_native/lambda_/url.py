@@ -16,17 +16,17 @@ __all__ = ['UrlArgs', 'Url']
 @pulumi.input_type
 class UrlArgs:
     def __init__(__self__, *,
-                 authorization_type: pulumi.Input['UrlAuthorizationType'],
+                 auth_type: pulumi.Input['UrlAuthType'],
                  target_function_arn: pulumi.Input[str],
                  cors: Optional[pulumi.Input['UrlCorsArgs']] = None,
                  qualifier: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Url resource.
-        :param pulumi.Input['UrlAuthorizationType'] authorization_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+        :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         """
-        pulumi.set(__self__, "authorization_type", authorization_type)
+        pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "target_function_arn", target_function_arn)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
@@ -34,16 +34,16 @@ class UrlArgs:
             pulumi.set(__self__, "qualifier", qualifier)
 
     @property
-    @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> pulumi.Input['UrlAuthorizationType']:
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input['UrlAuthType']:
         """
         Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         """
-        return pulumi.get(self, "authorization_type")
+        return pulumi.get(self, "auth_type")
 
-    @authorization_type.setter
-    def authorization_type(self, value: pulumi.Input['UrlAuthorizationType']):
-        pulumi.set(self, "authorization_type", value)
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input['UrlAuthType']):
+        pulumi.set(self, "auth_type", value)
 
     @property
     @pulumi.getter(name="targetFunctionArn")
@@ -79,17 +79,12 @@ class UrlArgs:
         pulumi.set(self, "qualifier", value)
 
 
-warnings.warn("""Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Url(pulumi.CustomResource):
-    warnings.warn("""Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_type: Optional[pulumi.Input['UrlAuthorizationType']] = None,
+                 auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['UrlCorsArgs']]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  target_function_arn: Optional[pulumi.Input[str]] = None,
@@ -99,7 +94,7 @@ class Url(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['UrlAuthorizationType'] authorization_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+        :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
         """
@@ -127,12 +122,11 @@ class Url(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_type: Optional[pulumi.Input['UrlAuthorizationType']] = None,
+                 auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['UrlCorsArgs']]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  target_function_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Url is deprecated: Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -144,15 +138,15 @@ class Url(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UrlArgs.__new__(UrlArgs)
 
-            if authorization_type is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_type'")
-            __props__.__dict__["authorization_type"] = authorization_type
+            if auth_type is None and not opts.urn:
+                raise TypeError("Missing required property 'auth_type'")
+            __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["cors"] = cors
             __props__.__dict__["qualifier"] = qualifier
             if target_function_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_function_arn'")
             __props__.__dict__["target_function_arn"] = target_function_arn
-            __props__.__dict__["arn"] = None
+            __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_url"] = None
         super(Url, __self__).__init__(
             'aws-native:lambda:Url',
@@ -176,34 +170,34 @@ class Url(pulumi.CustomResource):
 
         __props__ = UrlArgs.__new__(UrlArgs)
 
-        __props__.__dict__["arn"] = None
-        __props__.__dict__["authorization_type"] = None
+        __props__.__dict__["auth_type"] = None
         __props__.__dict__["cors"] = None
+        __props__.__dict__["function_arn"] = None
         __props__.__dict__["function_url"] = None
         __props__.__dict__["qualifier"] = None
         __props__.__dict__["target_function_arn"] = None
         return Url(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Function URL.
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> pulumi.Output['UrlAuthorizationType']:
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Output['UrlAuthType']:
         """
         Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         """
-        return pulumi.get(self, "authorization_type")
+        return pulumi.get(self, "auth_type")
 
     @property
     @pulumi.getter
     def cors(self) -> pulumi.Output[Optional['outputs.UrlCors']]:
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> pulumi.Output[str]:
+        """
+        The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        """
+        return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="functionUrl")

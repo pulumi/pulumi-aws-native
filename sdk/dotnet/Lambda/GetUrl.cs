@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Function URL.
+        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
         /// </summary>
-        [Input("arn", required: true)]
-        public string Arn { get; set; } = null!;
+        [Input("functionArn", required: true)]
+        public string FunctionArn { get; set; } = null!;
 
         public GetUrlArgs()
         {
@@ -41,10 +41,10 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Function URL.
+        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
         /// </summary>
-        [Input("arn", required: true)]
-        public Input<string> Arn { get; set; } = null!;
+        [Input("functionArn", required: true)]
+        public Input<string> FunctionArn { get; set; } = null!;
 
         public GetUrlInvokeArgs()
         {
@@ -56,14 +56,14 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetUrlResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Function URL.
-        /// </summary>
-        public readonly string? Arn;
-        /// <summary>
         /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         /// </summary>
-        public readonly Pulumi.AwsNative.Lambda.UrlAuthorizationType? AuthorizationType;
+        public readonly Pulumi.AwsNative.Lambda.UrlAuthType? AuthType;
         public readonly Outputs.UrlCors? Cors;
+        /// <summary>
+        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        /// </summary>
+        public readonly string? FunctionArn;
         /// <summary>
         /// The generated url for this resource.
         /// </summary>
@@ -71,17 +71,17 @@ namespace Pulumi.AwsNative.Lambda
 
         [OutputConstructor]
         private GetUrlResult(
-            string? arn,
-
-            Pulumi.AwsNative.Lambda.UrlAuthorizationType? authorizationType,
+            Pulumi.AwsNative.Lambda.UrlAuthType? authType,
 
             Outputs.UrlCors? cors,
 
+            string? functionArn,
+
             string? functionUrl)
         {
-            Arn = arn;
-            AuthorizationType = authorizationType;
+            AuthType = authType;
             Cors = cors;
+            FunctionArn = functionArn;
             FunctionUrl = functionUrl;
         }
     }

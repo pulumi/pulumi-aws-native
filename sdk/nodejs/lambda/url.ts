@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Lambda::Url
- *
- * @deprecated Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Url extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Url extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Url {
-        pulumi.log.warn("Url is deprecated: Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Url(name, undefined as any, { ...opts, id: id });
     }
 
@@ -39,14 +36,14 @@ export class Url extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Function URL.
-     */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
      * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
      */
-    public readonly authorizationType!: pulumi.Output<enums.lambda.UrlAuthorizationType>;
+    public readonly authType!: pulumi.Output<enums.lambda.UrlAuthType>;
     public readonly cors!: pulumi.Output<outputs.lambda.UrlCors | undefined>;
+    /**
+     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+     */
+    public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**
      * The generated url for this resource.
      */
@@ -67,28 +64,26 @@ export class Url extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UrlArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Url is deprecated: Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizationType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authorizationType'");
+            if ((!args || args.authType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'authType'");
             }
             if ((!args || args.targetFunctionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetFunctionArn'");
             }
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["authType"] = args ? args.authType : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
             resourceInputs["targetFunctionArn"] = args ? args.targetFunctionArn : undefined;
-            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
         } else {
-            resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["authorizationType"] = undefined /*out*/;
+            resourceInputs["authType"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
             resourceInputs["qualifier"] = undefined /*out*/;
             resourceInputs["targetFunctionArn"] = undefined /*out*/;
@@ -105,7 +100,7 @@ export interface UrlArgs {
     /**
      * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
      */
-    authorizationType: pulumi.Input<enums.lambda.UrlAuthorizationType>;
+    authType: pulumi.Input<enums.lambda.UrlAuthType>;
     cors?: pulumi.Input<inputs.lambda.UrlCorsArgs>;
     /**
      * The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.

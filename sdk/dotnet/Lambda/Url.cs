@@ -12,24 +12,23 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// Resource Type definition for AWS::Lambda::Url
     /// </summary>
-    [Obsolete(@"Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:Url")]
     public partial class Url : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Function URL.
-        /// </summary>
-        [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
-
-        /// <summary>
         /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         /// </summary>
-        [Output("authorizationType")]
-        public Output<Pulumi.AwsNative.Lambda.UrlAuthorizationType> AuthorizationType { get; private set; } = null!;
+        [Output("authType")]
+        public Output<Pulumi.AwsNative.Lambda.UrlAuthType> AuthType { get; private set; } = null!;
 
         [Output("cors")]
         public Output<Outputs.UrlCors?> Cors { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        /// </summary>
+        [Output("functionArn")]
+        public Output<string> FunctionArn { get; private set; } = null!;
 
         /// <summary>
         /// The generated url for this resource.
@@ -97,8 +96,8 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         /// </summary>
-        [Input("authorizationType", required: true)]
-        public Input<Pulumi.AwsNative.Lambda.UrlAuthorizationType> AuthorizationType { get; set; } = null!;
+        [Input("authType", required: true)]
+        public Input<Pulumi.AwsNative.Lambda.UrlAuthType> AuthType { get; set; } = null!;
 
         [Input("cors")]
         public Input<Inputs.UrlCorsArgs>? Cors { get; set; }

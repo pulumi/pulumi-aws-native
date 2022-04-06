@@ -73,7 +73,7 @@ export const UrlAllowMethodsItem = {
 
 export type UrlAllowMethodsItem = (typeof UrlAllowMethodsItem)[keyof typeof UrlAllowMethodsItem];
 
-export const UrlAuthorizationType = {
+export const UrlAuthType = {
     AwsIam: "AWS_IAM",
     None: "NONE",
 } as const;
@@ -81,4 +81,4 @@ export const UrlAuthorizationType = {
 /**
  * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
  */
-export type UrlAuthorizationType = (typeof UrlAuthorizationType)[keyof typeof UrlAuthorizationType];
+export type UrlAuthType = (typeof UrlAuthType)[keyof typeof UrlAuthType];

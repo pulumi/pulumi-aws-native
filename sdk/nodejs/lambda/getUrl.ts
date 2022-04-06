@@ -15,27 +15,27 @@ export function getUrl(args: GetUrlArgs, opts?: pulumi.InvokeOptions): Promise<G
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:lambda:getUrl", {
-        "arn": args.arn,
+        "functionArn": args.functionArn,
     }, opts);
 }
 
 export interface GetUrlArgs {
     /**
-     * The Amazon Resource Name (ARN) of the Function URL.
+     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
-    arn: string;
+    functionArn: string;
 }
 
 export interface GetUrlResult {
     /**
-     * The Amazon Resource Name (ARN) of the Function URL.
-     */
-    readonly arn?: string;
-    /**
      * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
      */
-    readonly authorizationType?: enums.lambda.UrlAuthorizationType;
+    readonly authType?: enums.lambda.UrlAuthType;
     readonly cors?: outputs.lambda.UrlCors;
+    /**
+     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+     */
+    readonly functionArn?: string;
     /**
      * The generated url for this resource.
      */
@@ -48,7 +48,7 @@ export function getUrlOutput(args: GetUrlOutputArgs, opts?: pulumi.InvokeOptions
 
 export interface GetUrlOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the Function URL.
+     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
-    arn: pulumi.Input<string>;
+    functionArn: pulumi.Input<string>;
 }
