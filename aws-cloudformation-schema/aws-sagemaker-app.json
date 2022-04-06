@@ -20,7 +20,7 @@
     "AppType" : {
       "type" : "string",
       "description" : "The type of app.",
-      "enum" : [ "JupyterServer", "KernelGateway" ]
+      "enum" : [ "JupyterServer", "KernelGateway", "RStudioServerPro", "RSessionGateway", "Canvas" ]
     },
     "DomainId" : {
       "type" : "string",
