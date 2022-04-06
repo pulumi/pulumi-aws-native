@@ -40,6 +40,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly appNetworkAccessType!: pulumi.Output<enums.sagemaker.DomainAppNetworkAccessType | undefined>;
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+     */
+    public readonly appSecurityGroupManagement!: pulumi.Output<enums.sagemaker.DomainAppSecurityGroupManagement | undefined>;
+    /**
      * The mode of authentication that members use to access the domain.
      */
     public readonly authMode!: pulumi.Output<enums.sagemaker.DomainAuthMode>;
@@ -59,6 +63,7 @@ export class Domain extends pulumi.CustomResource {
      * A name for the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
+    public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainSettings | undefined>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
@@ -67,6 +72,10 @@ export class Domain extends pulumi.CustomResource {
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     */
+    public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
     /**
      * The SSO managed application instance ID.
      */
@@ -112,9 +121,11 @@ export class Domain extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
+            resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
             resourceInputs["authMode"] = args ? args.authMode : undefined;
             resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -122,17 +133,21 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
+            resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {
             resourceInputs["appNetworkAccessType"] = undefined /*out*/;
+            resourceInputs["appSecurityGroupManagement"] = undefined /*out*/;
             resourceInputs["authMode"] = undefined /*out*/;
             resourceInputs["defaultUserSettings"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainSettings"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -153,6 +168,10 @@ export interface DomainArgs {
      */
     appNetworkAccessType?: pulumi.Input<enums.sagemaker.DomainAppNetworkAccessType>;
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+     */
+    appSecurityGroupManagement?: pulumi.Input<enums.sagemaker.DomainAppSecurityGroupManagement>;
+    /**
      * The mode of authentication that members use to access the domain.
      */
     authMode: pulumi.Input<enums.sagemaker.DomainAuthMode>;
@@ -164,6 +183,7 @@ export interface DomainArgs {
      * A name for the domain.
      */
     domainName?: pulumi.Input<string>;
+    domainSettings?: pulumi.Input<inputs.sagemaker.DomainSettingsArgs>;
     /**
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */

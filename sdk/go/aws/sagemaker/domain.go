@@ -17,6 +17,8 @@ type Domain struct {
 
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
 	AppNetworkAccessType DomainAppNetworkAccessTypePtrOutput `pulumi:"appNetworkAccessType"`
+	// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+	AppSecurityGroupManagement DomainAppSecurityGroupManagementPtrOutput `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain.
 	AuthMode DomainAuthModeOutput `pulumi:"authMode"`
 	// The default user settings.
@@ -26,11 +28,14 @@ type Domain struct {
 	// The domain name.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// A name for the domain.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName     pulumi.StringOutput     `pulumi:"domainName"`
+	DomainSettings DomainSettingsPtrOutput `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -96,12 +101,15 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
 	AppNetworkAccessType *DomainAppNetworkAccessType `pulumi:"appNetworkAccessType"`
+	// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+	AppSecurityGroupManagement *DomainAppSecurityGroupManagement `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain.
 	AuthMode DomainAuthMode `pulumi:"authMode"`
 	// The default user settings.
 	DefaultUserSettings DomainUserSettings `pulumi:"defaultUserSettings"`
 	// A name for the domain.
-	DomainName *string `pulumi:"domainName"`
+	DomainName     *string         `pulumi:"domainName"`
+	DomainSettings *DomainSettings `pulumi:"domainSettings"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The VPC subnets that Studio uses for communication.
@@ -116,12 +124,15 @@ type domainArgs struct {
 type DomainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
 	AppNetworkAccessType DomainAppNetworkAccessTypePtrInput
+	// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+	AppSecurityGroupManagement DomainAppSecurityGroupManagementPtrInput
 	// The mode of authentication that members use to access the domain.
 	AuthMode DomainAuthModeInput
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsInput
 	// A name for the domain.
-	DomainName pulumi.StringPtrInput
+	DomainName     pulumi.StringPtrInput
+	DomainSettings DomainSettingsPtrInput
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.

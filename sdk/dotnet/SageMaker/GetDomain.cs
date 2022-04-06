@@ -67,10 +67,15 @@ namespace Pulumi.AwsNative.SageMaker
         /// The domain name.
         /// </summary>
         public readonly string? DomainId;
+        public readonly Outputs.DomainSettings? DomainSettings;
         /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         public readonly string? HomeEfsFileSystemId;
+        /// <summary>
+        /// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        /// </summary>
+        public readonly string? SecurityGroupIdForDomainBoundary;
         /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
@@ -88,7 +93,11 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? domainId,
 
+            Outputs.DomainSettings? domainSettings,
+
             string? homeEfsFileSystemId,
+
+            string? securityGroupIdForDomainBoundary,
 
             string? singleSignOnManagedApplicationInstanceId,
 
@@ -97,7 +106,9 @@ namespace Pulumi.AwsNative.SageMaker
             DefaultUserSettings = defaultUserSettings;
             DomainArn = domainArn;
             DomainId = domainId;
+            DomainSettings = domainSettings;
             HomeEfsFileSystemId = homeEfsFileSystemId;
+            SecurityGroupIdForDomainBoundary = securityGroupIdForDomainBoundary;
             SingleSignOnManagedApplicationInstanceId = singleSignOnManagedApplicationInstanceId;
             Url = url;
         }

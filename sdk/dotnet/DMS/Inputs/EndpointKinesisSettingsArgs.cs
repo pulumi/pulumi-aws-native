@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.DMS.Inputs
         [Input("includeNullAndEmpty")]
         public Input<bool>? IncludeNullAndEmpty { get; set; }
 
+        [Input("includePartitionValue")]
+        public Input<bool>? IncludePartitionValue { get; set; }
+
         [Input("includeTableAlterOperations")]
         public Input<bool>? IncludeTableAlterOperations { get; set; }
 

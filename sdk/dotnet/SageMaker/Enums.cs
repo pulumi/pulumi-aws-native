@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         public static AppType JupyterServer { get; } = new AppType("JupyterServer");
         public static AppType KernelGateway { get; } = new AppType("KernelGateway");
+        public static AppType RStudioServerPro { get; } = new AppType("RStudioServerPro");
+        public static AppType RSessionGateway { get; } = new AppType("RSessionGateway");
+        public static AppType Canvas { get; } = new AppType("Canvas");
 
         public static bool operator ==(AppType left, AppType right) => left.Equals(right);
         public static bool operator !=(AppType left, AppType right) => !left.Equals(right);
@@ -224,6 +227,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainAppSecurityGroupManagement : IEquatable<DomainAppSecurityGroupManagement>
+    {
+        private readonly string _value;
+
+        private DomainAppSecurityGroupManagement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAppSecurityGroupManagement Service { get; } = new DomainAppSecurityGroupManagement("Service");
+        public static DomainAppSecurityGroupManagement Customer { get; } = new DomainAppSecurityGroupManagement("Customer");
+
+        public static bool operator ==(DomainAppSecurityGroupManagement left, DomainAppSecurityGroupManagement right) => left.Equals(right);
+        public static bool operator !=(DomainAppSecurityGroupManagement left, DomainAppSecurityGroupManagement right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAppSecurityGroupManagement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAppSecurityGroupManagement other && Equals(other);
+        public bool Equals(DomainAppSecurityGroupManagement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The mode of authentication that members use to access the domain.
     /// </summary>
     [EnumType]
@@ -247,6 +281,68 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainAuthMode other && Equals(other);
         public bool Equals(DomainAuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the current user has access to the RStudioServerPro app.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainRStudioServerProAppSettingsAccessStatus : IEquatable<DomainRStudioServerProAppSettingsAccessStatus>
+    {
+        private readonly string _value;
+
+        private DomainRStudioServerProAppSettingsAccessStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainRStudioServerProAppSettingsAccessStatus Enabled { get; } = new DomainRStudioServerProAppSettingsAccessStatus("ENABLED");
+        public static DomainRStudioServerProAppSettingsAccessStatus Disabled { get; } = new DomainRStudioServerProAppSettingsAccessStatus("DISABLED");
+
+        public static bool operator ==(DomainRStudioServerProAppSettingsAccessStatus left, DomainRStudioServerProAppSettingsAccessStatus right) => left.Equals(right);
+        public static bool operator !=(DomainRStudioServerProAppSettingsAccessStatus left, DomainRStudioServerProAppSettingsAccessStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DomainRStudioServerProAppSettingsAccessStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainRStudioServerProAppSettingsAccessStatus other && Equals(other);
+        public bool Equals(DomainRStudioServerProAppSettingsAccessStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainRStudioServerProAppSettingsUserGroup : IEquatable<DomainRStudioServerProAppSettingsUserGroup>
+    {
+        private readonly string _value;
+
+        private DomainRStudioServerProAppSettingsUserGroup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainRStudioServerProAppSettingsUserGroup RStudioAdmin { get; } = new DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN");
+        public static DomainRStudioServerProAppSettingsUserGroup RStudioUser { get; } = new DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_USER");
+
+        public static bool operator ==(DomainRStudioServerProAppSettingsUserGroup left, DomainRStudioServerProAppSettingsUserGroup right) => left.Equals(right);
+        public static bool operator !=(DomainRStudioServerProAppSettingsUserGroup left, DomainRStudioServerProAppSettingsUserGroup right) => !left.Equals(right);
+
+        public static explicit operator string(DomainRStudioServerProAppSettingsUserGroup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainRStudioServerProAppSettingsUserGroup other && Equals(other);
+        public bool Equals(DomainRStudioServerProAppSettingsUserGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -945,6 +1041,68 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProjectStatus other && Equals(other);
         public bool Equals(ProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the current user has access to the RStudioServerPro app.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileRStudioServerProAppSettingsAccessStatus : IEquatable<UserProfileRStudioServerProAppSettingsAccessStatus>
+    {
+        private readonly string _value;
+
+        private UserProfileRStudioServerProAppSettingsAccessStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileRStudioServerProAppSettingsAccessStatus Enabled { get; } = new UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED");
+        public static UserProfileRStudioServerProAppSettingsAccessStatus Disabled { get; } = new UserProfileRStudioServerProAppSettingsAccessStatus("DISABLED");
+
+        public static bool operator ==(UserProfileRStudioServerProAppSettingsAccessStatus left, UserProfileRStudioServerProAppSettingsAccessStatus right) => left.Equals(right);
+        public static bool operator !=(UserProfileRStudioServerProAppSettingsAccessStatus left, UserProfileRStudioServerProAppSettingsAccessStatus right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileRStudioServerProAppSettingsAccessStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileRStudioServerProAppSettingsAccessStatus other && Equals(other);
+        public bool Equals(UserProfileRStudioServerProAppSettingsAccessStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileRStudioServerProAppSettingsUserGroup : IEquatable<UserProfileRStudioServerProAppSettingsUserGroup>
+    {
+        private readonly string _value;
+
+        private UserProfileRStudioServerProAppSettingsUserGroup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileRStudioServerProAppSettingsUserGroup RStudioAdmin { get; } = new UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN");
+        public static UserProfileRStudioServerProAppSettingsUserGroup RStudioUser { get; } = new UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_USER");
+
+        public static bool operator ==(UserProfileRStudioServerProAppSettingsUserGroup left, UserProfileRStudioServerProAppSettingsUserGroup right) => left.Equals(right);
+        public static bool operator !=(UserProfileRStudioServerProAppSettingsUserGroup left, UserProfileRStudioServerProAppSettingsUserGroup right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileRStudioServerProAppSettingsUserGroup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileRStudioServerProAppSettingsUserGroup other && Equals(other);
+        public bool Equals(UserProfileRStudioServerProAppSettingsUserGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

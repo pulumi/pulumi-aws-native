@@ -64,6 +64,8 @@ namespace Pulumi.AwsNative.ECS
         public readonly ImmutableArray<Outputs.ServiceLoadBalancer> LoadBalancers;
         public readonly string? Name;
         public readonly Outputs.ServiceNetworkConfiguration? NetworkConfiguration;
+        public readonly ImmutableArray<Outputs.ServicePlacementConstraint> PlacementConstraints;
+        public readonly ImmutableArray<Outputs.ServicePlacementStrategy> PlacementStrategies;
         public readonly string? PlatformVersion;
         public readonly Pulumi.AwsNative.ECS.ServicePropagateTags? PropagateTags;
         public readonly string? ServiceArn;
@@ -91,6 +93,10 @@ namespace Pulumi.AwsNative.ECS
 
             Outputs.ServiceNetworkConfiguration? networkConfiguration,
 
+            ImmutableArray<Outputs.ServicePlacementConstraint> placementConstraints,
+
+            ImmutableArray<Outputs.ServicePlacementStrategy> placementStrategies,
+
             string? platformVersion,
 
             Pulumi.AwsNative.ECS.ServicePropagateTags? propagateTags,
@@ -112,6 +118,8 @@ namespace Pulumi.AwsNative.ECS
             LoadBalancers = loadBalancers;
             Name = name;
             NetworkConfiguration = networkConfiguration;
+            PlacementConstraints = placementConstraints;
+            PlacementStrategies = placementStrategies;
             PlatformVersion = platformVersion;
             PropagateTags = propagateTags;
             ServiceArn = serviceArn;

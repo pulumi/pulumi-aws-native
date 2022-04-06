@@ -31,9 +31,12 @@ type LookupDomainResult struct {
 	// The Amazon Resource Name (ARN) of the created domain.
 	DomainArn *string `pulumi:"domainArn"`
 	// The domain name.
-	DomainId *string `pulumi:"domainId"`
+	DomainId       *string         `pulumi:"domainId"`
+	DomainSettings *DomainSettings `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
+	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The URL to the created domain.
@@ -87,9 +90,18 @@ func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDomainResultOutput) DomainSettings() DomainSettingsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainSettings { return v.DomainSettings }).(DomainSettingsPtrOutput)
+}
+
 // The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 func (o LookupDomainResultOutput) HomeEfsFileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.HomeEfsFileSystemId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+func (o LookupDomainResultOutput) SecurityGroupIdForDomainBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringPtrOutput)
 }
 
 // The SSO managed application instance ID.

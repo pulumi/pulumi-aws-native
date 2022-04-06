@@ -46,6 +46,7 @@ class DatasetFormat(str, Enum):
     JSON = "JSON"
     PARQUET = "PARQUET"
     EXCEL = "EXCEL"
+    ORC = "ORC"
 
 
 class DatasetParameterType(str, Enum):

@@ -30,6 +30,7 @@ type LookupComputeEnvironmentResult struct {
 	ServiceRole           *string                             `pulumi:"serviceRole"`
 	State                 *string                             `pulumi:"state"`
 	UnmanagedvCpus        *int                                `pulumi:"unmanagedvCpus"`
+	UpdatePolicy          *ComputeEnvironmentUpdatePolicy     `pulumi:"updatePolicy"`
 }
 
 func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupComputeEnvironmentResultOutput {
@@ -81,6 +82,10 @@ func (o LookupComputeEnvironmentResultOutput) State() pulumi.StringPtrOutput {
 
 func (o LookupComputeEnvironmentResultOutput) UnmanagedvCpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) *int { return v.UnmanagedvCpus }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupComputeEnvironmentResultOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentUpdatePolicy { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
 func init() {

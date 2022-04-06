@@ -401,6 +401,443 @@ func (o LocationFSxLustreTagArrayOutput) Index(i pulumi.IntInput) LocationFSxLus
 	}).(LocationFSxLustreTagOutput)
 }
 
+// The NFS mount options that DataSync can use to mount your NFS share.
+type LocationFSxOpenZFSMountOptions struct {
+	// The specific NFS version that you want DataSync to use to mount your NFS share.
+	Version *LocationFSxOpenZFSMountOptionsVersion `pulumi:"version"`
+}
+
+// LocationFSxOpenZFSMountOptionsInput is an input type that accepts LocationFSxOpenZFSMountOptionsArgs and LocationFSxOpenZFSMountOptionsOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsInput` via:
+//
+//          LocationFSxOpenZFSMountOptionsArgs{...}
+type LocationFSxOpenZFSMountOptionsInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSMountOptionsOutput() LocationFSxOpenZFSMountOptionsOutput
+	ToLocationFSxOpenZFSMountOptionsOutputWithContext(context.Context) LocationFSxOpenZFSMountOptionsOutput
+}
+
+// The NFS mount options that DataSync can use to mount your NFS share.
+type LocationFSxOpenZFSMountOptionsArgs struct {
+	// The specific NFS version that you want DataSync to use to mount your NFS share.
+	Version LocationFSxOpenZFSMountOptionsVersionPtrInput `pulumi:"version"`
+}
+
+func (LocationFSxOpenZFSMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSMountOptions)(nil)).Elem()
+}
+
+func (i LocationFSxOpenZFSMountOptionsArgs) ToLocationFSxOpenZFSMountOptionsOutput() LocationFSxOpenZFSMountOptionsOutput {
+	return i.ToLocationFSxOpenZFSMountOptionsOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSMountOptionsArgs) ToLocationFSxOpenZFSMountOptionsOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSMountOptionsOutput)
+}
+
+func (i LocationFSxOpenZFSMountOptionsArgs) ToLocationFSxOpenZFSMountOptionsPtrOutput() LocationFSxOpenZFSMountOptionsPtrOutput {
+	return i.ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSMountOptionsArgs) ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSMountOptionsOutput).ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(ctx)
+}
+
+// LocationFSxOpenZFSMountOptionsPtrInput is an input type that accepts LocationFSxOpenZFSMountOptionsArgs, LocationFSxOpenZFSMountOptionsPtr and LocationFSxOpenZFSMountOptionsPtrOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsPtrInput` via:
+//
+//          LocationFSxOpenZFSMountOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LocationFSxOpenZFSMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSMountOptionsPtrOutput() LocationFSxOpenZFSMountOptionsPtrOutput
+	ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(context.Context) LocationFSxOpenZFSMountOptionsPtrOutput
+}
+
+type locationFSxOpenZFSMountOptionsPtrType LocationFSxOpenZFSMountOptionsArgs
+
+func LocationFSxOpenZFSMountOptionsPtr(v *LocationFSxOpenZFSMountOptionsArgs) LocationFSxOpenZFSMountOptionsPtrInput {
+	return (*locationFSxOpenZFSMountOptionsPtrType)(v)
+}
+
+func (*locationFSxOpenZFSMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZFSMountOptions)(nil)).Elem()
+}
+
+func (i *locationFSxOpenZFSMountOptionsPtrType) ToLocationFSxOpenZFSMountOptionsPtrOutput() LocationFSxOpenZFSMountOptionsPtrOutput {
+	return i.ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxOpenZFSMountOptionsPtrType) ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSMountOptionsPtrOutput)
+}
+
+// The NFS mount options that DataSync can use to mount your NFS share.
+type LocationFSxOpenZFSMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSMountOptions)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSMountOptionsOutput) ToLocationFSxOpenZFSMountOptionsOutput() LocationFSxOpenZFSMountOptionsOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsOutput) ToLocationFSxOpenZFSMountOptionsOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsOutput) ToLocationFSxOpenZFSMountOptionsPtrOutput() LocationFSxOpenZFSMountOptionsPtrOutput {
+	return o.ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxOpenZFSMountOptionsOutput) ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOpenZFSMountOptions) *LocationFSxOpenZFSMountOptions {
+		return &v
+	}).(LocationFSxOpenZFSMountOptionsPtrOutput)
+}
+
+// The specific NFS version that you want DataSync to use to mount your NFS share.
+func (o LocationFSxOpenZFSMountOptionsOutput) Version() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v LocationFSxOpenZFSMountOptions) *LocationFSxOpenZFSMountOptionsVersion { return v.Version }).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+}
+
+type LocationFSxOpenZFSMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZFSMountOptions)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSMountOptionsPtrOutput) ToLocationFSxOpenZFSMountOptionsPtrOutput() LocationFSxOpenZFSMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsPtrOutput) ToLocationFSxOpenZFSMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsPtrOutput) Elem() LocationFSxOpenZFSMountOptionsOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFSMountOptions) LocationFSxOpenZFSMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxOpenZFSMountOptions
+		return ret
+	}).(LocationFSxOpenZFSMountOptionsOutput)
+}
+
+// The specific NFS version that you want DataSync to use to mount your NFS share.
+func (o LocationFSxOpenZFSMountOptionsPtrOutput) Version() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFSMountOptions) *LocationFSxOpenZFSMountOptionsVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+}
+
+// FSx OpenZFS file system NFS protocol information
+type LocationFSxOpenZFSNFS struct {
+	MountOptions LocationFSxOpenZFSMountOptions `pulumi:"mountOptions"`
+}
+
+// LocationFSxOpenZFSNFSInput is an input type that accepts LocationFSxOpenZFSNFSArgs and LocationFSxOpenZFSNFSOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSNFSInput` via:
+//
+//          LocationFSxOpenZFSNFSArgs{...}
+type LocationFSxOpenZFSNFSInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSNFSOutput() LocationFSxOpenZFSNFSOutput
+	ToLocationFSxOpenZFSNFSOutputWithContext(context.Context) LocationFSxOpenZFSNFSOutput
+}
+
+// FSx OpenZFS file system NFS protocol information
+type LocationFSxOpenZFSNFSArgs struct {
+	MountOptions LocationFSxOpenZFSMountOptionsInput `pulumi:"mountOptions"`
+}
+
+func (LocationFSxOpenZFSNFSArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSNFS)(nil)).Elem()
+}
+
+func (i LocationFSxOpenZFSNFSArgs) ToLocationFSxOpenZFSNFSOutput() LocationFSxOpenZFSNFSOutput {
+	return i.ToLocationFSxOpenZFSNFSOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSNFSArgs) ToLocationFSxOpenZFSNFSOutputWithContext(ctx context.Context) LocationFSxOpenZFSNFSOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSNFSOutput)
+}
+
+func (i LocationFSxOpenZFSNFSArgs) ToLocationFSxOpenZFSNFSPtrOutput() LocationFSxOpenZFSNFSPtrOutput {
+	return i.ToLocationFSxOpenZFSNFSPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSNFSArgs) ToLocationFSxOpenZFSNFSPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSNFSPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSNFSOutput).ToLocationFSxOpenZFSNFSPtrOutputWithContext(ctx)
+}
+
+// LocationFSxOpenZFSNFSPtrInput is an input type that accepts LocationFSxOpenZFSNFSArgs, LocationFSxOpenZFSNFSPtr and LocationFSxOpenZFSNFSPtrOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSNFSPtrInput` via:
+//
+//          LocationFSxOpenZFSNFSArgs{...}
+//
+//  or:
+//
+//          nil
+type LocationFSxOpenZFSNFSPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSNFSPtrOutput() LocationFSxOpenZFSNFSPtrOutput
+	ToLocationFSxOpenZFSNFSPtrOutputWithContext(context.Context) LocationFSxOpenZFSNFSPtrOutput
+}
+
+type locationFSxOpenZFSNFSPtrType LocationFSxOpenZFSNFSArgs
+
+func LocationFSxOpenZFSNFSPtr(v *LocationFSxOpenZFSNFSArgs) LocationFSxOpenZFSNFSPtrInput {
+	return (*locationFSxOpenZFSNFSPtrType)(v)
+}
+
+func (*locationFSxOpenZFSNFSPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZFSNFS)(nil)).Elem()
+}
+
+func (i *locationFSxOpenZFSNFSPtrType) ToLocationFSxOpenZFSNFSPtrOutput() LocationFSxOpenZFSNFSPtrOutput {
+	return i.ToLocationFSxOpenZFSNFSPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxOpenZFSNFSPtrType) ToLocationFSxOpenZFSNFSPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSNFSPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSNFSPtrOutput)
+}
+
+// FSx OpenZFS file system NFS protocol information
+type LocationFSxOpenZFSNFSOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSNFSOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSNFS)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSNFSOutput) ToLocationFSxOpenZFSNFSOutput() LocationFSxOpenZFSNFSOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSNFSOutput) ToLocationFSxOpenZFSNFSOutputWithContext(ctx context.Context) LocationFSxOpenZFSNFSOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSNFSOutput) ToLocationFSxOpenZFSNFSPtrOutput() LocationFSxOpenZFSNFSPtrOutput {
+	return o.ToLocationFSxOpenZFSNFSPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxOpenZFSNFSOutput) ToLocationFSxOpenZFSNFSPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSNFSPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOpenZFSNFS) *LocationFSxOpenZFSNFS {
+		return &v
+	}).(LocationFSxOpenZFSNFSPtrOutput)
+}
+
+func (o LocationFSxOpenZFSNFSOutput) MountOptions() LocationFSxOpenZFSMountOptionsOutput {
+	return o.ApplyT(func(v LocationFSxOpenZFSNFS) LocationFSxOpenZFSMountOptions { return v.MountOptions }).(LocationFSxOpenZFSMountOptionsOutput)
+}
+
+type LocationFSxOpenZFSNFSPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSNFSPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZFSNFS)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSNFSPtrOutput) ToLocationFSxOpenZFSNFSPtrOutput() LocationFSxOpenZFSNFSPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSNFSPtrOutput) ToLocationFSxOpenZFSNFSPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSNFSPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSNFSPtrOutput) Elem() LocationFSxOpenZFSNFSOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFSNFS) LocationFSxOpenZFSNFS {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxOpenZFSNFS
+		return ret
+	}).(LocationFSxOpenZFSNFSOutput)
+}
+
+func (o LocationFSxOpenZFSNFSPtrOutput) MountOptions() LocationFSxOpenZFSMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFSNFS) *LocationFSxOpenZFSMountOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.MountOptions
+	}).(LocationFSxOpenZFSMountOptionsPtrOutput)
+}
+
+// Configuration settings for an NFS or SMB protocol, currently only support NFS
+type LocationFSxOpenZFSProtocol struct {
+	NFS *LocationFSxOpenZFSNFS `pulumi:"nFS"`
+}
+
+// LocationFSxOpenZFSProtocolInput is an input type that accepts LocationFSxOpenZFSProtocolArgs and LocationFSxOpenZFSProtocolOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSProtocolInput` via:
+//
+//          LocationFSxOpenZFSProtocolArgs{...}
+type LocationFSxOpenZFSProtocolInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSProtocolOutput() LocationFSxOpenZFSProtocolOutput
+	ToLocationFSxOpenZFSProtocolOutputWithContext(context.Context) LocationFSxOpenZFSProtocolOutput
+}
+
+// Configuration settings for an NFS or SMB protocol, currently only support NFS
+type LocationFSxOpenZFSProtocolArgs struct {
+	NFS LocationFSxOpenZFSNFSPtrInput `pulumi:"nFS"`
+}
+
+func (LocationFSxOpenZFSProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSProtocol)(nil)).Elem()
+}
+
+func (i LocationFSxOpenZFSProtocolArgs) ToLocationFSxOpenZFSProtocolOutput() LocationFSxOpenZFSProtocolOutput {
+	return i.ToLocationFSxOpenZFSProtocolOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSProtocolArgs) ToLocationFSxOpenZFSProtocolOutputWithContext(ctx context.Context) LocationFSxOpenZFSProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSProtocolOutput)
+}
+
+// Configuration settings for an NFS or SMB protocol, currently only support NFS
+type LocationFSxOpenZFSProtocolOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSProtocol)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSProtocolOutput) ToLocationFSxOpenZFSProtocolOutput() LocationFSxOpenZFSProtocolOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSProtocolOutput) ToLocationFSxOpenZFSProtocolOutputWithContext(ctx context.Context) LocationFSxOpenZFSProtocolOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSProtocolOutput) NFS() LocationFSxOpenZFSNFSPtrOutput {
+	return o.ApplyT(func(v LocationFSxOpenZFSProtocol) *LocationFSxOpenZFSNFS { return v.NFS }).(LocationFSxOpenZFSNFSPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxOpenZFSTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationFSxOpenZFSTagInput is an input type that accepts LocationFSxOpenZFSTagArgs and LocationFSxOpenZFSTagOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSTagInput` via:
+//
+//          LocationFSxOpenZFSTagArgs{...}
+type LocationFSxOpenZFSTagInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSTagOutput() LocationFSxOpenZFSTagOutput
+	ToLocationFSxOpenZFSTagOutputWithContext(context.Context) LocationFSxOpenZFSTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxOpenZFSTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationFSxOpenZFSTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSTag)(nil)).Elem()
+}
+
+func (i LocationFSxOpenZFSTagArgs) ToLocationFSxOpenZFSTagOutput() LocationFSxOpenZFSTagOutput {
+	return i.ToLocationFSxOpenZFSTagOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSTagArgs) ToLocationFSxOpenZFSTagOutputWithContext(ctx context.Context) LocationFSxOpenZFSTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSTagOutput)
+}
+
+// LocationFSxOpenZFSTagArrayInput is an input type that accepts LocationFSxOpenZFSTagArray and LocationFSxOpenZFSTagArrayOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSTagArrayInput` via:
+//
+//          LocationFSxOpenZFSTagArray{ LocationFSxOpenZFSTagArgs{...} }
+type LocationFSxOpenZFSTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSTagArrayOutput() LocationFSxOpenZFSTagArrayOutput
+	ToLocationFSxOpenZFSTagArrayOutputWithContext(context.Context) LocationFSxOpenZFSTagArrayOutput
+}
+
+type LocationFSxOpenZFSTagArray []LocationFSxOpenZFSTagInput
+
+func (LocationFSxOpenZFSTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxOpenZFSTag)(nil)).Elem()
+}
+
+func (i LocationFSxOpenZFSTagArray) ToLocationFSxOpenZFSTagArrayOutput() LocationFSxOpenZFSTagArrayOutput {
+	return i.ToLocationFSxOpenZFSTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationFSxOpenZFSTagArray) ToLocationFSxOpenZFSTagArrayOutputWithContext(ctx context.Context) LocationFSxOpenZFSTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxOpenZFSTagOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSTag)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSTagOutput) ToLocationFSxOpenZFSTagOutput() LocationFSxOpenZFSTagOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSTagOutput) ToLocationFSxOpenZFSTagOutputWithContext(ctx context.Context) LocationFSxOpenZFSTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationFSxOpenZFSTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxOpenZFSTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationFSxOpenZFSTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxOpenZFSTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationFSxOpenZFSTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxOpenZFSTag)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSTagArrayOutput) ToLocationFSxOpenZFSTagArrayOutput() LocationFSxOpenZFSTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSTagArrayOutput) ToLocationFSxOpenZFSTagArrayOutputWithContext(ctx context.Context) LocationFSxOpenZFSTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSTagArrayOutput) Index(i pulumi.IntInput) LocationFSxOpenZFSTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxOpenZFSTag {
+		return vs[0].([]LocationFSxOpenZFSTag)[vs[1].(int)]
+	}).(LocationFSxOpenZFSTagOutput)
+}
+
 // A key-value pair to associate with a resource.
 type LocationFSxWindowsTag struct {
 	// The key for an AWS resource tag.
@@ -2504,6 +2941,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSTagArrayInput)(nil)).Elem(), LocationEFSTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagInput)(nil)).Elem(), LocationFSxLustreTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagArrayInput)(nil)).Elem(), LocationFSxLustreTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsPtrInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSNFSInput)(nil)).Elem(), LocationFSxOpenZFSNFSArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSNFSPtrInput)(nil)).Elem(), LocationFSxOpenZFSNFSArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSProtocolInput)(nil)).Elem(), LocationFSxOpenZFSProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSTagInput)(nil)).Elem(), LocationFSxOpenZFSTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSTagArrayInput)(nil)).Elem(), LocationFSxOpenZFSTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagInput)(nil)).Elem(), LocationFSxWindowsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagArrayInput)(nil)).Elem(), LocationFSxWindowsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSNameNodeInput)(nil)).Elem(), LocationHDFSNameNodeArgs{})
@@ -2541,6 +2985,13 @@ func init() {
 	pulumi.RegisterOutputType(LocationEFSTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxLustreTagOutput{})
 	pulumi.RegisterOutputType(LocationFSxLustreTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSNFSOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSNFSPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSProtocolOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSTagOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxWindowsTagOutput{})
 	pulumi.RegisterOutputType(LocationFSxWindowsTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationHDFSNameNodeOutput{})

@@ -35,6 +35,8 @@ type LookupServiceResult struct {
 	LoadBalancers                 []ServiceLoadBalancer                 `pulumi:"loadBalancers"`
 	Name                          *string                               `pulumi:"name"`
 	NetworkConfiguration          *ServiceNetworkConfiguration          `pulumi:"networkConfiguration"`
+	PlacementConstraints          []ServicePlacementConstraint          `pulumi:"placementConstraints"`
+	PlacementStrategies           []ServicePlacementStrategy            `pulumi:"placementStrategies"`
 	PlatformVersion               *string                               `pulumi:"platformVersion"`
 	PropagateTags                 *ServicePropagateTags                 `pulumi:"propagateTags"`
 	ServiceArn                    *string                               `pulumi:"serviceArn"`
@@ -109,6 +111,14 @@ func (o LookupServiceResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupServiceResultOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceNetworkConfiguration { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
+}
+
+func (o LookupServiceResultOutput) PlacementConstraints() ServicePlacementConstraintArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []ServicePlacementConstraint { return v.PlacementConstraints }).(ServicePlacementConstraintArrayOutput)
+}
+
+func (o LookupServiceResultOutput) PlacementStrategies() ServicePlacementStrategyArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []ServicePlacementStrategy { return v.PlacementStrategies }).(ServicePlacementStrategyArrayOutput)
 }
 
 func (o LookupServiceResultOutput) PlatformVersion() pulumi.StringPtrOutput {

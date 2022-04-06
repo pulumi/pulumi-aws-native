@@ -152,6 +152,7 @@ import * as mediaconvert from "./mediaconvert";
 import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
 import * as mediastore from "./mediastore";
+import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
@@ -343,6 +344,7 @@ export {
     medialive,
     mediapackage,
     mediastore,
+    mediatailor,
     memorydb,
     msk,
     mwaa,

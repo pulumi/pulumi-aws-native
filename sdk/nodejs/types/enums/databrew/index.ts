@@ -26,6 +26,7 @@ export const DatasetFormat = {
     Json: "JSON",
     Parquet: "PARQUET",
     Excel: "EXCEL",
+    Orc: "ORC",
 } as const;
 
 /**

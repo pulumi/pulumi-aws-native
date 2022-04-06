@@ -31,25 +31,16 @@ class GetQueuePolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[Any]:
-        """
-        A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
-        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter
     def queues(self) -> Optional[Sequence[str]]:
-        """
-        The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
-        """
         return pulumi.get(self, "queues")
 
 
@@ -68,9 +59,6 @@ def get_queue_policy(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueuePolicyResult:
     """
     Resource Type definition for AWS::SQS::QueuePolicy
-
-
-    :param str id: The provider-assigned unique ID for this managed resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -91,8 +79,5 @@ def get_queue_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueuePolicyResult]:
     """
     Resource Type definition for AWS::SQS::QueuePolicy
-
-
-    :param str id: The provider-assigned unique ID for this managed resource.
     """
     ...

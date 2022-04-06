@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AgentEndpointType',
+    'LocationFSxOpenZFSMountOptionsVersion',
     'LocationHDFSAuthenticationType',
     'LocationHDFSQopConfigurationDataTransferProtection',
     'LocationHDFSQopConfigurationRpcProtection',
@@ -38,6 +39,16 @@ class AgentEndpointType(str, Enum):
     FIPS = "FIPS"
     PUBLIC = "PUBLIC"
     PRIVATE_LINK = "PRIVATE_LINK"
+
+
+class LocationFSxOpenZFSMountOptionsVersion(str, Enum):
+    """
+    The specific NFS version that you want DataSync to use to mount your NFS share.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    NFS3 = "NFS3"
+    NFS40 = "NFS4_0"
+    NFS41 = "NFS4_1"
 
 
 class LocationHDFSAuthenticationType(str, Enum):

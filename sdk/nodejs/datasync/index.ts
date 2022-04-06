@@ -9,6 +9,7 @@ export * from "./agent";
 export * from "./getAgent";
 export * from "./getLocationEFS";
 export * from "./getLocationFSxLustre";
+export * from "./getLocationFSxOpenZFS";
 export * from "./getLocationFSxWindows";
 export * from "./getLocationHDFS";
 export * from "./getLocationNFS";
@@ -18,6 +19,7 @@ export * from "./getLocationSMB";
 export * from "./getTask";
 export * from "./locationEFS";
 export * from "./locationFSxLustre";
+export * from "./locationFSxOpenZFS";
 export * from "./locationFSxWindows";
 export * from "./locationHDFS";
 export * from "./locationNFS";
@@ -33,6 +35,7 @@ export * from "../types/enums/datasync";
 import { Agent } from "./agent";
 import { LocationEFS } from "./locationEFS";
 import { LocationFSxLustre } from "./locationFSxLustre";
+import { LocationFSxOpenZFS } from "./locationFSxOpenZFS";
 import { LocationFSxWindows } from "./locationFSxWindows";
 import { LocationHDFS } from "./locationHDFS";
 import { LocationNFS } from "./locationNFS";
@@ -51,6 +54,8 @@ const _module = {
                 return new LocationEFS(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationFSxLustre":
                 return new LocationFSxLustre(name, <any>undefined, { urn })
+            case "aws-native:datasync:LocationFSxOpenZFS":
+                return new LocationFSxOpenZFS(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationFSxWindows":
                 return new LocationFSxWindows(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationHDFS":

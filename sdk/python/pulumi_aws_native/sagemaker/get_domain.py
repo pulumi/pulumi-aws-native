@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, default_user_settings=None, domain_arn=None, domain_id=None, home_efs_file_system_id=None, single_sign_on_managed_application_instance_id=None, url=None):
+    def __init__(__self__, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_managed_application_instance_id=None, url=None):
         if default_user_settings and not isinstance(default_user_settings, dict):
             raise TypeError("Expected argument 'default_user_settings' to be a dict")
         pulumi.set(__self__, "default_user_settings", default_user_settings)
@@ -29,9 +29,15 @@ class GetDomainResult:
         if domain_id and not isinstance(domain_id, str):
             raise TypeError("Expected argument 'domain_id' to be a str")
         pulumi.set(__self__, "domain_id", domain_id)
+        if domain_settings and not isinstance(domain_settings, dict):
+            raise TypeError("Expected argument 'domain_settings' to be a dict")
+        pulumi.set(__self__, "domain_settings", domain_settings)
         if home_efs_file_system_id and not isinstance(home_efs_file_system_id, str):
             raise TypeError("Expected argument 'home_efs_file_system_id' to be a str")
         pulumi.set(__self__, "home_efs_file_system_id", home_efs_file_system_id)
+        if security_group_id_for_domain_boundary and not isinstance(security_group_id_for_domain_boundary, str):
+            raise TypeError("Expected argument 'security_group_id_for_domain_boundary' to be a str")
+        pulumi.set(__self__, "security_group_id_for_domain_boundary", security_group_id_for_domain_boundary)
         if single_sign_on_managed_application_instance_id and not isinstance(single_sign_on_managed_application_instance_id, str):
             raise TypeError("Expected argument 'single_sign_on_managed_application_instance_id' to be a str")
         pulumi.set(__self__, "single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
@@ -64,12 +70,25 @@ class GetDomainResult:
         return pulumi.get(self, "domain_id")
 
     @property
+    @pulumi.getter(name="domainSettings")
+    def domain_settings(self) -> Optional['outputs.DomainSettings']:
+        return pulumi.get(self, "domain_settings")
+
+    @property
     @pulumi.getter(name="homeEfsFileSystemId")
     def home_efs_file_system_id(self) -> Optional[str]:
         """
         The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         """
         return pulumi.get(self, "home_efs_file_system_id")
+
+    @property
+    @pulumi.getter(name="securityGroupIdForDomainBoundary")
+    def security_group_id_for_domain_boundary(self) -> Optional[str]:
+        """
+        The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        """
+        return pulumi.get(self, "security_group_id_for_domain_boundary")
 
     @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
@@ -97,7 +116,9 @@ class AwaitableGetDomainResult(GetDomainResult):
             default_user_settings=self.default_user_settings,
             domain_arn=self.domain_arn,
             domain_id=self.domain_id,
+            domain_settings=self.domain_settings,
             home_efs_file_system_id=self.home_efs_file_system_id,
+            security_group_id_for_domain_boundary=self.security_group_id_for_domain_boundary,
             single_sign_on_managed_application_instance_id=self.single_sign_on_managed_application_instance_id,
             url=self.url)
 
@@ -122,7 +143,9 @@ def get_domain(domain_id: Optional[str] = None,
         default_user_settings=__ret__.default_user_settings,
         domain_arn=__ret__.domain_arn,
         domain_id=__ret__.domain_id,
+        domain_settings=__ret__.domain_settings,
         home_efs_file_system_id=__ret__.home_efs_file_system_id,
+        security_group_id_for_domain_boundary=__ret__.security_group_id_for_domain_boundary,
         single_sign_on_managed_application_instance_id=__ret__.single_sign_on_managed_application_instance_id,
         url=__ret__.url)
 

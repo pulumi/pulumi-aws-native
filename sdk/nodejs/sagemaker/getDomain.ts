@@ -39,10 +39,15 @@ export interface GetDomainResult {
      * The domain name.
      */
     readonly domainId?: string;
+    readonly domainSettings?: outputs.sagemaker.DomainSettings;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
     readonly homeEfsFileSystemId?: string;
+    /**
+     * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     */
+    readonly securityGroupIdForDomainBoundary?: string;
     /**
      * The SSO managed application instance ID.
      */

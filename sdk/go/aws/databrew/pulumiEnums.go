@@ -347,6 +347,7 @@ const (
 	DatasetFormatJson    = DatasetFormat("JSON")
 	DatasetFormatParquet = DatasetFormat("PARQUET")
 	DatasetFormatExcel   = DatasetFormat("EXCEL")
+	DatasetFormatOrc     = DatasetFormat("ORC")
 )
 
 func (DatasetFormat) ElementType() reflect.Type {

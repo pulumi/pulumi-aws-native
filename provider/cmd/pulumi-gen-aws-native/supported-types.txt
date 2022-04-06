@@ -113,6 +113,7 @@ AWS::DataBrew::Schedule
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
+AWS::DataSync::LocationFSxOpenZFS
 AWS::DataSync::LocationFSxWindows
 AWS::DataSync::LocationHDFS
 AWS::DataSync::LocationNFS
@@ -200,7 +201,6 @@ AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive
 AWS::Events::Connection
-AWS::Events::Endpoint
 AWS::Evidently::Experiment
 AWS::Evidently::Feature
 AWS::Evidently::Launch
@@ -351,6 +351,7 @@ AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
 AWS::MediaPackage::PackagingConfiguration
 AWS::MediaPackage::PackagingGroup
+AWS::MediaTailor::PlaybackConfiguration
 AWS::MemoryDB::ACL
 AWS::MemoryDB::Cluster
 AWS::MemoryDB::ParameterGroup

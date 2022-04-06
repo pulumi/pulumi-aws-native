@@ -102,6 +102,173 @@ func (o AgentEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The specific NFS version that you want DataSync to use to mount your NFS share.
+type LocationFSxOpenZFSMountOptionsVersion string
+
+const (
+	LocationFSxOpenZFSMountOptionsVersionAutomatic = LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC")
+	LocationFSxOpenZFSMountOptionsVersionNfs3      = LocationFSxOpenZFSMountOptionsVersion("NFS3")
+	LocationFSxOpenZFSMountOptionsVersionNfs40     = LocationFSxOpenZFSMountOptionsVersion("NFS4_0")
+	LocationFSxOpenZFSMountOptionsVersionNfs41     = LocationFSxOpenZFSMountOptionsVersion("NFS4_1")
+)
+
+func (LocationFSxOpenZFSMountOptionsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionOutput() LocationFSxOpenZFSMountOptionsVersionOutput {
+	return pulumi.ToOutput(e).(LocationFSxOpenZFSMountOptionsVersionOutput)
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationFSxOpenZFSMountOptionsVersionOutput)
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return e.ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(context.Background())
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return LocationFSxOpenZFSMountOptionsVersion(e).ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(ctx).ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx)
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationFSxOpenZFSMountOptionsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationFSxOpenZFSMountOptionsVersionOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSMountOptionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionOutput() LocationFSxOpenZFSMountOptionsVersionOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return o.ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxOpenZFSMountOptionsVersion) *LocationFSxOpenZFSMountOptionsVersion {
+		return &v
+	}).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOpenZFSMountOptionsVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationFSxOpenZFSMountOptionsVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationFSxOpenZFSMountOptionsVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZFSMountOptionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) Elem() LocationFSxOpenZFSMountOptionsVersionOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFSMountOptionsVersion) LocationFSxOpenZFSMountOptionsVersion {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxOpenZFSMountOptionsVersion
+		return ret
+	}).(LocationFSxOpenZFSMountOptionsVersionOutput)
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationFSxOpenZFSMountOptionsVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationFSxOpenZFSMountOptionsVersionInput is an input type that accepts LocationFSxOpenZFSMountOptionsVersionArgs and LocationFSxOpenZFSMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsVersionInput` via:
+//
+//          LocationFSxOpenZFSMountOptionsVersionArgs{...}
+type LocationFSxOpenZFSMountOptionsVersionInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSMountOptionsVersionOutput() LocationFSxOpenZFSMountOptionsVersionOutput
+	ToLocationFSxOpenZFSMountOptionsVersionOutputWithContext(context.Context) LocationFSxOpenZFSMountOptionsVersionOutput
+}
+
+var locationFSxOpenZFSMountOptionsVersionPtrType = reflect.TypeOf((**LocationFSxOpenZFSMountOptionsVersion)(nil)).Elem()
+
+type LocationFSxOpenZFSMountOptionsVersionPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput
+	ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput
+}
+
+type locationFSxOpenZFSMountOptionsVersionPtr string
+
+func LocationFSxOpenZFSMountOptionsVersionPtr(v string) LocationFSxOpenZFSMountOptionsVersionPtrInput {
+	return (*locationFSxOpenZFSMountOptionsVersionPtr)(&v)
+}
+
+func (*locationFSxOpenZFSMountOptionsVersionPtr) ElementType() reflect.Type {
+	return locationFSxOpenZFSMountOptionsVersionPtrType
+}
+
+func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToLocationFSxOpenZFSMountOptionsVersionPtrOutput() LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return pulumi.ToOutput(in).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+}
+
+func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+}
+
 // The authentication mode used to determine identity of user.
 type LocationHDFSAuthenticationType string
 
@@ -3679,6 +3846,8 @@ func (o TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersionInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypeInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypePtrInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtectionInput)(nil)).Elem(), LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION"))
@@ -3723,6 +3892,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModePtrInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsVersionOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(LocationHDFSQopConfigurationDataTransferProtectionOutput{})

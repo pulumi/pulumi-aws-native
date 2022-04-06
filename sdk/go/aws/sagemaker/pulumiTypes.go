@@ -3600,6 +3600,362 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 	}).(DomainResourceSpecPtrOutput)
 }
 
+// A collection of settings that configure user interaction with the RStudioServerPro app.
+type DomainRStudioServerProAppSettings struct {
+	// Indicates whether the current user has access to the RStudioServerPro app.
+	AccessStatus *DomainRStudioServerProAppSettingsAccessStatus `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+	UserGroup *DomainRStudioServerProAppSettingsUserGroup `pulumi:"userGroup"`
+}
+
+// DomainRStudioServerProAppSettingsInput is an input type that accepts DomainRStudioServerProAppSettingsArgs and DomainRStudioServerProAppSettingsOutput values.
+// You can construct a concrete instance of `DomainRStudioServerProAppSettingsInput` via:
+//
+//          DomainRStudioServerProAppSettingsArgs{...}
+type DomainRStudioServerProAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProAppSettingsOutput() DomainRStudioServerProAppSettingsOutput
+	ToDomainRStudioServerProAppSettingsOutputWithContext(context.Context) DomainRStudioServerProAppSettingsOutput
+}
+
+// A collection of settings that configure user interaction with the RStudioServerPro app.
+type DomainRStudioServerProAppSettingsArgs struct {
+	// Indicates whether the current user has access to the RStudioServerPro app.
+	AccessStatus DomainRStudioServerProAppSettingsAccessStatusPtrInput `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+	UserGroup DomainRStudioServerProAppSettingsUserGroupPtrInput `pulumi:"userGroup"`
+}
+
+func (DomainRStudioServerProAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i DomainRStudioServerProAppSettingsArgs) ToDomainRStudioServerProAppSettingsOutput() DomainRStudioServerProAppSettingsOutput {
+	return i.ToDomainRStudioServerProAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainRStudioServerProAppSettingsArgs) ToDomainRStudioServerProAppSettingsOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRStudioServerProAppSettingsOutput)
+}
+
+func (i DomainRStudioServerProAppSettingsArgs) ToDomainRStudioServerProAppSettingsPtrOutput() DomainRStudioServerProAppSettingsPtrOutput {
+	return i.ToDomainRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainRStudioServerProAppSettingsArgs) ToDomainRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRStudioServerProAppSettingsOutput).ToDomainRStudioServerProAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainRStudioServerProAppSettingsPtrInput is an input type that accepts DomainRStudioServerProAppSettingsArgs, DomainRStudioServerProAppSettingsPtr and DomainRStudioServerProAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainRStudioServerProAppSettingsPtrInput` via:
+//
+//          DomainRStudioServerProAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainRStudioServerProAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProAppSettingsPtrOutput() DomainRStudioServerProAppSettingsPtrOutput
+	ToDomainRStudioServerProAppSettingsPtrOutputWithContext(context.Context) DomainRStudioServerProAppSettingsPtrOutput
+}
+
+type domainRStudioServerProAppSettingsPtrType DomainRStudioServerProAppSettingsArgs
+
+func DomainRStudioServerProAppSettingsPtr(v *DomainRStudioServerProAppSettingsArgs) DomainRStudioServerProAppSettingsPtrInput {
+	return (*domainRStudioServerProAppSettingsPtrType)(v)
+}
+
+func (*domainRStudioServerProAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i *domainRStudioServerProAppSettingsPtrType) ToDomainRStudioServerProAppSettingsPtrOutput() DomainRStudioServerProAppSettingsPtrOutput {
+	return i.ToDomainRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainRStudioServerProAppSettingsPtrType) ToDomainRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRStudioServerProAppSettingsPtrOutput)
+}
+
+// A collection of settings that configure user interaction with the RStudioServerPro app.
+type DomainRStudioServerProAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProAppSettingsOutput) ToDomainRStudioServerProAppSettingsOutput() DomainRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsOutput) ToDomainRStudioServerProAppSettingsOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsOutput) ToDomainRStudioServerProAppSettingsPtrOutput() DomainRStudioServerProAppSettingsPtrOutput {
+	return o.ToDomainRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsOutput) ToDomainRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRStudioServerProAppSettings) *DomainRStudioServerProAppSettings {
+		return &v
+	}).(DomainRStudioServerProAppSettingsPtrOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app.
+func (o DomainRStudioServerProAppSettingsOutput) AccessStatus() DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ApplyT(func(v DomainRStudioServerProAppSettings) *DomainRStudioServerProAppSettingsAccessStatus {
+		return v.AccessStatus
+	}).(DomainRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+func (o DomainRStudioServerProAppSettingsOutput) UserGroup() DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ApplyT(func(v DomainRStudioServerProAppSettings) *DomainRStudioServerProAppSettingsUserGroup {
+		return v.UserGroup
+	}).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+type DomainRStudioServerProAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProAppSettingsPtrOutput) ToDomainRStudioServerProAppSettingsPtrOutput() DomainRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsPtrOutput) ToDomainRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsPtrOutput) Elem() DomainRStudioServerProAppSettingsOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProAppSettings) DomainRStudioServerProAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRStudioServerProAppSettings
+		return ret
+	}).(DomainRStudioServerProAppSettingsOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app.
+func (o DomainRStudioServerProAppSettingsPtrOutput) AccessStatus() DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProAppSettings) *DomainRStudioServerProAppSettingsAccessStatus {
+		if v == nil {
+			return nil
+		}
+		return v.AccessStatus
+	}).(DomainRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+func (o DomainRStudioServerProAppSettingsPtrOutput) UserGroup() DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProAppSettings) *DomainRStudioServerProAppSettingsUserGroup {
+		if v == nil {
+			return nil
+		}
+		return v.UserGroup
+	}).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+// A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+type DomainRStudioServerProDomainSettings struct {
+	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
+	// The ARN of the execution role for the RStudioServerPro Domain-level app.
+	DomainExecutionRoleArn string `pulumi:"domainExecutionRoleArn"`
+	// A URL pointing to an RStudio Connect server.
+	RStudioConnectUrl *string `pulumi:"rStudioConnectUrl"`
+	// A URL pointing to an RStudio Package Manager server.
+	RStudioPackageManagerUrl *string `pulumi:"rStudioPackageManagerUrl"`
+}
+
+// DomainRStudioServerProDomainSettingsInput is an input type that accepts DomainRStudioServerProDomainSettingsArgs and DomainRStudioServerProDomainSettingsOutput values.
+// You can construct a concrete instance of `DomainRStudioServerProDomainSettingsInput` via:
+//
+//          DomainRStudioServerProDomainSettingsArgs{...}
+type DomainRStudioServerProDomainSettingsInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProDomainSettingsOutput() DomainRStudioServerProDomainSettingsOutput
+	ToDomainRStudioServerProDomainSettingsOutputWithContext(context.Context) DomainRStudioServerProDomainSettingsOutput
+}
+
+// A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+type DomainRStudioServerProDomainSettingsArgs struct {
+	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The ARN of the execution role for the RStudioServerPro Domain-level app.
+	DomainExecutionRoleArn pulumi.StringInput `pulumi:"domainExecutionRoleArn"`
+	// A URL pointing to an RStudio Connect server.
+	RStudioConnectUrl pulumi.StringPtrInput `pulumi:"rStudioConnectUrl"`
+	// A URL pointing to an RStudio Package Manager server.
+	RStudioPackageManagerUrl pulumi.StringPtrInput `pulumi:"rStudioPackageManagerUrl"`
+}
+
+func (DomainRStudioServerProDomainSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (i DomainRStudioServerProDomainSettingsArgs) ToDomainRStudioServerProDomainSettingsOutput() DomainRStudioServerProDomainSettingsOutput {
+	return i.ToDomainRStudioServerProDomainSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainRStudioServerProDomainSettingsArgs) ToDomainRStudioServerProDomainSettingsOutputWithContext(ctx context.Context) DomainRStudioServerProDomainSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRStudioServerProDomainSettingsOutput)
+}
+
+func (i DomainRStudioServerProDomainSettingsArgs) ToDomainRStudioServerProDomainSettingsPtrOutput() DomainRStudioServerProDomainSettingsPtrOutput {
+	return i.ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainRStudioServerProDomainSettingsArgs) ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProDomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRStudioServerProDomainSettingsOutput).ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainRStudioServerProDomainSettingsPtrInput is an input type that accepts DomainRStudioServerProDomainSettingsArgs, DomainRStudioServerProDomainSettingsPtr and DomainRStudioServerProDomainSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainRStudioServerProDomainSettingsPtrInput` via:
+//
+//          DomainRStudioServerProDomainSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainRStudioServerProDomainSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProDomainSettingsPtrOutput() DomainRStudioServerProDomainSettingsPtrOutput
+	ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(context.Context) DomainRStudioServerProDomainSettingsPtrOutput
+}
+
+type domainRStudioServerProDomainSettingsPtrType DomainRStudioServerProDomainSettingsArgs
+
+func DomainRStudioServerProDomainSettingsPtr(v *DomainRStudioServerProDomainSettingsArgs) DomainRStudioServerProDomainSettingsPtrInput {
+	return (*domainRStudioServerProDomainSettingsPtrType)(v)
+}
+
+func (*domainRStudioServerProDomainSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (i *domainRStudioServerProDomainSettingsPtrType) ToDomainRStudioServerProDomainSettingsPtrOutput() DomainRStudioServerProDomainSettingsPtrOutput {
+	return i.ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainRStudioServerProDomainSettingsPtrType) ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProDomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRStudioServerProDomainSettingsPtrOutput)
+}
+
+// A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+type DomainRStudioServerProDomainSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProDomainSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProDomainSettingsOutput) ToDomainRStudioServerProDomainSettingsOutput() DomainRStudioServerProDomainSettingsOutput {
+	return o
+}
+
+func (o DomainRStudioServerProDomainSettingsOutput) ToDomainRStudioServerProDomainSettingsOutputWithContext(ctx context.Context) DomainRStudioServerProDomainSettingsOutput {
+	return o
+}
+
+func (o DomainRStudioServerProDomainSettingsOutput) ToDomainRStudioServerProDomainSettingsPtrOutput() DomainRStudioServerProDomainSettingsPtrOutput {
+	return o.ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProDomainSettingsOutput) ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProDomainSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRStudioServerProDomainSettings) *DomainRStudioServerProDomainSettings {
+		return &v
+	}).(DomainRStudioServerProDomainSettingsPtrOutput)
+}
+
+func (o DomainRStudioServerProDomainSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainRStudioServerProDomainSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
+}
+
+// The ARN of the execution role for the RStudioServerPro Domain-level app.
+func (o DomainRStudioServerProDomainSettingsOutput) DomainExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainRStudioServerProDomainSettings) string { return v.DomainExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// A URL pointing to an RStudio Connect server.
+func (o DomainRStudioServerProDomainSettingsOutput) RStudioConnectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRStudioServerProDomainSettings) *string { return v.RStudioConnectUrl }).(pulumi.StringPtrOutput)
+}
+
+// A URL pointing to an RStudio Package Manager server.
+func (o DomainRStudioServerProDomainSettingsOutput) RStudioPackageManagerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRStudioServerProDomainSettings) *string { return v.RStudioPackageManagerUrl }).(pulumi.StringPtrOutput)
+}
+
+type DomainRStudioServerProDomainSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProDomainSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProDomainSettingsPtrOutput) ToDomainRStudioServerProDomainSettingsPtrOutput() DomainRStudioServerProDomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProDomainSettingsPtrOutput) ToDomainRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainRStudioServerProDomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProDomainSettingsPtrOutput) Elem() DomainRStudioServerProDomainSettingsOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProDomainSettings) DomainRStudioServerProDomainSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRStudioServerProDomainSettings
+		return ret
+	}).(DomainRStudioServerProDomainSettingsOutput)
+}
+
+func (o DomainRStudioServerProDomainSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProDomainSettings) *DomainResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainResourceSpecPtrOutput)
+}
+
+// The ARN of the execution role for the RStudioServerPro Domain-level app.
+func (o DomainRStudioServerProDomainSettingsPtrOutput) DomainExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A URL pointing to an RStudio Connect server.
+func (o DomainRStudioServerProDomainSettingsPtrOutput) RStudioConnectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioConnectUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A URL pointing to an RStudio Package Manager server.
+func (o DomainRStudioServerProDomainSettingsPtrOutput) RStudioPackageManagerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioPackageManagerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *DomainResourceSpecInstanceType `pulumi:"instanceType"`
@@ -3773,6 +4129,161 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtr
 		}
 		return v.SageMakerImageVersionArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of Domain settings.
+type DomainSettings struct {
+	RStudioServerProDomainSettings *DomainRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
+	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+}
+
+// DomainSettingsInput is an input type that accepts DomainSettingsArgs and DomainSettingsOutput values.
+// You can construct a concrete instance of `DomainSettingsInput` via:
+//
+//          DomainSettingsArgs{...}
+type DomainSettingsInput interface {
+	pulumi.Input
+
+	ToDomainSettingsOutput() DomainSettingsOutput
+	ToDomainSettingsOutputWithContext(context.Context) DomainSettingsOutput
+}
+
+// A collection of Domain settings.
+type DomainSettingsArgs struct {
+	RStudioServerProDomainSettings DomainRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
+	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+}
+
+func (DomainSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSettings)(nil)).Elem()
+}
+
+func (i DomainSettingsArgs) ToDomainSettingsOutput() DomainSettingsOutput {
+	return i.ToDomainSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainSettingsArgs) ToDomainSettingsOutputWithContext(ctx context.Context) DomainSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSettingsOutput)
+}
+
+func (i DomainSettingsArgs) ToDomainSettingsPtrOutput() DomainSettingsPtrOutput {
+	return i.ToDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSettingsArgs) ToDomainSettingsPtrOutputWithContext(ctx context.Context) DomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSettingsOutput).ToDomainSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainSettingsPtrInput is an input type that accepts DomainSettingsArgs, DomainSettingsPtr and DomainSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainSettingsPtrInput` via:
+//
+//          DomainSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSettingsPtrOutput() DomainSettingsPtrOutput
+	ToDomainSettingsPtrOutputWithContext(context.Context) DomainSettingsPtrOutput
+}
+
+type domainSettingsPtrType DomainSettingsArgs
+
+func DomainSettingsPtr(v *DomainSettingsArgs) DomainSettingsPtrInput {
+	return (*domainSettingsPtrType)(v)
+}
+
+func (*domainSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSettings)(nil)).Elem()
+}
+
+func (i *domainSettingsPtrType) ToDomainSettingsPtrOutput() DomainSettingsPtrOutput {
+	return i.ToDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSettingsPtrType) ToDomainSettingsPtrOutputWithContext(ctx context.Context) DomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSettingsPtrOutput)
+}
+
+// A collection of Domain settings.
+type DomainSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSettings)(nil)).Elem()
+}
+
+func (o DomainSettingsOutput) ToDomainSettingsOutput() DomainSettingsOutput {
+	return o
+}
+
+func (o DomainSettingsOutput) ToDomainSettingsOutputWithContext(ctx context.Context) DomainSettingsOutput {
+	return o
+}
+
+func (o DomainSettingsOutput) ToDomainSettingsPtrOutput() DomainSettingsPtrOutput {
+	return o.ToDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSettingsOutput) ToDomainSettingsPtrOutputWithContext(ctx context.Context) DomainSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSettings) *DomainSettings {
+		return &v
+	}).(DomainSettingsPtrOutput)
+}
+
+func (o DomainSettingsOutput) RStudioServerProDomainSettings() DomainRStudioServerProDomainSettingsPtrOutput {
+	return o.ApplyT(func(v DomainSettings) *DomainRStudioServerProDomainSettings { return v.RStudioServerProDomainSettings }).(DomainRStudioServerProDomainSettingsPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+func (o DomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type DomainSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSettings)(nil)).Elem()
+}
+
+func (o DomainSettingsPtrOutput) ToDomainSettingsPtrOutput() DomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainSettingsPtrOutput) ToDomainSettingsPtrOutputWithContext(ctx context.Context) DomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainSettingsPtrOutput) Elem() DomainSettingsOutput {
+	return o.ApplyT(func(v *DomainSettings) DomainSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSettings
+		return ret
+	}).(DomainSettingsOutput)
+}
+
+func (o DomainSettingsPtrOutput) RStudioServerProDomainSettings() DomainRStudioServerProDomainSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainSettings) *DomainRStudioServerProDomainSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioServerProDomainSettings
+	}).(DomainRStudioServerProDomainSettingsPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+func (o DomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
@@ -4062,7 +4573,8 @@ type DomainUserSettings struct {
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
-	KernelGatewayAppSettings *DomainKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	KernelGatewayAppSettings    *DomainKernelGatewayAppSettings    `pulumi:"kernelGatewayAppSettings"`
+	RStudioServerProAppSettings *DomainRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings.
@@ -4087,7 +4599,8 @@ type DomainUserSettingsArgs struct {
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
-	KernelGatewayAppSettings DomainKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	KernelGatewayAppSettings    DomainKernelGatewayAppSettingsPtrInput    `pulumi:"kernelGatewayAppSettings"`
+	RStudioServerProAppSettings DomainRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings.
@@ -4134,6 +4647,10 @@ func (o DomainUserSettingsOutput) JupyterServerAppSettings() DomainJupyterServer
 // The kernel gateway app settings.
 func (o DomainUserSettingsOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o DomainUserSettingsOutput) RStudioServerProAppSettings() DomainRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainRStudioServerProAppSettings { return v.RStudioServerProAppSettings }).(DomainRStudioServerProAppSettingsPtrOutput)
 }
 
 // The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -4198,6 +4715,15 @@ func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGate
 		}
 		return v.KernelGatewayAppSettings
 	}).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o DomainUserSettingsPtrOutput) RStudioServerProAppSettings() DomainRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainRStudioServerProAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioServerProAppSettings
+	}).(DomainRStudioServerProAppSettingsPtrOutput)
 }
 
 // The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -17757,6 +18283,169 @@ func (o UserProfileKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() User
 	}).(UserProfileResourceSpecPtrOutput)
 }
 
+// A collection of settings that configure user interaction with the RStudioServerPro app.
+type UserProfileRStudioServerProAppSettings struct {
+	// Indicates whether the current user has access to the RStudioServerPro app.
+	AccessStatus *UserProfileRStudioServerProAppSettingsAccessStatus `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+	UserGroup *UserProfileRStudioServerProAppSettingsUserGroup `pulumi:"userGroup"`
+}
+
+// UserProfileRStudioServerProAppSettingsInput is an input type that accepts UserProfileRStudioServerProAppSettingsArgs and UserProfileRStudioServerProAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileRStudioServerProAppSettingsInput` via:
+//
+//          UserProfileRStudioServerProAppSettingsArgs{...}
+type UserProfileRStudioServerProAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileRStudioServerProAppSettingsOutput() UserProfileRStudioServerProAppSettingsOutput
+	ToUserProfileRStudioServerProAppSettingsOutputWithContext(context.Context) UserProfileRStudioServerProAppSettingsOutput
+}
+
+// A collection of settings that configure user interaction with the RStudioServerPro app.
+type UserProfileRStudioServerProAppSettingsArgs struct {
+	// Indicates whether the current user has access to the RStudioServerPro app.
+	AccessStatus UserProfileRStudioServerProAppSettingsAccessStatusPtrInput `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+	UserGroup UserProfileRStudioServerProAppSettingsUserGroupPtrInput `pulumi:"userGroup"`
+}
+
+func (UserProfileRStudioServerProAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileRStudioServerProAppSettingsArgs) ToUserProfileRStudioServerProAppSettingsOutput() UserProfileRStudioServerProAppSettingsOutput {
+	return i.ToUserProfileRStudioServerProAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileRStudioServerProAppSettingsArgs) ToUserProfileRStudioServerProAppSettingsOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileRStudioServerProAppSettingsOutput)
+}
+
+func (i UserProfileRStudioServerProAppSettingsArgs) ToUserProfileRStudioServerProAppSettingsPtrOutput() UserProfileRStudioServerProAppSettingsPtrOutput {
+	return i.ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileRStudioServerProAppSettingsArgs) ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileRStudioServerProAppSettingsOutput).ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileRStudioServerProAppSettingsPtrInput is an input type that accepts UserProfileRStudioServerProAppSettingsArgs, UserProfileRStudioServerProAppSettingsPtr and UserProfileRStudioServerProAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileRStudioServerProAppSettingsPtrInput` via:
+//
+//          UserProfileRStudioServerProAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileRStudioServerProAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileRStudioServerProAppSettingsPtrOutput() UserProfileRStudioServerProAppSettingsPtrOutput
+	ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(context.Context) UserProfileRStudioServerProAppSettingsPtrOutput
+}
+
+type userProfileRStudioServerProAppSettingsPtrType UserProfileRStudioServerProAppSettingsArgs
+
+func UserProfileRStudioServerProAppSettingsPtr(v *UserProfileRStudioServerProAppSettingsArgs) UserProfileRStudioServerProAppSettingsPtrInput {
+	return (*userProfileRStudioServerProAppSettingsPtrType)(v)
+}
+
+func (*userProfileRStudioServerProAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileRStudioServerProAppSettingsPtrType) ToUserProfileRStudioServerProAppSettingsPtrOutput() UserProfileRStudioServerProAppSettingsPtrOutput {
+	return i.ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileRStudioServerProAppSettingsPtrType) ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileRStudioServerProAppSettingsPtrOutput)
+}
+
+// A collection of settings that configure user interaction with the RStudioServerPro app.
+type UserProfileRStudioServerProAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileRStudioServerProAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileRStudioServerProAppSettingsOutput) ToUserProfileRStudioServerProAppSettingsOutput() UserProfileRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsOutput) ToUserProfileRStudioServerProAppSettingsOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsOutput) ToUserProfileRStudioServerProAppSettingsPtrOutput() UserProfileRStudioServerProAppSettingsPtrOutput {
+	return o.ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsOutput) ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileRStudioServerProAppSettings) *UserProfileRStudioServerProAppSettings {
+		return &v
+	}).(UserProfileRStudioServerProAppSettingsPtrOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app.
+func (o UserProfileRStudioServerProAppSettingsOutput) AccessStatus() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ApplyT(func(v UserProfileRStudioServerProAppSettings) *UserProfileRStudioServerProAppSettingsAccessStatus {
+		return v.AccessStatus
+	}).(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+func (o UserProfileRStudioServerProAppSettingsOutput) UserGroup() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ApplyT(func(v UserProfileRStudioServerProAppSettings) *UserProfileRStudioServerProAppSettingsUserGroup {
+		return v.UserGroup
+	}).(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+type UserProfileRStudioServerProAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileRStudioServerProAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileRStudioServerProAppSettingsPtrOutput) ToUserProfileRStudioServerProAppSettingsPtrOutput() UserProfileRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsPtrOutput) ToUserProfileRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsPtrOutput) Elem() UserProfileRStudioServerProAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileRStudioServerProAppSettings) UserProfileRStudioServerProAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileRStudioServerProAppSettings
+		return ret
+	}).(UserProfileRStudioServerProAppSettingsOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app.
+func (o UserProfileRStudioServerProAppSettingsPtrOutput) AccessStatus() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ApplyT(func(v *UserProfileRStudioServerProAppSettings) *UserProfileRStudioServerProAppSettingsAccessStatus {
+		if v == nil {
+			return nil
+		}
+		return v.AccessStatus
+	}).(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+func (o UserProfileRStudioServerProAppSettingsPtrOutput) UserGroup() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ApplyT(func(v *UserProfileRStudioServerProAppSettings) *UserProfileRStudioServerProAppSettingsUserGroup {
+		if v == nil {
+			return nil
+		}
+		return v.UserGroup
+	}).(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
 type UserProfileResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *UserProfileResourceSpecInstanceType `pulumi:"instanceType"`
@@ -18219,7 +18908,8 @@ type UserProfileUserSettings struct {
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *UserProfileJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
-	KernelGatewayAppSettings *UserProfileKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	KernelGatewayAppSettings    *UserProfileKernelGatewayAppSettings    `pulumi:"kernelGatewayAppSettings"`
+	RStudioServerProAppSettings *UserProfileRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings.
@@ -18244,7 +18934,8 @@ type UserProfileUserSettingsArgs struct {
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings UserProfileJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
-	KernelGatewayAppSettings UserProfileKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	KernelGatewayAppSettings    UserProfileKernelGatewayAppSettingsPtrInput    `pulumi:"kernelGatewayAppSettings"`
+	RStudioServerProAppSettings UserProfileRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings.
@@ -18348,6 +19039,12 @@ func (o UserProfileUserSettingsOutput) KernelGatewayAppSettings() UserProfileKer
 	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
 }
 
+func (o UserProfileUserSettingsOutput) RStudioServerProAppSettings() UserProfileRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileRStudioServerProAppSettings {
+		return v.RStudioServerProAppSettings
+	}).(UserProfileRStudioServerProAppSettingsPtrOutput)
+}
+
 // The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -18410,6 +19107,15 @@ func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfile
 		}
 		return v.KernelGatewayAppSettings
 	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o UserProfileUserSettingsPtrOutput) RStudioServerProAppSettings() UserProfileRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileRStudioServerProAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioServerProAppSettings
+	}).(UserProfileRStudioServerProAppSettingsPtrOutput)
 }
 
 // The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -18872,8 +19578,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainKernelGatewayAppSettingsInput)(nil)).Elem(), DomainKernelGatewayAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainKernelGatewayAppSettingsPtrInput)(nil)).Elem(), DomainKernelGatewayAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsInput)(nil)).Elem(), DomainRStudioServerProAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProDomainSettingsInput)(nil)).Elem(), DomainRStudioServerProDomainSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProDomainSettingsPtrInput)(nil)).Elem(), DomainRStudioServerProDomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInput)(nil)).Elem(), DomainResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecPtrInput)(nil)).Elem(), DomainResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsInput)(nil)).Elem(), DomainSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsPtrInput)(nil)).Elem(), DomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsInput)(nil)).Elem(), DomainSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsPtrInput)(nil)).Elem(), DomainSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
@@ -19067,6 +19779,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterServerAppSettingsPtrInput)(nil)).Elem(), UserProfileJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileKernelGatewayAppSettingsInput)(nil)).Elem(), UserProfileKernelGatewayAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileKernelGatewayAppSettingsPtrInput)(nil)).Elem(), UserProfileKernelGatewayAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInput)(nil)).Elem(), UserProfileResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecPtrInput)(nil)).Elem(), UserProfileResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
@@ -19135,8 +19849,14 @@ func init() {
 	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProDomainSettingsOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProDomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainSettingsOutput{})
+	pulumi.RegisterOutputType(DomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})
@@ -19334,6 +20054,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileKernelGatewayAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsOutput{})

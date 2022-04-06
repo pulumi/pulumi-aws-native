@@ -16,8 +16,11 @@ namespace Pulumi.AwsNative.DMS.Outputs
         public readonly string? Broker;
         public readonly bool? IncludeControlDetails;
         public readonly bool? IncludeNullAndEmpty;
+        public readonly bool? IncludePartitionValue;
         public readonly bool? IncludeTableAlterOperations;
         public readonly bool? IncludeTransactionDetails;
+        public readonly string? MessageFormat;
+        public readonly int? MessageMaxBytes;
         public readonly bool? NoHexPrefix;
         public readonly bool? PartitionIncludeSchemaTable;
         public readonly string? SaslPassword;
@@ -37,9 +40,15 @@ namespace Pulumi.AwsNative.DMS.Outputs
 
             bool? includeNullAndEmpty,
 
+            bool? includePartitionValue,
+
             bool? includeTableAlterOperations,
 
             bool? includeTransactionDetails,
+
+            string? messageFormat,
+
+            int? messageMaxBytes,
 
             bool? noHexPrefix,
 
@@ -64,8 +73,11 @@ namespace Pulumi.AwsNative.DMS.Outputs
             Broker = broker;
             IncludeControlDetails = includeControlDetails;
             IncludeNullAndEmpty = includeNullAndEmpty;
+            IncludePartitionValue = includePartitionValue;
             IncludeTableAlterOperations = includeTableAlterOperations;
             IncludeTransactionDetails = includeTransactionDetails;
+            MessageFormat = messageFormat;
+            MessageMaxBytes = messageMaxBytes;
             NoHexPrefix = noHexPrefix;
             PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
             SaslPassword = saslPassword;

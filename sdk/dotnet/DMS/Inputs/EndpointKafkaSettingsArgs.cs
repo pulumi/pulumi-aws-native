@@ -21,11 +21,20 @@ namespace Pulumi.AwsNative.DMS.Inputs
         [Input("includeNullAndEmpty")]
         public Input<bool>? IncludeNullAndEmpty { get; set; }
 
+        [Input("includePartitionValue")]
+        public Input<bool>? IncludePartitionValue { get; set; }
+
         [Input("includeTableAlterOperations")]
         public Input<bool>? IncludeTableAlterOperations { get; set; }
 
         [Input("includeTransactionDetails")]
         public Input<bool>? IncludeTransactionDetails { get; set; }
+
+        [Input("messageFormat")]
+        public Input<string>? MessageFormat { get; set; }
+
+        [Input("messageMaxBytes")]
+        public Input<int>? MessageMaxBytes { get; set; }
 
         [Input("noHexPrefix")]
         public Input<bool>? NoHexPrefix { get; set; }

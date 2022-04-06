@@ -13,17 +13,61 @@ namespace Pulumi.AwsNative.DMS.Outputs
     [OutputType]
     public sealed class EndpointPostgreSqlSettings
     {
+        public readonly string? AfterConnectScript;
+        public readonly bool? CaptureDdls;
+        public readonly string? DdlArtifactsSchema;
+        public readonly int? ExecuteTimeout;
+        public readonly bool? FailTasksOnLobTruncation;
+        public readonly bool? HeartbeatEnable;
+        public readonly int? HeartbeatFrequency;
+        public readonly string? HeartbeatSchema;
+        public readonly int? MaxFileSize;
+        public readonly string? PluginName;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
+        public readonly string? SlotName;
 
         [OutputConstructor]
         private EndpointPostgreSqlSettings(
+            string? afterConnectScript,
+
+            bool? captureDdls,
+
+            string? ddlArtifactsSchema,
+
+            int? executeTimeout,
+
+            bool? failTasksOnLobTruncation,
+
+            bool? heartbeatEnable,
+
+            int? heartbeatFrequency,
+
+            string? heartbeatSchema,
+
+            int? maxFileSize,
+
+            string? pluginName,
+
             string? secretsManagerAccessRoleArn,
 
-            string? secretsManagerSecretId)
+            string? secretsManagerSecretId,
+
+            string? slotName)
         {
+            AfterConnectScript = afterConnectScript;
+            CaptureDdls = captureDdls;
+            DdlArtifactsSchema = ddlArtifactsSchema;
+            ExecuteTimeout = executeTimeout;
+            FailTasksOnLobTruncation = failTasksOnLobTruncation;
+            HeartbeatEnable = heartbeatEnable;
+            HeartbeatFrequency = heartbeatFrequency;
+            HeartbeatSchema = heartbeatSchema;
+            MaxFileSize = maxFileSize;
+            PluginName = pluginName;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
+            SlotName = slotName;
         }
     }
 }

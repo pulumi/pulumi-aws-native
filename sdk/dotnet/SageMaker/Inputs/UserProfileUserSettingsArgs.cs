@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.UserProfileKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
+        [Input("rStudioServerProAppSettings")]
+        public Input<Inputs.UserProfileRStudioServerProAppSettingsArgs>? RStudioServerProAppSettings { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 

@@ -14,6 +14,10 @@ __all__ = [
     'LocationEFSEc2ConfigArgs',
     'LocationEFSTagArgs',
     'LocationFSxLustreTagArgs',
+    'LocationFSxOpenZFSMountOptionsArgs',
+    'LocationFSxOpenZFSNFSArgs',
+    'LocationFSxOpenZFSProtocolArgs',
+    'LocationFSxOpenZFSTagArgs',
     'LocationFSxWindowsTagArgs',
     'LocationHDFSNameNodeArgs',
     'LocationHDFSQopConfigurationArgs',
@@ -148,6 +152,107 @@ class LocationEFSTagArgs:
 
 @pulumi.input_type
 class LocationFSxLustreTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key for an AWS resource tag.
+        :param pulumi.Input[str] value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LocationFSxOpenZFSMountOptionsArgs:
+    def __init__(__self__, *,
+                 version: Optional[pulumi.Input['LocationFSxOpenZFSMountOptionsVersion']] = None):
+        """
+        The NFS mount options that DataSync can use to mount your NFS share.
+        :param pulumi.Input['LocationFSxOpenZFSMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input['LocationFSxOpenZFSMountOptionsVersion']]:
+        """
+        The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input['LocationFSxOpenZFSMountOptionsVersion']]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class LocationFSxOpenZFSNFSArgs:
+    def __init__(__self__, *,
+                 mount_options: pulumi.Input['LocationFSxOpenZFSMountOptionsArgs']):
+        """
+        FSx OpenZFS file system NFS protocol information
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> pulumi.Input['LocationFSxOpenZFSMountOptionsArgs']:
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: pulumi.Input['LocationFSxOpenZFSMountOptionsArgs']):
+        pulumi.set(self, "mount_options", value)
+
+
+@pulumi.input_type
+class LocationFSxOpenZFSProtocolArgs:
+    def __init__(__self__, *,
+                 n_fs: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']] = None):
+        """
+        Configuration settings for an NFS or SMB protocol, currently only support NFS
+        """
+        if n_fs is not None:
+            pulumi.set(__self__, "n_fs", n_fs)
+
+    @property
+    @pulumi.getter(name="nFS")
+    def n_fs(self) -> Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]:
+        return pulumi.get(self, "n_fs")
+
+    @n_fs.setter
+    def n_fs(self, value: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]):
+        pulumi.set(self, "n_fs", value)
+
+
+@pulumi.input_type
+class LocationFSxOpenZFSTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

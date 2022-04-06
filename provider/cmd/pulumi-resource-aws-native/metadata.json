@@ -3974,6 +3974,9 @@
                 "computeResources": {
                     "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
                 },
+                "replaceComputeEnvironment": {
+                    "type": "boolean"
+                },
                 "serviceRole": {
                     "type": "string"
                 },
@@ -3989,6 +3992,9 @@
                 },
                 "unmanagedvCpus": {
                     "type": "integer"
+                },
+                "updatePolicy": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentUpdatePolicy"
                 }
             },
             "outputs": {
@@ -4001,6 +4007,9 @@
                 "computeResources": {
                     "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
                 },
+                "replaceComputeEnvironment": {
+                    "type": "boolean"
+                },
                 "serviceRole": {
                     "type": "string"
                 },
@@ -4016,6 +4025,9 @@
                 },
                 "unmanagedvCpus": {
                     "type": "integer"
+                },
+                "updatePolicy": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentUpdatePolicy"
                 }
             },
             "autoNamingSpec": {
@@ -4026,18 +4038,7 @@
             ],
             "createOnly": [
                 "computeEnvironmentName",
-                "computeResources/AllocationStrategy",
-                "computeResources/BidPercentage",
-                "computeResources/Ec2Configuration",
-                "computeResources/Ec2KeyPair",
-                "computeResources/ImageId",
-                "computeResources/InstanceRole",
-                "computeResources/InstanceTypes",
-                "computeResources/LaunchTemplate",
-                "computeResources/PlacementGroup",
                 "computeResources/SpotIamFleetRole",
-                "computeResources/Tags",
-                "computeResources/Type",
                 "tags",
                 "type"
             ]
@@ -8181,6 +8182,82 @@
             ],
             "createOnly": [
                 "fsxFilesystemArn",
+                "securityGroupArns",
+                "subdirectory"
+            ]
+        },
+        "aws-native:datasync:LocationFSxOpenZFS": {
+            "cf": "AWS::DataSync::LocationFSxOpenZFS",
+            "inputs": {
+                "fsxFilesystemArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx OpenZFS file system."
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSProtocol"
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ARNs of the security groups that are to use to configure the FSx OpenZFS file system."
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "A subdirectory in the location's path."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "fsxFilesystemArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx OpenZFS file system."
+                },
+                "locationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created."
+                },
+                "locationUri": {
+                    "type": "string",
+                    "description": "The URL of the FSx OpenZFS that was described."
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSProtocol"
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ARNs of the security groups that are to use to configure the FSx OpenZFS file system."
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "A subdirectory in the location's path."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "fsxFilesystemArn",
+                "protocol",
+                "securityGroupArns"
+            ],
+            "createOnly": [
+                "fsxFilesystemArn",
+                "protocol",
                 "securityGroupArns",
                 "subdirectory"
             ]
@@ -12601,8 +12678,6 @@
                 "cluster",
                 "deploymentController",
                 "launchType",
-                "placementConstraints",
-                "placementStrategies",
                 "role",
                 "schedulingStrategy",
                 "serviceName"
@@ -14437,82 +14512,6 @@
             "required": [
                 "authParameters",
                 "authorizationType"
-            ],
-            "createOnly": [
-                "name"
-            ]
-        },
-        "aws-native:events:Endpoint": {
-            "cf": "AWS::Events::Endpoint",
-            "inputs": {
-                "description": {
-                    "type": "string"
-                },
-                "eventBuses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:events:EndpointEventBus"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "replicationConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointReplicationConfig"
-                },
-                "roleArn": {
-                    "type": "string"
-                },
-                "routingConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointRoutingConfig"
-                }
-            },
-            "outputs": {
-                "arn": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "endpointId": {
-                    "type": "string"
-                },
-                "endpointUrl": {
-                    "type": "string"
-                },
-                "eventBuses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:events:EndpointEventBus"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "replicationConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointReplicationConfig"
-                },
-                "roleArn": {
-                    "type": "string"
-                },
-                "routingConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointRoutingConfig"
-                },
-                "state": {
-                    "$ref": "#/types/aws-native:events:EndpointState"
-                },
-                "stateReason": {
-                    "type": "string"
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "name",
-                "minLength": 1,
-                "maxLength": 64
-            },
-            "required": [
-                "eventBuses",
-                "routingConfig"
             ],
             "createOnly": [
                 "name"
@@ -25797,6 +25796,151 @@
                 "tags"
             ]
         },
+        "aws-native:mediatailor:PlaybackConfiguration": {
+            "cf": "AWS::MediaTailor::PlaybackConfiguration",
+            "inputs": {
+                "adDecisionServerUrl": {
+                    "type": "string",
+                    "description": "The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters."
+                },
+                "availSuppression": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationAvailSuppression",
+                    "description": "The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html)."
+                },
+                "bumper": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationBumper",
+                    "description": "The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html)."
+                },
+                "cdnConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationCdnConfiguration",
+                    "description": "The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management."
+                },
+                "configurationAliases": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationConfigurationAliases",
+                    "description": "The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. "
+                },
+                "dashConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPut",
+                    "description": "The configuration for DASH content."
+                },
+                "livePreRollConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration",
+                    "description": "The configuration for pre-roll ad insertion."
+                },
+                "manifestProcessingRules": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationManifestProcessingRules",
+                    "description": "The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The identifier for the playback configuration."
+                },
+                "personalizationThresholdSeconds": {
+                    "type": "integer",
+                    "description": "Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html)."
+                },
+                "sessionInitializationEndpointPrefix": {
+                    "type": "string",
+                    "description": "The URL that the player uses to initialize a session that uses client-side reporting."
+                },
+                "slateAdUrl": {
+                    "type": "string",
+                    "description": "The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationTag"
+                    },
+                    "description": "The tags to assign to the playback configuration."
+                },
+                "transcodeProfileName": {
+                    "type": "string",
+                    "description": "The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support."
+                },
+                "videoContentSourceUrl": {
+                    "type": "string",
+                    "description": "The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters."
+                }
+            },
+            "outputs": {
+                "adDecisionServerUrl": {
+                    "type": "string",
+                    "description": "The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters."
+                },
+                "availSuppression": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationAvailSuppression",
+                    "description": "The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html)."
+                },
+                "bumper": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationBumper",
+                    "description": "The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html)."
+                },
+                "cdnConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationCdnConfiguration",
+                    "description": "The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management."
+                },
+                "configurationAliases": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationConfigurationAliases",
+                    "description": "The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. "
+                },
+                "dashConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPut",
+                    "description": "The configuration for DASH content."
+                },
+                "livePreRollConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration",
+                    "description": "The configuration for pre-roll ad insertion."
+                },
+                "manifestProcessingRules": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationManifestProcessingRules",
+                    "description": "The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The identifier for the playback configuration."
+                },
+                "personalizationThresholdSeconds": {
+                    "type": "integer",
+                    "description": "Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html)."
+                },
+                "sessionInitializationEndpointPrefix": {
+                    "type": "string",
+                    "description": "The URL that the player uses to initialize a session that uses client-side reporting."
+                },
+                "slateAdUrl": {
+                    "type": "string",
+                    "description": "The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationTag"
+                    },
+                    "description": "The tags to assign to the playback configuration."
+                },
+                "transcodeProfileName": {
+                    "type": "string",
+                    "description": "The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support."
+                },
+                "videoContentSourceUrl": {
+                    "type": "string",
+                    "description": "The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "required": [
+                "adDecisionServerUrl",
+                "videoContentSourceUrl"
+            ],
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:memorydb:ACL": {
             "cf": "AWS::MemoryDB::ACL",
             "inputs": {
@@ -33821,6 +33965,10 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainAppNetworkAccessType",
                     "description": "Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly."
                 },
+                "appSecurityGroupManagement": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainAppSecurityGroupManagement",
+                    "description": "The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided."
+                },
                 "authMode": {
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
@@ -33832,6 +33980,9 @@
                 "domainName": {
                     "type": "string",
                     "description": "A name for the domain."
+                },
+                "domainSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainSettings"
                 },
                 "kmsKeyId": {
                     "type": "string",
@@ -33861,6 +34012,10 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainAppNetworkAccessType",
                     "description": "Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly."
                 },
+                "appSecurityGroupManagement": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainAppSecurityGroupManagement",
+                    "description": "The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided."
+                },
                 "authMode": {
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
@@ -33881,6 +34036,9 @@
                     "type": "string",
                     "description": "A name for the domain."
                 },
+                "domainSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainSettings"
+                },
                 "homeEfsFileSystemId": {
                     "type": "string",
                     "description": "The ID of the Amazon Elastic File System (EFS) managed by this Domain."
@@ -33888,6 +34046,10 @@
                 "kmsKeyId": {
                     "type": "string",
                     "description": "SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default."
+                },
+                "securityGroupIdForDomainBoundary": {
+                    "type": "string",
+                    "description": "The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app."
                 },
                 "singleSignOnManagedApplicationInstanceId": {
                     "type": "string",
@@ -33928,8 +34090,12 @@
             ],
             "createOnly": [
                 "appNetworkAccessType",
+                "appSecurityGroupManagement",
                 "authMode",
                 "domainName",
+                "domainSettings/RStudioServerProDomainSettings/DefaultResourceSpec",
+                "domainSettings/RStudioServerProDomainSettings/DomainExecutionRoleArn",
+                "domainSettings/SecurityGroupIds",
                 "kmsKeyId",
                 "subnetIds",
                 "tags",
@@ -34816,7 +34982,9 @@
                 "singleSignOnUserIdentifier",
                 "singleSignOnUserValue",
                 "tags",
-                "userProfileName"
+                "userProfileName",
+                "userSettings/RStudioServerProAppSettings/AccessStatus",
+                "userSettings/RStudioServerProAppSettings/UserGroup"
             ]
         },
         "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
@@ -41850,6 +42018,9 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "updateToLatestImageVersion": {
+                    "type": "boolean"
                 }
             }
         },
@@ -41875,6 +42046,17 @@
                 },
                 "version": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:batch:ComputeEnvironmentUpdatePolicy": {
+            "type": "object",
+            "properties": {
+                "jobExecutionTimeoutMinutes": {
+                    "type": "integer"
+                },
+                "terminateJobsOnUpdate": {
+                    "type": "boolean"
                 }
             }
         },
@@ -45382,6 +45564,47 @@
             }
         },
         "aws-native:datasync:LocationFSxLustreTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for an AWS resource tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for an AWS resource tag."
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxOpenZFSMountOptions": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSMountOptionsVersion",
+                    "description": "The specific NFS version that you want DataSync to use to mount your NFS share."
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxOpenZFSMountOptionsVersion": {
+            "type": "string"
+        },
+        "aws-native:datasync:LocationFSxOpenZFSNFS": {
+            "type": "object",
+            "properties": {
+                "mountOptions": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSMountOptions"
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxOpenZFSProtocol": {
+            "type": "object",
+            "properties": {
+                "nFS": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxOpenZFSNFS"
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxOpenZFSTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -50391,63 +50614,6 @@
                     "type": "string"
                 }
             }
-        },
-        "aws-native:events:EndpointEventBus": {
-            "type": "object",
-            "properties": {
-                "eventBusArn": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:events:EndpointFailoverConfig": {
-            "type": "object",
-            "properties": {
-                "primary": {
-                    "$ref": "#/types/aws-native:events:EndpointPrimary"
-                },
-                "secondary": {
-                    "$ref": "#/types/aws-native:events:EndpointSecondary"
-                }
-            }
-        },
-        "aws-native:events:EndpointPrimary": {
-            "type": "object",
-            "properties": {
-                "healthCheck": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:events:EndpointReplicationConfig": {
-            "type": "object",
-            "properties": {
-                "state": {
-                    "$ref": "#/types/aws-native:events:EndpointReplicationState"
-                }
-            }
-        },
-        "aws-native:events:EndpointReplicationState": {
-            "type": "string"
-        },
-        "aws-native:events:EndpointRoutingConfig": {
-            "type": "object",
-            "properties": {
-                "failoverConfig": {
-                    "$ref": "#/types/aws-native:events:EndpointFailoverConfig"
-                }
-            }
-        },
-        "aws-native:events:EndpointSecondary": {
-            "type": "object",
-            "properties": {
-                "route": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:events:EndpointState": {
-            "type": "string"
         },
         "aws-native:evidently:ExperimentMetricGoalObject": {
             "type": "object",
@@ -62471,6 +62637,109 @@
                 }
             }
         },
+        "aws-native:mediatailor:PlaybackConfigurationAdMarkerPassthrough": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enables ad marker passthrough for your configuration."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationAvailSuppression": {
+            "type": "object",
+            "properties": {
+                "mode": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationAvailSuppressionMode",
+                    "description": "Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationAvailSuppressionMode": {
+            "type": "string"
+        },
+        "aws-native:mediatailor:PlaybackConfigurationBumper": {
+            "type": "object",
+            "properties": {
+                "endUrl": {
+                    "type": "string",
+                    "description": "The URL for the end bumper asset."
+                },
+                "startUrl": {
+                    "type": "string",
+                    "description": "The URL for the start bumper asset."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationCdnConfiguration": {
+            "type": "object",
+            "properties": {
+                "adSegmentUrlPrefix": {
+                    "type": "string",
+                    "description": "A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.\u0026lt;region\u003e.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments."
+                },
+                "contentSegmentUrlPrefix": {
+                    "type": "string",
+                    "description": "A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationConfigurationAliases": {
+            "type": "object"
+        },
+        "aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPut": {
+            "type": "object",
+            "properties": {
+                "mpdLocation": {
+                    "type": "string",
+                    "description": "The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value."
+                },
+                "originManifestType": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPutOriginManifestType",
+                    "description": "The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPutOriginManifestType": {
+            "type": "string"
+        },
+        "aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration": {
+            "type": "object",
+            "properties": {
+                "adDecisionServerUrl": {
+                    "type": "string",
+                    "description": "The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters."
+                },
+                "maxDurationSeconds": {
+                    "type": "integer",
+                    "description": "The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationManifestProcessingRules": {
+            "type": "object",
+            "properties": {
+                "adMarkerPassthrough": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationAdMarkerPassthrough",
+                    "description": "For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:memorydb:ACLTag": {
             "type": "object",
             "properties": {
@@ -69016,6 +69285,9 @@
         "aws-native:sagemaker:DomainAppNetworkAccessType": {
             "type": "string"
         },
+        "aws-native:sagemaker:DomainAppSecurityGroupManagement": {
+            "type": "string"
+        },
         "aws-native:sagemaker:DomainAuthMode": {
             "type": "string"
         },
@@ -69060,6 +69332,45 @@
                 }
             }
         },
+        "aws-native:sagemaker:DomainRStudioServerProAppSettings": {
+            "type": "object",
+            "properties": {
+                "accessStatus": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettingsAccessStatus",
+                    "description": "Indicates whether the current user has access to the RStudioServerPro app."
+                },
+                "userGroup": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettingsUserGroup",
+                    "description": "The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard."
+                }
+            }
+        },
+        "aws-native:sagemaker:DomainRStudioServerProAppSettingsAccessStatus": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:DomainRStudioServerProAppSettingsUserGroup": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:DomainRStudioServerProDomainSettings": {
+            "type": "object",
+            "properties": {
+                "defaultResourceSpec": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainResourceSpec"
+                },
+                "domainExecutionRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of the execution role for the RStudioServerPro Domain-level app."
+                },
+                "rStudioConnectUrl": {
+                    "type": "string",
+                    "description": "A URL pointing to an RStudio Connect server."
+                },
+                "rStudioPackageManagerUrl": {
+                    "type": "string",
+                    "description": "A URL pointing to an RStudio Package Manager server."
+                }
+            }
+        },
         "aws-native:sagemaker:DomainResourceSpec": {
             "type": "object",
             "properties": {
@@ -69079,6 +69390,21 @@
         },
         "aws-native:sagemaker:DomainResourceSpecInstanceType": {
             "type": "string"
+        },
+        "aws-native:sagemaker:DomainSettings": {
+            "type": "object",
+            "properties": {
+                "rStudioServerProDomainSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProDomainSettings"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps."
+                }
+            }
         },
         "aws-native:sagemaker:DomainSharingSettings": {
             "type": "object",
@@ -69125,6 +69451,9 @@
                 "kernelGatewayAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainKernelGatewayAppSettings",
                     "description": "The kernel gateway app settings."
+                },
+                "rStudioServerProAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettings"
                 },
                 "securityGroups": {
                     "type": "array",
@@ -70410,6 +70739,25 @@
                 }
             }
         },
+        "aws-native:sagemaker:UserProfileRStudioServerProAppSettings": {
+            "type": "object",
+            "properties": {
+                "accessStatus": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileRStudioServerProAppSettingsAccessStatus",
+                    "description": "Indicates whether the current user has access to the RStudioServerPro app."
+                },
+                "userGroup": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileRStudioServerProAppSettingsUserGroup",
+                    "description": "The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard."
+                }
+            }
+        },
+        "aws-native:sagemaker:UserProfileRStudioServerProAppSettingsAccessStatus": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:UserProfileRStudioServerProAppSettingsUserGroup": {
+            "type": "string"
+        },
         "aws-native:sagemaker:UserProfileResourceSpec": {
             "type": "object",
             "properties": {
@@ -70475,6 +70823,9 @@
                 "kernelGatewayAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:UserProfileKernelGatewayAppSettings",
                     "description": "The kernel gateway app settings."
+                },
+                "rStudioServerProAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileRStudioServerProAppSettings"
                 },
                 "securityGroups": {
                     "type": "array",
@@ -74166,6 +74517,12 @@
                 "locationArn"
             ]
         },
+        "aws-native:datasync:getLocationFSxOpenZFS": {
+            "cf": "AWS::DataSync::LocationFSxOpenZFS",
+            "ids": [
+                "locationArn"
+            ]
+        },
         "aws-native:datasync:getLocationFSxWindows": {
             "cf": "AWS::DataSync::LocationFSxWindows",
             "ids": [
@@ -74700,12 +75057,6 @@
         },
         "aws-native:events:getConnection": {
             "cf": "AWS::Events::Connection",
-            "ids": [
-                "name"
-            ]
-        },
-        "aws-native:events:getEndpoint": {
-            "cf": "AWS::Events::Endpoint",
             "ids": [
                 "name"
             ]
@@ -75594,6 +75945,12 @@
             "cf": "AWS::MediaPackage::PackagingGroup",
             "ids": [
                 "id"
+            ]
+        },
+        "aws-native:mediatailor:getPlaybackConfiguration": {
+            "cf": "AWS::MediaTailor::PlaybackConfiguration",
+            "ids": [
+                "name"
             ]
         },
         "aws-native:memorydb:getACL": {

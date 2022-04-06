@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocationEFS{}
 	case "aws-native:datasync:LocationFSxLustre":
 		r = &LocationFSxLustre{}
+	case "aws-native:datasync:LocationFSxOpenZFS":
+		r = &LocationFSxOpenZFS{}
 	case "aws-native:datasync:LocationFSxWindows":
 		r = &LocationFSxWindows{}
 	case "aws-native:datasync:LocationHDFS":

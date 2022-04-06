@@ -67,6 +67,7 @@ import * as lookoutmetrics from "./lookoutmetrics";
 import * as macie from "./macie";
 import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
+import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
@@ -169,6 +170,7 @@ export {
     macie,
     mediaconnect,
     mediapackage,
+    mediatailor,
     memorydb,
     msk,
     mwaa,

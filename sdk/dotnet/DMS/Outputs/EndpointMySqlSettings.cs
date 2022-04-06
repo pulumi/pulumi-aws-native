@@ -13,17 +13,45 @@ namespace Pulumi.AwsNative.DMS.Outputs
     [OutputType]
     public sealed class EndpointMySqlSettings
     {
+        public readonly string? AfterConnectScript;
+        public readonly bool? CleanSourceMetadataOnMismatch;
+        public readonly int? EventsPollInterval;
+        public readonly int? MaxFileSize;
+        public readonly int? ParallelLoadThreads;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
+        public readonly string? ServerTimezone;
+        public readonly string? TargetDbType;
 
         [OutputConstructor]
         private EndpointMySqlSettings(
+            string? afterConnectScript,
+
+            bool? cleanSourceMetadataOnMismatch,
+
+            int? eventsPollInterval,
+
+            int? maxFileSize,
+
+            int? parallelLoadThreads,
+
             string? secretsManagerAccessRoleArn,
 
-            string? secretsManagerSecretId)
+            string? secretsManagerSecretId,
+
+            string? serverTimezone,
+
+            string? targetDbType)
         {
+            AfterConnectScript = afterConnectScript;
+            CleanSourceMetadataOnMismatch = cleanSourceMetadataOnMismatch;
+            EventsPollInterval = eventsPollInterval;
+            MaxFileSize = maxFileSize;
+            ParallelLoadThreads = parallelLoadThreads;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
+            ServerTimezone = serverTimezone;
+            TargetDbType = targetDbType;
         }
     }
 }

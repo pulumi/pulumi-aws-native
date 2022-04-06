@@ -4867,6 +4867,7 @@ export namespace batch {
          */
         tags?: any;
         type: pulumi.Input<string>;
+        updateToLatestImageVersion?: pulumi.Input<boolean>;
     }
 
     export interface ComputeEnvironmentEc2ConfigurationObjectArgs {
@@ -4878,6 +4879,11 @@ export namespace batch {
         launchTemplateId?: pulumi.Input<string>;
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
+    }
+
+    export interface ComputeEnvironmentUpdatePolicyArgs {
+        jobExecutionTimeoutMinutes?: pulumi.Input<number>;
+        terminateJobsOnUpdate?: pulumi.Input<boolean>;
     }
 
     export interface JobDefinitionAuthorizationConfigArgs {
@@ -5036,6 +5042,7 @@ export namespace batch {
         shareIdentifier?: pulumi.Input<string>;
         weightFactor?: pulumi.Input<number>;
     }
+
 }
 
 export namespace billingconductor {
@@ -7848,6 +7855,44 @@ export namespace datasync {
     }
 
     /**
+     * The NFS mount options that DataSync can use to mount your NFS share.
+     */
+    export interface LocationFSxOpenZFSMountOptionsArgs {
+        /**
+         * The specific NFS version that you want DataSync to use to mount your NFS share.
+         */
+        version?: pulumi.Input<enums.datasync.LocationFSxOpenZFSMountOptionsVersion>;
+    }
+
+    /**
+     * FSx OpenZFS file system NFS protocol information
+     */
+    export interface LocationFSxOpenZFSNFSArgs {
+        mountOptions: pulumi.Input<inputs.datasync.LocationFSxOpenZFSMountOptionsArgs>;
+    }
+
+    /**
+     * Configuration settings for an NFS or SMB protocol, currently only support NFS
+     */
+    export interface LocationFSxOpenZFSProtocolArgs {
+        nFS?: pulumi.Input<inputs.datasync.LocationFSxOpenZFSNFSArgs>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationFSxOpenZFSTagArgs {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface LocationFSxWindowsTagArgs {
@@ -8405,8 +8450,11 @@ export namespace dms {
         broker?: pulumi.Input<string>;
         includeControlDetails?: pulumi.Input<boolean>;
         includeNullAndEmpty?: pulumi.Input<boolean>;
+        includePartitionValue?: pulumi.Input<boolean>;
         includeTableAlterOperations?: pulumi.Input<boolean>;
         includeTransactionDetails?: pulumi.Input<boolean>;
+        messageFormat?: pulumi.Input<string>;
+        messageMaxBytes?: pulumi.Input<number>;
         noHexPrefix?: pulumi.Input<boolean>;
         partitionIncludeSchemaTable?: pulumi.Input<boolean>;
         saslPassword?: pulumi.Input<string>;
@@ -8422,6 +8470,7 @@ export namespace dms {
     export interface EndpointKinesisSettingsArgs {
         includeControlDetails?: pulumi.Input<boolean>;
         includeNullAndEmpty?: pulumi.Input<boolean>;
+        includePartitionValue?: pulumi.Input<boolean>;
         includeTableAlterOperations?: pulumi.Input<boolean>;
         includeTransactionDetails?: pulumi.Input<boolean>;
         messageFormat?: pulumi.Input<string>;
@@ -8453,8 +8502,15 @@ export namespace dms {
     }
 
     export interface EndpointMySqlSettingsArgs {
+        afterConnectScript?: pulumi.Input<string>;
+        cleanSourceMetadataOnMismatch?: pulumi.Input<boolean>;
+        eventsPollInterval?: pulumi.Input<number>;
+        maxFileSize?: pulumi.Input<number>;
+        parallelLoadThreads?: pulumi.Input<number>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        serverTimezone?: pulumi.Input<string>;
+        targetDbType?: pulumi.Input<string>;
     }
 
     export interface EndpointNeptuneSettingsArgs {
@@ -8506,8 +8562,19 @@ export namespace dms {
     }
 
     export interface EndpointPostgreSqlSettingsArgs {
+        afterConnectScript?: pulumi.Input<string>;
+        captureDdls?: pulumi.Input<boolean>;
+        ddlArtifactsSchema?: pulumi.Input<string>;
+        executeTimeout?: pulumi.Input<number>;
+        failTasksOnLobTruncation?: pulumi.Input<boolean>;
+        heartbeatEnable?: pulumi.Input<boolean>;
+        heartbeatFrequency?: pulumi.Input<number>;
+        heartbeatSchema?: pulumi.Input<string>;
+        maxFileSize?: pulumi.Input<number>;
+        pluginName?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        slotName?: pulumi.Input<string>;
     }
 
     export interface EndpointRedisSettingsArgs {
@@ -22527,6 +22594,109 @@ export namespace mediastore {
     }
 }
 
+export namespace mediatailor {
+    /**
+     * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+     */
+    export interface PlaybackConfigurationAdMarkerPassthroughArgs {
+        /**
+         * Enables ad marker passthrough for your configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+     */
+    export interface PlaybackConfigurationAvailSuppressionArgs {
+        /**
+         * Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+         */
+        mode?: pulumi.Input<enums.mediatailor.PlaybackConfigurationAvailSuppressionMode>;
+        /**
+         * A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+     */
+    export interface PlaybackConfigurationBumperArgs {
+        /**
+         * The URL for the end bumper asset.
+         */
+        endUrl?: pulumi.Input<string>;
+        /**
+         * The URL for the start bumper asset.
+         */
+        startUrl?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+     */
+    export interface PlaybackConfigurationCdnConfigurationArgs {
+        /**
+         * A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+         */
+        adSegmentUrlPrefix?: pulumi.Input<string>;
+        /**
+         * A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+         */
+        contentSegmentUrlPrefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * The predefined aliases for dynamic variables.
+     */
+    export interface PlaybackConfigurationConfigurationAliasesArgs {
+    }
+
+    /**
+     * The configuration for DASH PUT operations.
+     */
+    export interface PlaybackConfigurationDashConfigurationForPutArgs {
+        /**
+         * The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
+         */
+        mpdLocation?: pulumi.Input<string>;
+        /**
+         * The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
+         */
+        originManifestType?: pulumi.Input<enums.mediatailor.PlaybackConfigurationDashConfigurationForPutOriginManifestType>;
+    }
+
+    /**
+     * The configuration for pre-roll ad insertion.
+     */
+    export interface PlaybackConfigurationLivePreRollConfigurationArgs {
+        /**
+         * The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
+         */
+        adDecisionServerUrl?: pulumi.Input<string>;
+        /**
+         * The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
+         */
+        maxDurationSeconds?: pulumi.Input<number>;
+    }
+
+    /**
+     * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+     */
+    export interface PlaybackConfigurationManifestProcessingRulesArgs {
+        /**
+         * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+         */
+        adMarkerPassthrough?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdMarkerPassthroughArgs>;
+    }
+
+    export interface PlaybackConfigurationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace memorydb {
     /**
      * A key-value pair to associate with a resource.
@@ -27686,6 +27856,39 @@ export namespace sagemaker {
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainResourceSpecArgs>;
     }
 
+    /**
+     * A collection of settings that configure user interaction with the RStudioServerPro app.
+     */
+    export interface DomainRStudioServerProAppSettingsArgs {
+        /**
+         * Indicates whether the current user has access to the RStudioServerPro app.
+         */
+        accessStatus?: pulumi.Input<enums.sagemaker.DomainRStudioServerProAppSettingsAccessStatus>;
+        /**
+         * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+         */
+        userGroup?: pulumi.Input<enums.sagemaker.DomainRStudioServerProAppSettingsUserGroup>;
+    }
+
+    /**
+     * A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+     */
+    export interface DomainRStudioServerProDomainSettingsArgs {
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainResourceSpecArgs>;
+        /**
+         * The ARN of the execution role for the RStudioServerPro Domain-level app.
+         */
+        domainExecutionRoleArn: pulumi.Input<string>;
+        /**
+         * A URL pointing to an RStudio Connect server.
+         */
+        rStudioConnectUrl?: pulumi.Input<string>;
+        /**
+         * A URL pointing to an RStudio Package Manager server.
+         */
+        rStudioPackageManagerUrl?: pulumi.Input<string>;
+    }
+
     export interface DomainResourceSpecArgs {
         /**
          * The instance type that the image version runs on.
@@ -27699,6 +27902,17 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sageMakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of Domain settings.
+     */
+    export interface DomainSettingsArgs {
+        rStudioServerProDomainSettings?: pulumi.Input<inputs.sagemaker.DomainRStudioServerProDomainSettingsArgs>;
+        /**
+         * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -27740,6 +27954,7 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.DomainKernelGatewayAppSettingsArgs>;
+        rStudioServerProAppSettings?: pulumi.Input<inputs.sagemaker.DomainRStudioServerProAppSettingsArgs>;
         /**
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */
@@ -28966,6 +29181,20 @@ export namespace sagemaker {
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.UserProfileResourceSpecArgs>;
     }
 
+    /**
+     * A collection of settings that configure user interaction with the RStudioServerPro app.
+     */
+    export interface UserProfileRStudioServerProAppSettingsArgs {
+        /**
+         * Indicates whether the current user has access to the RStudioServerPro app.
+         */
+        accessStatus?: pulumi.Input<enums.sagemaker.UserProfileRStudioServerProAppSettingsAccessStatus>;
+        /**
+         * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+         */
+        userGroup?: pulumi.Input<enums.sagemaker.UserProfileRStudioServerProAppSettingsUserGroup>;
+    }
+
     export interface UserProfileResourceSpecArgs {
         /**
          * The instance type that the image version runs on.
@@ -29020,6 +29249,7 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileKernelGatewayAppSettingsArgs>;
+        rStudioServerProAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileRStudioServerProAppSettingsArgs>;
         /**
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */

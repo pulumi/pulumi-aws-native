@@ -4233,6 +4233,7 @@ export namespace batch {
          */
         tags?: any;
         type: string;
+        updateToLatestImageVersion?: boolean;
     }
 
     export interface ComputeEnvironmentEc2ConfigurationObject {
@@ -4244,6 +4245,11 @@ export namespace batch {
         launchTemplateId?: string;
         launchTemplateName?: string;
         version?: string;
+    }
+
+    export interface ComputeEnvironmentUpdatePolicy {
+        jobExecutionTimeoutMinutes?: number;
+        terminateJobsOnUpdate?: boolean;
     }
 
     export interface JobDefinitionAuthorizationConfig {
@@ -7945,6 +7951,44 @@ export namespace datasync {
     }
 
     /**
+     * The NFS mount options that DataSync can use to mount your NFS share.
+     */
+    export interface LocationFSxOpenZFSMountOptions {
+        /**
+         * The specific NFS version that you want DataSync to use to mount your NFS share.
+         */
+        version?: enums.datasync.LocationFSxOpenZFSMountOptionsVersion;
+    }
+
+    /**
+     * FSx OpenZFS file system NFS protocol information
+     */
+    export interface LocationFSxOpenZFSNFS {
+        mountOptions: outputs.datasync.LocationFSxOpenZFSMountOptions;
+    }
+
+    /**
+     * Configuration settings for an NFS or SMB protocol, currently only support NFS
+     */
+    export interface LocationFSxOpenZFSProtocol {
+        nFS?: outputs.datasync.LocationFSxOpenZFSNFS;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationFSxOpenZFSTag {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: string;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface LocationFSxWindowsTag {
@@ -8509,8 +8553,11 @@ export namespace dms {
         broker?: string;
         includeControlDetails?: boolean;
         includeNullAndEmpty?: boolean;
+        includePartitionValue?: boolean;
         includeTableAlterOperations?: boolean;
         includeTransactionDetails?: boolean;
+        messageFormat?: string;
+        messageMaxBytes?: number;
         noHexPrefix?: boolean;
         partitionIncludeSchemaTable?: boolean;
         saslPassword?: string;
@@ -8526,6 +8573,7 @@ export namespace dms {
     export interface EndpointKinesisSettings {
         includeControlDetails?: boolean;
         includeNullAndEmpty?: boolean;
+        includePartitionValue?: boolean;
         includeTableAlterOperations?: boolean;
         includeTransactionDetails?: boolean;
         messageFormat?: string;
@@ -8557,8 +8605,15 @@ export namespace dms {
     }
 
     export interface EndpointMySqlSettings {
+        afterConnectScript?: string;
+        cleanSourceMetadataOnMismatch?: boolean;
+        eventsPollInterval?: number;
+        maxFileSize?: number;
+        parallelLoadThreads?: number;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+        serverTimezone?: string;
+        targetDbType?: string;
     }
 
     export interface EndpointNeptuneSettings {
@@ -8610,8 +8665,19 @@ export namespace dms {
     }
 
     export interface EndpointPostgreSqlSettings {
+        afterConnectScript?: string;
+        captureDdls?: boolean;
+        ddlArtifactsSchema?: string;
+        executeTimeout?: number;
+        failTasksOnLobTruncation?: boolean;
+        heartbeatEnable?: boolean;
+        heartbeatFrequency?: number;
+        heartbeatSchema?: string;
+        maxFileSize?: number;
+        pluginName?: string;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+        slotName?: string;
     }
 
     export interface EndpointRedisSettings {
@@ -22919,6 +22985,110 @@ export namespace mediastore {
 
 }
 
+export namespace mediatailor {
+    /**
+     * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+     */
+    export interface PlaybackConfigurationAdMarkerPassthrough {
+        /**
+         * Enables ad marker passthrough for your configuration.
+         */
+        enabled?: boolean;
+    }
+
+    /**
+     * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+     */
+    export interface PlaybackConfigurationAvailSuppression {
+        /**
+         * Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+         */
+        mode?: enums.mediatailor.PlaybackConfigurationAvailSuppressionMode;
+        /**
+         * A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
+         */
+        value?: string;
+    }
+
+    /**
+     * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+     */
+    export interface PlaybackConfigurationBumper {
+        /**
+         * The URL for the end bumper asset.
+         */
+        endUrl?: string;
+        /**
+         * The URL for the start bumper asset.
+         */
+        startUrl?: string;
+    }
+
+    /**
+     * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+     */
+    export interface PlaybackConfigurationCdnConfiguration {
+        /**
+         * A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+         */
+        adSegmentUrlPrefix?: string;
+        /**
+         * A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+         */
+        contentSegmentUrlPrefix?: string;
+    }
+
+    /**
+     * The predefined aliases for dynamic variables.
+     */
+    export interface PlaybackConfigurationConfigurationAliases {
+    }
+
+    /**
+     * The configuration for DASH PUT operations.
+     */
+    export interface PlaybackConfigurationDashConfigurationForPut {
+        /**
+         * The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
+         */
+        mpdLocation?: string;
+        /**
+         * The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
+         */
+        originManifestType?: enums.mediatailor.PlaybackConfigurationDashConfigurationForPutOriginManifestType;
+    }
+
+    /**
+     * The configuration for pre-roll ad insertion.
+     */
+    export interface PlaybackConfigurationLivePreRollConfiguration {
+        /**
+         * The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
+         */
+        adDecisionServerUrl?: string;
+        /**
+         * The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
+         */
+        maxDurationSeconds?: number;
+    }
+
+    /**
+     * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+     */
+    export interface PlaybackConfigurationManifestProcessingRules {
+        /**
+         * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+         */
+        adMarkerPassthrough?: outputs.mediatailor.PlaybackConfigurationAdMarkerPassthrough;
+    }
+
+    export interface PlaybackConfigurationTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace memorydb {
     /**
      * A key-value pair to associate with a resource.
@@ -28525,6 +28695,39 @@ export namespace sagemaker {
         defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
     }
 
+    /**
+     * A collection of settings that configure user interaction with the RStudioServerPro app.
+     */
+    export interface DomainRStudioServerProAppSettings {
+        /**
+         * Indicates whether the current user has access to the RStudioServerPro app.
+         */
+        accessStatus?: enums.sagemaker.DomainRStudioServerProAppSettingsAccessStatus;
+        /**
+         * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+         */
+        userGroup?: enums.sagemaker.DomainRStudioServerProAppSettingsUserGroup;
+    }
+
+    /**
+     * A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+     */
+    export interface DomainRStudioServerProDomainSettings {
+        defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
+        /**
+         * The ARN of the execution role for the RStudioServerPro Domain-level app.
+         */
+        domainExecutionRoleArn: string;
+        /**
+         * A URL pointing to an RStudio Connect server.
+         */
+        rStudioConnectUrl?: string;
+        /**
+         * A URL pointing to an RStudio Package Manager server.
+         */
+        rStudioPackageManagerUrl?: string;
+    }
+
     export interface DomainResourceSpec {
         /**
          * The instance type that the image version runs on.
@@ -28538,6 +28741,17 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sageMakerImageVersionArn?: string;
+    }
+
+    /**
+     * A collection of Domain settings.
+     */
+    export interface DomainSettings {
+        rStudioServerProDomainSettings?: outputs.sagemaker.DomainRStudioServerProDomainSettings;
+        /**
+         * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         */
+        securityGroupIds?: string[];
     }
 
     /**
@@ -28579,6 +28793,7 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.DomainKernelGatewayAppSettings;
+        rStudioServerProAppSettings?: outputs.sagemaker.DomainRStudioServerProAppSettings;
         /**
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */
@@ -29813,6 +30028,20 @@ export namespace sagemaker {
         defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
     }
 
+    /**
+     * A collection of settings that configure user interaction with the RStudioServerPro app.
+     */
+    export interface UserProfileRStudioServerProAppSettings {
+        /**
+         * Indicates whether the current user has access to the RStudioServerPro app.
+         */
+        accessStatus?: enums.sagemaker.UserProfileRStudioServerProAppSettingsAccessStatus;
+        /**
+         * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+         */
+        userGroup?: enums.sagemaker.UserProfileRStudioServerProAppSettingsUserGroup;
+    }
+
     export interface UserProfileResourceSpec {
         /**
          * The instance type that the image version runs on.
@@ -29867,6 +30096,7 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.UserProfileKernelGatewayAppSettings;
+        rStudioServerProAppSettings?: outputs.sagemaker.UserProfileRStudioServerProAppSettings;
         /**
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */

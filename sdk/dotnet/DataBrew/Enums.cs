@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.DataBrew
         public static DatasetFormat Json { get; } = new DatasetFormat("JSON");
         public static DatasetFormat Parquet { get; } = new DatasetFormat("PARQUET");
         public static DatasetFormat Excel { get; } = new DatasetFormat("EXCEL");
+        public static DatasetFormat Orc { get; } = new DatasetFormat("ORC");
 
         public static bool operator ==(DatasetFormat left, DatasetFormat right) => left.Equals(right);
         public static bool operator !=(DatasetFormat left, DatasetFormat right) => !left.Equals(right);

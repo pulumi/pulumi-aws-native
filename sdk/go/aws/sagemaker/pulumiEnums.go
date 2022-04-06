@@ -209,8 +209,11 @@ func (in *appResourceSpecInstanceTypePtr) ToAppResourceSpecInstanceTypePtrOutput
 type AppType string
 
 const (
-	AppTypeJupyterServer = AppType("JupyterServer")
-	AppTypeKernelGateway = AppType("KernelGateway")
+	AppTypeJupyterServer    = AppType("JupyterServer")
+	AppTypeKernelGateway    = AppType("KernelGateway")
+	AppTypeRStudioServerPro = AppType("RStudioServerPro")
+	AppTypeRSessionGateway  = AppType("RSessionGateway")
+	AppTypeCanvas           = AppType("Canvas")
 )
 
 func (AppType) ElementType() reflect.Type {
@@ -1030,6 +1033,171 @@ func (in *domainAppNetworkAccessTypePtr) ToDomainAppNetworkAccessTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(DomainAppNetworkAccessTypePtrOutput)
 }
 
+// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+type DomainAppSecurityGroupManagement string
+
+const (
+	DomainAppSecurityGroupManagementService  = DomainAppSecurityGroupManagement("Service")
+	DomainAppSecurityGroupManagementCustomer = DomainAppSecurityGroupManagement("Customer")
+)
+
+func (DomainAppSecurityGroupManagement) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppSecurityGroupManagement)(nil)).Elem()
+}
+
+func (e DomainAppSecurityGroupManagement) ToDomainAppSecurityGroupManagementOutput() DomainAppSecurityGroupManagementOutput {
+	return pulumi.ToOutput(e).(DomainAppSecurityGroupManagementOutput)
+}
+
+func (e DomainAppSecurityGroupManagement) ToDomainAppSecurityGroupManagementOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainAppSecurityGroupManagementOutput)
+}
+
+func (e DomainAppSecurityGroupManagement) ToDomainAppSecurityGroupManagementPtrOutput() DomainAppSecurityGroupManagementPtrOutput {
+	return e.ToDomainAppSecurityGroupManagementPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAppSecurityGroupManagement) ToDomainAppSecurityGroupManagementPtrOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementPtrOutput {
+	return DomainAppSecurityGroupManagement(e).ToDomainAppSecurityGroupManagementOutputWithContext(ctx).ToDomainAppSecurityGroupManagementPtrOutputWithContext(ctx)
+}
+
+func (e DomainAppSecurityGroupManagement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAppSecurityGroupManagement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAppSecurityGroupManagement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAppSecurityGroupManagement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainAppSecurityGroupManagementOutput struct{ *pulumi.OutputState }
+
+func (DomainAppSecurityGroupManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppSecurityGroupManagement)(nil)).Elem()
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToDomainAppSecurityGroupManagementOutput() DomainAppSecurityGroupManagementOutput {
+	return o
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToDomainAppSecurityGroupManagementOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementOutput {
+	return o
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToDomainAppSecurityGroupManagementPtrOutput() DomainAppSecurityGroupManagementPtrOutput {
+	return o.ToDomainAppSecurityGroupManagementPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToDomainAppSecurityGroupManagementPtrOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAppSecurityGroupManagement) *DomainAppSecurityGroupManagement {
+		return &v
+	}).(DomainAppSecurityGroupManagementPtrOutput)
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAppSecurityGroupManagement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppSecurityGroupManagementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAppSecurityGroupManagement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAppSecurityGroupManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAppSecurityGroupManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAppSecurityGroupManagement)(nil)).Elem()
+}
+
+func (o DomainAppSecurityGroupManagementPtrOutput) ToDomainAppSecurityGroupManagementPtrOutput() DomainAppSecurityGroupManagementPtrOutput {
+	return o
+}
+
+func (o DomainAppSecurityGroupManagementPtrOutput) ToDomainAppSecurityGroupManagementPtrOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementPtrOutput {
+	return o
+}
+
+func (o DomainAppSecurityGroupManagementPtrOutput) Elem() DomainAppSecurityGroupManagementOutput {
+	return o.ApplyT(func(v *DomainAppSecurityGroupManagement) DomainAppSecurityGroupManagement {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAppSecurityGroupManagement
+		return ret
+	}).(DomainAppSecurityGroupManagementOutput)
+}
+
+func (o DomainAppSecurityGroupManagementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppSecurityGroupManagementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAppSecurityGroupManagement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainAppSecurityGroupManagementInput is an input type that accepts DomainAppSecurityGroupManagementArgs and DomainAppSecurityGroupManagementOutput values.
+// You can construct a concrete instance of `DomainAppSecurityGroupManagementInput` via:
+//
+//          DomainAppSecurityGroupManagementArgs{...}
+type DomainAppSecurityGroupManagementInput interface {
+	pulumi.Input
+
+	ToDomainAppSecurityGroupManagementOutput() DomainAppSecurityGroupManagementOutput
+	ToDomainAppSecurityGroupManagementOutputWithContext(context.Context) DomainAppSecurityGroupManagementOutput
+}
+
+var domainAppSecurityGroupManagementPtrType = reflect.TypeOf((**DomainAppSecurityGroupManagement)(nil)).Elem()
+
+type DomainAppSecurityGroupManagementPtrInput interface {
+	pulumi.Input
+
+	ToDomainAppSecurityGroupManagementPtrOutput() DomainAppSecurityGroupManagementPtrOutput
+	ToDomainAppSecurityGroupManagementPtrOutputWithContext(context.Context) DomainAppSecurityGroupManagementPtrOutput
+}
+
+type domainAppSecurityGroupManagementPtr string
+
+func DomainAppSecurityGroupManagementPtr(v string) DomainAppSecurityGroupManagementPtrInput {
+	return (*domainAppSecurityGroupManagementPtr)(&v)
+}
+
+func (*domainAppSecurityGroupManagementPtr) ElementType() reflect.Type {
+	return domainAppSecurityGroupManagementPtrType
+}
+
+func (in *domainAppSecurityGroupManagementPtr) ToDomainAppSecurityGroupManagementPtrOutput() DomainAppSecurityGroupManagementPtrOutput {
+	return pulumi.ToOutput(in).(DomainAppSecurityGroupManagementPtrOutput)
+}
+
+func (in *domainAppSecurityGroupManagementPtr) ToDomainAppSecurityGroupManagementPtrOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainAppSecurityGroupManagementPtrOutput)
+}
+
 // The mode of authentication that members use to access the domain.
 type DomainAuthMode string
 
@@ -1193,6 +1361,336 @@ func (in *domainAuthModePtr) ToDomainAuthModePtrOutput() DomainAuthModePtrOutput
 
 func (in *domainAuthModePtr) ToDomainAuthModePtrOutputWithContext(ctx context.Context) DomainAuthModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainAuthModePtrOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app.
+type DomainRStudioServerProAppSettingsAccessStatus string
+
+const (
+	DomainRStudioServerProAppSettingsAccessStatusEnabled  = DomainRStudioServerProAppSettingsAccessStatus("ENABLED")
+	DomainRStudioServerProAppSettingsAccessStatusDisabled = DomainRStudioServerProAppSettingsAccessStatus("DISABLED")
+)
+
+func (DomainRStudioServerProAppSettingsAccessStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToDomainRStudioServerProAppSettingsAccessStatusOutput() DomainRStudioServerProAppSettingsAccessStatusOutput {
+	return pulumi.ToOutput(e).(DomainRStudioServerProAppSettingsAccessStatusOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToDomainRStudioServerProAppSettingsAccessStatusOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainRStudioServerProAppSettingsAccessStatusOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutput() DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return e.ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return DomainRStudioServerProAppSettingsAccessStatus(e).ToDomainRStudioServerProAppSettingsAccessStatusOutputWithContext(ctx).ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx)
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRStudioServerProAppSettingsAccessStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainRStudioServerProAppSettingsAccessStatusOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProAppSettingsAccessStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToDomainRStudioServerProAppSettingsAccessStatusOutput() DomainRStudioServerProAppSettingsAccessStatusOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToDomainRStudioServerProAppSettingsAccessStatusOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutput() DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRStudioServerProAppSettingsAccessStatus) *DomainRStudioServerProAppSettingsAccessStatus {
+		return &v
+	}).(DomainRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRStudioServerProAppSettingsAccessStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRStudioServerProAppSettingsAccessStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainRStudioServerProAppSettingsAccessStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutput() DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) Elem() DomainRStudioServerProAppSettingsAccessStatusOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProAppSettingsAccessStatus) DomainRStudioServerProAppSettingsAccessStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRStudioServerProAppSettingsAccessStatus
+		return ret
+	}).(DomainRStudioServerProAppSettingsAccessStatusOutput)
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainRStudioServerProAppSettingsAccessStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainRStudioServerProAppSettingsAccessStatusInput is an input type that accepts DomainRStudioServerProAppSettingsAccessStatusArgs and DomainRStudioServerProAppSettingsAccessStatusOutput values.
+// You can construct a concrete instance of `DomainRStudioServerProAppSettingsAccessStatusInput` via:
+//
+//          DomainRStudioServerProAppSettingsAccessStatusArgs{...}
+type DomainRStudioServerProAppSettingsAccessStatusInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProAppSettingsAccessStatusOutput() DomainRStudioServerProAppSettingsAccessStatusOutput
+	ToDomainRStudioServerProAppSettingsAccessStatusOutputWithContext(context.Context) DomainRStudioServerProAppSettingsAccessStatusOutput
+}
+
+var domainRStudioServerProAppSettingsAccessStatusPtrType = reflect.TypeOf((**DomainRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+
+type DomainRStudioServerProAppSettingsAccessStatusPtrInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProAppSettingsAccessStatusPtrOutput() DomainRStudioServerProAppSettingsAccessStatusPtrOutput
+	ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(context.Context) DomainRStudioServerProAppSettingsAccessStatusPtrOutput
+}
+
+type domainRStudioServerProAppSettingsAccessStatusPtr string
+
+func DomainRStudioServerProAppSettingsAccessStatusPtr(v string) DomainRStudioServerProAppSettingsAccessStatusPtrInput {
+	return (*domainRStudioServerProAppSettingsAccessStatusPtr)(&v)
+}
+
+func (*domainRStudioServerProAppSettingsAccessStatusPtr) ElementType() reflect.Type {
+	return domainRStudioServerProAppSettingsAccessStatusPtrType
+}
+
+func (in *domainRStudioServerProAppSettingsAccessStatusPtr) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutput() DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return pulumi.ToOutput(in).(DomainRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+func (in *domainRStudioServerProAppSettingsAccessStatusPtr) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+type DomainRStudioServerProAppSettingsUserGroup string
+
+const (
+	DomainRStudioServerProAppSettingsUserGroupRStudioAdmin = DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN")
+	DomainRStudioServerProAppSettingsUserGroupRStudioUser  = DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_USER")
+)
+
+func (DomainRStudioServerProAppSettingsUserGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToDomainRStudioServerProAppSettingsUserGroupOutput() DomainRStudioServerProAppSettingsUserGroupOutput {
+	return pulumi.ToOutput(e).(DomainRStudioServerProAppSettingsUserGroupOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToDomainRStudioServerProAppSettingsUserGroupOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainRStudioServerProAppSettingsUserGroupOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToDomainRStudioServerProAppSettingsUserGroupPtrOutput() DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return e.ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return DomainRStudioServerProAppSettingsUserGroup(e).ToDomainRStudioServerProAppSettingsUserGroupOutputWithContext(ctx).ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx)
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRStudioServerProAppSettingsUserGroup) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainRStudioServerProAppSettingsUserGroupOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProAppSettingsUserGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToDomainRStudioServerProAppSettingsUserGroupOutput() DomainRStudioServerProAppSettingsUserGroupOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToDomainRStudioServerProAppSettingsUserGroupOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToDomainRStudioServerProAppSettingsUserGroupPtrOutput() DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRStudioServerProAppSettingsUserGroup) *DomainRStudioServerProAppSettingsUserGroup {
+		return &v
+	}).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRStudioServerProAppSettingsUserGroup) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRStudioServerProAppSettingsUserGroup) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainRStudioServerProAppSettingsUserGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRStudioServerProAppSettingsUserGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToDomainRStudioServerProAppSettingsUserGroupPtrOutput() DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) Elem() DomainRStudioServerProAppSettingsUserGroupOutput {
+	return o.ApplyT(func(v *DomainRStudioServerProAppSettingsUserGroup) DomainRStudioServerProAppSettingsUserGroup {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRStudioServerProAppSettingsUserGroup
+		return ret
+	}).(DomainRStudioServerProAppSettingsUserGroupOutput)
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainRStudioServerProAppSettingsUserGroup) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainRStudioServerProAppSettingsUserGroupInput is an input type that accepts DomainRStudioServerProAppSettingsUserGroupArgs and DomainRStudioServerProAppSettingsUserGroupOutput values.
+// You can construct a concrete instance of `DomainRStudioServerProAppSettingsUserGroupInput` via:
+//
+//          DomainRStudioServerProAppSettingsUserGroupArgs{...}
+type DomainRStudioServerProAppSettingsUserGroupInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProAppSettingsUserGroupOutput() DomainRStudioServerProAppSettingsUserGroupOutput
+	ToDomainRStudioServerProAppSettingsUserGroupOutputWithContext(context.Context) DomainRStudioServerProAppSettingsUserGroupOutput
+}
+
+var domainRStudioServerProAppSettingsUserGroupPtrType = reflect.TypeOf((**DomainRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+
+type DomainRStudioServerProAppSettingsUserGroupPtrInput interface {
+	pulumi.Input
+
+	ToDomainRStudioServerProAppSettingsUserGroupPtrOutput() DomainRStudioServerProAppSettingsUserGroupPtrOutput
+	ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput
+}
+
+type domainRStudioServerProAppSettingsUserGroupPtr string
+
+func DomainRStudioServerProAppSettingsUserGroupPtr(v string) DomainRStudioServerProAppSettingsUserGroupPtrInput {
+	return (*domainRStudioServerProAppSettingsUserGroupPtr)(&v)
+}
+
+func (*domainRStudioServerProAppSettingsUserGroupPtr) ElementType() reflect.Type {
+	return domainRStudioServerProAppSettingsUserGroupPtrType
+}
+
+func (in *domainRStudioServerProAppSettingsUserGroupPtr) ToDomainRStudioServerProAppSettingsUserGroupPtrOutput() DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return pulumi.ToOutput(in).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+func (in *domainRStudioServerProAppSettingsUserGroupPtr) ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
 }
 
 // The instance type that the image version runs on.
@@ -4561,6 +5059,336 @@ func (o ProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the current user has access to the RStudioServerPro app.
+type UserProfileRStudioServerProAppSettingsAccessStatus string
+
+const (
+	UserProfileRStudioServerProAppSettingsAccessStatusEnabled  = UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED")
+	UserProfileRStudioServerProAppSettingsAccessStatusDisabled = UserProfileRStudioServerProAppSettingsAccessStatus("DISABLED")
+)
+
+func (UserProfileRStudioServerProAppSettingsAccessStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToUserProfileRStudioServerProAppSettingsAccessStatusOutput() UserProfileRStudioServerProAppSettingsAccessStatusOutput {
+	return pulumi.ToOutput(e).(UserProfileRStudioServerProAppSettingsAccessStatusOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToUserProfileRStudioServerProAppSettingsAccessStatusOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileRStudioServerProAppSettingsAccessStatusOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutput() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return e.ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return UserProfileRStudioServerProAppSettingsAccessStatus(e).ToUserProfileRStudioServerProAppSettingsAccessStatusOutputWithContext(ctx).ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileRStudioServerProAppSettingsAccessStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileRStudioServerProAppSettingsAccessStatusOutput struct{ *pulumi.OutputState }
+
+func (UserProfileRStudioServerProAppSettingsAccessStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusOutput() UserProfileRStudioServerProAppSettingsAccessStatusOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutput() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileRStudioServerProAppSettingsAccessStatus) *UserProfileRStudioServerProAppSettingsAccessStatus {
+		return &v
+	}).(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileRStudioServerProAppSettingsAccessStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileRStudioServerProAppSettingsAccessStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutput() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) Elem() UserProfileRStudioServerProAppSettingsAccessStatusOutput {
+	return o.ApplyT(func(v *UserProfileRStudioServerProAppSettingsAccessStatus) UserProfileRStudioServerProAppSettingsAccessStatus {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileRStudioServerProAppSettingsAccessStatus
+		return ret
+	}).(UserProfileRStudioServerProAppSettingsAccessStatusOutput)
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileRStudioServerProAppSettingsAccessStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileRStudioServerProAppSettingsAccessStatusInput is an input type that accepts UserProfileRStudioServerProAppSettingsAccessStatusArgs and UserProfileRStudioServerProAppSettingsAccessStatusOutput values.
+// You can construct a concrete instance of `UserProfileRStudioServerProAppSettingsAccessStatusInput` via:
+//
+//          UserProfileRStudioServerProAppSettingsAccessStatusArgs{...}
+type UserProfileRStudioServerProAppSettingsAccessStatusInput interface {
+	pulumi.Input
+
+	ToUserProfileRStudioServerProAppSettingsAccessStatusOutput() UserProfileRStudioServerProAppSettingsAccessStatusOutput
+	ToUserProfileRStudioServerProAppSettingsAccessStatusOutputWithContext(context.Context) UserProfileRStudioServerProAppSettingsAccessStatusOutput
+}
+
+var userProfileRStudioServerProAppSettingsAccessStatusPtrType = reflect.TypeOf((**UserProfileRStudioServerProAppSettingsAccessStatus)(nil)).Elem()
+
+type UserProfileRStudioServerProAppSettingsAccessStatusPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutput() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput
+	ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(context.Context) UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput
+}
+
+type userProfileRStudioServerProAppSettingsAccessStatusPtr string
+
+func UserProfileRStudioServerProAppSettingsAccessStatusPtr(v string) UserProfileRStudioServerProAppSettingsAccessStatusPtrInput {
+	return (*userProfileRStudioServerProAppSettingsAccessStatusPtr)(&v)
+}
+
+func (*userProfileRStudioServerProAppSettingsAccessStatusPtr) ElementType() reflect.Type {
+	return userProfileRStudioServerProAppSettingsAccessStatusPtrType
+}
+
+func (in *userProfileRStudioServerProAppSettingsAccessStatusPtr) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutput() UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+func (in *userProfileRStudioServerProAppSettingsAccessStatusPtr) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+type UserProfileRStudioServerProAppSettingsUserGroup string
+
+const (
+	UserProfileRStudioServerProAppSettingsUserGroupRStudioAdmin = UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN")
+	UserProfileRStudioServerProAppSettingsUserGroupRStudioUser  = UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_USER")
+)
+
+func (UserProfileRStudioServerProAppSettingsUserGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToUserProfileRStudioServerProAppSettingsUserGroupOutput() UserProfileRStudioServerProAppSettingsUserGroupOutput {
+	return pulumi.ToOutput(e).(UserProfileRStudioServerProAppSettingsUserGroupOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToUserProfileRStudioServerProAppSettingsUserGroupOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileRStudioServerProAppSettingsUserGroupOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutput() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return e.ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return UserProfileRStudioServerProAppSettingsUserGroup(e).ToUserProfileRStudioServerProAppSettingsUserGroupOutputWithContext(ctx).ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileRStudioServerProAppSettingsUserGroup) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileRStudioServerProAppSettingsUserGroupOutput struct{ *pulumi.OutputState }
+
+func (UserProfileRStudioServerProAppSettingsUserGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToUserProfileRStudioServerProAppSettingsUserGroupOutput() UserProfileRStudioServerProAppSettingsUserGroupOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToUserProfileRStudioServerProAppSettingsUserGroupOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutput() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileRStudioServerProAppSettingsUserGroup) *UserProfileRStudioServerProAppSettingsUserGroup {
+		return &v
+	}).(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileRStudioServerProAppSettingsUserGroup) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileRStudioServerProAppSettingsUserGroup) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileRStudioServerProAppSettingsUserGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutput() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return o
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) Elem() UserProfileRStudioServerProAppSettingsUserGroupOutput {
+	return o.ApplyT(func(v *UserProfileRStudioServerProAppSettingsUserGroup) UserProfileRStudioServerProAppSettingsUserGroup {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileRStudioServerProAppSettingsUserGroup
+		return ret
+	}).(UserProfileRStudioServerProAppSettingsUserGroupOutput)
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileRStudioServerProAppSettingsUserGroup) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileRStudioServerProAppSettingsUserGroupInput is an input type that accepts UserProfileRStudioServerProAppSettingsUserGroupArgs and UserProfileRStudioServerProAppSettingsUserGroupOutput values.
+// You can construct a concrete instance of `UserProfileRStudioServerProAppSettingsUserGroupInput` via:
+//
+//          UserProfileRStudioServerProAppSettingsUserGroupArgs{...}
+type UserProfileRStudioServerProAppSettingsUserGroupInput interface {
+	pulumi.Input
+
+	ToUserProfileRStudioServerProAppSettingsUserGroupOutput() UserProfileRStudioServerProAppSettingsUserGroupOutput
+	ToUserProfileRStudioServerProAppSettingsUserGroupOutputWithContext(context.Context) UserProfileRStudioServerProAppSettingsUserGroupOutput
+}
+
+var userProfileRStudioServerProAppSettingsUserGroupPtrType = reflect.TypeOf((**UserProfileRStudioServerProAppSettingsUserGroup)(nil)).Elem()
+
+type UserProfileRStudioServerProAppSettingsUserGroupPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutput() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput
+	ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(context.Context) UserProfileRStudioServerProAppSettingsUserGroupPtrOutput
+}
+
+type userProfileRStudioServerProAppSettingsUserGroupPtr string
+
+func UserProfileRStudioServerProAppSettingsUserGroupPtr(v string) UserProfileRStudioServerProAppSettingsUserGroupPtrInput {
+	return (*userProfileRStudioServerProAppSettingsUserGroupPtr)(&v)
+}
+
+func (*userProfileRStudioServerProAppSettingsUserGroupPtr) ElementType() reflect.Type {
+	return userProfileRStudioServerProAppSettingsUserGroupPtrType
+}
+
+func (in *userProfileRStudioServerProAppSettingsUserGroupPtr) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutput() UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
+func (in *userProfileRStudioServerProAppSettingsUserGroupPtr) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput)
+}
+
 // The instance type that the image version runs on.
 type UserProfileResourceSpecInstanceType string
 
@@ -4934,8 +5762,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), DataQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppNetworkAccessTypeInput)(nil)).Elem(), DomainAppNetworkAccessType("PublicInternetOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppNetworkAccessTypePtrInput)(nil)).Elem(), DomainAppNetworkAccessType("PublicInternetOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppSecurityGroupManagementInput)(nil)).Elem(), DomainAppSecurityGroupManagement("Service"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppSecurityGroupManagementPtrInput)(nil)).Elem(), DomainAppSecurityGroupManagement("Service"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModeInput)(nil)).Elem(), DomainAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModePtrInput)(nil)).Elem(), DomainAuthMode("SSO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypeInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypePtrInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
@@ -4974,6 +5808,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleS3OutputS3UploadModePtrInput)(nil)).Elem(), MonitoringScheduleS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusPtrInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroupPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInstanceTypeInput)(nil)).Elem(), UserProfileResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInstanceTypePtrInput)(nil)).Elem(), UserProfileResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), UserProfileSharingSettingsNotebookOutputOption("Allowed"))
@@ -4990,8 +5828,14 @@ func init() {
 	pulumi.RegisterOutputType(DataQualityJobDefinitionS3OutputS3UploadModePtrOutput{})
 	pulumi.RegisterOutputType(DomainAppNetworkAccessTypeOutput{})
 	pulumi.RegisterOutputType(DomainAppNetworkAccessTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainAppSecurityGroupManagementOutput{})
+	pulumi.RegisterOutputType(DomainAppSecurityGroupManagementPtrOutput{})
 	pulumi.RegisterOutputType(DomainAuthModeOutput{})
 	pulumi.RegisterOutputType(DomainAuthModePtrOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusPtrOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupOutput{})
+	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupPtrOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionOutput{})
@@ -5034,6 +5878,10 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusOutput{})
+	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsUserGroupOutput{})
+	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsNotebookOutputOptionOutput{})

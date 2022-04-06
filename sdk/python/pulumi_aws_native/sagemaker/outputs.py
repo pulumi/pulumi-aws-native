@@ -41,7 +41,10 @@ __all__ = [
     'DomainCustomImage',
     'DomainJupyterServerAppSettings',
     'DomainKernelGatewayAppSettings',
+    'DomainRStudioServerProAppSettings',
+    'DomainRStudioServerProDomainSettings',
     'DomainResourceSpec',
+    'DomainSettings',
     'DomainSharingSettings',
     'DomainTag',
     'DomainUserSettings',
@@ -153,6 +156,7 @@ __all__ = [
     'UserProfileCustomImage',
     'UserProfileJupyterServerAppSettings',
     'UserProfileKernelGatewayAppSettings',
+    'UserProfileRStudioServerProAppSettings',
     'UserProfileResourceSpec',
     'UserProfileSharingSettings',
     'UserProfileTag',
@@ -1640,6 +1644,137 @@ class DomainKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
+class DomainRStudioServerProAppSettings(dict):
+    """
+    A collection of settings that configure user interaction with the RStudioServerPro app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessStatus":
+            suggest = "access_status"
+        elif key == "userGroup":
+            suggest = "user_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainRStudioServerProAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainRStudioServerProAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainRStudioServerProAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_status: Optional['DomainRStudioServerProAppSettingsAccessStatus'] = None,
+                 user_group: Optional['DomainRStudioServerProAppSettingsUserGroup'] = None):
+        """
+        A collection of settings that configure user interaction with the RStudioServerPro app.
+        :param 'DomainRStudioServerProAppSettingsAccessStatus' access_status: Indicates whether the current user has access to the RStudioServerPro app.
+        :param 'DomainRStudioServerProAppSettingsUserGroup' user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+        """
+        if access_status is not None:
+            pulumi.set(__self__, "access_status", access_status)
+        if user_group is not None:
+            pulumi.set(__self__, "user_group", user_group)
+
+    @property
+    @pulumi.getter(name="accessStatus")
+    def access_status(self) -> Optional['DomainRStudioServerProAppSettingsAccessStatus']:
+        """
+        Indicates whether the current user has access to the RStudioServerPro app.
+        """
+        return pulumi.get(self, "access_status")
+
+    @property
+    @pulumi.getter(name="userGroup")
+    def user_group(self) -> Optional['DomainRStudioServerProAppSettingsUserGroup']:
+        """
+        The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+        """
+        return pulumi.get(self, "user_group")
+
+
+@pulumi.output_type
+class DomainRStudioServerProDomainSettings(dict):
+    """
+    A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainExecutionRoleArn":
+            suggest = "domain_execution_role_arn"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+        elif key == "rStudioConnectUrl":
+            suggest = "r_studio_connect_url"
+        elif key == "rStudioPackageManagerUrl":
+            suggest = "r_studio_package_manager_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainRStudioServerProDomainSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainRStudioServerProDomainSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainRStudioServerProDomainSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_execution_role_arn: str,
+                 default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
+                 r_studio_connect_url: Optional[str] = None,
+                 r_studio_package_manager_url: Optional[str] = None):
+        """
+        A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+        :param str domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
+        :param str r_studio_connect_url: A URL pointing to an RStudio Connect server.
+        :param str r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
+        """
+        pulumi.set(__self__, "domain_execution_role_arn", domain_execution_role_arn)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if r_studio_connect_url is not None:
+            pulumi.set(__self__, "r_studio_connect_url", r_studio_connect_url)
+        if r_studio_package_manager_url is not None:
+            pulumi.set(__self__, "r_studio_package_manager_url", r_studio_package_manager_url)
+
+    @property
+    @pulumi.getter(name="domainExecutionRoleArn")
+    def domain_execution_role_arn(self) -> str:
+        """
+        The ARN of the execution role for the RStudioServerPro Domain-level app.
+        """
+        return pulumi.get(self, "domain_execution_role_arn")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.DomainResourceSpec']:
+        return pulumi.get(self, "default_resource_spec")
+
+    @property
+    @pulumi.getter(name="rStudioConnectUrl")
+    def r_studio_connect_url(self) -> Optional[str]:
+        """
+        A URL pointing to an RStudio Connect server.
+        """
+        return pulumi.get(self, "r_studio_connect_url")
+
+    @property
+    @pulumi.getter(name="rStudioPackageManagerUrl")
+    def r_studio_package_manager_url(self) -> Optional[str]:
+        """
+        A URL pointing to an RStudio Package Manager server.
+        """
+        return pulumi.get(self, "r_studio_package_manager_url")
+
+
+@pulumi.output_type
 class DomainResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1701,6 +1836,56 @@ class DomainResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+
+@pulumi.output_type
+class DomainSettings(dict):
+    """
+    A collection of Domain settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rStudioServerProDomainSettings":
+            suggest = "r_studio_server_pro_domain_settings"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 r_studio_server_pro_domain_settings: Optional['outputs.DomainRStudioServerProDomainSettings'] = None,
+                 security_group_ids: Optional[Sequence[str]] = None):
+        """
+        A collection of Domain settings.
+        :param Sequence[str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+        """
+        if r_studio_server_pro_domain_settings is not None:
+            pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="rStudioServerProDomainSettings")
+    def r_studio_server_pro_domain_settings(self) -> Optional['outputs.DomainRStudioServerProDomainSettings']:
+        return pulumi.get(self, "r_studio_server_pro_domain_settings")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+        """
+        return pulumi.get(self, "security_group_ids")
 
 
 @pulumi.output_type
@@ -1804,6 +1989,8 @@ class DomainUserSettings(dict):
             suggest = "jupyter_server_app_settings"
         elif key == "kernelGatewayAppSettings":
             suggest = "kernel_gateway_app_settings"
+        elif key == "rStudioServerProAppSettings":
+            suggest = "r_studio_server_pro_app_settings"
         elif key == "securityGroups":
             suggest = "security_groups"
         elif key == "sharingSettings":
@@ -1824,6 +2011,7 @@ class DomainUserSettings(dict):
                  execution_role: Optional[str] = None,
                  jupyter_server_app_settings: Optional['outputs.DomainJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
+                 r_studio_server_pro_app_settings: Optional['outputs.DomainRStudioServerProAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.DomainSharingSettings'] = None):
         """
@@ -1840,6 +2028,8 @@ class DomainUserSettings(dict):
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if r_studio_server_pro_app_settings is not None:
+            pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
@@ -1868,6 +2058,11 @@ class DomainUserSettings(dict):
         The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="rStudioServerProAppSettings")
+    def r_studio_server_pro_app_settings(self) -> Optional['outputs.DomainRStudioServerProAppSettings']:
+        return pulumi.get(self, "r_studio_server_pro_app_settings")
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -7229,6 +7424,60 @@ class UserProfileKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
+class UserProfileRStudioServerProAppSettings(dict):
+    """
+    A collection of settings that configure user interaction with the RStudioServerPro app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessStatus":
+            suggest = "access_status"
+        elif key == "userGroup":
+            suggest = "user_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileRStudioServerProAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileRStudioServerProAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileRStudioServerProAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_status: Optional['UserProfileRStudioServerProAppSettingsAccessStatus'] = None,
+                 user_group: Optional['UserProfileRStudioServerProAppSettingsUserGroup'] = None):
+        """
+        A collection of settings that configure user interaction with the RStudioServerPro app.
+        :param 'UserProfileRStudioServerProAppSettingsAccessStatus' access_status: Indicates whether the current user has access to the RStudioServerPro app.
+        :param 'UserProfileRStudioServerProAppSettingsUserGroup' user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+        """
+        if access_status is not None:
+            pulumi.set(__self__, "access_status", access_status)
+        if user_group is not None:
+            pulumi.set(__self__, "user_group", user_group)
+
+    @property
+    @pulumi.getter(name="accessStatus")
+    def access_status(self) -> Optional['UserProfileRStudioServerProAppSettingsAccessStatus']:
+        """
+        Indicates whether the current user has access to the RStudioServerPro app.
+        """
+        return pulumi.get(self, "access_status")
+
+    @property
+    @pulumi.getter(name="userGroup")
+    def user_group(self) -> Optional['UserProfileRStudioServerProAppSettingsUserGroup']:
+        """
+        The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+        """
+        return pulumi.get(self, "user_group")
+
+
+@pulumi.output_type
 class UserProfileResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7393,6 +7642,8 @@ class UserProfileUserSettings(dict):
             suggest = "jupyter_server_app_settings"
         elif key == "kernelGatewayAppSettings":
             suggest = "kernel_gateway_app_settings"
+        elif key == "rStudioServerProAppSettings":
+            suggest = "r_studio_server_pro_app_settings"
         elif key == "securityGroups":
             suggest = "security_groups"
         elif key == "sharingSettings":
@@ -7413,6 +7664,7 @@ class UserProfileUserSettings(dict):
                  execution_role: Optional[str] = None,
                  jupyter_server_app_settings: Optional['outputs.UserProfileJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.UserProfileKernelGatewayAppSettings'] = None,
+                 r_studio_server_pro_app_settings: Optional['outputs.UserProfileRStudioServerProAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.UserProfileSharingSettings'] = None):
         """
@@ -7429,6 +7681,8 @@ class UserProfileUserSettings(dict):
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if r_studio_server_pro_app_settings is not None:
+            pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
@@ -7457,6 +7711,11 @@ class UserProfileUserSettings(dict):
         The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="rStudioServerProAppSettings")
+    def r_studio_server_pro_app_settings(self) -> Optional['outputs.UserProfileRStudioServerProAppSettings']:
+        return pulumi.get(self, "r_studio_server_pro_app_settings")
 
     @property
     @pulumi.getter(name="securityGroups")

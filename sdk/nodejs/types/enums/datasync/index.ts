@@ -13,6 +13,18 @@ export const AgentEndpointType = {
  */
 export type AgentEndpointType = (typeof AgentEndpointType)[keyof typeof AgentEndpointType];
 
+export const LocationFSxOpenZFSMountOptionsVersion = {
+    Automatic: "AUTOMATIC",
+    Nfs3: "NFS3",
+    Nfs40: "NFS4_0",
+    Nfs41: "NFS4_1",
+} as const;
+
+/**
+ * The specific NFS version that you want DataSync to use to mount your NFS share.
+ */
+export type LocationFSxOpenZFSMountOptionsVersion = (typeof LocationFSxOpenZFSMountOptionsVersion)[keyof typeof LocationFSxOpenZFSMountOptionsVersion];
+
 export const LocationHDFSAuthenticationType = {
     Simple: "SIMPLE",
     Kerberos: "KERBEROS",

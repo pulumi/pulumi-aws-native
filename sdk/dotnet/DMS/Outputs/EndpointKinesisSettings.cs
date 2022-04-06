@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
     {
         public readonly bool? IncludeControlDetails;
         public readonly bool? IncludeNullAndEmpty;
+        public readonly bool? IncludePartitionValue;
         public readonly bool? IncludeTableAlterOperations;
         public readonly bool? IncludeTransactionDetails;
         public readonly string? MessageFormat;
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.DMS.Outputs
             bool? includeControlDetails,
 
             bool? includeNullAndEmpty,
+
+            bool? includePartitionValue,
 
             bool? includeTableAlterOperations,
 
@@ -45,6 +48,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
         {
             IncludeControlDetails = includeControlDetails;
             IncludeNullAndEmpty = includeNullAndEmpty;
+            IncludePartitionValue = includePartitionValue;
             IncludeTableAlterOperations = includeTableAlterOperations;
             IncludeTransactionDetails = includeTransactionDetails;
             MessageFormat = messageFormat;

@@ -11,7 +11,10 @@ __all__ = [
     'DataQualityJobDefinitionEndpointInputS3InputMode',
     'DataQualityJobDefinitionS3OutputS3UploadMode',
     'DomainAppNetworkAccessType',
+    'DomainAppSecurityGroupManagement',
     'DomainAuthMode',
+    'DomainRStudioServerProAppSettingsAccessStatus',
+    'DomainRStudioServerProAppSettingsUserGroup',
     'DomainResourceSpecInstanceType',
     'DomainSharingSettingsNotebookOutputOption',
     'FeatureGroupFeatureDefinitionFeatureType',
@@ -33,6 +36,8 @@ __all__ = [
     'MonitoringScheduleS3OutputS3UploadMode',
     'MonitoringScheduleStatus',
     'ProjectStatus',
+    'UserProfileRStudioServerProAppSettingsAccessStatus',
+    'UserProfileRStudioServerProAppSettingsUserGroup',
     'UserProfileResourceSpecInstanceType',
     'UserProfileSharingSettingsNotebookOutputOption',
 ]
@@ -82,6 +87,9 @@ class AppType(str, Enum):
     """
     JUPYTER_SERVER = "JupyterServer"
     KERNEL_GATEWAY = "KernelGateway"
+    R_STUDIO_SERVER_PRO = "RStudioServerPro"
+    R_SESSION_GATEWAY = "RSessionGateway"
+    CANVAS = "Canvas"
 
 
 class DataQualityJobDefinitionEndpointInputS3DataDistributionType(str, Enum):
@@ -116,12 +124,36 @@ class DomainAppNetworkAccessType(str, Enum):
     VPC_ONLY = "VpcOnly"
 
 
+class DomainAppSecurityGroupManagement(str, Enum):
+    """
+    The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+    """
+    SERVICE = "Service"
+    CUSTOMER = "Customer"
+
+
 class DomainAuthMode(str, Enum):
     """
     The mode of authentication that members use to access the domain.
     """
     SSO = "SSO"
     IAM = "IAM"
+
+
+class DomainRStudioServerProAppSettingsAccessStatus(str, Enum):
+    """
+    Indicates whether the current user has access to the RStudioServerPro app.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DomainRStudioServerProAppSettingsUserGroup(str, Enum):
+    """
+    The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+    """
+    R_STUDIO_ADMIN = "R_STUDIO_ADMIN"
+    R_STUDIO_USER = "R_STUDIO_USER"
 
 
 class DomainResourceSpecInstanceType(str, Enum):
@@ -337,6 +369,22 @@ class ProjectStatus(str, Enum):
     DELETE_IN_PROGRESS = "DeleteInProgress"
     DELETE_FAILED = "DeleteFailed"
     DELETE_COMPLETED = "DeleteCompleted"
+
+
+class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):
+    """
+    Indicates whether the current user has access to the RStudioServerPro app.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class UserProfileRStudioServerProAppSettingsUserGroup(str, Enum):
+    """
+    The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+    """
+    R_STUDIO_ADMIN = "R_STUDIO_ADMIN"
+    R_STUDIO_USER = "R_STUDIO_USER"
 
 
 class UserProfileResourceSpecInstanceType(str, Enum):

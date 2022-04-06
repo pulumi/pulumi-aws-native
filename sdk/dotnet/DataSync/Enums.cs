@@ -40,6 +40,39 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// The specific NFS version that you want DataSync to use to mount your NFS share.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationFSxOpenZFSMountOptionsVersion : IEquatable<LocationFSxOpenZFSMountOptionsVersion>
+    {
+        private readonly string _value;
+
+        private LocationFSxOpenZFSMountOptionsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationFSxOpenZFSMountOptionsVersion Automatic { get; } = new LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC");
+        public static LocationFSxOpenZFSMountOptionsVersion Nfs3 { get; } = new LocationFSxOpenZFSMountOptionsVersion("NFS3");
+        public static LocationFSxOpenZFSMountOptionsVersion Nfs40 { get; } = new LocationFSxOpenZFSMountOptionsVersion("NFS4_0");
+        public static LocationFSxOpenZFSMountOptionsVersion Nfs41 { get; } = new LocationFSxOpenZFSMountOptionsVersion("NFS4_1");
+
+        public static bool operator ==(LocationFSxOpenZFSMountOptionsVersion left, LocationFSxOpenZFSMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationFSxOpenZFSMountOptionsVersion left, LocationFSxOpenZFSMountOptionsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(LocationFSxOpenZFSMountOptionsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationFSxOpenZFSMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationFSxOpenZFSMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication mode used to determine identity of user.
     /// </summary>
     [EnumType]

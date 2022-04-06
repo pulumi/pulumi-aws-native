@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The kernel gateway app settings.
         /// </summary>
         public readonly Outputs.UserProfileKernelGatewayAppSettings? KernelGatewayAppSettings;
+        public readonly Outputs.UserProfileRStudioServerProAppSettings? RStudioServerProAppSettings;
         /// <summary>
         /// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
@@ -45,6 +46,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.UserProfileKernelGatewayAppSettings? kernelGatewayAppSettings,
 
+            Outputs.UserProfileRStudioServerProAppSettings? rStudioServerProAppSettings,
+
             ImmutableArray<string> securityGroups,
 
             Outputs.UserProfileSharingSettings? sharingSettings)
@@ -52,6 +55,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             ExecutionRole = executionRole;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
+            RStudioServerProAppSettings = rStudioServerProAppSettings;
             SecurityGroups = securityGroups;
             SharingSettings = sharingSettings;
         }

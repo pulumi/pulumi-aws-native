@@ -934,8 +934,11 @@ type EndpointKafkaSettings struct {
 	Broker                      *string `pulumi:"broker"`
 	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
 	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       *bool   `pulumi:"includePartitionValue"`
 	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
 	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               *string `pulumi:"messageFormat"`
+	MessageMaxBytes             *int    `pulumi:"messageMaxBytes"`
 	NoHexPrefix                 *bool   `pulumi:"noHexPrefix"`
 	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
 	SaslPassword                *string `pulumi:"saslPassword"`
@@ -963,8 +966,11 @@ type EndpointKafkaSettingsArgs struct {
 	Broker                      pulumi.StringPtrInput `pulumi:"broker"`
 	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
 	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolPtrInput   `pulumi:"includePartitionValue"`
 	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
 	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
+	MessageMaxBytes             pulumi.IntPtrInput    `pulumi:"messageMaxBytes"`
 	NoHexPrefix                 pulumi.BoolPtrInput   `pulumi:"noHexPrefix"`
 	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
 	SaslPassword                pulumi.StringPtrInput `pulumi:"saslPassword"`
@@ -1066,12 +1072,24 @@ func (o EndpointKafkaSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
+func (o EndpointKafkaSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointKafkaSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointKafkaSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) MessageMaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *int { return v.MessageMaxBytes }).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointKafkaSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
@@ -1165,6 +1183,15 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o EndpointKafkaSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePartitionValue
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -1181,6 +1208,24 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolP
 		}
 		return v.IncludeTransactionDetails
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) MessageMaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MessageMaxBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointKafkaSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
@@ -1276,6 +1321,7 @@ func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
 type EndpointKinesisSettings struct {
 	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
 	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       *bool   `pulumi:"includePartitionValue"`
 	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
 	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
 	MessageFormat               *string `pulumi:"messageFormat"`
@@ -1299,6 +1345,7 @@ type EndpointKinesisSettingsInput interface {
 type EndpointKinesisSettingsArgs struct {
 	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
 	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolPtrInput   `pulumi:"includePartitionValue"`
 	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
 	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
 	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
@@ -1393,6 +1440,10 @@ func (o EndpointKinesisSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
+func (o EndpointKinesisSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointKinesisSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
@@ -1460,6 +1511,15 @@ func (o EndpointKinesisSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOu
 			return nil
 		}
 		return v.IncludeNullAndEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePartitionValue
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1988,8 +2048,15 @@ func (o EndpointMongoDbSettingsPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type EndpointMySqlSettings struct {
-	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	AfterConnectScript            *string `pulumi:"afterConnectScript"`
+	CleanSourceMetadataOnMismatch *bool   `pulumi:"cleanSourceMetadataOnMismatch"`
+	EventsPollInterval            *int    `pulumi:"eventsPollInterval"`
+	MaxFileSize                   *int    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           *int    `pulumi:"parallelLoadThreads"`
+	SecretsManagerAccessRoleArn   *string `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId        *string `pulumi:"secretsManagerSecretId"`
+	ServerTimezone                *string `pulumi:"serverTimezone"`
+	TargetDbType                  *string `pulumi:"targetDbType"`
 }
 
 // EndpointMySqlSettingsInput is an input type that accepts EndpointMySqlSettingsArgs and EndpointMySqlSettingsOutput values.
@@ -2004,8 +2071,15 @@ type EndpointMySqlSettingsInput interface {
 }
 
 type EndpointMySqlSettingsArgs struct {
-	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	AfterConnectScript            pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	CleanSourceMetadataOnMismatch pulumi.BoolPtrInput   `pulumi:"cleanSourceMetadataOnMismatch"`
+	EventsPollInterval            pulumi.IntPtrInput    `pulumi:"eventsPollInterval"`
+	MaxFileSize                   pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           pulumi.IntPtrInput    `pulumi:"parallelLoadThreads"`
+	SecretsManagerAccessRoleArn   pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId        pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	ServerTimezone                pulumi.StringPtrInput `pulumi:"serverTimezone"`
+	TargetDbType                  pulumi.StringPtrInput `pulumi:"targetDbType"`
 }
 
 func (EndpointMySqlSettingsArgs) ElementType() reflect.Type {
@@ -2085,12 +2159,40 @@ func (o EndpointMySqlSettingsOutput) ToEndpointMySqlSettingsPtrOutputWithContext
 	}).(EndpointMySqlSettingsPtrOutput)
 }
 
+func (o EndpointMySqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMySqlSettingsOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *bool { return v.CleanSourceMetadataOnMismatch }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMySqlSettingsOutput) EventsPollInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *int { return v.EventsPollInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointMySqlSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointMySqlSettingsOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *int { return v.ParallelLoadThreads }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointMySqlSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMySqlSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMySqlSettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMySqlSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMySqlSettingsOutput) ServerTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *string { return v.ServerTimezone }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMySqlSettingsOutput) TargetDbType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMySqlSettings) *string { return v.TargetDbType }).(pulumi.StringPtrOutput)
 }
 
 type EndpointMySqlSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -2117,6 +2219,51 @@ func (o EndpointMySqlSettingsPtrOutput) Elem() EndpointMySqlSettingsOutput {
 	}).(EndpointMySqlSettingsOutput)
 }
 
+func (o EndpointMySqlSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMySqlSettingsPtrOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CleanSourceMetadataOnMismatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMySqlSettingsPtrOutput) EventsPollInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EventsPollInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointMySqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointMySqlSettingsPtrOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelLoadThreads
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointMySqlSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMySqlSettings) *string {
 		if v == nil {
@@ -2132,6 +2279,24 @@ func (o EndpointMySqlSettingsPtrOutput) SecretsManagerSecretId() pulumi.StringPt
 			return nil
 		}
 		return v.SecretsManagerSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMySqlSettingsPtrOutput) ServerTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerTimezone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMySqlSettingsPtrOutput) TargetDbType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMySqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDbType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3002,8 +3167,19 @@ func (o EndpointOracleSettingsPtrOutput) UsePathPrefix() pulumi.StringPtrOutput 
 }
 
 type EndpointPostgreSqlSettings struct {
+	AfterConnectScript          *string `pulumi:"afterConnectScript"`
+	CaptureDdls                 *bool   `pulumi:"captureDdls"`
+	DdlArtifactsSchema          *string `pulumi:"ddlArtifactsSchema"`
+	ExecuteTimeout              *int    `pulumi:"executeTimeout"`
+	FailTasksOnLobTruncation    *bool   `pulumi:"failTasksOnLobTruncation"`
+	HeartbeatEnable             *bool   `pulumi:"heartbeatEnable"`
+	HeartbeatFrequency          *int    `pulumi:"heartbeatFrequency"`
+	HeartbeatSchema             *string `pulumi:"heartbeatSchema"`
+	MaxFileSize                 *int    `pulumi:"maxFileSize"`
+	PluginName                  *string `pulumi:"pluginName"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	SlotName                    *string `pulumi:"slotName"`
 }
 
 // EndpointPostgreSqlSettingsInput is an input type that accepts EndpointPostgreSqlSettingsArgs and EndpointPostgreSqlSettingsOutput values.
@@ -3018,8 +3194,19 @@ type EndpointPostgreSqlSettingsInput interface {
 }
 
 type EndpointPostgreSqlSettingsArgs struct {
+	AfterConnectScript          pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	CaptureDdls                 pulumi.BoolPtrInput   `pulumi:"captureDdls"`
+	DdlArtifactsSchema          pulumi.StringPtrInput `pulumi:"ddlArtifactsSchema"`
+	ExecuteTimeout              pulumi.IntPtrInput    `pulumi:"executeTimeout"`
+	FailTasksOnLobTruncation    pulumi.BoolPtrInput   `pulumi:"failTasksOnLobTruncation"`
+	HeartbeatEnable             pulumi.BoolPtrInput   `pulumi:"heartbeatEnable"`
+	HeartbeatFrequency          pulumi.IntPtrInput    `pulumi:"heartbeatFrequency"`
+	HeartbeatSchema             pulumi.StringPtrInput `pulumi:"heartbeatSchema"`
+	MaxFileSize                 pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	PluginName                  pulumi.StringPtrInput `pulumi:"pluginName"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	SlotName                    pulumi.StringPtrInput `pulumi:"slotName"`
 }
 
 func (EndpointPostgreSqlSettingsArgs) ElementType() reflect.Type {
@@ -3099,12 +3286,56 @@ func (o EndpointPostgreSqlSettingsOutput) ToEndpointPostgreSqlSettingsPtrOutputW
 	}).(EndpointPostgreSqlSettingsPtrOutput)
 }
 
+func (o EndpointPostgreSqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) CaptureDdls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *bool { return v.CaptureDdls }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.DdlArtifactsSchema }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) ExecuteTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *int { return v.ExecuteTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *bool { return v.FailTasksOnLobTruncation }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) HeartbeatEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *bool { return v.HeartbeatEnable }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) HeartbeatFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *int { return v.HeartbeatFrequency }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) HeartbeatSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.HeartbeatSchema }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) PluginName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.PluginName }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointPostgreSqlSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointPostgreSqlSettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.SlotName }).(pulumi.StringPtrOutput)
 }
 
 type EndpointPostgreSqlSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -3131,6 +3362,96 @@ func (o EndpointPostgreSqlSettingsPtrOutput) Elem() EndpointPostgreSqlSettingsOu
 	}).(EndpointPostgreSqlSettingsOutput)
 }
 
+func (o EndpointPostgreSqlSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) CaptureDdls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureDdls
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DdlArtifactsSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExecuteTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTasksOnLobTruncation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) HeartbeatEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HeartbeatEnable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) HeartbeatFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HeartbeatFrequency
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) HeartbeatSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HeartbeatSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) PluginName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PluginName
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointPostgreSqlSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
 		if v == nil {
@@ -3146,6 +3467,15 @@ func (o EndpointPostgreSqlSettingsPtrOutput) SecretsManagerSecretId() pulumi.Str
 			return nil
 		}
 		return v.SecretsManagerSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SlotName
 	}).(pulumi.StringPtrOutput)
 }
 

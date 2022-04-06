@@ -356,10 +356,16 @@ class EndpointKafkaSettings(dict):
             suggest = "include_control_details"
         elif key == "includeNullAndEmpty":
             suggest = "include_null_and_empty"
+        elif key == "includePartitionValue":
+            suggest = "include_partition_value"
         elif key == "includeTableAlterOperations":
             suggest = "include_table_alter_operations"
         elif key == "includeTransactionDetails":
             suggest = "include_transaction_details"
+        elif key == "messageFormat":
+            suggest = "message_format"
+        elif key == "messageMaxBytes":
+            suggest = "message_max_bytes"
         elif key == "noHexPrefix":
             suggest = "no_hex_prefix"
         elif key == "partitionIncludeSchemaTable":
@@ -394,8 +400,11 @@ class EndpointKafkaSettings(dict):
                  broker: Optional[str] = None,
                  include_control_details: Optional[bool] = None,
                  include_null_and_empty: Optional[bool] = None,
+                 include_partition_value: Optional[bool] = None,
                  include_table_alter_operations: Optional[bool] = None,
                  include_transaction_details: Optional[bool] = None,
+                 message_format: Optional[str] = None,
+                 message_max_bytes: Optional[int] = None,
                  no_hex_prefix: Optional[bool] = None,
                  partition_include_schema_table: Optional[bool] = None,
                  sasl_password: Optional[str] = None,
@@ -412,10 +421,16 @@ class EndpointKafkaSettings(dict):
             pulumi.set(__self__, "include_control_details", include_control_details)
         if include_null_and_empty is not None:
             pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
             pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
             pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        if message_format is not None:
+            pulumi.set(__self__, "message_format", message_format)
+        if message_max_bytes is not None:
+            pulumi.set(__self__, "message_max_bytes", message_max_bytes)
         if no_hex_prefix is not None:
             pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
         if partition_include_schema_table is not None:
@@ -453,6 +468,11 @@ class EndpointKafkaSettings(dict):
         return pulumi.get(self, "include_null_and_empty")
 
     @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> Optional[bool]:
+        return pulumi.get(self, "include_partition_value")
+
+    @property
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[bool]:
         return pulumi.get(self, "include_table_alter_operations")
@@ -461,6 +481,16 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="includeTransactionDetails")
     def include_transaction_details(self) -> Optional[bool]:
         return pulumi.get(self, "include_transaction_details")
+
+    @property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> Optional[str]:
+        return pulumi.get(self, "message_format")
+
+    @property
+    @pulumi.getter(name="messageMaxBytes")
+    def message_max_bytes(self) -> Optional[int]:
+        return pulumi.get(self, "message_max_bytes")
 
     @property
     @pulumi.getter(name="noHexPrefix")
@@ -522,6 +552,8 @@ class EndpointKinesisSettings(dict):
             suggest = "include_control_details"
         elif key == "includeNullAndEmpty":
             suggest = "include_null_and_empty"
+        elif key == "includePartitionValue":
+            suggest = "include_partition_value"
         elif key == "includeTableAlterOperations":
             suggest = "include_table_alter_operations"
         elif key == "includeTransactionDetails":
@@ -551,6 +583,7 @@ class EndpointKinesisSettings(dict):
     def __init__(__self__, *,
                  include_control_details: Optional[bool] = None,
                  include_null_and_empty: Optional[bool] = None,
+                 include_partition_value: Optional[bool] = None,
                  include_table_alter_operations: Optional[bool] = None,
                  include_transaction_details: Optional[bool] = None,
                  message_format: Optional[str] = None,
@@ -562,6 +595,8 @@ class EndpointKinesisSettings(dict):
             pulumi.set(__self__, "include_control_details", include_control_details)
         if include_null_and_empty is not None:
             pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
             pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
@@ -586,6 +621,11 @@ class EndpointKinesisSettings(dict):
     @pulumi.getter(name="includeNullAndEmpty")
     def include_null_and_empty(self) -> Optional[bool]:
         return pulumi.get(self, "include_null_and_empty")
+
+    @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> Optional[bool]:
+        return pulumi.get(self, "include_partition_value")
 
     @property
     @pulumi.getter(name="includeTableAlterOperations")
@@ -812,10 +852,24 @@ class EndpointMySqlSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "secretsManagerAccessRoleArn":
+        if key == "afterConnectScript":
+            suggest = "after_connect_script"
+        elif key == "cleanSourceMetadataOnMismatch":
+            suggest = "clean_source_metadata_on_mismatch"
+        elif key == "eventsPollInterval":
+            suggest = "events_poll_interval"
+        elif key == "maxFileSize":
+            suggest = "max_file_size"
+        elif key == "parallelLoadThreads":
+            suggest = "parallel_load_threads"
+        elif key == "secretsManagerAccessRoleArn":
             suggest = "secrets_manager_access_role_arn"
         elif key == "secretsManagerSecretId":
             suggest = "secrets_manager_secret_id"
+        elif key == "serverTimezone":
+            suggest = "server_timezone"
+        elif key == "targetDbType":
+            suggest = "target_db_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointMySqlSettings. Access the value via the '{suggest}' property getter instead.")
@@ -829,12 +883,58 @@ class EndpointMySqlSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 after_connect_script: Optional[str] = None,
+                 clean_source_metadata_on_mismatch: Optional[bool] = None,
+                 events_poll_interval: Optional[int] = None,
+                 max_file_size: Optional[int] = None,
+                 parallel_load_threads: Optional[int] = None,
                  secrets_manager_access_role_arn: Optional[str] = None,
-                 secrets_manager_secret_id: Optional[str] = None):
+                 secrets_manager_secret_id: Optional[str] = None,
+                 server_timezone: Optional[str] = None,
+                 target_db_type: Optional[str] = None):
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if target_db_type is not None:
+            pulumi.set(__self__, "target_db_type", target_db_type)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[str]:
+        return pulumi.get(self, "after_connect_script")
+
+    @property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> Optional[bool]:
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> Optional[int]:
+        return pulumi.get(self, "events_poll_interval")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[int]:
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> Optional[int]:
+        return pulumi.get(self, "parallel_load_threads")
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -845,6 +945,16 @@ class EndpointMySqlSettings(dict):
     @pulumi.getter(name="secretsManagerSecretId")
     def secrets_manager_secret_id(self) -> Optional[str]:
         return pulumi.get(self, "secrets_manager_secret_id")
+
+    @property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> Optional[str]:
+        return pulumi.get(self, "server_timezone")
+
+    @property
+    @pulumi.getter(name="targetDbType")
+    def target_db_type(self) -> Optional[str]:
+        return pulumi.get(self, "target_db_type")
 
 
 @pulumi.output_type
@@ -1312,10 +1422,32 @@ class EndpointPostgreSqlSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "secretsManagerAccessRoleArn":
+        if key == "afterConnectScript":
+            suggest = "after_connect_script"
+        elif key == "captureDdls":
+            suggest = "capture_ddls"
+        elif key == "ddlArtifactsSchema":
+            suggest = "ddl_artifacts_schema"
+        elif key == "executeTimeout":
+            suggest = "execute_timeout"
+        elif key == "failTasksOnLobTruncation":
+            suggest = "fail_tasks_on_lob_truncation"
+        elif key == "heartbeatEnable":
+            suggest = "heartbeat_enable"
+        elif key == "heartbeatFrequency":
+            suggest = "heartbeat_frequency"
+        elif key == "heartbeatSchema":
+            suggest = "heartbeat_schema"
+        elif key == "maxFileSize":
+            suggest = "max_file_size"
+        elif key == "pluginName":
+            suggest = "plugin_name"
+        elif key == "secretsManagerAccessRoleArn":
             suggest = "secrets_manager_access_role_arn"
         elif key == "secretsManagerSecretId":
             suggest = "secrets_manager_secret_id"
+        elif key == "slotName":
+            suggest = "slot_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointPostgreSqlSettings. Access the value via the '{suggest}' property getter instead.")
@@ -1329,12 +1461,95 @@ class EndpointPostgreSqlSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 after_connect_script: Optional[str] = None,
+                 capture_ddls: Optional[bool] = None,
+                 ddl_artifacts_schema: Optional[str] = None,
+                 execute_timeout: Optional[int] = None,
+                 fail_tasks_on_lob_truncation: Optional[bool] = None,
+                 heartbeat_enable: Optional[bool] = None,
+                 heartbeat_frequency: Optional[int] = None,
+                 heartbeat_schema: Optional[str] = None,
+                 max_file_size: Optional[int] = None,
+                 plugin_name: Optional[str] = None,
                  secrets_manager_access_role_arn: Optional[str] = None,
-                 secrets_manager_secret_id: Optional[str] = None):
+                 secrets_manager_secret_id: Optional[str] = None,
+                 slot_name: Optional[str] = None):
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if capture_ddls is not None:
+            pulumi.set(__self__, "capture_ddls", capture_ddls)
+        if ddl_artifacts_schema is not None:
+            pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+        if execute_timeout is not None:
+            pulumi.set(__self__, "execute_timeout", execute_timeout)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if heartbeat_enable is not None:
+            pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+        if heartbeat_frequency is not None:
+            pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+        if heartbeat_schema is not None:
+            pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if plugin_name is not None:
+            pulumi.set(__self__, "plugin_name", plugin_name)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[str]:
+        return pulumi.get(self, "after_connect_script")
+
+    @property
+    @pulumi.getter(name="captureDdls")
+    def capture_ddls(self) -> Optional[bool]:
+        return pulumi.get(self, "capture_ddls")
+
+    @property
+    @pulumi.getter(name="ddlArtifactsSchema")
+    def ddl_artifacts_schema(self) -> Optional[str]:
+        return pulumi.get(self, "ddl_artifacts_schema")
+
+    @property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "execute_timeout")
+
+    @property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> Optional[bool]:
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @property
+    @pulumi.getter(name="heartbeatEnable")
+    def heartbeat_enable(self) -> Optional[bool]:
+        return pulumi.get(self, "heartbeat_enable")
+
+    @property
+    @pulumi.getter(name="heartbeatFrequency")
+    def heartbeat_frequency(self) -> Optional[int]:
+        return pulumi.get(self, "heartbeat_frequency")
+
+    @property
+    @pulumi.getter(name="heartbeatSchema")
+    def heartbeat_schema(self) -> Optional[str]:
+        return pulumi.get(self, "heartbeat_schema")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[int]:
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="pluginName")
+    def plugin_name(self) -> Optional[str]:
+        return pulumi.get(self, "plugin_name")
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -1345,6 +1560,11 @@ class EndpointPostgreSqlSettings(dict):
     @pulumi.getter(name="secretsManagerSecretId")
     def secrets_manager_secret_id(self) -> Optional[str]:
         return pulumi.get(self, "secrets_manager_secret_id")
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[str]:
+        return pulumi.get(self, "slot_name")
 
 
 @pulumi.output_type

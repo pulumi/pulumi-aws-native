@@ -328,8 +328,11 @@ class EndpointKafkaSettingsArgs:
                  broker: Optional[pulumi.Input[str]] = None,
                  include_control_details: Optional[pulumi.Input[bool]] = None,
                  include_null_and_empty: Optional[pulumi.Input[bool]] = None,
+                 include_partition_value: Optional[pulumi.Input[bool]] = None,
                  include_table_alter_operations: Optional[pulumi.Input[bool]] = None,
                  include_transaction_details: Optional[pulumi.Input[bool]] = None,
+                 message_format: Optional[pulumi.Input[str]] = None,
+                 message_max_bytes: Optional[pulumi.Input[int]] = None,
                  no_hex_prefix: Optional[pulumi.Input[bool]] = None,
                  partition_include_schema_table: Optional[pulumi.Input[bool]] = None,
                  sasl_password: Optional[pulumi.Input[str]] = None,
@@ -346,10 +349,16 @@ class EndpointKafkaSettingsArgs:
             pulumi.set(__self__, "include_control_details", include_control_details)
         if include_null_and_empty is not None:
             pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
             pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
             pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        if message_format is not None:
+            pulumi.set(__self__, "message_format", message_format)
+        if message_max_bytes is not None:
+            pulumi.set(__self__, "message_max_bytes", message_max_bytes)
         if no_hex_prefix is not None:
             pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
         if partition_include_schema_table is not None:
@@ -399,6 +408,15 @@ class EndpointKafkaSettingsArgs:
         pulumi.set(self, "include_null_and_empty", value)
 
     @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_partition_value")
+
+    @include_partition_value.setter
+    def include_partition_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_partition_value", value)
+
+    @property
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "include_table_alter_operations")
@@ -415,6 +433,24 @@ class EndpointKafkaSettingsArgs:
     @include_transaction_details.setter
     def include_transaction_details(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "include_transaction_details", value)
+
+    @property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "message_format")
+
+    @message_format.setter
+    def message_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_format", value)
+
+    @property
+    @pulumi.getter(name="messageMaxBytes")
+    def message_max_bytes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "message_max_bytes")
+
+    @message_max_bytes.setter
+    def message_max_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "message_max_bytes", value)
 
     @property
     @pulumi.getter(name="noHexPrefix")
@@ -512,6 +548,7 @@ class EndpointKinesisSettingsArgs:
     def __init__(__self__, *,
                  include_control_details: Optional[pulumi.Input[bool]] = None,
                  include_null_and_empty: Optional[pulumi.Input[bool]] = None,
+                 include_partition_value: Optional[pulumi.Input[bool]] = None,
                  include_table_alter_operations: Optional[pulumi.Input[bool]] = None,
                  include_transaction_details: Optional[pulumi.Input[bool]] = None,
                  message_format: Optional[pulumi.Input[str]] = None,
@@ -523,6 +560,8 @@ class EndpointKinesisSettingsArgs:
             pulumi.set(__self__, "include_control_details", include_control_details)
         if include_null_and_empty is not None:
             pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
             pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
@@ -555,6 +594,15 @@ class EndpointKinesisSettingsArgs:
     @include_null_and_empty.setter
     def include_null_and_empty(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "include_null_and_empty", value)
+
+    @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_partition_value")
+
+    @include_partition_value.setter
+    def include_partition_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_partition_value", value)
 
     @property
     @pulumi.getter(name="includeTableAlterOperations")
@@ -813,12 +861,78 @@ class EndpointMongoDbSettingsArgs:
 @pulumi.input_type
 class EndpointMySqlSettingsArgs:
     def __init__(__self__, *,
+                 after_connect_script: Optional[pulumi.Input[str]] = None,
+                 clean_source_metadata_on_mismatch: Optional[pulumi.Input[bool]] = None,
+                 events_poll_interval: Optional[pulumi.Input[int]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
+                 parallel_load_threads: Optional[pulumi.Input[int]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 server_timezone: Optional[pulumi.Input[str]] = None,
+                 target_db_type: Optional[pulumi.Input[str]] = None):
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if target_db_type is not None:
+            pulumi.set(__self__, "target_db_type", target_db_type)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @clean_source_metadata_on_mismatch.setter
+    def clean_source_metadata_on_mismatch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "clean_source_metadata_on_mismatch", value)
+
+    @property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "events_poll_interval")
+
+    @events_poll_interval.setter
+    def events_poll_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "events_poll_interval", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallel_load_threads")
+
+    @parallel_load_threads.setter
+    def parallel_load_threads(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallel_load_threads", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -837,6 +951,24 @@ class EndpointMySqlSettingsArgs:
     @secrets_manager_secret_id.setter
     def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_timezone")
+
+    @server_timezone.setter
+    def server_timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_timezone", value)
+
+    @property
+    @pulumi.getter(name="targetDbType")
+    def target_db_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target_db_type")
+
+    @target_db_type.setter
+    def target_db_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_db_type", value)
 
 
 @pulumi.input_type
@@ -1356,12 +1488,135 @@ class EndpointOracleSettingsArgs:
 @pulumi.input_type
 class EndpointPostgreSqlSettingsArgs:
     def __init__(__self__, *,
+                 after_connect_script: Optional[pulumi.Input[str]] = None,
+                 capture_ddls: Optional[pulumi.Input[bool]] = None,
+                 ddl_artifacts_schema: Optional[pulumi.Input[str]] = None,
+                 execute_timeout: Optional[pulumi.Input[int]] = None,
+                 fail_tasks_on_lob_truncation: Optional[pulumi.Input[bool]] = None,
+                 heartbeat_enable: Optional[pulumi.Input[bool]] = None,
+                 heartbeat_frequency: Optional[pulumi.Input[int]] = None,
+                 heartbeat_schema: Optional[pulumi.Input[str]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
+                 plugin_name: Optional[pulumi.Input[str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 slot_name: Optional[pulumi.Input[str]] = None):
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if capture_ddls is not None:
+            pulumi.set(__self__, "capture_ddls", capture_ddls)
+        if ddl_artifacts_schema is not None:
+            pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+        if execute_timeout is not None:
+            pulumi.set(__self__, "execute_timeout", execute_timeout)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if heartbeat_enable is not None:
+            pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+        if heartbeat_frequency is not None:
+            pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+        if heartbeat_schema is not None:
+            pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if plugin_name is not None:
+            pulumi.set(__self__, "plugin_name", plugin_name)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @property
+    @pulumi.getter(name="captureDdls")
+    def capture_ddls(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "capture_ddls")
+
+    @capture_ddls.setter
+    def capture_ddls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "capture_ddls", value)
+
+    @property
+    @pulumi.getter(name="ddlArtifactsSchema")
+    def ddl_artifacts_schema(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ddl_artifacts_schema")
+
+    @ddl_artifacts_schema.setter
+    def ddl_artifacts_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddl_artifacts_schema", value)
+
+    @property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "execute_timeout")
+
+    @execute_timeout.setter
+    def execute_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "execute_timeout", value)
+
+    @property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @fail_tasks_on_lob_truncation.setter
+    def fail_tasks_on_lob_truncation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_tasks_on_lob_truncation", value)
+
+    @property
+    @pulumi.getter(name="heartbeatEnable")
+    def heartbeat_enable(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "heartbeat_enable")
+
+    @heartbeat_enable.setter
+    def heartbeat_enable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "heartbeat_enable", value)
+
+    @property
+    @pulumi.getter(name="heartbeatFrequency")
+    def heartbeat_frequency(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "heartbeat_frequency")
+
+    @heartbeat_frequency.setter
+    def heartbeat_frequency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "heartbeat_frequency", value)
+
+    @property
+    @pulumi.getter(name="heartbeatSchema")
+    def heartbeat_schema(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "heartbeat_schema")
+
+    @heartbeat_schema.setter
+    def heartbeat_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "heartbeat_schema", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @property
+    @pulumi.getter(name="pluginName")
+    def plugin_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "plugin_name")
+
+    @plugin_name.setter
+    def plugin_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plugin_name", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -1380,6 +1635,15 @@ class EndpointPostgreSqlSettingsArgs:
     @secrets_manager_secret_id.setter
     def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slot_name")
+
+    @slot_name.setter
+    def slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slot_name", value)
 
 
 @pulumi.input_type

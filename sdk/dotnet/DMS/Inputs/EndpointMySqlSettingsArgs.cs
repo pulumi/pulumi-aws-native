@@ -12,11 +12,32 @@ namespace Pulumi.AwsNative.DMS.Inputs
 
     public sealed class EndpointMySqlSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("afterConnectScript")]
+        public Input<string>? AfterConnectScript { get; set; }
+
+        [Input("cleanSourceMetadataOnMismatch")]
+        public Input<bool>? CleanSourceMetadataOnMismatch { get; set; }
+
+        [Input("eventsPollInterval")]
+        public Input<int>? EventsPollInterval { get; set; }
+
+        [Input("maxFileSize")]
+        public Input<int>? MaxFileSize { get; set; }
+
+        [Input("parallelLoadThreads")]
+        public Input<int>? ParallelLoadThreads { get; set; }
+
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         [Input("secretsManagerSecretId")]
         public Input<string>? SecretsManagerSecretId { get; set; }
+
+        [Input("serverTimezone")]
+        public Input<string>? ServerTimezone { get; set; }
+
+        [Input("targetDbType")]
+        public Input<string>? TargetDbType { get; set; }
 
         public EndpointMySqlSettingsArgs()
         {

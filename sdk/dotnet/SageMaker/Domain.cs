@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Pulumi.AwsNative.SageMaker.DomainAppNetworkAccessType?> AppNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+        /// </summary>
+        [Output("appSecurityGroupManagement")]
+        public Output<Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement?> AppSecurityGroupManagement { get; private set; } = null!;
+
+        /// <summary>
         /// The mode of authentication that members use to access the domain.
         /// </summary>
         [Output("authMode")]
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        [Output("domainSettings")]
+        public Output<Outputs.DomainSettings?> DomainSettings { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
@@ -62,6 +71,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        /// </summary>
+        [Output("securityGroupIdForDomainBoundary")]
+        public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
 
         /// <summary>
         /// The SSO managed application instance ID.
@@ -145,6 +160,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Pulumi.AwsNative.SageMaker.DomainAppNetworkAccessType>? AppNetworkAccessType { get; set; }
 
         /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+        /// </summary>
+        [Input("appSecurityGroupManagement")]
+        public Input<Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement>? AppSecurityGroupManagement { get; set; }
+
+        /// <summary>
         /// The mode of authentication that members use to access the domain.
         /// </summary>
         [Input("authMode", required: true)]
@@ -161,6 +182,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        [Input("domainSettings")]
+        public Input<Inputs.DomainSettingsArgs>? DomainSettings { get; set; }
 
         /// <summary>
         /// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.

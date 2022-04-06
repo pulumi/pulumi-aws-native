@@ -45,6 +45,9 @@ export type AppResourceSpecInstanceType = (typeof AppResourceSpecInstanceType)[k
 export const AppType = {
     JupyterServer: "JupyterServer",
     KernelGateway: "KernelGateway",
+    RStudioServerPro: "RStudioServerPro",
+    RSessionGateway: "RSessionGateway",
+    Canvas: "Canvas",
 } as const;
 
 /**
@@ -92,6 +95,16 @@ export const DomainAppNetworkAccessType = {
  */
 export type DomainAppNetworkAccessType = (typeof DomainAppNetworkAccessType)[keyof typeof DomainAppNetworkAccessType];
 
+export const DomainAppSecurityGroupManagement = {
+    Service: "Service",
+    Customer: "Customer",
+} as const;
+
+/**
+ * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+ */
+export type DomainAppSecurityGroupManagement = (typeof DomainAppSecurityGroupManagement)[keyof typeof DomainAppSecurityGroupManagement];
+
 export const DomainAuthMode = {
     Sso: "SSO",
     Iam: "IAM",
@@ -101,6 +114,26 @@ export const DomainAuthMode = {
  * The mode of authentication that members use to access the domain.
  */
 export type DomainAuthMode = (typeof DomainAuthMode)[keyof typeof DomainAuthMode];
+
+export const DomainRStudioServerProAppSettingsAccessStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the current user has access to the RStudioServerPro app.
+ */
+export type DomainRStudioServerProAppSettingsAccessStatus = (typeof DomainRStudioServerProAppSettingsAccessStatus)[keyof typeof DomainRStudioServerProAppSettingsAccessStatus];
+
+export const DomainRStudioServerProAppSettingsUserGroup = {
+    RStudioAdmin: "R_STUDIO_ADMIN",
+    RStudioUser: "R_STUDIO_USER",
+} as const;
+
+/**
+ * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+ */
+export type DomainRStudioServerProAppSettingsUserGroup = (typeof DomainRStudioServerProAppSettingsUserGroup)[keyof typeof DomainRStudioServerProAppSettingsUserGroup];
 
 export const DomainResourceSpecInstanceType = {
     System: "system",
@@ -358,6 +391,26 @@ export const ProjectStatus = {
  * The status of a project.
  */
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+export const UserProfileRStudioServerProAppSettingsAccessStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the current user has access to the RStudioServerPro app.
+ */
+export type UserProfileRStudioServerProAppSettingsAccessStatus = (typeof UserProfileRStudioServerProAppSettingsAccessStatus)[keyof typeof UserProfileRStudioServerProAppSettingsAccessStatus];
+
+export const UserProfileRStudioServerProAppSettingsUserGroup = {
+    RStudioAdmin: "R_STUDIO_ADMIN",
+    RStudioUser: "R_STUDIO_USER",
+} as const;
+
+/**
+ * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+ */
+export type UserProfileRStudioServerProAppSettingsUserGroup = (typeof UserProfileRStudioServerProAppSettingsUserGroup)[keyof typeof UserProfileRStudioServerProAppSettingsUserGroup];
 
 export const UserProfileResourceSpecInstanceType = {
     System: "system",

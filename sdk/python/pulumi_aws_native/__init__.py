@@ -283,6 +283,8 @@ if typing.TYPE_CHECKING:
     mediapackage = __mediapackage
     import pulumi_aws_native.mediastore as __mediastore
     mediastore = __mediastore
+    import pulumi_aws_native.mediatailor as __mediatailor
+    mediatailor = __mediatailor
     import pulumi_aws_native.memorydb as __memorydb
     memorydb = __memorydb
     import pulumi_aws_native.msk as __msk
@@ -529,6 +531,7 @@ else:
     medialive = _utilities.lazy_import('pulumi_aws_native.medialive')
     mediapackage = _utilities.lazy_import('pulumi_aws_native.mediapackage')
     mediastore = _utilities.lazy_import('pulumi_aws_native.mediastore')
+    mediatailor = _utilities.lazy_import('pulumi_aws_native.mediatailor')
     memorydb = _utilities.lazy_import('pulumi_aws_native.memorydb')
     msk = _utilities.lazy_import('pulumi_aws_native.msk')
     mwaa = _utilities.lazy_import('pulumi_aws_native.mwaa')
@@ -1178,6 +1181,7 @@ _utilities.register(
    "aws-native:datasync:Agent": "Agent",
    "aws-native:datasync:LocationEFS": "LocationEFS",
    "aws-native:datasync:LocationFSxLustre": "LocationFSxLustre",
+   "aws-native:datasync:LocationFSxOpenZFS": "LocationFSxOpenZFS",
    "aws-native:datasync:LocationFSxWindows": "LocationFSxWindows",
    "aws-native:datasync:LocationHDFS": "LocationHDFS",
    "aws-native:datasync:LocationNFS": "LocationNFS",
@@ -2139,6 +2143,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.mediastore",
   "classes": {
    "aws-native:mediastore:Container": "Container"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "mediatailor",
+  "fqn": "pulumi_aws_native.mediatailor",
+  "classes": {
+   "aws-native:mediatailor:PlaybackConfiguration": "PlaybackConfiguration"
   }
  },
  {

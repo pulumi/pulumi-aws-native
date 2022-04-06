@@ -35,6 +35,8 @@ export interface GetServiceResult {
     readonly loadBalancers?: outputs.ecs.ServiceLoadBalancer[];
     readonly name?: string;
     readonly networkConfiguration?: outputs.ecs.ServiceNetworkConfiguration;
+    readonly placementConstraints?: outputs.ecs.ServicePlacementConstraint[];
+    readonly placementStrategies?: outputs.ecs.ServicePlacementStrategy[];
     readonly platformVersion?: string;
     readonly propagateTags?: enums.ecs.ServicePropagateTags;
     readonly serviceArn?: string;

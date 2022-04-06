@@ -21,7 +21,9 @@ class DomainArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
                  app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
+                 app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
@@ -31,6 +33,7 @@ class DomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+        :param pulumi.Input['DomainAppSecurityGroupManagement'] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         :param pulumi.Input[str] domain_name: A name for the domain.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: A list of tags to apply to the user profile.
@@ -41,8 +44,12 @@ class DomainArgs:
         pulumi.set(__self__, "vpc_id", vpc_id)
         if app_network_access_type is not None:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+        if app_security_group_management is not None:
+            pulumi.set(__self__, "app_security_group_management", app_security_group_management)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if domain_settings is not None:
+            pulumi.set(__self__, "domain_settings", domain_settings)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
@@ -109,6 +116,18 @@ class DomainArgs:
         pulumi.set(self, "app_network_access_type", value)
 
     @property
+    @pulumi.getter(name="appSecurityGroupManagement")
+    def app_security_group_management(self) -> Optional[pulumi.Input['DomainAppSecurityGroupManagement']]:
+        """
+        The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+        """
+        return pulumi.get(self, "app_security_group_management")
+
+    @app_security_group_management.setter
+    def app_security_group_management(self, value: Optional[pulumi.Input['DomainAppSecurityGroupManagement']]):
+        pulumi.set(self, "app_security_group_management", value)
+
+    @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -119,6 +138,15 @@ class DomainArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainSettings")
+    def domain_settings(self) -> Optional[pulumi.Input['DomainSettingsArgs']]:
+        return pulumi.get(self, "domain_settings")
+
+    @domain_settings.setter
+    def domain_settings(self, value: Optional[pulumi.Input['DomainSettingsArgs']]):
+        pulumi.set(self, "domain_settings", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -151,9 +179,11 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
+                 app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
                  auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainSettingsArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
@@ -165,6 +195,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+        :param pulumi.Input['DomainAppSecurityGroupManagement'] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         :param pulumi.Input['DomainAuthMode'] auth_mode: The mode of authentication that members use to access the domain.
         :param pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']] default_user_settings: The default user settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
@@ -198,9 +229,11 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
+                 app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
                  auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainSettingsArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
@@ -218,6 +251,7 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["app_network_access_type"] = app_network_access_type
+            __props__.__dict__["app_security_group_management"] = app_security_group_management
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
@@ -225,6 +259,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_user_settings'")
             __props__.__dict__["default_user_settings"] = default_user_settings
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["domain_settings"] = domain_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
@@ -236,6 +271,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_arn"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["home_efs_file_system_id"] = None
+            __props__.__dict__["security_group_id_for_domain_boundary"] = None
             __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
             __props__.__dict__["url"] = None
         super(Domain, __self__).__init__(
@@ -261,13 +297,16 @@ class Domain(pulumi.CustomResource):
         __props__ = DomainArgs.__new__(DomainArgs)
 
         __props__.__dict__["app_network_access_type"] = None
+        __props__.__dict__["app_security_group_management"] = None
         __props__.__dict__["auth_mode"] = None
         __props__.__dict__["default_user_settings"] = None
         __props__.__dict__["domain_arn"] = None
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["domain_settings"] = None
         __props__.__dict__["home_efs_file_system_id"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["security_group_id_for_domain_boundary"] = None
         __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
@@ -282,6 +321,14 @@ class Domain(pulumi.CustomResource):
         Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         """
         return pulumi.get(self, "app_network_access_type")
+
+    @property
+    @pulumi.getter(name="appSecurityGroupManagement")
+    def app_security_group_management(self) -> pulumi.Output[Optional['DomainAppSecurityGroupManagement']]:
+        """
+        The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+        """
+        return pulumi.get(self, "app_security_group_management")
 
     @property
     @pulumi.getter(name="authMode")
@@ -324,6 +371,11 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @property
+    @pulumi.getter(name="domainSettings")
+    def domain_settings(self) -> pulumi.Output[Optional['outputs.DomainSettings']]:
+        return pulumi.get(self, "domain_settings")
+
+    @property
     @pulumi.getter(name="homeEfsFileSystemId")
     def home_efs_file_system_id(self) -> pulumi.Output[str]:
         """
@@ -338,6 +390,14 @@ class Domain(pulumi.CustomResource):
         SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="securityGroupIdForDomainBoundary")
+    def security_group_id_for_domain_boundary(self) -> pulumi.Output[str]:
+        """
+        The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        """
+        return pulumi.get(self, "security_group_id_for_domain_boundary")
 
     @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
