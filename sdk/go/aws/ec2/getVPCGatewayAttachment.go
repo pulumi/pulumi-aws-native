@@ -36,7 +36,11 @@ func LookupVPCGatewayAttachmentOutput(ctx *pulumi.Context, args LookupVPCGateway
 		ApplyT(func(v interface{}) (LookupVPCGatewayAttachmentResult, error) {
 			args := v.(LookupVPCGatewayAttachmentArgs)
 			r, err := LookupVPCGatewayAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCGatewayAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCGatewayAttachmentResultOutput)
 }
 

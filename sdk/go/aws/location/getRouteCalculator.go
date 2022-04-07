@@ -36,7 +36,11 @@ func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculator
 		ApplyT(func(v interface{}) (LookupRouteCalculatorResult, error) {
 			args := v.(LookupRouteCalculatorArgs)
 			r, err := LookupRouteCalculator(ctx, &args, opts...)
-			return *r, err
+			var s LookupRouteCalculatorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRouteCalculatorResultOutput)
 }
 

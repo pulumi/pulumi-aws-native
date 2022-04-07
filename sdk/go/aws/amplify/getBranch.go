@@ -42,7 +42,11 @@ func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupBranchResult, error) {
 			args := v.(LookupBranchArgs)
 			r, err := LookupBranch(ctx, &args, opts...)
-			return *r, err
+			var s LookupBranchResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBranchResultOutput)
 }
 

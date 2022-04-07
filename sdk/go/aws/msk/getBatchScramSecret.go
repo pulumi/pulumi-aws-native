@@ -33,7 +33,11 @@ func LookupBatchScramSecretOutput(ctx *pulumi.Context, args LookupBatchScramSecr
 		ApplyT(func(v interface{}) (LookupBatchScramSecretResult, error) {
 			args := v.(LookupBatchScramSecretArgs)
 			r, err := LookupBatchScramSecret(ctx, &args, opts...)
-			return *r, err
+			var s LookupBatchScramSecretResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBatchScramSecretResultOutput)
 }
 

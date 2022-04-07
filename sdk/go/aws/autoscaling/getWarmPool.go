@@ -36,7 +36,11 @@ func LookupWarmPoolOutput(ctx *pulumi.Context, args LookupWarmPoolOutputArgs, op
 		ApplyT(func(v interface{}) (LookupWarmPoolResult, error) {
 			args := v.(LookupWarmPoolArgs)
 			r, err := LookupWarmPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupWarmPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWarmPoolResultOutput)
 }
 

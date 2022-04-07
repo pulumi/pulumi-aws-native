@@ -35,7 +35,11 @@ func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs
 		ApplyT(func(v interface{}) (LookupNamedQueryResult, error) {
 			args := v.(LookupNamedQueryArgs)
 			r, err := LookupNamedQuery(ctx, &args, opts...)
-			return *r, err
+			var s LookupNamedQueryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNamedQueryResultOutput)
 }
 

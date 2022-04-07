@@ -40,7 +40,11 @@ func LookupModelPackageGroupOutput(ctx *pulumi.Context, args LookupModelPackageG
 		ApplyT(func(v interface{}) (LookupModelPackageGroupResult, error) {
 			args := v.(LookupModelPackageGroupArgs)
 			r, err := LookupModelPackageGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupModelPackageGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupModelPackageGroupResultOutput)
 }
 

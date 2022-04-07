@@ -34,7 +34,11 @@ func LookupSqlInjectionMatchSetOutput(ctx *pulumi.Context, args LookupSqlInjecti
 		ApplyT(func(v interface{}) (LookupSqlInjectionMatchSetResult, error) {
 			args := v.(LookupSqlInjectionMatchSetArgs)
 			r, err := LookupSqlInjectionMatchSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlInjectionMatchSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlInjectionMatchSetResultOutput)
 }
 

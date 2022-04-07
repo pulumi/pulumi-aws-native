@@ -34,7 +34,11 @@ func LookupClusterCapacityProviderAssociationsOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupClusterCapacityProviderAssociationsResult, error) {
 			args := v.(LookupClusterCapacityProviderAssociationsArgs)
 			r, err := LookupClusterCapacityProviderAssociations(ctx, &args, opts...)
-			return *r, err
+			var s LookupClusterCapacityProviderAssociationsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClusterCapacityProviderAssociationsResultOutput)
 }
 

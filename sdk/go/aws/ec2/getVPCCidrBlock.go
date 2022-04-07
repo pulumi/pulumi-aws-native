@@ -33,7 +33,11 @@ func LookupVPCCidrBlockOutput(ctx *pulumi.Context, args LookupVPCCidrBlockOutput
 		ApplyT(func(v interface{}) (LookupVPCCidrBlockResult, error) {
 			args := v.(LookupVPCCidrBlockArgs)
 			r, err := LookupVPCCidrBlock(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCCidrBlockResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCCidrBlockResultOutput)
 }
 

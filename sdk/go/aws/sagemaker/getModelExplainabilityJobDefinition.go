@@ -37,7 +37,11 @@ func LookupModelExplainabilityJobDefinitionOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupModelExplainabilityJobDefinitionResult, error) {
 			args := v.(LookupModelExplainabilityJobDefinitionArgs)
 			r, err := LookupModelExplainabilityJobDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupModelExplainabilityJobDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupModelExplainabilityJobDefinitionResultOutput)
 }
 

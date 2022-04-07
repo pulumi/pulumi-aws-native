@@ -34,7 +34,11 @@ func LookupXssMatchSetOutput(ctx *pulumi.Context, args LookupXssMatchSetOutputAr
 		ApplyT(func(v interface{}) (LookupXssMatchSetResult, error) {
 			args := v.(LookupXssMatchSetArgs)
 			r, err := LookupXssMatchSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupXssMatchSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupXssMatchSetResultOutput)
 }
 

@@ -40,7 +40,11 @@ func LookupDBInstanceOutput(ctx *pulumi.Context, args LookupDBInstanceOutputArgs
 		ApplyT(func(v interface{}) (LookupDBInstanceResult, error) {
 			args := v.(LookupDBInstanceArgs)
 			r, err := LookupDBInstance(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBInstanceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBInstanceResultOutput)
 }
 

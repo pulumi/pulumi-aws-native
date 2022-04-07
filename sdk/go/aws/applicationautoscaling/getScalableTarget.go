@@ -38,7 +38,11 @@ func LookupScalableTargetOutput(ctx *pulumi.Context, args LookupScalableTargetOu
 		ApplyT(func(v interface{}) (LookupScalableTargetResult, error) {
 			args := v.(LookupScalableTargetArgs)
 			r, err := LookupScalableTarget(ctx, &args, opts...)
-			return *r, err
+			var s LookupScalableTargetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScalableTargetResultOutput)
 }
 

@@ -36,7 +36,11 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 		ApplyT(func(v interface{}) (LookupTaskDefinitionResult, error) {
 			args := v.(LookupTaskDefinitionArgs)
 			r, err := LookupTaskDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupTaskDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTaskDefinitionResultOutput)
 }
 

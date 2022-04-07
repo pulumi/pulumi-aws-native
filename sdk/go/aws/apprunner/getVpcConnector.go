@@ -37,7 +37,11 @@ func LookupVpcConnectorOutput(ctx *pulumi.Context, args LookupVpcConnectorOutput
 		ApplyT(func(v interface{}) (LookupVpcConnectorResult, error) {
 			args := v.(LookupVpcConnectorArgs)
 			r, err := LookupVpcConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupVpcConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVpcConnectorResultOutput)
 }
 

@@ -33,7 +33,11 @@ func LookupPortfolioPrincipalAssociationOutput(ctx *pulumi.Context, args LookupP
 		ApplyT(func(v interface{}) (LookupPortfolioPrincipalAssociationResult, error) {
 			args := v.(LookupPortfolioPrincipalAssociationArgs)
 			r, err := LookupPortfolioPrincipalAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupPortfolioPrincipalAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPortfolioPrincipalAssociationResultOutput)
 }
 

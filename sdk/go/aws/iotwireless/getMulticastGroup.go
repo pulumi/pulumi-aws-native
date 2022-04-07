@@ -51,7 +51,11 @@ func LookupMulticastGroupOutput(ctx *pulumi.Context, args LookupMulticastGroupOu
 		ApplyT(func(v interface{}) (LookupMulticastGroupResult, error) {
 			args := v.(LookupMulticastGroupArgs)
 			r, err := LookupMulticastGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupMulticastGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMulticastGroupResultOutput)
 }
 

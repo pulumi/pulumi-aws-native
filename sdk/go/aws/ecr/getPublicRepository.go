@@ -40,7 +40,11 @@ func LookupPublicRepositoryOutput(ctx *pulumi.Context, args LookupPublicReposito
 		ApplyT(func(v interface{}) (LookupPublicRepositoryResult, error) {
 			args := v.(LookupPublicRepositoryArgs)
 			r, err := LookupPublicRepository(ctx, &args, opts...)
-			return *r, err
+			var s LookupPublicRepositoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPublicRepositoryResultOutput)
 }
 

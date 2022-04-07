@@ -36,7 +36,11 @@ func LookupRecipeOutput(ctx *pulumi.Context, args LookupRecipeOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupRecipeResult, error) {
 			args := v.(LookupRecipeArgs)
 			r, err := LookupRecipe(ctx, &args, opts...)
-			return *r, err
+			var s LookupRecipeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRecipeResultOutput)
 }
 

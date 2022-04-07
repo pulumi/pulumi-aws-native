@@ -39,7 +39,11 @@ func LookupResolverDNSSECConfigOutput(ctx *pulumi.Context, args LookupResolverDN
 		ApplyT(func(v interface{}) (LookupResolverDNSSECConfigResult, error) {
 			args := v.(LookupResolverDNSSECConfigArgs)
 			r, err := LookupResolverDNSSECConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupResolverDNSSECConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResolverDNSSECConfigResultOutput)
 }
 

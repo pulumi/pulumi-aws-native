@@ -39,7 +39,11 @@ func LookupDimensionOutput(ctx *pulumi.Context, args LookupDimensionOutputArgs, 
 		ApplyT(func(v interface{}) (LookupDimensionResult, error) {
 			args := v.(LookupDimensionArgs)
 			r, err := LookupDimension(ctx, &args, opts...)
-			return *r, err
+			var s LookupDimensionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDimensionResultOutput)
 }
 

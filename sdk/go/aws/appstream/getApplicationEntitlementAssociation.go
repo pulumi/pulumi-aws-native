@@ -34,7 +34,11 @@ func LookupApplicationEntitlementAssociationOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupApplicationEntitlementAssociationResult, error) {
 			args := v.(LookupApplicationEntitlementAssociationArgs)
 			r, err := LookupApplicationEntitlementAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupApplicationEntitlementAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApplicationEntitlementAssociationResultOutput)
 }
 

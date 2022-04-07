@@ -35,7 +35,11 @@ func LookupVPCEndpointConnectionNotificationOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupVPCEndpointConnectionNotificationResult, error) {
 			args := v.(LookupVPCEndpointConnectionNotificationArgs)
 			r, err := LookupVPCEndpointConnectionNotification(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCEndpointConnectionNotificationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCEndpointConnectionNotificationResultOutput)
 }
 

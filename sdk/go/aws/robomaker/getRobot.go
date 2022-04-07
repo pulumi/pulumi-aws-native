@@ -34,7 +34,11 @@ func LookupRobotOutput(ctx *pulumi.Context, args LookupRobotOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupRobotResult, error) {
 			args := v.(LookupRobotArgs)
 			r, err := LookupRobot(ctx, &args, opts...)
-			return *r, err
+			var s LookupRobotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRobotResultOutput)
 }
 

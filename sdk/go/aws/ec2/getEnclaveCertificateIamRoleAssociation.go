@@ -41,7 +41,11 @@ func LookupEnclaveCertificateIamRoleAssociationOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupEnclaveCertificateIamRoleAssociationResult, error) {
 			args := v.(LookupEnclaveCertificateIamRoleAssociationArgs)
 			r, err := LookupEnclaveCertificateIamRoleAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupEnclaveCertificateIamRoleAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEnclaveCertificateIamRoleAssociationResultOutput)
 }
 

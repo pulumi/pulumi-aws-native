@@ -35,7 +35,11 @@ func LookupGraphQLSchemaOutput(ctx *pulumi.Context, args LookupGraphQLSchemaOutp
 		ApplyT(func(v interface{}) (LookupGraphQLSchemaResult, error) {
 			args := v.(LookupGraphQLSchemaArgs)
 			r, err := LookupGraphQLSchema(ctx, &args, opts...)
-			return *r, err
+			var s LookupGraphQLSchemaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGraphQLSchemaResultOutput)
 }
 

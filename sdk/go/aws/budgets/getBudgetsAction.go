@@ -40,7 +40,11 @@ func LookupBudgetsActionOutput(ctx *pulumi.Context, args LookupBudgetsActionOutp
 		ApplyT(func(v interface{}) (LookupBudgetsActionResult, error) {
 			args := v.(LookupBudgetsActionArgs)
 			r, err := LookupBudgetsAction(ctx, &args, opts...)
-			return *r, err
+			var s LookupBudgetsActionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBudgetsActionResultOutput)
 }
 

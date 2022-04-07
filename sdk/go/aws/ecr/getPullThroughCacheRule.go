@@ -33,7 +33,11 @@ func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroug
 		ApplyT(func(v interface{}) (LookupPullThroughCacheRuleResult, error) {
 			args := v.(LookupPullThroughCacheRuleArgs)
 			r, err := LookupPullThroughCacheRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupPullThroughCacheRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPullThroughCacheRuleResultOutput)
 }
 

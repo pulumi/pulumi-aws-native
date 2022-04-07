@@ -45,7 +45,11 @@ func LookupDBProxyEndpointOutput(ctx *pulumi.Context, args LookupDBProxyEndpoint
 		ApplyT(func(v interface{}) (LookupDBProxyEndpointResult, error) {
 			args := v.(LookupDBProxyEndpointArgs)
 			r, err := LookupDBProxyEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBProxyEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBProxyEndpointResultOutput)
 }
 

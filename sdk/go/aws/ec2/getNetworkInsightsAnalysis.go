@@ -43,7 +43,11 @@ func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetwork
 		ApplyT(func(v interface{}) (LookupNetworkInsightsAnalysisResult, error) {
 			args := v.(LookupNetworkInsightsAnalysisArgs)
 			r, err := LookupNetworkInsightsAnalysis(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkInsightsAnalysisResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkInsightsAnalysisResultOutput)
 }
 

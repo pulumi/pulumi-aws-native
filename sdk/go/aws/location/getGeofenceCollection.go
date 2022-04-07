@@ -37,7 +37,11 @@ func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceColl
 		ApplyT(func(v interface{}) (LookupGeofenceCollectionResult, error) {
 			args := v.(LookupGeofenceCollectionArgs)
 			r, err := LookupGeofenceCollection(ctx, &args, opts...)
-			return *r, err
+			var s LookupGeofenceCollectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGeofenceCollectionResultOutput)
 }
 

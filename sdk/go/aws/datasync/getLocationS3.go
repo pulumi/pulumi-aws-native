@@ -39,7 +39,11 @@ func LookupLocationS3Output(ctx *pulumi.Context, args LookupLocationS3OutputArgs
 		ApplyT(func(v interface{}) (LookupLocationS3Result, error) {
 			args := v.(LookupLocationS3Args)
 			r, err := LookupLocationS3(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationS3Result
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationS3ResultOutput)
 }
 

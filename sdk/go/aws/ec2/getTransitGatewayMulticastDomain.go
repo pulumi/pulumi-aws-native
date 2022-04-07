@@ -45,7 +45,11 @@ func LookupTransitGatewayMulticastDomainOutput(ctx *pulumi.Context, args LookupT
 		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastDomainResult, error) {
 			args := v.(LookupTransitGatewayMulticastDomainArgs)
 			r, err := LookupTransitGatewayMulticastDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayMulticastDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayMulticastDomainResultOutput)
 }
 

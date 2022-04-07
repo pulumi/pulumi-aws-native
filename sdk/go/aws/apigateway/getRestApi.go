@@ -49,7 +49,11 @@ func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupRestApiResult, error) {
 			args := v.(LookupRestApiArgs)
 			r, err := LookupRestApi(ctx, &args, opts...)
-			return *r, err
+			var s LookupRestApiResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRestApiResultOutput)
 }
 

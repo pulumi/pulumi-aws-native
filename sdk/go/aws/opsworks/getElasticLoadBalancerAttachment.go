@@ -35,7 +35,11 @@ func LookupElasticLoadBalancerAttachmentOutput(ctx *pulumi.Context, args LookupE
 		ApplyT(func(v interface{}) (LookupElasticLoadBalancerAttachmentResult, error) {
 			args := v.(LookupElasticLoadBalancerAttachmentArgs)
 			r, err := LookupElasticLoadBalancerAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupElasticLoadBalancerAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupElasticLoadBalancerAttachmentResultOutput)
 }
 

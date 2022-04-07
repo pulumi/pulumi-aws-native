@@ -33,7 +33,11 @@ func LookupTagOptionAssociationOutput(ctx *pulumi.Context, args LookupTagOptionA
 		ApplyT(func(v interface{}) (LookupTagOptionAssociationResult, error) {
 			args := v.(LookupTagOptionAssociationArgs)
 			r, err := LookupTagOptionAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupTagOptionAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTagOptionAssociationResultOutput)
 }
 

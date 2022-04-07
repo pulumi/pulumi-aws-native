@@ -47,7 +47,11 @@ func LookupCompositeAlarmOutput(ctx *pulumi.Context, args LookupCompositeAlarmOu
 		ApplyT(func(v interface{}) (LookupCompositeAlarmResult, error) {
 			args := v.(LookupCompositeAlarmArgs)
 			r, err := LookupCompositeAlarm(ctx, &args, opts...)
-			return *r, err
+			var s LookupCompositeAlarmResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCompositeAlarmResultOutput)
 }
 

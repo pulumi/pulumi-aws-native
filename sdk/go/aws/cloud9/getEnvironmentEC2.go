@@ -37,7 +37,11 @@ func LookupEnvironmentEC2Output(ctx *pulumi.Context, args LookupEnvironmentEC2Ou
 		ApplyT(func(v interface{}) (LookupEnvironmentEC2Result, error) {
 			args := v.(LookupEnvironmentEC2Args)
 			r, err := LookupEnvironmentEC2(ctx, &args, opts...)
-			return *r, err
+			var s LookupEnvironmentEC2Result
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEnvironmentEC2ResultOutput)
 }
 

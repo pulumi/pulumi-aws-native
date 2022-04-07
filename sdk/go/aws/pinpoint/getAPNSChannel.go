@@ -41,7 +41,11 @@ func LookupAPNSChannelOutput(ctx *pulumi.Context, args LookupAPNSChannelOutputAr
 		ApplyT(func(v interface{}) (LookupAPNSChannelResult, error) {
 			args := v.(LookupAPNSChannelArgs)
 			r, err := LookupAPNSChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupAPNSChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAPNSChannelResultOutput)
 }
 

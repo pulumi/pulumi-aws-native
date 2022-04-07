@@ -39,7 +39,11 @@ func LookupAttributeGroupAssociationOutput(ctx *pulumi.Context, args LookupAttri
 		ApplyT(func(v interface{}) (LookupAttributeGroupAssociationResult, error) {
 			args := v.(LookupAttributeGroupAssociationArgs)
 			r, err := LookupAttributeGroupAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupAttributeGroupAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAttributeGroupAssociationResultOutput)
 }
 

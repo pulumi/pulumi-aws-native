@@ -34,7 +34,11 @@ func LookupVPCEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupV
 		ApplyT(func(v interface{}) (LookupVPCEndpointServicePermissionsResult, error) {
 			args := v.(LookupVPCEndpointServicePermissionsArgs)
 			r, err := LookupVPCEndpointServicePermissions(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCEndpointServicePermissionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCEndpointServicePermissionsResultOutput)
 }
 

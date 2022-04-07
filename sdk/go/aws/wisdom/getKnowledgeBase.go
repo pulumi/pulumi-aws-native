@@ -35,7 +35,11 @@ func LookupKnowledgeBaseOutput(ctx *pulumi.Context, args LookupKnowledgeBaseOutp
 		ApplyT(func(v interface{}) (LookupKnowledgeBaseResult, error) {
 			args := v.(LookupKnowledgeBaseArgs)
 			r, err := LookupKnowledgeBase(ctx, &args, opts...)
-			return *r, err
+			var s LookupKnowledgeBaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKnowledgeBaseResultOutput)
 }
 

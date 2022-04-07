@@ -38,7 +38,11 @@ func LookupEntitlementOutput(ctx *pulumi.Context, args LookupEntitlementOutputAr
 		ApplyT(func(v interface{}) (LookupEntitlementResult, error) {
 			args := v.(LookupEntitlementArgs)
 			r, err := LookupEntitlement(ctx, &args, opts...)
-			return *r, err
+			var s LookupEntitlementResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEntitlementResultOutput)
 }
 

@@ -37,7 +37,11 @@ func LookupGatewayRouteTableAssociationOutput(ctx *pulumi.Context, args LookupGa
 		ApplyT(func(v interface{}) (LookupGatewayRouteTableAssociationResult, error) {
 			args := v.(LookupGatewayRouteTableAssociationArgs)
 			r, err := LookupGatewayRouteTableAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupGatewayRouteTableAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGatewayRouteTableAssociationResultOutput)
 }
 

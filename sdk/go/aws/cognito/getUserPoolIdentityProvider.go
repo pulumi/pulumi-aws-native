@@ -36,7 +36,11 @@ func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPo
 		ApplyT(func(v interface{}) (LookupUserPoolIdentityProviderResult, error) {
 			args := v.(LookupUserPoolIdentityProviderArgs)
 			r, err := LookupUserPoolIdentityProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserPoolIdentityProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserPoolIdentityProviderResultOutput)
 }
 

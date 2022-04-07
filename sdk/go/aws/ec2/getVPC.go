@@ -57,7 +57,11 @@ func LookupVPCOutput(ctx *pulumi.Context, args LookupVPCOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupVPCResult, error) {
 			args := v.(LookupVPCArgs)
 			r, err := LookupVPC(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCResultOutput)
 }
 

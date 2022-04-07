@@ -33,7 +33,11 @@ func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutput
 		ApplyT(func(v interface{}) (LookupLayerVersionResult, error) {
 			args := v.(LookupLayerVersionArgs)
 			r, err := LookupLayerVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupLayerVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLayerVersionResultOutput)
 }
 

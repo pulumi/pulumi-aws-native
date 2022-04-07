@@ -41,7 +41,11 @@ func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistr
 		ApplyT(func(v interface{}) (LookupDistributionConfigurationResult, error) {
 			args := v.(LookupDistributionConfigurationArgs)
 			r, err := LookupDistributionConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDistributionConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDistributionConfigurationResultOutput)
 }
 

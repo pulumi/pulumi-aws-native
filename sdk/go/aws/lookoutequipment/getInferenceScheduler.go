@@ -47,7 +47,11 @@ func LookupInferenceSchedulerOutput(ctx *pulumi.Context, args LookupInferenceSch
 		ApplyT(func(v interface{}) (LookupInferenceSchedulerResult, error) {
 			args := v.(LookupInferenceSchedulerArgs)
 			r, err := LookupInferenceScheduler(ctx, &args, opts...)
-			return *r, err
+			var s LookupInferenceSchedulerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInferenceSchedulerResultOutput)
 }
 

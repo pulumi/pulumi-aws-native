@@ -37,7 +37,11 @@ func LookupDiscovererOutput(ctx *pulumi.Context, args LookupDiscovererOutputArgs
 		ApplyT(func(v interface{}) (LookupDiscovererResult, error) {
 			args := v.(LookupDiscovererArgs)
 			r, err := LookupDiscoverer(ctx, &args, opts...)
-			return *r, err
+			var s LookupDiscovererResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDiscovererResultOutput)
 }
 

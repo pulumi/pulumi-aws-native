@@ -33,7 +33,11 @@ func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfi
 		ApplyT(func(v interface{}) (LookupLaunchConfigurationResult, error) {
 			args := v.(LookupLaunchConfigurationArgs)
 			r, err := LookupLaunchConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupLaunchConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLaunchConfigurationResultOutput)
 }
 

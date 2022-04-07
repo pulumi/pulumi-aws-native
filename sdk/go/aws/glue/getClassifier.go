@@ -37,7 +37,11 @@ func LookupClassifierOutput(ctx *pulumi.Context, args LookupClassifierOutputArgs
 		ApplyT(func(v interface{}) (LookupClassifierResult, error) {
 			args := v.(LookupClassifierArgs)
 			r, err := LookupClassifier(ctx, &args, opts...)
-			return *r, err
+			var s LookupClassifierResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClassifierResultOutput)
 }
 

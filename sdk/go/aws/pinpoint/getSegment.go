@@ -38,7 +38,11 @@ func LookupSegmentOutput(ctx *pulumi.Context, args LookupSegmentOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupSegmentResult, error) {
 			args := v.(LookupSegmentArgs)
 			r, err := LookupSegment(ctx, &args, opts...)
-			return *r, err
+			var s LookupSegmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSegmentResultOutput)
 }
 

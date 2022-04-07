@@ -34,7 +34,11 @@ func LookupByteMatchSetOutput(ctx *pulumi.Context, args LookupByteMatchSetOutput
 		ApplyT(func(v interface{}) (LookupByteMatchSetResult, error) {
 			args := v.(LookupByteMatchSetArgs)
 			r, err := LookupByteMatchSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupByteMatchSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupByteMatchSetResultOutput)
 }
 

@@ -34,7 +34,11 @@ func LookupAnomalyDetectorOutput(ctx *pulumi.Context, args LookupAnomalyDetector
 		ApplyT(func(v interface{}) (LookupAnomalyDetectorResult, error) {
 			args := v.(LookupAnomalyDetectorArgs)
 			r, err := LookupAnomalyDetector(ctx, &args, opts...)
-			return *r, err
+			var s LookupAnomalyDetectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAnomalyDetectorResultOutput)
 }
 

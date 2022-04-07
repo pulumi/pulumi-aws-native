@@ -37,7 +37,11 @@ func LookupWorkteamOutput(ctx *pulumi.Context, args LookupWorkteamOutputArgs, op
 		ApplyT(func(v interface{}) (LookupWorkteamResult, error) {
 			args := v.(LookupWorkteamArgs)
 			r, err := LookupWorkteam(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkteamResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkteamResultOutput)
 }
 

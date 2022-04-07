@@ -49,7 +49,11 @@ func LookupFindingsFilterOutput(ctx *pulumi.Context, args LookupFindingsFilterOu
 		ApplyT(func(v interface{}) (LookupFindingsFilterResult, error) {
 			args := v.(LookupFindingsFilterArgs)
 			r, err := LookupFindingsFilter(ctx, &args, opts...)
-			return *r, err
+			var s LookupFindingsFilterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFindingsFilterResultOutput)
 }
 

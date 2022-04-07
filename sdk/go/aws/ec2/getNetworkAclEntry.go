@@ -45,7 +45,11 @@ func LookupNetworkAclEntryOutput(ctx *pulumi.Context, args LookupNetworkAclEntry
 		ApplyT(func(v interface{}) (LookupNetworkAclEntryResult, error) {
 			args := v.(LookupNetworkAclEntryArgs)
 			r, err := LookupNetworkAclEntry(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkAclEntryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkAclEntryResultOutput)
 }
 

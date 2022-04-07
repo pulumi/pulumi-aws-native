@@ -33,7 +33,11 @@ func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingCon
 		ApplyT(func(v interface{}) (LookupLoggingConfigurationResult, error) {
 			args := v.(LookupLoggingConfigurationArgs)
 			r, err := LookupLoggingConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupLoggingConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLoggingConfigurationResultOutput)
 }
 

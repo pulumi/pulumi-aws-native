@@ -35,7 +35,11 @@ func LookupCodeRepositoryOutput(ctx *pulumi.Context, args LookupCodeRepositoryOu
 		ApplyT(func(v interface{}) (LookupCodeRepositoryResult, error) {
 			args := v.(LookupCodeRepositoryArgs)
 			r, err := LookupCodeRepository(ctx, &args, opts...)
-			return *r, err
+			var s LookupCodeRepositoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCodeRepositoryResultOutput)
 }
 

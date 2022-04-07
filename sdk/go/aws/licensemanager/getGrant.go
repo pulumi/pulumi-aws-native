@@ -44,7 +44,11 @@ func LookupGrantOutput(ctx *pulumi.Context, args LookupGrantOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupGrantResult, error) {
 			args := v.(LookupGrantArgs)
 			r, err := LookupGrant(ctx, &args, opts...)
-			return *r, err
+			var s LookupGrantResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGrantResultOutput)
 }
 

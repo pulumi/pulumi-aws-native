@@ -39,7 +39,11 @@ func LookupLocationEFSOutput(ctx *pulumi.Context, args LookupLocationEFSOutputAr
 		ApplyT(func(v interface{}) (LookupLocationEFSResult, error) {
 			args := v.(LookupLocationEFSArgs)
 			r, err := LookupLocationEFS(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationEFSResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationEFSResultOutput)
 }
 

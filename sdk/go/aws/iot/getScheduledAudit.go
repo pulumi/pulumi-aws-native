@@ -45,7 +45,11 @@ func LookupScheduledAuditOutput(ctx *pulumi.Context, args LookupScheduledAuditOu
 		ApplyT(func(v interface{}) (LookupScheduledAuditResult, error) {
 			args := v.(LookupScheduledAuditArgs)
 			r, err := LookupScheduledAudit(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduledAuditResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduledAuditResultOutput)
 }
 

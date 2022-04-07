@@ -41,7 +41,11 @@ func LookupCellOutput(ctx *pulumi.Context, args LookupCellOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupCellResult, error) {
 			args := v.(LookupCellArgs)
 			r, err := LookupCell(ctx, &args, opts...)
-			return *r, err
+			var s LookupCellResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCellResultOutput)
 }
 

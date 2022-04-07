@@ -32,7 +32,11 @@ func GetAzsOutput(ctx *pulumi.Context, args GetAzsOutputArgs, opts ...pulumi.Inv
 		ApplyT(func(v interface{}) (GetAzsResult, error) {
 			args := v.(GetAzsArgs)
 			r, err := GetAzs(ctx, &args, opts...)
-			return *r, err
+			var s GetAzsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAzsResultOutput)
 }
 

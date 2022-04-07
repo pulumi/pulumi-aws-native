@@ -33,7 +33,11 @@ func LookupHostedConfigurationVersionOutput(ctx *pulumi.Context, args LookupHost
 		ApplyT(func(v interface{}) (LookupHostedConfigurationVersionResult, error) {
 			args := v.(LookupHostedConfigurationVersionArgs)
 			r, err := LookupHostedConfigurationVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupHostedConfigurationVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHostedConfigurationVersionResultOutput)
 }
 

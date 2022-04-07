@@ -33,7 +33,11 @@ func LookupSubnetNetworkAclAssociationOutput(ctx *pulumi.Context, args LookupSub
 		ApplyT(func(v interface{}) (LookupSubnetNetworkAclAssociationResult, error) {
 			args := v.(LookupSubnetNetworkAclAssociationArgs)
 			r, err := LookupSubnetNetworkAclAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubnetNetworkAclAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubnetNetworkAclAssociationResultOutput)
 }
 

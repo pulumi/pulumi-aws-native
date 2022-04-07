@@ -36,7 +36,11 @@ func LookupMicrosoftADOutput(ctx *pulumi.Context, args LookupMicrosoftADOutputAr
 		ApplyT(func(v interface{}) (LookupMicrosoftADResult, error) {
 			args := v.(LookupMicrosoftADArgs)
 			r, err := LookupMicrosoftAD(ctx, &args, opts...)
-			return *r, err
+			var s LookupMicrosoftADResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMicrosoftADResultOutput)
 }
 

@@ -33,7 +33,11 @@ func LookupThingPrincipalAttachmentOutput(ctx *pulumi.Context, args LookupThingP
 		ApplyT(func(v interface{}) (LookupThingPrincipalAttachmentResult, error) {
 			args := v.(LookupThingPrincipalAttachmentArgs)
 			r, err := LookupThingPrincipalAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupThingPrincipalAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupThingPrincipalAttachmentResultOutput)
 }
 

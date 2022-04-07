@@ -37,7 +37,11 @@ func LookupAggregationAuthorizationOutput(ctx *pulumi.Context, args LookupAggreg
 		ApplyT(func(v interface{}) (LookupAggregationAuthorizationResult, error) {
 			args := v.(LookupAggregationAuthorizationArgs)
 			r, err := LookupAggregationAuthorization(ctx, &args, opts...)
-			return *r, err
+			var s LookupAggregationAuthorizationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAggregationAuthorizationResultOutput)
 }
 

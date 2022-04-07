@@ -33,7 +33,11 @@ func LookupTransitGatewayRouteTableAssociationOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupTransitGatewayRouteTableAssociationResult, error) {
 			args := v.(LookupTransitGatewayRouteTableAssociationArgs)
 			r, err := LookupTransitGatewayRouteTableAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayRouteTableAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayRouteTableAssociationResultOutput)
 }
 

@@ -48,7 +48,11 @@ func LookupMatchmakingConfigurationOutput(ctx *pulumi.Context, args LookupMatchm
 		ApplyT(func(v interface{}) (LookupMatchmakingConfigurationResult, error) {
 			args := v.(LookupMatchmakingConfigurationArgs)
 			r, err := LookupMatchmakingConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupMatchmakingConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMatchmakingConfigurationResultOutput)
 }
 

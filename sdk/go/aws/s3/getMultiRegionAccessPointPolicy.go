@@ -37,7 +37,11 @@ func LookupMultiRegionAccessPointPolicyOutput(ctx *pulumi.Context, args LookupMu
 		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointPolicyResult, error) {
 			args := v.(LookupMultiRegionAccessPointPolicyArgs)
 			r, err := LookupMultiRegionAccessPointPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupMultiRegionAccessPointPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMultiRegionAccessPointPolicyResultOutput)
 }
 

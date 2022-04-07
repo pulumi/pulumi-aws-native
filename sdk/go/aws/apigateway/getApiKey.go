@@ -45,7 +45,11 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupApiKeyResult, error) {
 			args := v.(LookupApiKeyArgs)
 			r, err := LookupApiKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiKeyResultOutput)
 }
 

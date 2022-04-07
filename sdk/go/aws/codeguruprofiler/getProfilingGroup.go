@@ -41,7 +41,11 @@ func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOu
 		ApplyT(func(v interface{}) (LookupProfilingGroupResult, error) {
 			args := v.(LookupProfilingGroupArgs)
 			r, err := LookupProfilingGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupProfilingGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProfilingGroupResultOutput)
 }
 

@@ -49,7 +49,11 @@ func LookupPricingRuleOutput(ctx *pulumi.Context, args LookupPricingRuleOutputAr
 		ApplyT(func(v interface{}) (LookupPricingRuleResult, error) {
 			args := v.(LookupPricingRuleArgs)
 			r, err := LookupPricingRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupPricingRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPricingRuleResultOutput)
 }
 

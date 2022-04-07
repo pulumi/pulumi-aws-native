@@ -37,7 +37,11 @@ func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutput
 		ApplyT(func(v interface{}) (LookupListenerRuleResult, error) {
 			args := v.(LookupListenerRuleArgs)
 			r, err := LookupListenerRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupListenerRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupListenerRuleResultOutput)
 }
 

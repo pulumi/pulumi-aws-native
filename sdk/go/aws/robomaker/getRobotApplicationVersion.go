@@ -34,7 +34,11 @@ func LookupRobotApplicationVersionOutput(ctx *pulumi.Context, args LookupRobotAp
 		ApplyT(func(v interface{}) (LookupRobotApplicationVersionResult, error) {
 			args := v.(LookupRobotApplicationVersionArgs)
 			r, err := LookupRobotApplicationVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupRobotApplicationVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRobotApplicationVersionResultOutput)
 }
 

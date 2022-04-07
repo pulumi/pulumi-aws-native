@@ -34,7 +34,11 @@ func LookupAssistantOutput(ctx *pulumi.Context, args LookupAssistantOutputArgs, 
 		ApplyT(func(v interface{}) (LookupAssistantResult, error) {
 			args := v.(LookupAssistantArgs)
 			r, err := LookupAssistant(ctx, &args, opts...)
-			return *r, err
+			var s LookupAssistantResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAssistantResultOutput)
 }
 

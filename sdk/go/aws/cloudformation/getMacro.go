@@ -37,7 +37,11 @@ func LookupMacroOutput(ctx *pulumi.Context, args LookupMacroOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupMacroResult, error) {
 			args := v.(LookupMacroArgs)
 			r, err := LookupMacro(ctx, &args, opts...)
-			return *r, err
+			var s LookupMacroResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMacroResultOutput)
 }
 

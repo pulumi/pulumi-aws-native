@@ -42,7 +42,11 @@ func LookupSuiteDefinitionOutput(ctx *pulumi.Context, args LookupSuiteDefinition
 		ApplyT(func(v interface{}) (LookupSuiteDefinitionResult, error) {
 			args := v.(LookupSuiteDefinitionArgs)
 			r, err := LookupSuiteDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupSuiteDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSuiteDefinitionResultOutput)
 }
 

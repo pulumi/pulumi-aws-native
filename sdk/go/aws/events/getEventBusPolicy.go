@@ -37,7 +37,11 @@ func LookupEventBusPolicyOutput(ctx *pulumi.Context, args LookupEventBusPolicyOu
 		ApplyT(func(v interface{}) (LookupEventBusPolicyResult, error) {
 			args := v.(LookupEventBusPolicyArgs)
 			r, err := LookupEventBusPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventBusPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventBusPolicyResultOutput)
 }
 

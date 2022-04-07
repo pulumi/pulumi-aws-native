@@ -36,7 +36,11 @@ func LookupSMSChannelOutput(ctx *pulumi.Context, args LookupSMSChannelOutputArgs
 		ApplyT(func(v interface{}) (LookupSMSChannelResult, error) {
 			args := v.(LookupSMSChannelArgs)
 			r, err := LookupSMSChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupSMSChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSMSChannelResultOutput)
 }
 

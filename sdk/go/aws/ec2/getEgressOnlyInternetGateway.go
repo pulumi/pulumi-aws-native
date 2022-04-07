@@ -35,7 +35,11 @@ func LookupEgressOnlyInternetGatewayOutput(ctx *pulumi.Context, args LookupEgres
 		ApplyT(func(v interface{}) (LookupEgressOnlyInternetGatewayResult, error) {
 			args := v.(LookupEgressOnlyInternetGatewayArgs)
 			r, err := LookupEgressOnlyInternetGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupEgressOnlyInternetGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEgressOnlyInternetGatewayResultOutput)
 }
 

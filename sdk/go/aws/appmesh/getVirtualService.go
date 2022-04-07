@@ -38,7 +38,11 @@ func LookupVirtualServiceOutput(ctx *pulumi.Context, args LookupVirtualServiceOu
 		ApplyT(func(v interface{}) (LookupVirtualServiceResult, error) {
 			args := v.(LookupVirtualServiceArgs)
 			r, err := LookupVirtualService(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualServiceResultOutput)
 }
 

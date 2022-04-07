@@ -35,7 +35,11 @@ func LookupResolverRuleAssociationOutput(ctx *pulumi.Context, args LookupResolve
 		ApplyT(func(v interface{}) (LookupResolverRuleAssociationResult, error) {
 			args := v.(LookupResolverRuleAssociationArgs)
 			r, err := LookupResolverRuleAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupResolverRuleAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResolverRuleAssociationResultOutput)
 }
 

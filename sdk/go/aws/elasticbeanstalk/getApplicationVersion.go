@@ -34,7 +34,11 @@ func LookupApplicationVersionOutput(ctx *pulumi.Context, args LookupApplicationV
 		ApplyT(func(v interface{}) (LookupApplicationVersionResult, error) {
 			args := v.(LookupApplicationVersionArgs)
 			r, err := LookupApplicationVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupApplicationVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApplicationVersionResultOutput)
 }
 

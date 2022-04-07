@@ -39,7 +39,11 @@ func LookupLocationFSxOpenZFSOutput(ctx *pulumi.Context, args LookupLocationFSxO
 		ApplyT(func(v interface{}) (LookupLocationFSxOpenZFSResult, error) {
 			args := v.(LookupLocationFSxOpenZFSArgs)
 			r, err := LookupLocationFSxOpenZFS(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationFSxOpenZFSResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationFSxOpenZFSResultOutput)
 }
 

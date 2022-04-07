@@ -34,7 +34,11 @@ func LookupConfigurationSetEventDestinationOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupConfigurationSetEventDestinationResult, error) {
 			args := v.(LookupConfigurationSetEventDestinationArgs)
 			r, err := LookupConfigurationSetEventDestination(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationSetEventDestinationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationSetEventDestinationResultOutput)
 }
 

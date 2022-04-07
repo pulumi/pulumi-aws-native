@@ -61,7 +61,11 @@ func LookupTrailOutput(ctx *pulumi.Context, args LookupTrailOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupTrailResult, error) {
 			args := v.(LookupTrailArgs)
 			r, err := LookupTrail(ctx, &args, opts...)
-			return *r, err
+			var s LookupTrailResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTrailResultOutput)
 }
 

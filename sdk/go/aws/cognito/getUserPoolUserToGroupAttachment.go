@@ -33,7 +33,11 @@ func LookupUserPoolUserToGroupAttachmentOutput(ctx *pulumi.Context, args LookupU
 		ApplyT(func(v interface{}) (LookupUserPoolUserToGroupAttachmentResult, error) {
 			args := v.(LookupUserPoolUserToGroupAttachmentArgs)
 			r, err := LookupUserPoolUserToGroupAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserPoolUserToGroupAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserPoolUserToGroupAttachmentResultOutput)
 }
 

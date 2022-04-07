@@ -33,7 +33,11 @@ func LookupReceiptFilterOutput(ctx *pulumi.Context, args LookupReceiptFilterOutp
 		ApplyT(func(v interface{}) (LookupReceiptFilterResult, error) {
 			args := v.(LookupReceiptFilterArgs)
 			r, err := LookupReceiptFilter(ctx, &args, opts...)
-			return *r, err
+			var s LookupReceiptFilterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReceiptFilterResultOutput)
 }
 

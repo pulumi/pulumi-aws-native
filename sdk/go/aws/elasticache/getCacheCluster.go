@@ -53,7 +53,11 @@ func LookupCacheClusterOutput(ctx *pulumi.Context, args LookupCacheClusterOutput
 		ApplyT(func(v interface{}) (LookupCacheClusterResult, error) {
 			args := v.(LookupCacheClusterArgs)
 			r, err := LookupCacheCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupCacheClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCacheClusterResultOutput)
 }
 

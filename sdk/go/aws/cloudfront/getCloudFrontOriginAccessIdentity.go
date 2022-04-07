@@ -35,7 +35,11 @@ func LookupCloudFrontOriginAccessIdentityOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupCloudFrontOriginAccessIdentityResult, error) {
 			args := v.(LookupCloudFrontOriginAccessIdentityArgs)
 			r, err := LookupCloudFrontOriginAccessIdentity(ctx, &args, opts...)
-			return *r, err
+			var s LookupCloudFrontOriginAccessIdentityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCloudFrontOriginAccessIdentityResultOutput)
 }
 

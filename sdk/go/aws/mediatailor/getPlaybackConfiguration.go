@@ -61,7 +61,11 @@ func LookupPlaybackConfigurationOutput(ctx *pulumi.Context, args LookupPlaybackC
 		ApplyT(func(v interface{}) (LookupPlaybackConfigurationResult, error) {
 			args := v.(LookupPlaybackConfigurationArgs)
 			r, err := LookupPlaybackConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupPlaybackConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPlaybackConfigurationResultOutput)
 }
 

@@ -47,7 +47,11 @@ func LookupImageBuilderOutput(ctx *pulumi.Context, args LookupImageBuilderOutput
 		ApplyT(func(v interface{}) (LookupImageBuilderResult, error) {
 			args := v.(LookupImageBuilderArgs)
 			r, err := LookupImageBuilder(ctx, &args, opts...)
-			return *r, err
+			var s LookupImageBuilderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupImageBuilderResultOutput)
 }
 

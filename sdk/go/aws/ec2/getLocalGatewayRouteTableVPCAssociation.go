@@ -41,7 +41,11 @@ func LookupLocalGatewayRouteTableVPCAssociationOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupLocalGatewayRouteTableVPCAssociationResult, error) {
 			args := v.(LookupLocalGatewayRouteTableVPCAssociationArgs)
 			r, err := LookupLocalGatewayRouteTableVPCAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocalGatewayRouteTableVPCAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocalGatewayRouteTableVPCAssociationResultOutput)
 }
 

@@ -34,7 +34,11 @@ func LookupUserPoolUICustomizationAttachmentOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupUserPoolUICustomizationAttachmentResult, error) {
 			args := v.(LookupUserPoolUICustomizationAttachmentArgs)
 			r, err := LookupUserPoolUICustomizationAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserPoolUICustomizationAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserPoolUICustomizationAttachmentResultOutput)
 }
 

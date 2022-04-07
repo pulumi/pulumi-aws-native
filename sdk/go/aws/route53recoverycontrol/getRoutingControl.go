@@ -39,7 +39,11 @@ func LookupRoutingControlOutput(ctx *pulumi.Context, args LookupRoutingControlOu
 		ApplyT(func(v interface{}) (LookupRoutingControlResult, error) {
 			args := v.(LookupRoutingControlArgs)
 			r, err := LookupRoutingControl(ctx, &args, opts...)
-			return *r, err
+			var s LookupRoutingControlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRoutingControlResultOutput)
 }
 

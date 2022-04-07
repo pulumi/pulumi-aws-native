@@ -41,7 +41,11 @@ func LookupQueryDefinitionOutput(ctx *pulumi.Context, args LookupQueryDefinition
 		ApplyT(func(v interface{}) (LookupQueryDefinitionResult, error) {
 			args := v.(LookupQueryDefinitionArgs)
 			r, err := LookupQueryDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupQueryDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupQueryDefinitionResultOutput)
 }
 

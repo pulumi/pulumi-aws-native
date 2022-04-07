@@ -38,7 +38,11 @@ func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOu
 		ApplyT(func(v interface{}) (LookupReplicationSetResult, error) {
 			args := v.(LookupReplicationSetArgs)
 			r, err := LookupReplicationSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationSetResultOutput)
 }
 

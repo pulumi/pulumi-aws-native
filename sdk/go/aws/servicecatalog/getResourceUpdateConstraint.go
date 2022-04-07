@@ -36,7 +36,11 @@ func LookupResourceUpdateConstraintOutput(ctx *pulumi.Context, args LookupResour
 		ApplyT(func(v interface{}) (LookupResourceUpdateConstraintResult, error) {
 			args := v.(LookupResourceUpdateConstraintArgs)
 			r, err := LookupResourceUpdateConstraint(ctx, &args, opts...)
-			return *r, err
+			var s LookupResourceUpdateConstraintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResourceUpdateConstraintResultOutput)
 }
 

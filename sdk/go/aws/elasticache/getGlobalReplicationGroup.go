@@ -41,7 +41,11 @@ func LookupGlobalReplicationGroupOutput(ctx *pulumi.Context, args LookupGlobalRe
 		ApplyT(func(v interface{}) (LookupGlobalReplicationGroupResult, error) {
 			args := v.(LookupGlobalReplicationGroupArgs)
 			r, err := LookupGlobalReplicationGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalReplicationGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalReplicationGroupResultOutput)
 }
 

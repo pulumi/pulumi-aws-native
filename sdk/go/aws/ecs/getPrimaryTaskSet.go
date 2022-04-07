@@ -37,7 +37,11 @@ func LookupPrimaryTaskSetOutput(ctx *pulumi.Context, args LookupPrimaryTaskSetOu
 		ApplyT(func(v interface{}) (LookupPrimaryTaskSetResult, error) {
 			args := v.(LookupPrimaryTaskSetArgs)
 			r, err := LookupPrimaryTaskSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrimaryTaskSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrimaryTaskSetResultOutput)
 }
 

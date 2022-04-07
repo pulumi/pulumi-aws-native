@@ -34,7 +34,11 @@ func LookupPlacementOutput(ctx *pulumi.Context, args LookupPlacementOutputArgs, 
 		ApplyT(func(v interface{}) (LookupPlacementResult, error) {
 			args := v.(LookupPlacementArgs)
 			r, err := LookupPlacement(ctx, &args, opts...)
-			return *r, err
+			var s LookupPlacementResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPlacementResultOutput)
 }
 

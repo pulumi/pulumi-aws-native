@@ -48,7 +48,11 @@ func LookupIPAMOutput(ctx *pulumi.Context, args LookupIPAMOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupIPAMResult, error) {
 			args := v.(LookupIPAMArgs)
 			r, err := LookupIPAM(ctx, &args, opts...)
-			return *r, err
+			var s LookupIPAMResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIPAMResultOutput)
 }
 

@@ -49,7 +49,11 @@ func LookupContactFlowModuleOutput(ctx *pulumi.Context, args LookupContactFlowMo
 		ApplyT(func(v interface{}) (LookupContactFlowModuleResult, error) {
 			args := v.(LookupContactFlowModuleArgs)
 			r, err := LookupContactFlowModule(ctx, &args, opts...)
-			return *r, err
+			var s LookupContactFlowModuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContactFlowModuleResultOutput)
 }
 

@@ -42,7 +42,11 @@ func LookupHostedZoneOutput(ctx *pulumi.Context, args LookupHostedZoneOutputArgs
 		ApplyT(func(v interface{}) (LookupHostedZoneResult, error) {
 			args := v.(LookupHostedZoneArgs)
 			r, err := LookupHostedZone(ctx, &args, opts...)
-			return *r, err
+			var s LookupHostedZoneResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHostedZoneResultOutput)
 }
 

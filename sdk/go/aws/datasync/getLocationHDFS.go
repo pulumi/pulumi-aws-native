@@ -56,7 +56,11 @@ func LookupLocationHDFSOutput(ctx *pulumi.Context, args LookupLocationHDFSOutput
 		ApplyT(func(v interface{}) (LookupLocationHDFSResult, error) {
 			args := v.(LookupLocationHDFSArgs)
 			r, err := LookupLocationHDFS(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationHDFSResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationHDFSResultOutput)
 }
 

@@ -37,7 +37,11 @@ func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGateway
 		ApplyT(func(v interface{}) (LookupInternetGatewayResult, error) {
 			args := v.(LookupInternetGatewayArgs)
 			r, err := LookupInternetGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupInternetGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInternetGatewayResultOutput)
 }
 

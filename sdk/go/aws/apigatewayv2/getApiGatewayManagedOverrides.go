@@ -36,7 +36,11 @@ func LookupApiGatewayManagedOverridesOutput(ctx *pulumi.Context, args LookupApiG
 		ApplyT(func(v interface{}) (LookupApiGatewayManagedOverridesResult, error) {
 			args := v.(LookupApiGatewayManagedOverridesArgs)
 			r, err := LookupApiGatewayManagedOverrides(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiGatewayManagedOverridesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiGatewayManagedOverridesResultOutput)
 }
 

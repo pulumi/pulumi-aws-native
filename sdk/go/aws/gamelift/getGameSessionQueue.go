@@ -42,7 +42,11 @@ func LookupGameSessionQueueOutput(ctx *pulumi.Context, args LookupGameSessionQue
 		ApplyT(func(v interface{}) (LookupGameSessionQueueResult, error) {
 			args := v.(LookupGameSessionQueueArgs)
 			r, err := LookupGameSessionQueue(ctx, &args, opts...)
-			return *r, err
+			var s LookupGameSessionQueueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGameSessionQueueResultOutput)
 }
 

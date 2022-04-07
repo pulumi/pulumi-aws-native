@@ -42,7 +42,11 @@ func LookupDeliveryStreamOutput(ctx *pulumi.Context, args LookupDeliveryStreamOu
 		ApplyT(func(v interface{}) (LookupDeliveryStreamResult, error) {
 			args := v.(LookupDeliveryStreamArgs)
 			r, err := LookupDeliveryStream(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeliveryStreamResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeliveryStreamResultOutput)
 }
 

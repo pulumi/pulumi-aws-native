@@ -43,7 +43,11 @@ func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, op
 		ApplyT(func(v interface{}) (LookupBotAliasResult, error) {
 			args := v.(LookupBotAliasArgs)
 			r, err := LookupBotAlias(ctx, &args, opts...)
-			return *r, err
+			var s LookupBotAliasResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBotAliasResultOutput)
 }
 

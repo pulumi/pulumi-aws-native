@@ -34,7 +34,11 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDataCatalogEncryptionSettingsResult, error) {
 			args := v.(LookupDataCatalogEncryptionSettingsArgs)
 			r, err := LookupDataCatalogEncryptionSettings(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataCatalogEncryptionSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataCatalogEncryptionSettingsResultOutput)
 }
 

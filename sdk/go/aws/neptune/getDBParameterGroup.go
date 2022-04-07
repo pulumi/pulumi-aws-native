@@ -35,7 +35,11 @@ func LookupDBParameterGroupOutput(ctx *pulumi.Context, args LookupDBParameterGro
 		ApplyT(func(v interface{}) (LookupDBParameterGroupResult, error) {
 			args := v.(LookupDBParameterGroupArgs)
 			r, err := LookupDBParameterGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBParameterGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBParameterGroupResultOutput)
 }
 

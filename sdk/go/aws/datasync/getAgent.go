@@ -41,7 +41,11 @@ func LookupAgentOutput(ctx *pulumi.Context, args LookupAgentOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupAgentResult, error) {
 			args := v.(LookupAgentArgs)
 			r, err := LookupAgent(ctx, &args, opts...)
-			return *r, err
+			var s LookupAgentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAgentResultOutput)
 }
 

@@ -36,7 +36,11 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 		ApplyT(func(v interface{}) (LookupParameterGroupResult, error) {
 			args := v.(LookupParameterGroupArgs)
 			r, err := LookupParameterGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupParameterGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupParameterGroupResultOutput)
 }
 

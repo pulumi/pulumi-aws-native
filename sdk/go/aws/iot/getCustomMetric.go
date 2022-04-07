@@ -39,7 +39,11 @@ func LookupCustomMetricOutput(ctx *pulumi.Context, args LookupCustomMetricOutput
 		ApplyT(func(v interface{}) (LookupCustomMetricResult, error) {
 			args := v.(LookupCustomMetricArgs)
 			r, err := LookupCustomMetric(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomMetricResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomMetricResultOutput)
 }
 

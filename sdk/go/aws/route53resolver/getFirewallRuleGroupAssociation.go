@@ -57,7 +57,11 @@ func LookupFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupFi
 		ApplyT(func(v interface{}) (LookupFirewallRuleGroupAssociationResult, error) {
 			args := v.(LookupFirewallRuleGroupAssociationArgs)
 			r, err := LookupFirewallRuleGroupAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupFirewallRuleGroupAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFirewallRuleGroupAssociationResultOutput)
 }
 

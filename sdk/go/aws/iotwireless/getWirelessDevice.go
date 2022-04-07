@@ -55,7 +55,11 @@ func LookupWirelessDeviceOutput(ctx *pulumi.Context, args LookupWirelessDeviceOu
 		ApplyT(func(v interface{}) (LookupWirelessDeviceResult, error) {
 			args := v.(LookupWirelessDeviceArgs)
 			r, err := LookupWirelessDevice(ctx, &args, opts...)
-			return *r, err
+			var s LookupWirelessDeviceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWirelessDeviceResultOutput)
 }
 

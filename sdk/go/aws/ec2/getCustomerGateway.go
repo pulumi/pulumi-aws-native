@@ -34,7 +34,11 @@ func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGateway
 		ApplyT(func(v interface{}) (LookupCustomerGatewayResult, error) {
 			args := v.(LookupCustomerGatewayArgs)
 			r, err := LookupCustomerGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomerGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomerGatewayResultOutput)
 }
 

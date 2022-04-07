@@ -37,7 +37,11 @@ func LookupCustomDataIdentifierOutput(ctx *pulumi.Context, args LookupCustomData
 		ApplyT(func(v interface{}) (LookupCustomDataIdentifierResult, error) {
 			args := v.(LookupCustomDataIdentifierArgs)
 			r, err := LookupCustomDataIdentifier(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomDataIdentifierResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomDataIdentifierResultOutput)
 }
 

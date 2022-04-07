@@ -45,7 +45,11 @@ func LookupGraphQLApiOutput(ctx *pulumi.Context, args LookupGraphQLApiOutputArgs
 		ApplyT(func(v interface{}) (LookupGraphQLApiResult, error) {
 			args := v.(LookupGraphQLApiArgs)
 			r, err := LookupGraphQLApi(ctx, &args, opts...)
-			return *r, err
+			var s LookupGraphQLApiResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGraphQLApiResultOutput)
 }
 

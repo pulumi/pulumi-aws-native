@@ -33,7 +33,11 @@ func LookupStackUserAssociationOutput(ctx *pulumi.Context, args LookupStackUserA
 		ApplyT(func(v interface{}) (LookupStackUserAssociationResult, error) {
 			args := v.(LookupStackUserAssociationArgs)
 			r, err := LookupStackUserAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupStackUserAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStackUserAssociationResultOutput)
 }
 

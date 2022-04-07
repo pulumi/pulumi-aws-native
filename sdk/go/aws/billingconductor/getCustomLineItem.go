@@ -47,7 +47,11 @@ func LookupCustomLineItemOutput(ctx *pulumi.Context, args LookupCustomLineItemOu
 		ApplyT(func(v interface{}) (LookupCustomLineItemResult, error) {
 			args := v.(LookupCustomLineItemArgs)
 			r, err := LookupCustomLineItem(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomLineItemResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomLineItemResultOutput)
 }
 

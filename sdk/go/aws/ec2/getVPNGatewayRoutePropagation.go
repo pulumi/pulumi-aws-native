@@ -37,7 +37,11 @@ func LookupVPNGatewayRoutePropagationOutput(ctx *pulumi.Context, args LookupVPNG
 		ApplyT(func(v interface{}) (LookupVPNGatewayRoutePropagationResult, error) {
 			args := v.(LookupVPNGatewayRoutePropagationArgs)
 			r, err := LookupVPNGatewayRoutePropagation(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPNGatewayRoutePropagationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPNGatewayRoutePropagationResultOutput)
 }
 

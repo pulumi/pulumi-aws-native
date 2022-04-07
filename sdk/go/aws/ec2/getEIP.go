@@ -37,7 +37,11 @@ func LookupEIPOutput(ctx *pulumi.Context, args LookupEIPOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupEIPResult, error) {
 			args := v.(LookupEIPArgs)
 			r, err := LookupEIP(ctx, &args, opts...)
-			return *r, err
+			var s LookupEIPResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEIPResultOutput)
 }
 

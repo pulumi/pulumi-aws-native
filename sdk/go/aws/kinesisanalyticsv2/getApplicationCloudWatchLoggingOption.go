@@ -34,7 +34,11 @@ func LookupApplicationCloudWatchLoggingOptionOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupApplicationCloudWatchLoggingOptionResult, error) {
 			args := v.(LookupApplicationCloudWatchLoggingOptionArgs)
 			r, err := LookupApplicationCloudWatchLoggingOption(ctx, &args, opts...)
-			return *r, err
+			var s LookupApplicationCloudWatchLoggingOptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApplicationCloudWatchLoggingOptionResultOutput)
 }
 

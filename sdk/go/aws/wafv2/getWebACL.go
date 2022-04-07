@@ -46,7 +46,11 @@ func LookupWebACLOutput(ctx *pulumi.Context, args LookupWebACLOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupWebACLResult, error) {
 			args := v.(LookupWebACLArgs)
 			r, err := LookupWebACL(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebACLResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebACLResultOutput)
 }
 

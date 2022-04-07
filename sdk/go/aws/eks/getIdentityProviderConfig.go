@@ -41,7 +41,11 @@ func LookupIdentityProviderConfigOutput(ctx *pulumi.Context, args LookupIdentity
 		ApplyT(func(v interface{}) (LookupIdentityProviderConfigResult, error) {
 			args := v.(LookupIdentityProviderConfigArgs)
 			r, err := LookupIdentityProviderConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupIdentityProviderConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIdentityProviderConfigResultOutput)
 }
 

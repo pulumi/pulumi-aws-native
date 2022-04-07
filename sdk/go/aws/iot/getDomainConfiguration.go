@@ -38,7 +38,11 @@ func LookupDomainConfigurationOutput(ctx *pulumi.Context, args LookupDomainConfi
 		ApplyT(func(v interface{}) (LookupDomainConfigurationResult, error) {
 			args := v.(LookupDomainConfigurationArgs)
 			r, err := LookupDomainConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDomainConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDomainConfigurationResultOutput)
 }
 

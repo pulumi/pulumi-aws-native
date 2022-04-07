@@ -40,7 +40,11 @@ func LookupLoadBalancerTlsCertificateOutput(ctx *pulumi.Context, args LookupLoad
 		ApplyT(func(v interface{}) (LookupLoadBalancerTlsCertificateResult, error) {
 			args := v.(LookupLoadBalancerTlsCertificateArgs)
 			r, err := LookupLoadBalancerTlsCertificate(ctx, &args, opts...)
-			return *r, err
+			var s LookupLoadBalancerTlsCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLoadBalancerTlsCertificateResultOutput)
 }
 

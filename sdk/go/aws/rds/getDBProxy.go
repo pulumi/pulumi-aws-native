@@ -51,7 +51,11 @@ func LookupDBProxyOutput(ctx *pulumi.Context, args LookupDBProxyOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupDBProxyResult, error) {
 			args := v.(LookupDBProxyArgs)
 			r, err := LookupDBProxy(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBProxyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBProxyResultOutput)
 }
 

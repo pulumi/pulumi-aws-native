@@ -42,7 +42,11 @@ func LookupReplicaKeyOutput(ctx *pulumi.Context, args LookupReplicaKeyOutputArgs
 		ApplyT(func(v interface{}) (LookupReplicaKeyResult, error) {
 			args := v.(LookupReplicaKeyArgs)
 			r, err := LookupReplicaKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicaKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicaKeyResultOutput)
 }
 

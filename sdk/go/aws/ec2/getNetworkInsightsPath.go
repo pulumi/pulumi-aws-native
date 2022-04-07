@@ -36,7 +36,11 @@ func LookupNetworkInsightsPathOutput(ctx *pulumi.Context, args LookupNetworkInsi
 		ApplyT(func(v interface{}) (LookupNetworkInsightsPathResult, error) {
 			args := v.(LookupNetworkInsightsPathArgs)
 			r, err := LookupNetworkInsightsPath(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkInsightsPathResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkInsightsPathResultOutput)
 }
 

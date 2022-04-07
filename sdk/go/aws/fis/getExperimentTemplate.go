@@ -39,7 +39,11 @@ func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTe
 		ApplyT(func(v interface{}) (LookupExperimentTemplateResult, error) {
 			args := v.(LookupExperimentTemplateArgs)
 			r, err := LookupExperimentTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupExperimentTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExperimentTemplateResultOutput)
 }
 

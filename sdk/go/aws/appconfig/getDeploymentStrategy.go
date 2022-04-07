@@ -39,7 +39,11 @@ func LookupDeploymentStrategyOutput(ctx *pulumi.Context, args LookupDeploymentSt
 		ApplyT(func(v interface{}) (LookupDeploymentStrategyResult, error) {
 			args := v.(LookupDeploymentStrategyArgs)
 			r, err := LookupDeploymentStrategy(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentStrategyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentStrategyResultOutput)
 }
 

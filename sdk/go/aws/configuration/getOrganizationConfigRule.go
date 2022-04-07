@@ -36,7 +36,11 @@ func LookupOrganizationConfigRuleOutput(ctx *pulumi.Context, args LookupOrganiza
 		ApplyT(func(v interface{}) (LookupOrganizationConfigRuleResult, error) {
 			args := v.(LookupOrganizationConfigRuleArgs)
 			r, err := LookupOrganizationConfigRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupOrganizationConfigRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOrganizationConfigRuleResultOutput)
 }
 

@@ -47,7 +47,11 @@ func LookupLifecycleHookOutput(ctx *pulumi.Context, args LookupLifecycleHookOutp
 		ApplyT(func(v interface{}) (LookupLifecycleHookResult, error) {
 			args := v.(LookupLifecycleHookArgs)
 			r, err := LookupLifecycleHook(ctx, &args, opts...)
-			return *r, err
+			var s LookupLifecycleHookResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLifecycleHookResultOutput)
 }
 

@@ -33,7 +33,11 @@ func LookupVolumeAttachmentOutput(ctx *pulumi.Context, args LookupVolumeAttachme
 		ApplyT(func(v interface{}) (LookupVolumeAttachmentResult, error) {
 			args := v.(LookupVolumeAttachmentArgs)
 			r, err := LookupVolumeAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupVolumeAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVolumeAttachmentResultOutput)
 }
 

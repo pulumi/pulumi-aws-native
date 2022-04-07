@@ -36,7 +36,11 @@ func LookupEventInvokeConfigOutput(ctx *pulumi.Context, args LookupEventInvokeCo
 		ApplyT(func(v interface{}) (LookupEventInvokeConfigResult, error) {
 			args := v.(LookupEventInvokeConfigArgs)
 			r, err := LookupEventInvokeConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventInvokeConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventInvokeConfigResultOutput)
 }
 

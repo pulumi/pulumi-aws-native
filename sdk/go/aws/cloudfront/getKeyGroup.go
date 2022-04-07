@@ -35,7 +35,11 @@ func LookupKeyGroupOutput(ctx *pulumi.Context, args LookupKeyGroupOutputArgs, op
 		ApplyT(func(v interface{}) (LookupKeyGroupResult, error) {
 			args := v.(LookupKeyGroupArgs)
 			r, err := LookupKeyGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupKeyGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKeyGroupResultOutput)
 }
 

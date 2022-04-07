@@ -39,7 +39,11 @@ func LookupStreamKeyOutput(ctx *pulumi.Context, args LookupStreamKeyOutputArgs, 
 		ApplyT(func(v interface{}) (LookupStreamKeyResult, error) {
 			args := v.(LookupStreamKeyArgs)
 			r, err := LookupStreamKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamKeyResultOutput)
 }
 

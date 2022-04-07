@@ -38,7 +38,11 @@ func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOu
 		ApplyT(func(v interface{}) (LookupVirtualClusterResult, error) {
 			args := v.(LookupVirtualClusterArgs)
 			r, err := LookupVirtualCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualClusterResultOutput)
 }
 

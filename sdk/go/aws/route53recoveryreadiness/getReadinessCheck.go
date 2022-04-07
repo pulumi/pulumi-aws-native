@@ -39,7 +39,11 @@ func LookupReadinessCheckOutput(ctx *pulumi.Context, args LookupReadinessCheckOu
 		ApplyT(func(v interface{}) (LookupReadinessCheckResult, error) {
 			args := v.(LookupReadinessCheckArgs)
 			r, err := LookupReadinessCheck(ctx, &args, opts...)
-			return *r, err
+			var s LookupReadinessCheckResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReadinessCheckResultOutput)
 }
 

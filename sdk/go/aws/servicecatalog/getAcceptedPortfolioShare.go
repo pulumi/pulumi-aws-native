@@ -33,7 +33,11 @@ func LookupAcceptedPortfolioShareOutput(ctx *pulumi.Context, args LookupAccepted
 		ApplyT(func(v interface{}) (LookupAcceptedPortfolioShareResult, error) {
 			args := v.(LookupAcceptedPortfolioShareArgs)
 			r, err := LookupAcceptedPortfolioShare(ctx, &args, opts...)
-			return *r, err
+			var s LookupAcceptedPortfolioShareResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAcceptedPortfolioShareResultOutput)
 }
 

@@ -33,7 +33,11 @@ func LookupSubnetRouteTableAssociationOutput(ctx *pulumi.Context, args LookupSub
 		ApplyT(func(v interface{}) (LookupSubnetRouteTableAssociationResult, error) {
 			args := v.(LookupSubnetRouteTableAssociationArgs)
 			r, err := LookupSubnetRouteTableAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubnetRouteTableAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubnetRouteTableAssociationResultOutput)
 }
 

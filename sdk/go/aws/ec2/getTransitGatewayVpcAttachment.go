@@ -38,7 +38,11 @@ func LookupTransitGatewayVpcAttachmentOutput(ctx *pulumi.Context, args LookupTra
 		ApplyT(func(v interface{}) (LookupTransitGatewayVpcAttachmentResult, error) {
 			args := v.(LookupTransitGatewayVpcAttachmentArgs)
 			r, err := LookupTransitGatewayVpcAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayVpcAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayVpcAttachmentResultOutput)
 }
 

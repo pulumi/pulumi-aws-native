@@ -42,7 +42,11 @@ func LookupPushTemplateOutput(ctx *pulumi.Context, args LookupPushTemplateOutput
 		ApplyT(func(v interface{}) (LookupPushTemplateResult, error) {
 			args := v.(LookupPushTemplateArgs)
 			r, err := LookupPushTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupPushTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPushTemplateResultOutput)
 }
 

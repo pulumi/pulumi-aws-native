@@ -43,7 +43,11 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 		ApplyT(func(v interface{}) (LookupAuthorizerResult, error) {
 			args := v.(LookupAuthorizerArgs)
 			r, err := LookupAuthorizer(ctx, &args, opts...)
-			return *r, err
+			var s LookupAuthorizerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAuthorizerResultOutput)
 }
 

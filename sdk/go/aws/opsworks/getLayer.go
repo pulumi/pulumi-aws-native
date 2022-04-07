@@ -50,7 +50,11 @@ func LookupLayerOutput(ctx *pulumi.Context, args LookupLayerOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupLayerResult, error) {
 			args := v.(LookupLayerArgs)
 			r, err := LookupLayer(ctx, &args, opts...)
-			return *r, err
+			var s LookupLayerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLayerResultOutput)
 }
 

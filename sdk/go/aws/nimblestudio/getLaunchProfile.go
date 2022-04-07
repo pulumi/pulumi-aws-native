@@ -46,7 +46,11 @@ func LookupLaunchProfileOutput(ctx *pulumi.Context, args LookupLaunchProfileOutp
 		ApplyT(func(v interface{}) (LookupLaunchProfileResult, error) {
 			args := v.(LookupLaunchProfileArgs)
 			r, err := LookupLaunchProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupLaunchProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLaunchProfileResultOutput)
 }
 

@@ -45,7 +45,11 @@ func LookupFlowEntitlementOutput(ctx *pulumi.Context, args LookupFlowEntitlement
 		ApplyT(func(v interface{}) (LookupFlowEntitlementResult, error) {
 			args := v.(LookupFlowEntitlementArgs)
 			r, err := LookupFlowEntitlement(ctx, &args, opts...)
-			return *r, err
+			var s LookupFlowEntitlementResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFlowEntitlementResultOutput)
 }
 

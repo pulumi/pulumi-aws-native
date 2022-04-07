@@ -41,7 +41,11 @@ func LookupOrganizationConformancePackOutput(ctx *pulumi.Context, args LookupOrg
 		ApplyT(func(v interface{}) (LookupOrganizationConformancePackResult, error) {
 			args := v.(LookupOrganizationConformancePackArgs)
 			r, err := LookupOrganizationConformancePack(ctx, &args, opts...)
-			return *r, err
+			var s LookupOrganizationConformancePackResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOrganizationConformancePackResultOutput)
 }
 

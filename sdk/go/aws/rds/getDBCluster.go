@@ -56,7 +56,11 @@ func LookupDBClusterOutput(ctx *pulumi.Context, args LookupDBClusterOutputArgs, 
 		ApplyT(func(v interface{}) (LookupDBClusterResult, error) {
 			args := v.(LookupDBClusterArgs)
 			r, err := LookupDBCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBClusterResultOutput)
 }
 

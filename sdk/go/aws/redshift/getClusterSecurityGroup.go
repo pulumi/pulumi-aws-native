@@ -34,7 +34,11 @@ func LookupClusterSecurityGroupOutput(ctx *pulumi.Context, args LookupClusterSec
 		ApplyT(func(v interface{}) (LookupClusterSecurityGroupResult, error) {
 			args := v.(LookupClusterSecurityGroupArgs)
 			r, err := LookupClusterSecurityGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupClusterSecurityGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClusterSecurityGroupResultOutput)
 }
 

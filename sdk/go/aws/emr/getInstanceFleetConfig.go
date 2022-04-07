@@ -35,7 +35,11 @@ func LookupInstanceFleetConfigOutput(ctx *pulumi.Context, args LookupInstanceFle
 		ApplyT(func(v interface{}) (LookupInstanceFleetConfigResult, error) {
 			args := v.(LookupInstanceFleetConfigArgs)
 			r, err := LookupInstanceFleetConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupInstanceFleetConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInstanceFleetConfigResultOutput)
 }
 

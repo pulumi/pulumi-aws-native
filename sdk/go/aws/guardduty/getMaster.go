@@ -32,7 +32,11 @@ func LookupMasterOutput(ctx *pulumi.Context, args LookupMasterOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupMasterResult, error) {
 			args := v.(LookupMasterArgs)
 			r, err := LookupMaster(ctx, &args, opts...)
-			return *r, err
+			var s LookupMasterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMasterResultOutput)
 }
 

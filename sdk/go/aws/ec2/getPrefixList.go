@@ -51,7 +51,11 @@ func LookupPrefixListOutput(ctx *pulumi.Context, args LookupPrefixListOutputArgs
 		ApplyT(func(v interface{}) (LookupPrefixListResult, error) {
 			args := v.(LookupPrefixListArgs)
 			r, err := LookupPrefixList(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrefixListResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrefixListResultOutput)
 }
 

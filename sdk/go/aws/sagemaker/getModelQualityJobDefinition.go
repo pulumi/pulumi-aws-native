@@ -37,7 +37,11 @@ func LookupModelQualityJobDefinitionOutput(ctx *pulumi.Context, args LookupModel
 		ApplyT(func(v interface{}) (LookupModelQualityJobDefinitionResult, error) {
 			args := v.(LookupModelQualityJobDefinitionArgs)
 			r, err := LookupModelQualityJobDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupModelQualityJobDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupModelQualityJobDefinitionResultOutput)
 }
 

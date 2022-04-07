@@ -47,7 +47,11 @@ func LookupSlackChannelConfigurationOutput(ctx *pulumi.Context, args LookupSlack
 		ApplyT(func(v interface{}) (LookupSlackChannelConfigurationResult, error) {
 			args := v.(LookupSlackChannelConfigurationArgs)
 			r, err := LookupSlackChannelConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupSlackChannelConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSlackChannelConfigurationResultOutput)
 }
 

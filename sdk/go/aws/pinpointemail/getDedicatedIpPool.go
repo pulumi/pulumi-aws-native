@@ -34,7 +34,11 @@ func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPool
 		ApplyT(func(v interface{}) (LookupDedicatedIpPoolResult, error) {
 			args := v.(LookupDedicatedIpPoolArgs)
 			r, err := LookupDedicatedIpPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupDedicatedIpPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDedicatedIpPoolResultOutput)
 }
 

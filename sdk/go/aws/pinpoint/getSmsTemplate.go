@@ -38,7 +38,11 @@ func LookupSmsTemplateOutput(ctx *pulumi.Context, args LookupSmsTemplateOutputAr
 		ApplyT(func(v interface{}) (LookupSmsTemplateResult, error) {
 			args := v.(LookupSmsTemplateArgs)
 			r, err := LookupSmsTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupSmsTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSmsTemplateResultOutput)
 }
 

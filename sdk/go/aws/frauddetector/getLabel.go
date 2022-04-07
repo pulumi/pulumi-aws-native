@@ -43,7 +43,11 @@ func LookupLabelOutput(ctx *pulumi.Context, args LookupLabelOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupLabelResult, error) {
 			args := v.(LookupLabelArgs)
 			r, err := LookupLabel(ctx, &args, opts...)
-			return *r, err
+			var s LookupLabelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLabelResultOutput)
 }
 

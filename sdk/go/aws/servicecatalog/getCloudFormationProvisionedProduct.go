@@ -47,7 +47,11 @@ func LookupCloudFormationProvisionedProductOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupCloudFormationProvisionedProductResult, error) {
 			args := v.(LookupCloudFormationProvisionedProductArgs)
 			r, err := LookupCloudFormationProvisionedProduct(ctx, &args, opts...)
-			return *r, err
+			var s LookupCloudFormationProvisionedProductResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCloudFormationProvisionedProductResultOutput)
 }
 

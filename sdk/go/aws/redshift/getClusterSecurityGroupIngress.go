@@ -33,7 +33,11 @@ func LookupClusterSecurityGroupIngressOutput(ctx *pulumi.Context, args LookupClu
 		ApplyT(func(v interface{}) (LookupClusterSecurityGroupIngressResult, error) {
 			args := v.(LookupClusterSecurityGroupIngressArgs)
 			r, err := LookupClusterSecurityGroupIngress(ctx, &args, opts...)
-			return *r, err
+			var s LookupClusterSecurityGroupIngressResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClusterSecurityGroupIngressResultOutput)
 }
 

@@ -34,7 +34,11 @@ func CidrOutput(ctx *pulumi.Context, args CidrOutputArgs, opts ...pulumi.InvokeO
 		ApplyT(func(v interface{}) (CidrResult, error) {
 			args := v.(CidrArgs)
 			r, err := Cidr(ctx, &args, opts...)
-			return *r, err
+			var s CidrResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(CidrResultOutput)
 }
 

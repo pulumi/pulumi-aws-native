@@ -33,7 +33,11 @@ func LookupCoreDefinitionVersionOutput(ctx *pulumi.Context, args LookupCoreDefin
 		ApplyT(func(v interface{}) (LookupCoreDefinitionVersionResult, error) {
 			args := v.(LookupCoreDefinitionVersionArgs)
 			r, err := LookupCoreDefinitionVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupCoreDefinitionVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCoreDefinitionVersionResultOutput)
 }
 

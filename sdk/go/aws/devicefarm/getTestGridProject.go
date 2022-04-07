@@ -36,7 +36,11 @@ func LookupTestGridProjectOutput(ctx *pulumi.Context, args LookupTestGridProject
 		ApplyT(func(v interface{}) (LookupTestGridProjectResult, error) {
 			args := v.(LookupTestGridProjectArgs)
 			r, err := LookupTestGridProject(ctx, &args, opts...)
-			return *r, err
+			var s LookupTestGridProjectResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTestGridProjectResultOutput)
 }
 

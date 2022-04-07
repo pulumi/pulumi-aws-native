@@ -44,7 +44,11 @@ func LookupScalingPolicyOutput(ctx *pulumi.Context, args LookupScalingPolicyOutp
 		ApplyT(func(v interface{}) (LookupScalingPolicyResult, error) {
 			args := v.(LookupScalingPolicyArgs)
 			r, err := LookupScalingPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupScalingPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScalingPolicyResultOutput)
 }
 

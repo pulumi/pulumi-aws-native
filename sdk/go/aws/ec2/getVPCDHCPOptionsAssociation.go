@@ -37,7 +37,11 @@ func LookupVPCDHCPOptionsAssociationOutput(ctx *pulumi.Context, args LookupVPCDH
 		ApplyT(func(v interface{}) (LookupVPCDHCPOptionsAssociationResult, error) {
 			args := v.(LookupVPCDHCPOptionsAssociationArgs)
 			r, err := LookupVPCDHCPOptionsAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCDHCPOptionsAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCDHCPOptionsAssociationResultOutput)
 }
 

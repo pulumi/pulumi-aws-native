@@ -39,7 +39,11 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 		ApplyT(func(v interface{}) (LookupListenerResult, error) {
 			args := v.(LookupListenerArgs)
 			r, err := LookupListener(ctx, &args, opts...)
-			return *r, err
+			var s LookupListenerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupListenerResultOutput)
 }
 

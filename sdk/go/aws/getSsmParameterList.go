@@ -32,7 +32,11 @@ func GetSsmParameterListOutput(ctx *pulumi.Context, args GetSsmParameterListOutp
 		ApplyT(func(v interface{}) (GetSsmParameterListResult, error) {
 			args := v.(GetSsmParameterListArgs)
 			r, err := GetSsmParameterList(ctx, &args, opts...)
-			return *r, err
+			var s GetSsmParameterListResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetSsmParameterListResultOutput)
 }
 

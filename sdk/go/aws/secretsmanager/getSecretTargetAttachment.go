@@ -36,7 +36,11 @@ func LookupSecretTargetAttachmentOutput(ctx *pulumi.Context, args LookupSecretTa
 		ApplyT(func(v interface{}) (LookupSecretTargetAttachmentResult, error) {
 			args := v.(LookupSecretTargetAttachmentArgs)
 			r, err := LookupSecretTargetAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecretTargetAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecretTargetAttachmentResultOutput)
 }
 

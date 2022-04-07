@@ -35,7 +35,11 @@ func LookupDHCPOptionsOutput(ctx *pulumi.Context, args LookupDHCPOptionsOutputAr
 		ApplyT(func(v interface{}) (LookupDHCPOptionsResult, error) {
 			args := v.(LookupDHCPOptionsArgs)
 			r, err := LookupDHCPOptions(ctx, &args, opts...)
-			return *r, err
+			var s LookupDHCPOptionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDHCPOptionsResultOutput)
 }
 

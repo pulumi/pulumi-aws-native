@@ -43,7 +43,11 @@ func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOu
 		ApplyT(func(v interface{}) (LookupSigningProfileResult, error) {
 			args := v.(LookupSigningProfileArgs)
 			r, err := LookupSigningProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupSigningProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSigningProfileResultOutput)
 }
 

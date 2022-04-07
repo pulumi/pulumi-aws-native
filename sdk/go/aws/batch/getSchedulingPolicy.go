@@ -34,7 +34,11 @@ func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPoli
 		ApplyT(func(v interface{}) (LookupSchedulingPolicyResult, error) {
 			args := v.(LookupSchedulingPolicyArgs)
 			r, err := LookupSchedulingPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupSchedulingPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSchedulingPolicyResultOutput)
 }
 

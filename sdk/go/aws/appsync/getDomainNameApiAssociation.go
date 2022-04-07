@@ -34,7 +34,11 @@ func LookupDomainNameApiAssociationOutput(ctx *pulumi.Context, args LookupDomain
 		ApplyT(func(v interface{}) (LookupDomainNameApiAssociationResult, error) {
 			args := v.(LookupDomainNameApiAssociationArgs)
 			r, err := LookupDomainNameApiAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupDomainNameApiAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDomainNameApiAssociationResultOutput)
 }
 

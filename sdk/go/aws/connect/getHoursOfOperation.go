@@ -47,7 +47,11 @@ func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperati
 		ApplyT(func(v interface{}) (LookupHoursOfOperationResult, error) {
 			args := v.(LookupHoursOfOperationArgs)
 			r, err := LookupHoursOfOperation(ctx, &args, opts...)
-			return *r, err
+			var s LookupHoursOfOperationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHoursOfOperationResultOutput)
 }
 

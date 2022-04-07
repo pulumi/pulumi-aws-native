@@ -38,7 +38,11 @@ func LookupEmailChannelOutput(ctx *pulumi.Context, args LookupEmailChannelOutput
 		ApplyT(func(v interface{}) (LookupEmailChannelResult, error) {
 			args := v.(LookupEmailChannelArgs)
 			r, err := LookupEmailChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupEmailChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEmailChannelResultOutput)
 }
 

@@ -59,7 +59,11 @@ func LookupAutoScalingGroupOutput(ctx *pulumi.Context, args LookupAutoScalingGro
 		ApplyT(func(v interface{}) (LookupAutoScalingGroupResult, error) {
 			args := v.(LookupAutoScalingGroupArgs)
 			r, err := LookupAutoScalingGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupAutoScalingGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAutoScalingGroupResultOutput)
 }
 

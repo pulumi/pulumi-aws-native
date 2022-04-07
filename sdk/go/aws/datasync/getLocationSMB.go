@@ -46,7 +46,11 @@ func LookupLocationSMBOutput(ctx *pulumi.Context, args LookupLocationSMBOutputAr
 		ApplyT(func(v interface{}) (LookupLocationSMBResult, error) {
 			args := v.(LookupLocationSMBArgs)
 			r, err := LookupLocationSMB(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationSMBResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationSMBResultOutput)
 }
 

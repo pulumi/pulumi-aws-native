@@ -41,7 +41,11 @@ func LookupACLOutput(ctx *pulumi.Context, args LookupACLOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupACLResult, error) {
 			args := v.(LookupACLArgs)
 			r, err := LookupACL(ctx, &args, opts...)
-			return *r, err
+			var s LookupACLResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupACLResultOutput)
 }
 

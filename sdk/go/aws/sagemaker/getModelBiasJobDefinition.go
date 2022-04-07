@@ -37,7 +37,11 @@ func LookupModelBiasJobDefinitionOutput(ctx *pulumi.Context, args LookupModelBia
 		ApplyT(func(v interface{}) (LookupModelBiasJobDefinitionResult, error) {
 			args := v.(LookupModelBiasJobDefinitionArgs)
 			r, err := LookupModelBiasJobDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupModelBiasJobDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupModelBiasJobDefinitionResultOutput)
 }
 

@@ -45,7 +45,11 @@ func LookupQuickConnectOutput(ctx *pulumi.Context, args LookupQuickConnectOutput
 		ApplyT(func(v interface{}) (LookupQuickConnectResult, error) {
 			args := v.(LookupQuickConnectArgs)
 			r, err := LookupQuickConnect(ctx, &args, opts...)
-			return *r, err
+			var s LookupQuickConnectResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupQuickConnectResultOutput)
 }
 

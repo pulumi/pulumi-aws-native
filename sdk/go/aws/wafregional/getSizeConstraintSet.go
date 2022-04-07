@@ -34,7 +34,11 @@ func LookupSizeConstraintSetOutput(ctx *pulumi.Context, args LookupSizeConstrain
 		ApplyT(func(v interface{}) (LookupSizeConstraintSetResult, error) {
 			args := v.(LookupSizeConstraintSetArgs)
 			r, err := LookupSizeConstraintSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupSizeConstraintSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSizeConstraintSetResultOutput)
 }
 

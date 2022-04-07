@@ -40,7 +40,11 @@ func LookupSafetyRuleOutput(ctx *pulumi.Context, args LookupSafetyRuleOutputArgs
 		ApplyT(func(v interface{}) (LookupSafetyRuleResult, error) {
 			args := v.(LookupSafetyRuleArgs)
 			r, err := LookupSafetyRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupSafetyRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSafetyRuleResultOutput)
 }
 

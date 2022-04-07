@@ -43,7 +43,11 @@ func LookupGlobalTableOutput(ctx *pulumi.Context, args LookupGlobalTableOutputAr
 		ApplyT(func(v interface{}) (LookupGlobalTableResult, error) {
 			args := v.(LookupGlobalTableArgs)
 			r, err := LookupGlobalTable(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalTableResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalTableResultOutput)
 }
 

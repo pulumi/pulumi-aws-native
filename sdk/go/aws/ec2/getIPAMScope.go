@@ -48,7 +48,11 @@ func LookupIPAMScopeOutput(ctx *pulumi.Context, args LookupIPAMScopeOutputArgs, 
 		ApplyT(func(v interface{}) (LookupIPAMScopeResult, error) {
 			args := v.(LookupIPAMScopeArgs)
 			r, err := LookupIPAMScope(ctx, &args, opts...)
-			return *r, err
+			var s LookupIPAMScopeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIPAMScopeResultOutput)
 }
 

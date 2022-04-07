@@ -38,7 +38,11 @@ func LookupDBProxyTargetGroupOutput(ctx *pulumi.Context, args LookupDBProxyTarge
 		ApplyT(func(v interface{}) (LookupDBProxyTargetGroupResult, error) {
 			args := v.(LookupDBProxyTargetGroupArgs)
 			r, err := LookupDBProxyTargetGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBProxyTargetGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBProxyTargetGroupResultOutput)
 }
 

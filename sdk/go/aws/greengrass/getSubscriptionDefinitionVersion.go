@@ -33,7 +33,11 @@ func LookupSubscriptionDefinitionVersionOutput(ctx *pulumi.Context, args LookupS
 		ApplyT(func(v interface{}) (LookupSubscriptionDefinitionVersionResult, error) {
 			args := v.(LookupSubscriptionDefinitionVersionArgs)
 			r, err := LookupSubscriptionDefinitionVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubscriptionDefinitionVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubscriptionDefinitionVersionResultOutput)
 }
 

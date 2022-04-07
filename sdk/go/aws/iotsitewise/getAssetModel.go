@@ -49,7 +49,11 @@ func LookupAssetModelOutput(ctx *pulumi.Context, args LookupAssetModelOutputArgs
 		ApplyT(func(v interface{}) (LookupAssetModelResult, error) {
 			args := v.(LookupAssetModelArgs)
 			r, err := LookupAssetModel(ctx, &args, opts...)
-			return *r, err
+			var s LookupAssetModelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAssetModelResultOutput)
 }
 

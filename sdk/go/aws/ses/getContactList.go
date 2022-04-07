@@ -39,7 +39,11 @@ func LookupContactListOutput(ctx *pulumi.Context, args LookupContactListOutputAr
 		ApplyT(func(v interface{}) (LookupContactListResult, error) {
 			args := v.(LookupContactListArgs)
 			r, err := LookupContactList(ctx, &args, opts...)
-			return *r, err
+			var s LookupContactListResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContactListResultOutput)
 }
 

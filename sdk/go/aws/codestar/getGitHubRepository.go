@@ -41,7 +41,11 @@ func LookupGitHubRepositoryOutput(ctx *pulumi.Context, args LookupGitHubReposito
 		ApplyT(func(v interface{}) (LookupGitHubRepositoryResult, error) {
 			args := v.(LookupGitHubRepositoryArgs)
 			r, err := LookupGitHubRepository(ctx, &args, opts...)
-			return *r, err
+			var s LookupGitHubRepositoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGitHubRepositoryResultOutput)
 }
 

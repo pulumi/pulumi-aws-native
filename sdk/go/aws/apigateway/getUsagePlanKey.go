@@ -35,7 +35,11 @@ func LookupUsagePlanKeyOutput(ctx *pulumi.Context, args LookupUsagePlanKeyOutput
 		ApplyT(func(v interface{}) (LookupUsagePlanKeyResult, error) {
 			args := v.(LookupUsagePlanKeyArgs)
 			r, err := LookupUsagePlanKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupUsagePlanKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUsagePlanKeyResultOutput)
 }
 

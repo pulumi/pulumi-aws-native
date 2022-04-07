@@ -39,7 +39,11 @@ func LookupProvisioningTemplateOutput(ctx *pulumi.Context, args LookupProvisioni
 		ApplyT(func(v interface{}) (LookupProvisioningTemplateResult, error) {
 			args := v.(LookupProvisioningTemplateArgs)
 			r, err := LookupProvisioningTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupProvisioningTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProvisioningTemplateResultOutput)
 }
 

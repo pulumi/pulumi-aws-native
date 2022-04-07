@@ -39,7 +39,11 @@ func LookupRecoveryGroupOutput(ctx *pulumi.Context, args LookupRecoveryGroupOutp
 		ApplyT(func(v interface{}) (LookupRecoveryGroupResult, error) {
 			args := v.(LookupRecoveryGroupArgs)
 			r, err := LookupRecoveryGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupRecoveryGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRecoveryGroupResultOutput)
 }
 

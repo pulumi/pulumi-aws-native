@@ -59,7 +59,11 @@ func LookupFuotaTaskOutput(ctx *pulumi.Context, args LookupFuotaTaskOutputArgs, 
 		ApplyT(func(v interface{}) (LookupFuotaTaskResult, error) {
 			args := v.(LookupFuotaTaskArgs)
 			r, err := LookupFuotaTask(ctx, &args, opts...)
-			return *r, err
+			var s LookupFuotaTaskResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFuotaTaskResultOutput)
 }
 

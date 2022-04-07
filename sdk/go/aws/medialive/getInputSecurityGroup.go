@@ -36,7 +36,11 @@ func LookupInputSecurityGroupOutput(ctx *pulumi.Context, args LookupInputSecurit
 		ApplyT(func(v interface{}) (LookupInputSecurityGroupResult, error) {
 			args := v.(LookupInputSecurityGroupArgs)
 			r, err := LookupInputSecurityGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupInputSecurityGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInputSecurityGroupResultOutput)
 }
 

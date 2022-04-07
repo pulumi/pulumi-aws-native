@@ -61,7 +61,11 @@ func LookupFlowSourceOutput(ctx *pulumi.Context, args LookupFlowSourceOutputArgs
 		ApplyT(func(v interface{}) (LookupFlowSourceResult, error) {
 			args := v.(LookupFlowSourceArgs)
 			r, err := LookupFlowSource(ctx, &args, opts...)
-			return *r, err
+			var s LookupFlowSourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFlowSourceResultOutput)
 }
 
