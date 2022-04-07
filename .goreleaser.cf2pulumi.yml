@@ -4,8 +4,6 @@ before:
     - make codegen
     - make generate_schema
 builds:
-  - env:
-      - CGO_ENABLED=0
     goos:
       - darwin
       - windows
