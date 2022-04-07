@@ -39,7 +39,11 @@ func LookupConfigurationAggregatorOutput(ctx *pulumi.Context, args LookupConfigu
 		ApplyT(func(v interface{}) (LookupConfigurationAggregatorResult, error) {
 			args := v.(LookupConfigurationAggregatorArgs)
 			r, err := LookupConfigurationAggregator(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationAggregatorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationAggregatorResultOutput)
 }
 

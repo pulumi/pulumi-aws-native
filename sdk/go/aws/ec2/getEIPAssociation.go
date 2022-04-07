@@ -38,7 +38,11 @@ func LookupEIPAssociationOutput(ctx *pulumi.Context, args LookupEIPAssociationOu
 		ApplyT(func(v interface{}) (LookupEIPAssociationResult, error) {
 			args := v.(LookupEIPAssociationArgs)
 			r, err := LookupEIPAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupEIPAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEIPAssociationResultOutput)
 }
 

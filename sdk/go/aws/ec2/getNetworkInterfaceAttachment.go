@@ -37,7 +37,11 @@ func LookupNetworkInterfaceAttachmentOutput(ctx *pulumi.Context, args LookupNetw
 		ApplyT(func(v interface{}) (LookupNetworkInterfaceAttachmentResult, error) {
 			args := v.(LookupNetworkInterfaceAttachmentArgs)
 			r, err := LookupNetworkInterfaceAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkInterfaceAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkInterfaceAttachmentResultOutput)
 }
 

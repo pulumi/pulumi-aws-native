@@ -35,7 +35,11 @@ func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterPa
 		ApplyT(func(v interface{}) (LookupClusterParameterGroupResult, error) {
 			args := v.(LookupClusterParameterGroupArgs)
 			r, err := LookupClusterParameterGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupClusterParameterGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClusterParameterGroupResultOutput)
 }
 

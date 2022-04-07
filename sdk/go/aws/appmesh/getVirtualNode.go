@@ -38,7 +38,11 @@ func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputAr
 		ApplyT(func(v interface{}) (LookupVirtualNodeResult, error) {
 			args := v.(LookupVirtualNodeArgs)
 			r, err := LookupVirtualNode(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualNodeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualNodeResultOutput)
 }
 

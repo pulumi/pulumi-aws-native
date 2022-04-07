@@ -33,7 +33,11 @@ func LookupClientVpnTargetNetworkAssociationOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupClientVpnTargetNetworkAssociationResult, error) {
 			args := v.(LookupClientVpnTargetNetworkAssociationArgs)
 			r, err := LookupClientVpnTargetNetworkAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupClientVpnTargetNetworkAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClientVpnTargetNetworkAssociationResultOutput)
 }
 

@@ -35,7 +35,11 @@ func LookupAccessKeyOutput(ctx *pulumi.Context, args LookupAccessKeyOutputArgs, 
 		ApplyT(func(v interface{}) (LookupAccessKeyResult, error) {
 			args := v.(LookupAccessKeyArgs)
 			r, err := LookupAccessKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupAccessKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAccessKeyResultOutput)
 }
 

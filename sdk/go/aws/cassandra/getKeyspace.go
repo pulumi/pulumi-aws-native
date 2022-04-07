@@ -34,7 +34,11 @@ func LookupKeyspaceOutput(ctx *pulumi.Context, args LookupKeyspaceOutputArgs, op
 		ApplyT(func(v interface{}) (LookupKeyspaceResult, error) {
 			args := v.(LookupKeyspaceArgs)
 			r, err := LookupKeyspace(ctx, &args, opts...)
-			return *r, err
+			var s LookupKeyspaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKeyspaceResultOutput)
 }
 

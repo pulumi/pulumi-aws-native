@@ -53,7 +53,11 @@ func LookupFirewallDomainListOutput(ctx *pulumi.Context, args LookupFirewallDoma
 		ApplyT(func(v interface{}) (LookupFirewallDomainListResult, error) {
 			args := v.(LookupFirewallDomainListArgs)
 			r, err := LookupFirewallDomainList(ctx, &args, opts...)
-			return *r, err
+			var s LookupFirewallDomainListResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFirewallDomainListResultOutput)
 }
 

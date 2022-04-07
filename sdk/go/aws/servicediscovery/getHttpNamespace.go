@@ -36,7 +36,11 @@ func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutp
 		ApplyT(func(v interface{}) (LookupHttpNamespaceResult, error) {
 			args := v.(LookupHttpNamespaceArgs)
 			r, err := LookupHttpNamespace(ctx, &args, opts...)
-			return *r, err
+			var s LookupHttpNamespaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHttpNamespaceResultOutput)
 }
 

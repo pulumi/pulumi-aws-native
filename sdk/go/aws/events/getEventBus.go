@@ -35,7 +35,11 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 		ApplyT(func(v interface{}) (LookupEventBusResult, error) {
 			args := v.(LookupEventBusArgs)
 			r, err := LookupEventBus(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventBusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventBusResultOutput)
 }
 

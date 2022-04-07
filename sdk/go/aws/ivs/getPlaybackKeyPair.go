@@ -39,7 +39,11 @@ func LookupPlaybackKeyPairOutput(ctx *pulumi.Context, args LookupPlaybackKeyPair
 		ApplyT(func(v interface{}) (LookupPlaybackKeyPairResult, error) {
 			args := v.(LookupPlaybackKeyPairArgs)
 			r, err := LookupPlaybackKeyPair(ctx, &args, opts...)
-			return *r, err
+			var s LookupPlaybackKeyPairResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPlaybackKeyPairResultOutput)
 }
 

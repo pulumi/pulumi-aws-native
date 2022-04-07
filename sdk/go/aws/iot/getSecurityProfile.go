@@ -47,7 +47,11 @@ func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfile
 		ApplyT(func(v interface{}) (LookupSecurityProfileResult, error) {
 			args := v.(LookupSecurityProfileArgs)
 			r, err := LookupSecurityProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecurityProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecurityProfileResultOutput)
 }
 

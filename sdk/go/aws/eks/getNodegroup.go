@@ -50,7 +50,11 @@ func LookupNodegroupOutput(ctx *pulumi.Context, args LookupNodegroupOutputArgs, 
 		ApplyT(func(v interface{}) (LookupNodegroupResult, error) {
 			args := v.(LookupNodegroupArgs)
 			r, err := LookupNodegroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupNodegroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNodegroupResultOutput)
 }
 

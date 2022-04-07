@@ -35,7 +35,11 @@ func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginReque
 		ApplyT(func(v interface{}) (LookupOriginRequestPolicyResult, error) {
 			args := v.(LookupOriginRequestPolicyArgs)
 			r, err := LookupOriginRequestPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupOriginRequestPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOriginRequestPolicyResultOutput)
 }
 

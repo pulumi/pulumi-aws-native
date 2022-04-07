@@ -43,7 +43,11 @@ func LookupTransitGatewayMulticastDomainAssociationOutput(ctx *pulumi.Context, a
 		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastDomainAssociationResult, error) {
 			args := v.(LookupTransitGatewayMulticastDomainAssociationArgs)
 			r, err := LookupTransitGatewayMulticastDomainAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayMulticastDomainAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayMulticastDomainAssociationResultOutput)
 }
 

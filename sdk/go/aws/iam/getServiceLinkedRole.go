@@ -34,7 +34,11 @@ func LookupServiceLinkedRoleOutput(ctx *pulumi.Context, args LookupServiceLinked
 		ApplyT(func(v interface{}) (LookupServiceLinkedRoleResult, error) {
 			args := v.(LookupServiceLinkedRoleArgs)
 			r, err := LookupServiceLinkedRole(ctx, &args, opts...)
-			return *r, err
+			var s LookupServiceLinkedRoleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServiceLinkedRoleResultOutput)
 }
 

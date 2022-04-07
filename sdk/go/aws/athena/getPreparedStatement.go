@@ -39,7 +39,11 @@ func LookupPreparedStatementOutput(ctx *pulumi.Context, args LookupPreparedState
 		ApplyT(func(v interface{}) (LookupPreparedStatementResult, error) {
 			args := v.(LookupPreparedStatementArgs)
 			r, err := LookupPreparedStatement(ctx, &args, opts...)
-			return *r, err
+			var s LookupPreparedStatementResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPreparedStatementResultOutput)
 }
 

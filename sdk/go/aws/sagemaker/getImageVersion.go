@@ -36,7 +36,11 @@ func LookupImageVersionOutput(ctx *pulumi.Context, args LookupImageVersionOutput
 		ApplyT(func(v interface{}) (LookupImageVersionResult, error) {
 			args := v.(LookupImageVersionArgs)
 			r, err := LookupImageVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupImageVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupImageVersionResultOutput)
 }
 

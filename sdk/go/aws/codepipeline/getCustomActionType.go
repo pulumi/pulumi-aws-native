@@ -34,7 +34,11 @@ func LookupCustomActionTypeOutput(ctx *pulumi.Context, args LookupCustomActionTy
 		ApplyT(func(v interface{}) (LookupCustomActionTypeResult, error) {
 			args := v.(LookupCustomActionTypeArgs)
 			r, err := LookupCustomActionType(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomActionTypeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomActionTypeResultOutput)
 }
 

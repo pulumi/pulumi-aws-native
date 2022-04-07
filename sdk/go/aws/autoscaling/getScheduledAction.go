@@ -40,7 +40,11 @@ func LookupScheduledActionOutput(ctx *pulumi.Context, args LookupScheduledAction
 		ApplyT(func(v interface{}) (LookupScheduledActionResult, error) {
 			args := v.(LookupScheduledActionArgs)
 			r, err := LookupScheduledAction(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduledActionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduledActionResultOutput)
 }
 

@@ -35,7 +35,11 @@ func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, op
 		ApplyT(func(v interface{}) (LookupDocumentResult, error) {
 			args := v.(LookupDocumentArgs)
 			r, err := LookupDocument(ctx, &args, opts...)
-			return *r, err
+			var s LookupDocumentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDocumentResultOutput)
 }
 

@@ -33,7 +33,11 @@ func LookupDeploymentConfigOutput(ctx *pulumi.Context, args LookupDeploymentConf
 		ApplyT(func(v interface{}) (LookupDeploymentConfigResult, error) {
 			args := v.(LookupDeploymentConfigArgs)
 			r, err := LookupDeploymentConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentConfigResultOutput)
 }
 

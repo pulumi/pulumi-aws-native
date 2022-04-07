@@ -55,7 +55,11 @@ func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutp
 		ApplyT(func(v interface{}) (LookupImagePipelineResult, error) {
 			args := v.(LookupImagePipelineArgs)
 			r, err := LookupImagePipeline(ctx, &args, opts...)
-			return *r, err
+			var s LookupImagePipelineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupImagePipelineResultOutput)
 }
 

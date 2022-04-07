@@ -32,7 +32,11 @@ func ImportValueOutput(ctx *pulumi.Context, args ImportValueOutputArgs, opts ...
 		ApplyT(func(v interface{}) (ImportValueResult, error) {
 			args := v.(ImportValueArgs)
 			r, err := ImportValue(ctx, &args, opts...)
-			return *r, err
+			var s ImportValueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ImportValueResultOutput)
 }
 

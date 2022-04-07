@@ -39,7 +39,11 @@ func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarch
 		ApplyT(func(v interface{}) (LookupUserHierarchyGroupResult, error) {
 			args := v.(LookupUserHierarchyGroupArgs)
 			r, err := LookupUserHierarchyGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserHierarchyGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserHierarchyGroupResultOutput)
 }
 

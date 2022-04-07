@@ -33,7 +33,11 @@ func LookupClientVpnAuthorizationRuleOutput(ctx *pulumi.Context, args LookupClie
 		ApplyT(func(v interface{}) (LookupClientVpnAuthorizationRuleResult, error) {
 			args := v.(LookupClientVpnAuthorizationRuleArgs)
 			r, err := LookupClientVpnAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupClientVpnAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClientVpnAuthorizationRuleResultOutput)
 }
 

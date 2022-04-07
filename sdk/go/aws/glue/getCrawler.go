@@ -45,7 +45,11 @@ func LookupCrawlerOutput(ctx *pulumi.Context, args LookupCrawlerOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupCrawlerResult, error) {
 			args := v.(LookupCrawlerArgs)
 			r, err := LookupCrawler(ctx, &args, opts...)
-			return *r, err
+			var s LookupCrawlerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCrawlerResultOutput)
 }
 

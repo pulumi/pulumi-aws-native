@@ -44,7 +44,11 @@ func LookupDetectorModelOutput(ctx *pulumi.Context, args LookupDetectorModelOutp
 		ApplyT(func(v interface{}) (LookupDetectorModelResult, error) {
 			args := v.(LookupDetectorModelArgs)
 			r, err := LookupDetectorModel(ctx, &args, opts...)
-			return *r, err
+			var s LookupDetectorModelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDetectorModelResultOutput)
 }
 

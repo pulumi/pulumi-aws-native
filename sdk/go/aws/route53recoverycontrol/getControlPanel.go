@@ -43,7 +43,11 @@ func LookupControlPanelOutput(ctx *pulumi.Context, args LookupControlPanelOutput
 		ApplyT(func(v interface{}) (LookupControlPanelResult, error) {
 			args := v.(LookupControlPanelArgs)
 			r, err := LookupControlPanel(ctx, &args, opts...)
-			return *r, err
+			var s LookupControlPanelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupControlPanelResultOutput)
 }
 

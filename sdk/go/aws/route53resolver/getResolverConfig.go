@@ -39,7 +39,11 @@ func LookupResolverConfigOutput(ctx *pulumi.Context, args LookupResolverConfigOu
 		ApplyT(func(v interface{}) (LookupResolverConfigResult, error) {
 			args := v.(LookupResolverConfigArgs)
 			r, err := LookupResolverConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupResolverConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResolverConfigResultOutput)
 }
 

@@ -36,7 +36,11 @@ func LookupRealtimeLogConfigOutput(ctx *pulumi.Context, args LookupRealtimeLogCo
 		ApplyT(func(v interface{}) (LookupRealtimeLogConfigResult, error) {
 			args := v.(LookupRealtimeLogConfigArgs)
 			r, err := LookupRealtimeLogConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupRealtimeLogConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRealtimeLogConfigResultOutput)
 }
 

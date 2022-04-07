@@ -49,7 +49,11 @@ func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, op
 		ApplyT(func(v interface{}) (LookupCampaignResult, error) {
 			args := v.(LookupCampaignArgs)
 			r, err := LookupCampaign(ctx, &args, opts...)
-			return *r, err
+			var s LookupCampaignResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCampaignResultOutput)
 }
 

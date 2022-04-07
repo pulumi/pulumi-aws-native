@@ -40,7 +40,11 @@ func LookupTrafficMirrorSessionOutput(ctx *pulumi.Context, args LookupTrafficMir
 		ApplyT(func(v interface{}) (LookupTrafficMirrorSessionResult, error) {
 			args := v.(LookupTrafficMirrorSessionArgs)
 			r, err := LookupTrafficMirrorSession(ctx, &args, opts...)
-			return *r, err
+			var s LookupTrafficMirrorSessionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTrafficMirrorSessionResultOutput)
 }
 

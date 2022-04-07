@@ -58,7 +58,11 @@ func LookupOriginEndpointOutput(ctx *pulumi.Context, args LookupOriginEndpointOu
 		ApplyT(func(v interface{}) (LookupOriginEndpointResult, error) {
 			args := v.(LookupOriginEndpointArgs)
 			r, err := LookupOriginEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupOriginEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOriginEndpointResultOutput)
 }
 

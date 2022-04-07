@@ -34,7 +34,11 @@ func LookupJobTemplateOutput(ctx *pulumi.Context, args LookupJobTemplateOutputAr
 		ApplyT(func(v interface{}) (LookupJobTemplateResult, error) {
 			args := v.(LookupJobTemplateArgs)
 			r, err := LookupJobTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupJobTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJobTemplateResultOutput)
 }
 

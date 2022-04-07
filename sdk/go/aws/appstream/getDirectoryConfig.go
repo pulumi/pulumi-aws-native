@@ -35,7 +35,11 @@ func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfig
 		ApplyT(func(v interface{}) (LookupDirectoryConfigResult, error) {
 			args := v.(LookupDirectoryConfigArgs)
 			r, err := LookupDirectoryConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupDirectoryConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDirectoryConfigResultOutput)
 }
 

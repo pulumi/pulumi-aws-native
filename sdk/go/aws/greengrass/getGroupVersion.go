@@ -33,7 +33,11 @@ func LookupGroupVersionOutput(ctx *pulumi.Context, args LookupGroupVersionOutput
 		ApplyT(func(v interface{}) (LookupGroupVersionResult, error) {
 			args := v.(LookupGroupVersionArgs)
 			r, err := LookupGroupVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupGroupVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGroupVersionResultOutput)
 }
 

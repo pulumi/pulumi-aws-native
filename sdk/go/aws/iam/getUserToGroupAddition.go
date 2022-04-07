@@ -35,7 +35,11 @@ func LookupUserToGroupAdditionOutput(ctx *pulumi.Context, args LookupUserToGroup
 		ApplyT(func(v interface{}) (LookupUserToGroupAdditionResult, error) {
 			args := v.(LookupUserToGroupAdditionArgs)
 			r, err := LookupUserToGroupAddition(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserToGroupAdditionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserToGroupAdditionResultOutput)
 }
 

@@ -45,7 +45,11 @@ func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutput
 		ApplyT(func(v interface{}) (LookupResponsePlanResult, error) {
 			args := v.(LookupResponsePlanArgs)
 			r, err := LookupResponsePlan(ctx, &args, opts...)
-			return *r, err
+			var s LookupResponsePlanResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResponsePlanResultOutput)
 }
 

@@ -37,7 +37,11 @@ func LookupVPCEndpointServiceOutput(ctx *pulumi.Context, args LookupVPCEndpointS
 		ApplyT(func(v interface{}) (LookupVPCEndpointServiceResult, error) {
 			args := v.(LookupVPCEndpointServiceArgs)
 			r, err := LookupVPCEndpointService(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCEndpointServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCEndpointServiceResultOutput)
 }
 

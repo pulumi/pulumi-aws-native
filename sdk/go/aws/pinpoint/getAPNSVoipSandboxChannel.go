@@ -41,7 +41,11 @@ func LookupAPNSVoipSandboxChannelOutput(ctx *pulumi.Context, args LookupAPNSVoip
 		ApplyT(func(v interface{}) (LookupAPNSVoipSandboxChannelResult, error) {
 			args := v.(LookupAPNSVoipSandboxChannelArgs)
 			r, err := LookupAPNSVoipSandboxChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupAPNSVoipSandboxChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAPNSVoipSandboxChannelResultOutput)
 }
 

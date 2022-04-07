@@ -35,7 +35,11 @@ func LookupCustomerGatewayAssociationOutput(ctx *pulumi.Context, args LookupCust
 		ApplyT(func(v interface{}) (LookupCustomerGatewayAssociationResult, error) {
 			args := v.(LookupCustomerGatewayAssociationArgs)
 			r, err := LookupCustomerGatewayAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomerGatewayAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomerGatewayAssociationResultOutput)
 }
 

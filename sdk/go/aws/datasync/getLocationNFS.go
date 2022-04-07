@@ -41,7 +41,11 @@ func LookupLocationNFSOutput(ctx *pulumi.Context, args LookupLocationNFSOutputAr
 		ApplyT(func(v interface{}) (LookupLocationNFSResult, error) {
 			args := v.(LookupLocationNFSArgs)
 			r, err := LookupLocationNFS(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationNFSResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationNFSResultOutput)
 }
 

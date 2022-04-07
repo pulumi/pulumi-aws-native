@@ -40,7 +40,11 @@ func LookupStaticIpOutput(ctx *pulumi.Context, args LookupStaticIpOutputArgs, op
 		ApplyT(func(v interface{}) (LookupStaticIpResult, error) {
 			args := v.(LookupStaticIpArgs)
 			r, err := LookupStaticIp(ctx, &args, opts...)
-			return *r, err
+			var s LookupStaticIpResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStaticIpResultOutput)
 }
 

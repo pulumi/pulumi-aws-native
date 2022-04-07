@@ -39,7 +39,11 @@ func LookupPublicTypeVersionOutput(ctx *pulumi.Context, args LookupPublicTypeVer
 		ApplyT(func(v interface{}) (LookupPublicTypeVersionResult, error) {
 			args := v.(LookupPublicTypeVersionArgs)
 			r, err := LookupPublicTypeVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupPublicTypeVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPublicTypeVersionResultOutput)
 }
 

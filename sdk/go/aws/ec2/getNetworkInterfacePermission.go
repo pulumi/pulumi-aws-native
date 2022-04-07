@@ -33,7 +33,11 @@ func LookupNetworkInterfacePermissionOutput(ctx *pulumi.Context, args LookupNetw
 		ApplyT(func(v interface{}) (LookupNetworkInterfacePermissionResult, error) {
 			args := v.(LookupNetworkInterfacePermissionArgs)
 			r, err := LookupNetworkInterfacePermission(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkInterfacePermissionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkInterfacePermissionResultOutput)
 }
 

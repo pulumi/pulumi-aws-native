@@ -38,7 +38,11 @@ func LookupFHIRDatastoreOutput(ctx *pulumi.Context, args LookupFHIRDatastoreOutp
 		ApplyT(func(v interface{}) (LookupFHIRDatastoreResult, error) {
 			args := v.(LookupFHIRDatastoreArgs)
 			r, err := LookupFHIRDatastore(ctx, &args, opts...)
-			return *r, err
+			var s LookupFHIRDatastoreResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFHIRDatastoreResultOutput)
 }
 

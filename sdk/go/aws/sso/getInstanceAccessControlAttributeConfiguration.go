@@ -36,7 +36,11 @@ func LookupInstanceAccessControlAttributeConfigurationOutput(ctx *pulumi.Context
 		ApplyT(func(v interface{}) (LookupInstanceAccessControlAttributeConfigurationResult, error) {
 			args := v.(LookupInstanceAccessControlAttributeConfigurationArgs)
 			r, err := LookupInstanceAccessControlAttributeConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupInstanceAccessControlAttributeConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInstanceAccessControlAttributeConfigurationResultOutput)
 }
 

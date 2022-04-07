@@ -43,7 +43,11 @@ func LookupDataIntegrationOutput(ctx *pulumi.Context, args LookupDataIntegration
 		ApplyT(func(v interface{}) (LookupDataIntegrationResult, error) {
 			args := v.(LookupDataIntegrationArgs)
 			r, err := LookupDataIntegration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataIntegrationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataIntegrationResultOutput)
 }
 

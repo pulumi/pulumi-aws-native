@@ -34,7 +34,11 @@ func LookupCapacityProviderOutput(ctx *pulumi.Context, args LookupCapacityProvid
 		ApplyT(func(v interface{}) (LookupCapacityProviderResult, error) {
 			args := v.(LookupCapacityProviderArgs)
 			r, err := LookupCapacityProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupCapacityProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCapacityProviderResultOutput)
 }
 

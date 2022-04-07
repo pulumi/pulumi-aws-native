@@ -41,7 +41,11 @@ func LookupPublisherOutput(ctx *pulumi.Context, args LookupPublisherOutputArgs, 
 		ApplyT(func(v interface{}) (LookupPublisherResult, error) {
 			args := v.(LookupPublisherArgs)
 			r, err := LookupPublisher(ctx, &args, opts...)
-			return *r, err
+			var s LookupPublisherResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPublisherResultOutput)
 }
 

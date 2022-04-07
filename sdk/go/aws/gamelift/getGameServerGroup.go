@@ -59,7 +59,11 @@ func LookupGameServerGroupOutput(ctx *pulumi.Context, args LookupGameServerGroup
 		ApplyT(func(v interface{}) (LookupGameServerGroupResult, error) {
 			args := v.(LookupGameServerGroupArgs)
 			r, err := LookupGameServerGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupGameServerGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGameServerGroupResultOutput)
 }
 

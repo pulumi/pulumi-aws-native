@@ -33,7 +33,11 @@ func LookupResourceDataSyncOutput(ctx *pulumi.Context, args LookupResourceDataSy
 		ApplyT(func(v interface{}) (LookupResourceDataSyncResult, error) {
 			args := v.(LookupResourceDataSyncArgs)
 			r, err := LookupResourceDataSync(ctx, &args, opts...)
-			return *r, err
+			var s LookupResourceDataSyncResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResourceDataSyncResultOutput)
 }
 

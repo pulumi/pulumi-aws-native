@@ -33,7 +33,11 @@ func LookupDNSSECOutput(ctx *pulumi.Context, args LookupDNSSECOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupDNSSECResult, error) {
 			args := v.(LookupDNSSECArgs)
 			r, err := LookupDNSSEC(ctx, &args, opts...)
-			return *r, err
+			var s LookupDNSSECResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDNSSECResultOutput)
 }
 

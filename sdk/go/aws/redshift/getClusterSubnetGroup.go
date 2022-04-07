@@ -36,7 +36,11 @@ func LookupClusterSubnetGroupOutput(ctx *pulumi.Context, args LookupClusterSubne
 		ApplyT(func(v interface{}) (LookupClusterSubnetGroupResult, error) {
 			args := v.(LookupClusterSubnetGroupArgs)
 			r, err := LookupClusterSubnetGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupClusterSubnetGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClusterSubnetGroupResultOutput)
 }
 

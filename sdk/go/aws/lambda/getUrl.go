@@ -40,7 +40,11 @@ func LookupUrlOutput(ctx *pulumi.Context, args LookupUrlOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupUrlResult, error) {
 			args := v.(LookupUrlArgs)
 			r, err := LookupUrl(ctx, &args, opts...)
-			return *r, err
+			var s LookupUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUrlResultOutput)
 }
 

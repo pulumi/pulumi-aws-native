@@ -33,7 +33,11 @@ func LookupSubnetCidrBlockOutput(ctx *pulumi.Context, args LookupSubnetCidrBlock
 		ApplyT(func(v interface{}) (LookupSubnetCidrBlockResult, error) {
 			args := v.(LookupSubnetCidrBlockArgs)
 			r, err := LookupSubnetCidrBlock(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubnetCidrBlockResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubnetCidrBlockResultOutput)
 }
 

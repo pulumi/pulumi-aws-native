@@ -37,7 +37,11 @@ func LookupKeySigningKeyOutput(ctx *pulumi.Context, args LookupKeySigningKeyOutp
 		ApplyT(func(v interface{}) (LookupKeySigningKeyResult, error) {
 			args := v.(LookupKeySigningKeyArgs)
 			r, err := LookupKeySigningKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupKeySigningKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKeySigningKeyResultOutput)
 }
 

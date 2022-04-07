@@ -34,7 +34,11 @@ func LookupVPNGatewayOutput(ctx *pulumi.Context, args LookupVPNGatewayOutputArgs
 		ApplyT(func(v interface{}) (LookupVPNGatewayResult, error) {
 			args := v.(LookupVPNGatewayArgs)
 			r, err := LookupVPNGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPNGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPNGatewayResultOutput)
 }
 

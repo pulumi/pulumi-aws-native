@@ -38,7 +38,11 @@ func LookupOIDCProviderOutput(ctx *pulumi.Context, args LookupOIDCProviderOutput
 		ApplyT(func(v interface{}) (LookupOIDCProviderResult, error) {
 			args := v.(LookupOIDCProviderArgs)
 			r, err := LookupOIDCProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupOIDCProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOIDCProviderResultOutput)
 }
 

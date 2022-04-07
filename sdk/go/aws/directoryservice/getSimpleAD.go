@@ -36,7 +36,11 @@ func LookupSimpleADOutput(ctx *pulumi.Context, args LookupSimpleADOutputArgs, op
 		ApplyT(func(v interface{}) (LookupSimpleADResult, error) {
 			args := v.(LookupSimpleADArgs)
 			r, err := LookupSimpleAD(ctx, &args, opts...)
-			return *r, err
+			var s LookupSimpleADResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSimpleADResultOutput)
 }
 

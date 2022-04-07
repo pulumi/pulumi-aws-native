@@ -34,7 +34,11 @@ func LookupGeoMatchSetOutput(ctx *pulumi.Context, args LookupGeoMatchSetOutputAr
 		ApplyT(func(v interface{}) (LookupGeoMatchSetResult, error) {
 			args := v.(LookupGeoMatchSetArgs)
 			r, err := LookupGeoMatchSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupGeoMatchSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGeoMatchSetResultOutput)
 }
 

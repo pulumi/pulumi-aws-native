@@ -46,7 +46,11 @@ func LookupEventTypeOutput(ctx *pulumi.Context, args LookupEventTypeOutputArgs, 
 		ApplyT(func(v interface{}) (LookupEventTypeResult, error) {
 			args := v.(LookupEventTypeArgs)
 			r, err := LookupEventType(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventTypeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventTypeResultOutput)
 }
 

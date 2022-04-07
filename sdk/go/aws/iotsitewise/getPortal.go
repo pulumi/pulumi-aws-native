@@ -53,7 +53,11 @@ func LookupPortalOutput(ctx *pulumi.Context, args LookupPortalOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupPortalResult, error) {
 			args := v.(LookupPortalArgs)
 			r, err := LookupPortal(ctx, &args, opts...)
-			return *r, err
+			var s LookupPortalResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPortalResultOutput)
 }
 

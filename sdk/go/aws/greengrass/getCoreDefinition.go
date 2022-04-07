@@ -37,7 +37,11 @@ func LookupCoreDefinitionOutput(ctx *pulumi.Context, args LookupCoreDefinitionOu
 		ApplyT(func(v interface{}) (LookupCoreDefinitionResult, error) {
 			args := v.(LookupCoreDefinitionArgs)
 			r, err := LookupCoreDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupCoreDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCoreDefinitionResultOutput)
 }
 

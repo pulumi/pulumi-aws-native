@@ -42,7 +42,11 @@ func LookupRemediationConfigurationOutput(ctx *pulumi.Context, args LookupRemedi
 		ApplyT(func(v interface{}) (LookupRemediationConfigurationResult, error) {
 			args := v.(LookupRemediationConfigurationArgs)
 			r, err := LookupRemediationConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupRemediationConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRemediationConfigurationResultOutput)
 }
 

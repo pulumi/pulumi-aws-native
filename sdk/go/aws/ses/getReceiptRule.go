@@ -35,7 +35,11 @@ func LookupReceiptRuleOutput(ctx *pulumi.Context, args LookupReceiptRuleOutputAr
 		ApplyT(func(v interface{}) (LookupReceiptRuleResult, error) {
 			args := v.(LookupReceiptRuleArgs)
 			r, err := LookupReceiptRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupReceiptRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReceiptRuleResultOutput)
 }
 

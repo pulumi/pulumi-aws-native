@@ -33,7 +33,11 @@ func LookupCustomResourceOutput(ctx *pulumi.Context, args LookupCustomResourceOu
 		ApplyT(func(v interface{}) (LookupCustomResourceResult, error) {
 			args := v.(LookupCustomResourceArgs)
 			r, err := LookupCustomResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomResourceResultOutput)
 }
 

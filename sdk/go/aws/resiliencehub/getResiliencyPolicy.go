@@ -45,7 +45,11 @@ func LookupResiliencyPolicyOutput(ctx *pulumi.Context, args LookupResiliencyPoli
 		ApplyT(func(v interface{}) (LookupResiliencyPolicyResult, error) {
 			args := v.(LookupResiliencyPolicyArgs)
 			r, err := LookupResiliencyPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupResiliencyPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResiliencyPolicyResultOutput)
 }
 

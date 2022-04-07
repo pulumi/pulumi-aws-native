@@ -34,7 +34,11 @@ func LookupVPCPeeringConnectionOutput(ctx *pulumi.Context, args LookupVPCPeering
 		ApplyT(func(v interface{}) (LookupVPCPeeringConnectionResult, error) {
 			args := v.(LookupVPCPeeringConnectionArgs)
 			r, err := LookupVPCPeeringConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCPeeringConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCPeeringConnectionResultOutput)
 }
 

@@ -43,7 +43,11 @@ func LookupFlowVpcInterfaceOutput(ctx *pulumi.Context, args LookupFlowVpcInterfa
 		ApplyT(func(v interface{}) (LookupFlowVpcInterfaceResult, error) {
 			args := v.(LookupFlowVpcInterfaceArgs)
 			r, err := LookupFlowVpcInterface(ctx, &args, opts...)
-			return *r, err
+			var s LookupFlowVpcInterfaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFlowVpcInterfaceResultOutput)
 }
 

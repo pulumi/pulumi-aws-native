@@ -38,7 +38,11 @@ func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutput
 		ApplyT(func(v interface{}) (LookupSamplingRuleResult, error) {
 			args := v.(LookupSamplingRuleArgs)
 			r, err := LookupSamplingRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupSamplingRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSamplingRuleResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupTransitGatewayMulticastGroupSourceOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastGroupSourceResult, error) {
 			args := v.(LookupTransitGatewayMulticastGroupSourceArgs)
 			r, err := LookupTransitGatewayMulticastGroupSource(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayMulticastGroupSourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayMulticastGroupSourceResultOutput)
 }
 

@@ -36,7 +36,11 @@ func LookupADMChannelOutput(ctx *pulumi.Context, args LookupADMChannelOutputArgs
 		ApplyT(func(v interface{}) (LookupADMChannelResult, error) {
 			args := v.(LookupADMChannelArgs)
 			r, err := LookupADMChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupADMChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupADMChannelResultOutput)
 }
 

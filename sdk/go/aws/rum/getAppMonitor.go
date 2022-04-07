@@ -39,7 +39,11 @@ func LookupAppMonitorOutput(ctx *pulumi.Context, args LookupAppMonitorOutputArgs
 		ApplyT(func(v interface{}) (LookupAppMonitorResult, error) {
 			args := v.(LookupAppMonitorArgs)
 			r, err := LookupAppMonitor(ctx, &args, opts...)
-			return *r, err
+			var s LookupAppMonitorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAppMonitorResultOutput)
 }
 

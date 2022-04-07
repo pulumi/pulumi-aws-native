@@ -37,7 +37,11 @@ func LookupAppImageConfigOutput(ctx *pulumi.Context, args LookupAppImageConfigOu
 		ApplyT(func(v interface{}) (LookupAppImageConfigResult, error) {
 			args := v.(LookupAppImageConfigArgs)
 			r, err := LookupAppImageConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupAppImageConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAppImageConfigResultOutput)
 }
 

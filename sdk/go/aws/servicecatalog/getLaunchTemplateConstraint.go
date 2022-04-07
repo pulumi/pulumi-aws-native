@@ -36,7 +36,11 @@ func LookupLaunchTemplateConstraintOutput(ctx *pulumi.Context, args LookupLaunch
 		ApplyT(func(v interface{}) (LookupLaunchTemplateConstraintResult, error) {
 			args := v.(LookupLaunchTemplateConstraintArgs)
 			r, err := LookupLaunchTemplateConstraint(ctx, &args, opts...)
-			return *r, err
+			var s LookupLaunchTemplateConstraintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLaunchTemplateConstraintResultOutput)
 }
 

@@ -34,7 +34,11 @@ func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGro
 		ApplyT(func(v interface{}) (LookupSecurityGroupEgressResult, error) {
 			args := v.(LookupSecurityGroupEgressArgs)
 			r, err := LookupSecurityGroupEgress(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecurityGroupEgressResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecurityGroupEgressResultOutput)
 }
 

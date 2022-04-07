@@ -59,7 +59,11 @@ func LookupStageOutput(ctx *pulumi.Context, args LookupStageOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupStageResult, error) {
 			args := v.(LookupStageArgs)
 			r, err := LookupStage(ctx, &args, opts...)
-			return *r, err
+			var s LookupStageResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStageResultOutput)
 }
 

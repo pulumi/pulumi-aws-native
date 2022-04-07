@@ -46,7 +46,11 @@ func LookupSimulationApplicationOutput(ctx *pulumi.Context, args LookupSimulatio
 		ApplyT(func(v interface{}) (LookupSimulationApplicationResult, error) {
 			args := v.(LookupSimulationApplicationArgs)
 			r, err := LookupSimulationApplication(ctx, &args, opts...)
-			return *r, err
+			var s LookupSimulationApplicationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSimulationApplicationResultOutput)
 }
 

@@ -45,7 +45,11 @@ func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutp
 		ApplyT(func(v interface{}) (LookupPatchBaselineResult, error) {
 			args := v.(LookupPatchBaselineArgs)
 			r, err := LookupPatchBaseline(ctx, &args, opts...)
-			return *r, err
+			var s LookupPatchBaselineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPatchBaselineResultOutput)
 }
 

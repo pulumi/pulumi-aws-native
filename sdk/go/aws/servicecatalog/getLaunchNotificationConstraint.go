@@ -36,7 +36,11 @@ func LookupLaunchNotificationConstraintOutput(ctx *pulumi.Context, args LookupLa
 		ApplyT(func(v interface{}) (LookupLaunchNotificationConstraintResult, error) {
 			args := v.(LookupLaunchNotificationConstraintArgs)
 			r, err := LookupLaunchNotificationConstraint(ctx, &args, opts...)
-			return *r, err
+			var s LookupLaunchNotificationConstraintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLaunchNotificationConstraintResultOutput)
 }
 

@@ -41,7 +41,11 @@ func LookupGlobalNetworkOutput(ctx *pulumi.Context, args LookupGlobalNetworkOutp
 		ApplyT(func(v interface{}) (LookupGlobalNetworkResult, error) {
 			args := v.(LookupGlobalNetworkArgs)
 			r, err := LookupGlobalNetwork(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalNetworkResultOutput)
 }
 

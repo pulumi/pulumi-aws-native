@@ -40,7 +40,11 @@ func LookupLaunchOutput(ctx *pulumi.Context, args LookupLaunchOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupLaunchResult, error) {
 			args := v.(LookupLaunchArgs)
 			r, err := LookupLaunch(ctx, &args, opts...)
-			return *r, err
+			var s LookupLaunchResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLaunchResultOutput)
 }
 

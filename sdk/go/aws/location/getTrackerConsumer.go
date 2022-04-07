@@ -33,7 +33,11 @@ func LookupTrackerConsumerOutput(ctx *pulumi.Context, args LookupTrackerConsumer
 		ApplyT(func(v interface{}) (LookupTrackerConsumerResult, error) {
 			args := v.(LookupTrackerConsumerArgs)
 			r, err := LookupTrackerConsumer(ctx, &args, opts...)
-			return *r, err
+			var s LookupTrackerConsumerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTrackerConsumerResultOutput)
 }
 

@@ -37,7 +37,11 @@ func LookupRotationScheduleOutput(ctx *pulumi.Context, args LookupRotationSchedu
 		ApplyT(func(v interface{}) (LookupRotationScheduleResult, error) {
 			args := v.(LookupRotationScheduleArgs)
 			r, err := LookupRotationSchedule(ctx, &args, opts...)
-			return *r, err
+			var s LookupRotationScheduleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRotationScheduleResultOutput)
 }
 

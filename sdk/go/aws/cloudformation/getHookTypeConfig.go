@@ -41,7 +41,11 @@ func LookupHookTypeConfigOutput(ctx *pulumi.Context, args LookupHookTypeConfigOu
 		ApplyT(func(v interface{}) (LookupHookTypeConfigResult, error) {
 			args := v.(LookupHookTypeConfigArgs)
 			r, err := LookupHookTypeConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupHookTypeConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHookTypeConfigResultOutput)
 }
 

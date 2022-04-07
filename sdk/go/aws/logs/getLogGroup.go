@@ -41,7 +41,11 @@ func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, op
 		ApplyT(func(v interface{}) (LookupLogGroupResult, error) {
 			args := v.(LookupLogGroupArgs)
 			r, err := LookupLogGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupLogGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLogGroupResultOutput)
 }
 

@@ -41,7 +41,11 @@ func LookupDataCatalogOutput(ctx *pulumi.Context, args LookupDataCatalogOutputAr
 		ApplyT(func(v interface{}) (LookupDataCatalogResult, error) {
 			args := v.(LookupDataCatalogArgs)
 			r, err := LookupDataCatalog(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataCatalogResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataCatalogResultOutput)
 }
 

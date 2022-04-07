@@ -35,7 +35,11 @@ func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseH
 		ApplyT(func(v interface{}) (LookupResponseHeadersPolicyResult, error) {
 			args := v.(LookupResponseHeadersPolicyArgs)
 			r, err := LookupResponseHeadersPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupResponseHeadersPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResponseHeadersPolicyResultOutput)
 }
 

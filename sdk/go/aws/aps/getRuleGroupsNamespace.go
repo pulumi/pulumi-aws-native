@@ -41,7 +41,11 @@ func LookupRuleGroupsNamespaceOutput(ctx *pulumi.Context, args LookupRuleGroupsN
 		ApplyT(func(v interface{}) (LookupRuleGroupsNamespaceResult, error) {
 			args := v.(LookupRuleGroupsNamespaceArgs)
 			r, err := LookupRuleGroupsNamespace(ctx, &args, opts...)
-			return *r, err
+			var s LookupRuleGroupsNamespaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRuleGroupsNamespaceResultOutput)
 }
 

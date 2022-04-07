@@ -33,7 +33,11 @@ func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs
 		ApplyT(func(v interface{}) (LookupPermissionResult, error) {
 			args := v.(LookupPermissionArgs)
 			r, err := LookupPermission(ctx, &args, opts...)
-			return *r, err
+			var s LookupPermissionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPermissionResultOutput)
 }
 

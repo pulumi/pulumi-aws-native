@@ -33,7 +33,11 @@ func LookupLayerVersionPermissionOutput(ctx *pulumi.Context, args LookupLayerVer
 		ApplyT(func(v interface{}) (LookupLayerVersionPermissionResult, error) {
 			args := v.(LookupLayerVersionPermissionArgs)
 			r, err := LookupLayerVersionPermission(ctx, &args, opts...)
-			return *r, err
+			var s LookupLayerVersionPermissionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLayerVersionPermissionResultOutput)
 }
 

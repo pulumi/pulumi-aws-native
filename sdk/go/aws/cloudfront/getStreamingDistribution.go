@@ -36,7 +36,11 @@ func LookupStreamingDistributionOutput(ctx *pulumi.Context, args LookupStreaming
 		ApplyT(func(v interface{}) (LookupStreamingDistributionResult, error) {
 			args := v.(LookupStreamingDistributionArgs)
 			r, err := LookupStreamingDistribution(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamingDistributionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamingDistributionResultOutput)
 }
 

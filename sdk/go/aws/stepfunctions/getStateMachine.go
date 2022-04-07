@@ -39,7 +39,11 @@ func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutput
 		ApplyT(func(v interface{}) (LookupStateMachineResult, error) {
 			args := v.(LookupStateMachineArgs)
 			r, err := LookupStateMachine(ctx, &args, opts...)
-			return *r, err
+			var s LookupStateMachineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStateMachineResultOutput)
 }
 

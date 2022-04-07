@@ -53,7 +53,11 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 		ApplyT(func(v interface{}) (LookupUserPoolClientResult, error) {
 			args := v.(LookupUserPoolClientArgs)
 			r, err := LookupUserPoolClient(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserPoolClientResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserPoolClientResultOutput)
 }
 

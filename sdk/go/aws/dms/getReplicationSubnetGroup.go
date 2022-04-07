@@ -36,7 +36,11 @@ func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicat
 		ApplyT(func(v interface{}) (LookupReplicationSubnetGroupResult, error) {
 			args := v.(LookupReplicationSubnetGroupArgs)
 			r, err := LookupReplicationSubnetGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationSubnetGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationSubnetGroupResultOutput)
 }
 

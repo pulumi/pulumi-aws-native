@@ -45,7 +45,11 @@ func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSet
 		ApplyT(func(v interface{}) (LookupRegexPatternSetResult, error) {
 			args := v.(LookupRegexPatternSetArgs)
 			r, err := LookupRegexPatternSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupRegexPatternSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRegexPatternSetResultOutput)
 }
 

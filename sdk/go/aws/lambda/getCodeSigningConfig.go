@@ -43,7 +43,11 @@ func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningCo
 		ApplyT(func(v interface{}) (LookupCodeSigningConfigResult, error) {
 			args := v.(LookupCodeSigningConfigArgs)
 			r, err := LookupCodeSigningConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupCodeSigningConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCodeSigningConfigResultOutput)
 }
 

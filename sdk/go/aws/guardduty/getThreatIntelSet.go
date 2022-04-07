@@ -36,7 +36,11 @@ func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOu
 		ApplyT(func(v interface{}) (LookupThreatIntelSetResult, error) {
 			args := v.(LookupThreatIntelSetArgs)
 			r, err := LookupThreatIntelSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupThreatIntelSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupThreatIntelSetResultOutput)
 }
 

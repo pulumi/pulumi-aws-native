@@ -52,7 +52,11 @@ func LookupLicenseOutput(ctx *pulumi.Context, args LookupLicenseOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupLicenseResult, error) {
 			args := v.(LookupLicenseArgs)
 			r, err := LookupLicense(ctx, &args, opts...)
-			return *r, err
+			var s LookupLicenseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLicenseResultOutput)
 }
 

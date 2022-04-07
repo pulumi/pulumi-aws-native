@@ -37,7 +37,11 @@ func LookupHealthCheckOutput(ctx *pulumi.Context, args LookupHealthCheckOutputAr
 		ApplyT(func(v interface{}) (LookupHealthCheckResult, error) {
 			args := v.(LookupHealthCheckArgs)
 			r, err := LookupHealthCheck(ctx, &args, opts...)
-			return *r, err
+			var s LookupHealthCheckResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHealthCheckResultOutput)
 }
 

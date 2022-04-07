@@ -33,7 +33,11 @@ func LookupWebACLAssociationOutput(ctx *pulumi.Context, args LookupWebACLAssocia
 		ApplyT(func(v interface{}) (LookupWebACLAssociationResult, error) {
 			args := v.(LookupWebACLAssociationArgs)
 			r, err := LookupWebACLAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebACLAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebACLAssociationResultOutput)
 }
 

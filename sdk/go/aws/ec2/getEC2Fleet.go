@@ -36,7 +36,11 @@ func LookupEC2FleetOutput(ctx *pulumi.Context, args LookupEC2FleetOutputArgs, op
 		ApplyT(func(v interface{}) (LookupEC2FleetResult, error) {
 			args := v.(LookupEC2FleetArgs)
 			r, err := LookupEC2Fleet(ctx, &args, opts...)
-			return *r, err
+			var s LookupEC2FleetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEC2FleetResultOutput)
 }
 

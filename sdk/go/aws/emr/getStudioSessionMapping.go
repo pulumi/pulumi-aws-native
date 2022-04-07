@@ -39,7 +39,11 @@ func LookupStudioSessionMappingOutput(ctx *pulumi.Context, args LookupStudioSess
 		ApplyT(func(v interface{}) (LookupStudioSessionMappingResult, error) {
 			args := v.(LookupStudioSessionMappingArgs)
 			r, err := LookupStudioSessionMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupStudioSessionMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStudioSessionMappingResultOutput)
 }
 

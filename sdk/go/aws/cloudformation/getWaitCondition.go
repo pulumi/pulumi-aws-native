@@ -37,7 +37,11 @@ func LookupWaitConditionOutput(ctx *pulumi.Context, args LookupWaitConditionOutp
 		ApplyT(func(v interface{}) (LookupWaitConditionResult, error) {
 			args := v.(LookupWaitConditionArgs)
 			r, err := LookupWaitCondition(ctx, &args, opts...)
-			return *r, err
+			var s LookupWaitConditionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWaitConditionResultOutput)
 }
 

@@ -38,7 +38,11 @@ func LookupStorageVirtualMachineOutput(ctx *pulumi.Context, args LookupStorageVi
 		ApplyT(func(v interface{}) (LookupStorageVirtualMachineResult, error) {
 			args := v.(LookupStorageVirtualMachineArgs)
 			r, err := LookupStorageVirtualMachine(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageVirtualMachineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageVirtualMachineResultOutput)
 }
 

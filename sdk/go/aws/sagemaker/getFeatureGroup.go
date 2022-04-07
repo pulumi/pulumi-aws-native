@@ -33,7 +33,11 @@ func LookupFeatureGroupOutput(ctx *pulumi.Context, args LookupFeatureGroupOutput
 		ApplyT(func(v interface{}) (LookupFeatureGroupResult, error) {
 			args := v.(LookupFeatureGroupArgs)
 			r, err := LookupFeatureGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupFeatureGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFeatureGroupResultOutput)
 }
 

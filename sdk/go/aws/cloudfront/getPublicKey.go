@@ -35,7 +35,11 @@ func LookupPublicKeyOutput(ctx *pulumi.Context, args LookupPublicKeyOutputArgs, 
 		ApplyT(func(v interface{}) (LookupPublicKeyResult, error) {
 			args := v.(LookupPublicKeyArgs)
 			r, err := LookupPublicKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupPublicKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPublicKeyResultOutput)
 }
 

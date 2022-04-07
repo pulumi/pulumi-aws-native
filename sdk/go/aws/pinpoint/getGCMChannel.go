@@ -35,7 +35,11 @@ func LookupGCMChannelOutput(ctx *pulumi.Context, args LookupGCMChannelOutputArgs
 		ApplyT(func(v interface{}) (LookupGCMChannelResult, error) {
 			args := v.(LookupGCMChannelArgs)
 			r, err := LookupGCMChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupGCMChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGCMChannelResultOutput)
 }
 

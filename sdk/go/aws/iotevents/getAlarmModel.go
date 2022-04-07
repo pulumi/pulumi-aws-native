@@ -48,7 +48,11 @@ func LookupAlarmModelOutput(ctx *pulumi.Context, args LookupAlarmModelOutputArgs
 		ApplyT(func(v interface{}) (LookupAlarmModelResult, error) {
 			args := v.(LookupAlarmModelArgs)
 			r, err := LookupAlarmModel(ctx, &args, opts...)
-			return *r, err
+			var s LookupAlarmModelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAlarmModelResultOutput)
 }
 

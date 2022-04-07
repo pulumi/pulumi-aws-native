@@ -38,7 +38,11 @@ func LookupIPAMAllocationOutput(ctx *pulumi.Context, args LookupIPAMAllocationOu
 		ApplyT(func(v interface{}) (LookupIPAMAllocationResult, error) {
 			args := v.(LookupIPAMAllocationArgs)
 			r, err := LookupIPAMAllocation(ctx, &args, opts...)
-			return *r, err
+			var s LookupIPAMAllocationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIPAMAllocationResultOutput)
 }
 

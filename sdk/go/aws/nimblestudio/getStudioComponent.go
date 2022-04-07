@@ -47,7 +47,11 @@ func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponent
 		ApplyT(func(v interface{}) (LookupStudioComponentResult, error) {
 			args := v.(LookupStudioComponentArgs)
 			r, err := LookupStudioComponent(ctx, &args, opts...)
-			return *r, err
+			var s LookupStudioComponentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStudioComponentResultOutput)
 }
 

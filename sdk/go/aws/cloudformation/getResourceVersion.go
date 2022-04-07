@@ -51,7 +51,11 @@ func LookupResourceVersionOutput(ctx *pulumi.Context, args LookupResourceVersion
 		ApplyT(func(v interface{}) (LookupResourceVersionResult, error) {
 			args := v.(LookupResourceVersionArgs)
 			r, err := LookupResourceVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupResourceVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResourceVersionResultOutput)
 }
 

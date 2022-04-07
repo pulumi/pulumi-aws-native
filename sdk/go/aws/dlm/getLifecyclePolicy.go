@@ -39,7 +39,11 @@ func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicy
 		ApplyT(func(v interface{}) (LookupLifecyclePolicyResult, error) {
 			args := v.(LookupLifecyclePolicyArgs)
 			r, err := LookupLifecyclePolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupLifecyclePolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLifecyclePolicyResultOutput)
 }
 

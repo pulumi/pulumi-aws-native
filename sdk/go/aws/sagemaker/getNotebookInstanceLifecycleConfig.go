@@ -35,7 +35,11 @@ func LookupNotebookInstanceLifecycleConfigOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupNotebookInstanceLifecycleConfigResult, error) {
 			args := v.(LookupNotebookInstanceLifecycleConfigArgs)
 			r, err := LookupNotebookInstanceLifecycleConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupNotebookInstanceLifecycleConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNotebookInstanceLifecycleConfigResultOutput)
 }
 

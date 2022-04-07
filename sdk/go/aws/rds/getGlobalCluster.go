@@ -35,7 +35,11 @@ func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutp
 		ApplyT(func(v interface{}) (LookupGlobalClusterResult, error) {
 			args := v.(LookupGlobalClusterArgs)
 			r, err := LookupGlobalCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalClusterResultOutput)
 }
 

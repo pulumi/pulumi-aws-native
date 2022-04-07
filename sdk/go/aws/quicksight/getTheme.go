@@ -49,7 +49,11 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupThemeResult, error) {
 			args := v.(LookupThemeArgs)
 			r, err := LookupTheme(ctx, &args, opts...)
-			return *r, err
+			var s LookupThemeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupThemeResultOutput)
 }
 

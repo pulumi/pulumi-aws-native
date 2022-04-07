@@ -55,7 +55,11 @@ func LookupStackSetOutput(ctx *pulumi.Context, args LookupStackSetOutputArgs, op
 		ApplyT(func(v interface{}) (LookupStackSetResult, error) {
 			args := v.(LookupStackSetArgs)
 			r, err := LookupStackSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupStackSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStackSetResultOutput)
 }
 

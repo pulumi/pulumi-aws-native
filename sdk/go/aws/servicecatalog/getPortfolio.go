@@ -39,7 +39,11 @@ func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, 
 		ApplyT(func(v interface{}) (LookupPortfolioResult, error) {
 			args := v.(LookupPortfolioArgs)
 			r, err := LookupPortfolio(ctx, &args, opts...)
-			return *r, err
+			var s LookupPortfolioResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPortfolioResultOutput)
 }
 

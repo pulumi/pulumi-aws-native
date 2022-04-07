@@ -39,7 +39,11 @@ func LookupMitigationActionOutput(ctx *pulumi.Context, args LookupMitigationActi
 		ApplyT(func(v interface{}) (LookupMitigationActionResult, error) {
 			args := v.(LookupMitigationActionArgs)
 			r, err := LookupMitigationAction(ctx, &args, opts...)
-			return *r, err
+			var s LookupMitigationActionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMitigationActionResultOutput)
 }
 

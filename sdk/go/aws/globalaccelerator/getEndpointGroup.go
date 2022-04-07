@@ -49,7 +49,11 @@ func LookupEndpointGroupOutput(ctx *pulumi.Context, args LookupEndpointGroupOutp
 		ApplyT(func(v interface{}) (LookupEndpointGroupResult, error) {
 			args := v.(LookupEndpointGroupArgs)
 			r, err := LookupEndpointGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupEndpointGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEndpointGroupResultOutput)
 }
 

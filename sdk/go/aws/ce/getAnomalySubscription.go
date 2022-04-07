@@ -45,7 +45,11 @@ func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubs
 		ApplyT(func(v interface{}) (LookupAnomalySubscriptionResult, error) {
 			args := v.(LookupAnomalySubscriptionArgs)
 			r, err := LookupAnomalySubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupAnomalySubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAnomalySubscriptionResultOutput)
 }
 

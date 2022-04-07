@@ -38,7 +38,11 @@ func LookupDeliveryChannelOutput(ctx *pulumi.Context, args LookupDeliveryChannel
 		ApplyT(func(v interface{}) (LookupDeliveryChannelResult, error) {
 			args := v.(LookupDeliveryChannelArgs)
 			r, err := LookupDeliveryChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeliveryChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeliveryChannelResultOutput)
 }
 

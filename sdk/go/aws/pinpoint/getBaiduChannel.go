@@ -36,7 +36,11 @@ func LookupBaiduChannelOutput(ctx *pulumi.Context, args LookupBaiduChannelOutput
 		ApplyT(func(v interface{}) (LookupBaiduChannelResult, error) {
 			args := v.(LookupBaiduChannelArgs)
 			r, err := LookupBaiduChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupBaiduChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBaiduChannelResultOutput)
 }
 

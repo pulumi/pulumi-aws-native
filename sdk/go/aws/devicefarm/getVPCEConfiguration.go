@@ -38,7 +38,11 @@ func LookupVPCEConfigurationOutput(ctx *pulumi.Context, args LookupVPCEConfigura
 		ApplyT(func(v interface{}) (LookupVPCEConfigurationResult, error) {
 			args := v.(LookupVPCEConfigurationArgs)
 			r, err := LookupVPCEConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupVPCEConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVPCEConfigurationResultOutput)
 }
 

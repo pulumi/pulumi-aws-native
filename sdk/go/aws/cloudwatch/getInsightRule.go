@@ -37,7 +37,11 @@ func LookupInsightRuleOutput(ctx *pulumi.Context, args LookupInsightRuleOutputAr
 		ApplyT(func(v interface{}) (LookupInsightRuleResult, error) {
 			args := v.(LookupInsightRuleArgs)
 			r, err := LookupInsightRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupInsightRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInsightRuleResultOutput)
 }
 

@@ -47,7 +47,11 @@ func LookupBillingGroupOutput(ctx *pulumi.Context, args LookupBillingGroupOutput
 		ApplyT(func(v interface{}) (LookupBillingGroupResult, error) {
 			args := v.(LookupBillingGroupArgs)
 			r, err := LookupBillingGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupBillingGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBillingGroupResultOutput)
 }
 

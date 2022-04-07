@@ -37,7 +37,11 @@ func LookupSAMLProviderOutput(ctx *pulumi.Context, args LookupSAMLProviderOutput
 		ApplyT(func(v interface{}) (LookupSAMLProviderResult, error) {
 			args := v.(LookupSAMLProviderArgs)
 			r, err := LookupSAMLProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupSAMLProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSAMLProviderResultOutput)
 }
 

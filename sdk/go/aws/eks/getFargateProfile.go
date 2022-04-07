@@ -38,7 +38,11 @@ func LookupFargateProfileOutput(ctx *pulumi.Context, args LookupFargateProfileOu
 		ApplyT(func(v interface{}) (LookupFargateProfileResult, error) {
 			args := v.(LookupFargateProfileArgs)
 			r, err := LookupFargateProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupFargateProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFargateProfileResultOutput)
 }
 

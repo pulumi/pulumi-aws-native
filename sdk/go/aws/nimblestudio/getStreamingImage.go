@@ -46,7 +46,11 @@ func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOu
 		ApplyT(func(v interface{}) (LookupStreamingImageResult, error) {
 			args := v.(LookupStreamingImageArgs)
 			r, err := LookupStreamingImage(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamingImageResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamingImageResultOutput)
 }
 

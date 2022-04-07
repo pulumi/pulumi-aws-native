@@ -35,7 +35,11 @@ func LookupDBClusterParameterGroupOutput(ctx *pulumi.Context, args LookupDBClust
 		ApplyT(func(v interface{}) (LookupDBClusterParameterGroupResult, error) {
 			args := v.(LookupDBClusterParameterGroupArgs)
 			r, err := LookupDBClusterParameterGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBClusterParameterGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBClusterParameterGroupResultOutput)
 }
 

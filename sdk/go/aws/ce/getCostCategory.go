@@ -43,7 +43,11 @@ func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutput
 		ApplyT(func(v interface{}) (LookupCostCategoryResult, error) {
 			args := v.(LookupCostCategoryArgs)
 			r, err := LookupCostCategory(ctx, &args, opts...)
-			return *r, err
+			var s LookupCostCategoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCostCategoryResultOutput)
 }
 

@@ -40,7 +40,11 @@ func LookupStackSetConstraintOutput(ctx *pulumi.Context, args LookupStackSetCons
 		ApplyT(func(v interface{}) (LookupStackSetConstraintResult, error) {
 			args := v.(LookupStackSetConstraintArgs)
 			r, err := LookupStackSetConstraint(ctx, &args, opts...)
-			return *r, err
+			var s LookupStackSetConstraintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStackSetConstraintResultOutput)
 }
 

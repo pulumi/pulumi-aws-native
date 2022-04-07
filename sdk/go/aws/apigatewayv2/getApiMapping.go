@@ -35,7 +35,11 @@ func LookupApiMappingOutput(ctx *pulumi.Context, args LookupApiMappingOutputArgs
 		ApplyT(func(v interface{}) (LookupApiMappingResult, error) {
 			args := v.(LookupApiMappingArgs)
 			r, err := LookupApiMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiMappingResultOutput)
 }
 

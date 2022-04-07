@@ -37,7 +37,11 @@ func LookupLaunchRoleConstraintOutput(ctx *pulumi.Context, args LookupLaunchRole
 		ApplyT(func(v interface{}) (LookupLaunchRoleConstraintResult, error) {
 			args := v.(LookupLaunchRoleConstraintArgs)
 			r, err := LookupLaunchRoleConstraint(ctx, &args, opts...)
-			return *r, err
+			var s LookupLaunchRoleConstraintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLaunchRoleConstraintResultOutput)
 }
 

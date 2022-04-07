@@ -50,7 +50,11 @@ func LookupDeploymentGroupOutput(ctx *pulumi.Context, args LookupDeploymentGroup
 		ApplyT(func(v interface{}) (LookupDeploymentGroupResult, error) {
 			args := v.(LookupDeploymentGroupArgs)
 			r, err := LookupDeploymentGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentGroupResultOutput)
 }
 

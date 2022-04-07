@@ -53,7 +53,11 @@ func LookupTransitGatewayMulticastGroupMemberOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastGroupMemberResult, error) {
 			args := v.(LookupTransitGatewayMulticastGroupMemberArgs)
 			r, err := LookupTransitGatewayMulticastGroupMember(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayMulticastGroupMemberResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayMulticastGroupMemberResultOutput)
 }
 

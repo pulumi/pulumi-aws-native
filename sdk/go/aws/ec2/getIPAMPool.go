@@ -64,7 +64,11 @@ func LookupIPAMPoolOutput(ctx *pulumi.Context, args LookupIPAMPoolOutputArgs, op
 		ApplyT(func(v interface{}) (LookupIPAMPoolResult, error) {
 			args := v.(LookupIPAMPoolArgs)
 			r, err := LookupIPAMPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupIPAMPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIPAMPoolResultOutput)
 }
 

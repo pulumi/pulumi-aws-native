@@ -36,7 +36,11 @@ func LookupDBSubnetGroupOutput(ctx *pulumi.Context, args LookupDBSubnetGroupOutp
 		ApplyT(func(v interface{}) (LookupDBSubnetGroupResult, error) {
 			args := v.(LookupDBSubnetGroupArgs)
 			r, err := LookupDBSubnetGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDBSubnetGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDBSubnetGroupResultOutput)
 }
 

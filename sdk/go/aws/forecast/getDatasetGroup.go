@@ -41,7 +41,11 @@ func LookupDatasetGroupOutput(ctx *pulumi.Context, args LookupDatasetGroupOutput
 		ApplyT(func(v interface{}) (LookupDatasetGroupResult, error) {
 			args := v.(LookupDatasetGroupArgs)
 			r, err := LookupDatasetGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatasetGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatasetGroupResultOutput)
 }
 

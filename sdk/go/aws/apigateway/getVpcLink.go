@@ -36,7 +36,11 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupVpcLinkResult, error) {
 			args := v.(LookupVpcLinkArgs)
 			r, err := LookupVpcLink(ctx, &args, opts...)
-			return *r, err
+			var s LookupVpcLinkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVpcLinkResultOutput)
 }
 

@@ -38,7 +38,11 @@ func LookupPrivateDnsNamespaceOutput(ctx *pulumi.Context, args LookupPrivateDnsN
 		ApplyT(func(v interface{}) (LookupPrivateDnsNamespaceResult, error) {
 			args := v.(LookupPrivateDnsNamespaceArgs)
 			r, err := LookupPrivateDnsNamespace(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateDnsNamespaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateDnsNamespaceResultOutput)
 }
 

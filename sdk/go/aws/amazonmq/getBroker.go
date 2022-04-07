@@ -52,7 +52,11 @@ func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupBrokerResult, error) {
 			args := v.(LookupBrokerArgs)
 			r, err := LookupBroker(ctx, &args, opts...)
-			return *r, err
+			var s LookupBrokerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBrokerResultOutput)
 }
 

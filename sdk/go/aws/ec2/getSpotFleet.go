@@ -34,7 +34,11 @@ func LookupSpotFleetOutput(ctx *pulumi.Context, args LookupSpotFleetOutputArgs, 
 		ApplyT(func(v interface{}) (LookupSpotFleetResult, error) {
 			args := v.(LookupSpotFleetArgs)
 			r, err := LookupSpotFleet(ctx, &args, opts...)
-			return *r, err
+			var s LookupSpotFleetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSpotFleetResultOutput)
 }
 

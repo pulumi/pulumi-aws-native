@@ -40,7 +40,11 @@ func LookupBasePathMappingOutput(ctx *pulumi.Context, args LookupBasePathMapping
 		ApplyT(func(v interface{}) (LookupBasePathMappingResult, error) {
 			args := v.(LookupBasePathMappingArgs)
 			r, err := LookupBasePathMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupBasePathMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBasePathMappingResultOutput)
 }
 

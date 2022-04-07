@@ -36,7 +36,11 @@ func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowE
 		ApplyT(func(v interface{}) (LookupDataflowEndpointGroupResult, error) {
 			args := v.(LookupDataflowEndpointGroupArgs)
 			r, err := LookupDataflowEndpointGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataflowEndpointGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataflowEndpointGroupResultOutput)
 }
 

@@ -36,7 +36,11 @@ func LookupUserPoolRiskConfigurationAttachmentOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupUserPoolRiskConfigurationAttachmentResult, error) {
 			args := v.(LookupUserPoolRiskConfigurationAttachmentArgs)
 			r, err := LookupUserPoolRiskConfigurationAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserPoolRiskConfigurationAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserPoolRiskConfigurationAttachmentResultOutput)
 }
 

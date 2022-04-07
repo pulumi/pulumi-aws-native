@@ -42,7 +42,11 @@ func LookupApiDestinationOutput(ctx *pulumi.Context, args LookupApiDestinationOu
 		ApplyT(func(v interface{}) (LookupApiDestinationResult, error) {
 			args := v.(LookupApiDestinationArgs)
 			r, err := LookupApiDestination(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiDestinationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiDestinationResultOutput)
 }
 

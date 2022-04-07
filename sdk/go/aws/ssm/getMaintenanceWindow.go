@@ -44,7 +44,11 @@ func LookupMaintenanceWindowOutput(ctx *pulumi.Context, args LookupMaintenanceWi
 		ApplyT(func(v interface{}) (LookupMaintenanceWindowResult, error) {
 			args := v.(LookupMaintenanceWindowArgs)
 			r, err := LookupMaintenanceWindow(ctx, &args, opts...)
-			return *r, err
+			var s LookupMaintenanceWindowResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMaintenanceWindowResultOutput)
 }
 

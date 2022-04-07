@@ -40,7 +40,11 @@ func LookupFeatureOutput(ctx *pulumi.Context, args LookupFeatureOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupFeatureResult, error) {
 			args := v.(LookupFeatureArgs)
 			r, err := LookupFeature(ctx, &args, opts...)
-			return *r, err
+			var s LookupFeatureResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFeatureResultOutput)
 }
 

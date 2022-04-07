@@ -39,7 +39,11 @@ func LookupRecordingConfigurationOutput(ctx *pulumi.Context, args LookupRecordin
 		ApplyT(func(v interface{}) (LookupRecordingConfigurationResult, error) {
 			args := v.(LookupRecordingConfigurationArgs)
 			r, err := LookupRecordingConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupRecordingConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRecordingConfigurationResultOutput)
 }
 

@@ -35,7 +35,11 @@ func LookupVirtualMFADeviceOutput(ctx *pulumi.Context, args LookupVirtualMFADevi
 		ApplyT(func(v interface{}) (LookupVirtualMFADeviceResult, error) {
 			args := v.(LookupVirtualMFADeviceArgs)
 			r, err := LookupVirtualMFADevice(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMFADeviceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMFADeviceResultOutput)
 }
 

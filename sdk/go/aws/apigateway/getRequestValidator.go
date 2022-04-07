@@ -41,7 +41,11 @@ func LookupRequestValidatorOutput(ctx *pulumi.Context, args LookupRequestValidat
 		ApplyT(func(v interface{}) (LookupRequestValidatorResult, error) {
 			args := v.(LookupRequestValidatorArgs)
 			r, err := LookupRequestValidator(ctx, &args, opts...)
-			return *r, err
+			var s LookupRequestValidatorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRequestValidatorResultOutput)
 }
 

@@ -40,7 +40,11 @@ func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs
 		ApplyT(func(v interface{}) (LookupFileSystemResult, error) {
 			args := v.(LookupFileSystemArgs)
 			r, err := LookupFileSystem(ctx, &args, opts...)
-			return *r, err
+			var s LookupFileSystemResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFileSystemResultOutput)
 }
 

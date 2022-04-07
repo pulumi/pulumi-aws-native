@@ -43,7 +43,11 @@ func LookupTransitGatewayPeeringAttachmentOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupTransitGatewayPeeringAttachmentResult, error) {
 			args := v.(LookupTransitGatewayPeeringAttachmentArgs)
 			r, err := LookupTransitGatewayPeeringAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransitGatewayPeeringAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransitGatewayPeeringAttachmentResultOutput)
 }
 

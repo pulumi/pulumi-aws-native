@@ -53,7 +53,11 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 		ApplyT(func(v interface{}) (LookupDetectorResult, error) {
 			args := v.(LookupDetectorArgs)
 			r, err := LookupDetector(ctx, &args, opts...)
-			return *r, err
+			var s LookupDetectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDetectorResultOutput)
 }
 

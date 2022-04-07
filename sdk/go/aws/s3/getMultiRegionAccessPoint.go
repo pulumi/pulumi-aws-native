@@ -37,7 +37,11 @@ func LookupMultiRegionAccessPointOutput(ctx *pulumi.Context, args LookupMultiReg
 		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointResult, error) {
 			args := v.(LookupMultiRegionAccessPointArgs)
 			r, err := LookupMultiRegionAccessPoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupMultiRegionAccessPointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMultiRegionAccessPointResultOutput)
 }
 

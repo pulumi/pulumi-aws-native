@@ -47,7 +47,11 @@ func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOu
 		ApplyT(func(v interface{}) (LookupMissionProfileResult, error) {
 			args := v.(LookupMissionProfileArgs)
 			r, err := LookupMissionProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupMissionProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMissionProfileResultOutput)
 }
 

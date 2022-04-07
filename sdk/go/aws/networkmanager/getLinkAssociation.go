@@ -37,7 +37,11 @@ func LookupLinkAssociationOutput(ctx *pulumi.Context, args LookupLinkAssociation
 		ApplyT(func(v interface{}) (LookupLinkAssociationResult, error) {
 			args := v.(LookupLinkAssociationArgs)
 			r, err := LookupLinkAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupLinkAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLinkAssociationResultOutput)
 }
 

@@ -43,7 +43,11 @@ func LookupResolverQueryLoggingConfigAssociationOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigAssociationResult, error) {
 			args := v.(LookupResolverQueryLoggingConfigAssociationArgs)
 			r, err := LookupResolverQueryLoggingConfigAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupResolverQueryLoggingConfigAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResolverQueryLoggingConfigAssociationResultOutput)
 }
 

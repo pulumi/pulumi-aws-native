@@ -38,7 +38,11 @@ func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupFaqResult, error) {
 			args := v.(LookupFaqArgs)
 			r, err := LookupFaq(ctx, &args, opts...)
-			return *r, err
+			var s LookupFaqResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFaqResultOutput)
 }
 

@@ -33,7 +33,11 @@ func LookupModuleDefaultVersionOutput(ctx *pulumi.Context, args LookupModuleDefa
 		ApplyT(func(v interface{}) (LookupModuleDefaultVersionResult, error) {
 			args := v.(LookupModuleDefaultVersionArgs)
 			r, err := LookupModuleDefaultVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupModuleDefaultVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupModuleDefaultVersionResultOutput)
 }
 

@@ -35,7 +35,11 @@ func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettin
 		ApplyT(func(v interface{}) (LookupDataLakeSettingsResult, error) {
 			args := v.(LookupDataLakeSettingsArgs)
 			r, err := LookupDataLakeSettings(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataLakeSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataLakeSettingsResultOutput)
 }
 

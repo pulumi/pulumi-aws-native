@@ -35,7 +35,11 @@ func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutp
 		ApplyT(func(v interface{}) (LookupRateBasedRuleResult, error) {
 			args := v.(LookupRateBasedRuleArgs)
 			r, err := LookupRateBasedRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupRateBasedRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRateBasedRuleResultOutput)
 }
 

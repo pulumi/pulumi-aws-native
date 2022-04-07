@@ -36,7 +36,11 @@ func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupTrackerResult, error) {
 			args := v.(LookupTrackerArgs)
 			r, err := LookupTracker(ctx, &args, opts...)
-			return *r, err
+			var s LookupTrackerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTrackerResultOutput)
 }
 

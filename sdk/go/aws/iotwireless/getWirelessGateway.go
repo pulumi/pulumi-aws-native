@@ -51,7 +51,11 @@ func LookupWirelessGatewayOutput(ctx *pulumi.Context, args LookupWirelessGateway
 		ApplyT(func(v interface{}) (LookupWirelessGatewayResult, error) {
 			args := v.(LookupWirelessGatewayArgs)
 			r, err := LookupWirelessGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupWirelessGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWirelessGatewayResultOutput)
 }
 

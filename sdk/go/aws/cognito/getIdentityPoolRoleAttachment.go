@@ -35,7 +35,11 @@ func LookupIdentityPoolRoleAttachmentOutput(ctx *pulumi.Context, args LookupIden
 		ApplyT(func(v interface{}) (LookupIdentityPoolRoleAttachmentResult, error) {
 			args := v.(LookupIdentityPoolRoleAttachmentArgs)
 			r, err := LookupIdentityPoolRoleAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupIdentityPoolRoleAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIdentityPoolRoleAttachmentResultOutput)
 }
 

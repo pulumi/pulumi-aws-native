@@ -41,7 +41,11 @@ func LookupIPSetOutput(ctx *pulumi.Context, args LookupIPSetOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupIPSetResult, error) {
 			args := v.(LookupIPSetArgs)
 			r, err := LookupIPSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupIPSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIPSetResultOutput)
 }
 

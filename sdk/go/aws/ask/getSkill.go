@@ -35,7 +35,11 @@ func LookupSkillOutput(ctx *pulumi.Context, args LookupSkillOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupSkillResult, error) {
 			args := v.(LookupSkillArgs)
 			r, err := LookupSkill(ctx, &args, opts...)
-			return *r, err
+			var s LookupSkillResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSkillResultOutput)
 }
 

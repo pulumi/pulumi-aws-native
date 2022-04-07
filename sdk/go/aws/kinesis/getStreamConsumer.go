@@ -36,7 +36,11 @@ func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOu
 		ApplyT(func(v interface{}) (LookupStreamConsumerResult, error) {
 			args := v.(LookupStreamConsumerArgs)
 			r, err := LookupStreamConsumer(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamConsumerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamConsumerResultOutput)
 }
 

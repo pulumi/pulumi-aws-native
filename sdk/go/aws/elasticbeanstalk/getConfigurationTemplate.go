@@ -35,7 +35,11 @@ func LookupConfigurationTemplateOutput(ctx *pulumi.Context, args LookupConfigura
 		ApplyT(func(v interface{}) (LookupConfigurationTemplateResult, error) {
 			args := v.(LookupConfigurationTemplateArgs)
 			r, err := LookupConfigurationTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationTemplateResultOutput)
 }
 

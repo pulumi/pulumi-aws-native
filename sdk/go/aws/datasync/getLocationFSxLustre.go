@@ -39,7 +39,11 @@ func LookupLocationFSxLustreOutput(ctx *pulumi.Context, args LookupLocationFSxLu
 		ApplyT(func(v interface{}) (LookupLocationFSxLustreResult, error) {
 			args := v.(LookupLocationFSxLustreArgs)
 			r, err := LookupLocationFSxLustre(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocationFSxLustreResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocationFSxLustreResultOutput)
 }
 

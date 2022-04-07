@@ -37,7 +37,11 @@ func LookupResourceSpecificLoggingOutput(ctx *pulumi.Context, args LookupResourc
 		ApplyT(func(v interface{}) (LookupResourceSpecificLoggingResult, error) {
 			args := v.(LookupResourceSpecificLoggingArgs)
 			r, err := LookupResourceSpecificLogging(ctx, &args, opts...)
-			return *r, err
+			var s LookupResourceSpecificLoggingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResourceSpecificLoggingResultOutput)
 }
 

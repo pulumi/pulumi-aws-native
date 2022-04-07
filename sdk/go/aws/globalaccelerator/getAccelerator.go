@@ -46,7 +46,11 @@ func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputAr
 		ApplyT(func(v interface{}) (LookupAcceleratorResult, error) {
 			args := v.(LookupAcceleratorArgs)
 			r, err := LookupAccelerator(ctx, &args, opts...)
-			return *r, err
+			var s LookupAcceleratorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAcceleratorResultOutput)
 }
 
