@@ -91,12 +91,7 @@ class EndpointArgs:
         pulumi.set(self, "role_arn", value)
 
 
-warnings.warn("""Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Endpoint(pulumi.CustomResource):
-    warnings.warn("""Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -145,7 +140,6 @@ class Endpoint(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  routing_config: Optional[pulumi.Input[pulumi.InputType['EndpointRoutingConfigArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Endpoint is deprecated: Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
