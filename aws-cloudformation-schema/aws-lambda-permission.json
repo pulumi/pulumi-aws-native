@@ -12,6 +12,9 @@
     "EventSourceToken" : {
       "type" : "string"
     },
+    "FunctionUrlAuthType" : {
+      "type" : "string"
+    },
     "SourceArn" : {
       "type" : "string"
     },
@@ -29,7 +32,7 @@
     }
   },
   "required" : [ "FunctionName", "Action", "Principal" ],
-  "createOnlyProperties" : [ "/properties/SourceAccount", "/properties/SourceArn", "/properties/Principal", "/properties/Action", "/properties/FunctionName", "/properties/EventSourceToken", "/properties/PrincipalOrgID" ],
+  "createOnlyProperties" : [ "/properties/SourceAccount", "/properties/FunctionUrlAuthType", "/properties/SourceArn", "/properties/Principal", "/properties/Action", "/properties/FunctionName", "/properties/EventSourceToken", "/properties/PrincipalOrgID" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }
