@@ -151,11 +151,20 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "SecretsManagerSecretId" : {
+          "type" : "string"
+        },
+        "SetDataCaptureChanges" : {
+          "type" : "boolean"
+        },
         "SecretsManagerAccessRoleArn" : {
           "type" : "string"
         },
-        "SecretsManagerSecretId" : {
+        "CurrentLsn" : {
           "type" : "string"
+        },
+        "MaxKBytesPerRead" : {
+          "type" : "integer"
         }
       }
     },
@@ -536,10 +545,19 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "SecretsManagerSecretId" : {
+          "type" : "string"
+        },
+        "DocsToInvestigate" : {
+          "type" : "integer"
+        },
         "SecretsManagerAccessRoleArn" : {
           "type" : "string"
         },
-        "SecretsManagerSecretId" : {
+        "ExtractDocId" : {
+          "type" : "boolean"
+        },
+        "NestingLevel" : {
           "type" : "string"
         }
       }
@@ -638,11 +656,32 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "SecretsManagerAccessRoleArn" : {
+        "ReadBackupOnly" : {
+          "type" : "boolean"
+        },
+        "BcpPacketSize" : {
+          "type" : "integer"
+        },
+        "QuerySingleAlwaysOnNode" : {
+          "type" : "boolean"
+        },
+        "SafeguardPolicy" : {
           "type" : "string"
+        },
+        "UseThirdPartyBackupDevice" : {
+          "type" : "boolean"
         },
         "SecretsManagerSecretId" : {
           "type" : "string"
+        },
+        "ControlTablesFileGroup" : {
+          "type" : "string"
+        },
+        "SecretsManagerAccessRoleArn" : {
+          "type" : "string"
+        },
+        "UseBcpFullLoad" : {
+          "type" : "boolean"
         }
       }
     },
@@ -650,10 +689,79 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ConnectionTimeout" : {
+          "type" : "integer"
+        },
+        "AfterConnectScript" : {
+          "type" : "string"
+        },
+        "FileTransferUploadStreams" : {
+          "type" : "integer"
+        },
+        "BucketName" : {
+          "type" : "string"
+        },
+        "ServerSideEncryptionKmsKeyId" : {
+          "type" : "string"
+        },
+        "ExplicitIds" : {
+          "type" : "boolean"
+        },
+        "SecretsManagerSecretId" : {
+          "type" : "string"
+        },
+        "TruncateColumns" : {
+          "type" : "boolean"
+        },
+        "ServiceAccessRoleArn" : {
+          "type" : "string"
+        },
+        "ReplaceChars" : {
+          "type" : "string"
+        },
+        "TimeFormat" : {
+          "type" : "string"
+        },
+        "BucketFolder" : {
+          "type" : "string"
+        },
+        "ReplaceInvalidChars" : {
+          "type" : "string"
+        },
+        "RemoveQuotes" : {
+          "type" : "boolean"
+        },
+        "LoadTimeout" : {
+          "type" : "integer"
+        },
+        "MaxFileSize" : {
+          "type" : "integer"
+        },
+        "TrimBlanks" : {
+          "type" : "boolean"
+        },
+        "DateFormat" : {
+          "type" : "string"
+        },
+        "CompUpdate" : {
+          "type" : "boolean"
+        },
+        "AcceptAnyDate" : {
+          "type" : "boolean"
+        },
+        "WriteBufferSize" : {
+          "type" : "integer"
+        },
         "SecretsManagerAccessRoleArn" : {
           "type" : "string"
         },
-        "SecretsManagerSecretId" : {
+        "CaseSensitiveNames" : {
+          "type" : "boolean"
+        },
+        "EmptyAsNull" : {
+          "type" : "boolean"
+        },
+        "EncryptionMode" : {
           "type" : "string"
         }
       }

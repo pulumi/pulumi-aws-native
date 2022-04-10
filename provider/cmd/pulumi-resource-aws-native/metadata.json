@@ -5823,6 +5823,13 @@
                     "type": "string",
                     "description": "The ARN of the role that provides access to the Kinesis Firehose."
                 },
+                "statisticsConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudwatch:MetricStreamStatisticsConfiguration"
+                    },
+                    "description": "By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members."
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -5877,6 +5884,13 @@
                 "state": {
                     "type": "string",
                     "description": "Displays the state of the Metric Stream."
+                },
+                "statisticsConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudwatch:MetricStreamStatisticsConfiguration"
+                    },
+                    "description": "By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members."
                 },
                 "tags": {
                     "type": "array",
@@ -43734,6 +43748,38 @@
                 "namespace": {
                     "type": "string",
                     "description": "Only metrics with Namespace matching this value will be streamed."
+                }
+            }
+        },
+        "aws-native:cloudwatch:MetricStreamStatisticsConfiguration": {
+            "type": "object",
+            "properties": {
+                "additionalStatistics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The additional statistics to stream for the metrics listed in IncludeMetrics."
+                },
+                "includeMetrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudwatch:MetricStreamStatisticsMetric"
+                    },
+                    "description": "An array that defines the metrics that are to have additional statistics streamed."
+                }
+            }
+        },
+        "aws-native:cloudwatch:MetricStreamStatisticsMetric": {
+            "type": "object",
+            "properties": {
+                "metricName": {
+                    "type": "string",
+                    "description": "The name of the metric."
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The namespace of the metric."
                 }
             }
         },
