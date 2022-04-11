@@ -13,17 +13,29 @@ namespace Pulumi.AwsNative.DMS.Outputs
     [OutputType]
     public sealed class EndpointIbmDb2Settings
     {
+        public readonly string? CurrentLsn;
+        public readonly int? MaxKBytesPerRead;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
+        public readonly bool? SetDataCaptureChanges;
 
         [OutputConstructor]
         private EndpointIbmDb2Settings(
+            string? currentLsn,
+
+            int? maxKBytesPerRead,
+
             string? secretsManagerAccessRoleArn,
 
-            string? secretsManagerSecretId)
+            string? secretsManagerSecretId,
+
+            bool? setDataCaptureChanges)
         {
+            CurrentLsn = currentLsn;
+            MaxKBytesPerRead = maxKBytesPerRead;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
+            SetDataCaptureChanges = setDataCaptureChanges;
         }
     }
 }

@@ -44,6 +44,8 @@ type LookupMetricStreamResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Displays the state of the Metric Stream.
 	State *string `pulumi:"state"`
+	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
 }
 
 func LookupMetricStreamOutput(ctx *pulumi.Context, args LookupMetricStreamOutputArgs, opts ...pulumi.InvokeOption) LookupMetricStreamResultOutput {
@@ -125,6 +127,13 @@ func (o LookupMetricStreamResultOutput) RoleArn() pulumi.StringPtrOutput {
 // Displays the state of the Metric Stream.
 func (o LookupMetricStreamResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMetricStreamResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+func (o LookupMetricStreamResultOutput) StatisticsConfigurations() MetricStreamStatisticsConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupMetricStreamResult) []MetricStreamStatisticsConfiguration {
+		return v.StatisticsConfigurations
+	}).(MetricStreamStatisticsConfigurationArrayOutput)
 }
 
 func init() {

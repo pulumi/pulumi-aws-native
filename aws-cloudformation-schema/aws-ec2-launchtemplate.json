@@ -55,6 +55,9 @@
             "$ref" : "#/definitions/BlockDeviceMapping"
           }
         },
+        "MaintenanceOptions" : {
+          "$ref" : "#/definitions/MaintenanceOptions"
+        },
         "IamInstanceProfile" : {
           "$ref" : "#/definitions/IamInstanceProfile"
         },
@@ -166,6 +169,15 @@
       "additionalProperties" : false,
       "properties" : {
         "LicenseConfigurationArn" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MaintenanceOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AutoRecovery" : {
           "type" : "string"
         }
       }

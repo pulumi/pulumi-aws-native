@@ -10000,6 +10000,7 @@ type LaunchTemplateData struct {
 	KernelId                          *string                                         `pulumi:"kernelId"`
 	KeyName                           *string                                         `pulumi:"keyName"`
 	LicenseSpecifications             []LaunchTemplateLicenseSpecification            `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                *LaunchTemplateMaintenanceOptions               `pulumi:"maintenanceOptions"`
 	MetadataOptions                   *LaunchTemplateMetadataOptions                  `pulumi:"metadataOptions"`
 	Monitoring                        *LaunchTemplateMonitoring                       `pulumi:"monitoring"`
 	NetworkInterfaces                 []LaunchTemplateNetworkInterface                `pulumi:"networkInterfaces"`
@@ -10043,6 +10044,7 @@ type LaunchTemplateDataArgs struct {
 	KernelId                          pulumi.StringPtrInput                                  `pulumi:"kernelId"`
 	KeyName                           pulumi.StringPtrInput                                  `pulumi:"keyName"`
 	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput           `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                LaunchTemplateMaintenanceOptionsPtrInput               `pulumi:"maintenanceOptions"`
 	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput                  `pulumi:"metadataOptions"`
 	Monitoring                        LaunchTemplateMonitoringPtrInput                       `pulumi:"monitoring"`
 	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput               `pulumi:"networkInterfaces"`
@@ -10210,6 +10212,10 @@ func (o LaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
 
 func (o LaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateLicenseSpecification { return v.LicenseSpecifications }).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) MaintenanceOptions() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMaintenanceOptions { return v.MaintenanceOptions }).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
 func (o LaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
@@ -10445,6 +10451,15 @@ func (o LaunchTemplateDataPtrOutput) LicenseSpecifications() LaunchTemplateLicen
 		}
 		return v.LicenseSpecifications
 	}).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) MaintenanceOptions() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateMaintenanceOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceOptions
+	}).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
 func (o LaunchTemplateDataPtrOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
@@ -12346,6 +12361,139 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
 		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+type LaunchTemplateMaintenanceOptions struct {
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// LaunchTemplateMaintenanceOptionsInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs and LaunchTemplateMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateMaintenanceOptionsInput` via:
+//
+//          LaunchTemplateMaintenanceOptionsArgs{...}
+type LaunchTemplateMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput
+	ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsOutput
+}
+
+type LaunchTemplateMaintenanceOptionsArgs struct {
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (LaunchTemplateMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsOutput)
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsOutput).ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMaintenanceOptionsPtrInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs, LaunchTemplateMaintenanceOptionsPtr and LaunchTemplateMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMaintenanceOptionsPtrInput` via:
+//
+//          LaunchTemplateMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput
+	ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsPtrOutput
+}
+
+type launchTemplateMaintenanceOptionsPtrType LaunchTemplateMaintenanceOptionsArgs
+
+func LaunchTemplateMaintenanceOptionsPtr(v *LaunchTemplateMaintenanceOptionsArgs) LaunchTemplateMaintenanceOptionsPtrInput {
+	return (*launchTemplateMaintenanceOptionsPtrType)(v)
+}
+
+func (*launchTemplateMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsPtrOutput)
+}
+
+type LaunchTemplateMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMaintenanceOptions) *LaunchTemplateMaintenanceOptions {
+		return &v
+	}).(LaunchTemplateMaintenanceOptionsPtrOutput)
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) Elem() LaunchTemplateMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) LaunchTemplateMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMaintenanceOptions
+		return ret
+	}).(LaunchTemplateMaintenanceOptionsOutput)
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateMemoryGiBPerVCpu struct {
@@ -26026,6 +26174,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6PrefixSpecificationArrayInput)(nil)).Elem(), LaunchTemplateIpv6PrefixSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMaintenanceOptionsInput)(nil)).Elem(), LaunchTemplateMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMaintenanceOptionsPtrInput)(nil)).Elem(), LaunchTemplateMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpuInput)(nil)).Elem(), LaunchTemplateMemoryGiBPerVCpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpuPtrInput)(nil)).Elem(), LaunchTemplateMemoryGiBPerVCpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryMiBInput)(nil)).Elem(), LaunchTemplateMemoryMiBArgs{})
@@ -26378,6 +26528,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateIpv6PrefixSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMemoryGiBPerVCpuOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMemoryGiBPerVCpuPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMemoryMiBOutput{})

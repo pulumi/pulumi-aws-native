@@ -76,6 +76,10 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
+     * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+     */
+    public readonly statisticsConfigurations!: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
+    /**
      * A set of tags to assign to the delivery stream.
      */
     public readonly tags!: pulumi.Output<outputs.cloudwatch.MetricStreamTag[] | undefined>;
@@ -106,6 +110,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["outputFormat"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["statisticsConfigurations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,6 +163,10 @@ export interface MetricStreamArgs {
      * The ARN of the role that provides access to the Kinesis Firehose.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+     */
+    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfigurationArgs>[]>;
     /**
      * A set of tags to assign to the delivery stream.
      */

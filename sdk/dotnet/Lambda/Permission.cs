@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        [Output("functionUrlAuthType")]
+        public Output<string?> FunctionUrlAuthType { get; private set; } = null!;
+
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.Lambda
 
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
+
+        [Input("functionUrlAuthType")]
+        public Input<string>? FunctionUrlAuthType { get; set; }
 
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;

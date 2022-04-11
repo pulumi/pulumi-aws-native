@@ -5311,6 +5311,34 @@ export namespace cloudwatch {
     }
 
     /**
+     * This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+     */
+    export interface MetricStreamStatisticsConfiguration {
+        /**
+         * The additional statistics to stream for the metrics listed in IncludeMetrics.
+         */
+        additionalStatistics: string[];
+        /**
+         * An array that defines the metrics that are to have additional statistics streamed.
+         */
+        includeMetrics: outputs.cloudwatch.MetricStreamStatisticsMetric[];
+    }
+
+    /**
+     * A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+     */
+    export interface MetricStreamStatisticsMetric {
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+    }
+
+    /**
      * Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
      */
     export interface MetricStreamTag {
@@ -8513,6 +8541,9 @@ export namespace dlm {
 
 export namespace dms {
     export interface EndpointDocDbSettings {
+        docsToInvestigate?: number;
+        extractDocId?: boolean;
+        nestingLevel?: string;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
     }
@@ -8545,8 +8576,11 @@ export namespace dms {
     }
 
     export interface EndpointIbmDb2Settings {
+        currentLsn?: string;
+        maxKBytesPerRead?: number;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+        setDataCaptureChanges?: boolean;
     }
 
     export interface EndpointKafkaSettings {
@@ -8584,8 +8618,15 @@ export namespace dms {
     }
 
     export interface EndpointMicrosoftSqlServerSettings {
+        bcpPacketSize?: number;
+        controlTablesFileGroup?: string;
+        querySingleAlwaysOnNode?: boolean;
+        readBackupOnly?: boolean;
+        safeguardPolicy?: string;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+        useBcpFullLoad?: boolean;
+        useThirdPartyBackupDevice?: boolean;
     }
 
     export interface EndpointMongoDbSettings {
@@ -8691,8 +8732,31 @@ export namespace dms {
     }
 
     export interface EndpointRedshiftSettings {
+        acceptAnyDate?: boolean;
+        afterConnectScript?: string;
+        bucketFolder?: string;
+        bucketName?: string;
+        caseSensitiveNames?: boolean;
+        compUpdate?: boolean;
+        connectionTimeout?: number;
+        dateFormat?: string;
+        emptyAsNull?: boolean;
+        encryptionMode?: string;
+        explicitIds?: boolean;
+        fileTransferUploadStreams?: number;
+        loadTimeout?: number;
+        maxFileSize?: number;
+        removeQuotes?: boolean;
+        replaceChars?: string;
+        replaceInvalidChars?: string;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+        serverSideEncryptionKmsKeyId?: string;
+        serviceAccessRoleArn?: string;
+        timeFormat?: string;
+        trimBlanks?: boolean;
+        truncateColumns?: boolean;
+        writeBufferSize?: number;
     }
 
     export interface EndpointS3Settings {
@@ -9446,6 +9510,7 @@ export namespace ec2 {
         kernelId?: string;
         keyName?: string;
         licenseSpecifications?: outputs.ec2.LaunchTemplateLicenseSpecification[];
+        maintenanceOptions?: outputs.ec2.LaunchTemplateMaintenanceOptions;
         metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
         monitoring?: outputs.ec2.LaunchTemplateMonitoring;
         networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
@@ -9534,6 +9599,10 @@ export namespace ec2 {
 
     export interface LaunchTemplateLicenseSpecification {
         licenseConfigurationArn?: string;
+    }
+
+    export interface LaunchTemplateMaintenanceOptions {
+        autoRecovery?: string;
     }
 
     export interface LaunchTemplateMemoryGiBPerVCpu {

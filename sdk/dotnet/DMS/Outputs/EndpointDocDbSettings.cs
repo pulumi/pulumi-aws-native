@@ -13,15 +13,27 @@ namespace Pulumi.AwsNative.DMS.Outputs
     [OutputType]
     public sealed class EndpointDocDbSettings
     {
+        public readonly int? DocsToInvestigate;
+        public readonly bool? ExtractDocId;
+        public readonly string? NestingLevel;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
 
         [OutputConstructor]
         private EndpointDocDbSettings(
+            int? docsToInvestigate,
+
+            bool? extractDocId,
+
+            string? nestingLevel,
+
             string? secretsManagerAccessRoleArn,
 
             string? secretsManagerSecretId)
         {
+            DocsToInvestigate = docsToInvestigate;
+            ExtractDocId = extractDocId;
+            NestingLevel = nestingLevel;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
         }

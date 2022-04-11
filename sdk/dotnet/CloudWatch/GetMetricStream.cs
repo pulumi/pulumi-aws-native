@@ -91,6 +91,10 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Displays the state of the Metric Stream.
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MetricStreamStatisticsConfiguration> StatisticsConfigurations;
 
         [OutputConstructor]
         private GetMetricStreamResult(
@@ -110,7 +114,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
             string? roleArn,
 
-            string? state)
+            string? state,
+
+            ImmutableArray<Outputs.MetricStreamStatisticsConfiguration> statisticsConfigurations)
         {
             Arn = arn;
             CreationDate = creationDate;
@@ -121,6 +127,7 @@ namespace Pulumi.AwsNative.CloudWatch
             OutputFormat = outputFormat;
             RoleArn = roleArn;
             State = state;
+            StatisticsConfigurations = statisticsConfigurations;
         }
     }
 }

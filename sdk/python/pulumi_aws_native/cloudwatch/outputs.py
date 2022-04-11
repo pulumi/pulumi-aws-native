@@ -24,6 +24,8 @@ __all__ = [
     'AnomalyDetectorSingleMetricAnomalyDetector',
     'InsightRuleTags',
     'MetricStreamFilter',
+    'MetricStreamStatisticsConfiguration',
+    'MetricStreamStatisticsMetric',
     'MetricStreamTag',
 ]
 
@@ -571,6 +573,108 @@ class MetricStreamFilter(dict):
     def namespace(self) -> str:
         """
         Only metrics with Namespace matching this value will be streamed.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class MetricStreamStatisticsConfiguration(dict):
+    """
+    This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalStatistics":
+            suggest = "additional_statistics"
+        elif key == "includeMetrics":
+            suggest = "include_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricStreamStatisticsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricStreamStatisticsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricStreamStatisticsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_statistics: Sequence[str],
+                 include_metrics: Sequence['outputs.MetricStreamStatisticsMetric']):
+        """
+        This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+        :param Sequence[str] additional_statistics: The additional statistics to stream for the metrics listed in IncludeMetrics.
+        :param Sequence['MetricStreamStatisticsMetric'] include_metrics: An array that defines the metrics that are to have additional statistics streamed.
+        """
+        pulumi.set(__self__, "additional_statistics", additional_statistics)
+        pulumi.set(__self__, "include_metrics", include_metrics)
+
+    @property
+    @pulumi.getter(name="additionalStatistics")
+    def additional_statistics(self) -> Sequence[str]:
+        """
+        The additional statistics to stream for the metrics listed in IncludeMetrics.
+        """
+        return pulumi.get(self, "additional_statistics")
+
+    @property
+    @pulumi.getter(name="includeMetrics")
+    def include_metrics(self) -> Sequence['outputs.MetricStreamStatisticsMetric']:
+        """
+        An array that defines the metrics that are to have additional statistics streamed.
+        """
+        return pulumi.get(self, "include_metrics")
+
+
+@pulumi.output_type
+class MetricStreamStatisticsMetric(dict):
+    """
+    A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricStreamStatisticsMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricStreamStatisticsMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricStreamStatisticsMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: str,
+                 namespace: str):
+        """
+        A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+        :param str metric_name: The name of the metric.
+        :param str namespace: The namespace of the metric.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> str:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 

@@ -63,6 +63,10 @@ export interface GetMetricStreamResult {
      * Displays the state of the Metric Stream.
      */
     readonly state?: string;
+    /**
+     * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+     */
+    readonly statisticsConfigurations?: outputs.cloudwatch.MetricStreamStatisticsConfiguration[];
 }
 
 export function getMetricStreamOutput(args: GetMetricStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricStreamResult> {

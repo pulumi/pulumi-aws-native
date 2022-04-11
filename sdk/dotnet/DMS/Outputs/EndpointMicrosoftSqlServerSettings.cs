@@ -13,17 +13,45 @@ namespace Pulumi.AwsNative.DMS.Outputs
     [OutputType]
     public sealed class EndpointMicrosoftSqlServerSettings
     {
+        public readonly int? BcpPacketSize;
+        public readonly string? ControlTablesFileGroup;
+        public readonly bool? QuerySingleAlwaysOnNode;
+        public readonly bool? ReadBackupOnly;
+        public readonly string? SafeguardPolicy;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
+        public readonly bool? UseBcpFullLoad;
+        public readonly bool? UseThirdPartyBackupDevice;
 
         [OutputConstructor]
         private EndpointMicrosoftSqlServerSettings(
+            int? bcpPacketSize,
+
+            string? controlTablesFileGroup,
+
+            bool? querySingleAlwaysOnNode,
+
+            bool? readBackupOnly,
+
+            string? safeguardPolicy,
+
             string? secretsManagerAccessRoleArn,
 
-            string? secretsManagerSecretId)
+            string? secretsManagerSecretId,
+
+            bool? useBcpFullLoad,
+
+            bool? useThirdPartyBackupDevice)
         {
+            BcpPacketSize = bcpPacketSize;
+            ControlTablesFileGroup = controlTablesFileGroup;
+            QuerySingleAlwaysOnNode = querySingleAlwaysOnNode;
+            ReadBackupOnly = readBackupOnly;
+            SafeguardPolicy = safeguardPolicy;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
+            UseBcpFullLoad = useBcpFullLoad;
+            UseThirdPartyBackupDevice = useThirdPartyBackupDevice;
         }
     }
 }

@@ -17,13 +17,14 @@ import (
 type Permission struct {
 	pulumi.CustomResourceState
 
-	Action           pulumi.StringOutput    `pulumi:"action"`
-	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
-	FunctionName     pulumi.StringOutput    `pulumi:"functionName"`
-	Principal        pulumi.StringOutput    `pulumi:"principal"`
-	PrincipalOrgID   pulumi.StringPtrOutput `pulumi:"principalOrgID"`
-	SourceAccount    pulumi.StringPtrOutput `pulumi:"sourceAccount"`
-	SourceArn        pulumi.StringPtrOutput `pulumi:"sourceArn"`
+	Action              pulumi.StringOutput    `pulumi:"action"`
+	EventSourceToken    pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
+	FunctionName        pulumi.StringOutput    `pulumi:"functionName"`
+	FunctionUrlAuthType pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
+	Principal           pulumi.StringOutput    `pulumi:"principal"`
+	PrincipalOrgID      pulumi.StringPtrOutput `pulumi:"principalOrgID"`
+	SourceAccount       pulumi.StringPtrOutput `pulumi:"sourceAccount"`
+	SourceArn           pulumi.StringPtrOutput `pulumi:"sourceArn"`
 }
 
 // NewPermission registers a new resource with the given unique name, arguments, and options.
@@ -74,24 +75,26 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	Action           string  `pulumi:"action"`
-	EventSourceToken *string `pulumi:"eventSourceToken"`
-	FunctionName     string  `pulumi:"functionName"`
-	Principal        string  `pulumi:"principal"`
-	PrincipalOrgID   *string `pulumi:"principalOrgID"`
-	SourceAccount    *string `pulumi:"sourceAccount"`
-	SourceArn        *string `pulumi:"sourceArn"`
+	Action              string  `pulumi:"action"`
+	EventSourceToken    *string `pulumi:"eventSourceToken"`
+	FunctionName        string  `pulumi:"functionName"`
+	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
+	Principal           string  `pulumi:"principal"`
+	PrincipalOrgID      *string `pulumi:"principalOrgID"`
+	SourceAccount       *string `pulumi:"sourceAccount"`
+	SourceArn           *string `pulumi:"sourceArn"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	Action           pulumi.StringInput
-	EventSourceToken pulumi.StringPtrInput
-	FunctionName     pulumi.StringInput
-	Principal        pulumi.StringInput
-	PrincipalOrgID   pulumi.StringPtrInput
-	SourceAccount    pulumi.StringPtrInput
-	SourceArn        pulumi.StringPtrInput
+	Action              pulumi.StringInput
+	EventSourceToken    pulumi.StringPtrInput
+	FunctionName        pulumi.StringInput
+	FunctionUrlAuthType pulumi.StringPtrInput
+	Principal           pulumi.StringInput
+	PrincipalOrgID      pulumi.StringPtrInput
+	SourceAccount       pulumi.StringPtrInput
+	SourceArn           pulumi.StringPtrInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {

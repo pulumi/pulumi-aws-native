@@ -51,10 +51,6 @@ export interface GetWorkGroupResult {
      * The workgroup configuration
      */
     readonly workGroupConfiguration?: outputs.athena.WorkGroupConfiguration;
-    /**
-     * The workgroup configuration update object
-     */
-    readonly workGroupConfigurationUpdates?: outputs.athena.WorkGroupConfigurationUpdates;
 }
 
 export function getWorkGroupOutput(args: GetWorkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkGroupResult> {

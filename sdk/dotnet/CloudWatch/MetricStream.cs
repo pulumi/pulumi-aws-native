@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
+        /// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        /// </summary>
+        [Output("statisticsConfigurations")]
+        public Output<ImmutableArray<Outputs.MetricStreamStatisticsConfiguration>> StatisticsConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// A set of tags to assign to the delivery stream.
         /// </summary>
         [Output("tags")]
@@ -173,6 +179,18 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("statisticsConfigurations")]
+        private InputList<Inputs.MetricStreamStatisticsConfigurationArgs>? _statisticsConfigurations;
+
+        /// <summary>
+        /// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        /// </summary>
+        public InputList<Inputs.MetricStreamStatisticsConfigurationArgs> StatisticsConfigurations
+        {
+            get => _statisticsConfigurations ?? (_statisticsConfigurations = new InputList<Inputs.MetricStreamStatisticsConfigurationArgs>());
+            set => _statisticsConfigurations = value;
+        }
 
         [Input("tags")]
         private InputList<Inputs.MetricStreamTagArgs>? _tags;

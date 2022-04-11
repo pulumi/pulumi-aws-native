@@ -36,12 +36,48 @@ __all__ = [
 @pulumi.input_type
 class EndpointDocDbSettingsArgs:
     def __init__(__self__, *,
+                 docs_to_investigate: Optional[pulumi.Input[int]] = None,
+                 extract_doc_id: Optional[pulumi.Input[bool]] = None,
+                 nesting_level: Optional[pulumi.Input[str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+        if docs_to_investigate is not None:
+            pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+        if extract_doc_id is not None:
+            pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+        if nesting_level is not None:
+            pulumi.set(__self__, "nesting_level", nesting_level)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @property
+    @pulumi.getter(name="docsToInvestigate")
+    def docs_to_investigate(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "docs_to_investigate")
+
+    @docs_to_investigate.setter
+    def docs_to_investigate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "docs_to_investigate", value)
+
+    @property
+    @pulumi.getter(name="extractDocId")
+    def extract_doc_id(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "extract_doc_id")
+
+    @extract_doc_id.setter
+    def extract_doc_id(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "extract_doc_id", value)
+
+    @property
+    @pulumi.getter(name="nestingLevel")
+    def nesting_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "nesting_level")
+
+    @nesting_level.setter
+    def nesting_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nesting_level", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -296,12 +332,39 @@ class EndpointGcpMySQLSettingsArgs:
 @pulumi.input_type
 class EndpointIbmDb2SettingsArgs:
     def __init__(__self__, *,
+                 current_lsn: Optional[pulumi.Input[str]] = None,
+                 max_k_bytes_per_read: Optional[pulumi.Input[int]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 set_data_capture_changes: Optional[pulumi.Input[bool]] = None):
+        if current_lsn is not None:
+            pulumi.set(__self__, "current_lsn", current_lsn)
+        if max_k_bytes_per_read is not None:
+            pulumi.set(__self__, "max_k_bytes_per_read", max_k_bytes_per_read)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if set_data_capture_changes is not None:
+            pulumi.set(__self__, "set_data_capture_changes", set_data_capture_changes)
+
+    @property
+    @pulumi.getter(name="currentLsn")
+    def current_lsn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "current_lsn")
+
+    @current_lsn.setter
+    def current_lsn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_lsn", value)
+
+    @property
+    @pulumi.getter(name="maxKBytesPerRead")
+    def max_k_bytes_per_read(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_k_bytes_per_read")
+
+    @max_k_bytes_per_read.setter
+    def max_k_bytes_per_read(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_k_bytes_per_read", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -320,6 +383,15 @@ class EndpointIbmDb2SettingsArgs:
     @secrets_manager_secret_id.setter
     def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="setDataCaptureChanges")
+    def set_data_capture_changes(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "set_data_capture_changes")
+
+    @set_data_capture_changes.setter
+    def set_data_capture_changes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "set_data_capture_changes", value)
 
 
 @pulumi.input_type
@@ -671,12 +743,78 @@ class EndpointKinesisSettingsArgs:
 @pulumi.input_type
 class EndpointMicrosoftSqlServerSettingsArgs:
     def __init__(__self__, *,
+                 bcp_packet_size: Optional[pulumi.Input[int]] = None,
+                 control_tables_file_group: Optional[pulumi.Input[str]] = None,
+                 query_single_always_on_node: Optional[pulumi.Input[bool]] = None,
+                 read_backup_only: Optional[pulumi.Input[bool]] = None,
+                 safeguard_policy: Optional[pulumi.Input[str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 use_bcp_full_load: Optional[pulumi.Input[bool]] = None,
+                 use_third_party_backup_device: Optional[pulumi.Input[bool]] = None):
+        if bcp_packet_size is not None:
+            pulumi.set(__self__, "bcp_packet_size", bcp_packet_size)
+        if control_tables_file_group is not None:
+            pulumi.set(__self__, "control_tables_file_group", control_tables_file_group)
+        if query_single_always_on_node is not None:
+            pulumi.set(__self__, "query_single_always_on_node", query_single_always_on_node)
+        if read_backup_only is not None:
+            pulumi.set(__self__, "read_backup_only", read_backup_only)
+        if safeguard_policy is not None:
+            pulumi.set(__self__, "safeguard_policy", safeguard_policy)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if use_bcp_full_load is not None:
+            pulumi.set(__self__, "use_bcp_full_load", use_bcp_full_load)
+        if use_third_party_backup_device is not None:
+            pulumi.set(__self__, "use_third_party_backup_device", use_third_party_backup_device)
+
+    @property
+    @pulumi.getter(name="bcpPacketSize")
+    def bcp_packet_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "bcp_packet_size")
+
+    @bcp_packet_size.setter
+    def bcp_packet_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bcp_packet_size", value)
+
+    @property
+    @pulumi.getter(name="controlTablesFileGroup")
+    def control_tables_file_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "control_tables_file_group")
+
+    @control_tables_file_group.setter
+    def control_tables_file_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "control_tables_file_group", value)
+
+    @property
+    @pulumi.getter(name="querySingleAlwaysOnNode")
+    def query_single_always_on_node(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "query_single_always_on_node")
+
+    @query_single_always_on_node.setter
+    def query_single_always_on_node(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "query_single_always_on_node", value)
+
+    @property
+    @pulumi.getter(name="readBackupOnly")
+    def read_backup_only(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_backup_only")
+
+    @read_backup_only.setter
+    def read_backup_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_backup_only", value)
+
+    @property
+    @pulumi.getter(name="safeguardPolicy")
+    def safeguard_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "safeguard_policy")
+
+    @safeguard_policy.setter
+    def safeguard_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "safeguard_policy", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -695,6 +833,24 @@ class EndpointMicrosoftSqlServerSettingsArgs:
     @secrets_manager_secret_id.setter
     def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="useBcpFullLoad")
+    def use_bcp_full_load(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_bcp_full_load")
+
+    @use_bcp_full_load.setter
+    def use_bcp_full_load(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_bcp_full_load", value)
+
+    @property
+    @pulumi.getter(name="useThirdPartyBackupDevice")
+    def use_third_party_backup_device(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_third_party_backup_device")
+
+    @use_third_party_backup_device.setter
+    def use_third_party_backup_device(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_third_party_backup_device", value)
 
 
 @pulumi.input_type
@@ -1738,12 +1894,234 @@ class EndpointRedisSettingsArgs:
 @pulumi.input_type
 class EndpointRedshiftSettingsArgs:
     def __init__(__self__, *,
+                 accept_any_date: Optional[pulumi.Input[bool]] = None,
+                 after_connect_script: Optional[pulumi.Input[str]] = None,
+                 bucket_folder: Optional[pulumi.Input[str]] = None,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 case_sensitive_names: Optional[pulumi.Input[bool]] = None,
+                 comp_update: Optional[pulumi.Input[bool]] = None,
+                 connection_timeout: Optional[pulumi.Input[int]] = None,
+                 date_format: Optional[pulumi.Input[str]] = None,
+                 empty_as_null: Optional[pulumi.Input[bool]] = None,
+                 encryption_mode: Optional[pulumi.Input[str]] = None,
+                 explicit_ids: Optional[pulumi.Input[bool]] = None,
+                 file_transfer_upload_streams: Optional[pulumi.Input[int]] = None,
+                 load_timeout: Optional[pulumi.Input[int]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
+                 remove_quotes: Optional[pulumi.Input[bool]] = None,
+                 replace_chars: Optional[pulumi.Input[str]] = None,
+                 replace_invalid_chars: Optional[pulumi.Input[str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 service_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 time_format: Optional[pulumi.Input[str]] = None,
+                 trim_blanks: Optional[pulumi.Input[bool]] = None,
+                 truncate_columns: Optional[pulumi.Input[bool]] = None,
+                 write_buffer_size: Optional[pulumi.Input[int]] = None):
+        if accept_any_date is not None:
+            pulumi.set(__self__, "accept_any_date", accept_any_date)
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if bucket_folder is not None:
+            pulumi.set(__self__, "bucket_folder", bucket_folder)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if case_sensitive_names is not None:
+            pulumi.set(__self__, "case_sensitive_names", case_sensitive_names)
+        if comp_update is not None:
+            pulumi.set(__self__, "comp_update", comp_update)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_as_null is not None:
+            pulumi.set(__self__, "empty_as_null", empty_as_null)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if explicit_ids is not None:
+            pulumi.set(__self__, "explicit_ids", explicit_ids)
+        if file_transfer_upload_streams is not None:
+            pulumi.set(__self__, "file_transfer_upload_streams", file_transfer_upload_streams)
+        if load_timeout is not None:
+            pulumi.set(__self__, "load_timeout", load_timeout)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if remove_quotes is not None:
+            pulumi.set(__self__, "remove_quotes", remove_quotes)
+        if replace_chars is not None:
+            pulumi.set(__self__, "replace_chars", replace_chars)
+        if replace_invalid_chars is not None:
+            pulumi.set(__self__, "replace_invalid_chars", replace_invalid_chars)
         if secrets_manager_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_side_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if trim_blanks is not None:
+            pulumi.set(__self__, "trim_blanks", trim_blanks)
+        if truncate_columns is not None:
+            pulumi.set(__self__, "truncate_columns", truncate_columns)
+        if write_buffer_size is not None:
+            pulumi.set(__self__, "write_buffer_size", write_buffer_size)
+
+    @property
+    @pulumi.getter(name="acceptAnyDate")
+    def accept_any_date(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "accept_any_date")
+
+    @accept_any_date.setter
+    def accept_any_date(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accept_any_date", value)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @property
+    @pulumi.getter(name="bucketFolder")
+    def bucket_folder(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_folder")
+
+    @bucket_folder.setter
+    def bucket_folder(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_folder", value)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="caseSensitiveNames")
+    def case_sensitive_names(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "case_sensitive_names")
+
+    @case_sensitive_names.setter
+    def case_sensitive_names(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "case_sensitive_names", value)
+
+    @property
+    @pulumi.getter(name="compUpdate")
+    def comp_update(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "comp_update")
+
+    @comp_update.setter
+    def comp_update(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "comp_update", value)
+
+    @property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "connection_timeout")
+
+    @connection_timeout.setter
+    def connection_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_timeout", value)
+
+    @property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "date_format")
+
+    @date_format.setter
+    def date_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_format", value)
+
+    @property
+    @pulumi.getter(name="emptyAsNull")
+    def empty_as_null(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "empty_as_null")
+
+    @empty_as_null.setter
+    def empty_as_null(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "empty_as_null", value)
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encryption_mode")
+
+    @encryption_mode.setter
+    def encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="explicitIds")
+    def explicit_ids(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "explicit_ids")
+
+    @explicit_ids.setter
+    def explicit_ids(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "explicit_ids", value)
+
+    @property
+    @pulumi.getter(name="fileTransferUploadStreams")
+    def file_transfer_upload_streams(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "file_transfer_upload_streams")
+
+    @file_transfer_upload_streams.setter
+    def file_transfer_upload_streams(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "file_transfer_upload_streams", value)
+
+    @property
+    @pulumi.getter(name="loadTimeout")
+    def load_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "load_timeout")
+
+    @load_timeout.setter
+    def load_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @property
+    @pulumi.getter(name="removeQuotes")
+    def remove_quotes(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remove_quotes")
+
+    @remove_quotes.setter
+    def remove_quotes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remove_quotes", value)
+
+    @property
+    @pulumi.getter(name="replaceChars")
+    def replace_chars(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "replace_chars")
+
+    @replace_chars.setter
+    def replace_chars(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replace_chars", value)
+
+    @property
+    @pulumi.getter(name="replaceInvalidChars")
+    def replace_invalid_chars(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "replace_invalid_chars")
+
+    @replace_invalid_chars.setter
+    def replace_invalid_chars(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replace_invalid_chars", value)
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
@@ -1762,6 +2140,60 @@ class EndpointRedshiftSettingsArgs:
     @secrets_manager_secret_id.setter
     def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @server_side_encryption_kms_key_id.setter
+    def server_side_encryption_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_side_encryption_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_format")
+
+    @time_format.setter
+    def time_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_format", value)
+
+    @property
+    @pulumi.getter(name="trimBlanks")
+    def trim_blanks(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "trim_blanks")
+
+    @trim_blanks.setter
+    def trim_blanks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trim_blanks", value)
+
+    @property
+    @pulumi.getter(name="truncateColumns")
+    def truncate_columns(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "truncate_columns")
+
+    @truncate_columns.setter
+    def truncate_columns(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "truncate_columns", value)
+
+    @property
+    @pulumi.getter(name="writeBufferSize")
+    def write_buffer_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "write_buffer_size")
+
+    @write_buffer_size.setter
+    def write_buffer_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_buffer_size", value)
 
 
 @pulumi.input_type

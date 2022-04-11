@@ -23,6 +23,8 @@ __all__ = [
     'AnomalyDetectorSingleMetricAnomalyDetectorArgs',
     'InsightRuleTagsArgs',
     'MetricStreamFilterArgs',
+    'MetricStreamStatisticsConfigurationArgs',
+    'MetricStreamStatisticsMetricArgs',
     'MetricStreamTagArgs',
 ]
 
@@ -583,6 +585,82 @@ class MetricStreamFilterArgs:
     def namespace(self) -> pulumi.Input[str]:
         """
         Only metrics with Namespace matching this value will be streamed.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class MetricStreamStatisticsConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]]):
+        """
+        This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_statistics: The additional statistics to stream for the metrics listed in IncludeMetrics.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]] include_metrics: An array that defines the metrics that are to have additional statistics streamed.
+        """
+        pulumi.set(__self__, "additional_statistics", additional_statistics)
+        pulumi.set(__self__, "include_metrics", include_metrics)
+
+    @property
+    @pulumi.getter(name="additionalStatistics")
+    def additional_statistics(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The additional statistics to stream for the metrics listed in IncludeMetrics.
+        """
+        return pulumi.get(self, "additional_statistics")
+
+    @additional_statistics.setter
+    def additional_statistics(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "additional_statistics", value)
+
+    @property
+    @pulumi.getter(name="includeMetrics")
+    def include_metrics(self) -> pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]]:
+        """
+        An array that defines the metrics that are to have additional statistics streamed.
+        """
+        return pulumi.get(self, "include_metrics")
+
+    @include_metrics.setter
+    def include_metrics(self, value: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]]):
+        pulumi.set(self, "include_metrics", value)
+
+
+@pulumi.input_type
+class MetricStreamStatisticsMetricArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[str],
+                 namespace: pulumi.Input[str]):
+        """
+        A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+        :param pulumi.Input[str] metric_name: The name of the metric.
+        :param pulumi.Input[str] namespace: The namespace of the metric.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 

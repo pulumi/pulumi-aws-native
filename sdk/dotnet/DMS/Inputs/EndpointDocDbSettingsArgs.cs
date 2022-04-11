@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.DMS.Inputs
 
     public sealed class EndpointDocDbSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("docsToInvestigate")]
+        public Input<int>? DocsToInvestigate { get; set; }
+
+        [Input("extractDocId")]
+        public Input<bool>? ExtractDocId { get; set; }
+
+        [Input("nestingLevel")]
+        public Input<string>? NestingLevel { get; set; }
+
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 

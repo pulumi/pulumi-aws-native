@@ -89,6 +89,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
             set => _licenseSpecifications = value;
         }
 
+        [Input("maintenanceOptions")]
+        public Input<Inputs.LaunchTemplateMaintenanceOptionsArgs>? MaintenanceOptions { get; set; }
+
         [Input("metadataOptions")]
         public Input<Inputs.LaunchTemplateMetadataOptionsArgs>? MetadataOptions { get; set; }
 

@@ -17,6 +17,7 @@ class PermissionArgs:
                  function_name: pulumi.Input[str],
                  principal: pulumi.Input[str],
                  event_source_token: Optional[pulumi.Input[str]] = None,
+                 function_url_auth_type: Optional[pulumi.Input[str]] = None,
                  principal_org_id: Optional[pulumi.Input[str]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None):
@@ -28,6 +29,8 @@ class PermissionArgs:
         pulumi.set(__self__, "principal", principal)
         if event_source_token is not None:
             pulumi.set(__self__, "event_source_token", event_source_token)
+        if function_url_auth_type is not None:
+            pulumi.set(__self__, "function_url_auth_type", function_url_auth_type)
         if principal_org_id is not None:
             pulumi.set(__self__, "principal_org_id", principal_org_id)
         if source_account is not None:
@@ -72,6 +75,15 @@ class PermissionArgs:
         pulumi.set(self, "event_source_token", value)
 
     @property
+    @pulumi.getter(name="functionUrlAuthType")
+    def function_url_auth_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "function_url_auth_type")
+
+    @function_url_auth_type.setter
+    def function_url_auth_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_url_auth_type", value)
+
+    @property
     @pulumi.getter(name="principalOrgID")
     def principal_org_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "principal_org_id")
@@ -112,6 +124,7 @@ class Permission(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  event_source_token: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
+                 function_url_auth_type: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  principal_org_id: Optional[pulumi.Input[str]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
@@ -150,6 +163,7 @@ class Permission(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  event_source_token: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
+                 function_url_auth_type: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  principal_org_id: Optional[pulumi.Input[str]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
@@ -174,6 +188,7 @@ class Permission(pulumi.CustomResource):
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["function_url_auth_type"] = function_url_auth_type
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
@@ -205,6 +220,7 @@ class Permission(pulumi.CustomResource):
         __props__.__dict__["action"] = None
         __props__.__dict__["event_source_token"] = None
         __props__.__dict__["function_name"] = None
+        __props__.__dict__["function_url_auth_type"] = None
         __props__.__dict__["principal"] = None
         __props__.__dict__["principal_org_id"] = None
         __props__.__dict__["source_account"] = None
@@ -225,6 +241,11 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "function_name")
+
+    @property
+    @pulumi.getter(name="functionUrlAuthType")
+    def function_url_auth_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "function_url_auth_type")
 
     @property
     @pulumi.getter

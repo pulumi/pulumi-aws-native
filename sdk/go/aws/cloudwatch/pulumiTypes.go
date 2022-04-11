@@ -1931,6 +1931,224 @@ func (o MetricStreamFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamFilt
 	}).(MetricStreamFilterOutput)
 }
 
+// This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+type MetricStreamStatisticsConfiguration struct {
+	// The additional statistics to stream for the metrics listed in IncludeMetrics.
+	AdditionalStatistics []string `pulumi:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed.
+	IncludeMetrics []MetricStreamStatisticsMetric `pulumi:"includeMetrics"`
+}
+
+// MetricStreamStatisticsConfigurationInput is an input type that accepts MetricStreamStatisticsConfigurationArgs and MetricStreamStatisticsConfigurationOutput values.
+// You can construct a concrete instance of `MetricStreamStatisticsConfigurationInput` via:
+//
+//          MetricStreamStatisticsConfigurationArgs{...}
+type MetricStreamStatisticsConfigurationInput interface {
+	pulumi.Input
+
+	ToMetricStreamStatisticsConfigurationOutput() MetricStreamStatisticsConfigurationOutput
+	ToMetricStreamStatisticsConfigurationOutputWithContext(context.Context) MetricStreamStatisticsConfigurationOutput
+}
+
+// This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+type MetricStreamStatisticsConfigurationArgs struct {
+	// The additional statistics to stream for the metrics listed in IncludeMetrics.
+	AdditionalStatistics pulumi.StringArrayInput `pulumi:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed.
+	IncludeMetrics MetricStreamStatisticsMetricArrayInput `pulumi:"includeMetrics"`
+}
+
+func (MetricStreamStatisticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamStatisticsConfiguration)(nil)).Elem()
+}
+
+func (i MetricStreamStatisticsConfigurationArgs) ToMetricStreamStatisticsConfigurationOutput() MetricStreamStatisticsConfigurationOutput {
+	return i.ToMetricStreamStatisticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i MetricStreamStatisticsConfigurationArgs) ToMetricStreamStatisticsConfigurationOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationOutput)
+}
+
+// MetricStreamStatisticsConfigurationArrayInput is an input type that accepts MetricStreamStatisticsConfigurationArray and MetricStreamStatisticsConfigurationArrayOutput values.
+// You can construct a concrete instance of `MetricStreamStatisticsConfigurationArrayInput` via:
+//
+//          MetricStreamStatisticsConfigurationArray{ MetricStreamStatisticsConfigurationArgs{...} }
+type MetricStreamStatisticsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToMetricStreamStatisticsConfigurationArrayOutput() MetricStreamStatisticsConfigurationArrayOutput
+	ToMetricStreamStatisticsConfigurationArrayOutputWithContext(context.Context) MetricStreamStatisticsConfigurationArrayOutput
+}
+
+type MetricStreamStatisticsConfigurationArray []MetricStreamStatisticsConfigurationInput
+
+func (MetricStreamStatisticsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamStatisticsConfiguration)(nil)).Elem()
+}
+
+func (i MetricStreamStatisticsConfigurationArray) ToMetricStreamStatisticsConfigurationArrayOutput() MetricStreamStatisticsConfigurationArrayOutput {
+	return i.ToMetricStreamStatisticsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i MetricStreamStatisticsConfigurationArray) ToMetricStreamStatisticsConfigurationArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationArrayOutput)
+}
+
+// This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+type MetricStreamStatisticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamStatisticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamStatisticsConfiguration)(nil)).Elem()
+}
+
+func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfigurationOutput() MetricStreamStatisticsConfigurationOutput {
+	return o
+}
+
+func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfigurationOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationOutput {
+	return o
+}
+
+// The additional statistics to stream for the metrics listed in IncludeMetrics.
+func (o MetricStreamStatisticsConfigurationOutput) AdditionalStatistics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []string { return v.AdditionalStatistics }).(pulumi.StringArrayOutput)
+}
+
+// An array that defines the metrics that are to have additional statistics streamed.
+func (o MetricStreamStatisticsConfigurationOutput) IncludeMetrics() MetricStreamStatisticsMetricArrayOutput {
+	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []MetricStreamStatisticsMetric { return v.IncludeMetrics }).(MetricStreamStatisticsMetricArrayOutput)
+}
+
+type MetricStreamStatisticsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamStatisticsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamStatisticsConfiguration)(nil)).Elem()
+}
+
+func (o MetricStreamStatisticsConfigurationArrayOutput) ToMetricStreamStatisticsConfigurationArrayOutput() MetricStreamStatisticsConfigurationArrayOutput {
+	return o
+}
+
+func (o MetricStreamStatisticsConfigurationArrayOutput) ToMetricStreamStatisticsConfigurationArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationArrayOutput {
+	return o
+}
+
+func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput) MetricStreamStatisticsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamStatisticsConfiguration {
+		return vs[0].([]MetricStreamStatisticsConfiguration)[vs[1].(int)]
+	}).(MetricStreamStatisticsConfigurationOutput)
+}
+
+// A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+type MetricStreamStatisticsMetric struct {
+	// The name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace string `pulumi:"namespace"`
+}
+
+// MetricStreamStatisticsMetricInput is an input type that accepts MetricStreamStatisticsMetricArgs and MetricStreamStatisticsMetricOutput values.
+// You can construct a concrete instance of `MetricStreamStatisticsMetricInput` via:
+//
+//          MetricStreamStatisticsMetricArgs{...}
+type MetricStreamStatisticsMetricInput interface {
+	pulumi.Input
+
+	ToMetricStreamStatisticsMetricOutput() MetricStreamStatisticsMetricOutput
+	ToMetricStreamStatisticsMetricOutputWithContext(context.Context) MetricStreamStatisticsMetricOutput
+}
+
+// A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+type MetricStreamStatisticsMetricArgs struct {
+	// The name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (MetricStreamStatisticsMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamStatisticsMetric)(nil)).Elem()
+}
+
+func (i MetricStreamStatisticsMetricArgs) ToMetricStreamStatisticsMetricOutput() MetricStreamStatisticsMetricOutput {
+	return i.ToMetricStreamStatisticsMetricOutputWithContext(context.Background())
+}
+
+func (i MetricStreamStatisticsMetricArgs) ToMetricStreamStatisticsMetricOutputWithContext(ctx context.Context) MetricStreamStatisticsMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsMetricOutput)
+}
+
+// MetricStreamStatisticsMetricArrayInput is an input type that accepts MetricStreamStatisticsMetricArray and MetricStreamStatisticsMetricArrayOutput values.
+// You can construct a concrete instance of `MetricStreamStatisticsMetricArrayInput` via:
+//
+//          MetricStreamStatisticsMetricArray{ MetricStreamStatisticsMetricArgs{...} }
+type MetricStreamStatisticsMetricArrayInput interface {
+	pulumi.Input
+
+	ToMetricStreamStatisticsMetricArrayOutput() MetricStreamStatisticsMetricArrayOutput
+	ToMetricStreamStatisticsMetricArrayOutputWithContext(context.Context) MetricStreamStatisticsMetricArrayOutput
+}
+
+type MetricStreamStatisticsMetricArray []MetricStreamStatisticsMetricInput
+
+func (MetricStreamStatisticsMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamStatisticsMetric)(nil)).Elem()
+}
+
+func (i MetricStreamStatisticsMetricArray) ToMetricStreamStatisticsMetricArrayOutput() MetricStreamStatisticsMetricArrayOutput {
+	return i.ToMetricStreamStatisticsMetricArrayOutputWithContext(context.Background())
+}
+
+func (i MetricStreamStatisticsMetricArray) ToMetricStreamStatisticsMetricArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsMetricArrayOutput)
+}
+
+// A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+type MetricStreamStatisticsMetricOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamStatisticsMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamStatisticsMetric)(nil)).Elem()
+}
+
+func (o MetricStreamStatisticsMetricOutput) ToMetricStreamStatisticsMetricOutput() MetricStreamStatisticsMetricOutput {
+	return o
+}
+
+func (o MetricStreamStatisticsMetricOutput) ToMetricStreamStatisticsMetricOutputWithContext(ctx context.Context) MetricStreamStatisticsMetricOutput {
+	return o
+}
+
+// The name of the metric.
+func (o MetricStreamStatisticsMetricOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamStatisticsMetric) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The namespace of the metric.
+func (o MetricStreamStatisticsMetricOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamStatisticsMetric) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type MetricStreamStatisticsMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamStatisticsMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamStatisticsMetric)(nil)).Elem()
+}
+
+func (o MetricStreamStatisticsMetricArrayOutput) ToMetricStreamStatisticsMetricArrayOutput() MetricStreamStatisticsMetricArrayOutput {
+	return o
+}
+
+func (o MetricStreamStatisticsMetricArrayOutput) ToMetricStreamStatisticsMetricArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsMetricArrayOutput {
+	return o
+}
+
+func (o MetricStreamStatisticsMetricArrayOutput) Index(i pulumi.IntInput) MetricStreamStatisticsMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamStatisticsMetric {
+		return vs[0].([]MetricStreamStatisticsMetric)[vs[1].(int)]
+	}).(MetricStreamStatisticsMetricOutput)
+}
+
 // Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
 type MetricStreamTag struct {
 	// A unique identifier for the tag.
@@ -2069,6 +2287,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleTagsPtrInput)(nil)).Elem(), InsightRuleTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterInput)(nil)).Elem(), MetricStreamFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterArrayInput)(nil)).Elem(), MetricStreamFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricInput)(nil)).Elem(), MetricStreamStatisticsMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamTagInput)(nil)).Elem(), MetricStreamTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamTagArrayInput)(nil)).Elem(), MetricStreamTagArray{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
@@ -2099,6 +2321,10 @@ func init() {
 	pulumi.RegisterOutputType(InsightRuleTagsPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterArrayOutput{})
+	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationOutput{})
+	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(MetricStreamStatisticsMetricOutput{})
+	pulumi.RegisterOutputType(MetricStreamStatisticsMetricArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamTagOutput{})
 	pulumi.RegisterOutputType(MetricStreamTagArrayOutput{})
 }

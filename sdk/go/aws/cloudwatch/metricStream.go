@@ -35,6 +35,8 @@ type MetricStream struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Displays the state of the Metric Stream.
 	State pulumi.StringOutput `pulumi:"state"`
+	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayOutput `pulumi:"statisticsConfigurations"`
 	// A set of tags to assign to the delivery stream.
 	Tags MetricStreamTagArrayOutput `pulumi:"tags"`
 }
@@ -99,6 +101,8 @@ type metricStreamArgs struct {
 	OutputFormat string `pulumi:"outputFormat"`
 	// The ARN of the role that provides access to the Kinesis Firehose.
 	RoleArn string `pulumi:"roleArn"`
+	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
 	// A set of tags to assign to the delivery stream.
 	Tags []MetricStreamTag `pulumi:"tags"`
 }
@@ -117,6 +121,8 @@ type MetricStreamArgs struct {
 	OutputFormat pulumi.StringInput
 	// The ARN of the role that provides access to the Kinesis Firehose.
 	RoleArn pulumi.StringInput
+	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayInput
 	// A set of tags to assign to the delivery stream.
 	Tags MetricStreamTagArrayInput
 }

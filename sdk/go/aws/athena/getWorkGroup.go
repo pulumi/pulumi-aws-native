@@ -38,8 +38,6 @@ type LookupWorkGroupResult struct {
 	Tags []WorkGroupTag `pulumi:"tags"`
 	// The workgroup configuration
 	WorkGroupConfiguration *WorkGroupConfiguration `pulumi:"workGroupConfiguration"`
-	// The workgroup configuration update object
-	WorkGroupConfigurationUpdates *WorkGroupConfigurationUpdates `pulumi:"workGroupConfigurationUpdates"`
 }
 
 func LookupWorkGroupOutput(ctx *pulumi.Context, args LookupWorkGroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkGroupResultOutput {
@@ -106,11 +104,6 @@ func (o LookupWorkGroupResultOutput) Tags() WorkGroupTagArrayOutput {
 // The workgroup configuration
 func (o LookupWorkGroupResultOutput) WorkGroupConfiguration() WorkGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupWorkGroupResult) *WorkGroupConfiguration { return v.WorkGroupConfiguration }).(WorkGroupConfigurationPtrOutput)
-}
-
-// The workgroup configuration update object
-func (o LookupWorkGroupResultOutput) WorkGroupConfigurationUpdates() WorkGroupConfigurationUpdatesPtrOutput {
-	return o.ApplyT(func(v LookupWorkGroupResult) *WorkGroupConfigurationUpdates { return v.WorkGroupConfigurationUpdates }).(WorkGroupConfigurationUpdatesPtrOutput)
 }
 
 func init() {

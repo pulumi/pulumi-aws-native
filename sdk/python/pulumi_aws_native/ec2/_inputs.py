@@ -97,6 +97,7 @@ __all__ = [
     'LaunchTemplateIpv6AddArgs',
     'LaunchTemplateIpv6PrefixSpecificationArgs',
     'LaunchTemplateLicenseSpecificationArgs',
+    'LaunchTemplateMaintenanceOptionsArgs',
     'LaunchTemplateMemoryGiBPerVCpuArgs',
     'LaunchTemplateMemoryMiBArgs',
     'LaunchTemplateMetadataOptionsArgs',
@@ -3066,6 +3067,7 @@ class LaunchTemplateDataArgs:
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
@@ -3114,6 +3116,8 @@ class LaunchTemplateDataArgs:
             pulumi.set(__self__, "key_name", key_name)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -3305,6 +3309,15 @@ class LaunchTemplateDataArgs:
     @license_specifications.setter
     def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
         pulumi.set(self, "license_specifications", value)
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -3959,6 +3972,23 @@ class LaunchTemplateLicenseSpecificationArgs:
     @license_configuration_arn.setter
     def license_configuration_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "license_configuration_arn", value)
+
+
+@pulumi.input_type
+class LaunchTemplateMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
 
 
 @pulumi.input_type

@@ -21,6 +21,7 @@ class MetricStreamArgs:
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
@@ -30,6 +31,7 @@ class MetricStreamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[str] name: Name of the metric stream.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]] tags: A set of tags to assign to the delivery stream.
         """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
@@ -41,6 +43,8 @@ class MetricStreamArgs:
             pulumi.set(__self__, "include_filters", include_filters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if statistics_configurations is not None:
+            pulumi.set(__self__, "statistics_configurations", statistics_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -117,6 +121,18 @@ class MetricStreamArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="statisticsConfigurations")
+    def statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
+        """
+        By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        """
+        return pulumi.get(self, "statistics_configurations")
+
+    @statistics_configurations.setter
+    def statistics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
+        pulumi.set(self, "statistics_configurations", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]]:
         """
@@ -140,6 +156,7 @@ class MetricStream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamStatisticsConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -153,6 +170,7 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the metric stream.
         :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
         :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamStatisticsConfigurationArgs']]]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamTagArgs']]]] tags: A set of tags to assign to the delivery stream.
         """
         ...
@@ -185,6 +203,7 @@ class MetricStream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamStatisticsConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -210,6 +229,7 @@ class MetricStream(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["statistics_configurations"] = statistics_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
@@ -247,6 +267,7 @@ class MetricStream(pulumi.CustomResource):
         __props__.__dict__["output_format"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["statistics_configurations"] = None
         __props__.__dict__["tags"] = None
         return MetricStream(resource_name, opts=opts, __props__=__props__)
 
@@ -329,6 +350,14 @@ class MetricStream(pulumi.CustomResource):
         Displays the state of the Metric Stream.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statisticsConfigurations")
+    def statistics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamStatisticsConfiguration']]]:
+        """
+        By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        """
+        return pulumi.get(self, "statistics_configurations")
 
     @property
     @pulumi.getter

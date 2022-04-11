@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricStreamResult:
-    def __init__(__self__, arn=None, creation_date=None, exclude_filters=None, firehose_arn=None, include_filters=None, last_update_date=None, output_format=None, role_arn=None, state=None):
+    def __init__(__self__, arn=None, creation_date=None, exclude_filters=None, firehose_arn=None, include_filters=None, last_update_date=None, output_format=None, role_arn=None, state=None, statistics_configurations=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetMetricStreamResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if statistics_configurations and not isinstance(statistics_configurations, list):
+            raise TypeError("Expected argument 'statistics_configurations' to be a list")
+        pulumi.set(__self__, "statistics_configurations", statistics_configurations)
 
     @property
     @pulumi.getter
@@ -119,6 +122,14 @@ class GetMetricStreamResult:
         """
         return pulumi.get(self, "state")
 
+    @property
+    @pulumi.getter(name="statisticsConfigurations")
+    def statistics_configurations(self) -> Optional[Sequence['outputs.MetricStreamStatisticsConfiguration']]:
+        """
+        By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        """
+        return pulumi.get(self, "statistics_configurations")
+
 
 class AwaitableGetMetricStreamResult(GetMetricStreamResult):
     # pylint: disable=using-constant-test
@@ -134,7 +145,8 @@ class AwaitableGetMetricStreamResult(GetMetricStreamResult):
             last_update_date=self.last_update_date,
             output_format=self.output_format,
             role_arn=self.role_arn,
-            state=self.state)
+            state=self.state,
+            statistics_configurations=self.statistics_configurations)
 
 
 def get_metric_stream(name: Optional[str] = None,
@@ -162,7 +174,8 @@ def get_metric_stream(name: Optional[str] = None,
         last_update_date=__ret__.last_update_date,
         output_format=__ret__.output_format,
         role_arn=__ret__.role_arn,
-        state=__ret__.state)
+        state=__ret__.state,
+        statistics_configurations=__ret__.statistics_configurations)
 
 
 @_utilities.lift_output_func(get_metric_stream)

@@ -98,6 +98,7 @@ __all__ = [
     'LaunchTemplateIpv6Add',
     'LaunchTemplateIpv6PrefixSpecification',
     'LaunchTemplateLicenseSpecification',
+    'LaunchTemplateMaintenanceOptions',
     'LaunchTemplateMemoryGiBPerVCpu',
     'LaunchTemplateMemoryMiB',
     'LaunchTemplateMetadataOptions',
@@ -3165,6 +3166,8 @@ class LaunchTemplateData(dict):
             suggest = "key_name"
         elif key == "licenseSpecifications":
             suggest = "license_specifications"
+        elif key == "maintenanceOptions":
+            suggest = "maintenance_options"
         elif key == "metadataOptions":
             suggest = "metadata_options"
         elif key == "networkInterfaces":
@@ -3213,6 +3216,7 @@ class LaunchTemplateData(dict):
                  kernel_id: Optional[str] = None,
                  key_name: Optional[str] = None,
                  license_specifications: Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']] = None,
+                 maintenance_options: Optional['outputs.LaunchTemplateMaintenanceOptions'] = None,
                  metadata_options: Optional['outputs.LaunchTemplateMetadataOptions'] = None,
                  monitoring: Optional['outputs.LaunchTemplateMonitoring'] = None,
                  network_interfaces: Optional[Sequence['outputs.LaunchTemplateNetworkInterface']] = None,
@@ -3261,6 +3265,8 @@ class LaunchTemplateData(dict):
             pulumi.set(__self__, "key_name", key_name)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -3376,6 +3382,11 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="licenseSpecifications")
     def license_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']]:
         return pulumi.get(self, "license_specifications")
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional['outputs.LaunchTemplateMaintenanceOptions']:
+        return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -3991,6 +4002,36 @@ class LaunchTemplateLicenseSpecification(dict):
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> Optional[str]:
         return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class LaunchTemplateMaintenanceOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRecovery":
+            suggest = "auto_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateMaintenanceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateMaintenanceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateMaintenanceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_recovery: Optional[str] = None):
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[str]:
+        return pulumi.get(self, "auto_recovery")
 
 
 @pulumi.output_type

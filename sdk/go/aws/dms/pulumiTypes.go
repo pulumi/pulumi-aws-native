@@ -11,6 +11,9 @@ import (
 )
 
 type EndpointDocDbSettings struct {
+	DocsToInvestigate           *int    `pulumi:"docsToInvestigate"`
+	ExtractDocId                *bool   `pulumi:"extractDocId"`
+	NestingLevel                *string `pulumi:"nestingLevel"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
 }
@@ -27,6 +30,9 @@ type EndpointDocDbSettingsInput interface {
 }
 
 type EndpointDocDbSettingsArgs struct {
+	DocsToInvestigate           pulumi.IntPtrInput    `pulumi:"docsToInvestigate"`
+	ExtractDocId                pulumi.BoolPtrInput   `pulumi:"extractDocId"`
+	NestingLevel                pulumi.StringPtrInput `pulumi:"nestingLevel"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
 }
@@ -108,6 +114,18 @@ func (o EndpointDocDbSettingsOutput) ToEndpointDocDbSettingsPtrOutputWithContext
 	}).(EndpointDocDbSettingsPtrOutput)
 }
 
+func (o EndpointDocDbSettingsOutput) DocsToInvestigate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointDocDbSettings) *int { return v.DocsToInvestigate }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointDocDbSettingsOutput) ExtractDocId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDocDbSettings) *bool { return v.ExtractDocId }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointDocDbSettingsOutput) NestingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDocDbSettings) *string { return v.NestingLevel }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointDocDbSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDocDbSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -138,6 +156,33 @@ func (o EndpointDocDbSettingsPtrOutput) Elem() EndpointDocDbSettingsOutput {
 		var ret EndpointDocDbSettings
 		return ret
 	}).(EndpointDocDbSettingsOutput)
+}
+
+func (o EndpointDocDbSettingsPtrOutput) DocsToInvestigate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDocDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DocsToInvestigate
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointDocDbSettingsPtrOutput) ExtractDocId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointDocDbSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExtractDocId
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointDocDbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDocDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NestingLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointDocDbSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
@@ -783,8 +828,11 @@ func (o EndpointGcpMySQLSettingsPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type EndpointIbmDb2Settings struct {
+	CurrentLsn                  *string `pulumi:"currentLsn"`
+	MaxKBytesPerRead            *int    `pulumi:"maxKBytesPerRead"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	SetDataCaptureChanges       *bool   `pulumi:"setDataCaptureChanges"`
 }
 
 // EndpointIbmDb2SettingsInput is an input type that accepts EndpointIbmDb2SettingsArgs and EndpointIbmDb2SettingsOutput values.
@@ -799,8 +847,11 @@ type EndpointIbmDb2SettingsInput interface {
 }
 
 type EndpointIbmDb2SettingsArgs struct {
+	CurrentLsn                  pulumi.StringPtrInput `pulumi:"currentLsn"`
+	MaxKBytesPerRead            pulumi.IntPtrInput    `pulumi:"maxKBytesPerRead"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	SetDataCaptureChanges       pulumi.BoolPtrInput   `pulumi:"setDataCaptureChanges"`
 }
 
 func (EndpointIbmDb2SettingsArgs) ElementType() reflect.Type {
@@ -880,12 +931,24 @@ func (o EndpointIbmDb2SettingsOutput) ToEndpointIbmDb2SettingsPtrOutputWithConte
 	}).(EndpointIbmDb2SettingsPtrOutput)
 }
 
+func (o EndpointIbmDb2SettingsOutput) CurrentLsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *string { return v.CurrentLsn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsOutput) MaxKBytesPerRead() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *int { return v.MaxKBytesPerRead }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointIbmDb2SettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointIbmDb2Settings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointIbmDb2SettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointIbmDb2Settings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsOutput) SetDataCaptureChanges() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *bool { return v.SetDataCaptureChanges }).(pulumi.BoolPtrOutput)
 }
 
 type EndpointIbmDb2SettingsPtrOutput struct{ *pulumi.OutputState }
@@ -912,6 +975,24 @@ func (o EndpointIbmDb2SettingsPtrOutput) Elem() EndpointIbmDb2SettingsOutput {
 	}).(EndpointIbmDb2SettingsOutput)
 }
 
+func (o EndpointIbmDb2SettingsPtrOutput) CurrentLsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentLsn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsPtrOutput) MaxKBytesPerRead() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxKBytesPerRead
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointIbmDb2SettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointIbmDb2Settings) *string {
 		if v == nil {
@@ -928,6 +1009,15 @@ func (o EndpointIbmDb2SettingsPtrOutput) SecretsManagerSecretId() pulumi.StringP
 		}
 		return v.SecretsManagerSecretId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsPtrOutput) SetDataCaptureChanges() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SetDataCaptureChanges
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EndpointKafkaSettings struct {
@@ -1587,8 +1677,15 @@ func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 }
 
 type EndpointMicrosoftSqlServerSettings struct {
+	BcpPacketSize               *int    `pulumi:"bcpPacketSize"`
+	ControlTablesFileGroup      *string `pulumi:"controlTablesFileGroup"`
+	QuerySingleAlwaysOnNode     *bool   `pulumi:"querySingleAlwaysOnNode"`
+	ReadBackupOnly              *bool   `pulumi:"readBackupOnly"`
+	SafeguardPolicy             *string `pulumi:"safeguardPolicy"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	UseBcpFullLoad              *bool   `pulumi:"useBcpFullLoad"`
+	UseThirdPartyBackupDevice   *bool   `pulumi:"useThirdPartyBackupDevice"`
 }
 
 // EndpointMicrosoftSqlServerSettingsInput is an input type that accepts EndpointMicrosoftSqlServerSettingsArgs and EndpointMicrosoftSqlServerSettingsOutput values.
@@ -1603,8 +1700,15 @@ type EndpointMicrosoftSqlServerSettingsInput interface {
 }
 
 type EndpointMicrosoftSqlServerSettingsArgs struct {
+	BcpPacketSize               pulumi.IntPtrInput    `pulumi:"bcpPacketSize"`
+	ControlTablesFileGroup      pulumi.StringPtrInput `pulumi:"controlTablesFileGroup"`
+	QuerySingleAlwaysOnNode     pulumi.BoolPtrInput   `pulumi:"querySingleAlwaysOnNode"`
+	ReadBackupOnly              pulumi.BoolPtrInput   `pulumi:"readBackupOnly"`
+	SafeguardPolicy             pulumi.StringPtrInput `pulumi:"safeguardPolicy"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	UseBcpFullLoad              pulumi.BoolPtrInput   `pulumi:"useBcpFullLoad"`
+	UseThirdPartyBackupDevice   pulumi.BoolPtrInput   `pulumi:"useThirdPartyBackupDevice"`
 }
 
 func (EndpointMicrosoftSqlServerSettingsArgs) ElementType() reflect.Type {
@@ -1684,12 +1788,40 @@ func (o EndpointMicrosoftSqlServerSettingsOutput) ToEndpointMicrosoftSqlServerSe
 	}).(EndpointMicrosoftSqlServerSettingsPtrOutput)
 }
 
+func (o EndpointMicrosoftSqlServerSettingsOutput) BcpPacketSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *int { return v.BcpPacketSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) ControlTablesFileGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.ControlTablesFileGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) QuerySingleAlwaysOnNode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.QuerySingleAlwaysOnNode }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) ReadBackupOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.ReadBackupOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) SafeguardPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.SafeguardPolicy }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointMicrosoftSqlServerSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMicrosoftSqlServerSettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) UseBcpFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.UseBcpFullLoad }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsOutput) UseThirdPartyBackupDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMicrosoftSqlServerSettings) *bool { return v.UseThirdPartyBackupDevice }).(pulumi.BoolPtrOutput)
 }
 
 type EndpointMicrosoftSqlServerSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1716,6 +1848,51 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) Elem() EndpointMicrosoftSql
 	}).(EndpointMicrosoftSqlServerSettingsOutput)
 }
 
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) BcpPacketSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BcpPacketSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ControlTablesFileGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ControlTablesFileGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) QuerySingleAlwaysOnNode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.QuerySingleAlwaysOnNode
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ReadBackupOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadBackupOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) SafeguardPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SafeguardPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *string {
 		if v == nil {
@@ -1732,6 +1909,24 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) SecretsManagerSecretId() pu
 		}
 		return v.SecretsManagerSecretId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) UseBcpFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBcpFullLoad
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointMicrosoftSqlServerSettingsPtrOutput) UseThirdPartyBackupDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMicrosoftSqlServerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseThirdPartyBackupDevice
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EndpointMongoDbSettings struct {
@@ -3703,8 +3898,31 @@ func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOu
 }
 
 type EndpointRedshiftSettings struct {
-	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+	AcceptAnyDate                *bool   `pulumi:"acceptAnyDate"`
+	AfterConnectScript           *string `pulumi:"afterConnectScript"`
+	BucketFolder                 *string `pulumi:"bucketFolder"`
+	BucketName                   *string `pulumi:"bucketName"`
+	CaseSensitiveNames           *bool   `pulumi:"caseSensitiveNames"`
+	CompUpdate                   *bool   `pulumi:"compUpdate"`
+	ConnectionTimeout            *int    `pulumi:"connectionTimeout"`
+	DateFormat                   *string `pulumi:"dateFormat"`
+	EmptyAsNull                  *bool   `pulumi:"emptyAsNull"`
+	EncryptionMode               *string `pulumi:"encryptionMode"`
+	ExplicitIds                  *bool   `pulumi:"explicitIds"`
+	FileTransferUploadStreams    *int    `pulumi:"fileTransferUploadStreams"`
+	LoadTimeout                  *int    `pulumi:"loadTimeout"`
+	MaxFileSize                  *int    `pulumi:"maxFileSize"`
+	RemoveQuotes                 *bool   `pulumi:"removeQuotes"`
+	ReplaceChars                 *string `pulumi:"replaceChars"`
+	ReplaceInvalidChars          *string `pulumi:"replaceInvalidChars"`
+	SecretsManagerAccessRoleArn  *string `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId       *string `pulumi:"secretsManagerSecretId"`
+	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn         *string `pulumi:"serviceAccessRoleArn"`
+	TimeFormat                   *string `pulumi:"timeFormat"`
+	TrimBlanks                   *bool   `pulumi:"trimBlanks"`
+	TruncateColumns              *bool   `pulumi:"truncateColumns"`
+	WriteBufferSize              *int    `pulumi:"writeBufferSize"`
 }
 
 // EndpointRedshiftSettingsInput is an input type that accepts EndpointRedshiftSettingsArgs and EndpointRedshiftSettingsOutput values.
@@ -3719,8 +3937,31 @@ type EndpointRedshiftSettingsInput interface {
 }
 
 type EndpointRedshiftSettingsArgs struct {
-	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
-	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	AcceptAnyDate                pulumi.BoolPtrInput   `pulumi:"acceptAnyDate"`
+	AfterConnectScript           pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	BucketFolder                 pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	BucketName                   pulumi.StringPtrInput `pulumi:"bucketName"`
+	CaseSensitiveNames           pulumi.BoolPtrInput   `pulumi:"caseSensitiveNames"`
+	CompUpdate                   pulumi.BoolPtrInput   `pulumi:"compUpdate"`
+	ConnectionTimeout            pulumi.IntPtrInput    `pulumi:"connectionTimeout"`
+	DateFormat                   pulumi.StringPtrInput `pulumi:"dateFormat"`
+	EmptyAsNull                  pulumi.BoolPtrInput   `pulumi:"emptyAsNull"`
+	EncryptionMode               pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	ExplicitIds                  pulumi.BoolPtrInput   `pulumi:"explicitIds"`
+	FileTransferUploadStreams    pulumi.IntPtrInput    `pulumi:"fileTransferUploadStreams"`
+	LoadTimeout                  pulumi.IntPtrInput    `pulumi:"loadTimeout"`
+	MaxFileSize                  pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	RemoveQuotes                 pulumi.BoolPtrInput   `pulumi:"removeQuotes"`
+	ReplaceChars                 pulumi.StringPtrInput `pulumi:"replaceChars"`
+	ReplaceInvalidChars          pulumi.StringPtrInput `pulumi:"replaceInvalidChars"`
+	SecretsManagerAccessRoleArn  pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId       pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn         pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	TimeFormat                   pulumi.StringPtrInput `pulumi:"timeFormat"`
+	TrimBlanks                   pulumi.BoolPtrInput   `pulumi:"trimBlanks"`
+	TruncateColumns              pulumi.BoolPtrInput   `pulumi:"truncateColumns"`
+	WriteBufferSize              pulumi.IntPtrInput    `pulumi:"writeBufferSize"`
 }
 
 func (EndpointRedshiftSettingsArgs) ElementType() reflect.Type {
@@ -3800,12 +4041,104 @@ func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithC
 	}).(EndpointRedshiftSettingsPtrOutput)
 }
 
+func (o EndpointRedshiftSettingsOutput) AcceptAnyDate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.AcceptAnyDate }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) BucketFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) CaseSensitiveNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.CaseSensitiveNames }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) CompUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.CompUpdate }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ConnectionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *int { return v.ConnectionTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) EmptyAsNull() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.EmptyAsNull }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ExplicitIds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.ExplicitIds }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) FileTransferUploadStreams() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *int { return v.FileTransferUploadStreams }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) LoadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *int { return v.LoadTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) RemoveQuotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.RemoveQuotes }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ReplaceChars() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ReplaceChars }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ReplaceInvalidChars() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ReplaceInvalidChars }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointRedshiftSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointRedshiftSettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) TrimBlanks() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.TrimBlanks }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) TruncateColumns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.TruncateColumns }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) WriteBufferSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *int { return v.WriteBufferSize }).(pulumi.IntPtrOutput)
 }
 
 type EndpointRedshiftSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -3832,6 +4165,159 @@ func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput
 	}).(EndpointRedshiftSettingsOutput)
 }
 
+func (o EndpointRedshiftSettingsPtrOutput) AcceptAnyDate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptAnyDate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) CaseSensitiveNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseSensitiveNames
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) CompUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CompUpdate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ConnectionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) EmptyAsNull() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmptyAsNull
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ExplicitIds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExplicitIds
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) FileTransferUploadStreams() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileTransferUploadStreams
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) LoadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LoadTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) RemoveQuotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveQuotes
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ReplaceChars() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceChars
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ReplaceInvalidChars() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceInvalidChars
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointRedshiftSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -3848,6 +4334,60 @@ func (o EndpointRedshiftSettingsPtrOutput) SecretsManagerSecretId() pulumi.Strin
 		}
 		return v.SecretsManagerSecretId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) TrimBlanks() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TrimBlanks
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) TruncateColumns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TruncateColumns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) WriteBufferSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteBufferSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type EndpointS3Settings struct {

@@ -12,11 +12,20 @@ namespace Pulumi.AwsNative.DMS.Inputs
 
     public sealed class EndpointIbmDb2SettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("currentLsn")]
+        public Input<string>? CurrentLsn { get; set; }
+
+        [Input("maxKBytesPerRead")]
+        public Input<int>? MaxKBytesPerRead { get; set; }
+
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         [Input("secretsManagerSecretId")]
         public Input<string>? SecretsManagerSecretId { get; set; }
+
+        [Input("setDataCaptureChanges")]
+        public Input<bool>? SetDataCaptureChanges { get; set; }
 
         public EndpointIbmDb2SettingsArgs()
         {

@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? KernelId;
         public readonly string? KeyName;
         public readonly ImmutableArray<Outputs.LaunchTemplateLicenseSpecification> LicenseSpecifications;
+        public readonly Outputs.LaunchTemplateMaintenanceOptions? MaintenanceOptions;
         public readonly Outputs.LaunchTemplateMetadataOptions? MetadataOptions;
         public readonly Outputs.LaunchTemplateMonitoring? Monitoring;
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
@@ -83,6 +84,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             ImmutableArray<Outputs.LaunchTemplateLicenseSpecification> licenseSpecifications,
 
+            Outputs.LaunchTemplateMaintenanceOptions? maintenanceOptions,
+
             Outputs.LaunchTemplateMetadataOptions? metadataOptions,
 
             Outputs.LaunchTemplateMonitoring? monitoring,
@@ -122,6 +125,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             KernelId = kernelId;
             KeyName = keyName;
             LicenseSpecifications = licenseSpecifications;
+            MaintenanceOptions = maintenanceOptions;
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             NetworkInterfaces = networkInterfaces;

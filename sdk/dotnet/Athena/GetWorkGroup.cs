@@ -79,10 +79,6 @@ namespace Pulumi.AwsNative.Athena
         /// The workgroup configuration
         /// </summary>
         public readonly Outputs.WorkGroupConfiguration? WorkGroupConfiguration;
-        /// <summary>
-        /// The workgroup configuration update object
-        /// </summary>
-        public readonly Outputs.WorkGroupConfigurationUpdates? WorkGroupConfigurationUpdates;
 
         [OutputConstructor]
         private GetWorkGroupResult(
@@ -96,9 +92,7 @@ namespace Pulumi.AwsNative.Athena
 
             ImmutableArray<Outputs.WorkGroupTag> tags,
 
-            Outputs.WorkGroupConfiguration? workGroupConfiguration,
-
-            Outputs.WorkGroupConfigurationUpdates? workGroupConfigurationUpdates)
+            Outputs.WorkGroupConfiguration? workGroupConfiguration)
         {
             CreationTime = creationTime;
             Description = description;
@@ -106,7 +100,6 @@ namespace Pulumi.AwsNative.Athena
             State = state;
             Tags = tags;
             WorkGroupConfiguration = workGroupConfiguration;
-            WorkGroupConfigurationUpdates = workGroupConfigurationUpdates;
         }
     }
 }

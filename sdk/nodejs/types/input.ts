@@ -5936,6 +5936,34 @@ export namespace cloudwatch {
     }
 
     /**
+     * This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
+     */
+    export interface MetricStreamStatisticsConfigurationArgs {
+        /**
+         * The additional statistics to stream for the metrics listed in IncludeMetrics.
+         */
+        additionalStatistics: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array that defines the metrics that are to have additional statistics streamed.
+         */
+        includeMetrics: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsMetricArgs>[]>;
+    }
+
+    /**
+     * A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+     */
+    export interface MetricStreamStatisticsMetricArgs {
+        /**
+         * The name of the metric.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    /**
      * Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
      */
     export interface MetricStreamTagArgs {
@@ -8410,6 +8438,9 @@ export namespace dlm {
 
 export namespace dms {
     export interface EndpointDocDbSettingsArgs {
+        docsToInvestigate?: pulumi.Input<number>;
+        extractDocId?: pulumi.Input<boolean>;
+        nestingLevel?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
     }
@@ -8442,8 +8473,11 @@ export namespace dms {
     }
 
     export interface EndpointIbmDb2SettingsArgs {
+        currentLsn?: pulumi.Input<string>;
+        maxKBytesPerRead?: pulumi.Input<number>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        setDataCaptureChanges?: pulumi.Input<boolean>;
     }
 
     export interface EndpointKafkaSettingsArgs {
@@ -8481,8 +8515,15 @@ export namespace dms {
     }
 
     export interface EndpointMicrosoftSqlServerSettingsArgs {
+        bcpPacketSize?: pulumi.Input<number>;
+        controlTablesFileGroup?: pulumi.Input<string>;
+        querySingleAlwaysOnNode?: pulumi.Input<boolean>;
+        readBackupOnly?: pulumi.Input<boolean>;
+        safeguardPolicy?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        useBcpFullLoad?: pulumi.Input<boolean>;
+        useThirdPartyBackupDevice?: pulumi.Input<boolean>;
     }
 
     export interface EndpointMongoDbSettingsArgs {
@@ -8588,8 +8629,31 @@ export namespace dms {
     }
 
     export interface EndpointRedshiftSettingsArgs {
+        acceptAnyDate?: pulumi.Input<boolean>;
+        afterConnectScript?: pulumi.Input<string>;
+        bucketFolder?: pulumi.Input<string>;
+        bucketName?: pulumi.Input<string>;
+        caseSensitiveNames?: pulumi.Input<boolean>;
+        compUpdate?: pulumi.Input<boolean>;
+        connectionTimeout?: pulumi.Input<number>;
+        dateFormat?: pulumi.Input<string>;
+        emptyAsNull?: pulumi.Input<boolean>;
+        encryptionMode?: pulumi.Input<string>;
+        explicitIds?: pulumi.Input<boolean>;
+        fileTransferUploadStreams?: pulumi.Input<number>;
+        loadTimeout?: pulumi.Input<number>;
+        maxFileSize?: pulumi.Input<number>;
+        removeQuotes?: pulumi.Input<boolean>;
+        replaceChars?: pulumi.Input<string>;
+        replaceInvalidChars?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
+        serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
+        serviceAccessRoleArn?: pulumi.Input<string>;
+        timeFormat?: pulumi.Input<string>;
+        trimBlanks?: pulumi.Input<boolean>;
+        truncateColumns?: pulumi.Input<boolean>;
+        writeBufferSize?: pulumi.Input<number>;
     }
 
     export interface EndpointS3SettingsArgs {
@@ -9341,6 +9405,7 @@ export namespace ec2 {
         kernelId?: pulumi.Input<string>;
         keyName?: pulumi.Input<string>;
         licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecificationArgs>[]>;
+        maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptionsArgs>;
         metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptionsArgs>;
         monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoringArgs>;
         networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterfaceArgs>[]>;
@@ -9429,6 +9494,10 @@ export namespace ec2 {
 
     export interface LaunchTemplateLicenseSpecificationArgs {
         licenseConfigurationArn?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateMaintenanceOptionsArgs {
+        autoRecovery?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateMemoryGiBPerVCpuArgs {

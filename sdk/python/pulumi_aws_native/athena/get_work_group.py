@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkGroupResult:
-    def __init__(__self__, creation_time=None, description=None, recursive_delete_option=None, state=None, tags=None, work_group_configuration=None, work_group_configuration_updates=None):
+    def __init__(__self__, creation_time=None, description=None, recursive_delete_option=None, state=None, tags=None, work_group_configuration=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -38,9 +38,6 @@ class GetWorkGroupResult:
         if work_group_configuration and not isinstance(work_group_configuration, dict):
             raise TypeError("Expected argument 'work_group_configuration' to be a dict")
         pulumi.set(__self__, "work_group_configuration", work_group_configuration)
-        if work_group_configuration_updates and not isinstance(work_group_configuration_updates, dict):
-            raise TypeError("Expected argument 'work_group_configuration_updates' to be a dict")
-        pulumi.set(__self__, "work_group_configuration_updates", work_group_configuration_updates)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -90,14 +87,6 @@ class GetWorkGroupResult:
         """
         return pulumi.get(self, "work_group_configuration")
 
-    @property
-    @pulumi.getter(name="workGroupConfigurationUpdates")
-    def work_group_configuration_updates(self) -> Optional['outputs.WorkGroupConfigurationUpdates']:
-        """
-        The workgroup configuration update object
-        """
-        return pulumi.get(self, "work_group_configuration_updates")
-
 
 class AwaitableGetWorkGroupResult(GetWorkGroupResult):
     # pylint: disable=using-constant-test
@@ -110,8 +99,7 @@ class AwaitableGetWorkGroupResult(GetWorkGroupResult):
             recursive_delete_option=self.recursive_delete_option,
             state=self.state,
             tags=self.tags,
-            work_group_configuration=self.work_group_configuration,
-            work_group_configuration_updates=self.work_group_configuration_updates)
+            work_group_configuration=self.work_group_configuration)
 
 
 def get_work_group(name: Optional[str] = None,
@@ -136,8 +124,7 @@ def get_work_group(name: Optional[str] = None,
         recursive_delete_option=__ret__.recursive_delete_option,
         state=__ret__.state,
         tags=__ret__.tags,
-        work_group_configuration=__ret__.work_group_configuration,
-        work_group_configuration_updates=__ret__.work_group_configuration_updates)
+        work_group_configuration=__ret__.work_group_configuration)
 
 
 @_utilities.lift_output_func(get_work_group)
