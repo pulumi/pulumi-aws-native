@@ -9,7 +9,7 @@ You'll need to [install and configure the Pulumi CLI](https://pulumi.com/docs/ge
 **NOTE**
 
 AWS Native is in public preview.
-Not all AWS resources are currently available in the AWS Native Provider. It covers all resources that are currently supported by the AWS Cloud Control API and AWS CloudFormation Registry. You can see the [list of supported resources here](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
+Not all AWS resources are currently available in the AWS Native Provider. It covers all resources that are currently supported by the AWS Cloud Control API and AWS CloudFormation Registry. [List of supported resources](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
 
 For new projects, we recommend using AWS Native and [AWS Classic](https://github.com/pulumi/pulumi-aws) side-by-side so you can get the speed and correctness benefits of AWS Native where possible.
 For existing projects, AWS Classic remains fully supported; at this time, we recommend waiting to migrate existing projects to AWS Native.
@@ -18,10 +18,8 @@ For existing projects, AWS Classic remains fully supported; at this time, we rec
 
 ## Configuring credentials
 
-Credentials configuration is compatible with the classic AWS provider.
-
-Please refer to [this quickstart guide](
-https://www.pulumi.com/docs/intro/cloud-providers/aws-native/setup/) for possible configuration options.
+Credentials configuration is compatible with the classic AWS provider. Refer to the [AWS configuration options](
+https://www.pulumi.com/registry/packages/aws-native/installation-configuration/#configuration-options).
 
 ## Building
 
