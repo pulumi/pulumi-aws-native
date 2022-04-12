@@ -74,7 +74,7 @@ jobs:
         with:
           branch: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
           base: "master"
-          title: "Automated SDK generation @ azure-rest-api-specs ${{ steps.vars.outputs.commit-hash }}"
+          title: "Automated SDK generation @ aws-cloudformation-user-guide ${{ steps.vars.outputs.commit-hash }}"
           labels: impact/no-changelog-required
           committer: pulumi-bot <bot@pulumi.com>
           author: pulumi-bot <bot@pulumi.com>
@@ -86,4 +86,4 @@ jobs:
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
           repository: ${{ github.repository }}
-          merge-method: squash 
+          merge-method: squash
