@@ -29,6 +29,7 @@ AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
+AWS::AppRunner::ObservabilityConfiguration
 AWS::AppRunner::Service
 AWS::AppRunner::VpcConnector
 AWS::AppStream::AppBlock
