@@ -9,14 +9,14 @@
     "TargetFunctionArn" : {
       "description" : "The Amazon Resource Name (ARN) of the function associated with the Function URL.",
       "type" : "string",
-      "pattern" : "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!^[0-9]+$)([a-zA-Z0-9-_]+))|(^\\$LATEST$))?"
+      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!\\d+)[0-9a-zA-Z_]+))?$"
     },
     "Qualifier" : {
       "description" : "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.",
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 128,
-      "pattern" : "((?!^[0-9]+$)([a-zA-Z0-9-_]+))|(^\\$LATEST$)"
+      "pattern" : "((?!^[0-9]+$)([a-zA-Z0-9-_]+))"
     },
     "AuthType" : {
       "description" : "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.",
@@ -24,9 +24,9 @@
       "enum" : [ "AWS_IAM", "NONE" ]
     },
     "FunctionArn" : {
-      "description" : "The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.",
+      "description" : "The full Amazon Resource Name (ARN) of the function associated with the Function URL.",
       "type" : "string",
-      "pattern" : "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!^[0-9]+$)([a-zA-Z0-9-_]+))|(^\\$LATEST$))?"
+      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!\\d+)[0-9a-zA-Z_]+))?$"
     },
     "FunctionUrl" : {
       "description" : "The generated url for this resource.",

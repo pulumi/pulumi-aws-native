@@ -2324,6 +2324,65 @@
                 "resourceGroupName"
             ]
         },
+        "aws-native:apprunner:ObservabilityConfiguration": {
+            "cf": "AWS::AppRunner::ObservabilityConfiguration",
+            "inputs": {
+                "observabilityConfigurationName": {
+                    "type": "string",
+                    "description": "A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apprunner:ObservabilityConfigurationTag"
+                    },
+                    "description": "A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair."
+                },
+                "traceConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ObservabilityConfigurationTraceConfiguration",
+                    "description": "The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing."
+                }
+            },
+            "outputs": {
+                "latest": {
+                    "type": "boolean",
+                    "description": "It's set to true for the configuration with the highest Revision among all configurations that share the same Name. It's set to false otherwise."
+                },
+                "observabilityConfigurationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of this ObservabilityConfiguration"
+                },
+                "observabilityConfigurationName": {
+                    "type": "string",
+                    "description": "A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration."
+                },
+                "observabilityConfigurationRevision": {
+                    "type": "integer",
+                    "description": "The revision of this observability configuration. It's unique among all the active configurations ('Status': 'ACTIVE') that share the same ObservabilityConfigurationName."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apprunner:ObservabilityConfigurationTag"
+                    },
+                    "description": "A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair."
+                },
+                "traceConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ObservabilityConfigurationTraceConfiguration",
+                    "description": "The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "observabilityConfigurationName",
+                "minLength": 4,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "observabilityConfigurationName",
+                "tags",
+                "traceConfiguration"
+            ]
+        },
         "aws-native:apprunner:Service": {
             "cf": "AWS::AppRunner::Service",
             "inputs": {
@@ -2342,6 +2401,9 @@
                 },
                 "networkConfiguration": {
                     "$ref": "#/types/aws-native:apprunner:ServiceNetworkConfiguration"
+                },
+                "observabilityConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ServiceObservabilityConfiguration"
                 },
                 "serviceName": {
                     "type": "string",
@@ -2373,6 +2435,9 @@
                 },
                 "networkConfiguration": {
                     "$ref": "#/types/aws-native:apprunner:ServiceNetworkConfiguration"
+                },
+                "observabilityConfiguration": {
+                    "$ref": "#/types/aws-native:apprunner:ServiceObservabilityConfiguration"
                 },
                 "serviceArn": {
                     "type": "string",
@@ -3974,9 +4039,6 @@
                 "computeResources": {
                     "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
                 },
-                "replaceComputeEnvironment": {
-                    "type": "boolean"
-                },
                 "serviceRole": {
                     "type": "string"
                 },
@@ -3992,9 +4054,6 @@
                 },
                 "unmanagedvCpus": {
                     "type": "integer"
-                },
-                "updatePolicy": {
-                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentUpdatePolicy"
                 }
             },
             "outputs": {
@@ -4007,9 +4066,6 @@
                 "computeResources": {
                     "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
                 },
-                "replaceComputeEnvironment": {
-                    "type": "boolean"
-                },
                 "serviceRole": {
                     "type": "string"
                 },
@@ -4025,9 +4081,6 @@
                 },
                 "unmanagedvCpus": {
                     "type": "integer"
-                },
-                "updatePolicy": {
-                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentUpdatePolicy"
                 }
             },
             "autoNamingSpec": {
@@ -4038,7 +4091,18 @@
             ],
             "createOnly": [
                 "computeEnvironmentName",
+                "computeResources/AllocationStrategy",
+                "computeResources/BidPercentage",
+                "computeResources/Ec2Configuration",
+                "computeResources/Ec2KeyPair",
+                "computeResources/ImageId",
+                "computeResources/InstanceRole",
+                "computeResources/InstanceTypes",
+                "computeResources/LaunchTemplate",
+                "computeResources/PlacementGroup",
                 "computeResources/SpotIamFleetRole",
+                "computeResources/Tags",
+                "computeResources/Type",
                 "tags",
                 "type"
             ]
@@ -22780,7 +22844,7 @@
                 },
                 "functionArn": {
                     "type": "string",
-                    "description": "The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL."
+                    "description": "The full Amazon Resource Name (ARN) of the function associated with the Function URL."
                 },
                 "functionUrl": {
                     "type": "string",
@@ -36061,6 +36125,10 @@
                     "type": "string",
                     "description": "Specify a target type to define the kinds of resources the document can run on."
                 },
+                "updateMethod": {
+                    "$ref": "#/types/aws-native:ssm:DocumentUpdateMethod",
+                    "description": "Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version."
+                },
                 "versionName": {
                     "type": "string",
                     "description": "An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed."
@@ -36108,6 +36176,10 @@
                     "type": "string",
                     "description": "Specify a target type to define the kinds of resources the document can run on."
                 },
+                "updateMethod": {
+                    "$ref": "#/types/aws-native:ssm:DocumentUpdateMethod",
+                    "description": "Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version."
+                },
                 "versionName": {
                     "type": "string",
                     "description": "An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed."
@@ -36120,14 +36192,8 @@
                 "content"
             ],
             "createOnly": [
-                "attachments",
-                "content",
-                "documentFormat",
                 "documentType",
-                "name",
-                "requires",
-                "targetType",
-                "versionName"
+                "name"
             ]
         },
         "aws-native:ssm:ResourceDataSync": {
@@ -41081,6 +41147,29 @@
                 }
             }
         },
+        "aws-native:apprunner:ObservabilityConfigurationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apprunner:ObservabilityConfigurationTraceConfiguration": {
+            "type": "object",
+            "properties": {
+                "vendor": {
+                    "$ref": "#/types/aws-native:apprunner:ObservabilityConfigurationTraceConfigurationVendor",
+                    "description": "The implementation provider chosen for tracing App Runner services."
+                }
+            }
+        },
+        "aws-native:apprunner:ObservabilityConfigurationTraceConfigurationVendor": {
+            "type": "string"
+        },
         "aws-native:apprunner:ServiceAuthenticationConfiguration": {
             "type": "object",
             "properties": {
@@ -41282,6 +41371,19 @@
             "properties": {
                 "egressConfiguration": {
                     "$ref": "#/types/aws-native:apprunner:ServiceEgressConfiguration"
+                }
+            }
+        },
+        "aws-native:apprunner:ServiceObservabilityConfiguration": {
+            "type": "object",
+            "properties": {
+                "observabilityConfigurationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration."
+                },
+                "observabilityEnabled": {
+                    "type": "boolean",
+                    "description": "Observability enabled"
                 }
             }
         },
@@ -42161,9 +42263,6 @@
                 },
                 "type": {
                     "type": "string"
-                },
-                "updateToLatestImageVersion": {
-                    "type": "boolean"
                 }
             }
         },
@@ -42189,17 +42288,6 @@
                 },
                 "version": {
                     "type": "string"
-                }
-            }
-        },
-        "aws-native:batch:ComputeEnvironmentUpdatePolicy": {
-            "type": "object",
-            "properties": {
-                "jobExecutionTimeoutMinutes": {
-                    "type": "integer"
-                },
-                "terminateJobsOnUpdate": {
-                    "type": "boolean"
                 }
             }
         },
@@ -52851,16 +52939,65 @@
         "aws-native:imagebuilder:ContainerRecipeTargetContainerRepositoryService": {
             "type": "string"
         },
+        "aws-native:imagebuilder:DistributionConfigurationAmiDistributionConfiguration": {
+            "type": "object",
+            "properties": {
+                "amiTags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The tags to apply to AMIs distributed to this Region."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the AMI distribution configuration."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key identifier used to encrypt the distributed image."
+                },
+                "launchPermissionConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationLaunchPermissionConfiguration"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AMI distribution configuration."
+                },
+                "targetAccountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of accounts to which you want to distribute an image."
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationContainerDistributionConfiguration": {
+            "type": "object",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags that are attached to the container distribution configuration."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the container distribution configuration."
+                },
+                "targetRepository": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationTargetContainerRepository",
+                    "description": "The destination repository for the container distribution configuration."
+                }
+            }
+        },
         "aws-native:imagebuilder:DistributionConfigurationDistribution": {
             "type": "object",
             "properties": {
                 "amiDistributionConfiguration": {
-                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationProperties",
-                    "description": "The specific AMI settings (for example, launch permissions, AMI tags)."
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationAmiDistributionConfiguration"
                 },
                 "containerDistributionConfiguration": {
-                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionContainerDistributionConfigurationProperties",
-                    "description": "Container distribution settings for encryption, licensing, and sharing in a specific Region."
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationContainerDistributionConfiguration"
                 },
                 "launchTemplateConfigurations": {
                     "type": "array",
@@ -52882,39 +53019,7 @@
                 }
             }
         },
-        "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationProperties": {
-            "type": "object",
-            "properties": {
-                "amiTags": {
-                    "$ref": "pulumi.json#/Any",
-                    "description": "The tags to apply to AMIs distributed to this Region."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "The description of the AMI distribution configuration."
-                },
-                "kmsKeyId": {
-                    "type": "string",
-                    "description": "The KMS key identifier used to encrypt the distributed image."
-                },
-                "launchPermissionConfiguration": {
-                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties",
-                    "description": "Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the AMI distribution configuration."
-                },
-                "targetAccountIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of accounts to which you want to distribute an image."
-                }
-            }
-        },
-        "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties": {
+        "aws-native:imagebuilder:DistributionConfigurationLaunchPermissionConfiguration": {
             "type": "object",
             "properties": {
                 "organizationArns": {
@@ -52944,26 +53049,6 @@
                         "type": "string"
                     },
                     "description": "The AWS account ID."
-                }
-            }
-        },
-        "aws-native:imagebuilder:DistributionConfigurationDistributionContainerDistributionConfigurationProperties": {
-            "type": "object",
-            "properties": {
-                "containerTags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Tags that are attached to the container distribution configuration."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "The description of the container distribution configuration."
-                },
-                "targetRepository": {
-                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationTargetContainerRepository",
-                    "description": "The destination repository for the container distribution configuration."
                 }
             }
         },
@@ -71464,6 +71549,9 @@
         "aws-native:ssm:DocumentType": {
             "type": "string"
         },
+        "aws-native:ssm:DocumentUpdateMethod": {
+            "type": "string"
+        },
         "aws-native:ssm:ResourceDataSyncAwsOrganizationsSource": {
             "type": "object",
             "properties": {
@@ -74273,6 +74361,12 @@
             "cf": "AWS::ApplicationInsights::Application",
             "ids": [
                 "applicationARN"
+            ]
+        },
+        "aws-native:apprunner:getObservabilityConfiguration": {
+            "cf": "AWS::AppRunner::ObservabilityConfiguration",
+            "ids": [
+                "observabilityConfigurationArn"
             ]
         },
         "aws-native:apprunner:getService": {
