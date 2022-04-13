@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.AppRunner
         [Output("networkConfiguration")]
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
+        [Output("observabilityConfiguration")]
+        public Output<Outputs.ServiceObservabilityConfiguration?> ObservabilityConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppRunner Service.
         /// </summary>
@@ -131,6 +134,9 @@ namespace Pulumi.AwsNative.AppRunner
 
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        [Input("observabilityConfiguration")]
+        public Input<Inputs.ServiceObservabilityConfigurationArgs>? ObservabilityConfiguration { get; set; }
 
         /// <summary>
         /// The AppRunner Service Name.

@@ -16,10 +16,10 @@ __all__ = [
     'ContainerRecipeInstanceBlockDeviceMapping',
     'ContainerRecipeInstanceConfiguration',
     'ContainerRecipeTargetContainerRepository',
+    'DistributionConfigurationAmiDistributionConfiguration',
+    'DistributionConfigurationContainerDistributionConfiguration',
     'DistributionConfigurationDistribution',
-    'DistributionConfigurationDistributionAmiDistributionConfigurationProperties',
-    'DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties',
-    'DistributionConfigurationDistributionContainerDistributionConfigurationProperties',
+    'DistributionConfigurationLaunchPermissionConfiguration',
     'DistributionConfigurationLaunchTemplateConfiguration',
     'DistributionConfigurationTargetContainerRepository',
     'ImagePipelineImageTestsConfiguration',
@@ -393,100 +393,7 @@ class ContainerRecipeTargetContainerRepository(dict):
 
 
 @pulumi.output_type
-class DistributionConfigurationDistribution(dict):
-    """
-    The distributions of the distribution configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "amiDistributionConfiguration":
-            suggest = "ami_distribution_configuration"
-        elif key == "containerDistributionConfiguration":
-            suggest = "container_distribution_configuration"
-        elif key == "launchTemplateConfigurations":
-            suggest = "launch_template_configurations"
-        elif key == "licenseConfigurationArns":
-            suggest = "license_configuration_arns"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DistributionConfigurationDistribution.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DistributionConfigurationDistribution.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 region: str,
-                 ami_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationProperties'] = None,
-                 container_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfigurationProperties'] = None,
-                 launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']] = None,
-                 license_configuration_arns: Optional[Sequence[str]] = None):
-        """
-        The distributions of the distribution configuration.
-        :param str region: region
-        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationProperties' ami_distribution_configuration: The specific AMI settings (for example, launch permissions, AMI tags).
-        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationProperties' container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
-        :param Sequence[str] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
-        """
-        pulumi.set(__self__, "region", region)
-        if ami_distribution_configuration is not None:
-            pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
-        if container_distribution_configuration is not None:
-            pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
-        if launch_template_configurations is not None:
-            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
-        if license_configuration_arns is not None:
-            pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
-
-    @property
-    @pulumi.getter
-    def region(self) -> str:
-        """
-        region
-        """
-        return pulumi.get(self, "region")
-
-    @property
-    @pulumi.getter(name="amiDistributionConfiguration")
-    def ami_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationProperties']:
-        """
-        The specific AMI settings (for example, launch permissions, AMI tags).
-        """
-        return pulumi.get(self, "ami_distribution_configuration")
-
-    @property
-    @pulumi.getter(name="containerDistributionConfiguration")
-    def container_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfigurationProperties']:
-        """
-        Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        """
-        return pulumi.get(self, "container_distribution_configuration")
-
-    @property
-    @pulumi.getter(name="launchTemplateConfigurations")
-    def launch_template_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']]:
-        """
-        A group of launchTemplateConfiguration settings that apply to image distribution.
-        """
-        return pulumi.get(self, "launch_template_configurations")
-
-    @property
-    @pulumi.getter(name="licenseConfigurationArns")
-    def license_configuration_arns(self) -> Optional[Sequence[str]]:
-        """
-        The License Manager Configuration to associate with the AMI in the specified Region.
-        """
-        return pulumi.get(self, "license_configuration_arns")
-
-
-@pulumi.output_type
-class DistributionConfigurationDistributionAmiDistributionConfigurationProperties(dict):
+class DistributionConfigurationAmiDistributionConfiguration(dict):
     """
     The specific AMI settings (for example, launch permissions, AMI tags).
     """
@@ -503,21 +410,21 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
             suggest = "target_account_ids"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionAmiDistributionConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationAmiDistributionConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DistributionConfigurationDistributionAmiDistributionConfigurationProperties.__key_warning(key)
+        DistributionConfigurationAmiDistributionConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DistributionConfigurationDistributionAmiDistributionConfigurationProperties.__key_warning(key)
+        DistributionConfigurationAmiDistributionConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  ami_tags: Optional[Any] = None,
                  description: Optional[str] = None,
                  kms_key_id: Optional[str] = None,
-                 launch_permission_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties'] = None,
+                 launch_permission_configuration: Optional['outputs.DistributionConfigurationLaunchPermissionConfiguration'] = None,
                  name: Optional[str] = None,
                  target_account_ids: Optional[Sequence[str]] = None):
         """
@@ -525,7 +432,6 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
         :param Any ami_tags: The tags to apply to AMIs distributed to this Region.
         :param str description: The description of the AMI distribution configuration.
         :param str kms_key_id: The KMS key identifier used to encrypt the distributed image.
-        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties' launch_permission_configuration: Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
         :param str name: The name of the AMI distribution configuration.
         :param Sequence[str] target_account_ids: The ID of accounts to which you want to distribute an image.
         """
@@ -568,10 +474,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
 
     @property
     @pulumi.getter(name="launchPermissionConfiguration")
-    def launch_permission_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties']:
-        """
-        Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-        """
+    def launch_permission_configuration(self) -> Optional['outputs.DistributionConfigurationLaunchPermissionConfiguration']:
         return pulumi.get(self, "launch_permission_configuration")
 
     @property
@@ -592,7 +495,158 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties(dict):
+class DistributionConfigurationContainerDistributionConfiguration(dict):
+    """
+    Container distribution settings for encryption, licensing, and sharing in a specific Region.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerTags":
+            suggest = "container_tags"
+        elif key == "targetRepository":
+            suggest = "target_repository"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationContainerDistributionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationContainerDistributionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationContainerDistributionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_tags: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 target_repository: Optional['outputs.DistributionConfigurationTargetContainerRepository'] = None):
+        """
+        Container distribution settings for encryption, licensing, and sharing in a specific Region.
+        :param Sequence[str] container_tags: Tags that are attached to the container distribution configuration.
+        :param str description: The description of the container distribution configuration.
+        :param 'DistributionConfigurationTargetContainerRepository' target_repository: The destination repository for the container distribution configuration.
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if target_repository is not None:
+            pulumi.set(__self__, "target_repository", target_repository)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[Sequence[str]]:
+        """
+        Tags that are attached to the container distribution configuration.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the container distribution configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="targetRepository")
+    def target_repository(self) -> Optional['outputs.DistributionConfigurationTargetContainerRepository']:
+        """
+        The destination repository for the container distribution configuration.
+        """
+        return pulumi.get(self, "target_repository")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistribution(dict):
+    """
+    The distributions of the distribution configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amiDistributionConfiguration":
+            suggest = "ami_distribution_configuration"
+        elif key == "containerDistributionConfiguration":
+            suggest = "container_distribution_configuration"
+        elif key == "launchTemplateConfigurations":
+            suggest = "launch_template_configurations"
+        elif key == "licenseConfigurationArns":
+            suggest = "license_configuration_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistribution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: str,
+                 ami_distribution_configuration: Optional['outputs.DistributionConfigurationAmiDistributionConfiguration'] = None,
+                 container_distribution_configuration: Optional['outputs.DistributionConfigurationContainerDistributionConfiguration'] = None,
+                 launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']] = None,
+                 license_configuration_arns: Optional[Sequence[str]] = None):
+        """
+        The distributions of the distribution configuration.
+        :param str region: region
+        :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
+        :param Sequence[str] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
+        """
+        pulumi.set(__self__, "region", region)
+        if ami_distribution_configuration is not None:
+            pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
+        if container_distribution_configuration is not None:
+            pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+        if launch_template_configurations is not None:
+            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
+        if license_configuration_arns is not None:
+            pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        region
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="amiDistributionConfiguration")
+    def ami_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationAmiDistributionConfiguration']:
+        return pulumi.get(self, "ami_distribution_configuration")
+
+    @property
+    @pulumi.getter(name="containerDistributionConfiguration")
+    def container_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationContainerDistributionConfiguration']:
+        return pulumi.get(self, "container_distribution_configuration")
+
+    @property
+    @pulumi.getter(name="launchTemplateConfigurations")
+    def launch_template_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']]:
+        """
+        A group of launchTemplateConfiguration settings that apply to image distribution.
+        """
+        return pulumi.get(self, "launch_template_configurations")
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArns")
+    def license_configuration_arns(self) -> Optional[Sequence[str]]:
+        """
+        The License Manager Configuration to associate with the AMI in the specified Region.
+        """
+        return pulumi.get(self, "license_configuration_arns")
+
+
+@pulumi.output_type
+class DistributionConfigurationLaunchPermissionConfiguration(dict):
     """
     Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
     """
@@ -609,14 +663,14 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
             suggest = "user_ids"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationLaunchPermissionConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties.__key_warning(key)
+        DistributionConfigurationLaunchPermissionConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties.__key_warning(key)
+        DistributionConfigurationLaunchPermissionConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -671,72 +725,6 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
         The AWS account ID.
         """
         return pulumi.get(self, "user_ids")
-
-
-@pulumi.output_type
-class DistributionConfigurationDistributionContainerDistributionConfigurationProperties(dict):
-    """
-    Container distribution settings for encryption, licensing, and sharing in a specific Region.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "containerTags":
-            suggest = "container_tags"
-        elif key == "targetRepository":
-            suggest = "target_repository"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionContainerDistributionConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DistributionConfigurationDistributionContainerDistributionConfigurationProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DistributionConfigurationDistributionContainerDistributionConfigurationProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 container_tags: Optional[Sequence[str]] = None,
-                 description: Optional[str] = None,
-                 target_repository: Optional['outputs.DistributionConfigurationTargetContainerRepository'] = None):
-        """
-        Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        :param Sequence[str] container_tags: Tags that are attached to the container distribution configuration.
-        :param str description: The description of the container distribution configuration.
-        :param 'DistributionConfigurationTargetContainerRepository' target_repository: The destination repository for the container distribution configuration.
-        """
-        if container_tags is not None:
-            pulumi.set(__self__, "container_tags", container_tags)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if target_repository is not None:
-            pulumi.set(__self__, "target_repository", target_repository)
-
-    @property
-    @pulumi.getter(name="containerTags")
-    def container_tags(self) -> Optional[Sequence[str]]:
-        """
-        Tags that are attached to the container distribution configuration.
-        """
-        return pulumi.get(self, "container_tags")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the container distribution configuration.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="targetRepository")
-    def target_repository(self) -> Optional['outputs.DistributionConfigurationTargetContainerRepository']:
-        """
-        The destination repository for the container distribution configuration.
-        """
-        return pulumi.get(self, "target_repository")
 
 
 @pulumi.output_type

@@ -15,17 +15,11 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class DistributionConfigurationDistributionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The specific AMI settings (for example, launch permissions, AMI tags).
-        /// </summary>
         [Input("amiDistributionConfiguration")]
-        public Input<Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs>? AmiDistributionConfiguration { get; set; }
+        public Input<Inputs.DistributionConfigurationAmiDistributionConfigurationArgs>? AmiDistributionConfiguration { get; set; }
 
-        /// <summary>
-        /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        /// </summary>
         [Input("containerDistributionConfiguration")]
-        public Input<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs>? ContainerDistributionConfiguration { get; set; }
+        public Input<Inputs.DistributionConfigurationContainerDistributionConfigurationArgs>? ContainerDistributionConfiguration { get; set; }
 
         [Input("launchTemplateConfigurations")]
         private InputList<Inputs.DistributionConfigurationLaunchTemplateConfigurationArgs>? _launchTemplateConfigurations;

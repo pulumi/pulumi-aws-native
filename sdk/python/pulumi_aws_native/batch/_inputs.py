@@ -13,7 +13,6 @@ __all__ = [
     'ComputeEnvironmentComputeResourcesArgs',
     'ComputeEnvironmentEc2ConfigurationObjectArgs',
     'ComputeEnvironmentLaunchTemplateSpecificationArgs',
-    'ComputeEnvironmentUpdatePolicyArgs',
     'JobDefinitionAuthorizationConfigArgs',
     'JobDefinitionContainerPropertiesArgs',
     'JobDefinitionDeviceArgs',
@@ -59,8 +58,7 @@ class ComputeEnvironmentComputeResourcesArgs:
                  placement_group: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_iam_fleet_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
-                 update_to_latest_image_version: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[Any] = None):
         """
         :param Any tags: A key-value pair to associate with a resource.
         """
@@ -95,8 +93,6 @@ class ComputeEnvironmentComputeResourcesArgs:
             pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if update_to_latest_image_version is not None:
-            pulumi.set(__self__, "update_to_latest_image_version", update_to_latest_image_version)
 
     @property
     @pulumi.getter(name="maxvCpus")
@@ -254,15 +250,6 @@ class ComputeEnvironmentComputeResourcesArgs:
     def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="updateToLatestImageVersion")
-    def update_to_latest_image_version(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "update_to_latest_image_version")
-
-    @update_to_latest_image_version.setter
-    def update_to_latest_image_version(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "update_to_latest_image_version", value)
-
 
 @pulumi.input_type
 class ComputeEnvironmentEc2ConfigurationObjectArgs:
@@ -331,35 +318,6 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class ComputeEnvironmentUpdatePolicyArgs:
-    def __init__(__self__, *,
-                 job_execution_timeout_minutes: Optional[pulumi.Input[int]] = None,
-                 terminate_jobs_on_update: Optional[pulumi.Input[bool]] = None):
-        if job_execution_timeout_minutes is not None:
-            pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
-        if terminate_jobs_on_update is not None:
-            pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
-
-    @property
-    @pulumi.getter(name="jobExecutionTimeoutMinutes")
-    def job_execution_timeout_minutes(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "job_execution_timeout_minutes")
-
-    @job_execution_timeout_minutes.setter
-    def job_execution_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "job_execution_timeout_minutes", value)
-
-    @property
-    @pulumi.getter(name="terminateJobsOnUpdate")
-    def terminate_jobs_on_update(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "terminate_jobs_on_update")
-
-    @terminate_jobs_on_update.setter
-    def terminate_jobs_on_update(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "terminate_jobs_on_update", value)
 
 
 @pulumi.input_type

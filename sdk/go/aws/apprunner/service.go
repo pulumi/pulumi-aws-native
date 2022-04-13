@@ -16,11 +16,12 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// Autoscaling configuration ARN
-	AutoScalingConfigurationArn pulumi.StringPtrOutput                   `pulumi:"autoScalingConfigurationArn"`
-	EncryptionConfiguration     ServiceEncryptionConfigurationPtrOutput  `pulumi:"encryptionConfiguration"`
-	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrOutput `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration       ServiceInstanceConfigurationPtrOutput    `pulumi:"instanceConfiguration"`
-	NetworkConfiguration        ServiceNetworkConfigurationPtrOutput     `pulumi:"networkConfiguration"`
+	AutoScalingConfigurationArn pulumi.StringPtrOutput                     `pulumi:"autoScalingConfigurationArn"`
+	EncryptionConfiguration     ServiceEncryptionConfigurationPtrOutput    `pulumi:"encryptionConfiguration"`
+	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrOutput   `pulumi:"healthCheckConfiguration"`
+	InstanceConfiguration       ServiceInstanceConfigurationPtrOutput      `pulumi:"instanceConfiguration"`
+	NetworkConfiguration        ServiceNetworkConfigurationPtrOutput       `pulumi:"networkConfiguration"`
+	ObservabilityConfiguration  ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The AppRunner Service Id
@@ -78,11 +79,12 @@ func (ServiceState) ElementType() reflect.Type {
 
 type serviceArgs struct {
 	// Autoscaling configuration ARN
-	AutoScalingConfigurationArn *string                          `pulumi:"autoScalingConfigurationArn"`
-	EncryptionConfiguration     *ServiceEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
-	HealthCheckConfiguration    *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration       *ServiceInstanceConfiguration    `pulumi:"instanceConfiguration"`
-	NetworkConfiguration        *ServiceNetworkConfiguration     `pulumi:"networkConfiguration"`
+	AutoScalingConfigurationArn *string                            `pulumi:"autoScalingConfigurationArn"`
+	EncryptionConfiguration     *ServiceEncryptionConfiguration    `pulumi:"encryptionConfiguration"`
+	HealthCheckConfiguration    *ServiceHealthCheckConfiguration   `pulumi:"healthCheckConfiguration"`
+	InstanceConfiguration       *ServiceInstanceConfiguration      `pulumi:"instanceConfiguration"`
+	NetworkConfiguration        *ServiceNetworkConfiguration       `pulumi:"networkConfiguration"`
+	ObservabilityConfiguration  *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// The AppRunner Service Name.
 	ServiceName         *string                    `pulumi:"serviceName"`
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
@@ -97,6 +99,7 @@ type ServiceArgs struct {
 	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrInput
 	InstanceConfiguration       ServiceInstanceConfigurationPtrInput
 	NetworkConfiguration        ServiceNetworkConfigurationPtrInput
+	ObservabilityConfiguration  ServiceObservabilityConfigurationPtrInput
 	// The AppRunner Service Name.
 	ServiceName         pulumi.StringPtrInput
 	SourceConfiguration ServiceSourceConfigurationInput

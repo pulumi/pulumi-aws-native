@@ -10,6 +10,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ObservabilityConfigurationTagArgs',
+    'ObservabilityConfigurationTraceConfigurationArgs',
     'ServiceAuthenticationConfigurationArgs',
     'ServiceCodeConfigurationValuesArgs',
     'ServiceCodeConfigurationArgs',
@@ -22,11 +24,64 @@ __all__ = [
     'ServiceInstanceConfigurationArgs',
     'ServiceKeyValuePairArgs',
     'ServiceNetworkConfigurationArgs',
+    'ServiceObservabilityConfigurationArgs',
     'ServiceSourceCodeVersionArgs',
     'ServiceSourceConfigurationArgs',
     'ServiceTagArgs',
     'VpcConnectorTagArgs',
 ]
+
+@pulumi.input_type
+class ObservabilityConfigurationTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ObservabilityConfigurationTraceConfigurationArgs:
+    def __init__(__self__, *,
+                 vendor: pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor']):
+        """
+        Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
+        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor'] vendor: The implementation provider chosen for tracing App Runner services.
+        """
+        pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor']:
+        """
+        The implementation provider chosen for tracing App Runner services.
+        """
+        return pulumi.get(self, "vendor")
+
+    @vendor.setter
+    def vendor(self, value: pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor']):
+        pulumi.set(self, "vendor", value)
+
 
 @pulumi.input_type
 class ServiceAuthenticationConfigurationArgs:
@@ -602,6 +657,45 @@ class ServiceNetworkConfigurationArgs:
     @egress_configuration.setter
     def egress_configuration(self, value: pulumi.Input['ServiceEgressConfigurationArgs']):
         pulumi.set(self, "egress_configuration", value)
+
+
+@pulumi.input_type
+class ServiceObservabilityConfigurationArgs:
+    def __init__(__self__, *,
+                 observability_enabled: pulumi.Input[bool],
+                 observability_configuration_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Service observability configuration
+        :param pulumi.Input[bool] observability_enabled: Observability enabled
+        :param pulumi.Input[str] observability_configuration_arn: The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
+        """
+        pulumi.set(__self__, "observability_enabled", observability_enabled)
+        if observability_configuration_arn is not None:
+            pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
+
+    @property
+    @pulumi.getter(name="observabilityEnabled")
+    def observability_enabled(self) -> pulumi.Input[bool]:
+        """
+        Observability enabled
+        """
+        return pulumi.get(self, "observability_enabled")
+
+    @observability_enabled.setter
+    def observability_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "observability_enabled", value)
+
+    @property
+    @pulumi.getter(name="observabilityConfigurationArn")
+    def observability_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
+        """
+        return pulumi.get(self, "observability_configuration_arn")
+
+    @observability_configuration_arn.setter
+    def observability_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "observability_configuration_arn", value)
 
 
 @pulumi.input_type

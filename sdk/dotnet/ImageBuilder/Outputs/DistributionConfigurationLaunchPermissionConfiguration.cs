@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     /// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
     /// </summary>
     [OutputType]
-    public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties
+    public sealed class DistributionConfigurationLaunchPermissionConfiguration
     {
         /// <summary>
         /// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         public readonly ImmutableArray<string> UserIds;
 
         [OutputConstructor]
-        private DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties(
+        private DistributionConfigurationLaunchPermissionConfiguration(
             ImmutableArray<string> organizationArns,
 
             ImmutableArray<string> organizationalUnitArns,

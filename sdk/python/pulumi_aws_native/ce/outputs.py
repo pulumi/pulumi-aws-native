@@ -10,8 +10,76 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnomalyMonitorResourceTag',
+    'AnomalySubscriptionResourceTag',
     'AnomalySubscriptionSubscriber',
 ]
+
+@pulumi.output_type
+class AnomalyMonitorResourceTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name for the tag.
+        :param str value: The value for the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AnomalySubscriptionResourceTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name for the tag.
+        :param str value: The value for the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AnomalySubscriptionSubscriber(dict):

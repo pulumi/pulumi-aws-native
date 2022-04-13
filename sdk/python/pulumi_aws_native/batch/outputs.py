@@ -14,7 +14,6 @@ __all__ = [
     'ComputeEnvironmentComputeResources',
     'ComputeEnvironmentEc2ConfigurationObject',
     'ComputeEnvironmentLaunchTemplateSpecification',
-    'ComputeEnvironmentUpdatePolicy',
     'JobDefinitionAuthorizationConfig',
     'JobDefinitionContainerProperties',
     'JobDefinitionDevice',
@@ -74,8 +73,6 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "security_group_ids"
         elif key == "spotIamFleetRole":
             suggest = "spot_iam_fleet_role"
-        elif key == "updateToLatestImageVersion":
-            suggest = "update_to_latest_image_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentComputeResources. Access the value via the '{suggest}' property getter instead.")
@@ -105,8 +102,7 @@ class ComputeEnvironmentComputeResources(dict):
                  placement_group: Optional[str] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  spot_iam_fleet_role: Optional[str] = None,
-                 tags: Optional[Any] = None,
-                 update_to_latest_image_version: Optional[bool] = None):
+                 tags: Optional[Any] = None):
         """
         :param Any tags: A key-value pair to associate with a resource.
         """
@@ -141,8 +137,6 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if update_to_latest_image_version is not None:
-            pulumi.set(__self__, "update_to_latest_image_version", update_to_latest_image_version)
 
     @property
     @pulumi.getter(name="maxvCpus")
@@ -232,11 +226,6 @@ class ComputeEnvironmentComputeResources(dict):
         """
         return pulumi.get(self, "tags")
 
-    @property
-    @pulumi.getter(name="updateToLatestImageVersion")
-    def update_to_latest_image_version(self) -> Optional[bool]:
-        return pulumi.get(self, "update_to_latest_image_version")
-
 
 @pulumi.output_type
 class ComputeEnvironmentEc2ConfigurationObject(dict):
@@ -323,46 +312,6 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class ComputeEnvironmentUpdatePolicy(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "jobExecutionTimeoutMinutes":
-            suggest = "job_execution_timeout_minutes"
-        elif key == "terminateJobsOnUpdate":
-            suggest = "terminate_jobs_on_update"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ComputeEnvironmentUpdatePolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ComputeEnvironmentUpdatePolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 job_execution_timeout_minutes: Optional[int] = None,
-                 terminate_jobs_on_update: Optional[bool] = None):
-        if job_execution_timeout_minutes is not None:
-            pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
-        if terminate_jobs_on_update is not None:
-            pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
-
-    @property
-    @pulumi.getter(name="jobExecutionTimeoutMinutes")
-    def job_execution_timeout_minutes(self) -> Optional[int]:
-        return pulumi.get(self, "job_execution_timeout_minutes")
-
-    @property
-    @pulumi.getter(name="terminateJobsOnUpdate")
-    def terminate_jobs_on_update(self) -> Optional[bool]:
-        return pulumi.get(self, "terminate_jobs_on_update")
 
 
 @pulumi.output_type

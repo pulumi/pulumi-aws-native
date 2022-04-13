@@ -24,6 +24,7 @@ class DocumentArgs:
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
+                 update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
                  version_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Document resource.
@@ -35,6 +36,7 @@ class DocumentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         :param pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
+        :param pulumi.Input['DocumentUpdateMethod'] update_method: Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
         :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         pulumi.set(__self__, "content", content)
@@ -52,6 +54,8 @@ class DocumentArgs:
             pulumi.set(__self__, "tags", tags)
         if target_type is not None:
             pulumi.set(__self__, "target_type", target_type)
+        if update_method is not None:
+            pulumi.set(__self__, "update_method", update_method)
         if version_name is not None:
             pulumi.set(__self__, "version_name", version_name)
 
@@ -152,6 +156,18 @@ class DocumentArgs:
         pulumi.set(self, "target_type", value)
 
     @property
+    @pulumi.getter(name="updateMethod")
+    def update_method(self) -> Optional[pulumi.Input['DocumentUpdateMethod']]:
+        """
+        Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+        """
+        return pulumi.get(self, "update_method")
+
+    @update_method.setter
+    def update_method(self, value: Optional[pulumi.Input['DocumentUpdateMethod']]):
+        pulumi.set(self, "update_method", value)
+
+    @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -177,6 +193,7 @@ class Document(pulumi.CustomResource):
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
+                 update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -192,6 +209,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
+        :param pulumi.Input['DocumentUpdateMethod'] update_method: Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
         :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         ...
@@ -226,6 +244,7 @@ class Document(pulumi.CustomResource):
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
+                 update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -249,6 +268,7 @@ class Document(pulumi.CustomResource):
             __props__.__dict__["requires"] = requires
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_type"] = target_type
+            __props__.__dict__["update_method"] = update_method
             __props__.__dict__["version_name"] = version_name
         super(Document, __self__).__init__(
             'aws-native:ssm:Document',
@@ -280,6 +300,7 @@ class Document(pulumi.CustomResource):
         __props__.__dict__["requires"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_type"] = None
+        __props__.__dict__["update_method"] = None
         __props__.__dict__["version_name"] = None
         return Document(resource_name, opts=opts, __props__=__props__)
 
@@ -346,6 +367,14 @@ class Document(pulumi.CustomResource):
         Specify a target type to define the kinds of resources the document can run on.
         """
         return pulumi.get(self, "target_type")
+
+    @property
+    @pulumi.getter(name="updateMethod")
+    def update_method(self) -> pulumi.Output[Optional['DocumentUpdateMethod']]:
+        """
+        Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+        """
+        return pulumi.get(self, "update_method")
 
     @property
     @pulumi.getter(name="versionName")

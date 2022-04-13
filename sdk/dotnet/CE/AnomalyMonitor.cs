@@ -61,6 +61,12 @@ namespace Pulumi.AwsNative.CE
         [Output("monitorType")]
         public Output<Pulumi.AwsNative.CE.AnomalyMonitorMonitorType> MonitorType { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags to assign to monitor.
+        /// </summary>
+        [Output("resourceTags")]
+        public Output<ImmutableArray<Outputs.AnomalyMonitorResourceTag>> ResourceTags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AnomalyMonitor resource with the given unique name, arguments, and options.
@@ -123,6 +129,18 @@ namespace Pulumi.AwsNative.CE
 
         [Input("monitorType", required: true)]
         public Input<Pulumi.AwsNative.CE.AnomalyMonitorMonitorType> MonitorType { get; set; } = null!;
+
+        [Input("resourceTags")]
+        private InputList<Inputs.AnomalyMonitorResourceTagArgs>? _resourceTags;
+
+        /// <summary>
+        /// Tags to assign to monitor.
+        /// </summary>
+        public InputList<Inputs.AnomalyMonitorResourceTagArgs> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputList<Inputs.AnomalyMonitorResourceTagArgs>());
+            set => _resourceTags = value;
+        }
 
         public AnomalyMonitorArgs()
         {

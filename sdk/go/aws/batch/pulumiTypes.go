@@ -27,9 +27,8 @@ type ComputeEnvironmentComputeResources struct {
 	SpotIamFleetRole   *string                                        `pulumi:"spotIamFleetRole"`
 	Subnets            []string                                       `pulumi:"subnets"`
 	// A key-value pair to associate with a resource.
-	Tags                       interface{} `pulumi:"tags"`
-	Type                       string      `pulumi:"type"`
-	UpdateToLatestImageVersion *bool       `pulumi:"updateToLatestImageVersion"`
+	Tags interface{} `pulumi:"tags"`
+	Type string      `pulumi:"type"`
 }
 
 // ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
@@ -60,9 +59,8 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	SpotIamFleetRole   pulumi.StringPtrInput                                 `pulumi:"spotIamFleetRole"`
 	Subnets            pulumi.StringArrayInput                               `pulumi:"subnets"`
 	// A key-value pair to associate with a resource.
-	Tags                       pulumi.Input        `pulumi:"tags"`
-	Type                       pulumi.StringInput  `pulumi:"type"`
-	UpdateToLatestImageVersion pulumi.BoolPtrInput `pulumi:"updateToLatestImageVersion"`
+	Tags pulumi.Input       `pulumi:"tags"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ComputeEnvironmentComputeResourcesArgs) ElementType() reflect.Type {
@@ -213,10 +211,6 @@ func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.AnyOutput {
 
 func (o ComputeEnvironmentComputeResourcesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o ComputeEnvironmentComputeResourcesOutput) UpdateToLatestImageVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *bool { return v.UpdateToLatestImageVersion }).(pulumi.BoolPtrOutput)
 }
 
 type ComputeEnvironmentComputeResourcesPtrOutput struct{ *pulumi.OutputState }
@@ -395,15 +389,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutp
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o ComputeEnvironmentComputeResourcesPtrOutput) UpdateToLatestImageVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UpdateToLatestImageVersion
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ComputeEnvironmentEc2ConfigurationObject struct {
@@ -667,154 +652,6 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Version() pulumi
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
-}
-
-type ComputeEnvironmentUpdatePolicy struct {
-	JobExecutionTimeoutMinutes *int  `pulumi:"jobExecutionTimeoutMinutes"`
-	TerminateJobsOnUpdate      *bool `pulumi:"terminateJobsOnUpdate"`
-}
-
-// ComputeEnvironmentUpdatePolicyInput is an input type that accepts ComputeEnvironmentUpdatePolicyArgs and ComputeEnvironmentUpdatePolicyOutput values.
-// You can construct a concrete instance of `ComputeEnvironmentUpdatePolicyInput` via:
-//
-//          ComputeEnvironmentUpdatePolicyArgs{...}
-type ComputeEnvironmentUpdatePolicyInput interface {
-	pulumi.Input
-
-	ToComputeEnvironmentUpdatePolicyOutput() ComputeEnvironmentUpdatePolicyOutput
-	ToComputeEnvironmentUpdatePolicyOutputWithContext(context.Context) ComputeEnvironmentUpdatePolicyOutput
-}
-
-type ComputeEnvironmentUpdatePolicyArgs struct {
-	JobExecutionTimeoutMinutes pulumi.IntPtrInput  `pulumi:"jobExecutionTimeoutMinutes"`
-	TerminateJobsOnUpdate      pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
-}
-
-func (ComputeEnvironmentUpdatePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironmentUpdatePolicy)(nil)).Elem()
-}
-
-func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyOutput() ComputeEnvironmentUpdatePolicyOutput {
-	return i.ToComputeEnvironmentUpdatePolicyOutputWithContext(context.Background())
-}
-
-func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentUpdatePolicyOutput)
-}
-
-func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyPtrOutput() ComputeEnvironmentUpdatePolicyPtrOutput {
-	return i.ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentUpdatePolicyOutput).ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx)
-}
-
-// ComputeEnvironmentUpdatePolicyPtrInput is an input type that accepts ComputeEnvironmentUpdatePolicyArgs, ComputeEnvironmentUpdatePolicyPtr and ComputeEnvironmentUpdatePolicyPtrOutput values.
-// You can construct a concrete instance of `ComputeEnvironmentUpdatePolicyPtrInput` via:
-//
-//          ComputeEnvironmentUpdatePolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ComputeEnvironmentUpdatePolicyPtrInput interface {
-	pulumi.Input
-
-	ToComputeEnvironmentUpdatePolicyPtrOutput() ComputeEnvironmentUpdatePolicyPtrOutput
-	ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(context.Context) ComputeEnvironmentUpdatePolicyPtrOutput
-}
-
-type computeEnvironmentUpdatePolicyPtrType ComputeEnvironmentUpdatePolicyArgs
-
-func ComputeEnvironmentUpdatePolicyPtr(v *ComputeEnvironmentUpdatePolicyArgs) ComputeEnvironmentUpdatePolicyPtrInput {
-	return (*computeEnvironmentUpdatePolicyPtrType)(v)
-}
-
-func (*computeEnvironmentUpdatePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeEnvironmentUpdatePolicy)(nil)).Elem()
-}
-
-func (i *computeEnvironmentUpdatePolicyPtrType) ToComputeEnvironmentUpdatePolicyPtrOutput() ComputeEnvironmentUpdatePolicyPtrOutput {
-	return i.ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *computeEnvironmentUpdatePolicyPtrType) ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentUpdatePolicyPtrOutput)
-}
-
-type ComputeEnvironmentUpdatePolicyOutput struct{ *pulumi.OutputState }
-
-func (ComputeEnvironmentUpdatePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironmentUpdatePolicy)(nil)).Elem()
-}
-
-func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyOutput() ComputeEnvironmentUpdatePolicyOutput {
-	return o
-}
-
-func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyOutput {
-	return o
-}
-
-func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyPtrOutput() ComputeEnvironmentUpdatePolicyPtrOutput {
-	return o.ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentUpdatePolicy) *ComputeEnvironmentUpdatePolicy {
-		return &v
-	}).(ComputeEnvironmentUpdatePolicyPtrOutput)
-}
-
-func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
-}
-
-func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolPtrOutput)
-}
-
-type ComputeEnvironmentUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeEnvironmentUpdatePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeEnvironmentUpdatePolicy)(nil)).Elem()
-}
-
-func (o ComputeEnvironmentUpdatePolicyPtrOutput) ToComputeEnvironmentUpdatePolicyPtrOutput() ComputeEnvironmentUpdatePolicyPtrOutput {
-	return o
-}
-
-func (o ComputeEnvironmentUpdatePolicyPtrOutput) ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyPtrOutput {
-	return o
-}
-
-func (o ComputeEnvironmentUpdatePolicyPtrOutput) Elem() ComputeEnvironmentUpdatePolicyOutput {
-	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) ComputeEnvironmentUpdatePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeEnvironmentUpdatePolicy
-		return ret
-	}).(ComputeEnvironmentUpdatePolicyOutput)
-}
-
-func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.JobExecutionTimeoutMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TerminateJobsOnUpdate
-	}).(pulumi.BoolPtrOutput)
 }
 
 type JobDefinitionAuthorizationConfig struct {
@@ -4217,8 +4054,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObjectArrayInput)(nil)).Elem(), ComputeEnvironmentEc2ConfigurationObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationPtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyPtrInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionAuthorizationConfigInput)(nil)).Elem(), JobDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionAuthorizationConfigPtrInput)(nil)).Elem(), JobDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesInput)(nil)).Elem(), JobDefinitionContainerPropertiesArgs{})
@@ -4273,8 +4108,6 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationPtrOutput{})
-	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyOutput{})
-	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(JobDefinitionAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesOutput{})

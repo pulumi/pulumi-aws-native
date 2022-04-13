@@ -24,9 +24,6 @@ namespace Pulumi.AwsNative.Batch
         [Output("computeResources")]
         public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
 
-        [Output("replaceComputeEnvironment")]
-        public Output<bool?> ReplaceComputeEnvironment { get; private set; } = null!;
-
         [Output("serviceRole")]
         public Output<string?> ServiceRole { get; private set; } = null!;
 
@@ -44,9 +41,6 @@ namespace Pulumi.AwsNative.Batch
 
         [Output("unmanagedvCpus")]
         public Output<int?> UnmanagedvCpus { get; private set; } = null!;
-
-        [Output("updatePolicy")]
-        public Output<Outputs.ComputeEnvironmentUpdatePolicy?> UpdatePolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,9 +93,6 @@ namespace Pulumi.AwsNative.Batch
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
 
-        [Input("replaceComputeEnvironment")]
-        public Input<bool>? ReplaceComputeEnvironment { get; set; }
-
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
@@ -119,9 +110,6 @@ namespace Pulumi.AwsNative.Batch
 
         [Input("unmanagedvCpus")]
         public Input<int>? UnmanagedvCpus { get; set; }
-
-        [Input("updatePolicy")]
-        public Input<Inputs.ComputeEnvironmentUpdatePolicyArgs>? UpdatePolicy { get; set; }
 
         public ComputeEnvironmentArgs()
         {

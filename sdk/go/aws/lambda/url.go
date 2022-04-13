@@ -18,7 +18,7 @@ type Url struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthTypeOutput `pulumi:"authType"`
 	Cors     UrlCorsPtrOutput  `pulumi:"cors"`
-	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The generated url for this resource.
 	FunctionUrl pulumi.StringOutput `pulumi:"functionUrl"`

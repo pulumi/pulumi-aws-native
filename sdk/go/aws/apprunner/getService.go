@@ -26,9 +26,10 @@ type LookupServiceArgs struct {
 }
 
 type LookupServiceResult struct {
-	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration    *ServiceInstanceConfiguration    `pulumi:"instanceConfiguration"`
-	NetworkConfiguration     *ServiceNetworkConfiguration     `pulumi:"networkConfiguration"`
+	HealthCheckConfiguration   *ServiceHealthCheckConfiguration   `pulumi:"healthCheckConfiguration"`
+	InstanceConfiguration      *ServiceInstanceConfiguration      `pulumi:"instanceConfiguration"`
+	NetworkConfiguration       *ServiceNetworkConfiguration       `pulumi:"networkConfiguration"`
+	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The AppRunner Service Id
@@ -86,6 +87,10 @@ func (o LookupServiceResultOutput) InstanceConfiguration() ServiceInstanceConfig
 
 func (o LookupServiceResultOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceNetworkConfiguration { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
+}
+
+func (o LookupServiceResultOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServiceObservabilityConfiguration { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the AppRunner Service.

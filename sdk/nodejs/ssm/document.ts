@@ -68,6 +68,10 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly targetType!: pulumi.Output<string | undefined>;
     /**
+     * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+     */
+    public readonly updateMethod!: pulumi.Output<enums.ssm.DocumentUpdateMethod | undefined>;
+    /**
      * An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
      */
     public readonly versionName!: pulumi.Output<string | undefined>;
@@ -94,6 +98,7 @@ export class Document extends pulumi.CustomResource {
             resourceInputs["requires"] = args ? args.requires : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["updateMethod"] = args ? args.updateMethod : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
         } else {
             resourceInputs["attachments"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class Document extends pulumi.CustomResource {
             resourceInputs["requires"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetType"] = undefined /*out*/;
+            resourceInputs["updateMethod"] = undefined /*out*/;
             resourceInputs["versionName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,6 +153,10 @@ export interface DocumentArgs {
      * Specify a target type to define the kinds of resources the document can run on.
      */
     targetType?: pulumi.Input<string>;
+    /**
+     * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+     */
+    updateMethod?: pulumi.Input<enums.ssm.DocumentUpdateMethod>;
     /**
      * An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
      */

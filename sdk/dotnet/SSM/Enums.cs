@@ -171,4 +171,35 @@ namespace Pulumi.AwsNative.SSM
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+    /// </summary>
+    [EnumType]
+    public readonly struct DocumentUpdateMethod : IEquatable<DocumentUpdateMethod>
+    {
+        private readonly string _value;
+
+        private DocumentUpdateMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DocumentUpdateMethod Replace { get; } = new DocumentUpdateMethod("Replace");
+        public static DocumentUpdateMethod NewVersion { get; } = new DocumentUpdateMethod("NewVersion");
+
+        public static bool operator ==(DocumentUpdateMethod left, DocumentUpdateMethod right) => left.Equals(right);
+        public static bool operator !=(DocumentUpdateMethod left, DocumentUpdateMethod right) => !left.Equals(right);
+
+        public static explicit operator string(DocumentUpdateMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DocumentUpdateMethod other && Equals(other);
+        public bool Equals(DocumentUpdateMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

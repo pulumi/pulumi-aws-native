@@ -61,3 +61,13 @@ export const DocumentType = {
  * The type of document to create.
  */
 export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType];
+
+export const DocumentUpdateMethod = {
+    Replace: "Replace",
+    NewVersion: "NewVersion",
+} as const;
+
+/**
+ * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+ */
+export type DocumentUpdateMethod = (typeof DocumentUpdateMethod)[keyof typeof DocumentUpdateMethod];

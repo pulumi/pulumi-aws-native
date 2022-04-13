@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_observability_configuration import *
 from .get_service import *
 from .get_vpc_connector import *
+from .observability_configuration import *
 from .service import *
 from .vpc_connector import *
 from ._inputs import *

@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The implementation provider chosen for tracing App Runner services.
+type ObservabilityConfigurationTraceConfigurationVendor string
+
+const (
+	ObservabilityConfigurationTraceConfigurationVendorAwsxray = ObservabilityConfigurationTraceConfigurationVendor("AWSXRAY")
+)
+
+func (ObservabilityConfigurationTraceConfigurationVendor) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationVendor)(nil)).Elem()
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToObservabilityConfigurationTraceConfigurationVendorOutput() ObservabilityConfigurationTraceConfigurationVendorOutput {
+	return pulumi.ToOutput(e).(ObservabilityConfigurationTraceConfigurationVendorOutput)
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToObservabilityConfigurationTraceConfigurationVendorOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ObservabilityConfigurationTraceConfigurationVendorOutput)
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToObservabilityConfigurationTraceConfigurationVendorPtrOutput() ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return e.ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(context.Background())
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return ObservabilityConfigurationTraceConfigurationVendor(e).ToObservabilityConfigurationTraceConfigurationVendorOutputWithContext(ctx).ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx)
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ObservabilityConfigurationTraceConfigurationVendor) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ObservabilityConfigurationTraceConfigurationVendorOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityConfigurationTraceConfigurationVendorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationVendor)(nil)).Elem()
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToObservabilityConfigurationTraceConfigurationVendorOutput() ObservabilityConfigurationTraceConfigurationVendorOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToObservabilityConfigurationTraceConfigurationVendorOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToObservabilityConfigurationTraceConfigurationVendorPtrOutput() ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return o.ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityConfigurationTraceConfigurationVendor) *ObservabilityConfigurationTraceConfigurationVendor {
+		return &v
+	}).(ObservabilityConfigurationTraceConfigurationVendorPtrOutput)
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObservabilityConfigurationTraceConfigurationVendor) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObservabilityConfigurationTraceConfigurationVendor) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityConfigurationTraceConfigurationVendorPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityConfigurationTraceConfigurationVendor)(nil)).Elem()
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToObservabilityConfigurationTraceConfigurationVendorPtrOutput() ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) Elem() ObservabilityConfigurationTraceConfigurationVendorOutput {
+	return o.ApplyT(func(v *ObservabilityConfigurationTraceConfigurationVendor) ObservabilityConfigurationTraceConfigurationVendor {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityConfigurationTraceConfigurationVendor
+		return ret
+	}).(ObservabilityConfigurationTraceConfigurationVendorOutput)
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ObservabilityConfigurationTraceConfigurationVendor) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ObservabilityConfigurationTraceConfigurationVendorInput is an input type that accepts ObservabilityConfigurationTraceConfigurationVendorArgs and ObservabilityConfigurationTraceConfigurationVendorOutput values.
+// You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationVendorInput` via:
+//
+//          ObservabilityConfigurationTraceConfigurationVendorArgs{...}
+type ObservabilityConfigurationTraceConfigurationVendorInput interface {
+	pulumi.Input
+
+	ToObservabilityConfigurationTraceConfigurationVendorOutput() ObservabilityConfigurationTraceConfigurationVendorOutput
+	ToObservabilityConfigurationTraceConfigurationVendorOutputWithContext(context.Context) ObservabilityConfigurationTraceConfigurationVendorOutput
+}
+
+var observabilityConfigurationTraceConfigurationVendorPtrType = reflect.TypeOf((**ObservabilityConfigurationTraceConfigurationVendor)(nil)).Elem()
+
+type ObservabilityConfigurationTraceConfigurationVendorPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityConfigurationTraceConfigurationVendorPtrOutput() ObservabilityConfigurationTraceConfigurationVendorPtrOutput
+	ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput
+}
+
+type observabilityConfigurationTraceConfigurationVendorPtr string
+
+func ObservabilityConfigurationTraceConfigurationVendorPtr(v string) ObservabilityConfigurationTraceConfigurationVendorPtrInput {
+	return (*observabilityConfigurationTraceConfigurationVendorPtr)(&v)
+}
+
+func (*observabilityConfigurationTraceConfigurationVendorPtr) ElementType() reflect.Type {
+	return observabilityConfigurationTraceConfigurationVendorPtrType
+}
+
+func (in *observabilityConfigurationTraceConfigurationVendorPtr) ToObservabilityConfigurationTraceConfigurationVendorPtrOutput() ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return pulumi.ToOutput(in).(ObservabilityConfigurationTraceConfigurationVendorPtrOutput)
+}
+
+func (in *observabilityConfigurationTraceConfigurationVendorPtr) ToObservabilityConfigurationTraceConfigurationVendorPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationVendorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ObservabilityConfigurationTraceConfigurationVendorPtrOutput)
+}
+
 // Configuration Source
 type ServiceCodeConfigurationConfigurationSource string
 
@@ -1003,6 +1167,8 @@ func (in *serviceSourceCodeVersionTypePtr) ToServiceSourceCodeVersionTypePtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationVendorInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationVendor("AWSXRAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationVendorPtrInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationVendor("AWSXRAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationConfigurationSourceInput)(nil)).Elem(), ServiceCodeConfigurationConfigurationSource("REPOSITORY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationConfigurationSourcePtrInput)(nil)).Elem(), ServiceCodeConfigurationConfigurationSource("REPOSITORY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationValuesRuntimeInput)(nil)).Elem(), ServiceCodeConfigurationValuesRuntime("PYTHON_3"))
@@ -1015,6 +1181,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceImageRepositoryImageRepositoryTypePtrInput)(nil)).Elem(), ServiceImageRepositoryImageRepositoryType("ECR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionTypeInput)(nil)).Elem(), ServiceSourceCodeVersionType("BRANCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionTypePtrInput)(nil)).Elem(), ServiceSourceCodeVersionType("BRANCH"))
+	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationVendorOutput{})
+	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationVendorPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCodeConfigurationConfigurationSourceOutput{})
 	pulumi.RegisterOutputType(ServiceCodeConfigurationConfigurationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCodeConfigurationValuesRuntimeOutput{})

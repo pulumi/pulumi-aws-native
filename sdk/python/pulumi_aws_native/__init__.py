@@ -754,6 +754,7 @@ _utilities.register(
   "mod": "apprunner",
   "fqn": "pulumi_aws_native.apprunner",
   "classes": {
+   "aws-native:apprunner:ObservabilityConfiguration": "ObservabilityConfiguration",
    "aws-native:apprunner:Service": "Service",
    "aws-native:apprunner:VpcConnector": "VpcConnector"
   }

@@ -130,11 +130,17 @@
       },
       "minItems" : 1,
       "insertionOrder" : false
+    },
+    "UpdateMethod" : {
+      "description" : "Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.",
+      "type" : "string",
+      "enum" : [ "Replace", "NewVersion" ],
+      "default" : "Replace"
     }
   },
   "additionalProperties" : false,
   "required" : [ "Content" ],
-  "createOnlyProperties" : [ "/properties/Content", "/properties/Attachments", "/properties/Name", "/properties/VersionName", "/properties/DocumentType", "/properties/DocumentFormat", "/properties/TargetType", "/properties/Requires" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/DocumentType" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
@@ -144,10 +150,13 @@
       "permissions" : [ "ssm:GetDocument" ]
     },
     "update" : {
-      "permissions" : [ "ssm:UpdateDocument", "s3:GetObject", "ssm:AddTagsToResource", "ssm:RemoveTagsFromResource", "ssm:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "ssm:UpdateDocument", "s3:GetObject", "ssm:AddTagsToResource", "ssm:RemoveTagsFromResource", "ssm:ListTagsForResource", "iam:PassRole", "ssm:UpdateDocumentDefaultVersion", "ssm:DescribeDocument" ]
     },
     "delete" : {
       "permissions" : [ "ssm:DeleteDocument" ]
+    },
+    "list" : {
+      "permissions" : [ "ssm:ListDocuments" ]
     }
   }
 }

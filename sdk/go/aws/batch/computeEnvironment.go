@@ -15,17 +15,15 @@ import (
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 
-	ComputeEnvironmentArn     pulumi.StringOutput                         `pulumi:"computeEnvironmentArn"`
-	ComputeEnvironmentName    pulumi.StringPtrOutput                      `pulumi:"computeEnvironmentName"`
-	ComputeResources          ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
-	ReplaceComputeEnvironment pulumi.BoolPtrOutput                        `pulumi:"replaceComputeEnvironment"`
-	ServiceRole               pulumi.StringPtrOutput                      `pulumi:"serviceRole"`
-	State                     pulumi.StringPtrOutput                      `pulumi:"state"`
+	ComputeEnvironmentArn  pulumi.StringOutput                         `pulumi:"computeEnvironmentArn"`
+	ComputeEnvironmentName pulumi.StringPtrOutput                      `pulumi:"computeEnvironmentName"`
+	ComputeResources       ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
+	ServiceRole            pulumi.StringPtrOutput                      `pulumi:"serviceRole"`
+	State                  pulumi.StringPtrOutput                      `pulumi:"state"`
 	// A key-value pair to associate with a resource.
-	Tags           pulumi.AnyOutput                        `pulumi:"tags"`
-	Type           pulumi.StringOutput                     `pulumi:"type"`
-	UnmanagedvCpus pulumi.IntPtrOutput                     `pulumi:"unmanagedvCpus"`
-	UpdatePolicy   ComputeEnvironmentUpdatePolicyPtrOutput `pulumi:"updatePolicy"`
+	Tags           pulumi.AnyOutput    `pulumi:"tags"`
+	Type           pulumi.StringOutput `pulumi:"type"`
+	UnmanagedvCpus pulumi.IntPtrOutput `pulumi:"unmanagedvCpus"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -70,30 +68,26 @@ func (ComputeEnvironmentState) ElementType() reflect.Type {
 }
 
 type computeEnvironmentArgs struct {
-	ComputeEnvironmentName    *string                             `pulumi:"computeEnvironmentName"`
-	ComputeResources          *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
-	ReplaceComputeEnvironment *bool                               `pulumi:"replaceComputeEnvironment"`
-	ServiceRole               *string                             `pulumi:"serviceRole"`
-	State                     *string                             `pulumi:"state"`
+	ComputeEnvironmentName *string                             `pulumi:"computeEnvironmentName"`
+	ComputeResources       *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
+	ServiceRole            *string                             `pulumi:"serviceRole"`
+	State                  *string                             `pulumi:"state"`
 	// A key-value pair to associate with a resource.
-	Tags           interface{}                     `pulumi:"tags"`
-	Type           string                          `pulumi:"type"`
-	UnmanagedvCpus *int                            `pulumi:"unmanagedvCpus"`
-	UpdatePolicy   *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
+	Tags           interface{} `pulumi:"tags"`
+	Type           string      `pulumi:"type"`
+	UnmanagedvCpus *int        `pulumi:"unmanagedvCpus"`
 }
 
 // The set of arguments for constructing a ComputeEnvironment resource.
 type ComputeEnvironmentArgs struct {
-	ComputeEnvironmentName    pulumi.StringPtrInput
-	ComputeResources          ComputeEnvironmentComputeResourcesPtrInput
-	ReplaceComputeEnvironment pulumi.BoolPtrInput
-	ServiceRole               pulumi.StringPtrInput
-	State                     pulumi.StringPtrInput
+	ComputeEnvironmentName pulumi.StringPtrInput
+	ComputeResources       ComputeEnvironmentComputeResourcesPtrInput
+	ServiceRole            pulumi.StringPtrInput
+	State                  pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
 	Tags           pulumi.Input
 	Type           pulumi.StringInput
 	UnmanagedvCpus pulumi.IntPtrInput
-	UpdatePolicy   ComputeEnvironmentUpdatePolicyPtrInput
 }
 
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {

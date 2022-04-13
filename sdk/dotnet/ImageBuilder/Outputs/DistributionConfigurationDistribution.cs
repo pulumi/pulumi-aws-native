@@ -16,14 +16,8 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistribution
     {
-        /// <summary>
-        /// The specific AMI settings (for example, launch permissions, AMI tags).
-        /// </summary>
-        public readonly Outputs.DistributionConfigurationDistributionAmiDistributionConfigurationProperties? AmiDistributionConfiguration;
-        /// <summary>
-        /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        /// </summary>
-        public readonly Outputs.DistributionConfigurationDistributionContainerDistributionConfigurationProperties? ContainerDistributionConfiguration;
+        public readonly Outputs.DistributionConfigurationAmiDistributionConfiguration? AmiDistributionConfiguration;
+        public readonly Outputs.DistributionConfigurationContainerDistributionConfiguration? ContainerDistributionConfiguration;
         /// <summary>
         /// A group of launchTemplateConfiguration settings that apply to image distribution.
         /// </summary>
@@ -39,9 +33,9 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private DistributionConfigurationDistribution(
-            Outputs.DistributionConfigurationDistributionAmiDistributionConfigurationProperties? amiDistributionConfiguration,
+            Outputs.DistributionConfigurationAmiDistributionConfiguration? amiDistributionConfiguration,
 
-            Outputs.DistributionConfigurationDistributionContainerDistributionConfigurationProperties? containerDistributionConfiguration,
+            Outputs.DistributionConfigurationContainerDistributionConfiguration? containerDistributionConfiguration,
 
             ImmutableArray<Outputs.DistributionConfigurationLaunchTemplateConfiguration> launchTemplateConfigurations,
 

@@ -21,7 +21,7 @@ func LookupUrl(ctx *pulumi.Context, args *LookupUrlArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupUrlArgs struct {
-	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -29,7 +29,7 @@ type LookupUrlResult struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType *UrlAuthType `pulumi:"authType"`
 	Cors     *UrlCors     `pulumi:"cors"`
-	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 	FunctionArn *string `pulumi:"functionArn"`
 	// The generated url for this resource.
 	FunctionUrl *string `pulumi:"functionUrl"`
@@ -49,7 +49,7 @@ func LookupUrlOutput(ctx *pulumi.Context, args LookupUrlOutputArgs, opts ...pulu
 }
 
 type LookupUrlOutputArgs struct {
-	// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+	// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -80,7 +80,7 @@ func (o LookupUrlResultOutput) Cors() UrlCorsPtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *UrlCors { return v.Cors }).(UrlCorsPtrOutput)
 }
 
-// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 func (o LookupUrlResultOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }

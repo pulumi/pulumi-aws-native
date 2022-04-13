@@ -849,6 +849,171 @@ func (in *documentTypePtr) ToDocumentTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentTypePtrOutput)
 }
 
+// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+type DocumentUpdateMethod string
+
+const (
+	DocumentUpdateMethodReplace    = DocumentUpdateMethod("Replace")
+	DocumentUpdateMethodNewVersion = DocumentUpdateMethod("NewVersion")
+)
+
+func (DocumentUpdateMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentUpdateMethod)(nil)).Elem()
+}
+
+func (e DocumentUpdateMethod) ToDocumentUpdateMethodOutput() DocumentUpdateMethodOutput {
+	return pulumi.ToOutput(e).(DocumentUpdateMethodOutput)
+}
+
+func (e DocumentUpdateMethod) ToDocumentUpdateMethodOutputWithContext(ctx context.Context) DocumentUpdateMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentUpdateMethodOutput)
+}
+
+func (e DocumentUpdateMethod) ToDocumentUpdateMethodPtrOutput() DocumentUpdateMethodPtrOutput {
+	return e.ToDocumentUpdateMethodPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentUpdateMethod) ToDocumentUpdateMethodPtrOutputWithContext(ctx context.Context) DocumentUpdateMethodPtrOutput {
+	return DocumentUpdateMethod(e).ToDocumentUpdateMethodOutputWithContext(ctx).ToDocumentUpdateMethodPtrOutputWithContext(ctx)
+}
+
+func (e DocumentUpdateMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentUpdateMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentUpdateMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentUpdateMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentUpdateMethodOutput struct{ *pulumi.OutputState }
+
+func (DocumentUpdateMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentUpdateMethod)(nil)).Elem()
+}
+
+func (o DocumentUpdateMethodOutput) ToDocumentUpdateMethodOutput() DocumentUpdateMethodOutput {
+	return o
+}
+
+func (o DocumentUpdateMethodOutput) ToDocumentUpdateMethodOutputWithContext(ctx context.Context) DocumentUpdateMethodOutput {
+	return o
+}
+
+func (o DocumentUpdateMethodOutput) ToDocumentUpdateMethodPtrOutput() DocumentUpdateMethodPtrOutput {
+	return o.ToDocumentUpdateMethodPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentUpdateMethodOutput) ToDocumentUpdateMethodPtrOutputWithContext(ctx context.Context) DocumentUpdateMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentUpdateMethod) *DocumentUpdateMethod {
+		return &v
+	}).(DocumentUpdateMethodPtrOutput)
+}
+
+func (o DocumentUpdateMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentUpdateMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentUpdateMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentUpdateMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentUpdateMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentUpdateMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentUpdateMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentUpdateMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentUpdateMethod)(nil)).Elem()
+}
+
+func (o DocumentUpdateMethodPtrOutput) ToDocumentUpdateMethodPtrOutput() DocumentUpdateMethodPtrOutput {
+	return o
+}
+
+func (o DocumentUpdateMethodPtrOutput) ToDocumentUpdateMethodPtrOutputWithContext(ctx context.Context) DocumentUpdateMethodPtrOutput {
+	return o
+}
+
+func (o DocumentUpdateMethodPtrOutput) Elem() DocumentUpdateMethodOutput {
+	return o.ApplyT(func(v *DocumentUpdateMethod) DocumentUpdateMethod {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentUpdateMethod
+		return ret
+	}).(DocumentUpdateMethodOutput)
+}
+
+func (o DocumentUpdateMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentUpdateMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentUpdateMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentUpdateMethodInput is an input type that accepts DocumentUpdateMethodArgs and DocumentUpdateMethodOutput values.
+// You can construct a concrete instance of `DocumentUpdateMethodInput` via:
+//
+//          DocumentUpdateMethodArgs{...}
+type DocumentUpdateMethodInput interface {
+	pulumi.Input
+
+	ToDocumentUpdateMethodOutput() DocumentUpdateMethodOutput
+	ToDocumentUpdateMethodOutputWithContext(context.Context) DocumentUpdateMethodOutput
+}
+
+var documentUpdateMethodPtrType = reflect.TypeOf((**DocumentUpdateMethod)(nil)).Elem()
+
+type DocumentUpdateMethodPtrInput interface {
+	pulumi.Input
+
+	ToDocumentUpdateMethodPtrOutput() DocumentUpdateMethodPtrOutput
+	ToDocumentUpdateMethodPtrOutputWithContext(context.Context) DocumentUpdateMethodPtrOutput
+}
+
+type documentUpdateMethodPtr string
+
+func DocumentUpdateMethodPtr(v string) DocumentUpdateMethodPtrInput {
+	return (*documentUpdateMethodPtr)(&v)
+}
+
+func (*documentUpdateMethodPtr) ElementType() reflect.Type {
+	return documentUpdateMethodPtrType
+}
+
+func (in *documentUpdateMethodPtr) ToDocumentUpdateMethodPtrOutput() DocumentUpdateMethodPtrOutput {
+	return pulumi.ToOutput(in).(DocumentUpdateMethodPtrOutput)
+}
+
+func (in *documentUpdateMethodPtr) ToDocumentUpdateMethodPtrOutputWithContext(ctx context.Context) DocumentUpdateMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentUpdateMethodPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityPtrInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
@@ -860,6 +1025,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentFormatPtrInput)(nil)).Elem(), DocumentFormat("YAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTypeInput)(nil)).Elem(), DocumentType("ApplicationConfiguration"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTypePtrInput)(nil)).Elem(), DocumentType("ApplicationConfiguration"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentUpdateMethodInput)(nil)).Elem(), DocumentUpdateMethod("Replace"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentUpdateMethodPtrInput)(nil)).Elem(), DocumentUpdateMethod("Replace"))
 	pulumi.RegisterOutputType(AssociationComplianceSeverityOutput{})
 	pulumi.RegisterOutputType(AssociationComplianceSeverityPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSyncComplianceOutput{})
@@ -870,4 +1037,6 @@ func init() {
 	pulumi.RegisterOutputType(DocumentFormatPtrOutput{})
 	pulumi.RegisterOutputType(DocumentTypeOutput{})
 	pulumi.RegisterOutputType(DocumentTypePtrOutput{})
+	pulumi.RegisterOutputType(DocumentUpdateMethodOutput{})
+	pulumi.RegisterOutputType(DocumentUpdateMethodPtrOutput{})
 }

@@ -3030,6 +3030,21 @@ export namespace appmesh {
 }
 
 export namespace apprunner {
+    export interface ObservabilityConfigurationTag {
+        key?: string;
+        value?: string;
+    }
+
+    /**
+     * Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
+     */
+    export interface ObservabilityConfigurationTraceConfiguration {
+        /**
+         * The implementation provider chosen for tracing App Runner services.
+         */
+        vendor: enums.apprunner.ObservabilityConfigurationTraceConfigurationVendor;
+    }
+
     /**
      * Authentication Configuration
      */
@@ -3202,6 +3217,20 @@ export namespace apprunner {
      */
     export interface ServiceNetworkConfiguration {
         egressConfiguration: outputs.apprunner.ServiceEgressConfiguration;
+    }
+
+    /**
+     * Service observability configuration
+     */
+    export interface ServiceObservabilityConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
+         */
+        observabilityConfigurationArn?: string;
+        /**
+         * Observability enabled
+         */
+        observabilityEnabled: boolean;
     }
 
     /**
@@ -4233,7 +4262,6 @@ export namespace batch {
          */
         tags?: any;
         type: string;
-        updateToLatestImageVersion?: boolean;
     }
 
     export interface ComputeEnvironmentEc2ConfigurationObject {
@@ -4245,11 +4273,6 @@ export namespace batch {
         launchTemplateId?: string;
         launchTemplateName?: string;
         version?: string;
-    }
-
-    export interface ComputeEnvironmentUpdatePolicy {
-        jobExecutionTimeoutMinutes?: number;
-        terminateJobsOnUpdate?: boolean;
     }
 
     export interface JobDefinitionAuthorizationConfig {
@@ -4582,6 +4605,34 @@ export namespace cassandra {
 }
 
 export namespace ce {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AnomalyMonitorResourceTag {
+        /**
+         * The key name for the tag.
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AnomalySubscriptionResourceTag {
+        /**
+         * The key name for the tag.
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
+    }
+
     export interface AnomalySubscriptionSubscriber {
         address: string;
         status?: enums.ce.AnomalySubscriptionSubscriberStatus;
@@ -14653,17 +14704,56 @@ export namespace imagebuilder {
     }
 
     /**
+     * The specific AMI settings (for example, launch permissions, AMI tags).
+     */
+    export interface DistributionConfigurationAmiDistributionConfiguration {
+        /**
+         * The tags to apply to AMIs distributed to this Region.
+         */
+        amiTags?: any;
+        /**
+         * The description of the AMI distribution configuration.
+         */
+        description?: string;
+        /**
+         * The KMS key identifier used to encrypt the distributed image.
+         */
+        kmsKeyId?: string;
+        launchPermissionConfiguration?: outputs.imagebuilder.DistributionConfigurationLaunchPermissionConfiguration;
+        /**
+         * The name of the AMI distribution configuration.
+         */
+        name?: string;
+        /**
+         * The ID of accounts to which you want to distribute an image.
+         */
+        targetAccountIds?: string[];
+    }
+
+    /**
+     * Container distribution settings for encryption, licensing, and sharing in a specific Region.
+     */
+    export interface DistributionConfigurationContainerDistributionConfiguration {
+        /**
+         * Tags that are attached to the container distribution configuration.
+         */
+        containerTags?: string[];
+        /**
+         * The description of the container distribution configuration.
+         */
+        description?: string;
+        /**
+         * The destination repository for the container distribution configuration.
+         */
+        targetRepository?: outputs.imagebuilder.DistributionConfigurationTargetContainerRepository;
+    }
+
+    /**
      * The distributions of the distribution configuration.
      */
     export interface DistributionConfigurationDistribution {
-        /**
-         * The specific AMI settings (for example, launch permissions, AMI tags).
-         */
-        amiDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationProperties;
-        /**
-         * Container distribution settings for encryption, licensing, and sharing in a specific Region.
-         */
-        containerDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionContainerDistributionConfigurationProperties;
+        amiDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationAmiDistributionConfiguration;
+        containerDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationContainerDistributionConfiguration;
         /**
          * A group of launchTemplateConfiguration settings that apply to image distribution.
          */
@@ -14679,39 +14769,9 @@ export namespace imagebuilder {
     }
 
     /**
-     * The specific AMI settings (for example, launch permissions, AMI tags).
-     */
-    export interface DistributionConfigurationDistributionAmiDistributionConfigurationProperties {
-        /**
-         * The tags to apply to AMIs distributed to this Region.
-         */
-        amiTags?: any;
-        /**
-         * The description of the AMI distribution configuration.
-         */
-        description?: string;
-        /**
-         * The KMS key identifier used to encrypt the distributed image.
-         */
-        kmsKeyId?: string;
-        /**
-         * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-         */
-        launchPermissionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties;
-        /**
-         * The name of the AMI distribution configuration.
-         */
-        name?: string;
-        /**
-         * The ID of accounts to which you want to distribute an image.
-         */
-        targetAccountIds?: string[];
-    }
-
-    /**
      * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
      */
-    export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
+    export interface DistributionConfigurationLaunchPermissionConfiguration {
         /**
          * The ARN for an Amazon Web Services Organization that you want to share your AMI with.
          */
@@ -14728,24 +14788,6 @@ export namespace imagebuilder {
          * The AWS account ID.
          */
         userIds?: string[];
-    }
-
-    /**
-     * Container distribution settings for encryption, licensing, and sharing in a specific Region.
-     */
-    export interface DistributionConfigurationDistributionContainerDistributionConfigurationProperties {
-        /**
-         * Tags that are attached to the container distribution configuration.
-         */
-        containerTags?: string[];
-        /**
-         * The description of the container distribution configuration.
-         */
-        description?: string;
-        /**
-         * The destination repository for the container distribution configuration.
-         */
-        targetRepository?: outputs.imagebuilder.DistributionConfigurationTargetContainerRepository;
     }
 
     /**

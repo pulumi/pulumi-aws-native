@@ -65,6 +65,10 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     public readonly monitorName!: pulumi.Output<string>;
     public readonly monitorSpecification!: pulumi.Output<string | undefined>;
     public readonly monitorType!: pulumi.Output<enums.ce.AnomalyMonitorMonitorType>;
+    /**
+     * Tags to assign to monitor.
+     */
+    public readonly resourceTags!: pulumi.Output<outputs.ce.AnomalyMonitorResourceTag[] | undefined>;
 
     /**
      * Create a AnomalyMonitor resource with the given unique name, arguments, and options.
@@ -89,6 +93,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
             resourceInputs["monitorSpecification"] = args ? args.monitorSpecification : undefined;
             resourceInputs["monitorType"] = args ? args.monitorType : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dimensionalValueCount"] = undefined /*out*/;
             resourceInputs["lastEvaluatedDate"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
             resourceInputs["monitorName"] = undefined /*out*/;
             resourceInputs["monitorSpecification"] = undefined /*out*/;
             resourceInputs["monitorType"] = undefined /*out*/;
+            resourceInputs["resourceTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnomalyMonitor.__pulumiType, name, resourceInputs, opts);
@@ -124,4 +130,8 @@ export interface AnomalyMonitorArgs {
     monitorName: pulumi.Input<string>;
     monitorSpecification?: pulumi.Input<string>;
     monitorType: pulumi.Input<enums.ce.AnomalyMonitorMonitorType>;
+    /**
+     * Tags to assign to monitor.
+     */
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.ce.AnomalyMonitorResourceTagArgs>[]>;
 }

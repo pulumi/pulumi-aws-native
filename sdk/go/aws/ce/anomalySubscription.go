@@ -23,6 +23,8 @@ type AnomalySubscription struct {
 	Frequency AnomalySubscriptionFrequencyOutput `pulumi:"frequency"`
 	// A list of cost anomaly monitors.
 	MonitorArnList pulumi.StringArrayOutput `pulumi:"monitorArnList"`
+	// Tags to assign to subscription.
+	ResourceTags AnomalySubscriptionResourceTagArrayOutput `pulumi:"resourceTags"`
 	// A list of subscriber
 	Subscribers     AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
 	SubscriptionArn pulumi.StringOutput                      `pulumi:"subscriptionArn"`
@@ -90,6 +92,8 @@ type anomalySubscriptionArgs struct {
 	Frequency AnomalySubscriptionFrequency `pulumi:"frequency"`
 	// A list of cost anomaly monitors.
 	MonitorArnList []string `pulumi:"monitorArnList"`
+	// Tags to assign to subscription.
+	ResourceTags []AnomalySubscriptionResourceTag `pulumi:"resourceTags"`
 	// A list of subscriber
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// The name of the subscription.
@@ -104,6 +108,8 @@ type AnomalySubscriptionArgs struct {
 	Frequency AnomalySubscriptionFrequencyInput
 	// A list of cost anomaly monitors.
 	MonitorArnList pulumi.StringArrayInput
+	// Tags to assign to subscription.
+	ResourceTags AnomalySubscriptionResourceTagArrayInput
 	// A list of subscriber
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// The name of the subscription.

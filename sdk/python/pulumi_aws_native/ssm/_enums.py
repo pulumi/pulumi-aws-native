@@ -10,6 +10,7 @@ __all__ = [
     'DocumentAttachmentsSourceKey',
     'DocumentFormat',
     'DocumentType',
+    'DocumentUpdateMethod',
 ]
 
 
@@ -61,3 +62,11 @@ class DocumentType(str, Enum):
     PROBLEM_ANALYSIS = "ProblemAnalysis"
     PROBLEM_ANALYSIS_TEMPLATE = "ProblemAnalysisTemplate"
     SESSION = "Session"
+
+
+class DocumentUpdateMethod(str, Enum):
+    """
+    Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+    """
+    REPLACE = "Replace"
+    NEW_VERSION = "NewVersion"

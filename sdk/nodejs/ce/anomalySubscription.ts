@@ -51,6 +51,10 @@ export class AnomalySubscription extends pulumi.CustomResource {
      */
     public readonly monitorArnList!: pulumi.Output<string[]>;
     /**
+     * Tags to assign to subscription.
+     */
+    public readonly resourceTags!: pulumi.Output<outputs.ce.AnomalySubscriptionResourceTag[] | undefined>;
+    /**
      * A list of subscriber
      */
     public readonly subscribers!: pulumi.Output<outputs.ce.AnomalySubscriptionSubscriber[]>;
@@ -94,6 +98,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
             }
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["monitorArnList"] = args ? args.monitorArnList : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
@@ -103,6 +108,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["frequency"] = undefined /*out*/;
             resourceInputs["monitorArnList"] = undefined /*out*/;
+            resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["subscribers"] = undefined /*out*/;
             resourceInputs["subscriptionArn"] = undefined /*out*/;
             resourceInputs["subscriptionName"] = undefined /*out*/;
@@ -125,6 +131,10 @@ export interface AnomalySubscriptionArgs {
      * A list of cost anomaly monitors.
      */
     monitorArnList: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Tags to assign to subscription.
+     */
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.ce.AnomalySubscriptionResourceTagArgs>[]>;
     /**
      * A list of subscriber
      */

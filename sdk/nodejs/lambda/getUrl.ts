@@ -21,7 +21,7 @@ export function getUrl(args: GetUrlArgs, opts?: pulumi.InvokeOptions): Promise<G
 
 export interface GetUrlArgs {
     /**
-     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+     * The full Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
     functionArn: string;
 }
@@ -33,7 +33,7 @@ export interface GetUrlResult {
     readonly authType?: enums.lambda.UrlAuthType;
     readonly cors?: outputs.lambda.UrlCors;
     /**
-     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+     * The full Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
     readonly functionArn?: string;
     /**
@@ -48,7 +48,7 @@ export function getUrlOutput(args: GetUrlOutputArgs, opts?: pulumi.InvokeOptions
 
 export interface GetUrlOutputArgs {
     /**
-     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+     * The full Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
     functionArn: pulumi.Input<string>;
 }

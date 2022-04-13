@@ -31,6 +31,8 @@ type Document struct {
 	Tags DocumentTagArrayOutput `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
+	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+	UpdateMethod DocumentUpdateMethodPtrOutput `pulumi:"updateMethod"`
 	// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
 	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 }
@@ -93,6 +95,8 @@ type documentArgs struct {
 	Tags []DocumentTag `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType *string `pulumi:"targetType"`
+	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+	UpdateMethod *DocumentUpdateMethod `pulumi:"updateMethod"`
 	// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
 	VersionName *string `pulumi:"versionName"`
 }
@@ -115,6 +119,8 @@ type DocumentArgs struct {
 	Tags DocumentTagArrayInput
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType pulumi.StringPtrInput
+	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+	UpdateMethod DocumentUpdateMethodPtrInput
 	// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
 	VersionName pulumi.StringPtrInput
 }

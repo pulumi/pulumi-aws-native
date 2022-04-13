@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
         /// </summary>
         [Input("functionArn", required: true)]
         public string FunctionArn { get; set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
         /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Lambda
         public readonly Pulumi.AwsNative.Lambda.UrlAuthType? AuthType;
         public readonly Outputs.UrlCors? Cors;
         /// <summary>
-        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
         /// </summary>
         public readonly string? FunctionArn;
         /// <summary>

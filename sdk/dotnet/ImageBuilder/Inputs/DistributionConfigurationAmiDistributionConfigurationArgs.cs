@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The specific AMI settings (for example, launch permissions, AMI tags).
     /// </summary>
-    public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationAmiDistributionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tags to apply to AMIs distributed to this Region.
@@ -33,11 +33,8 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-        /// </summary>
         [Input("launchPermissionConfiguration")]
-        public Input<Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs>? LaunchPermissionConfiguration { get; set; }
+        public Input<Inputs.DistributionConfigurationLaunchPermissionConfigurationArgs>? LaunchPermissionConfiguration { get; set; }
 
         /// <summary>
         /// The name of the AMI distribution configuration.
@@ -57,7 +54,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
             set => _targetAccountIds = value;
         }
 
-        public DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs()
+        public DistributionConfigurationAmiDistributionConfigurationArgs()
         {
         }
     }

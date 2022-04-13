@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ObservabilityConfigurationTraceConfigurationVendor = {
+    Awsxray: "AWSXRAY",
+} as const;
+
+/**
+ * The implementation provider chosen for tracing App Runner services.
+ */
+export type ObservabilityConfigurationTraceConfigurationVendor = (typeof ObservabilityConfigurationTraceConfigurationVendor)[keyof typeof ObservabilityConfigurationTraceConfigurationVendor];
+
 export const ServiceCodeConfigurationConfigurationSource = {
     Repository: "REPOSITORY",
     Api: "API",

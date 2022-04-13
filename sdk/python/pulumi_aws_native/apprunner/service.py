@@ -22,6 +22,7 @@ class ServiceArgs:
                  health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
                  instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None):
         """
@@ -40,6 +41,8 @@ class ServiceArgs:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if observability_configuration is not None:
+            pulumi.set(__self__, "observability_configuration", observability_configuration)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
@@ -103,6 +106,15 @@ class ServiceArgs:
         pulumi.set(self, "network_configuration", value)
 
     @property
+    @pulumi.getter(name="observabilityConfiguration")
+    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]:
+        return pulumi.get(self, "observability_configuration")
+
+    @observability_configuration.setter
+    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]):
+        pulumi.set(self, "observability_configuration", value)
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -134,6 +146,7 @@ class Service(pulumi.CustomResource):
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
+                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -175,6 +188,7 @@ class Service(pulumi.CustomResource):
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
+                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -195,6 +209,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["health_check_configuration"] = health_check_configuration
             __props__.__dict__["instance_configuration"] = instance_configuration
             __props__.__dict__["network_configuration"] = network_configuration
+            __props__.__dict__["observability_configuration"] = observability_configuration
             __props__.__dict__["service_name"] = service_name
             if source_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'source_configuration'")
@@ -231,6 +246,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["health_check_configuration"] = None
         __props__.__dict__["instance_configuration"] = None
         __props__.__dict__["network_configuration"] = None
+        __props__.__dict__["observability_configuration"] = None
         __props__.__dict__["service_arn"] = None
         __props__.__dict__["service_id"] = None
         __props__.__dict__["service_name"] = None
@@ -267,6 +283,11 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceNetworkConfiguration']]:
         return pulumi.get(self, "network_configuration")
+
+    @property
+    @pulumi.getter(name="observabilityConfiguration")
+    def observability_configuration(self) -> pulumi.Output[Optional['outputs.ServiceObservabilityConfiguration']]:
+        return pulumi.get(self, "observability_configuration")
 
     @property
     @pulumi.getter(name="serviceArn")

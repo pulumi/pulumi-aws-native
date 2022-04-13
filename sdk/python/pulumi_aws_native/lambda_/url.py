@@ -195,7 +195,7 @@ class Url(pulumi.CustomResource):
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[str]:
         """
-        The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        The full Amazon Resource Name (ARN) of the function associated with the Function URL.
         """
         return pulumi.get(self, "function_arn")
 

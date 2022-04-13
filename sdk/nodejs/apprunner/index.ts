@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getObservabilityConfiguration";
 export * from "./getService";
 export * from "./getVpcConnector";
+export * from "./observabilityConfiguration";
 export * from "./service";
 export * from "./vpcConnector";
 
@@ -14,6 +16,7 @@ export * from "./vpcConnector";
 export * from "../types/enums/apprunner";
 
 // Import resources to register:
+import { ObservabilityConfiguration } from "./observabilityConfiguration";
 import { Service } from "./service";
 import { VpcConnector } from "./vpcConnector";
 
@@ -21,6 +24,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:apprunner:ObservabilityConfiguration":
+                return new ObservabilityConfiguration(name, <any>undefined, { urn })
             case "aws-native:apprunner:Service":
                 return new Service(name, <any>undefined, { urn })
             case "aws-native:apprunner:VpcConnector":

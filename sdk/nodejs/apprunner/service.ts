@@ -43,6 +43,7 @@ export class Service extends pulumi.CustomResource {
     public readonly healthCheckConfiguration!: pulumi.Output<outputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
     public readonly instanceConfiguration!: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration | undefined>;
     public readonly networkConfiguration!: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration | undefined>;
+    public readonly observabilityConfiguration!: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
      */
@@ -85,6 +86,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
             resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["observabilityConfiguration"] = args ? args.observabilityConfiguration : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -98,6 +100,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["healthCheckConfiguration"] = undefined /*out*/;
             resourceInputs["instanceConfiguration"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["observabilityConfiguration"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export interface ServiceArgs {
     healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfigurationArgs>;
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfigurationArgs>;
     networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfigurationArgs>;
+    observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfigurationArgs>;
     /**
      * The AppRunner Service Name.
      */

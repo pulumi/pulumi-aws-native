@@ -836,12 +836,423 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() ContainerRe
 	}).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
+// The specific AMI settings (for example, launch permissions, AMI tags).
+type DistributionConfigurationAmiDistributionConfiguration struct {
+	// The tags to apply to AMIs distributed to this Region.
+	AmiTags interface{} `pulumi:"amiTags"`
+	// The description of the AMI distribution configuration.
+	Description *string `pulumi:"description"`
+	// The KMS key identifier used to encrypt the distributed image.
+	KmsKeyId                      *string                                                 `pulumi:"kmsKeyId"`
+	LaunchPermissionConfiguration *DistributionConfigurationLaunchPermissionConfiguration `pulumi:"launchPermissionConfiguration"`
+	// The name of the AMI distribution configuration.
+	Name *string `pulumi:"name"`
+	// The ID of accounts to which you want to distribute an image.
+	TargetAccountIds []string `pulumi:"targetAccountIds"`
+}
+
+// DistributionConfigurationAmiDistributionConfigurationInput is an input type that accepts DistributionConfigurationAmiDistributionConfigurationArgs and DistributionConfigurationAmiDistributionConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationAmiDistributionConfigurationInput` via:
+//
+//          DistributionConfigurationAmiDistributionConfigurationArgs{...}
+type DistributionConfigurationAmiDistributionConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationAmiDistributionConfigurationOutput() DistributionConfigurationAmiDistributionConfigurationOutput
+	ToDistributionConfigurationAmiDistributionConfigurationOutputWithContext(context.Context) DistributionConfigurationAmiDistributionConfigurationOutput
+}
+
+// The specific AMI settings (for example, launch permissions, AMI tags).
+type DistributionConfigurationAmiDistributionConfigurationArgs struct {
+	// The tags to apply to AMIs distributed to this Region.
+	AmiTags pulumi.Input `pulumi:"amiTags"`
+	// The description of the AMI distribution configuration.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The KMS key identifier used to encrypt the distributed image.
+	KmsKeyId                      pulumi.StringPtrInput                                          `pulumi:"kmsKeyId"`
+	LaunchPermissionConfiguration DistributionConfigurationLaunchPermissionConfigurationPtrInput `pulumi:"launchPermissionConfiguration"`
+	// The name of the AMI distribution configuration.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of accounts to which you want to distribute an image.
+	TargetAccountIds pulumi.StringArrayInput `pulumi:"targetAccountIds"`
+}
+
+func (DistributionConfigurationAmiDistributionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationAmiDistributionConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToDistributionConfigurationAmiDistributionConfigurationOutput() DistributionConfigurationAmiDistributionConfigurationOutput {
+	return i.ToDistributionConfigurationAmiDistributionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToDistributionConfigurationAmiDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationAmiDistributionConfigurationOutput)
+}
+
+func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToDistributionConfigurationAmiDistributionConfigurationPtrOutput() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationAmiDistributionConfigurationOutput).ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationAmiDistributionConfigurationPtrInput is an input type that accepts DistributionConfigurationAmiDistributionConfigurationArgs, DistributionConfigurationAmiDistributionConfigurationPtr and DistributionConfigurationAmiDistributionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationAmiDistributionConfigurationPtrInput` via:
+//
+//          DistributionConfigurationAmiDistributionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigurationAmiDistributionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationAmiDistributionConfigurationPtrOutput() DistributionConfigurationAmiDistributionConfigurationPtrOutput
+	ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(context.Context) DistributionConfigurationAmiDistributionConfigurationPtrOutput
+}
+
+type distributionConfigurationAmiDistributionConfigurationPtrType DistributionConfigurationAmiDistributionConfigurationArgs
+
+func DistributionConfigurationAmiDistributionConfigurationPtr(v *DistributionConfigurationAmiDistributionConfigurationArgs) DistributionConfigurationAmiDistributionConfigurationPtrInput {
+	return (*distributionConfigurationAmiDistributionConfigurationPtrType)(v)
+}
+
+func (*distributionConfigurationAmiDistributionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationAmiDistributionConfiguration)(nil)).Elem()
+}
+
+func (i *distributionConfigurationAmiDistributionConfigurationPtrType) ToDistributionConfigurationAmiDistributionConfigurationPtrOutput() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationAmiDistributionConfigurationPtrType) ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationAmiDistributionConfigurationPtrOutput)
+}
+
+// The specific AMI settings (for example, launch permissions, AMI tags).
+type DistributionConfigurationAmiDistributionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationAmiDistributionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationAmiDistributionConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToDistributionConfigurationAmiDistributionConfigurationOutput() DistributionConfigurationAmiDistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToDistributionConfigurationAmiDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToDistributionConfigurationAmiDistributionConfigurationPtrOutput() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return o.ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationAmiDistributionConfiguration) *DistributionConfigurationAmiDistributionConfiguration {
+		return &v
+	}).(DistributionConfigurationAmiDistributionConfigurationPtrOutput)
+}
+
+// The tags to apply to AMIs distributed to this Region.
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) AmiTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) interface{} { return v.AmiTags }).(pulumi.AnyOutput)
+}
+
+// The description of the AMI distribution configuration.
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The KMS key identifier used to encrypt the distributed image.
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) LaunchPermissionConfiguration() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) *DistributionConfigurationLaunchPermissionConfiguration {
+		return v.LaunchPermissionConfiguration
+	}).(DistributionConfigurationLaunchPermissionConfigurationPtrOutput)
+}
+
+// The name of the AMI distribution configuration.
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ID of accounts to which you want to distribute an image.
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) TargetAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) []string { return v.TargetAccountIds }).(pulumi.StringArrayOutput)
+}
+
+type DistributionConfigurationAmiDistributionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationAmiDistributionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationAmiDistributionConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) ToDistributionConfigurationAmiDistributionConfigurationPtrOutput() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) Elem() DistributionConfigurationAmiDistributionConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) DistributionConfigurationAmiDistributionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationAmiDistributionConfiguration
+		return ret
+	}).(DistributionConfigurationAmiDistributionConfigurationOutput)
+}
+
+// The tags to apply to AMIs distributed to this Region.
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) AmiTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AmiTags
+	}).(pulumi.AnyOutput)
+}
+
+// The description of the AMI distribution configuration.
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The KMS key identifier used to encrypt the distributed image.
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) LaunchPermissionConfiguration() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) *DistributionConfigurationLaunchPermissionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchPermissionConfiguration
+	}).(DistributionConfigurationLaunchPermissionConfigurationPtrOutput)
+}
+
+// The name of the AMI distribution configuration.
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of accounts to which you want to distribute an image.
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) TargetAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetAccountIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
+type DistributionConfigurationContainerDistributionConfiguration struct {
+	// Tags that are attached to the container distribution configuration.
+	ContainerTags []string `pulumi:"containerTags"`
+	// The description of the container distribution configuration.
+	Description *string `pulumi:"description"`
+	// The destination repository for the container distribution configuration.
+	TargetRepository *DistributionConfigurationTargetContainerRepository `pulumi:"targetRepository"`
+}
+
+// DistributionConfigurationContainerDistributionConfigurationInput is an input type that accepts DistributionConfigurationContainerDistributionConfigurationArgs and DistributionConfigurationContainerDistributionConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationContainerDistributionConfigurationInput` via:
+//
+//          DistributionConfigurationContainerDistributionConfigurationArgs{...}
+type DistributionConfigurationContainerDistributionConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationContainerDistributionConfigurationOutput() DistributionConfigurationContainerDistributionConfigurationOutput
+	ToDistributionConfigurationContainerDistributionConfigurationOutputWithContext(context.Context) DistributionConfigurationContainerDistributionConfigurationOutput
+}
+
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
+type DistributionConfigurationContainerDistributionConfigurationArgs struct {
+	// Tags that are attached to the container distribution configuration.
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The description of the container distribution configuration.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The destination repository for the container distribution configuration.
+	TargetRepository DistributionConfigurationTargetContainerRepositoryPtrInput `pulumi:"targetRepository"`
+}
+
+func (DistributionConfigurationContainerDistributionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToDistributionConfigurationContainerDistributionConfigurationOutput() DistributionConfigurationContainerDistributionConfigurationOutput {
+	return i.ToDistributionConfigurationContainerDistributionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToDistributionConfigurationContainerDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationContainerDistributionConfigurationOutput)
+}
+
+func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToDistributionConfigurationContainerDistributionConfigurationPtrOutput() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationContainerDistributionConfigurationOutput).ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationContainerDistributionConfigurationPtrInput is an input type that accepts DistributionConfigurationContainerDistributionConfigurationArgs, DistributionConfigurationContainerDistributionConfigurationPtr and DistributionConfigurationContainerDistributionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationContainerDistributionConfigurationPtrInput` via:
+//
+//          DistributionConfigurationContainerDistributionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigurationContainerDistributionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationContainerDistributionConfigurationPtrOutput() DistributionConfigurationContainerDistributionConfigurationPtrOutput
+	ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(context.Context) DistributionConfigurationContainerDistributionConfigurationPtrOutput
+}
+
+type distributionConfigurationContainerDistributionConfigurationPtrType DistributionConfigurationContainerDistributionConfigurationArgs
+
+func DistributionConfigurationContainerDistributionConfigurationPtr(v *DistributionConfigurationContainerDistributionConfigurationArgs) DistributionConfigurationContainerDistributionConfigurationPtrInput {
+	return (*distributionConfigurationContainerDistributionConfigurationPtrType)(v)
+}
+
+func (*distributionConfigurationContainerDistributionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (i *distributionConfigurationContainerDistributionConfigurationPtrType) ToDistributionConfigurationContainerDistributionConfigurationPtrOutput() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationContainerDistributionConfigurationPtrType) ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationContainerDistributionConfigurationPtrOutput)
+}
+
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
+type DistributionConfigurationContainerDistributionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationContainerDistributionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) ToDistributionConfigurationContainerDistributionConfigurationOutput() DistributionConfigurationContainerDistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) ToDistributionConfigurationContainerDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) ToDistributionConfigurationContainerDistributionConfigurationPtrOutput() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return o.ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationContainerDistributionConfiguration) *DistributionConfigurationContainerDistributionConfiguration {
+		return &v
+	}).(DistributionConfigurationContainerDistributionConfigurationPtrOutput)
+}
+
+// Tags that are attached to the container distribution configuration.
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationContainerDistributionConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The description of the container distribution configuration.
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationContainerDistributionConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The destination repository for the container distribution configuration.
+func (o DistributionConfigurationContainerDistributionConfigurationOutput) TargetRepository() DistributionConfigurationTargetContainerRepositoryPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationContainerDistributionConfiguration) *DistributionConfigurationTargetContainerRepository {
+		return v.TargetRepository
+	}).(DistributionConfigurationTargetContainerRepositoryPtrOutput)
+}
+
+type DistributionConfigurationContainerDistributionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationContainerDistributionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) ToDistributionConfigurationContainerDistributionConfigurationPtrOutput() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) Elem() DistributionConfigurationContainerDistributionConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfigurationContainerDistributionConfiguration) DistributionConfigurationContainerDistributionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationContainerDistributionConfiguration
+		return ret
+	}).(DistributionConfigurationContainerDistributionConfigurationOutput)
+}
+
+// Tags that are attached to the container distribution configuration.
+func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationContainerDistributionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// The description of the container distribution configuration.
+func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationContainerDistributionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination repository for the container distribution configuration.
+func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) TargetRepository() DistributionConfigurationTargetContainerRepositoryPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationContainerDistributionConfiguration) *DistributionConfigurationTargetContainerRepository {
+		if v == nil {
+			return nil
+		}
+		return v.TargetRepository
+	}).(DistributionConfigurationTargetContainerRepositoryPtrOutput)
+}
+
 // The distributions of the distribution configuration.
 type DistributionConfigurationDistribution struct {
-	// The specific AMI settings (for example, launch permissions, AMI tags).
-	AmiDistributionConfiguration *DistributionConfigurationDistributionAmiDistributionConfigurationProperties `pulumi:"amiDistributionConfiguration"`
-	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-	ContainerDistributionConfiguration *DistributionConfigurationDistributionContainerDistributionConfigurationProperties `pulumi:"containerDistributionConfiguration"`
+	AmiDistributionConfiguration       *DistributionConfigurationAmiDistributionConfiguration       `pulumi:"amiDistributionConfiguration"`
+	ContainerDistributionConfiguration *DistributionConfigurationContainerDistributionConfiguration `pulumi:"containerDistributionConfiguration"`
 	// A group of launchTemplateConfiguration settings that apply to image distribution.
 	LaunchTemplateConfigurations []DistributionConfigurationLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// The License Manager Configuration to associate with the AMI in the specified Region.
@@ -863,10 +1274,8 @@ type DistributionConfigurationDistributionInput interface {
 
 // The distributions of the distribution configuration.
 type DistributionConfigurationDistributionArgs struct {
-	// The specific AMI settings (for example, launch permissions, AMI tags).
-	AmiDistributionConfiguration DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrInput `pulumi:"amiDistributionConfiguration"`
-	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-	ContainerDistributionConfiguration DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrInput `pulumi:"containerDistributionConfiguration"`
+	AmiDistributionConfiguration       DistributionConfigurationAmiDistributionConfigurationPtrInput       `pulumi:"amiDistributionConfiguration"`
+	ContainerDistributionConfiguration DistributionConfigurationContainerDistributionConfigurationPtrInput `pulumi:"containerDistributionConfiguration"`
 	// A group of launchTemplateConfiguration settings that apply to image distribution.
 	LaunchTemplateConfigurations DistributionConfigurationLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// The License Manager Configuration to associate with the AMI in the specified Region.
@@ -927,18 +1336,16 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 	return o
 }
 
-// The specific AMI settings (for example, launch permissions, AMI tags).
-func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionAmiDistributionConfigurationProperties {
+func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationAmiDistributionConfiguration {
 		return v.AmiDistributionConfiguration
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput)
+	}).(DistributionConfigurationAmiDistributionConfigurationPtrOutput)
 }
 
-// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionContainerDistributionConfigurationProperties {
+func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationContainerDistributionConfiguration {
 		return v.ContainerDistributionConfiguration
-	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput)
+	}).(DistributionConfigurationContainerDistributionConfigurationPtrOutput)
 }
 
 // A group of launchTemplateConfiguration settings that apply to image distribution.
@@ -978,255 +1385,8 @@ func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInpu
 	}).(DistributionConfigurationDistributionOutput)
 }
 
-// The specific AMI settings (for example, launch permissions, AMI tags).
-type DistributionConfigurationDistributionAmiDistributionConfigurationProperties struct {
-	// The tags to apply to AMIs distributed to this Region.
-	AmiTags interface{} `pulumi:"amiTags"`
-	// The description of the AMI distribution configuration.
-	Description *string `pulumi:"description"`
-	// The KMS key identifier used to encrypt the distributed image.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-	LaunchPermissionConfiguration *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties `pulumi:"launchPermissionConfiguration"`
-	// The name of the AMI distribution configuration.
-	Name *string `pulumi:"name"`
-	// The ID of accounts to which you want to distribute an image.
-	TargetAccountIds []string `pulumi:"targetAccountIds"`
-}
-
-// DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs and DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesInput` via:
-//
-//          DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs{...}
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesInput interface {
-	pulumi.Input
-
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutputWithContext(context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput
-}
-
-// The specific AMI settings (for example, launch permissions, AMI tags).
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs struct {
-	// The tags to apply to AMIs distributed to this Region.
-	AmiTags pulumi.Input `pulumi:"amiTags"`
-	// The description of the AMI distribution configuration.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The KMS key identifier used to encrypt the distributed image.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-	LaunchPermissionConfiguration DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrInput `pulumi:"launchPermissionConfiguration"`
-	// The name of the AMI distribution configuration.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The ID of accounts to which you want to distribute an image.
-	TargetAccountIds pulumi.StringArrayInput `pulumi:"targetAccountIds"`
-}
-
-func (DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput {
-	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutputWithContext(context.Background())
-}
-
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput)
-}
-
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput).ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs, DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtr and DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrInput` via:
-//
-//          DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput
-}
-
-type distributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrType DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs
-
-func DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtr(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrInput {
-	return (*distributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrType)(v)
-}
-
-func (*distributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionConfigurationDistributionAmiDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (i *distributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrType) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrType) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput)
-}
-
-// The specific AMI settings (for example, launch permissions, AMI tags).
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return o.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *DistributionConfigurationDistributionAmiDistributionConfigurationProperties {
-		return &v
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput)
-}
-
-// The tags to apply to AMIs distributed to this Region.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) AmiTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) interface{} {
-		return v.AmiTags
-	}).(pulumi.AnyOutput)
-}
-
-// The description of the AMI distribution configuration.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *string {
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The KMS key identifier used to encrypt the distributed image.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *string {
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) LaunchPermissionConfiguration() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
-		return v.LaunchPermissionConfiguration
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput)
-}
-
-// The name of the AMI distribution configuration.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of accounts to which you want to distribute an image.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput) TargetAccountIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationProperties) []string {
-		return v.TargetAccountIds
-	}).(pulumi.StringArrayOutput)
-}
-
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionConfigurationDistributionAmiDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) Elem() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) DistributionConfigurationDistributionAmiDistributionConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionConfigurationDistributionAmiDistributionConfigurationProperties
-		return ret
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput)
-}
-
-// The tags to apply to AMIs distributed to this Region.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) AmiTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.AmiTags
-	}).(pulumi.AnyOutput)
-}
-
-// The description of the AMI distribution configuration.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The KMS key identifier used to encrypt the distributed image.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) LaunchPermissionConfiguration() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchPermissionConfiguration
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput)
-}
-
-// The name of the AMI distribution configuration.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of accounts to which you want to distribute an image.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput) TargetAccountIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetAccountIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties struct {
+type DistributionConfigurationLaunchPermissionConfiguration struct {
 	// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
 	OrganizationArns []string `pulumi:"organizationArns"`
 	// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
@@ -1237,19 +1397,19 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationProperties
 	UserIds []string `pulumi:"userIds"`
 }
 
-// DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs and DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesInput` via:
+// DistributionConfigurationLaunchPermissionConfigurationInput is an input type that accepts DistributionConfigurationLaunchPermissionConfigurationArgs and DistributionConfigurationLaunchPermissionConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationLaunchPermissionConfigurationInput` via:
 //
-//          DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs{...}
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesInput interface {
+//          DistributionConfigurationLaunchPermissionConfigurationArgs{...}
+type DistributionConfigurationLaunchPermissionConfigurationInput interface {
 	pulumi.Input
 
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutputWithContext(context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput
+	ToDistributionConfigurationLaunchPermissionConfigurationOutput() DistributionConfigurationLaunchPermissionConfigurationOutput
+	ToDistributionConfigurationLaunchPermissionConfigurationOutputWithContext(context.Context) DistributionConfigurationLaunchPermissionConfigurationOutput
 }
 
 // Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs struct {
+type DistributionConfigurationLaunchPermissionConfigurationArgs struct {
 	// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
 	OrganizationArns pulumi.StringArrayInput `pulumi:"organizationArns"`
 	// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
@@ -1260,139 +1420,133 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationProperties
 	UserIds pulumi.StringArrayInput `pulumi:"userIds"`
 }
 
-func (DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties)(nil)).Elem()
+func (DistributionConfigurationLaunchPermissionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationLaunchPermissionConfiguration)(nil)).Elem()
 }
 
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput {
-	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutputWithContext(context.Background())
+func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToDistributionConfigurationLaunchPermissionConfigurationOutput() DistributionConfigurationLaunchPermissionConfigurationOutput {
+	return i.ToDistributionConfigurationLaunchPermissionConfigurationOutputWithContext(context.Background())
 }
 
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput)
+func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToDistributionConfigurationLaunchPermissionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchPermissionConfigurationOutput)
 }
 
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutput() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput).ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(ctx)
+func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchPermissionConfigurationOutput).ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx)
 }
 
-// DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs, DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtr and DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrInput` via:
+// DistributionConfigurationLaunchPermissionConfigurationPtrInput is an input type that accepts DistributionConfigurationLaunchPermissionConfigurationArgs, DistributionConfigurationLaunchPermissionConfigurationPtr and DistributionConfigurationLaunchPermissionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationLaunchPermissionConfigurationPtrInput` via:
 //
-//          DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs{...}
+//          DistributionConfigurationLaunchPermissionConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrInput interface {
+type DistributionConfigurationLaunchPermissionConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput
-	ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput
+	ToDistributionConfigurationLaunchPermissionConfigurationPtrOutput() DistributionConfigurationLaunchPermissionConfigurationPtrOutput
+	ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(context.Context) DistributionConfigurationLaunchPermissionConfigurationPtrOutput
 }
 
-type distributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrType DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs
+type distributionConfigurationLaunchPermissionConfigurationPtrType DistributionConfigurationLaunchPermissionConfigurationArgs
 
-func DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtr(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrInput {
-	return (*distributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrType)(v)
+func DistributionConfigurationLaunchPermissionConfigurationPtr(v *DistributionConfigurationLaunchPermissionConfigurationArgs) DistributionConfigurationLaunchPermissionConfigurationPtrInput {
+	return (*distributionConfigurationLaunchPermissionConfigurationPtrType)(v)
 }
 
-func (*distributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties)(nil)).Elem()
+func (*distributionConfigurationLaunchPermissionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationLaunchPermissionConfiguration)(nil)).Elem()
 }
 
-func (i *distributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrType) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (i *distributionConfigurationLaunchPermissionConfigurationPtrType) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutput() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *distributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrType) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput)
+func (i *distributionConfigurationLaunchPermissionConfigurationPtrType) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchPermissionConfigurationPtrOutput)
 }
 
 // Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type DistributionConfigurationLaunchPermissionConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties)(nil)).Elem()
+func (DistributionConfigurationLaunchPermissionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationLaunchPermissionConfiguration)(nil)).Elem()
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput {
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) ToDistributionConfigurationLaunchPermissionConfigurationOutput() DistributionConfigurationLaunchPermissionConfigurationOutput {
 	return o
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput {
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) ToDistributionConfigurationLaunchPermissionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationOutput {
 	return o
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return o.ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutput() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return o.ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationLaunchPermissionConfiguration) *DistributionConfigurationLaunchPermissionConfiguration {
 		return &v
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput)
+	}).(DistributionConfigurationLaunchPermissionConfigurationPtrOutput)
 }
 
 // The ARN for an Amazon Web Services Organization that you want to share your AMI with.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) OrganizationArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
-		return v.OrganizationArns
-	}).(pulumi.StringArrayOutput)
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchPermissionConfiguration) []string { return v.OrganizationArns }).(pulumi.StringArrayOutput)
 }
 
 // The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchPermissionConfiguration) []string {
 		return v.OrganizationalUnitArns
 	}).(pulumi.StringArrayOutput)
 }
 
 // The name of the group.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) UserGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
-		return v.UserGroups
-	}).(pulumi.StringArrayOutput)
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) UserGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchPermissionConfiguration) []string { return v.UserGroups }).(pulumi.StringArrayOutput)
 }
 
 // The AWS account ID.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) UserIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
-		return v.UserIds
-	}).(pulumi.StringArrayOutput)
+func (o DistributionConfigurationLaunchPermissionConfigurationOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchPermissionConfiguration) []string { return v.UserIds }).(pulumi.StringArrayOutput)
 }
 
-type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type DistributionConfigurationLaunchPermissionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties)(nil)).Elem()
+func (DistributionConfigurationLaunchPermissionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationLaunchPermissionConfiguration)(nil)).Elem()
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutput() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
 	return o
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
 	return o
 }
 
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) Elem() DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) Elem() DistributionConfigurationLaunchPermissionConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfigurationLaunchPermissionConfiguration) DistributionConfigurationLaunchPermissionConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties
+		var ret DistributionConfigurationLaunchPermissionConfiguration
 		return ret
-	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput)
+	}).(DistributionConfigurationLaunchPermissionConfigurationOutput)
 }
 
 // The ARN for an Amazon Web Services Organization that you want to share your AMI with.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) OrganizationArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationLaunchPermissionConfiguration) []string {
 		if v == nil {
 			return nil
 		}
@@ -1401,8 +1555,8 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropert
 }
 
 // The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationLaunchPermissionConfiguration) []string {
 		if v == nil {
 			return nil
 		}
@@ -1411,8 +1565,8 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropert
 }
 
 // The name of the group.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) UserGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) UserGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationLaunchPermissionConfiguration) []string {
 		if v == nil {
 			return nil
 		}
@@ -1421,197 +1575,13 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropert
 }
 
 // The AWS account ID.
-func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) UserIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationLaunchPermissionConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.UserIds
 	}).(pulumi.StringArrayOutput)
-}
-
-// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-type DistributionConfigurationDistributionContainerDistributionConfigurationProperties struct {
-	// Tags that are attached to the container distribution configuration.
-	ContainerTags []string `pulumi:"containerTags"`
-	// The description of the container distribution configuration.
-	Description *string `pulumi:"description"`
-	// The destination repository for the container distribution configuration.
-	TargetRepository *DistributionConfigurationTargetContainerRepository `pulumi:"targetRepository"`
-}
-
-// DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs and DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesInput` via:
-//
-//          DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs{...}
-type DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesInput interface {
-	pulumi.Input
-
-	ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput
-	ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutputWithContext(context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput
-}
-
-// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-type DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs struct {
-	// Tags that are attached to the container distribution configuration.
-	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
-	// The description of the container distribution configuration.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The destination repository for the container distribution configuration.
-	TargetRepository DistributionConfigurationTargetContainerRepositoryPtrInput `pulumi:"targetRepository"`
-}
-
-func (DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (i DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput {
-	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutputWithContext(context.Background())
-}
-
-func (i DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput)
-}
-
-func (i DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput).ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs, DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtr and DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrInput` via:
-//
-//          DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput
-	ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput
-}
-
-type distributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrType DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs
-
-func DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtr(v *DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrInput {
-	return (*distributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrType)(v)
-}
-
-func (*distributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionConfigurationDistributionContainerDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (i *distributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrType) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrType) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput)
-}
-
-// Container distribution settings for encryption, licensing, and sharing in a specific Region.
-type DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return o.ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionContainerDistributionConfigurationProperties) *DistributionConfigurationDistributionContainerDistributionConfigurationProperties {
-		return &v
-	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput)
-}
-
-// Tags that are attached to the container distribution configuration.
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) ContainerTags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationProperties) []string {
-		return v.ContainerTags
-	}).(pulumi.StringArrayOutput)
-}
-
-// The description of the container distribution configuration.
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationProperties) *string {
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The destination repository for the container distribution configuration.
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput) TargetRepository() DistributionConfigurationTargetContainerRepositoryPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationProperties) *DistributionConfigurationTargetContainerRepository {
-		return v.TargetRepository
-	}).(DistributionConfigurationTargetContainerRepositoryPtrOutput)
-}
-
-type DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionConfigurationDistributionContainerDistributionConfigurationProperties)(nil)).Elem()
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) Elem() DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationProperties) DistributionConfigurationDistributionContainerDistributionConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionConfigurationDistributionContainerDistributionConfigurationProperties
-		return ret
-	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput)
-}
-
-// Tags that are attached to the container distribution configuration.
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) ContainerTags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerTags
-	}).(pulumi.StringArrayOutput)
-}
-
-// The description of the container distribution configuration.
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The destination repository for the container distribution configuration.
-func (o DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput) TargetRepository() DistributionConfigurationTargetContainerRepositoryPtrOutput {
-	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationProperties) *DistributionConfigurationTargetContainerRepository {
-		if v == nil {
-			return nil
-		}
-		return v.TargetRepository
-	}).(DistributionConfigurationTargetContainerRepositoryPtrOutput)
 }
 
 // launchTemplateConfiguration settings that apply to image distribution.
@@ -3762,14 +3732,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationPtrInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeTargetContainerRepositoryInput)(nil)).Elem(), ContainerRecipeTargetContainerRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeTargetContainerRepositoryPtrInput)(nil)).Elem(), ContainerRecipeTargetContainerRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationAmiDistributionConfigurationInput)(nil)).Elem(), DistributionConfigurationAmiDistributionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationAmiDistributionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationAmiDistributionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationContainerDistributionConfigurationInput)(nil)).Elem(), DistributionConfigurationContainerDistributionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationContainerDistributionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationContainerDistributionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionInput)(nil)).Elem(), DistributionConfigurationDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionArrayInput)(nil)).Elem(), DistributionConfigurationDistributionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchPermissionConfigurationInput)(nil)).Elem(), DistributionConfigurationLaunchPermissionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchPermissionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationLaunchPermissionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfigurationInput)(nil)).Elem(), DistributionConfigurationLaunchTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationLaunchTemplateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
@@ -3808,14 +3778,14 @@ func init() {
 	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationAmiDistributionConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationAmiDistributionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationContainerDistributionConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationContainerDistributionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionArrayOutput{})
-	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationLaunchPermissionConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationLaunchPermissionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryOutput{})

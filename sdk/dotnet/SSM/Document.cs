@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.SSM
         public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
+        /// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+        /// </summary>
+        [Output("updateMethod")]
+        public Output<Pulumi.AwsNative.SSM.DocumentUpdateMethod?> UpdateMethod { get; private set; } = null!;
+
+        /// <summary>
         /// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         /// </summary>
         [Output("versionName")]
@@ -179,6 +185,12 @@ namespace Pulumi.AwsNative.SSM
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
+
+        /// <summary>
+        /// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+        /// </summary>
+        [Input("updateMethod")]
+        public Input<Pulumi.AwsNative.SSM.DocumentUpdateMethod>? UpdateMethod { get; set; }
 
         /// <summary>
         /// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.

@@ -26,8 +26,22 @@ type LookupDocumentArgs struct {
 }
 
 type LookupDocumentResult struct {
+	// A list of key and value pairs that describe attachments to a version of a document.
+	Attachments []DocumentAttachmentsSource `pulumi:"attachments"`
+	// The content for the Systems Manager document in JSON, YAML or String format.
+	Content interface{} `pulumi:"content"`
+	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+	DocumentFormat *DocumentFormat `pulumi:"documentFormat"`
+	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+	Requires []DocumentRequires `pulumi:"requires"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
 	Tags []DocumentTag `pulumi:"tags"`
+	// Specify a target type to define the kinds of resources the document can run on.
+	TargetType *string `pulumi:"targetType"`
+	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+	UpdateMethod *DocumentUpdateMethod `pulumi:"updateMethod"`
+	// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
+	VersionName *string `pulumi:"versionName"`
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
@@ -66,9 +80,44 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx 
 	return o
 }
 
+// A list of key and value pairs that describe attachments to a version of a document.
+func (o LookupDocumentResultOutput) Attachments() DocumentAttachmentsSourceArrayOutput {
+	return o.ApplyT(func(v LookupDocumentResult) []DocumentAttachmentsSource { return v.Attachments }).(DocumentAttachmentsSourceArrayOutput)
+}
+
+// The content for the Systems Manager document in JSON, YAML or String format.
+func (o LookupDocumentResultOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDocumentResult) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
+// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+func (o LookupDocumentResultOutput) DocumentFormat() DocumentFormatPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *DocumentFormat { return v.DocumentFormat }).(DocumentFormatPtrOutput)
+}
+
+// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+func (o LookupDocumentResultOutput) Requires() DocumentRequiresArrayOutput {
+	return o.ApplyT(func(v LookupDocumentResult) []DocumentRequires { return v.Requires }).(DocumentRequiresArrayOutput)
+}
+
 // Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
 func (o LookupDocumentResultOutput) Tags() DocumentTagArrayOutput {
 	return o.ApplyT(func(v LookupDocumentResult) []DocumentTag { return v.Tags }).(DocumentTagArrayOutput)
+}
+
+// Specify a target type to define the kinds of resources the document can run on.
+func (o LookupDocumentResultOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *string { return v.TargetType }).(pulumi.StringPtrOutput)
+}
+
+// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+func (o LookupDocumentResultOutput) UpdateMethod() DocumentUpdateMethodPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *DocumentUpdateMethod { return v.UpdateMethod }).(DocumentUpdateMethodPtrOutput)
+}
+
+// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
+func (o LookupDocumentResultOutput) VersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentResult) *string { return v.VersionName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

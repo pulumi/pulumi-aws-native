@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.AppRunner
         public readonly Outputs.ServiceHealthCheckConfiguration? HealthCheckConfiguration;
         public readonly Outputs.ServiceInstanceConfiguration? InstanceConfiguration;
         public readonly Outputs.ServiceNetworkConfiguration? NetworkConfiguration;
+        public readonly Outputs.ServiceObservabilityConfiguration? ObservabilityConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppRunner Service.
         /// </summary>
@@ -84,6 +85,8 @@ namespace Pulumi.AwsNative.AppRunner
 
             Outputs.ServiceNetworkConfiguration? networkConfiguration,
 
+            Outputs.ServiceObservabilityConfiguration? observabilityConfiguration,
+
             string? serviceArn,
 
             string? serviceId,
@@ -97,6 +100,7 @@ namespace Pulumi.AwsNative.AppRunner
             HealthCheckConfiguration = healthCheckConfiguration;
             InstanceConfiguration = instanceConfiguration;
             NetworkConfiguration = networkConfiguration;
+            ObservabilityConfiguration = observabilityConfiguration;
             ServiceArn = serviceArn;
             ServiceId = serviceId;
             ServiceUrl = serviceUrl;

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Outputs.UrlCors?> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
         /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
     /// </summary>
     [OutputType]
-    public sealed class DistributionConfigurationDistributionContainerDistributionConfigurationProperties
+    public sealed class DistributionConfigurationContainerDistributionConfiguration
     {
         /// <summary>
         /// Tags that are attached to the container distribution configuration.
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         public readonly Outputs.DistributionConfigurationTargetContainerRepository? TargetRepository;
 
         [OutputConstructor]
-        private DistributionConfigurationDistributionContainerDistributionConfigurationProperties(
+        private DistributionConfigurationContainerDistributionConfiguration(
             ImmutableArray<string> containerTags,
 
             string? description,

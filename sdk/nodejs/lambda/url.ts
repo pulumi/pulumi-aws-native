@@ -41,7 +41,7 @@ export class Url extends pulumi.CustomResource {
     public readonly authType!: pulumi.Output<enums.lambda.UrlAuthType>;
     public readonly cors!: pulumi.Output<outputs.lambda.UrlCors | undefined>;
     /**
-     * The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+     * The full Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**

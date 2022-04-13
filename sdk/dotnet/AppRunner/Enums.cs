@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.AppRunner
 {
     /// <summary>
+    /// The implementation provider chosen for tracing App Runner services.
+    /// </summary>
+    [EnumType]
+    public readonly struct ObservabilityConfigurationTraceConfigurationVendor : IEquatable<ObservabilityConfigurationTraceConfigurationVendor>
+    {
+        private readonly string _value;
+
+        private ObservabilityConfigurationTraceConfigurationVendor(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ObservabilityConfigurationTraceConfigurationVendor Awsxray { get; } = new ObservabilityConfigurationTraceConfigurationVendor("AWSXRAY");
+
+        public static bool operator ==(ObservabilityConfigurationTraceConfigurationVendor left, ObservabilityConfigurationTraceConfigurationVendor right) => left.Equals(right);
+        public static bool operator !=(ObservabilityConfigurationTraceConfigurationVendor left, ObservabilityConfigurationTraceConfigurationVendor right) => !left.Equals(right);
+
+        public static explicit operator string(ObservabilityConfigurationTraceConfigurationVendor value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ObservabilityConfigurationTraceConfigurationVendor other && Equals(other);
+        public bool Equals(ObservabilityConfigurationTraceConfigurationVendor other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Configuration Source
     /// </summary>
     [EnumType]

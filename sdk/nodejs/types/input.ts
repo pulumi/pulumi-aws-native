@@ -3689,6 +3689,21 @@ export namespace appmesh {
 }
 
 export namespace apprunner {
+    export interface ObservabilityConfigurationTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
+     */
+    export interface ObservabilityConfigurationTraceConfigurationArgs {
+        /**
+         * The implementation provider chosen for tracing App Runner services.
+         */
+        vendor: pulumi.Input<enums.apprunner.ObservabilityConfigurationTraceConfigurationVendor>;
+    }
+
     /**
      * Authentication Configuration
      */
@@ -3861,6 +3876,20 @@ export namespace apprunner {
      */
     export interface ServiceNetworkConfigurationArgs {
         egressConfiguration: pulumi.Input<inputs.apprunner.ServiceEgressConfigurationArgs>;
+    }
+
+    /**
+     * Service observability configuration
+     */
+    export interface ServiceObservabilityConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
+         */
+        observabilityConfigurationArn?: pulumi.Input<string>;
+        /**
+         * Observability enabled
+         */
+        observabilityEnabled: pulumi.Input<boolean>;
     }
 
     /**
@@ -4867,7 +4896,6 @@ export namespace batch {
          */
         tags?: any;
         type: pulumi.Input<string>;
-        updateToLatestImageVersion?: pulumi.Input<boolean>;
     }
 
     export interface ComputeEnvironmentEc2ConfigurationObjectArgs {
@@ -4879,11 +4907,6 @@ export namespace batch {
         launchTemplateId?: pulumi.Input<string>;
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
-    }
-
-    export interface ComputeEnvironmentUpdatePolicyArgs {
-        jobExecutionTimeoutMinutes?: pulumi.Input<number>;
-        terminateJobsOnUpdate?: pulumi.Input<boolean>;
     }
 
     export interface JobDefinitionAuthorizationConfigArgs {
@@ -5042,7 +5065,6 @@ export namespace batch {
         shareIdentifier?: pulumi.Input<string>;
         weightFactor?: pulumi.Input<number>;
     }
-
 }
 
 export namespace billingconductor {
@@ -5213,6 +5235,34 @@ export namespace cassandra {
 }
 
 export namespace ce {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AnomalyMonitorResourceTagArgs {
+        /**
+         * The key name for the tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AnomalySubscriptionResourceTagArgs {
+        /**
+         * The key name for the tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface AnomalySubscriptionSubscriberArgs {
         address: pulumi.Input<string>;
         status?: pulumi.Input<enums.ce.AnomalySubscriptionSubscriberStatus>;
@@ -14368,17 +14418,56 @@ export namespace imagebuilder {
     }
 
     /**
+     * The specific AMI settings (for example, launch permissions, AMI tags).
+     */
+    export interface DistributionConfigurationAmiDistributionConfigurationArgs {
+        /**
+         * The tags to apply to AMIs distributed to this Region.
+         */
+        amiTags?: any;
+        /**
+         * The description of the AMI distribution configuration.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The KMS key identifier used to encrypt the distributed image.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        launchPermissionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationLaunchPermissionConfigurationArgs>;
+        /**
+         * The name of the AMI distribution configuration.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The ID of accounts to which you want to distribute an image.
+         */
+        targetAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Container distribution settings for encryption, licensing, and sharing in a specific Region.
+     */
+    export interface DistributionConfigurationContainerDistributionConfigurationArgs {
+        /**
+         * Tags that are attached to the container distribution configuration.
+         */
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The description of the container distribution configuration.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The destination repository for the container distribution configuration.
+         */
+        targetRepository?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationTargetContainerRepositoryArgs>;
+    }
+
+    /**
      * The distributions of the distribution configuration.
      */
     export interface DistributionConfigurationDistributionArgs {
-        /**
-         * The specific AMI settings (for example, launch permissions, AMI tags).
-         */
-        amiDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs>;
-        /**
-         * Container distribution settings for encryption, licensing, and sharing in a specific Region.
-         */
-        containerDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs>;
+        amiDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationAmiDistributionConfigurationArgs>;
+        containerDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationContainerDistributionConfigurationArgs>;
         /**
          * A group of launchTemplateConfiguration settings that apply to image distribution.
          */
@@ -14394,39 +14483,9 @@ export namespace imagebuilder {
     }
 
     /**
-     * The specific AMI settings (for example, launch permissions, AMI tags).
-     */
-    export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs {
-        /**
-         * The tags to apply to AMIs distributed to this Region.
-         */
-        amiTags?: any;
-        /**
-         * The description of the AMI distribution configuration.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The KMS key identifier used to encrypt the distributed image.
-         */
-        kmsKeyId?: pulumi.Input<string>;
-        /**
-         * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-         */
-        launchPermissionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs>;
-        /**
-         * The name of the AMI distribution configuration.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The ID of accounts to which you want to distribute an image.
-         */
-        targetAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
      * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
      */
-    export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs {
+    export interface DistributionConfigurationLaunchPermissionConfigurationArgs {
         /**
          * The ARN for an Amazon Web Services Organization that you want to share your AMI with.
          */
@@ -14443,24 +14502,6 @@ export namespace imagebuilder {
          * The AWS account ID.
          */
         userIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Container distribution settings for encryption, licensing, and sharing in a specific Region.
-     */
-    export interface DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs {
-        /**
-         * Tags that are attached to the container distribution configuration.
-         */
-        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The description of the container distribution configuration.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The destination repository for the container distribution configuration.
-         */
-        targetRepository?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationTargetContainerRepositoryArgs>;
     }
 
     /**

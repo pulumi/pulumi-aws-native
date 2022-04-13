@@ -86,9 +86,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("updateToLatestImageVersion")]
-        public Input<bool>? UpdateToLatestImageVersion { get; set; }
-
         public ComputeEnvironmentComputeResourcesArgs()
         {
         }

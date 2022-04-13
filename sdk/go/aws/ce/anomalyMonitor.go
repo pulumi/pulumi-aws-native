@@ -32,6 +32,8 @@ type AnomalyMonitor struct {
 	MonitorName          pulumi.StringOutput             `pulumi:"monitorName"`
 	MonitorSpecification pulumi.StringPtrOutput          `pulumi:"monitorSpecification"`
 	MonitorType          AnomalyMonitorMonitorTypeOutput `pulumi:"monitorType"`
+	// Tags to assign to monitor.
+	ResourceTags AnomalyMonitorResourceTagArrayOutput `pulumi:"resourceTags"`
 }
 
 // NewAnomalyMonitor registers a new resource with the given unique name, arguments, and options.
@@ -85,6 +87,8 @@ type anomalyMonitorArgs struct {
 	MonitorName          string                    `pulumi:"monitorName"`
 	MonitorSpecification *string                   `pulumi:"monitorSpecification"`
 	MonitorType          AnomalyMonitorMonitorType `pulumi:"monitorType"`
+	// Tags to assign to monitor.
+	ResourceTags []AnomalyMonitorResourceTag `pulumi:"resourceTags"`
 }
 
 // The set of arguments for constructing a AnomalyMonitor resource.
@@ -95,6 +99,8 @@ type AnomalyMonitorArgs struct {
 	MonitorName          pulumi.StringInput
 	MonitorSpecification pulumi.StringPtrInput
 	MonitorType          AnomalyMonitorMonitorTypeInput
+	// Tags to assign to monitor.
+	ResourceTags AnomalyMonitorResourceTagArrayInput
 }
 
 func (AnomalyMonitorArgs) ElementType() reflect.Type {

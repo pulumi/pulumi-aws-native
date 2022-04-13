@@ -50,7 +50,7 @@ class GetUrlResult:
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
         """
-        The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+        The full Amazon Resource Name (ARN) of the function associated with the Function URL.
         """
         return pulumi.get(self, "function_arn")
 
@@ -81,7 +81,7 @@ def get_url(function_arn: Optional[str] = None,
     Resource Type definition for AWS::Lambda::Url
 
 
-    :param str function_arn: The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+    :param str function_arn: The full Amazon Resource Name (ARN) of the function associated with the Function URL.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
@@ -105,6 +105,6 @@ def get_url_output(function_arn: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::Lambda::Url
 
 
-    :param str function_arn: The fully qualified Amazon Resource Name (ARN) of the function associated with the Function URL.
+    :param str function_arn: The full Amazon Resource Name (ARN) of the function associated with the Function URL.
     """
     ...

@@ -30,6 +30,7 @@ export interface GetServiceResult {
     readonly healthCheckConfiguration?: outputs.apprunner.ServiceHealthCheckConfiguration;
     readonly instanceConfiguration?: outputs.apprunner.ServiceInstanceConfiguration;
     readonly networkConfiguration?: outputs.apprunner.ServiceNetworkConfiguration;
+    readonly observabilityConfiguration?: outputs.apprunner.ServiceObservabilityConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
      */

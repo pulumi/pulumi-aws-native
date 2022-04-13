@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
     /// </summary>
-    public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationLaunchPermissionConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("organizationArns")]
         private InputList<string>? _organizationArns;
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
             set => _userIds = value;
         }
 
-        public DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs()
+        public DistributionConfigurationLaunchPermissionConfigurationArgs()
         {
         }
     }

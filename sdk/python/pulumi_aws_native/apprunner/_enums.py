@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ObservabilityConfigurationTraceConfigurationVendor',
     'ServiceCodeConfigurationConfigurationSource',
     'ServiceCodeConfigurationValuesRuntime',
     'ServiceEgressConfigurationEgressType',
@@ -12,6 +13,13 @@ __all__ = [
     'ServiceImageRepositoryImageRepositoryType',
     'ServiceSourceCodeVersionType',
 ]
+
+
+class ObservabilityConfigurationTraceConfigurationVendor(str, Enum):
+    """
+    The implementation provider chosen for tracing App Runner services.
+    """
+    AWSXRAY = "AWSXRAY"
 
 
 class ServiceCodeConfigurationConfigurationSource(str, Enum):

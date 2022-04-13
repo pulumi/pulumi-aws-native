@@ -38,7 +38,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     public /*out*/ readonly computeEnvironmentArn!: pulumi.Output<string>;
     public readonly computeEnvironmentName!: pulumi.Output<string | undefined>;
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
-    public readonly replaceComputeEnvironment!: pulumi.Output<boolean | undefined>;
     public readonly serviceRole!: pulumi.Output<string | undefined>;
     public readonly state!: pulumi.Output<string | undefined>;
     /**
@@ -47,7 +46,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly unmanagedvCpus!: pulumi.Output<number | undefined>;
-    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -65,25 +63,21 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             }
             resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
             resourceInputs["computeResources"] = args ? args.computeResources : undefined;
-            resourceInputs["replaceComputeEnvironment"] = args ? args.replaceComputeEnvironment : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
-            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
             resourceInputs["computeEnvironmentName"] = undefined /*out*/;
             resourceInputs["computeResources"] = undefined /*out*/;
-            resourceInputs["replaceComputeEnvironment"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["unmanagedvCpus"] = undefined /*out*/;
-            resourceInputs["updatePolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
@@ -96,7 +90,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
 export interface ComputeEnvironmentArgs {
     computeEnvironmentName?: pulumi.Input<string>;
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesArgs>;
-    replaceComputeEnvironment?: pulumi.Input<boolean>;
     serviceRole?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
     /**
@@ -105,5 +98,4 @@ export interface ComputeEnvironmentArgs {
     tags?: any;
     type: pulumi.Input<string>;
     unmanagedvCpus?: pulumi.Input<number>;
-    updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicyArgs>;
 }

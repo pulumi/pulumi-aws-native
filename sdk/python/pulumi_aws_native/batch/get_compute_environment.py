@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComputeEnvironmentResult:
-    def __init__(__self__, compute_environment_arn=None, compute_resources=None, service_role=None, state=None, unmanagedv_cpus=None, update_policy=None):
+    def __init__(__self__, compute_environment_arn=None, compute_resources=None, service_role=None, state=None, unmanagedv_cpus=None):
         if compute_environment_arn and not isinstance(compute_environment_arn, str):
             raise TypeError("Expected argument 'compute_environment_arn' to be a str")
         pulumi.set(__self__, "compute_environment_arn", compute_environment_arn)
@@ -34,9 +34,6 @@ class GetComputeEnvironmentResult:
         if unmanagedv_cpus and not isinstance(unmanagedv_cpus, int):
             raise TypeError("Expected argument 'unmanagedv_cpus' to be a int")
         pulumi.set(__self__, "unmanagedv_cpus", unmanagedv_cpus)
-        if update_policy and not isinstance(update_policy, dict):
-            raise TypeError("Expected argument 'update_policy' to be a dict")
-        pulumi.set(__self__, "update_policy", update_policy)
 
     @property
     @pulumi.getter(name="computeEnvironmentArn")
@@ -63,11 +60,6 @@ class GetComputeEnvironmentResult:
     def unmanagedv_cpus(self) -> Optional[int]:
         return pulumi.get(self, "unmanagedv_cpus")
 
-    @property
-    @pulumi.getter(name="updatePolicy")
-    def update_policy(self) -> Optional['outputs.ComputeEnvironmentUpdatePolicy']:
-        return pulumi.get(self, "update_policy")
-
 
 class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
     # pylint: disable=using-constant-test
@@ -79,8 +71,7 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             compute_resources=self.compute_resources,
             service_role=self.service_role,
             state=self.state,
-            unmanagedv_cpus=self.unmanagedv_cpus,
-            update_policy=self.update_policy)
+            unmanagedv_cpus=self.unmanagedv_cpus)
 
 
 def get_compute_environment(compute_environment_arn: Optional[str] = None,
@@ -101,8 +92,7 @@ def get_compute_environment(compute_environment_arn: Optional[str] = None,
         compute_resources=__ret__.compute_resources,
         service_role=__ret__.service_role,
         state=__ret__.state,
-        unmanagedv_cpus=__ret__.unmanagedv_cpus,
-        update_policy=__ret__.update_policy)
+        unmanagedv_cpus=__ret__.unmanagedv_cpus)
 
 
 @_utilities.lift_output_func(get_compute_environment)

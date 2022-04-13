@@ -35,6 +35,12 @@ namespace Pulumi.AwsNative.CE
         public Output<ImmutableArray<string>> MonitorArnList { get; private set; } = null!;
 
         /// <summary>
+        /// Tags to assign to subscription.
+        /// </summary>
+        [Output("resourceTags")]
+        public Output<ImmutableArray<Outputs.AnomalySubscriptionResourceTag>> ResourceTags { get; private set; } = null!;
+
+        /// <summary>
         /// A list of subscriber
         /// </summary>
         [Output("subscribers")]
@@ -116,6 +122,18 @@ namespace Pulumi.AwsNative.CE
         {
             get => _monitorArnList ?? (_monitorArnList = new InputList<string>());
             set => _monitorArnList = value;
+        }
+
+        [Input("resourceTags")]
+        private InputList<Inputs.AnomalySubscriptionResourceTagArgs>? _resourceTags;
+
+        /// <summary>
+        /// Tags to assign to subscription.
+        /// </summary>
+        public InputList<Inputs.AnomalySubscriptionResourceTagArgs> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputList<Inputs.AnomalySubscriptionResourceTagArgs>());
+            set => _resourceTags = value;
         }
 
         [Input("subscribers", required: true)]

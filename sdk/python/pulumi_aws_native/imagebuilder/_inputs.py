@@ -15,10 +15,10 @@ __all__ = [
     'ContainerRecipeInstanceBlockDeviceMappingArgs',
     'ContainerRecipeInstanceConfigurationArgs',
     'ContainerRecipeTargetContainerRepositoryArgs',
-    'DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs',
-    'DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs',
-    'DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs',
+    'DistributionConfigurationAmiDistributionConfigurationArgs',
+    'DistributionConfigurationContainerDistributionConfigurationArgs',
     'DistributionConfigurationDistributionArgs',
+    'DistributionConfigurationLaunchPermissionConfigurationArgs',
     'DistributionConfigurationLaunchTemplateConfigurationArgs',
     'DistributionConfigurationTargetContainerRepositoryArgs',
     'ImagePipelineImageTestsConfigurationArgs',
@@ -348,7 +348,242 @@ class ContainerRecipeTargetContainerRepositoryArgs:
 
 
 @pulumi.input_type
-class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs:
+class DistributionConfigurationAmiDistributionConfigurationArgs:
+    def __init__(__self__, *,
+                 ami_tags: Optional[Any] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 launch_permission_configuration: Optional[pulumi.Input['DistributionConfigurationLaunchPermissionConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 target_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The specific AMI settings (for example, launch permissions, AMI tags).
+        :param Any ami_tags: The tags to apply to AMIs distributed to this Region.
+        :param pulumi.Input[str] description: The description of the AMI distribution configuration.
+        :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the distributed image.
+        :param pulumi.Input[str] name: The name of the AMI distribution configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_account_ids: The ID of accounts to which you want to distribute an image.
+        """
+        if ami_tags is not None:
+            pulumi.set(__self__, "ami_tags", ami_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if launch_permission_configuration is not None:
+            pulumi.set(__self__, "launch_permission_configuration", launch_permission_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if target_account_ids is not None:
+            pulumi.set(__self__, "target_account_ids", target_account_ids)
+
+    @property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> Optional[Any]:
+        """
+        The tags to apply to AMIs distributed to this Region.
+        """
+        return pulumi.get(self, "ami_tags")
+
+    @ami_tags.setter
+    def ami_tags(self, value: Optional[Any]):
+        pulumi.set(self, "ami_tags", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the AMI distribution configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key identifier used to encrypt the distributed image.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="launchPermissionConfiguration")
+    def launch_permission_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationLaunchPermissionConfigurationArgs']]:
+        return pulumi.get(self, "launch_permission_configuration")
+
+    @launch_permission_configuration.setter
+    def launch_permission_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationLaunchPermissionConfigurationArgs']]):
+        pulumi.set(self, "launch_permission_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AMI distribution configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="targetAccountIds")
+    def target_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of accounts to which you want to distribute an image.
+        """
+        return pulumi.get(self, "target_account_ids")
+
+    @target_account_ids.setter
+    def target_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_account_ids", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationContainerDistributionConfigurationArgs:
+    def __init__(__self__, *,
+                 container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 target_repository: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']] = None):
+        """
+        Container distribution settings for encryption, licensing, and sharing in a specific Region.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_tags: Tags that are attached to the container distribution configuration.
+        :param pulumi.Input[str] description: The description of the container distribution configuration.
+        :param pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs'] target_repository: The destination repository for the container distribution configuration.
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if target_repository is not None:
+            pulumi.set(__self__, "target_repository", target_repository)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags that are attached to the container distribution configuration.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @container_tags.setter
+    def container_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_tags", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the container distribution configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="targetRepository")
+    def target_repository(self) -> Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']]:
+        """
+        The destination repository for the container distribution configuration.
+        """
+        return pulumi.get(self, "target_repository")
+
+    @target_repository.setter
+    def target_repository(self, value: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']]):
+        pulumi.set(self, "target_repository", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationDistributionArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[str],
+                 ami_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationAmiDistributionConfigurationArgs']] = None,
+                 container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs']] = None,
+                 launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]] = None,
+                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The distributions of the distribution configuration.
+        :param pulumi.Input[str] region: region
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
+        """
+        pulumi.set(__self__, "region", region)
+        if ami_distribution_configuration is not None:
+            pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
+        if container_distribution_configuration is not None:
+            pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+        if launch_template_configurations is not None:
+            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
+        if license_configuration_arns is not None:
+            pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        region
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="amiDistributionConfiguration")
+    def ami_distribution_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationAmiDistributionConfigurationArgs']]:
+        return pulumi.get(self, "ami_distribution_configuration")
+
+    @ami_distribution_configuration.setter
+    def ami_distribution_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationAmiDistributionConfigurationArgs']]):
+        pulumi.set(self, "ami_distribution_configuration", value)
+
+    @property
+    @pulumi.getter(name="containerDistributionConfiguration")
+    def container_distribution_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs']]:
+        return pulumi.get(self, "container_distribution_configuration")
+
+    @container_distribution_configuration.setter
+    def container_distribution_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs']]):
+        pulumi.set(self, "container_distribution_configuration", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateConfigurations")
+    def launch_template_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]]:
+        """
+        A group of launchTemplateConfiguration settings that apply to image distribution.
+        """
+        return pulumi.get(self, "launch_template_configurations")
+
+    @launch_template_configurations.setter
+    def launch_template_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]]):
+        pulumi.set(self, "launch_template_configurations", value)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArns")
+    def license_configuration_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The License Manager Configuration to associate with the AMI in the specified Region.
+        """
+        return pulumi.get(self, "license_configuration_arns")
+
+    @license_configuration_arns.setter
+    def license_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "license_configuration_arns", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationLaunchPermissionConfigurationArgs:
     def __init__(__self__, *,
                  organization_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organizational_unit_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -417,253 +652,6 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
     @user_ids.setter
     def user_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_ids", value)
-
-
-@pulumi.input_type
-class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 ami_tags: Optional[Any] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 kms_key_id: Optional[pulumi.Input[str]] = None,
-                 launch_permission_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 target_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The specific AMI settings (for example, launch permissions, AMI tags).
-        :param Any ami_tags: The tags to apply to AMIs distributed to this Region.
-        :param pulumi.Input[str] description: The description of the AMI distribution configuration.
-        :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the distributed image.
-        :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs'] launch_permission_configuration: Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-        :param pulumi.Input[str] name: The name of the AMI distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_account_ids: The ID of accounts to which you want to distribute an image.
-        """
-        if ami_tags is not None:
-            pulumi.set(__self__, "ami_tags", ami_tags)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if launch_permission_configuration is not None:
-            pulumi.set(__self__, "launch_permission_configuration", launch_permission_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if target_account_ids is not None:
-            pulumi.set(__self__, "target_account_ids", target_account_ids)
-
-    @property
-    @pulumi.getter(name="amiTags")
-    def ami_tags(self) -> Optional[Any]:
-        """
-        The tags to apply to AMIs distributed to this Region.
-        """
-        return pulumi.get(self, "ami_tags")
-
-    @ami_tags.setter
-    def ami_tags(self, value: Optional[Any]):
-        pulumi.set(self, "ami_tags", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the AMI distribution configuration.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The KMS key identifier used to encrypt the distributed image.
-        """
-        return pulumi.get(self, "kms_key_id")
-
-    @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kms_key_id", value)
-
-    @property
-    @pulumi.getter(name="launchPermissionConfiguration")
-    def launch_permission_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs']]:
-        """
-        Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
-        """
-        return pulumi.get(self, "launch_permission_configuration")
-
-    @launch_permission_configuration.setter
-    def launch_permission_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs']]):
-        pulumi.set(self, "launch_permission_configuration", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the AMI distribution configuration.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="targetAccountIds")
-    def target_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The ID of accounts to which you want to distribute an image.
-        """
-        return pulumi.get(self, "target_account_ids")
-
-    @target_account_ids.setter
-    def target_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "target_account_ids", value)
-
-
-@pulumi.input_type
-class DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 target_repository: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']] = None):
-        """
-        Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_tags: Tags that are attached to the container distribution configuration.
-        :param pulumi.Input[str] description: The description of the container distribution configuration.
-        :param pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs'] target_repository: The destination repository for the container distribution configuration.
-        """
-        if container_tags is not None:
-            pulumi.set(__self__, "container_tags", container_tags)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if target_repository is not None:
-            pulumi.set(__self__, "target_repository", target_repository)
-
-    @property
-    @pulumi.getter(name="containerTags")
-    def container_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Tags that are attached to the container distribution configuration.
-        """
-        return pulumi.get(self, "container_tags")
-
-    @container_tags.setter
-    def container_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "container_tags", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the container distribution configuration.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="targetRepository")
-    def target_repository(self) -> Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']]:
-        """
-        The destination repository for the container distribution configuration.
-        """
-        return pulumi.get(self, "target_repository")
-
-    @target_repository.setter
-    def target_repository(self, value: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']]):
-        pulumi.set(self, "target_repository", value)
-
-
-@pulumi.input_type
-class DistributionConfigurationDistributionArgs:
-    def __init__(__self__, *,
-                 region: pulumi.Input[str],
-                 ami_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs']] = None,
-                 container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs']] = None,
-                 launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]] = None,
-                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The distributions of the distribution configuration.
-        :param pulumi.Input[str] region: region
-        :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs'] ami_distribution_configuration: The specific AMI settings (for example, launch permissions, AMI tags).
-        :param pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs'] container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
-        """
-        pulumi.set(__self__, "region", region)
-        if ami_distribution_configuration is not None:
-            pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
-        if container_distribution_configuration is not None:
-            pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
-        if launch_template_configurations is not None:
-            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
-        if license_configuration_arns is not None:
-            pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Input[str]:
-        """
-        region
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: pulumi.Input[str]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter(name="amiDistributionConfiguration")
-    def ami_distribution_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs']]:
-        """
-        The specific AMI settings (for example, launch permissions, AMI tags).
-        """
-        return pulumi.get(self, "ami_distribution_configuration")
-
-    @ami_distribution_configuration.setter
-    def ami_distribution_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs']]):
-        pulumi.set(self, "ami_distribution_configuration", value)
-
-    @property
-    @pulumi.getter(name="containerDistributionConfiguration")
-    def container_distribution_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs']]:
-        """
-        Container distribution settings for encryption, licensing, and sharing in a specific Region.
-        """
-        return pulumi.get(self, "container_distribution_configuration")
-
-    @container_distribution_configuration.setter
-    def container_distribution_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs']]):
-        pulumi.set(self, "container_distribution_configuration", value)
-
-    @property
-    @pulumi.getter(name="launchTemplateConfigurations")
-    def launch_template_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]]:
-        """
-        A group of launchTemplateConfiguration settings that apply to image distribution.
-        """
-        return pulumi.get(self, "launch_template_configurations")
-
-    @launch_template_configurations.setter
-    def launch_template_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]]):
-        pulumi.set(self, "launch_template_configurations", value)
-
-    @property
-    @pulumi.getter(name="licenseConfigurationArns")
-    def license_configuration_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The License Manager Configuration to associate with the AMI in the specified Region.
-        """
-        return pulumi.get(self, "license_configuration_arns")
-
-    @license_configuration_arns.setter
-    def license_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "license_configuration_arns", value)
 
 
 @pulumi.input_type
