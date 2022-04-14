@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 type KeySpec string
 
 const (
@@ -22,6 +22,10 @@ const (
 	KeySpecEccNistP384      = KeySpec("ECC_NIST_P384")
 	KeySpecEccNistP521      = KeySpec("ECC_NIST_P521")
 	KeySpecEccSecgP256k1    = KeySpec("ECC_SECG_P256K1")
+	KeySpecHmac224          = KeySpec("HMAC_224")
+	KeySpecHmac256          = KeySpec("HMAC_256")
+	KeySpecHmac384          = KeySpec("HMAC_384")
+	KeySpecHmac512          = KeySpec("HMAC_512")
 )
 
 func (KeySpec) ElementType() reflect.Type {
@@ -181,12 +185,13 @@ func (in *keySpecPtr) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpec
 	return pulumi.ToOutputWithContext(ctx, in).(KeySpecPtrOutput)
 }
 
-// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+// Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
 type KeyUsage string
 
 const (
-	KeyUsageEncryptDecrypt = KeyUsage("ENCRYPT_DECRYPT")
-	KeyUsageSignVerify     = KeyUsage("SIGN_VERIFY")
+	KeyUsageEncryptDecrypt    = KeyUsage("ENCRYPT_DECRYPT")
+	KeyUsageSignVerify        = KeyUsage("SIGN_VERIFY")
+	KeyUsageGenerateVerifyMac = KeyUsage("GENERATE_VERIFY_MAC")
 )
 
 func (KeyUsage) ElementType() reflect.Type {

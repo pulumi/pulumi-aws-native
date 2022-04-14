@@ -47,7 +47,7 @@ class GetReplicaKeyResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -55,7 +55,7 @@ class GetReplicaKeyResult:
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -68,7 +68,7 @@ class GetReplicaKeyResult:
     @pulumi.getter(name="keyPolicy")
     def key_policy(self) -> Optional[Any]:
         """
-        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
@@ -98,7 +98,7 @@ class AwaitableGetReplicaKeyResult(GetReplicaKeyResult):
 def get_replica_key(key_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicaKeyResult:
     """
-    The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
+    The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
     """
     __args__ = dict()
     __args__['keyId'] = key_id
@@ -121,6 +121,6 @@ def get_replica_key(key_id: Optional[str] = None,
 def get_replica_key_output(key_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicaKeyResult]:
     """
-    The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
+    The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
     """
     ...

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
+ * The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
  */
 export class ReplicaKey extends pulumi.CustomResource {
     /**
@@ -37,24 +37,24 @@ export class ReplicaKey extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+     * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+     * Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
-     * The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+     * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
      */
     public readonly keyPolicy!: pulumi.Output<any>;
     /**
-     * Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+     * Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
      */
     public readonly pendingWindowInDays!: pulumi.Output<number | undefined>;
     /**
-     * Identifies the primary CMK to create a replica of. Specify the Amazon Resource Name (ARN) of the CMK. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
+     * Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
      */
     public readonly primaryKeyArn!: pulumi.Output<string>;
     /**
@@ -107,23 +107,23 @@ export class ReplicaKey extends pulumi.CustomResource {
  */
 export interface ReplicaKeyArgs {
     /**
-     * A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+     * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+     * Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+     * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
      */
     keyPolicy: any;
     /**
-     * Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+     * Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
      */
     pendingWindowInDays?: pulumi.Input<number>;
     /**
-     * Identifies the primary CMK to create a replica of. Specify the Amazon Resource Name (ARN) of the CMK. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
+     * Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
      */
     primaryKeyArn: pulumi.Input<string>;
     /**

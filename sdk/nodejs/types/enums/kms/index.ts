@@ -11,19 +11,24 @@ export const KeySpec = {
     EccNistP384: "ECC_NIST_P384",
     EccNistP521: "ECC_NIST_P521",
     EccSecgP256k1: "ECC_SECG_P256K1",
+    Hmac224: "HMAC_224",
+    Hmac256: "HMAC_256",
+    Hmac384: "HMAC_384",
+    Hmac512: "HMAC_512",
 } as const;
 
 /**
- * Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+ * Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
  */
 export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
 
 export const KeyUsage = {
     EncryptDecrypt: "ENCRYPT_DECRYPT",
     SignVerify: "SIGN_VERIFY",
+    GenerateVerifyMac: "GENERATE_VERIFY_MAC",
 } as const;
 
 /**
- * Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+ * Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
  */
 export type KeyUsage = (typeof KeyUsage)[keyof typeof KeyUsage];

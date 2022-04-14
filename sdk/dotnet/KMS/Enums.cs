@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.KMS
 {
     /// <summary>
-    /// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+    /// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
     /// </summary>
     [EnumType]
     public readonly struct KeySpec : IEquatable<KeySpec>
@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.KMS
         public static KeySpec EccNistP384 { get; } = new KeySpec("ECC_NIST_P384");
         public static KeySpec EccNistP521 { get; } = new KeySpec("ECC_NIST_P521");
         public static KeySpec EccSecgP256k1 { get; } = new KeySpec("ECC_SECG_P256K1");
+        public static KeySpec Hmac224 { get; } = new KeySpec("HMAC_224");
+        public static KeySpec Hmac256 { get; } = new KeySpec("HMAC_256");
+        public static KeySpec Hmac384 { get; } = new KeySpec("HMAC_384");
+        public static KeySpec Hmac512 { get; } = new KeySpec("HMAC_512");
 
         public static bool operator ==(KeySpec left, KeySpec right) => left.Equals(right);
         public static bool operator !=(KeySpec left, KeySpec right) => !left.Equals(right);
@@ -45,7 +49,7 @@ namespace Pulumi.AwsNative.KMS
     }
 
     /// <summary>
-    /// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+    /// Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
     /// </summary>
     [EnumType]
     public readonly struct KeyUsage : IEquatable<KeyUsage>
@@ -59,6 +63,7 @@ namespace Pulumi.AwsNative.KMS
 
         public static KeyUsage EncryptDecrypt { get; } = new KeyUsage("ENCRYPT_DECRYPT");
         public static KeyUsage SignVerify { get; } = new KeyUsage("SIGN_VERIFY");
+        public static KeyUsage GenerateVerifyMac { get; } = new KeyUsage("GENERATE_VERIFY_MAC");
 
         public static bool operator ==(KeyUsage left, KeyUsage right) => left.Equals(right);
         public static bool operator !=(KeyUsage left, KeyUsage right) => !left.Equals(right);

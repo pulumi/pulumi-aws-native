@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
+// The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
 	err := ctx.Invoke("aws-native:kms:getKey", args, &rv, opts...)
@@ -26,20 +26,20 @@ type LookupKeyArgs struct {
 
 type LookupKeyResult struct {
 	Arn *string `pulumi:"arn"`
-	// A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description *string `pulumi:"description"`
-	// Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+	// Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
 	EnableKeyRotation *bool `pulumi:"enableKeyRotation"`
-	// Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled *bool   `pulumi:"enabled"`
 	KeyId   *string `pulumi:"keyId"`
-	// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
-	// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+	// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 	KeySpec *KeySpec `pulumi:"keySpec"`
-	// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+	// Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
 	KeyUsage *KeyUsage `pulumi:"keyUsage"`
-	// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+	// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []KeyTag `pulumi:"tags"`
@@ -84,17 +84,17 @@ func (o LookupKeyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 func (o LookupKeyResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+// Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
 func (o LookupKeyResultOutput) EnableKeyRotation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.EnableKeyRotation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 func (o LookupKeyResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -103,22 +103,22 @@ func (o LookupKeyResultOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
 func (o LookupKeyResultOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupKeyResult) interface{} { return v.KeyPolicy }).(pulumi.AnyOutput)
 }
 
-// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 func (o LookupKeyResultOutput) KeySpec() KeySpecPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeySpec { return v.KeySpec }).(KeySpecPtrOutput)
 }
 
-// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+// Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
 func (o LookupKeyResultOutput) KeyUsage() KeyUsagePtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyUsage { return v.KeyUsage }).(KeyUsagePtrOutput)
 }
 
-// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 func (o LookupKeyResultOutput) MultiRegion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.MultiRegion }).(pulumi.BoolPtrOutput)
 }

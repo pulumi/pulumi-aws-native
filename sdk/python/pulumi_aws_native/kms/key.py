@@ -27,14 +27,14 @@ class KeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
-        :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
-        :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
-        :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
-        :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
-        :param pulumi.Input['KeySpec'] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-        :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
-        :param pulumi.Input[bool] multi_region: Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
-        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        :param pulumi.Input[str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
+        :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
+        :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
+        :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
+        :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
+        :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
+        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "key_policy", key_policy)
@@ -59,7 +59,7 @@ class KeyArgs:
     @pulumi.getter(name="keyPolicy")
     def key_policy(self) -> Any:
         """
-        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
@@ -71,7 +71,7 @@ class KeyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -83,7 +83,7 @@ class KeyArgs:
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+        Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -95,7 +95,7 @@ class KeyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -107,7 +107,7 @@ class KeyArgs:
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> Optional[pulumi.Input['KeySpec']]:
         """
-        Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         """
         return pulumi.get(self, "key_spec")
 
@@ -119,7 +119,7 @@ class KeyArgs:
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input['KeyUsage']]:
         """
-        Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         """
         return pulumi.get(self, "key_usage")
 
@@ -131,7 +131,7 @@ class KeyArgs:
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+        Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
         """
         return pulumi.get(self, "multi_region")
 
@@ -143,7 +143,7 @@ class KeyArgs:
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         """
         return pulumi.get(self, "pending_window_in_days")
 
@@ -180,18 +180,18 @@ class Key(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
+        The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
-        :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
-        :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
-        :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
-        :param pulumi.Input['KeySpec'] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-        :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
-        :param pulumi.Input[bool] multi_region: Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
-        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        :param pulumi.Input[str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
+        :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
+        :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
+        :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
+        :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
+        :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
+        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -201,7 +201,7 @@ class Key(pulumi.CustomResource):
                  args: KeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
+        The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.
@@ -296,7 +296,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -304,7 +304,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+        Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -312,7 +312,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -325,7 +325,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keyPolicy")
     def key_policy(self) -> pulumi.Output[Any]:
         """
-        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
@@ -333,7 +333,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> pulumi.Output[Optional['KeySpec']]:
         """
-        Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         """
         return pulumi.get(self, "key_spec")
 
@@ -341,7 +341,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Output[Optional['KeyUsage']]:
         """
-        Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         """
         return pulumi.get(self, "key_usage")
 
@@ -349,7 +349,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+        Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
         """
         return pulumi.get(self, "multi_region")
 
@@ -357,7 +357,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         """
         return pulumi.get(self, "pending_window_in_days")
 

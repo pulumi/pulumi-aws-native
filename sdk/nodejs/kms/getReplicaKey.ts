@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
+ * The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
  */
 export function getReplicaKey(args: GetReplicaKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaKeyResult> {
     if (!opts) {
@@ -26,16 +26,16 @@ export interface GetReplicaKeyArgs {
 export interface GetReplicaKeyResult {
     readonly arn?: string;
     /**
-     * A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+     * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
      */
     readonly description?: string;
     /**
-     * Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+     * Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
      */
     readonly enabled?: boolean;
     readonly keyId?: string;
     /**
-     * The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+     * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
      */
     readonly keyPolicy?: any;
     /**

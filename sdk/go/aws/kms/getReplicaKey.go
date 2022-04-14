@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
+// The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
 func LookupReplicaKey(ctx *pulumi.Context, args *LookupReplicaKeyArgs, opts ...pulumi.InvokeOption) (*LookupReplicaKeyResult, error) {
 	var rv LookupReplicaKeyResult
 	err := ctx.Invoke("aws-native:kms:getReplicaKey", args, &rv, opts...)
@@ -26,12 +26,12 @@ type LookupReplicaKeyArgs struct {
 
 type LookupReplicaKeyResult struct {
 	Arn *string `pulumi:"arn"`
-	// A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description *string `pulumi:"description"`
-	// Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled *bool   `pulumi:"enabled"`
 	KeyId   *string `pulumi:"keyId"`
-	// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ReplicaKeyTag `pulumi:"tags"`
@@ -76,12 +76,12 @@ func (o LookupReplicaKeyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 func (o LookupReplicaKeyResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 func (o LookupReplicaKeyResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -90,7 +90,7 @@ func (o LookupReplicaKeyResultOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
 func (o LookupReplicaKeyResultOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) interface{} { return v.KeyPolicy }).(pulumi.AnyOutput)
 }

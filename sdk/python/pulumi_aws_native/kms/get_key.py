@@ -60,7 +60,7 @@ class GetKeyResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -68,7 +68,7 @@ class GetKeyResult:
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> Optional[bool]:
         """
-        Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+        Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -76,7 +76,7 @@ class GetKeyResult:
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -89,7 +89,7 @@ class GetKeyResult:
     @pulumi.getter(name="keyPolicy")
     def key_policy(self) -> Optional[Any]:
         """
-        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
@@ -97,7 +97,7 @@ class GetKeyResult:
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> Optional['KeySpec']:
         """
-        Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         """
         return pulumi.get(self, "key_spec")
 
@@ -105,7 +105,7 @@ class GetKeyResult:
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional['KeyUsage']:
         """
-        Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         """
         return pulumi.get(self, "key_usage")
 
@@ -113,7 +113,7 @@ class GetKeyResult:
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> Optional[bool]:
         """
-        Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+        Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
         """
         return pulumi.get(self, "multi_region")
 
@@ -147,7 +147,7 @@ class AwaitableGetKeyResult(GetKeyResult):
 def get_key(key_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
+    The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
     """
     __args__ = dict()
     __args__['keyId'] = key_id
@@ -174,6 +174,6 @@ def get_key(key_id: Optional[str] = None,
 def get_key_output(key_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
-    The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
+    The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
     """
     ...
