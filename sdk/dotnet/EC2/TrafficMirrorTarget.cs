@@ -19,9 +19,6 @@ namespace Pulumi.AwsNative.EC2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("gatewayLoadBalancerEndpointId")]
-        public Output<string?> GatewayLoadBalancerEndpointId { get; private set; } = null!;
-
         [Output("networkInterfaceId")]
         public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
@@ -78,9 +75,6 @@ namespace Pulumi.AwsNative.EC2
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        [Input("gatewayLoadBalancerEndpointId")]
-        public Input<string>? GatewayLoadBalancerEndpointId { get; set; }
 
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }

@@ -16,7 +16,6 @@ __all__ = ['TrafficMirrorTargetArgs', 'TrafficMirrorTarget']
 class TrafficMirrorTargetArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 gateway_load_balancer_endpoint_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorTargetTagArgs']]]] = None):
@@ -25,8 +24,6 @@ class TrafficMirrorTargetArgs:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if gateway_load_balancer_endpoint_id is not None:
-            pulumi.set(__self__, "gateway_load_balancer_endpoint_id", gateway_load_balancer_endpoint_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if network_load_balancer_arn is not None:
@@ -42,15 +39,6 @@ class TrafficMirrorTargetArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="gatewayLoadBalancerEndpointId")
-    def gateway_load_balancer_endpoint_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "gateway_load_balancer_endpoint_id")
-
-    @gateway_load_balancer_endpoint_id.setter
-    def gateway_load_balancer_endpoint_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "gateway_load_balancer_endpoint_id", value)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -91,7 +79,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 gateway_load_balancer_endpoint_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficMirrorTargetTagArgs']]]]] = None,
@@ -127,7 +114,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 gateway_load_balancer_endpoint_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficMirrorTargetTagArgs']]]]] = None,
@@ -145,7 +131,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__ = TrafficMirrorTargetArgs.__new__(TrafficMirrorTargetArgs)
 
             __props__.__dict__["description"] = description
-            __props__.__dict__["gateway_load_balancer_endpoint_id"] = gateway_load_balancer_endpoint_id
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["network_load_balancer_arn"] = network_load_balancer_arn
             __props__.__dict__["tags"] = tags
@@ -172,7 +157,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         __props__ = TrafficMirrorTargetArgs.__new__(TrafficMirrorTargetArgs)
 
         __props__.__dict__["description"] = None
-        __props__.__dict__["gateway_load_balancer_endpoint_id"] = None
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["network_load_balancer_arn"] = None
         __props__.__dict__["tags"] = None
@@ -182,11 +166,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="gatewayLoadBalancerEndpointId")
-    def gateway_load_balancer_endpoint_id(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "gateway_load_balancer_endpoint_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")

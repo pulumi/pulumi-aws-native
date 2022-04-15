@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, compute_capacity=None, description=None, disconnect_timeout_in_seconds=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, id=None, idle_disconnect_timeout_in_seconds=None, image_arn=None, image_name=None, instance_type=None, max_concurrent_sessions=None, max_user_duration_in_seconds=None, platform=None, stream_view=None, tags=None, usb_device_filter_strings=None, vpc_config=None):
+    def __init__(__self__, compute_capacity=None, description=None, disconnect_timeout_in_seconds=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, id=None, idle_disconnect_timeout_in_seconds=None, image_arn=None, image_name=None, instance_type=None, max_concurrent_sessions=None, max_user_duration_in_seconds=None, platform=None, session_script_s3_location=None, stream_view=None, tags=None, usb_device_filter_strings=None, vpc_config=None):
         if compute_capacity and not isinstance(compute_capacity, dict):
             raise TypeError("Expected argument 'compute_capacity' to be a dict")
         pulumi.set(__self__, "compute_capacity", compute_capacity)
@@ -64,6 +64,9 @@ class GetFleetResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if session_script_s3_location and not isinstance(session_script_s3_location, dict):
+            raise TypeError("Expected argument 'session_script_s3_location' to be a dict")
+        pulumi.set(__self__, "session_script_s3_location", session_script_s3_location)
         if stream_view and not isinstance(stream_view, str):
             raise TypeError("Expected argument 'stream_view' to be a str")
         pulumi.set(__self__, "stream_view", stream_view)
@@ -153,6 +156,11 @@ class GetFleetResult:
         return pulumi.get(self, "platform")
 
     @property
+    @pulumi.getter(name="sessionScriptS3Location")
+    def session_script_s3_location(self) -> Optional['outputs.FleetS3Location']:
+        return pulumi.get(self, "session_script_s3_location")
+
+    @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> Optional[str]:
         return pulumi.get(self, "stream_view")
@@ -194,6 +202,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             max_concurrent_sessions=self.max_concurrent_sessions,
             max_user_duration_in_seconds=self.max_user_duration_in_seconds,
             platform=self.platform,
+            session_script_s3_location=self.session_script_s3_location,
             stream_view=self.stream_view,
             tags=self.tags,
             usb_device_filter_strings=self.usb_device_filter_strings,
@@ -229,6 +238,7 @@ def get_fleet(id: Optional[str] = None,
         max_concurrent_sessions=__ret__.max_concurrent_sessions,
         max_user_duration_in_seconds=__ret__.max_user_duration_in_seconds,
         platform=__ret__.platform,
+        session_script_s3_location=__ret__.session_script_s3_location,
         stream_view=__ret__.stream_view,
         tags=__ret__.tags,
         usb_device_filter_strings=__ret__.usb_device_filter_strings,

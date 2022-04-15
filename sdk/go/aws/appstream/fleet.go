@@ -33,6 +33,7 @@ type Fleet struct {
 	MaxUserDurationInSeconds       pulumi.IntPtrOutput           `pulumi:"maxUserDurationInSeconds"`
 	Name                           pulumi.StringOutput           `pulumi:"name"`
 	Platform                       pulumi.StringPtrOutput        `pulumi:"platform"`
+	SessionScriptS3Location        FleetS3LocationPtrOutput      `pulumi:"sessionScriptS3Location"`
 	StreamView                     pulumi.StringPtrOutput        `pulumi:"streamView"`
 	Tags                           FleetTagArrayOutput           `pulumi:"tags"`
 	UsbDeviceFilterStrings         pulumi.StringArrayOutput      `pulumi:"usbDeviceFilterStrings"`
@@ -97,6 +98,7 @@ type fleetArgs struct {
 	MaxUserDurationInSeconds       *int                  `pulumi:"maxUserDurationInSeconds"`
 	Name                           *string               `pulumi:"name"`
 	Platform                       *string               `pulumi:"platform"`
+	SessionScriptS3Location        *FleetS3Location      `pulumi:"sessionScriptS3Location"`
 	StreamView                     *string               `pulumi:"streamView"`
 	Tags                           []FleetTag            `pulumi:"tags"`
 	UsbDeviceFilterStrings         []string              `pulumi:"usbDeviceFilterStrings"`
@@ -121,6 +123,7 @@ type FleetArgs struct {
 	MaxUserDurationInSeconds       pulumi.IntPtrInput
 	Name                           pulumi.StringPtrInput
 	Platform                       pulumi.StringPtrInput
+	SessionScriptS3Location        FleetS3LocationPtrInput
 	StreamView                     pulumi.StringPtrInput
 	Tags                           FleetTagArrayInput
 	UsbDeviceFilterStrings         pulumi.StringArrayInput

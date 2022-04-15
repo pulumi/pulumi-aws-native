@@ -15,9 +15,6 @@
     "NetworkInterfaceId" : {
       "type" : "string"
     },
-    "GatewayLoadBalancerEndpointId" : {
-      "type" : "string"
-    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -41,7 +38,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "createOnlyProperties" : [ "/properties/GatewayLoadBalancerEndpointId", "/properties/NetworkLoadBalancerArn", "/properties/NetworkInterfaceId", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/NetworkLoadBalancerArn", "/properties/NetworkInterfaceId", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

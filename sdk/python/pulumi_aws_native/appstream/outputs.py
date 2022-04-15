@@ -19,6 +19,7 @@ __all__ = [
     'EntitlementAttribute',
     'FleetComputeCapacity',
     'FleetDomainJoinInfo',
+    'FleetS3Location',
     'FleetTag',
     'FleetVpcConfig',
     'ImageBuilderAccessEndpoint',
@@ -365,6 +366,44 @@ class FleetDomainJoinInfo(dict):
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
         return pulumi.get(self, "organizational_unit_distinguished_name")
+
+
+@pulumi.output_type
+class FleetS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: str,
+                 s3_key: str):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        return pulumi.get(self, "s3_key")
 
 
 @pulumi.output_type

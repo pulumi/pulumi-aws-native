@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.AppStream
         [Output("platform")]
         public Output<string?> Platform { get; private set; } = null!;
 
+        [Output("sessionScriptS3Location")]
+        public Output<Outputs.FleetS3Location?> SessionScriptS3Location { get; private set; } = null!;
+
         [Output("streamView")]
         public Output<string?> StreamView { get; private set; } = null!;
 
@@ -168,6 +171,9 @@ namespace Pulumi.AwsNative.AppStream
 
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        [Input("sessionScriptS3Location")]
+        public Input<Inputs.FleetS3LocationArgs>? SessionScriptS3Location { get; set; }
 
         [Input("streamView")]
         public Input<string>? StreamView { get; set; }

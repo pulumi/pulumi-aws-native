@@ -31,6 +31,7 @@ class FleetArgs:
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 session_script_s3_location: Optional[pulumi.Input['FleetS3LocationArgs']] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
                  usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -69,6 +70,8 @@ class FleetArgs:
             pulumi.set(__self__, "name", name)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if session_script_s3_location is not None:
+            pulumi.set(__self__, "session_script_s3_location", session_script_s3_location)
         if stream_view is not None:
             pulumi.set(__self__, "stream_view", stream_view)
         if tags is not None:
@@ -223,6 +226,15 @@ class FleetArgs:
         pulumi.set(self, "platform", value)
 
     @property
+    @pulumi.getter(name="sessionScriptS3Location")
+    def session_script_s3_location(self) -> Optional[pulumi.Input['FleetS3LocationArgs']]:
+        return pulumi.get(self, "session_script_s3_location")
+
+    @session_script_s3_location.setter
+    def session_script_s3_location(self, value: Optional[pulumi.Input['FleetS3LocationArgs']]):
+        pulumi.set(self, "session_script_s3_location", value)
+
+    @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "stream_view")
@@ -285,6 +297,7 @@ class Fleet(pulumi.CustomResource):
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 session_script_s3_location: Optional[pulumi.Input[pulumi.InputType['FleetS3LocationArgs']]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetTagArgs']]]]] = None,
                  usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -336,6 +349,7 @@ class Fleet(pulumi.CustomResource):
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 session_script_s3_location: Optional[pulumi.Input[pulumi.InputType['FleetS3LocationArgs']]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetTagArgs']]]]] = None,
                  usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -371,6 +385,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
             __props__.__dict__["name"] = name
             __props__.__dict__["platform"] = platform
+            __props__.__dict__["session_script_s3_location"] = session_script_s3_location
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags
             __props__.__dict__["usb_device_filter_strings"] = usb_device_filter_strings
@@ -413,6 +428,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["max_user_duration_in_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["platform"] = None
+        __props__.__dict__["session_script_s3_location"] = None
         __props__.__dict__["stream_view"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["usb_device_filter_strings"] = None
@@ -498,6 +514,11 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def platform(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="sessionScriptS3Location")
+    def session_script_s3_location(self) -> pulumi.Output[Optional['outputs.FleetS3Location']]:
+        return pulumi.get(self, "session_script_s3_location")
 
     @property
     @pulumi.getter(name="streamView")

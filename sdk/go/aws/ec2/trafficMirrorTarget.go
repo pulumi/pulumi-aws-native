@@ -16,11 +16,10 @@ import (
 type TrafficMirrorTarget struct {
 	pulumi.CustomResourceState
 
-	Description                   pulumi.StringPtrOutput            `pulumi:"description"`
-	GatewayLoadBalancerEndpointId pulumi.StringPtrOutput            `pulumi:"gatewayLoadBalancerEndpointId"`
-	NetworkInterfaceId            pulumi.StringPtrOutput            `pulumi:"networkInterfaceId"`
-	NetworkLoadBalancerArn        pulumi.StringPtrOutput            `pulumi:"networkLoadBalancerArn"`
-	Tags                          TrafficMirrorTargetTagArrayOutput `pulumi:"tags"`
+	Description            pulumi.StringPtrOutput            `pulumi:"description"`
+	NetworkInterfaceId     pulumi.StringPtrOutput            `pulumi:"networkInterfaceId"`
+	NetworkLoadBalancerArn pulumi.StringPtrOutput            `pulumi:"networkLoadBalancerArn"`
+	Tags                   TrafficMirrorTargetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewTrafficMirrorTarget registers a new resource with the given unique name, arguments, and options.
@@ -62,20 +61,18 @@ func (TrafficMirrorTargetState) ElementType() reflect.Type {
 }
 
 type trafficMirrorTargetArgs struct {
-	Description                   *string                  `pulumi:"description"`
-	GatewayLoadBalancerEndpointId *string                  `pulumi:"gatewayLoadBalancerEndpointId"`
-	NetworkInterfaceId            *string                  `pulumi:"networkInterfaceId"`
-	NetworkLoadBalancerArn        *string                  `pulumi:"networkLoadBalancerArn"`
-	Tags                          []TrafficMirrorTargetTag `pulumi:"tags"`
+	Description            *string                  `pulumi:"description"`
+	NetworkInterfaceId     *string                  `pulumi:"networkInterfaceId"`
+	NetworkLoadBalancerArn *string                  `pulumi:"networkLoadBalancerArn"`
+	Tags                   []TrafficMirrorTargetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorTarget resource.
 type TrafficMirrorTargetArgs struct {
-	Description                   pulumi.StringPtrInput
-	GatewayLoadBalancerEndpointId pulumi.StringPtrInput
-	NetworkInterfaceId            pulumi.StringPtrInput
-	NetworkLoadBalancerArn        pulumi.StringPtrInput
-	Tags                          TrafficMirrorTargetTagArrayInput
+	Description            pulumi.StringPtrInput
+	NetworkInterfaceId     pulumi.StringPtrInput
+	NetworkLoadBalancerArn pulumi.StringPtrInput
+	Tags                   TrafficMirrorTargetTagArrayInput
 }
 
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {

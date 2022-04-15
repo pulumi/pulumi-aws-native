@@ -18,6 +18,7 @@ __all__ = [
     'EntitlementAttributeArgs',
     'FleetComputeCapacityArgs',
     'FleetDomainJoinInfoArgs',
+    'FleetS3LocationArgs',
     'FleetTagArgs',
     'FleetVpcConfigArgs',
     'ImageBuilderAccessEndpointArgs',
@@ -286,6 +287,33 @@ class FleetDomainJoinInfoArgs:
     @organizational_unit_distinguished_name.setter
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+@pulumi.input_type
+class FleetS3LocationArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input[str],
+                 s3_key: pulumi.Input[str]):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_key", value)
 
 
 @pulumi.input_type

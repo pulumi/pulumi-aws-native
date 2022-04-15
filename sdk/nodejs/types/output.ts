@@ -3319,6 +3319,11 @@ export namespace appstream {
         organizationalUnitDistinguishedName?: string;
     }
 
+    export interface FleetS3Location {
+        s3Bucket: string;
+        s3Key: string;
+    }
+
     export interface FleetTag {
         key: string;
         value: string;

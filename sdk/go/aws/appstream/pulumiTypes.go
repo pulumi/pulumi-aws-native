@@ -907,6 +907,154 @@ func (o FleetDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type FleetS3Location struct {
+	S3Bucket string `pulumi:"s3Bucket"`
+	S3Key    string `pulumi:"s3Key"`
+}
+
+// FleetS3LocationInput is an input type that accepts FleetS3LocationArgs and FleetS3LocationOutput values.
+// You can construct a concrete instance of `FleetS3LocationInput` via:
+//
+//          FleetS3LocationArgs{...}
+type FleetS3LocationInput interface {
+	pulumi.Input
+
+	ToFleetS3LocationOutput() FleetS3LocationOutput
+	ToFleetS3LocationOutputWithContext(context.Context) FleetS3LocationOutput
+}
+
+type FleetS3LocationArgs struct {
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+}
+
+func (FleetS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetS3Location)(nil)).Elem()
+}
+
+func (i FleetS3LocationArgs) ToFleetS3LocationOutput() FleetS3LocationOutput {
+	return i.ToFleetS3LocationOutputWithContext(context.Background())
+}
+
+func (i FleetS3LocationArgs) ToFleetS3LocationOutputWithContext(ctx context.Context) FleetS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetS3LocationOutput)
+}
+
+func (i FleetS3LocationArgs) ToFleetS3LocationPtrOutput() FleetS3LocationPtrOutput {
+	return i.ToFleetS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetS3LocationArgs) ToFleetS3LocationPtrOutputWithContext(ctx context.Context) FleetS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetS3LocationOutput).ToFleetS3LocationPtrOutputWithContext(ctx)
+}
+
+// FleetS3LocationPtrInput is an input type that accepts FleetS3LocationArgs, FleetS3LocationPtr and FleetS3LocationPtrOutput values.
+// You can construct a concrete instance of `FleetS3LocationPtrInput` via:
+//
+//          FleetS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToFleetS3LocationPtrOutput() FleetS3LocationPtrOutput
+	ToFleetS3LocationPtrOutputWithContext(context.Context) FleetS3LocationPtrOutput
+}
+
+type fleetS3LocationPtrType FleetS3LocationArgs
+
+func FleetS3LocationPtr(v *FleetS3LocationArgs) FleetS3LocationPtrInput {
+	return (*fleetS3LocationPtrType)(v)
+}
+
+func (*fleetS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetS3Location)(nil)).Elem()
+}
+
+func (i *fleetS3LocationPtrType) ToFleetS3LocationPtrOutput() FleetS3LocationPtrOutput {
+	return i.ToFleetS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetS3LocationPtrType) ToFleetS3LocationPtrOutputWithContext(ctx context.Context) FleetS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetS3LocationPtrOutput)
+}
+
+type FleetS3LocationOutput struct{ *pulumi.OutputState }
+
+func (FleetS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetS3Location)(nil)).Elem()
+}
+
+func (o FleetS3LocationOutput) ToFleetS3LocationOutput() FleetS3LocationOutput {
+	return o
+}
+
+func (o FleetS3LocationOutput) ToFleetS3LocationOutputWithContext(ctx context.Context) FleetS3LocationOutput {
+	return o
+}
+
+func (o FleetS3LocationOutput) ToFleetS3LocationPtrOutput() FleetS3LocationPtrOutput {
+	return o.ToFleetS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetS3LocationOutput) ToFleetS3LocationPtrOutputWithContext(ctx context.Context) FleetS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetS3Location) *FleetS3Location {
+		return &v
+	}).(FleetS3LocationPtrOutput)
+}
+
+func (o FleetS3LocationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o FleetS3LocationOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetS3Location) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+type FleetS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetS3Location)(nil)).Elem()
+}
+
+func (o FleetS3LocationPtrOutput) ToFleetS3LocationPtrOutput() FleetS3LocationPtrOutput {
+	return o
+}
+
+func (o FleetS3LocationPtrOutput) ToFleetS3LocationPtrOutputWithContext(ctx context.Context) FleetS3LocationPtrOutput {
+	return o
+}
+
+func (o FleetS3LocationPtrOutput) Elem() FleetS3LocationOutput {
+	return o.ApplyT(func(v *FleetS3Location) FleetS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret FleetS3Location
+		return ret
+	}).(FleetS3LocationOutput)
+}
+
+func (o FleetS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FleetS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type FleetTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2220,6 +2368,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityPtrInput)(nil)).Elem(), FleetComputeCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoPtrInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetS3LocationInput)(nil)).Elem(), FleetS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetS3LocationPtrInput)(nil)).Elem(), FleetS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagInput)(nil)).Elem(), FleetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagArrayInput)(nil)).Elem(), FleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
@@ -2258,6 +2408,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetComputeCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetDomainJoinInfoOutput{})
 	pulumi.RegisterOutputType(FleetDomainJoinInfoPtrOutput{})
+	pulumi.RegisterOutputType(FleetS3LocationOutput{})
+	pulumi.RegisterOutputType(FleetS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(FleetTagOutput{})
 	pulumi.RegisterOutputType(FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigOutput{})

@@ -3977,6 +3977,11 @@ export namespace appstream {
         organizationalUnitDistinguishedName?: pulumi.Input<string>;
     }
 
+    export interface FleetS3LocationArgs {
+        s3Bucket: pulumi.Input<string>;
+        s3Key: pulumi.Input<string>;
+    }
+
     export interface FleetTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -4032,6 +4037,7 @@ export namespace appstream {
         action: pulumi.Input<string>;
         permission: pulumi.Input<string>;
     }
+
 }
 
 export namespace appsync {

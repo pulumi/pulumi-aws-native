@@ -64,6 +64,7 @@ namespace Pulumi.AwsNative.AppStream
         public readonly int? MaxConcurrentSessions;
         public readonly int? MaxUserDurationInSeconds;
         public readonly string? Platform;
+        public readonly Outputs.FleetS3Location? SessionScriptS3Location;
         public readonly string? StreamView;
         public readonly ImmutableArray<Outputs.FleetTag> Tags;
         public readonly ImmutableArray<string> UsbDeviceFilterStrings;
@@ -101,6 +102,8 @@ namespace Pulumi.AwsNative.AppStream
 
             string? platform,
 
+            Outputs.FleetS3Location? sessionScriptS3Location,
+
             string? streamView,
 
             ImmutableArray<Outputs.FleetTag> tags,
@@ -124,6 +127,7 @@ namespace Pulumi.AwsNative.AppStream
             MaxConcurrentSessions = maxConcurrentSessions;
             MaxUserDurationInSeconds = maxUserDurationInSeconds;
             Platform = platform;
+            SessionScriptS3Location = sessionScriptS3Location;
             StreamView = streamView;
             Tags = tags;
             UsbDeviceFilterStrings = usbDeviceFilterStrings;

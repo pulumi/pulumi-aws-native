@@ -24,6 +24,9 @@
     "DomainJoinInfo" : {
       "$ref" : "#/definitions/DomainJoinInfo"
     },
+    "SessionScriptS3Location" : {
+      "$ref" : "#/definitions/S3Location"
+    },
     "Name" : {
       "type" : "string"
     },
@@ -130,6 +133,19 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "S3Location" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "S3Bucket" : {
+          "type" : "string"
+        },
+        "S3Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "S3Bucket", "S3Key" ]
     }
   },
   "required" : [ "InstanceType", "Name" ],

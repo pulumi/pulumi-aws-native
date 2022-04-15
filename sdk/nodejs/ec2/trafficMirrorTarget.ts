@@ -39,7 +39,6 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.ec2.TrafficMirrorTargetTag[] | undefined>;
@@ -58,13 +57,11 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["gatewayLoadBalancerEndpointId"] = args ? args.gatewayLoadBalancerEndpointId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["gatewayLoadBalancerEndpointId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["networkLoadBalancerArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -79,7 +76,6 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
  */
 export interface TrafficMirrorTargetArgs {
     description?: pulumi.Input<string>;
-    gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
     networkInterfaceId?: pulumi.Input<string>;
     networkLoadBalancerArn?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.TrafficMirrorTargetTagArgs>[]>;

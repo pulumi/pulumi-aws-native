@@ -54,6 +54,7 @@ export class Fleet extends pulumi.CustomResource {
     public readonly maxUserDurationInSeconds!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly platform!: pulumi.Output<string | undefined>;
+    public readonly sessionScriptS3Location!: pulumi.Output<outputs.appstream.FleetS3Location | undefined>;
     public readonly streamView!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.appstream.FleetTag[] | undefined>;
     public readonly usbDeviceFilterStrings!: pulumi.Output<string[] | undefined>;
@@ -91,6 +92,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["sessionScriptS3Location"] = args ? args.sessionScriptS3Location : undefined;
             resourceInputs["streamView"] = args ? args.streamView : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["usbDeviceFilterStrings"] = args ? args.usbDeviceFilterStrings : undefined;
@@ -112,6 +114,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["maxUserDurationInSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["sessionScriptS3Location"] = undefined /*out*/;
             resourceInputs["streamView"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["usbDeviceFilterStrings"] = undefined /*out*/;
@@ -142,6 +145,7 @@ export interface FleetArgs {
     maxUserDurationInSeconds?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     platform?: pulumi.Input<string>;
+    sessionScriptS3Location?: pulumi.Input<inputs.appstream.FleetS3LocationArgs>;
     streamView?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.FleetTagArgs>[]>;
     usbDeviceFilterStrings?: pulumi.Input<pulumi.Input<string>[]>;

@@ -39,6 +39,7 @@ export interface GetFleetResult {
     readonly maxConcurrentSessions?: number;
     readonly maxUserDurationInSeconds?: number;
     readonly platform?: string;
+    readonly sessionScriptS3Location?: outputs.appstream.FleetS3Location;
     readonly streamView?: string;
     readonly tags?: outputs.appstream.FleetTag[];
     readonly usbDeviceFilterStrings?: string[];
