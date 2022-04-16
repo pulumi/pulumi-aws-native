@@ -27,7 +27,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "ServerProperties" ],
+  "required" : [ "ServerProperties", "Name" ],
   "createOnlyProperties" : [ "/properties/KafkaVersionsList", "/properties/Name" ],
   "writeOnlyProperties" : [ "/properties/ServerProperties" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

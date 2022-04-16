@@ -14724,6 +14724,10 @@
                 "randomizationSalt": {
                     "type": "string"
                 },
+                "runningStatus": {
+                    "$ref": "#/types/aws-native:evidently:ExperimentRunningStatusObject",
+                    "description": "Start Experiment. Default is False"
+                },
                 "samplingRate": {
                     "type": "integer"
                 },
@@ -14765,6 +14769,10 @@
                 },
                 "randomizationSalt": {
                     "type": "string"
+                },
+                "runningStatus": {
+                    "$ref": "#/types/aws-native:evidently:ExperimentRunningStatusObject",
+                    "description": "Start Experiment. Default is False"
                 },
                 "samplingRate": {
                     "type": "integer"
@@ -14896,6 +14904,10 @@
                 "description": {
                     "type": "string"
                 },
+                "executionStatus": {
+                    "$ref": "#/types/aws-native:evidently:LaunchExecutionStatusObject",
+                    "description": "Start or Stop Launch Launch. Default is not started."
+                },
                 "groups": {
                     "type": "array",
                     "items": {
@@ -14937,6 +14949,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "executionStatus": {
+                    "$ref": "#/types/aws-native:evidently:LaunchExecutionStatusObject",
+                    "description": "Start or Stop Launch Launch. Default is not started."
                 },
                 "groups": {
                     "type": "array",
@@ -20610,6 +20626,359 @@
             ],
             "createOnly": [
                 "portalId"
+            ]
+        },
+        "aws-native:iottwinmaker:ComponentType": {
+            "cf": "AWS::IoTTwinMaker::ComponentType",
+            "inputs": {
+                "componentTypeId": {
+                    "type": "string",
+                    "description": "The ID of the component type."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the component type."
+                },
+                "extendsFrom": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the parent component type to extend."
+                },
+                "functions": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "a Map of functions in the component type. Each function's key must be unique to this map."
+                },
+                "isSingleton": {
+                    "type": "boolean",
+                    "description": "A Boolean value that specifies whether an entity can have more than one component of this type.\n\n"
+                },
+                "propertyDefinitions": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of the property definitions in the component type. Each property definition's key must be unique to this map."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of key-value pairs to associate with a resource."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace that contains the component type."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the component type."
+                },
+                "componentTypeId": {
+                    "type": "string",
+                    "description": "The ID of the component type."
+                },
+                "creationDateTime": {
+                    "type": "string",
+                    "description": "The date and time when the component type was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the component type."
+                },
+                "extendsFrom": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the parent component type to extend."
+                },
+                "functions": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "a Map of functions in the component type. Each function's key must be unique to this map."
+                },
+                "isAbstract": {
+                    "type": "boolean",
+                    "description": "A Boolean value that specifies whether the component type is abstract."
+                },
+                "isSchemaInitialized": {
+                    "type": "boolean",
+                    "description": "A Boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run."
+                },
+                "isSingleton": {
+                    "type": "boolean",
+                    "description": "A Boolean value that specifies whether an entity can have more than one component of this type.\n\n"
+                },
+                "propertyDefinitions": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of the property definitions in the component type. Each property definition's key must be unique to this map."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iottwinmaker:ComponentTypeStatus",
+                    "description": "The current status of the component type."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of key-value pairs to associate with a resource."
+                },
+                "updateDateTime": {
+                    "type": "string",
+                    "description": "The last date and time when the component type was updated."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace that contains the component type."
+                }
+            },
+            "required": [
+                "componentTypeId",
+                "workspaceId"
+            ],
+            "createOnly": [
+                "componentTypeId",
+                "workspaceId"
+            ]
+        },
+        "aws-native:iottwinmaker:Entity": {
+            "cf": "AWS::IoTTwinMaker::Entity",
+            "inputs": {
+                "components": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map that sets information about a component type."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the entity."
+                },
+                "entityId": {
+                    "type": "string",
+                    "description": "The ID of the entity."
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The name of the entity."
+                },
+                "parentEntityId": {
+                    "type": "string",
+                    "description": "The ID of the parent entity."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the entity."
+                },
+                "components": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map that sets information about a component type."
+                },
+                "creationDateTime": {
+                    "type": "string",
+                    "description": "The date and time when the entity was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the entity."
+                },
+                "entityId": {
+                    "type": "string",
+                    "description": "The ID of the entity."
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The name of the entity."
+                },
+                "hasChildEntities": {
+                    "type": "boolean",
+                    "description": "A Boolean value that specifies whether the entity has child entities or not."
+                },
+                "parentEntityId": {
+                    "type": "string",
+                    "description": "The ID of the parent entity."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iottwinmaker:EntityStatus",
+                    "description": "The current status of the entity."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "updateDateTime": {
+                    "type": "string",
+                    "description": "The last date and time when the entity was updated."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "entityName",
+                "minLength": 1,
+                "maxLength": 256
+            },
+            "required": [
+                "workspaceId"
+            ],
+            "createOnly": [
+                "entityId",
+                "workspaceId"
+            ]
+        },
+        "aws-native:iottwinmaker:Scene": {
+            "cf": "AWS::IoTTwinMaker::Scene",
+            "inputs": {
+                "capabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of capabilities that the scene uses to render."
+                },
+                "contentLocation": {
+                    "type": "string",
+                    "description": "The relative path that specifies the location of the content definition file."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the scene."
+                },
+                "sceneId": {
+                    "type": "string",
+                    "description": "The ID of the scene."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the scene."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the scene."
+                },
+                "capabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of capabilities that the scene uses to render."
+                },
+                "contentLocation": {
+                    "type": "string",
+                    "description": "The relative path that specifies the location of the content definition file."
+                },
+                "creationDateTime": {
+                    "type": "string",
+                    "description": "The date and time when the scene was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the scene."
+                },
+                "sceneId": {
+                    "type": "string",
+                    "description": "The ID of the scene."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "updateDateTime": {
+                    "type": "string",
+                    "description": "The date and time of the current update."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the scene."
+                }
+            },
+            "required": [
+                "contentLocation",
+                "sceneId",
+                "workspaceId"
+            ],
+            "createOnly": [
+                "sceneId",
+                "workspaceId"
+            ]
+        },
+        "aws-native:iottwinmaker:Workspace": {
+            "cf": "AWS::IoTTwinMaker::Workspace",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the workspace."
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The ARN of the execution role associated with the workspace."
+                },
+                "s3Location": {
+                    "type": "string",
+                    "description": "The ARN of the S3 bucket where resources associated with the workspace are stored."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of key-value pairs to associate with a resource."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the workspace."
+                },
+                "creationDateTime": {
+                    "type": "string",
+                    "description": "The date and time when the workspace was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the workspace."
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The ARN of the execution role associated with the workspace."
+                },
+                "s3Location": {
+                    "type": "string",
+                    "description": "The ARN of the S3 bucket where resources associated with the workspace are stored."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of key-value pairs to associate with a resource."
+                },
+                "updateDateTime": {
+                    "type": "string",
+                    "description": "The date and time of the current update."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace."
+                }
+            },
+            "required": [
+                "role",
+                "s3Location",
+                "workspaceId"
+            ],
+            "createOnly": [
+                "workspaceId"
             ]
         },
         "aws-native:iotwireless:Destination": {
@@ -50978,6 +51347,27 @@
                 }
             }
         },
+        "aws-native:evidently:ExperimentRunningStatusObject": {
+            "type": "object",
+            "properties": {
+                "analysisCompleteTime": {
+                    "type": "string",
+                    "description": "Provide the analysis Completion time for an experiment"
+                },
+                "desiredState": {
+                    "type": "string",
+                    "description": "Provide CANCELLED or COMPLETED desired state when stopping an experiment"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "Reason is a required input for stopping the experiment"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Provide START or STOP action to apply on an experiment"
+                }
+            }
+        },
         "aws-native:evidently:ExperimentTag": {
             "type": "object",
             "properties": {
@@ -51063,6 +51453,23 @@
                 },
                 "variationName": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:LaunchExecutionStatusObject": {
+            "type": "object",
+            "properties": {
+                "desiredState": {
+                    "type": "string",
+                    "description": "Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided."
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "Provide a reason for stopping the launch. Defaults to empty if not provided."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Provide START or STOP action to apply on a launch"
                 }
             }
         },
@@ -56833,6 +57240,62 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:iottwinmaker:ComponentTypeStatus": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "$ref": "#/types/aws-native:iottwinmaker:ComponentTypeStatusErrorProperties"
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:iottwinmaker:ComponentTypeStatusState"
+                }
+            }
+        },
+        "aws-native:iottwinmaker:ComponentTypeStatusErrorProperties": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "$ref": "#/types/aws-native:iottwinmaker:ComponentTypeStatusErrorPropertiesCode"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iottwinmaker:ComponentTypeStatusErrorPropertiesCode": {
+            "type": "string"
+        },
+        "aws-native:iottwinmaker:ComponentTypeStatusState": {
+            "type": "string"
+        },
+        "aws-native:iottwinmaker:EntityStatus": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "$ref": "#/types/aws-native:iottwinmaker:EntityStatusErrorProperties"
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:iottwinmaker:EntityStatusState"
+                }
+            }
+        },
+        "aws-native:iottwinmaker:EntityStatusErrorProperties": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "$ref": "#/types/aws-native:iottwinmaker:EntityStatusErrorPropertiesCode"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iottwinmaker:EntityStatusErrorPropertiesCode": {
+            "type": "string"
+        },
+        "aws-native:iottwinmaker:EntityStatusState": {
+            "type": "string"
         },
         "aws-native:iotwireless:DestinationExpressionType": {
             "type": "string"
@@ -75920,6 +76383,33 @@
             "cf": "AWS::IoTSiteWise::Project",
             "ids": [
                 "projectId"
+            ]
+        },
+        "aws-native:iottwinmaker:getComponentType": {
+            "cf": "AWS::IoTTwinMaker::ComponentType",
+            "ids": [
+                "workspaceId",
+                "componentTypeId"
+            ]
+        },
+        "aws-native:iottwinmaker:getEntity": {
+            "cf": "AWS::IoTTwinMaker::Entity",
+            "ids": [
+                "workspaceId",
+                "entityId"
+            ]
+        },
+        "aws-native:iottwinmaker:getScene": {
+            "cf": "AWS::IoTTwinMaker::Scene",
+            "ids": [
+                "workspaceId",
+                "sceneId"
+            ]
+        },
+        "aws-native:iottwinmaker:getWorkspace": {
+            "cf": "AWS::IoTTwinMaker::Workspace",
+            "ids": [
+                "workspaceId"
             ]
         },
         "aws-native:iotwireless:getDestination": {
