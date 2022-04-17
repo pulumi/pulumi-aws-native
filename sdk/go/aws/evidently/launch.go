@@ -15,8 +15,10 @@ import (
 type Launch struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                     `pulumi:"arn"`
-	Description           pulumi.StringPtrOutput                  `pulumi:"description"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Start or Stop Launch Launch. Default is not started.
+	ExecutionStatus       LaunchExecutionStatusObjectPtrOutput    `pulumi:"executionStatus"`
 	Groups                LaunchGroupObjectArrayOutput            `pulumi:"groups"`
 	MetricMonitors        LaunchMetricDefinitionObjectArrayOutput `pulumi:"metricMonitors"`
 	Name                  pulumi.StringOutput                     `pulumi:"name"`
@@ -75,7 +77,9 @@ func (LaunchState) ElementType() reflect.Type {
 }
 
 type launchArgs struct {
-	Description           *string                        `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Start or Stop Launch Launch. Default is not started.
+	ExecutionStatus       *LaunchExecutionStatusObject   `pulumi:"executionStatus"`
 	Groups                []LaunchGroupObject            `pulumi:"groups"`
 	MetricMonitors        []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
 	Name                  *string                        `pulumi:"name"`
@@ -88,7 +92,9 @@ type launchArgs struct {
 
 // The set of arguments for constructing a Launch resource.
 type LaunchArgs struct {
-	Description           pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// Start or Stop Launch Launch. Default is not started.
+	ExecutionStatus       LaunchExecutionStatusObjectPtrInput
 	Groups                LaunchGroupObjectArrayInput
 	MetricMonitors        LaunchMetricDefinitionObjectArrayInput
 	Name                  pulumi.StringPtrInput

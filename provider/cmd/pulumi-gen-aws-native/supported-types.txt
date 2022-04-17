@@ -286,6 +286,10 @@ AWS::IoTSiteWise::Dashboard
 AWS::IoTSiteWise::Gateway
 AWS::IoTSiteWise::Portal
 AWS::IoTSiteWise::Project
+AWS::IoTTwinMaker::ComponentType
+AWS::IoTTwinMaker::Entity
+AWS::IoTTwinMaker::Scene
+AWS::IoTTwinMaker::Workspace
 AWS::IoTWireless::Destination
 AWS::IoTWireless::DeviceProfile
 AWS::IoTWireless::FuotaTask
@@ -525,6 +529,7 @@ FireEye::CloudIntegrations::Cloudwatch
 Generic::Database::Schema
 Generic::Transcribe::Vocabulary
 MongoDB::Atlas::Project
+MongoDb::Atlas::AwsIamDatabaseUser
 Snyk::Container::Helm
 Spot::Elastigroup::Group
 TF::AD::Computer

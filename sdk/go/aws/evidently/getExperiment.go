@@ -30,7 +30,9 @@ type LookupExperimentResult struct {
 	MetricGoals       []ExperimentMetricGoalObject    `pulumi:"metricGoals"`
 	OnlineAbConfig    *ExperimentOnlineAbConfigObject `pulumi:"onlineAbConfig"`
 	RandomizationSalt *string                         `pulumi:"randomizationSalt"`
-	SamplingRate      *int                            `pulumi:"samplingRate"`
+	// Start Experiment. Default is False
+	RunningStatus *ExperimentRunningStatusObject `pulumi:"runningStatus"`
+	SamplingRate  *int                           `pulumi:"samplingRate"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       []ExperimentTag             `pulumi:"tags"`
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
@@ -89,6 +91,11 @@ func (o LookupExperimentResultOutput) OnlineAbConfig() ExperimentOnlineAbConfigO
 
 func (o LookupExperimentResultOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentResult) *string { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
+}
+
+// Start Experiment. Default is False
+func (o LookupExperimentResultOutput) RunningStatus() ExperimentRunningStatusObjectPtrOutput {
+	return o.ApplyT(func(v LookupExperimentResult) *ExperimentRunningStatusObject { return v.RunningStatus }).(ExperimentRunningStatusObjectPtrOutput)
 }
 
 func (o LookupExperimentResultOutput) SamplingRate() pulumi.IntPtrOutput {

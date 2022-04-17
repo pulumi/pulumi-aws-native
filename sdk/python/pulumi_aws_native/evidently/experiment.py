@@ -23,10 +23,12 @@ class ExperimentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
+                 running_status: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
+        :param pulumi.Input['ExperimentRunningStatusObjectArgs'] running_status: Start Experiment. Default is False
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "metric_goals", metric_goals)
@@ -39,6 +41,8 @@ class ExperimentArgs:
             pulumi.set(__self__, "name", name)
         if randomization_salt is not None:
             pulumi.set(__self__, "randomization_salt", randomization_salt)
+        if running_status is not None:
+            pulumi.set(__self__, "running_status", running_status)
         if sampling_rate is not None:
             pulumi.set(__self__, "sampling_rate", sampling_rate)
         if tags is not None:
@@ -108,6 +112,18 @@ class ExperimentArgs:
         pulumi.set(self, "randomization_salt", value)
 
     @property
+    @pulumi.getter(name="runningStatus")
+    def running_status(self) -> Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']]:
+        """
+        Start Experiment. Default is False
+        """
+        return pulumi.get(self, "running_status")
+
+    @running_status.setter
+    def running_status(self, value: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']]):
+        pulumi.set(self, "running_status", value)
+
+    @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "sampling_rate")
@@ -140,6 +156,7 @@ class Experiment(pulumi.CustomResource):
                  online_ab_config: Optional[pulumi.Input[pulumi.InputType['ExperimentOnlineAbConfigObjectArgs']]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
+                 running_status: Optional[pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]]] = None,
                  treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]]] = None,
@@ -149,6 +166,7 @@ class Experiment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']] running_status: Start Experiment. Default is False
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -181,6 +199,7 @@ class Experiment(pulumi.CustomResource):
                  online_ab_config: Optional[pulumi.Input[pulumi.InputType['ExperimentOnlineAbConfigObjectArgs']]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
+                 running_status: Optional[pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]]] = None,
                  treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]]] = None,
@@ -208,6 +227,7 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
+            __props__.__dict__["running_status"] = running_status
             __props__.__dict__["sampling_rate"] = sampling_rate
             __props__.__dict__["tags"] = tags
             if treatments is None and not opts.urn:
@@ -243,6 +263,7 @@ class Experiment(pulumi.CustomResource):
         __props__.__dict__["online_ab_config"] = None
         __props__.__dict__["project"] = None
         __props__.__dict__["randomization_salt"] = None
+        __props__.__dict__["running_status"] = None
         __props__.__dict__["sampling_rate"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["treatments"] = None
@@ -282,6 +303,14 @@ class Experiment(pulumi.CustomResource):
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "randomization_salt")
+
+    @property
+    @pulumi.getter(name="runningStatus")
+    def running_status(self) -> pulumi.Output[Optional['outputs.ExperimentRunningStatusObject']]:
+        """
+        Start Experiment. Default is False
+        """
+        return pulumi.get(self, "running_status")
 
     @property
     @pulumi.getter(name="samplingRate")

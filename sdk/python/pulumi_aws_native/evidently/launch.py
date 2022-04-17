@@ -19,12 +19,14 @@ class LaunchArgs:
                  project: pulumi.Input[str],
                  scheduled_splits_config: pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_status: Optional[pulumi.Input['LaunchExecutionStatusObjectArgs']] = None,
                  metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]] = None):
         """
         The set of arguments for constructing a Launch resource.
+        :param pulumi.Input['LaunchExecutionStatusObjectArgs'] execution_status: Start or Stop Launch Launch. Default is not started.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "groups", groups)
@@ -32,6 +34,8 @@ class LaunchArgs:
         pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if execution_status is not None:
+            pulumi.set(__self__, "execution_status", execution_status)
         if metric_monitors is not None:
             pulumi.set(__self__, "metric_monitors", metric_monitors)
         if name is not None:
@@ -76,6 +80,18 @@ class LaunchArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="executionStatus")
+    def execution_status(self) -> Optional[pulumi.Input['LaunchExecutionStatusObjectArgs']]:
+        """
+        Start or Stop Launch Launch. Default is not started.
+        """
+        return pulumi.get(self, "execution_status")
+
+    @execution_status.setter
+    def execution_status(self, value: Optional[pulumi.Input['LaunchExecutionStatusObjectArgs']]):
+        pulumi.set(self, "execution_status", value)
 
     @property
     @pulumi.getter(name="metricMonitors")
@@ -123,6 +139,7 @@ class Launch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_status: Optional[pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]]] = None,
                  metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -136,6 +153,7 @@ class Launch(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']] execution_status: Start or Stop Launch Launch. Default is not started.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -163,6 +181,7 @@ class Launch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_status: Optional[pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]]] = None,
                  metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -183,6 +202,7 @@ class Launch(pulumi.CustomResource):
             __props__ = LaunchArgs.__new__(LaunchArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["execution_status"] = execution_status
             if groups is None and not opts.urn:
                 raise TypeError("Missing required property 'groups'")
             __props__.__dict__["groups"] = groups
@@ -221,6 +241,7 @@ class Launch(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["execution_status"] = None
         __props__.__dict__["groups"] = None
         __props__.__dict__["metric_monitors"] = None
         __props__.__dict__["name"] = None
@@ -239,6 +260,14 @@ class Launch(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="executionStatus")
+    def execution_status(self) -> pulumi.Output[Optional['outputs.LaunchExecutionStatusObject']]:
+        """
+        Start or Stop Launch Launch. Default is not started.
+        """
+        return pulumi.get(self, "execution_status")
 
     @property
     @pulumi.getter

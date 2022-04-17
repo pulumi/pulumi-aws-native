@@ -13,12 +13,14 @@ from ._enums import *
 __all__ = [
     'ExperimentMetricGoalObject',
     'ExperimentOnlineAbConfigObject',
+    'ExperimentRunningStatusObject',
     'ExperimentTag',
     'ExperimentTreatmentObject',
     'ExperimentTreatmentToWeight',
     'FeatureEntityOverride',
     'FeatureTag',
     'FeatureVariationObject',
+    'LaunchExecutionStatusObject',
     'LaunchGroupObject',
     'LaunchGroupToWeight',
     'LaunchMetricDefinitionObject',
@@ -156,6 +158,80 @@ class ExperimentOnlineAbConfigObject(dict):
     @pulumi.getter(name="treatmentWeights")
     def treatment_weights(self) -> Optional[Sequence['outputs.ExperimentTreatmentToWeight']]:
         return pulumi.get(self, "treatment_weights")
+
+
+@pulumi.output_type
+class ExperimentRunningStatusObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "analysisCompleteTime":
+            suggest = "analysis_complete_time"
+        elif key == "desiredState":
+            suggest = "desired_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentRunningStatusObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentRunningStatusObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentRunningStatusObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis_complete_time: Optional[str] = None,
+                 desired_state: Optional[str] = None,
+                 reason: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str analysis_complete_time: Provide the analysis Completion time for an experiment
+        :param str desired_state: Provide CANCELLED or COMPLETED desired state when stopping an experiment
+        :param str reason: Reason is a required input for stopping the experiment
+        :param str status: Provide START or STOP action to apply on an experiment
+        """
+        if analysis_complete_time is not None:
+            pulumi.set(__self__, "analysis_complete_time", analysis_complete_time)
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="analysisCompleteTime")
+    def analysis_complete_time(self) -> Optional[str]:
+        """
+        Provide the analysis Completion time for an experiment
+        """
+        return pulumi.get(self, "analysis_complete_time")
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[str]:
+        """
+        Provide CANCELLED or COMPLETED desired state when stopping an experiment
+        """
+        return pulumi.get(self, "desired_state")
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[str]:
+        """
+        Reason is a required input for stopping the experiment
+        """
+        return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Provide START or STOP action to apply on an experiment
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -417,6 +493,65 @@ class FeatureVariationObject(dict):
     @pulumi.getter(name="variationName")
     def variation_name(self) -> Optional[str]:
         return pulumi.get(self, "variation_name")
+
+
+@pulumi.output_type
+class LaunchExecutionStatusObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredState":
+            suggest = "desired_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchExecutionStatusObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchExecutionStatusObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchExecutionStatusObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 desired_state: Optional[str] = None,
+                 reason: Optional[str] = None):
+        """
+        :param str status: Provide START or STOP action to apply on a launch
+        :param str desired_state: Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+        :param str reason: Provide a reason for stopping the launch. Defaults to empty if not provided.
+        """
+        pulumi.set(__self__, "status", status)
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Provide START or STOP action to apply on a launch
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[str]:
+        """
+        Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[str]:
+        """
+        Provide a reason for stopping the launch. Defaults to empty if not provided.
+        """
+        return pulumi.get(self, "reason")
 
 
 @pulumi.output_type

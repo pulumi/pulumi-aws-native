@@ -12475,6 +12475,25 @@ export namespace evidently {
         treatmentWeights?: outputs.evidently.ExperimentTreatmentToWeight[];
     }
 
+    export interface ExperimentRunningStatusObject {
+        /**
+         * Provide the analysis Completion time for an experiment
+         */
+        analysisCompleteTime?: string;
+        /**
+         * Provide CANCELLED or COMPLETED desired state when stopping an experiment
+         */
+        desiredState?: string;
+        /**
+         * Reason is a required input for stopping the experiment
+         */
+        reason?: string;
+        /**
+         * Provide START or STOP action to apply on an experiment
+         */
+        status?: string;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -12526,6 +12545,21 @@ export namespace evidently {
         longValue?: number;
         stringValue?: string;
         variationName?: string;
+    }
+
+    export interface LaunchExecutionStatusObject {
+        /**
+         * Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+         */
+        desiredState?: string;
+        /**
+         * Provide a reason for stopping the launch. Defaults to empty if not provided.
+         */
+        reason?: string;
+        /**
+         * Provide START or STOP action to apply on a launch
+         */
+        status: string;
     }
 
     export interface LaunchGroupObject {
@@ -17307,6 +17341,29 @@ export namespace iotthingsgraph {
     export interface FlowTemplateDefinitionDocument {
         language: string;
         text: string;
+    }
+
+}
+
+export namespace iottwinmaker {
+    export interface ComponentTypeStatus {
+        error?: outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
+        state?: enums.iottwinmaker.ComponentTypeStatusState;
+    }
+
+    export interface ComponentTypeStatusErrorProperties {
+        code?: enums.iottwinmaker.ComponentTypeStatusErrorPropertiesCode;
+        message?: string;
+    }
+
+    export interface EntityStatus {
+        error?: outputs.iottwinmaker.EntityStatusErrorProperties;
+        state?: enums.iottwinmaker.EntityStatusState;
+    }
+
+    export interface EntityStatusErrorProperties {
+        code?: enums.iottwinmaker.EntityStatusErrorPropertiesCode;
+        message?: string;
     }
 
 }

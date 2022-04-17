@@ -22,7 +22,9 @@ type Experiment struct {
 	OnlineAbConfig    ExperimentOnlineAbConfigObjectOutput  `pulumi:"onlineAbConfig"`
 	Project           pulumi.StringOutput                   `pulumi:"project"`
 	RandomizationSalt pulumi.StringPtrOutput                `pulumi:"randomizationSalt"`
-	SamplingRate      pulumi.IntPtrOutput                   `pulumi:"samplingRate"`
+	// Start Experiment. Default is False
+	RunningStatus ExperimentRunningStatusObjectPtrOutput `pulumi:"runningStatus"`
+	SamplingRate  pulumi.IntPtrOutput                    `pulumi:"samplingRate"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       ExperimentTagArrayOutput             `pulumi:"tags"`
 	Treatments ExperimentTreatmentObjectArrayOutput `pulumi:"treatments"`
@@ -85,7 +87,9 @@ type experimentArgs struct {
 	OnlineAbConfig    ExperimentOnlineAbConfigObject `pulumi:"onlineAbConfig"`
 	Project           string                         `pulumi:"project"`
 	RandomizationSalt *string                        `pulumi:"randomizationSalt"`
-	SamplingRate      *int                           `pulumi:"samplingRate"`
+	// Start Experiment. Default is False
+	RunningStatus *ExperimentRunningStatusObject `pulumi:"runningStatus"`
+	SamplingRate  *int                           `pulumi:"samplingRate"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       []ExperimentTag             `pulumi:"tags"`
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
@@ -99,7 +103,9 @@ type ExperimentArgs struct {
 	OnlineAbConfig    ExperimentOnlineAbConfigObjectInput
 	Project           pulumi.StringInput
 	RandomizationSalt pulumi.StringPtrInput
-	SamplingRate      pulumi.IntPtrInput
+	// Start Experiment. Default is False
+	RunningStatus ExperimentRunningStatusObjectPtrInput
+	SamplingRate  pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags       ExperimentTagArrayInput
 	Treatments ExperimentTreatmentObjectArrayInput

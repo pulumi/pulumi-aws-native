@@ -125,6 +125,7 @@ import * as iotevents from "./iotevents";
 import * as iotfleethub from "./iotfleethub";
 import * as iotsitewise from "./iotsitewise";
 import * as iotthingsgraph from "./iotthingsgraph";
+import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
 import * as kafkaconnect from "./kafkaconnect";
@@ -317,6 +318,7 @@ export {
     iotfleethub,
     iotsitewise,
     iotthingsgraph,
+    iottwinmaker,
     iotwireless,
     ivs,
     kafkaconnect,

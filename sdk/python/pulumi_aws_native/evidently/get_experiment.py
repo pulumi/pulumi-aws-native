@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExperimentResult:
-    def __init__(__self__, arn=None, description=None, metric_goals=None, online_ab_config=None, randomization_salt=None, sampling_rate=None, tags=None, treatments=None):
+    def __init__(__self__, arn=None, description=None, metric_goals=None, online_ab_config=None, randomization_salt=None, running_status=None, sampling_rate=None, tags=None, treatments=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetExperimentResult:
         if randomization_salt and not isinstance(randomization_salt, str):
             raise TypeError("Expected argument 'randomization_salt' to be a str")
         pulumi.set(__self__, "randomization_salt", randomization_salt)
+        if running_status and not isinstance(running_status, dict):
+            raise TypeError("Expected argument 'running_status' to be a dict")
+        pulumi.set(__self__, "running_status", running_status)
         if sampling_rate and not isinstance(sampling_rate, int):
             raise TypeError("Expected argument 'sampling_rate' to be a int")
         pulumi.set(__self__, "sampling_rate", sampling_rate)
@@ -71,6 +74,14 @@ class GetExperimentResult:
         return pulumi.get(self, "randomization_salt")
 
     @property
+    @pulumi.getter(name="runningStatus")
+    def running_status(self) -> Optional['outputs.ExperimentRunningStatusObject']:
+        """
+        Start Experiment. Default is False
+        """
+        return pulumi.get(self, "running_status")
+
+    @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[int]:
         return pulumi.get(self, "sampling_rate")
@@ -100,6 +111,7 @@ class AwaitableGetExperimentResult(GetExperimentResult):
             metric_goals=self.metric_goals,
             online_ab_config=self.online_ab_config,
             randomization_salt=self.randomization_salt,
+            running_status=self.running_status,
             sampling_rate=self.sampling_rate,
             tags=self.tags,
             treatments=self.treatments)
@@ -124,6 +136,7 @@ def get_experiment(arn: Optional[str] = None,
         metric_goals=__ret__.metric_goals,
         online_ab_config=__ret__.online_ab_config,
         randomization_salt=__ret__.randomization_salt,
+        running_status=__ret__.running_status,
         sampling_rate=__ret__.sampling_rate,
         tags=__ret__.tags,
         treatments=__ret__.treatments)

@@ -51,6 +51,10 @@ namespace Pulumi.AwsNative.Evidently
     {
         public readonly string? Arn;
         public readonly string? Description;
+        /// <summary>
+        /// Start or Stop Launch Launch. Default is not started.
+        /// </summary>
+        public readonly Outputs.LaunchExecutionStatusObject? ExecutionStatus;
         public readonly ImmutableArray<Outputs.LaunchGroupObject> Groups;
         public readonly ImmutableArray<Outputs.LaunchMetricDefinitionObject> MetricMonitors;
         public readonly string? RandomizationSalt;
@@ -66,6 +70,8 @@ namespace Pulumi.AwsNative.Evidently
 
             string? description,
 
+            Outputs.LaunchExecutionStatusObject? executionStatus,
+
             ImmutableArray<Outputs.LaunchGroupObject> groups,
 
             ImmutableArray<Outputs.LaunchMetricDefinitionObject> metricMonitors,
@@ -78,6 +84,7 @@ namespace Pulumi.AwsNative.Evidently
         {
             Arn = arn;
             Description = description;
+            ExecutionStatus = executionStatus;
             Groups = groups;
             MetricMonitors = metricMonitors;
             RandomizationSalt = randomizationSalt;

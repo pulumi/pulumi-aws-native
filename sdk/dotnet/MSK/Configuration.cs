@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MSK
         public Output<ImmutableArray<string>> KafkaVersionsList { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("serverProperties")]
         public Output<string> ServerProperties { get; private set; } = null!;

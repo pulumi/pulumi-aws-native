@@ -50,6 +50,7 @@ import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
 import * as iotsitewise from "./iotsitewise";
+import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
 import * as kafkaconnect from "./kafkaconnect";
@@ -153,6 +154,7 @@ export {
     iotanalytics,
     iotevents,
     iotsitewise,
+    iottwinmaker,
     iotwireless,
     ivs,
     kafkaconnect,

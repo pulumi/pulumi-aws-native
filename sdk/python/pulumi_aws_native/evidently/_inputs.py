@@ -12,12 +12,14 @@ from ._enums import *
 __all__ = [
     'ExperimentMetricGoalObjectArgs',
     'ExperimentOnlineAbConfigObjectArgs',
+    'ExperimentRunningStatusObjectArgs',
     'ExperimentTagArgs',
     'ExperimentTreatmentObjectArgs',
     'ExperimentTreatmentToWeightArgs',
     'FeatureEntityOverrideArgs',
     'FeatureTagArgs',
     'FeatureVariationObjectArgs',
+    'LaunchExecutionStatusObjectArgs',
     'LaunchGroupObjectArgs',
     'LaunchGroupToWeightArgs',
     'LaunchMetricDefinitionObjectArgs',
@@ -141,6 +143,77 @@ class ExperimentOnlineAbConfigObjectArgs:
     @treatment_weights.setter
     def treatment_weights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]):
         pulumi.set(self, "treatment_weights", value)
+
+
+@pulumi.input_type
+class ExperimentRunningStatusObjectArgs:
+    def __init__(__self__, *,
+                 analysis_complete_time: Optional[pulumi.Input[str]] = None,
+                 desired_state: Optional[pulumi.Input[str]] = None,
+                 reason: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] analysis_complete_time: Provide the analysis Completion time for an experiment
+        :param pulumi.Input[str] desired_state: Provide CANCELLED or COMPLETED desired state when stopping an experiment
+        :param pulumi.Input[str] reason: Reason is a required input for stopping the experiment
+        :param pulumi.Input[str] status: Provide START or STOP action to apply on an experiment
+        """
+        if analysis_complete_time is not None:
+            pulumi.set(__self__, "analysis_complete_time", analysis_complete_time)
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="analysisCompleteTime")
+    def analysis_complete_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provide the analysis Completion time for an experiment
+        """
+        return pulumi.get(self, "analysis_complete_time")
+
+    @analysis_complete_time.setter
+    def analysis_complete_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "analysis_complete_time", value)
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provide CANCELLED or COMPLETED desired state when stopping an experiment
+        """
+        return pulumi.get(self, "desired_state")
+
+    @desired_state.setter
+    def desired_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_state", value)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reason is a required input for stopping the experiment
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reason", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provide START or STOP action to apply on an experiment
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -388,6 +461,60 @@ class FeatureVariationObjectArgs:
     @variation_name.setter
     def variation_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "variation_name", value)
+
+
+@pulumi.input_type
+class LaunchExecutionStatusObjectArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str],
+                 desired_state: Optional[pulumi.Input[str]] = None,
+                 reason: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Provide START or STOP action to apply on a launch
+        :param pulumi.Input[str] desired_state: Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+        :param pulumi.Input[str] reason: Provide a reason for stopping the launch. Defaults to empty if not provided.
+        """
+        pulumi.set(__self__, "status", status)
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        Provide START or STOP action to apply on a launch
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @desired_state.setter
+    def desired_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_state", value)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provide a reason for stopping the launch. Defaults to empty if not provided.
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reason", value)
 
 
 @pulumi.input_type

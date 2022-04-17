@@ -37,7 +37,7 @@ export class Configuration extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kafkaVersionsList!: pulumi.Output<string[] | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public readonly serverProperties!: pulumi.Output<string>;
 
     /**

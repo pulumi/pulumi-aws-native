@@ -37,6 +37,10 @@ export class Launch extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Start or Stop Launch Launch. Default is not started.
+     */
+    public readonly executionStatus!: pulumi.Output<outputs.evidently.LaunchExecutionStatusObject | undefined>;
     public readonly groups!: pulumi.Output<outputs.evidently.LaunchGroupObject[]>;
     public readonly metricMonitors!: pulumi.Output<outputs.evidently.LaunchMetricDefinitionObject[] | undefined>;
     public readonly name!: pulumi.Output<string>;
@@ -69,6 +73,7 @@ export class Launch extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scheduledSplitsConfig'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionStatus"] = args ? args.executionStatus : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["metricMonitors"] = args ? args.metricMonitors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -80,6 +85,7 @@ export class Launch extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["executionStatus"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;
             resourceInputs["metricMonitors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -98,6 +104,10 @@ export class Launch extends pulumi.CustomResource {
  */
 export interface LaunchArgs {
     description?: pulumi.Input<string>;
+    /**
+     * Start or Stop Launch Launch. Default is not started.
+     */
+    executionStatus?: pulumi.Input<inputs.evidently.LaunchExecutionStatusObjectArgs>;
     groups: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroupObjectArgs>[]>;
     metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricDefinitionObjectArgs>[]>;
     name?: pulumi.Input<string>;

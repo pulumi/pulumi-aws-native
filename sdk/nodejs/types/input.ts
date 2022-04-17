@@ -12220,6 +12220,25 @@ export namespace evidently {
         treatmentWeights?: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentTreatmentToWeightArgs>[]>;
     }
 
+    export interface ExperimentRunningStatusObjectArgs {
+        /**
+         * Provide the analysis Completion time for an experiment
+         */
+        analysisCompleteTime?: pulumi.Input<string>;
+        /**
+         * Provide CANCELLED or COMPLETED desired state when stopping an experiment
+         */
+        desiredState?: pulumi.Input<string>;
+        /**
+         * Reason is a required input for stopping the experiment
+         */
+        reason?: pulumi.Input<string>;
+        /**
+         * Provide START or STOP action to apply on an experiment
+         */
+        status?: pulumi.Input<string>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -12271,6 +12290,21 @@ export namespace evidently {
         longValue?: pulumi.Input<number>;
         stringValue?: pulumi.Input<string>;
         variationName?: pulumi.Input<string>;
+    }
+
+    export interface LaunchExecutionStatusObjectArgs {
+        /**
+         * Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+         */
+        desiredState?: pulumi.Input<string>;
+        /**
+         * Provide a reason for stopping the launch. Defaults to empty if not provided.
+         */
+        reason?: pulumi.Input<string>;
+        /**
+         * Provide START or STOP action to apply on a launch
+         */
+        status: pulumi.Input<string>;
     }
 
     export interface LaunchGroupObjectArgs {
@@ -17010,6 +17044,9 @@ export namespace iotthingsgraph {
         language: pulumi.Input<string>;
         text: pulumi.Input<string>;
     }
+}
+
+export namespace iottwinmaker {
 }
 
 export namespace iotwireless {

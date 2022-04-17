@@ -26,6 +26,10 @@ export interface GetLaunchArgs {
 export interface GetLaunchResult {
     readonly arn?: string;
     readonly description?: string;
+    /**
+     * Start or Stop Launch Launch. Default is not started.
+     */
+    readonly executionStatus?: outputs.evidently.LaunchExecutionStatusObject;
     readonly groups?: outputs.evidently.LaunchGroupObject[];
     readonly metricMonitors?: outputs.evidently.LaunchMetricDefinitionObject[];
     readonly randomizationSalt?: string;

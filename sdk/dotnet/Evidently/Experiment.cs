@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.Evidently
         [Output("randomizationSalt")]
         public Output<string?> RandomizationSalt { get; private set; } = null!;
 
+        /// <summary>
+        /// Start Experiment. Default is False
+        /// </summary>
+        [Output("runningStatus")]
+        public Output<Outputs.ExperimentRunningStatusObject?> RunningStatus { get; private set; } = null!;
+
         [Output("samplingRate")]
         public Output<int?> SamplingRate { get; private set; } = null!;
 
@@ -115,6 +121,12 @@ namespace Pulumi.AwsNative.Evidently
 
         [Input("randomizationSalt")]
         public Input<string>? RandomizationSalt { get; set; }
+
+        /// <summary>
+        /// Start Experiment. Default is False
+        /// </summary>
+        [Input("runningStatus")]
+        public Input<Inputs.ExperimentRunningStatusObjectArgs>? RunningStatus { get; set; }
 
         [Input("samplingRate")]
         public Input<int>? SamplingRate { get; set; }

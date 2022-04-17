@@ -25,8 +25,10 @@ type LookupLaunchArgs struct {
 }
 
 type LookupLaunchResult struct {
-	Arn                   *string                        `pulumi:"arn"`
-	Description           *string                        `pulumi:"description"`
+	Arn         *string `pulumi:"arn"`
+	Description *string `pulumi:"description"`
+	// Start or Stop Launch Launch. Default is not started.
+	ExecutionStatus       *LaunchExecutionStatusObject   `pulumi:"executionStatus"`
 	Groups                []LaunchGroupObject            `pulumi:"groups"`
 	MetricMonitors        []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
 	RandomizationSalt     *string                        `pulumi:"randomizationSalt"`
@@ -76,6 +78,11 @@ func (o LookupLaunchResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupLaunchResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Start or Stop Launch Launch. Default is not started.
+func (o LookupLaunchResultOutput) ExecutionStatus() LaunchExecutionStatusObjectPtrOutput {
+	return o.ApplyT(func(v LookupLaunchResult) *LaunchExecutionStatusObject { return v.ExecutionStatus }).(LaunchExecutionStatusObjectPtrOutput)
 }
 
 func (o LookupLaunchResultOutput) Groups() LaunchGroupObjectArrayOutput {

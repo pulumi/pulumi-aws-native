@@ -229,6 +229,8 @@ if typing.TYPE_CHECKING:
     iotsitewise = __iotsitewise
     import pulumi_aws_native.iotthingsgraph as __iotthingsgraph
     iotthingsgraph = __iotthingsgraph
+    import pulumi_aws_native.iottwinmaker as __iottwinmaker
+    iottwinmaker = __iottwinmaker
     import pulumi_aws_native.iotwireless as __iotwireless
     iotwireless = __iotwireless
     import pulumi_aws_native.ivs as __ivs
@@ -504,6 +506,7 @@ else:
     iotfleethub = _utilities.lazy_import('pulumi_aws_native.iotfleethub')
     iotsitewise = _utilities.lazy_import('pulumi_aws_native.iotsitewise')
     iotthingsgraph = _utilities.lazy_import('pulumi_aws_native.iotthingsgraph')
+    iottwinmaker = _utilities.lazy_import('pulumi_aws_native.iottwinmaker')
     iotwireless = _utilities.lazy_import('pulumi_aws_native.iotwireless')
     ivs = _utilities.lazy_import('pulumi_aws_native.ivs')
     kafkaconnect = _utilities.lazy_import('pulumi_aws_native.kafkaconnect')
@@ -1854,6 +1857,17 @@ _utilities.register(
   "fqn": "pulumi_aws_native.iotthingsgraph",
   "classes": {
    "aws-native:iotthingsgraph:FlowTemplate": "FlowTemplate"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "iottwinmaker",
+  "fqn": "pulumi_aws_native.iottwinmaker",
+  "classes": {
+   "aws-native:iottwinmaker:ComponentType": "ComponentType",
+   "aws-native:iottwinmaker:Entity": "Entity",
+   "aws-native:iottwinmaker:Scene": "Scene",
+   "aws-native:iottwinmaker:Workspace": "Workspace"
   }
  },
  {

@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetLaunchResult:
-    def __init__(__self__, arn=None, description=None, groups=None, metric_monitors=None, randomization_salt=None, scheduled_splits_config=None, tags=None):
+    def __init__(__self__, arn=None, description=None, execution_status=None, groups=None, metric_monitors=None, randomization_salt=None, scheduled_splits_config=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if execution_status and not isinstance(execution_status, dict):
+            raise TypeError("Expected argument 'execution_status' to be a dict")
+        pulumi.set(__self__, "execution_status", execution_status)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
@@ -50,6 +53,14 @@ class GetLaunchResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="executionStatus")
+    def execution_status(self) -> Optional['outputs.LaunchExecutionStatusObject']:
+        """
+        Start or Stop Launch Launch. Default is not started.
+        """
+        return pulumi.get(self, "execution_status")
 
     @property
     @pulumi.getter
@@ -88,6 +99,7 @@ class AwaitableGetLaunchResult(GetLaunchResult):
         return GetLaunchResult(
             arn=self.arn,
             description=self.description,
+            execution_status=self.execution_status,
             groups=self.groups,
             metric_monitors=self.metric_monitors,
             randomization_salt=self.randomization_salt,
@@ -111,6 +123,7 @@ def get_launch(arn: Optional[str] = None,
     return AwaitableGetLaunchResult(
         arn=__ret__.arn,
         description=__ret__.description,
+        execution_status=__ret__.execution_status,
         groups=__ret__.groups,
         metric_monitors=__ret__.metric_monitors,
         randomization_salt=__ret__.randomization_salt,

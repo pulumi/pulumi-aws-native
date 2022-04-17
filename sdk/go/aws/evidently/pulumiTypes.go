@@ -240,6 +240,200 @@ func (o ExperimentOnlineAbConfigObjectPtrOutput) TreatmentWeights() ExperimentTr
 	}).(ExperimentTreatmentToWeightArrayOutput)
 }
 
+type ExperimentRunningStatusObject struct {
+	// Provide the analysis Completion time for an experiment
+	AnalysisCompleteTime *string `pulumi:"analysisCompleteTime"`
+	// Provide CANCELLED or COMPLETED desired state when stopping an experiment
+	DesiredState *string `pulumi:"desiredState"`
+	// Reason is a required input for stopping the experiment
+	Reason *string `pulumi:"reason"`
+	// Provide START or STOP action to apply on an experiment
+	Status *string `pulumi:"status"`
+}
+
+// ExperimentRunningStatusObjectInput is an input type that accepts ExperimentRunningStatusObjectArgs and ExperimentRunningStatusObjectOutput values.
+// You can construct a concrete instance of `ExperimentRunningStatusObjectInput` via:
+//
+//          ExperimentRunningStatusObjectArgs{...}
+type ExperimentRunningStatusObjectInput interface {
+	pulumi.Input
+
+	ToExperimentRunningStatusObjectOutput() ExperimentRunningStatusObjectOutput
+	ToExperimentRunningStatusObjectOutputWithContext(context.Context) ExperimentRunningStatusObjectOutput
+}
+
+type ExperimentRunningStatusObjectArgs struct {
+	// Provide the analysis Completion time for an experiment
+	AnalysisCompleteTime pulumi.StringPtrInput `pulumi:"analysisCompleteTime"`
+	// Provide CANCELLED or COMPLETED desired state when stopping an experiment
+	DesiredState pulumi.StringPtrInput `pulumi:"desiredState"`
+	// Reason is a required input for stopping the experiment
+	Reason pulumi.StringPtrInput `pulumi:"reason"`
+	// Provide START or STOP action to apply on an experiment
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ExperimentRunningStatusObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentRunningStatusObject)(nil)).Elem()
+}
+
+func (i ExperimentRunningStatusObjectArgs) ToExperimentRunningStatusObjectOutput() ExperimentRunningStatusObjectOutput {
+	return i.ToExperimentRunningStatusObjectOutputWithContext(context.Background())
+}
+
+func (i ExperimentRunningStatusObjectArgs) ToExperimentRunningStatusObjectOutputWithContext(ctx context.Context) ExperimentRunningStatusObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentRunningStatusObjectOutput)
+}
+
+func (i ExperimentRunningStatusObjectArgs) ToExperimentRunningStatusObjectPtrOutput() ExperimentRunningStatusObjectPtrOutput {
+	return i.ToExperimentRunningStatusObjectPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentRunningStatusObjectArgs) ToExperimentRunningStatusObjectPtrOutputWithContext(ctx context.Context) ExperimentRunningStatusObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentRunningStatusObjectOutput).ToExperimentRunningStatusObjectPtrOutputWithContext(ctx)
+}
+
+// ExperimentRunningStatusObjectPtrInput is an input type that accepts ExperimentRunningStatusObjectArgs, ExperimentRunningStatusObjectPtr and ExperimentRunningStatusObjectPtrOutput values.
+// You can construct a concrete instance of `ExperimentRunningStatusObjectPtrInput` via:
+//
+//          ExperimentRunningStatusObjectArgs{...}
+//
+//  or:
+//
+//          nil
+type ExperimentRunningStatusObjectPtrInput interface {
+	pulumi.Input
+
+	ToExperimentRunningStatusObjectPtrOutput() ExperimentRunningStatusObjectPtrOutput
+	ToExperimentRunningStatusObjectPtrOutputWithContext(context.Context) ExperimentRunningStatusObjectPtrOutput
+}
+
+type experimentRunningStatusObjectPtrType ExperimentRunningStatusObjectArgs
+
+func ExperimentRunningStatusObjectPtr(v *ExperimentRunningStatusObjectArgs) ExperimentRunningStatusObjectPtrInput {
+	return (*experimentRunningStatusObjectPtrType)(v)
+}
+
+func (*experimentRunningStatusObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentRunningStatusObject)(nil)).Elem()
+}
+
+func (i *experimentRunningStatusObjectPtrType) ToExperimentRunningStatusObjectPtrOutput() ExperimentRunningStatusObjectPtrOutput {
+	return i.ToExperimentRunningStatusObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentRunningStatusObjectPtrType) ToExperimentRunningStatusObjectPtrOutputWithContext(ctx context.Context) ExperimentRunningStatusObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentRunningStatusObjectPtrOutput)
+}
+
+type ExperimentRunningStatusObjectOutput struct{ *pulumi.OutputState }
+
+func (ExperimentRunningStatusObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentRunningStatusObject)(nil)).Elem()
+}
+
+func (o ExperimentRunningStatusObjectOutput) ToExperimentRunningStatusObjectOutput() ExperimentRunningStatusObjectOutput {
+	return o
+}
+
+func (o ExperimentRunningStatusObjectOutput) ToExperimentRunningStatusObjectOutputWithContext(ctx context.Context) ExperimentRunningStatusObjectOutput {
+	return o
+}
+
+func (o ExperimentRunningStatusObjectOutput) ToExperimentRunningStatusObjectPtrOutput() ExperimentRunningStatusObjectPtrOutput {
+	return o.ToExperimentRunningStatusObjectPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentRunningStatusObjectOutput) ToExperimentRunningStatusObjectPtrOutputWithContext(ctx context.Context) ExperimentRunningStatusObjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentRunningStatusObject) *ExperimentRunningStatusObject {
+		return &v
+	}).(ExperimentRunningStatusObjectPtrOutput)
+}
+
+// Provide the analysis Completion time for an experiment
+func (o ExperimentRunningStatusObjectOutput) AnalysisCompleteTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentRunningStatusObject) *string { return v.AnalysisCompleteTime }).(pulumi.StringPtrOutput)
+}
+
+// Provide CANCELLED or COMPLETED desired state when stopping an experiment
+func (o ExperimentRunningStatusObjectOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentRunningStatusObject) *string { return v.DesiredState }).(pulumi.StringPtrOutput)
+}
+
+// Reason is a required input for stopping the experiment
+func (o ExperimentRunningStatusObjectOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentRunningStatusObject) *string { return v.Reason }).(pulumi.StringPtrOutput)
+}
+
+// Provide START or STOP action to apply on an experiment
+func (o ExperimentRunningStatusObjectOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentRunningStatusObject) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ExperimentRunningStatusObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentRunningStatusObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentRunningStatusObject)(nil)).Elem()
+}
+
+func (o ExperimentRunningStatusObjectPtrOutput) ToExperimentRunningStatusObjectPtrOutput() ExperimentRunningStatusObjectPtrOutput {
+	return o
+}
+
+func (o ExperimentRunningStatusObjectPtrOutput) ToExperimentRunningStatusObjectPtrOutputWithContext(ctx context.Context) ExperimentRunningStatusObjectPtrOutput {
+	return o
+}
+
+func (o ExperimentRunningStatusObjectPtrOutput) Elem() ExperimentRunningStatusObjectOutput {
+	return o.ApplyT(func(v *ExperimentRunningStatusObject) ExperimentRunningStatusObject {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentRunningStatusObject
+		return ret
+	}).(ExperimentRunningStatusObjectOutput)
+}
+
+// Provide the analysis Completion time for an experiment
+func (o ExperimentRunningStatusObjectPtrOutput) AnalysisCompleteTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentRunningStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnalysisCompleteTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provide CANCELLED or COMPLETED desired state when stopping an experiment
+func (o ExperimentRunningStatusObjectPtrOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentRunningStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reason is a required input for stopping the experiment
+func (o ExperimentRunningStatusObjectPtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentRunningStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reason
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provide START or STOP action to apply on an experiment
+func (o ExperimentRunningStatusObjectPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentRunningStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ExperimentTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -886,6 +1080,181 @@ func (o FeatureVariationObjectArrayOutput) Index(i pulumi.IntInput) FeatureVaria
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureVariationObject {
 		return vs[0].([]FeatureVariationObject)[vs[1].(int)]
 	}).(FeatureVariationObjectOutput)
+}
+
+type LaunchExecutionStatusObject struct {
+	// Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+	DesiredState *string `pulumi:"desiredState"`
+	// Provide a reason for stopping the launch. Defaults to empty if not provided.
+	Reason *string `pulumi:"reason"`
+	// Provide START or STOP action to apply on a launch
+	Status string `pulumi:"status"`
+}
+
+// LaunchExecutionStatusObjectInput is an input type that accepts LaunchExecutionStatusObjectArgs and LaunchExecutionStatusObjectOutput values.
+// You can construct a concrete instance of `LaunchExecutionStatusObjectInput` via:
+//
+//          LaunchExecutionStatusObjectArgs{...}
+type LaunchExecutionStatusObjectInput interface {
+	pulumi.Input
+
+	ToLaunchExecutionStatusObjectOutput() LaunchExecutionStatusObjectOutput
+	ToLaunchExecutionStatusObjectOutputWithContext(context.Context) LaunchExecutionStatusObjectOutput
+}
+
+type LaunchExecutionStatusObjectArgs struct {
+	// Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+	DesiredState pulumi.StringPtrInput `pulumi:"desiredState"`
+	// Provide a reason for stopping the launch. Defaults to empty if not provided.
+	Reason pulumi.StringPtrInput `pulumi:"reason"`
+	// Provide START or STOP action to apply on a launch
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (LaunchExecutionStatusObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchExecutionStatusObject)(nil)).Elem()
+}
+
+func (i LaunchExecutionStatusObjectArgs) ToLaunchExecutionStatusObjectOutput() LaunchExecutionStatusObjectOutput {
+	return i.ToLaunchExecutionStatusObjectOutputWithContext(context.Background())
+}
+
+func (i LaunchExecutionStatusObjectArgs) ToLaunchExecutionStatusObjectOutputWithContext(ctx context.Context) LaunchExecutionStatusObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionStatusObjectOutput)
+}
+
+func (i LaunchExecutionStatusObjectArgs) ToLaunchExecutionStatusObjectPtrOutput() LaunchExecutionStatusObjectPtrOutput {
+	return i.ToLaunchExecutionStatusObjectPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchExecutionStatusObjectArgs) ToLaunchExecutionStatusObjectPtrOutputWithContext(ctx context.Context) LaunchExecutionStatusObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionStatusObjectOutput).ToLaunchExecutionStatusObjectPtrOutputWithContext(ctx)
+}
+
+// LaunchExecutionStatusObjectPtrInput is an input type that accepts LaunchExecutionStatusObjectArgs, LaunchExecutionStatusObjectPtr and LaunchExecutionStatusObjectPtrOutput values.
+// You can construct a concrete instance of `LaunchExecutionStatusObjectPtrInput` via:
+//
+//          LaunchExecutionStatusObjectArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchExecutionStatusObjectPtrInput interface {
+	pulumi.Input
+
+	ToLaunchExecutionStatusObjectPtrOutput() LaunchExecutionStatusObjectPtrOutput
+	ToLaunchExecutionStatusObjectPtrOutputWithContext(context.Context) LaunchExecutionStatusObjectPtrOutput
+}
+
+type launchExecutionStatusObjectPtrType LaunchExecutionStatusObjectArgs
+
+func LaunchExecutionStatusObjectPtr(v *LaunchExecutionStatusObjectArgs) LaunchExecutionStatusObjectPtrInput {
+	return (*launchExecutionStatusObjectPtrType)(v)
+}
+
+func (*launchExecutionStatusObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchExecutionStatusObject)(nil)).Elem()
+}
+
+func (i *launchExecutionStatusObjectPtrType) ToLaunchExecutionStatusObjectPtrOutput() LaunchExecutionStatusObjectPtrOutput {
+	return i.ToLaunchExecutionStatusObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *launchExecutionStatusObjectPtrType) ToLaunchExecutionStatusObjectPtrOutputWithContext(ctx context.Context) LaunchExecutionStatusObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionStatusObjectPtrOutput)
+}
+
+type LaunchExecutionStatusObjectOutput struct{ *pulumi.OutputState }
+
+func (LaunchExecutionStatusObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchExecutionStatusObject)(nil)).Elem()
+}
+
+func (o LaunchExecutionStatusObjectOutput) ToLaunchExecutionStatusObjectOutput() LaunchExecutionStatusObjectOutput {
+	return o
+}
+
+func (o LaunchExecutionStatusObjectOutput) ToLaunchExecutionStatusObjectOutputWithContext(ctx context.Context) LaunchExecutionStatusObjectOutput {
+	return o
+}
+
+func (o LaunchExecutionStatusObjectOutput) ToLaunchExecutionStatusObjectPtrOutput() LaunchExecutionStatusObjectPtrOutput {
+	return o.ToLaunchExecutionStatusObjectPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchExecutionStatusObjectOutput) ToLaunchExecutionStatusObjectPtrOutputWithContext(ctx context.Context) LaunchExecutionStatusObjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchExecutionStatusObject) *LaunchExecutionStatusObject {
+		return &v
+	}).(LaunchExecutionStatusObjectPtrOutput)
+}
+
+// Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+func (o LaunchExecutionStatusObjectOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchExecutionStatusObject) *string { return v.DesiredState }).(pulumi.StringPtrOutput)
+}
+
+// Provide a reason for stopping the launch. Defaults to empty if not provided.
+func (o LaunchExecutionStatusObjectOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchExecutionStatusObject) *string { return v.Reason }).(pulumi.StringPtrOutput)
+}
+
+// Provide START or STOP action to apply on a launch
+func (o LaunchExecutionStatusObjectOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchExecutionStatusObject) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type LaunchExecutionStatusObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchExecutionStatusObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchExecutionStatusObject)(nil)).Elem()
+}
+
+func (o LaunchExecutionStatusObjectPtrOutput) ToLaunchExecutionStatusObjectPtrOutput() LaunchExecutionStatusObjectPtrOutput {
+	return o
+}
+
+func (o LaunchExecutionStatusObjectPtrOutput) ToLaunchExecutionStatusObjectPtrOutputWithContext(ctx context.Context) LaunchExecutionStatusObjectPtrOutput {
+	return o
+}
+
+func (o LaunchExecutionStatusObjectPtrOutput) Elem() LaunchExecutionStatusObjectOutput {
+	return o.ApplyT(func(v *LaunchExecutionStatusObject) LaunchExecutionStatusObject {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchExecutionStatusObject
+		return ret
+	}).(LaunchExecutionStatusObjectOutput)
+}
+
+// Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
+func (o LaunchExecutionStatusObjectPtrOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchExecutionStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provide a reason for stopping the launch. Defaults to empty if not provided.
+func (o LaunchExecutionStatusObjectPtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchExecutionStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reason
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provide START or STOP action to apply on a launch
+func (o LaunchExecutionStatusObjectPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchExecutionStatusObject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchGroupObject struct {
@@ -1848,6 +2217,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentMetricGoalObjectInput)(nil)).Elem(), ExperimentMetricGoalObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentMetricGoalObjectArrayInput)(nil)).Elem(), ExperimentMetricGoalObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentOnlineAbConfigObjectInput)(nil)).Elem(), ExperimentOnlineAbConfigObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentRunningStatusObjectInput)(nil)).Elem(), ExperimentRunningStatusObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentRunningStatusObjectPtrInput)(nil)).Elem(), ExperimentRunningStatusObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTagInput)(nil)).Elem(), ExperimentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTagArrayInput)(nil)).Elem(), ExperimentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTreatmentObjectInput)(nil)).Elem(), ExperimentTreatmentObjectArgs{})
@@ -1860,6 +2231,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureTagArrayInput)(nil)).Elem(), FeatureTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationObjectInput)(nil)).Elem(), FeatureVariationObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationObjectArrayInput)(nil)).Elem(), FeatureVariationObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchExecutionStatusObjectInput)(nil)).Elem(), LaunchExecutionStatusObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchExecutionStatusObjectPtrInput)(nil)).Elem(), LaunchExecutionStatusObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchGroupObjectInput)(nil)).Elem(), LaunchGroupObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchGroupObjectArrayInput)(nil)).Elem(), LaunchGroupObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchGroupToWeightInput)(nil)).Elem(), LaunchGroupToWeightArgs{})
@@ -1880,6 +2253,8 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectOutput{})
 	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentRunningStatusObjectOutput{})
+	pulumi.RegisterOutputType(ExperimentRunningStatusObjectPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTagOutput{})
 	pulumi.RegisterOutputType(ExperimentTagArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTreatmentObjectOutput{})
@@ -1892,6 +2267,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureTagArrayOutput{})
 	pulumi.RegisterOutputType(FeatureVariationObjectOutput{})
 	pulumi.RegisterOutputType(FeatureVariationObjectArrayOutput{})
+	pulumi.RegisterOutputType(LaunchExecutionStatusObjectOutput{})
+	pulumi.RegisterOutputType(LaunchExecutionStatusObjectPtrOutput{})
 	pulumi.RegisterOutputType(LaunchGroupObjectOutput{})
 	pulumi.RegisterOutputType(LaunchGroupObjectArrayOutput{})
 	pulumi.RegisterOutputType(LaunchGroupToWeightOutput{})

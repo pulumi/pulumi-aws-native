@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Evidently
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Start or Stop Launch Launch. Default is not started.
+        /// </summary>
+        [Output("executionStatus")]
+        public Output<Outputs.LaunchExecutionStatusObject?> ExecutionStatus { get; private set; } = null!;
+
         [Output("groups")]
         public Output<ImmutableArray<Outputs.LaunchGroupObject>> Groups { get; private set; } = null!;
 
@@ -92,6 +98,12 @@ namespace Pulumi.AwsNative.Evidently
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Start or Stop Launch Launch. Default is not started.
+        /// </summary>
+        [Input("executionStatus")]
+        public Input<Inputs.LaunchExecutionStatusObjectArgs>? ExecutionStatus { get; set; }
 
         [Input("groups", required: true)]
         private InputList<Inputs.LaunchGroupObjectArgs>? _groups;

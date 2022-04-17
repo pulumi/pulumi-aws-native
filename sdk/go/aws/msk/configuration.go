@@ -18,7 +18,7 @@ type Configuration struct {
 	Arn               pulumi.StringOutput      `pulumi:"arn"`
 	Description       pulumi.StringPtrOutput   `pulumi:"description"`
 	KafkaVersionsList pulumi.StringArrayOutput `pulumi:"kafkaVersionsList"`
-	Name              pulumi.StringPtrOutput   `pulumi:"name"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
 	ServerProperties  pulumi.StringOutput      `pulumi:"serverProperties"`
 }
 
