@@ -389,7 +389,6 @@
   "createOnlyProperties" : [ "/properties/BrokerNodeGroupInfo/BrokerAZDistribution", "/properties/BrokerNodeGroupInfo/ClientSubnets", "/properties/BrokerNodeGroupInfo/SecurityGroups", "/properties/EncryptionInfo/EncryptionAtRest", "/properties/EncryptionInfo/EncryptionInTransit/InCluster", "/properties/ClusterName", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "replacementStrategy" : "delete_then_create",
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
