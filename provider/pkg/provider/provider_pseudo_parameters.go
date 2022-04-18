@@ -14,6 +14,12 @@ func (p *cfnProvider) getAccountID(ctx context.Context, inputs resource.Property
 	}), nil
 }
 
+func (p *cfnProvider) getURLSuffix(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+	return resource.NewPropertyMapFromMap(map[string]interface{}{
+		"urlSuffix": p.partition.URLSuffix,
+	}), nil
+}
+
 func (p *cfnProvider) getRegion(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	return resource.NewPropertyMapFromMap(map[string]interface{}{
 		"region": p.region,
