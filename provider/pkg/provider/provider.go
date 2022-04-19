@@ -85,6 +85,7 @@ type cfnProvider struct {
 	version      string
 	accountID    string
 	region       string
+	partition    partition
 	resourceMap  *schema.CloudAPIMetadata
 	pulumiSchema []byte
 
@@ -270,7 +271,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	if region, ok := varsOrEnv(vars, "aws-native:config:region", "AWS_REGION", "AWS_DEFAULT_REGION"); ok {
 		glog.V(4).Infof("using AWS region: %q", region)
 		loadOptions = append(loadOptions, config.WithRegion(region))
-		p.region = region
+		p.region, p.partition = region, getPartition(region)
 	} else {
 		return nil, errors.New("missing required configuration key \"aws-native:region\":" +
 			"The region where AWS operations will take place. Examples are eu-east-1, eu-west-2, etc.\n" +
@@ -410,6 +411,7 @@ var functions = map[string]func(*cfnProvider, context.Context, resource.Property
 	"aws-native:index:getAccountId":          (*cfnProvider).getAccountID,
 	"aws-native:index:getAzs":                (*cfnProvider).getAZs,
 	"aws-native:index:getRegion":             (*cfnProvider).getRegion,
+	"aws-native:index:getUrlSuffix":          (*cfnProvider).getURLSuffix,
 	"aws-native:index:cidr":                  (*cfnProvider).cidr,
 	"aws-native:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
 	"aws-native:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
