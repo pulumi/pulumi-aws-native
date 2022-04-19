@@ -1,6 +1,7 @@
 ## HEAD (Unreleased)
 
-_(none)_
+- Implement support for getUrlSuffix.
+  [#456](https://github.com/pulumi/pulumi-aws-native/pull/456)
 
 ---
 
