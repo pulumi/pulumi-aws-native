@@ -3,6 +3,8 @@
 - Implement support for getUrlSuffix.
   [#456](https://github.com/pulumi/pulumi-aws-native/pull/456)
 
+- Upgrade to Pulumi/Pulumi v3.30.0
+
 ---
 
 ## 0.15.0 (Apr 06, 2022)
