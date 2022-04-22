@@ -4039,6 +4039,9 @@
                 "computeResources": {
                     "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
                 },
+                "replaceComputeEnvironment": {
+                    "type": "boolean"
+                },
                 "serviceRole": {
                     "type": "string"
                 },
@@ -4054,6 +4057,9 @@
                 },
                 "unmanagedvCpus": {
                     "type": "integer"
+                },
+                "updatePolicy": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentUpdatePolicy"
                 }
             },
             "outputs": {
@@ -4066,6 +4072,9 @@
                 "computeResources": {
                     "$ref": "#/types/aws-native:batch:ComputeEnvironmentComputeResources"
                 },
+                "replaceComputeEnvironment": {
+                    "type": "boolean"
+                },
                 "serviceRole": {
                     "type": "string"
                 },
@@ -4081,6 +4090,9 @@
                 },
                 "unmanagedvCpus": {
                     "type": "integer"
+                },
+                "updatePolicy": {
+                    "$ref": "#/types/aws-native:batch:ComputeEnvironmentUpdatePolicy"
                 }
             },
             "autoNamingSpec": {
@@ -4091,18 +4103,7 @@
             ],
             "createOnly": [
                 "computeEnvironmentName",
-                "computeResources/AllocationStrategy",
-                "computeResources/BidPercentage",
-                "computeResources/Ec2Configuration",
-                "computeResources/Ec2KeyPair",
-                "computeResources/ImageId",
-                "computeResources/InstanceRole",
-                "computeResources/InstanceTypes",
-                "computeResources/LaunchTemplate",
-                "computeResources/PlacementGroup",
                 "computeResources/SpotIamFleetRole",
-                "computeResources/Tags",
-                "computeResources/Type",
                 "tags",
                 "type"
             ]
@@ -7010,6 +7011,86 @@
                 "config",
                 "instanceArn",
                 "timeZone"
+            ]
+        },
+        "aws-native:connect:PhoneNumber": {
+            "cf": "AWS::Connect::PhoneNumber",
+            "inputs": {
+                "countryCode": {
+                    "type": "string",
+                    "description": "The phone number country code."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the phone number."
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "The phone number prefix."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:PhoneNumberTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon Connect instance the phone number is claimed to."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The phone number type, either TOLL_FREE or DID."
+                }
+            },
+            "outputs": {
+                "address": {
+                    "type": "string",
+                    "description": "The phone number e164 address."
+                },
+                "countryCode": {
+                    "type": "string",
+                    "description": "The phone number country code."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the phone number."
+                },
+                "phoneNumberArn": {
+                    "type": "string",
+                    "description": "The phone number ARN"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "The phone number prefix."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:PhoneNumberTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon Connect instance the phone number is claimed to."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The phone number type, either TOLL_FREE or DID."
+                }
+            },
+            "required": [
+                "countryCode",
+                "targetArn",
+                "type"
+            ],
+            "createOnly": [
+                "countryCode",
+                "description",
+                "prefix",
+                "type"
             ]
         },
         "aws-native:connect:QuickConnect": {
@@ -12101,6 +12182,14 @@
                     "type": "string",
                     "description": "The allowed tenancy of instances launched into the VPC.\n\n\"default\": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n\n\"dedicated\": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.\n\nUpdating InstanceTenancy requires no replacement only if you are updating its value from \"dedicated\" to \"default\". Updating InstanceTenancy from \"default\" to \"dedicated\" requires replacement."
                 },
+                "ipv4IpamPoolId": {
+                    "type": "string",
+                    "description": "The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR"
+                },
+                "ipv4NetmaskLength": {
+                    "type": "integer",
+                    "description": "The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -12141,6 +12230,14 @@
                     "type": "string",
                     "description": "The allowed tenancy of instances launched into the VPC.\n\n\"default\": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n\n\"dedicated\": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.\n\nUpdating InstanceTenancy requires no replacement only if you are updating its value from \"dedicated\" to \"default\". Updating InstanceTenancy from \"default\" to \"dedicated\" requires replacement."
                 },
+                "ipv4IpamPoolId": {
+                    "type": "string",
+                    "description": "The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR"
+                },
+                "ipv4NetmaskLength": {
+                    "type": "integer",
+                    "description": "The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool"
+                },
                 "ipv6CidrBlocks": {
                     "type": "array",
                     "items": {
@@ -12160,11 +12257,10 @@
                     "description": "The Id for the model."
                 }
             },
-            "required": [
-                "cidrBlock"
-            ],
             "createOnly": [
-                "cidrBlock"
+                "cidrBlock",
+                "ipv4IpamPoolId",
+                "ipv4NetmaskLength"
             ]
         },
         "aws-native:ec2:VPCDHCPOptionsAssociation": {
@@ -17101,6 +17197,57 @@
                 "kmsEncryptionConfig",
                 "preloadDataConfig",
                 "sseConfiguration"
+            ]
+        },
+        "aws-native:iam:InstanceProfile": {
+            "cf": "AWS::IAM::InstanceProfile",
+            "inputs": {
+                "instanceProfileName": {
+                    "type": "string",
+                    "description": "The name of the instance profile to create."
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path to the instance profile."
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the instance profile."
+                },
+                "instanceProfileName": {
+                    "type": "string",
+                    "description": "The name of the instance profile to create."
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path to the instance profile."
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "instanceProfileName"
+            },
+            "required": [
+                "roles"
+            ],
+            "createOnly": [
+                "instanceProfileName",
+                "path"
             ]
         },
         "aws-native:iam:OIDCProvider": {
@@ -42632,6 +42779,9 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "updateToLatestImageVersion": {
+                    "type": "boolean"
                 }
             }
         },
@@ -42657,6 +42807,17 @@
                 },
                 "version": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:batch:ComputeEnvironmentUpdatePolicy": {
+            "type": "object",
+            "properties": {
+                "jobExecutionTimeoutMinutes": {
+                    "type": "integer"
+                },
+                "terminateJobsOnUpdate": {
+                    "type": "boolean"
                 }
             }
         },
@@ -44543,6 +44704,19 @@
                 "minutes": {
                     "type": "integer",
                     "description": "The minutes."
+                }
+            }
+        },
+        "aws-native:connect:PhoneNumberTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 }
             }
         },
@@ -75260,6 +75434,12 @@
                 "hoursOfOperationArn"
             ]
         },
+        "aws-native:connect:getPhoneNumber": {
+            "cf": "AWS::Connect::PhoneNumber",
+            "ids": [
+                "phoneNumberArn"
+            ]
+        },
         "aws-native:connect:getQuickConnect": {
             "cf": "AWS::Connect::QuickConnect",
             "ids": [
@@ -76095,6 +76275,12 @@
             "cf": "AWS::HealthLake::FHIRDatastore",
             "ids": [
                 "datastoreId"
+            ]
+        },
+        "aws-native:iam:getInstanceProfile": {
+            "cf": "AWS::IAM::InstanceProfile",
+            "ids": [
+                "instanceProfileName"
             ]
         },
         "aws-native:iam:getOIDCProvider": {
