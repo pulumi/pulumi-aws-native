@@ -118,6 +118,12 @@ namespace Pulumi.AwsNative.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
+        /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The Access Point Policy you want to apply to this access point.
         /// </summary>
         [Input("policy")]

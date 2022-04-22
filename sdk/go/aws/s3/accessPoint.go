@@ -78,6 +78,8 @@ func (AccessPointState) ElementType() reflect.Type {
 type accessPointArgs struct {
 	// The name of the bucket that you want to associate this Access Point with.
 	Bucket string `pulumi:"bucket"`
+	// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
+	Name *string `pulumi:"name"`
 	// The Access Point Policy you want to apply to this access point.
 	Policy       interface{}             `pulumi:"policy"`
 	PolicyStatus *PolicyStatusProperties `pulumi:"policyStatus"`
@@ -91,6 +93,8 @@ type accessPointArgs struct {
 type AccessPointArgs struct {
 	// The name of the bucket that you want to associate this Access Point with.
 	Bucket pulumi.StringInput
+	// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
+	Name pulumi.StringPtrInput
 	// The Access Point Policy you want to apply to this access point.
 	Policy       pulumi.Input
 	PolicyStatus PolicyStatusPropertiesPtrInput

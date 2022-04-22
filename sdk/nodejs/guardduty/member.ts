@@ -40,7 +40,7 @@ export class Member extends pulumi.CustomResource {
     public readonly detectorId!: pulumi.Output<string>;
     public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
     public readonly email!: pulumi.Output<string>;
-    public /*out*/ readonly memberId!: pulumi.Output<string>;
+    public readonly memberId!: pulumi.Output<string>;
     public readonly message!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -63,12 +63,15 @@ export class Member extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
+            if ((!args || args.memberId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'memberId'");
+            }
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["memberId"] = args ? args.memberId : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["memberId"] = undefined /*out*/;
         } else {
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["disableEmailNotification"] = undefined /*out*/;
@@ -89,6 +92,7 @@ export interface MemberArgs {
     detectorId: pulumi.Input<string>;
     disableEmailNotification?: pulumi.Input<boolean>;
     email: pulumi.Input<string>;
+    memberId: pulumi.Input<string>;
     message?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
 }

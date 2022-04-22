@@ -14,6 +14,7 @@ __all__ = ['ArchiveArgs', 'Archive']
 class ArchiveArgs:
     def __init__(__self__, *,
                  source_arn: pulumi.Input[str],
+                 archive_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[Any] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
@@ -21,6 +22,8 @@ class ArchiveArgs:
         The set of arguments for constructing a Archive resource.
         """
         pulumi.set(__self__, "source_arn", source_arn)
+        if archive_name is not None:
+            pulumi.set(__self__, "archive_name", archive_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if event_pattern is not None:
@@ -36,6 +39,15 @@ class ArchiveArgs:
     @source_arn.setter
     def source_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_arn", value)
+
+    @property
+    @pulumi.getter(name="archiveName")
+    def archive_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "archive_name")
+
+    @archive_name.setter
+    def archive_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "archive_name", value)
 
     @property
     @pulumi.getter
@@ -70,6 +82,7 @@ class Archive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 archive_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[Any] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
@@ -105,6 +118,7 @@ class Archive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 archive_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[Any] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
@@ -121,13 +135,13 @@ class Archive(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArchiveArgs.__new__(ArchiveArgs)
 
+            __props__.__dict__["archive_name"] = archive_name
             __props__.__dict__["description"] = description
             __props__.__dict__["event_pattern"] = event_pattern
             __props__.__dict__["retention_days"] = retention_days
             if source_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_arn'")
             __props__.__dict__["source_arn"] = source_arn
-            __props__.__dict__["archive_name"] = None
             __props__.__dict__["arn"] = None
         super(Archive, __self__).__init__(
             'aws-native:events:Archive',

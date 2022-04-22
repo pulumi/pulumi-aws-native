@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class ArchiveArgs : Pulumi.ResourceArgs
     {
+        [Input("archiveName")]
+        public Input<string>? ArchiveName { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

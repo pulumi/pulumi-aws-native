@@ -2886,6 +2886,14 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "domainName": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "DomainNameValue"
+                        }
+                    }
                 }
             },
             "outputs": {
@@ -2911,7 +2919,8 @@
                 }
             },
             "required": [
-                "certificateArn"
+                "certificateArn",
+                "domainName"
             ],
             "createOnly": [
                 "certificateArn",
@@ -5986,6 +5995,10 @@
                     "type": "string",
                     "description": "The name of the domain."
                 },
+                "encryptionKey": {
+                    "type": "string",
+                    "description": "The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain."
+                },
                 "permissionsPolicyDocument": {
                     "$ref": "pulumi.json#/Any",
                     "description": "The access control resource policy on the provided domain."
@@ -6047,6 +6060,14 @@
                 "description": {
                     "type": "string",
                     "description": "A text description of the repository."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The name of the domain that contains the repository."
+                },
+                "domainOwner": {
+                    "type": "string",
+                    "description": "The 12-digit account ID of the AWS account that owns the domain."
                 },
                 "externalConnections": {
                     "type": "array",
@@ -6134,6 +6155,9 @@
                 "minLength": 2,
                 "maxLength": 100
             },
+            "required": [
+                "domainName"
+            ],
             "createOnly": [
                 "domainName",
                 "domainOwner",
@@ -14595,6 +14619,9 @@
         "aws-native:events:Archive": {
             "cf": "AWS::Events::Archive",
             "inputs": {
+                "archiveName": {
+                    "type": "string"
+                },
                 "description": {
                     "type": "string"
                 },
@@ -14627,6 +14654,11 @@
                 "sourceArn": {
                     "type": "string"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "archiveName",
+                "minLength": 1,
+                "maxLength": 48
             },
             "required": [
                 "sourceArn"
@@ -33614,6 +33646,10 @@
                     "type": "string",
                     "description": "The name of the bucket that you want to associate this Access Point with."
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name."
+                },
                 "policy": {
                     "$ref": "pulumi.json#/Any",
                     "description": "The Access Point Policy you want to apply to this access point."
@@ -33666,6 +33702,11 @@
                     "$ref": "#/types/aws-native:s3:AccessPointVpcConfiguration",
                     "description": "If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC)."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 50
             },
             "required": [
                 "bucket"
@@ -36733,6 +36774,9 @@
                 "syncFormat": {
                     "type": "string"
                 },
+                "syncName": {
+                    "type": "string"
+                },
                 "syncSource": {
                     "$ref": "#/types/aws-native:ssm:ResourceDataSyncSyncSource"
                 },
@@ -36769,6 +36813,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "syncName"
+            ],
             "createOnly": [
                 "bucketName",
                 "bucketPrefix",

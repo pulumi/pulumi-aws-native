@@ -109,6 +109,12 @@ namespace Pulumi.AwsNative.CodeArtifact
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
+        /// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+        /// </summary>
+        [Input("encryptionKey")]
+        public Input<string>? EncryptionKey { get; set; }
+
+        /// <summary>
         /// The access control resource policy on the provided domain.
         /// </summary>
         [Input("permissionsPolicyDocument")]

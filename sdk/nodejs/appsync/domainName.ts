@@ -37,7 +37,7 @@ export class DomainName extends pulumi.CustomResource {
     public /*out*/ readonly appSyncDomainName!: pulumi.Output<string>;
     public readonly certificateArn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
 
     /**
@@ -54,10 +54,13 @@ export class DomainName extends pulumi.CustomResource {
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
+            if ((!args || args.domainName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'domainName'");
+            }
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["appSyncDomainName"] = undefined /*out*/;
-            resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         } else {
             resourceInputs["appSyncDomainName"] = undefined /*out*/;
@@ -77,4 +80,5 @@ export class DomainName extends pulumi.CustomResource {
 export interface DomainNameArgs {
     certificateArn: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
 }

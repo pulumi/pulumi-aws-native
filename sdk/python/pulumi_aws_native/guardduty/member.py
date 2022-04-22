@@ -15,6 +15,7 @@ class MemberArgs:
     def __init__(__self__, *,
                  detector_id: pulumi.Input[str],
                  email: pulumi.Input[str],
+                 member_id: pulumi.Input[str],
                  disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
@@ -23,6 +24,7 @@ class MemberArgs:
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "member_id", member_id)
         if disable_email_notification is not None:
             pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if message is not None:
@@ -47,6 +49,15 @@ class MemberArgs:
     @email.setter
     def email(self, value: pulumi.Input[str]):
         pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="memberId")
+    def member_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "member_id")
+
+    @member_id.setter
+    def member_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "member_id", value)
 
     @property
     @pulumi.getter(name="disableEmailNotification")
@@ -89,6 +100,7 @@ class Member(pulumi.CustomResource):
                  detector_id: Optional[pulumi.Input[str]] = None,
                  disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
+                 member_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -125,6 +137,7 @@ class Member(pulumi.CustomResource):
                  detector_id: Optional[pulumi.Input[str]] = None,
                  disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
+                 member_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -147,9 +160,11 @@ class Member(pulumi.CustomResource):
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
+            if member_id is None and not opts.urn:
+                raise TypeError("Missing required property 'member_id'")
+            __props__.__dict__["member_id"] = member_id
             __props__.__dict__["message"] = message
             __props__.__dict__["status"] = status
-            __props__.__dict__["member_id"] = None
         super(Member, __self__).__init__(
             'aws-native:guardduty:Member',
             resource_name,

@@ -73,7 +73,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly readerEndPointPort!: pulumi.Output<string | undefined>;
     public readonly replicasPerNodeGroup!: pulumi.Output<number | undefined>;
     public readonly replicationGroupDescription!: pulumi.Output<string>;
-    public /*out*/ readonly replicationGroupId!: pulumi.Output<string>;
+    public readonly replicationGroupId!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
     public readonly snapshotName!: pulumi.Output<string | undefined>;
@@ -135,6 +135,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["readerEndPointPort"] = args ? args.readerEndPointPort : undefined;
             resourceInputs["replicasPerNodeGroup"] = args ? args.replicasPerNodeGroup : undefined;
             resourceInputs["replicationGroupDescription"] = args ? args.replicationGroupDescription : undefined;
+            resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
@@ -144,7 +145,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["userGroupIds"] = args ? args.userGroupIds : undefined;
-            resourceInputs["replicationGroupId"] = undefined /*out*/;
         } else {
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["authToken"] = undefined /*out*/;
@@ -236,6 +236,7 @@ export interface ReplicationGroupArgs {
     readerEndPointPort?: pulumi.Input<string>;
     replicasPerNodeGroup?: pulumi.Input<number>;
     replicationGroupDescription: pulumi.Input<string>;
+    replicationGroupId?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     snapshotName?: pulumi.Input<string>;

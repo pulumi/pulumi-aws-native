@@ -141,6 +141,7 @@ type replicationGroupArgs struct {
 	ReaderEndPointPort           *string                                           `pulumi:"readerEndPointPort"`
 	ReplicasPerNodeGroup         *int                                              `pulumi:"replicasPerNodeGroup"`
 	ReplicationGroupDescription  string                                            `pulumi:"replicationGroupDescription"`
+	ReplicationGroupId           *string                                           `pulumi:"replicationGroupId"`
 	SecurityGroupIds             []string                                          `pulumi:"securityGroupIds"`
 	SnapshotArns                 []string                                          `pulumi:"snapshotArns"`
 	SnapshotName                 *string                                           `pulumi:"snapshotName"`
@@ -189,6 +190,7 @@ type ReplicationGroupArgs struct {
 	ReaderEndPointPort           pulumi.StringPtrInput
 	ReplicasPerNodeGroup         pulumi.IntPtrInput
 	ReplicationGroupDescription  pulumi.StringInput
+	ReplicationGroupId           pulumi.StringPtrInput
 	SecurityGroupIds             pulumi.StringArrayInput
 	SnapshotArns                 pulumi.StringArrayInput
 	SnapshotName                 pulumi.StringPtrInput

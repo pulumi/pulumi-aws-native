@@ -38,7 +38,7 @@ export class Device extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly deviceId!: pulumi.Output<string>;
+    public readonly deviceId!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean>;
 
     /**
@@ -54,12 +54,15 @@ export class Device extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.deviceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'deviceId'");
+            }
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
+            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["deviceId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
@@ -74,5 +77,6 @@ export class Device extends pulumi.CustomResource {
  * The set of arguments for constructing a Device resource.
  */
 export interface DeviceArgs {
+    deviceId: pulumi.Input<string>;
     enabled: pulumi.Input<boolean>;
 }

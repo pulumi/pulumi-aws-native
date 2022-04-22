@@ -46,11 +46,11 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The name of the domain that contains the repository.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The 12-digit account ID of the AWS account that owns the domain.
      */
-    public /*out*/ readonly domainOwner!: pulumi.Output<string>;
+    public readonly domainOwner!: pulumi.Output<string>;
     /**
      * A list of external connections associated with the repository.
      */
@@ -83,19 +83,22 @@ export class Repository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'domainName'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
             resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
             resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upstreams"] = args ? args.upstreams : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["domainName"] = undefined /*out*/;
-            resourceInputs["domainOwner"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -122,6 +125,14 @@ export interface RepositoryArgs {
      * A text description of the repository.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the domain that contains the repository.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * The 12-digit account ID of the AWS account that owns the domain.
+     */
+    domainOwner?: pulumi.Input<string>;
     /**
      * A list of external connections associated with the repository.
      */

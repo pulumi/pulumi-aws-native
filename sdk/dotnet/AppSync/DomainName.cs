@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("domainName", required: true)]
+        public Input<string> DomainNameValue { get; set; } = null!;
+
         public DomainNameArgs()
         {
         }
