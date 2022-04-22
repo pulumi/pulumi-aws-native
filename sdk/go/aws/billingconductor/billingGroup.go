@@ -30,9 +30,10 @@ type BillingGroup struct {
 	// This account will act as a virtual payer account of the billing group
 	PrimaryAccountId pulumi.StringOutput `pulumi:"primaryAccountId"`
 	// Number of accounts in the billing group
-	Size         pulumi.IntOutput         `pulumi:"size"`
-	Status       BillingGroupStatusOutput `pulumi:"status"`
-	StatusReason pulumi.StringOutput      `pulumi:"statusReason"`
+	Size         pulumi.IntOutput           `pulumi:"size"`
+	Status       BillingGroupStatusOutput   `pulumi:"status"`
+	StatusReason pulumi.StringOutput        `pulumi:"statusReason"`
+	Tags         BillingGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewBillingGroup registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,8 @@ type billingGroupArgs struct {
 	Description           *string                           `pulumi:"description"`
 	Name                  *string                           `pulumi:"name"`
 	// This account will act as a virtual payer account of the billing group
-	PrimaryAccountId string `pulumi:"primaryAccountId"`
+	PrimaryAccountId string            `pulumi:"primaryAccountId"`
+	Tags             []BillingGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BillingGroup resource.
@@ -99,6 +101,7 @@ type BillingGroupArgs struct {
 	Name                  pulumi.StringPtrInput
 	// This account will act as a virtual payer account of the billing group
 	PrimaryAccountId pulumi.StringInput
+	Tags             BillingGroupTagArrayInput
 }
 
 func (BillingGroupArgs) ElementType() reflect.Type {

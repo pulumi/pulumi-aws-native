@@ -14,17 +14,25 @@ export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:iam:getInstanceProfile", {
-        "id": args.id,
+        "instanceProfileName": args.instanceProfileName,
     }, opts);
 }
 
 export interface GetInstanceProfileArgs {
-    id: string;
+    /**
+     * The name of the instance profile to create.
+     */
+    instanceProfileName: string;
 }
 
 export interface GetInstanceProfileResult {
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile.
+     */
     readonly arn?: string;
-    readonly id?: string;
+    /**
+     * The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+     */
     readonly roles?: string[];
 }
 
@@ -33,5 +41,8 @@ export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opt
 }
 
 export interface GetInstanceProfileOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the instance profile to create.
+     */
+    instanceProfileName: pulumi.Input<string>;
 }

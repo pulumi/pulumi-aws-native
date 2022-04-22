@@ -30,20 +30,49 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "LessThanOrEqual" : {
+          "type" : "integer"
+        },
         "Lt" : {
           "type" : "integer"
         },
-        "Gte" : {
+        "GreaterThanOrEqual" : {
           "type" : "integer"
         },
-        "Neq" : {
+        "Eq" : {
           "type" : "array",
           "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
         },
-        "Eq" : {
+        "Gt" : {
+          "type" : "integer"
+        },
+        "NotEquals" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Equals" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "LessThan" : {
+          "type" : "integer"
+        },
+        "GreaterThan" : {
+          "type" : "integer"
+        },
+        "Gte" : {
+          "type" : "integer"
+        },
+        "Neq" : {
           "type" : "array",
           "uniqueItems" : false,
           "items" : {

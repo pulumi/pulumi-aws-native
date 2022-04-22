@@ -12,19 +12,30 @@ namespace Pulumi.AwsNative.IAM
     /// <summary>
     /// Resource Type definition for AWS::IAM::InstanceProfile
     /// </summary>
-    [Obsolete(@"InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:InstanceProfile")]
     public partial class InstanceProfile : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the instance profile to create.
+        /// </summary>
         [Output("instanceProfileName")]
         public Output<string?> InstanceProfileName { get; private set; } = null!;
 
+        /// <summary>
+        /// The path to the instance profile.
+        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        /// </summary>
         [Output("roles")]
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
@@ -73,14 +84,24 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class InstanceProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the instance profile to create.
+        /// </summary>
         [Input("instanceProfileName")]
         public Input<string>? InstanceProfileName { get; set; }
 
+        /// <summary>
+        /// The path to the instance profile.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         [Input("roles", required: true)]
         private InputList<string>? _roles;
+
+        /// <summary>
+        /// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        /// </summary>
         public InputList<string> Roles
         {
             get => _roles ?? (_roles = new InputList<string>());

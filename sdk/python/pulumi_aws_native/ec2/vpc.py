@@ -15,10 +15,12 @@ __all__ = ['VPCArgs', 'VPC']
 @pulumi.input_type
 class VPCArgs:
     def __init__(__self__, *,
-                 cidr_block: pulumi.Input[str],
+                 cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCTagArgs']]]] = None):
         """
         The set of arguments for constructing a VPC resource.
@@ -32,28 +34,35 @@ class VPCArgs:
                "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
                
                Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
         :param pulumi.Input[Sequence[pulumi.Input['VPCTagArgs']]] tags: The tags for the VPC.
         """
-        pulumi.set(__self__, "cidr_block", cidr_block)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
         if enable_dns_hostnames is not None:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
         if instance_tenancy is not None:
             pulumi.set(__self__, "instance_tenancy", instance_tenancy)
+        if ipv4_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+        if ipv4_netmask_length is not None:
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Input[str]:
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
         The primary IPv4 CIDR block for the VPC.
         """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: pulumi.Input[str]):
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cidr_block", value)
 
     @property
@@ -99,6 +108,30 @@ class VPCArgs:
         pulumi.set(self, "instance_tenancy", value)
 
     @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPCTagArgs']]]]:
         """
@@ -120,6 +153,8 @@ class VPC(pulumi.CustomResource):
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -137,13 +172,15 @@ class VPC(pulumi.CustomResource):
                "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
                
                Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCTagArgs']]]] tags: The tags for the VPC.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VPCArgs,
+                 args: Optional[VPCArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPC
@@ -167,6 +204,8 @@ class VPC(pulumi.CustomResource):
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -180,12 +219,12 @@ class VPC(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VPCArgs.__new__(VPCArgs)
 
-            if cidr_block is None and not opts.urn:
-                raise TypeError("Missing required property 'cidr_block'")
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
             __props__.__dict__["enable_dns_support"] = enable_dns_support
             __props__.__dict__["instance_tenancy"] = instance_tenancy
+            __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
+            __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cidr_block_associations"] = None
             __props__.__dict__["default_network_acl"] = None
@@ -221,6 +260,8 @@ class VPC(pulumi.CustomResource):
         __props__.__dict__["enable_dns_hostnames"] = None
         __props__.__dict__["enable_dns_support"] = None
         __props__.__dict__["instance_tenancy"] = None
+        __props__.__dict__["ipv4_ipam_pool_id"] = None
+        __props__.__dict__["ipv4_netmask_length"] = None
         __props__.__dict__["ipv6_cidr_blocks"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
@@ -228,7 +269,7 @@ class VPC(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The primary IPv4 CIDR block for the VPC.
         """
@@ -287,6 +328,22 @@ class VPC(pulumi.CustomResource):
         Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
         """
         return pulumi.get(self, "instance_tenancy")
+
+    @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        """
+        The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")

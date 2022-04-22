@@ -55,6 +55,7 @@ export interface GetPricingRuleResult {
      * Pricing rule name
      */
     readonly name?: string;
+    readonly tags?: outputs.billingconductor.PricingRuleTag[];
     /**
      * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
      */

@@ -49,7 +49,7 @@ class AwaitableGetRobotApplicationVersionResult(GetRobotApplicationVersionResult
 def get_robot_application_version(arn: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRobotApplicationVersionResult:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -68,6 +68,6 @@ def get_robot_application_version(arn: Optional[str] = None,
 def get_robot_application_version_output(arn: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotApplicationVersionResult]:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
     """
     ...

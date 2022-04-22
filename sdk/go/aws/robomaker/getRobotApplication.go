@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An example resource schema demonstrating some basic constructs and validation rules.
+// AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
 func LookupRobotApplication(ctx *pulumi.Context, args *LookupRobotApplicationArgs, opts ...pulumi.InvokeOption) (*LookupRobotApplicationResult, error) {
 	var rv LookupRobotApplicationResult
 	err := ctx.Invoke("aws-native:robomaker:getRobotApplication", args, &rv, opts...)

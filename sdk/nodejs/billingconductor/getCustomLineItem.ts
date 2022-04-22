@@ -49,6 +49,7 @@ export interface GetCustomLineItemResult {
     readonly lastModifiedTime?: number;
     readonly name?: string;
     readonly productCode?: string;
+    readonly tags?: outputs.billingconductor.CustomLineItemTag[];
 }
 
 export function getCustomLineItemOutput(args: GetCustomLineItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLineItemResult> {

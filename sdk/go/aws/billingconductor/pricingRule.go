@@ -34,7 +34,8 @@ type PricingRule struct {
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScopeOutput `pulumi:"scope"`
 	// The service which a pricing rule is applied on
-	Service pulumi.StringPtrOutput `pulumi:"service"`
+	Service pulumi.StringPtrOutput    `pulumi:"service"`
+	Tags    PricingRuleTagArrayOutput `pulumi:"tags"`
 	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
 	Type PricingRuleTypeOutput `pulumi:"type"`
 }
@@ -96,7 +97,8 @@ type pricingRuleArgs struct {
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScope `pulumi:"scope"`
 	// The service which a pricing rule is applied on
-	Service *string `pulumi:"service"`
+	Service *string          `pulumi:"service"`
+	Tags    []PricingRuleTag `pulumi:"tags"`
 	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
 	Type PricingRuleType `pulumi:"type"`
 }
@@ -113,6 +115,7 @@ type PricingRuleArgs struct {
 	Scope PricingRuleScopeInput
 	// The service which a pricing rule is applied on
 	Service pulumi.StringPtrInput
+	Tags    PricingRuleTagArrayInput
 	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
 	Type PricingRuleTypeInput
 }

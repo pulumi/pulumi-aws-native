@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IAM::InstanceProfile
- *
- * @deprecated InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InstanceProfile {
-        pulumi.log.warn("InstanceProfile is deprecated: InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new InstanceProfile(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,9 +34,21 @@ export class InstanceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceProfile.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the instance profile to create.
+     */
     public readonly instanceProfileName!: pulumi.Output<string | undefined>;
+    /**
+     * The path to the instance profile.
+     */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+     */
     public readonly roles!: pulumi.Output<string[]>;
 
     /**
@@ -49,9 +58,7 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("InstanceProfile is deprecated: InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,7 +84,16 @@ export class InstanceProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a InstanceProfile resource.
  */
 export interface InstanceProfileArgs {
+    /**
+     * The name of the instance profile to create.
+     */
     instanceProfileName?: pulumi.Input<string>;
+    /**
+     * The path to the instance profile.
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+     */
     roles: pulumi.Input<pulumi.Input<string>[]>;
 }

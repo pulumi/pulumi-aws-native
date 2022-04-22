@@ -17,13 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceProfileResult:
-    def __init__(__self__, arn=None, id=None, roles=None):
+    def __init__(__self__, arn=None, roles=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if roles and not isinstance(roles, list):
             raise TypeError("Expected argument 'roles' to be a list")
         pulumi.set(__self__, "roles", roles)
@@ -31,16 +28,17 @@ class GetInstanceProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def roles(self) -> Optional[Sequence[str]]:
+        """
+        The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        """
         return pulumi.get(self, "roles")
 
 
@@ -51,17 +49,19 @@ class AwaitableGetInstanceProfileResult(GetInstanceProfileResult):
             yield self
         return GetInstanceProfileResult(
             arn=self.arn,
-            id=self.id,
             roles=self.roles)
 
 
-def get_instance_profile(id: Optional[str] = None,
+def get_instance_profile(instance_profile_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceProfileResult:
     """
     Resource Type definition for AWS::IAM::InstanceProfile
+
+
+    :param str instance_profile_name: The name of the instance profile to create.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['instanceProfileName'] = instance_profile_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -70,14 +70,16 @@ def get_instance_profile(id: Optional[str] = None,
 
     return AwaitableGetInstanceProfileResult(
         arn=__ret__.arn,
-        id=__ret__.id,
         roles=__ret__.roles)
 
 
 @_utilities.lift_output_func(get_instance_profile)
-def get_instance_profile_output(id: Optional[pulumi.Input[str]] = None,
+def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Resource Type definition for AWS::IAM::InstanceProfile
+
+
+    :param str instance_profile_name: The name of the instance profile to create.
     """
     ...

@@ -7,7 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['PricingRuleArgs', 'PricingRule']
 
@@ -19,7 +21,8 @@ class PricingRuleArgs:
                  type: pulumi.Input['PricingRuleType'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service: Optional[pulumi.Input[str]] = None):
+                 service: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None):
         """
         The set of arguments for constructing a PricingRule resource.
         :param pulumi.Input[float] modifier_percentage: Pricing rule modifier percentage
@@ -38,6 +41,8 @@ class PricingRuleArgs:
             pulumi.set(__self__, "name", name)
         if service is not None:
             pulumi.set(__self__, "service", service)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="modifierPercentage")
@@ -111,6 +116,15 @@ class PricingRuleArgs:
     def service(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -127,6 +141,7 @@ class PricingRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['PricingRuleScope']] = None,
                  service: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingRuleTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['PricingRuleType']] = None,
                  __props__=None):
         """
@@ -170,6 +185,7 @@ class PricingRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['PricingRuleScope']] = None,
                  service: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingRuleTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['PricingRuleType']] = None,
                  __props__=None):
         pulumi.log.warn("""PricingRule is deprecated: PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -193,6 +209,7 @@ class PricingRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["service"] = service
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -231,6 +248,7 @@ class PricingRule(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["service"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PricingRule(resource_name, opts=opts, __props__=__props__)
 
@@ -305,6 +323,11 @@ class PricingRule(pulumi.CustomResource):
         The service which a pricing rule is applied on
         """
         return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PricingRuleTag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

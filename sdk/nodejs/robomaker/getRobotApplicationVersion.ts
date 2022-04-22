@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
  */
 export function getRobotApplicationVersion(args: GetRobotApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotApplicationVersionResult> {
     if (!opts) {

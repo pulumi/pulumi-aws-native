@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RoboMaker
     public static class GetRobot
     {
         /// <summary>
-        /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+        /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
         /// </summary>
         public static Task<GetRobotResult> InvokeAsync(GetRobotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRobotResult>("aws-native:robomaker:getRobot", args ?? new GetRobotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+        /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
         /// </summary>
         public static Output<GetRobotResult> Invoke(GetRobotInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRobotResult>("aws-native:robomaker:getRobot", args ?? new GetRobotInvokeArgs(), options.WithDefaults());

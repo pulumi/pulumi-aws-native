@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +15,7 @@ type VPC struct {
 	pulumi.CustomResourceState
 
 	// The primary IPv4 CIDR block for the VPC.
-	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	// A list of IPv4 CIDR block association IDs for the VPC.
 	CidrBlockAssociations pulumi.StringArrayOutput `pulumi:"cidrBlockAssociations"`
 	// The default network ACL ID that is associated with the VPC.
@@ -35,6 +34,10 @@ type VPC struct {
 	//
 	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
 	InstanceTenancy pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
 	// A list of IPv6 CIDR blocks that are associated with the VPC.
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
@@ -47,12 +50,9 @@ type VPC struct {
 func NewVPC(ctx *pulumi.Context,
 	name string, args *VPCArgs, opts ...pulumi.ResourceOption) (*VPC, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &VPCArgs{}
 	}
 
-	if args.CidrBlock == nil {
-		return nil, errors.New("invalid value for required argument 'CidrBlock'")
-	}
 	var resource VPC
 	err := ctx.RegisterResource("aws-native:ec2:VPC", name, args, &resource, opts...)
 	if err != nil {
@@ -86,7 +86,7 @@ func (VPCState) ElementType() reflect.Type {
 
 type vpcArgs struct {
 	// The primary IPv4 CIDR block for the VPC.
-	CidrBlock string `pulumi:"cidrBlock"`
+	CidrBlock *string `pulumi:"cidrBlock"`
 	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
@@ -99,6 +99,10 @@ type vpcArgs struct {
 	//
 	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The tags for the VPC.
 	Tags []VPCTag `pulumi:"tags"`
 }
@@ -106,7 +110,7 @@ type vpcArgs struct {
 // The set of arguments for constructing a VPC resource.
 type VPCArgs struct {
 	// The primary IPv4 CIDR block for the VPC.
-	CidrBlock pulumi.StringInput
+	CidrBlock pulumi.StringPtrInput
 	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
@@ -119,6 +123,10 @@ type VPCArgs struct {
 	//
 	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
 	InstanceTenancy pulumi.StringPtrInput
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+	Ipv4IpamPoolId pulumi.StringPtrInput
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The tags for the VPC.
 	Tags VPCTagArrayInput
 }

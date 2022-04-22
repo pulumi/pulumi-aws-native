@@ -74,6 +74,7 @@ export class PricingRule extends pulumi.CustomResource {
      * The service which a pricing rule is applied on
      */
     public readonly service!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.billingconductor.PricingRuleTag[] | undefined>;
     /**
      * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
      */
@@ -106,6 +107,7 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedPricingPlanCount"] = undefined /*out*/;
@@ -121,6 +123,7 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -152,6 +155,7 @@ export interface PricingRuleArgs {
      * The service which a pricing rule is applied on
      */
     service?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.PricingRuleTagArgs>[]>;
     /**
      * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
      */

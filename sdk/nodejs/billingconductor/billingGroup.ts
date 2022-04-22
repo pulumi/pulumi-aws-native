@@ -64,6 +64,7 @@ export class BillingGroup extends pulumi.CustomResource {
     public /*out*/ readonly size!: pulumi.Output<number>;
     public /*out*/ readonly status!: pulumi.Output<enums.billingconductor.BillingGroupStatus>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.billingconductor.BillingGroupTag[] | undefined>;
 
     /**
      * Create a BillingGroup resource with the given unique name, arguments, and options.
@@ -92,6 +93,7 @@ export class BillingGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["primaryAccountId"] = args ? args.primaryAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
@@ -110,6 +112,7 @@ export class BillingGroup extends pulumi.CustomResource {
             resourceInputs["size"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BillingGroup.__pulumiType, name, resourceInputs, opts);
@@ -128,4 +131,5 @@ export interface BillingGroupArgs {
      * This account will act as a virtual payer account of the billing group
      */
     primaryAccountId: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.BillingGroupTagArgs>[]>;
 }

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2
         /// The primary IPv4 CIDR block for the VPC.
         /// </summary>
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// A list of IPv4 CIDR block association IDs for the VPC.
@@ -64,6 +64,18 @@ namespace Pulumi.AwsNative.EC2
         public Output<string?> InstanceTenancy { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        /// </summary>
+        [Output("ipv4IpamPoolId")]
+        public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Output("ipv4NetmaskLength")]
+        public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
+
+        /// <summary>
         /// A list of IPv6 CIDR blocks that are associated with the VPC.
         /// </summary>
         [Output("ipv6CidrBlocks")]
@@ -89,7 +101,7 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public VPC(string name, VPCArgs args, CustomResourceOptions? options = null)
+        public VPC(string name, VPCArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ec2:VPC", name, args ?? new VPCArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -129,8 +141,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The primary IPv4 CIDR block for the VPC.
         /// </summary>
-        [Input("cidrBlock", required: true)]
-        public Input<string> CidrBlock { get; set; } = null!;
+        [Input("cidrBlock")]
+        public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
         /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
@@ -155,6 +167,18 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
+
+        /// <summary>
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        /// </summary>
+        [Input("ipv4IpamPoolId")]
+        public Input<string>? Ipv4IpamPoolId { get; set; }
+
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Input("ipv4NetmaskLength")]
+        public Input<int>? Ipv4NetmaskLength { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VPCTagArgs>? _tags;

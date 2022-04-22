@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -45,6 +46,7 @@ export interface GetPricingPlanResult {
      * Number of associated pricing rules
      */
     readonly size?: number;
+    readonly tags?: outputs.billingconductor.PricingPlanTag[];
 }
 
 export function getPricingPlanOutput(args: GetPricingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPricingPlanResult> {

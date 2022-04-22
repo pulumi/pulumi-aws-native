@@ -11,10 +11,12 @@ from .contact_flow_module import *
 from .get_contact_flow import *
 from .get_contact_flow_module import *
 from .get_hours_of_operation import *
+from .get_phone_number import *
 from .get_quick_connect import *
 from .get_user import *
 from .get_user_hierarchy_group import *
 from .hours_of_operation import *
+from .phone_number import *
 from .quick_connect import *
 from .user import *
 from .user_hierarchy_group import *

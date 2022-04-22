@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.BillingConductor
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.BillingGroupTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BillingGroup resource with the given unique name, arguments, and options.
@@ -126,6 +129,14 @@ namespace Pulumi.AwsNative.BillingConductor
         /// </summary>
         [Input("primaryAccountId", required: true)]
         public Input<string> PrimaryAccountId { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.BillingGroupTagArgs>? _tags;
+        public InputList<Inputs.BillingGroupTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.BillingGroupTagArgs>());
+            set => _tags = value;
+        }
 
         public BillingGroupArgs()
         {

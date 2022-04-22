@@ -50,7 +50,7 @@ class AwaitableGetRobotResult(GetRobotResult):
 def get_robot(arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRobotResult:
     """
-    AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+    AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -69,6 +69,6 @@ def get_robot(arn: Optional[str] = None,
 def get_robot_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotResult]:
     """
-    AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+    AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
     """
     ...

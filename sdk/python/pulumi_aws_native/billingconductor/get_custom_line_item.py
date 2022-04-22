@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCustomLineItemResult:
-    def __init__(__self__, arn=None, association_size=None, billing_period_range=None, creation_time=None, currency_code=None, custom_line_item_charge_details=None, description=None, last_modified_time=None, name=None, product_code=None):
+    def __init__(__self__, arn=None, association_size=None, billing_period_range=None, creation_time=None, currency_code=None, custom_line_item_charge_details=None, description=None, last_modified_time=None, name=None, product_code=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetCustomLineItemResult:
         if product_code and not isinstance(product_code, str):
             raise TypeError("Expected argument 'product_code' to be a str")
         pulumi.set(__self__, "product_code", product_code)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -113,6 +116,11 @@ class GetCustomLineItemResult:
     def product_code(self) -> Optional[str]:
         return pulumi.get(self, "product_code")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.CustomLineItemTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCustomLineItemResult(GetCustomLineItemResult):
     # pylint: disable=using-constant-test
@@ -129,7 +137,8 @@ class AwaitableGetCustomLineItemResult(GetCustomLineItemResult):
             description=self.description,
             last_modified_time=self.last_modified_time,
             name=self.name,
-            product_code=self.product_code)
+            product_code=self.product_code,
+            tags=self.tags)
 
 
 def get_custom_line_item(arn: Optional[str] = None,
@@ -158,7 +167,8 @@ def get_custom_line_item(arn: Optional[str] = None,
         description=__ret__.description,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
-        product_code=__ret__.product_code)
+        product_code=__ret__.product_code,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_custom_line_item)

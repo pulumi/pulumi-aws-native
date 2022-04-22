@@ -519,6 +519,115 @@ func (o HoursOfOperationTimeSliceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v HoursOfOperationTimeSlice) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
+// A key-value pair to associate with a resource.
+type PhoneNumberTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// PhoneNumberTagInput is an input type that accepts PhoneNumberTagArgs and PhoneNumberTagOutput values.
+// You can construct a concrete instance of `PhoneNumberTagInput` via:
+//
+//          PhoneNumberTagArgs{...}
+type PhoneNumberTagInput interface {
+	pulumi.Input
+
+	ToPhoneNumberTagOutput() PhoneNumberTagOutput
+	ToPhoneNumberTagOutputWithContext(context.Context) PhoneNumberTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type PhoneNumberTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PhoneNumberTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhoneNumberTag)(nil)).Elem()
+}
+
+func (i PhoneNumberTagArgs) ToPhoneNumberTagOutput() PhoneNumberTagOutput {
+	return i.ToPhoneNumberTagOutputWithContext(context.Background())
+}
+
+func (i PhoneNumberTagArgs) ToPhoneNumberTagOutputWithContext(ctx context.Context) PhoneNumberTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhoneNumberTagOutput)
+}
+
+// PhoneNumberTagArrayInput is an input type that accepts PhoneNumberTagArray and PhoneNumberTagArrayOutput values.
+// You can construct a concrete instance of `PhoneNumberTagArrayInput` via:
+//
+//          PhoneNumberTagArray{ PhoneNumberTagArgs{...} }
+type PhoneNumberTagArrayInput interface {
+	pulumi.Input
+
+	ToPhoneNumberTagArrayOutput() PhoneNumberTagArrayOutput
+	ToPhoneNumberTagArrayOutputWithContext(context.Context) PhoneNumberTagArrayOutput
+}
+
+type PhoneNumberTagArray []PhoneNumberTagInput
+
+func (PhoneNumberTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PhoneNumberTag)(nil)).Elem()
+}
+
+func (i PhoneNumberTagArray) ToPhoneNumberTagArrayOutput() PhoneNumberTagArrayOutput {
+	return i.ToPhoneNumberTagArrayOutputWithContext(context.Background())
+}
+
+func (i PhoneNumberTagArray) ToPhoneNumberTagArrayOutputWithContext(ctx context.Context) PhoneNumberTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhoneNumberTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type PhoneNumberTagOutput struct{ *pulumi.OutputState }
+
+func (PhoneNumberTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhoneNumberTag)(nil)).Elem()
+}
+
+func (o PhoneNumberTagOutput) ToPhoneNumberTagOutput() PhoneNumberTagOutput {
+	return o
+}
+
+func (o PhoneNumberTagOutput) ToPhoneNumberTagOutputWithContext(ctx context.Context) PhoneNumberTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PhoneNumberTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PhoneNumberTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PhoneNumberTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PhoneNumberTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PhoneNumberTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PhoneNumberTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PhoneNumberTag)(nil)).Elem()
+}
+
+func (o PhoneNumberTagArrayOutput) ToPhoneNumberTagArrayOutput() PhoneNumberTagArrayOutput {
+	return o
+}
+
+func (o PhoneNumberTagArrayOutput) ToPhoneNumberTagArrayOutputWithContext(ctx context.Context) PhoneNumberTagArrayOutput {
+	return o
+}
+
+func (o PhoneNumberTagArrayOutput) Index(i pulumi.IntInput) PhoneNumberTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhoneNumberTag {
+		return vs[0].([]PhoneNumberTag)[vs[1].(int)]
+	}).(PhoneNumberTagOutput)
+}
+
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
 	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
@@ -1611,6 +1720,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagInput)(nil)).Elem(), HoursOfOperationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagArrayInput)(nil)).Elem(), HoursOfOperationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagInput)(nil)).Elem(), PhoneNumberTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagArrayInput)(nil)).Elem(), PhoneNumberTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
@@ -1634,6 +1745,8 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationTagOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTagArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
+	pulumi.RegisterOutputType(PhoneNumberTagOutput{})
+	pulumi.RegisterOutputType(PhoneNumberTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})

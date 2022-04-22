@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.BillingConductor
         /// Number of associated pricing rules
         /// </summary>
         public readonly int? Size;
+        public readonly ImmutableArray<Outputs.PricingPlanTag> Tags;
 
         [OutputConstructor]
         private GetPricingPlanResult(
@@ -89,7 +90,9 @@ namespace Pulumi.AwsNative.BillingConductor
 
             ImmutableArray<string> pricingRuleArns,
 
-            int? size)
+            int? size,
+
+            ImmutableArray<Outputs.PricingPlanTag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;
@@ -98,6 +101,7 @@ namespace Pulumi.AwsNative.BillingConductor
             Name = name;
             PricingRuleArns = pricingRuleArns;
             Size = size;
+            Tags = tags;
         }
     }
 }

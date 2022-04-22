@@ -14,28 +14,56 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     public sealed class FilterCondition
     {
         public readonly ImmutableArray<string> Eq;
+        public readonly ImmutableArray<string> Equals;
+        public readonly int? GreaterThan;
+        public readonly int? GreaterThanOrEqual;
+        public readonly int? Gt;
         public readonly int? Gte;
+        public readonly int? LessThan;
+        public readonly int? LessThanOrEqual;
         public readonly int? Lt;
         public readonly int? Lte;
         public readonly ImmutableArray<string> Neq;
+        public readonly ImmutableArray<string> NotEquals;
 
         [OutputConstructor]
         private FilterCondition(
             ImmutableArray<string> eq,
 
+            ImmutableArray<string> equals,
+
+            int? greaterThan,
+
+            int? greaterThanOrEqual,
+
+            int? gt,
+
             int? gte,
+
+            int? lessThan,
+
+            int? lessThanOrEqual,
 
             int? lt,
 
             int? lte,
 
-            ImmutableArray<string> neq)
+            ImmutableArray<string> neq,
+
+            ImmutableArray<string> notEquals)
         {
             Eq = eq;
+            Equals = equals;
+            GreaterThan = greaterThan;
+            GreaterThanOrEqual = greaterThanOrEqual;
+            Gt = gt;
             Gte = gte;
+            LessThan = lessThan;
+            LessThanOrEqual = lessThanOrEqual;
             Lt = lt;
             Lte = lte;
             Neq = neq;
+            NotEquals = notEquals;
         }
     }
 }

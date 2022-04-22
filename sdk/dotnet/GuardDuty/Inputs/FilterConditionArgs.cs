@@ -20,8 +20,31 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
             set => _eq = value;
         }
 
+        [Input("equals")]
+        private InputList<string>? _equals;
+        public InputList<string> Equals
+        {
+            get => _equals ?? (_equals = new InputList<string>());
+            set => _equals = value;
+        }
+
+        [Input("greaterThan")]
+        public Input<int>? GreaterThan { get; set; }
+
+        [Input("greaterThanOrEqual")]
+        public Input<int>? GreaterThanOrEqual { get; set; }
+
+        [Input("gt")]
+        public Input<int>? Gt { get; set; }
+
         [Input("gte")]
         public Input<int>? Gte { get; set; }
+
+        [Input("lessThan")]
+        public Input<int>? LessThan { get; set; }
+
+        [Input("lessThanOrEqual")]
+        public Input<int>? LessThanOrEqual { get; set; }
 
         [Input("lt")]
         public Input<int>? Lt { get; set; }
@@ -35,6 +58,14 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         {
             get => _neq ?? (_neq = new InputList<string>());
             set => _neq = value;
+        }
+
+        [Input("notEquals")]
+        private InputList<string>? _notEquals;
+        public InputList<string> NotEquals
+        {
+            get => _notEquals ?? (_notEquals = new InputList<string>());
+            set => _notEquals = value;
         }
 
         public FilterConditionArgs()

@@ -30,9 +30,10 @@ type CustomLineItem struct {
 	CustomLineItemChargeDetails CustomLineItemChargeDetailsPtrOutput `pulumi:"customLineItemChargeDetails"`
 	Description                 pulumi.StringPtrOutput               `pulumi:"description"`
 	// Latest modified timestamp in UNIX epoch time format
-	LastModifiedTime pulumi.IntOutput    `pulumi:"lastModifiedTime"`
-	Name             pulumi.StringOutput `pulumi:"name"`
-	ProductCode      pulumi.StringOutput `pulumi:"productCode"`
+	LastModifiedTime pulumi.IntOutput             `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput          `pulumi:"name"`
+	ProductCode      pulumi.StringOutput          `pulumi:"productCode"`
+	Tags             CustomLineItemTagArrayOutput `pulumi:"tags"`
 }
 
 // NewCustomLineItem registers a new resource with the given unique name, arguments, and options.
@@ -83,6 +84,7 @@ type customLineItemArgs struct {
 	CustomLineItemChargeDetails *CustomLineItemChargeDetails      `pulumi:"customLineItemChargeDetails"`
 	Description                 *string                           `pulumi:"description"`
 	Name                        *string                           `pulumi:"name"`
+	Tags                        []CustomLineItemTag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomLineItem resource.
@@ -93,6 +95,7 @@ type CustomLineItemArgs struct {
 	CustomLineItemChargeDetails CustomLineItemChargeDetailsPtrInput
 	Description                 pulumi.StringPtrInput
 	Name                        pulumi.StringPtrInput
+	Tags                        CustomLineItemTagArrayInput
 }
 
 func (CustomLineItemArgs) ElementType() reflect.Type {

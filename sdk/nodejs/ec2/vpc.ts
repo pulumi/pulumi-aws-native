@@ -38,7 +38,7 @@ export class VPC extends pulumi.CustomResource {
     /**
      * The primary IPv4 CIDR block for the VPC.
      */
-    public readonly cidrBlock!: pulumi.Output<string>;
+    public readonly cidrBlock!: pulumi.Output<string | undefined>;
     /**
      * A list of IPv4 CIDR block association IDs for the VPC.
      */
@@ -70,6 +70,14 @@ export class VPC extends pulumi.CustomResource {
      */
     public readonly instanceTenancy!: pulumi.Output<string | undefined>;
     /**
+     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+     */
+    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+     */
+    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    /**
      * A list of IPv6 CIDR blocks that are associated with the VPC.
      */
     public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
@@ -89,17 +97,16 @@ export class VPC extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VPCArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VPCArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cidrBlock'");
-            }
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             resourceInputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
+            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["cidrBlockAssociations"] = undefined /*out*/;
             resourceInputs["defaultNetworkAcl"] = undefined /*out*/;
@@ -114,6 +121,8 @@ export class VPC extends pulumi.CustomResource {
             resourceInputs["enableDnsHostnames"] = undefined /*out*/;
             resourceInputs["enableDnsSupport"] = undefined /*out*/;
             resourceInputs["instanceTenancy"] = undefined /*out*/;
+            resourceInputs["ipv4IpamPoolId"] = undefined /*out*/;
+            resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
@@ -130,7 +139,7 @@ export interface VPCArgs {
     /**
      * The primary IPv4 CIDR block for the VPC.
      */
-    cidrBlock: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
      */
@@ -149,6 +158,14 @@ export interface VPCArgs {
      * Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
      */
     instanceTenancy?: pulumi.Input<string>;
+    /**
+     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+     */
+    ipv4IpamPoolId?: pulumi.Input<string>;
+    /**
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+     */
+    ipv4NetmaskLength?: pulumi.Input<number>;
     /**
      * The tags for the VPC.
      */

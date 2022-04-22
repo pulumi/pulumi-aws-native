@@ -20,7 +20,8 @@ class BillingGroupArgs:
                  computation_preference: pulumi.Input['BillingGroupComputationPreferenceArgs'],
                  primary_account_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a BillingGroup resource.
         :param pulumi.Input[str] primary_account_id: This account will act as a virtual payer account of the billing group
@@ -32,6 +33,8 @@ class BillingGroupArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountGrouping")
@@ -81,6 +84,15 @@ class BillingGroupArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""BillingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -97,6 +109,7 @@ class BillingGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BillingGroupTagArgs']]]]] = None,
                  __props__=None):
         """
         A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
@@ -134,6 +147,7 @@ class BillingGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BillingGroupTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""BillingGroup is deprecated: BillingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -158,6 +172,7 @@ class BillingGroup(pulumi.CustomResource):
             if primary_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_account_id'")
             __props__.__dict__["primary_account_id"] = primary_account_id
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modified_time"] = None
@@ -197,6 +212,7 @@ class BillingGroup(pulumi.CustomResource):
         __props__.__dict__["size"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_reason"] = None
+        __props__.__dict__["tags"] = None
         return BillingGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -268,4 +284,9 @@ class BillingGroup(pulumi.CustomResource):
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status_reason")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BillingGroupTag']]]:
+        return pulumi.get(self, "tags")
 

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
 func LookupRobot(ctx *pulumi.Context, args *LookupRobotArgs, opts ...pulumi.InvokeOption) (*LookupRobotResult, error) {
 	var rv LookupRobotResult
 	err := ctx.Invoke("aws-native:robomaker:getRobot", args, &rv, opts...)

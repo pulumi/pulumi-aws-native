@@ -560,11 +560,18 @@ func (o DetectorCFNS3LogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type FilterCondition struct {
-	Eq  []string `pulumi:"eq"`
-	Gte *int     `pulumi:"gte"`
-	Lt  *int     `pulumi:"lt"`
-	Lte *int     `pulumi:"lte"`
-	Neq []string `pulumi:"neq"`
+	Eq                 []string `pulumi:"eq"`
+	Equals             []string `pulumi:"equals"`
+	GreaterThan        *int     `pulumi:"greaterThan"`
+	GreaterThanOrEqual *int     `pulumi:"greaterThanOrEqual"`
+	Gt                 *int     `pulumi:"gt"`
+	Gte                *int     `pulumi:"gte"`
+	LessThan           *int     `pulumi:"lessThan"`
+	LessThanOrEqual    *int     `pulumi:"lessThanOrEqual"`
+	Lt                 *int     `pulumi:"lt"`
+	Lte                *int     `pulumi:"lte"`
+	Neq                []string `pulumi:"neq"`
+	NotEquals          []string `pulumi:"notEquals"`
 }
 
 // FilterConditionInput is an input type that accepts FilterConditionArgs and FilterConditionOutput values.
@@ -579,11 +586,18 @@ type FilterConditionInput interface {
 }
 
 type FilterConditionArgs struct {
-	Eq  pulumi.StringArrayInput `pulumi:"eq"`
-	Gte pulumi.IntPtrInput      `pulumi:"gte"`
-	Lt  pulumi.IntPtrInput      `pulumi:"lt"`
-	Lte pulumi.IntPtrInput      `pulumi:"lte"`
-	Neq pulumi.StringArrayInput `pulumi:"neq"`
+	Eq                 pulumi.StringArrayInput `pulumi:"eq"`
+	Equals             pulumi.StringArrayInput `pulumi:"equals"`
+	GreaterThan        pulumi.IntPtrInput      `pulumi:"greaterThan"`
+	GreaterThanOrEqual pulumi.IntPtrInput      `pulumi:"greaterThanOrEqual"`
+	Gt                 pulumi.IntPtrInput      `pulumi:"gt"`
+	Gte                pulumi.IntPtrInput      `pulumi:"gte"`
+	LessThan           pulumi.IntPtrInput      `pulumi:"lessThan"`
+	LessThanOrEqual    pulumi.IntPtrInput      `pulumi:"lessThanOrEqual"`
+	Lt                 pulumi.IntPtrInput      `pulumi:"lt"`
+	Lte                pulumi.IntPtrInput      `pulumi:"lte"`
+	Neq                pulumi.StringArrayInput `pulumi:"neq"`
+	NotEquals          pulumi.StringArrayInput `pulumi:"notEquals"`
 }
 
 func (FilterConditionArgs) ElementType() reflect.Type {
@@ -667,8 +681,32 @@ func (o FilterConditionOutput) Eq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterCondition) []string { return v.Eq }).(pulumi.StringArrayOutput)
 }
 
+func (o FilterConditionOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.Equals }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionOutput) GreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.GreaterThan }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) GreaterThanOrEqual() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.GreaterThanOrEqual }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) Gt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.Gt }).(pulumi.IntPtrOutput)
+}
+
 func (o FilterConditionOutput) Gte() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FilterCondition) *int { return v.Gte }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) LessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.LessThan }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) LessThanOrEqual() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.LessThanOrEqual }).(pulumi.IntPtrOutput)
 }
 
 func (o FilterConditionOutput) Lt() pulumi.IntPtrOutput {
@@ -681,6 +719,10 @@ func (o FilterConditionOutput) Lte() pulumi.IntPtrOutput {
 
 func (o FilterConditionOutput) Neq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterCondition) []string { return v.Neq }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
 }
 
 type FilterConditionPtrOutput struct{ *pulumi.OutputState }
@@ -716,12 +758,66 @@ func (o FilterConditionPtrOutput) Eq() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o FilterConditionPtrOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FilterCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Equals
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionPtrOutput) GreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilterCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionPtrOutput) GreaterThanOrEqual() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilterCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GreaterThanOrEqual
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionPtrOutput) Gt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilterCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Gt
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o FilterConditionPtrOutput) Gte() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FilterCondition) *int {
 		if v == nil {
 			return nil
 		}
 		return v.Gte
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionPtrOutput) LessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilterCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LessThan
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionPtrOutput) LessThanOrEqual() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilterCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LessThanOrEqual
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -749,6 +845,15 @@ func (o FilterConditionPtrOutput) Neq() pulumi.StringArrayOutput {
 			return nil
 		}
 		return v.Neq
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionPtrOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FilterCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NotEquals
 	}).(pulumi.StringArrayOutput)
 }
 
