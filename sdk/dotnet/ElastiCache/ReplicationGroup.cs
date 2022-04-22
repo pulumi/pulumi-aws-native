@@ -331,6 +331,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("replicationGroupDescription", required: true)]
         public Input<string> ReplicationGroupDescription { get; set; } = null!;
 
+        [Input("replicationGroupId")]
+        public Input<string>? ReplicationGroupId { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
         public InputList<string> SecurityGroupIds

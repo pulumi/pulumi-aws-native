@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,9 +30,12 @@ type ResourceDataSync struct {
 func NewResourceDataSync(ctx *pulumi.Context,
 	name string, args *ResourceDataSyncArgs, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
 	if args == nil {
-		args = &ResourceDataSyncArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.SyncName == nil {
+		return nil, errors.New("invalid value for required argument 'SyncName'")
+	}
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("aws-native:ssm:ResourceDataSync", name, args, &resource, opts...)
 	if err != nil {
@@ -70,6 +74,7 @@ type resourceDataSyncArgs struct {
 	KMSKeyArn     *string                        `pulumi:"kMSKeyArn"`
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
 	SyncFormat    *string                        `pulumi:"syncFormat"`
+	SyncName      string                         `pulumi:"syncName"`
 	SyncSource    *ResourceDataSyncSyncSource    `pulumi:"syncSource"`
 	SyncType      *string                        `pulumi:"syncType"`
 }
@@ -82,6 +87,7 @@ type ResourceDataSyncArgs struct {
 	KMSKeyArn     pulumi.StringPtrInput
 	S3Destination ResourceDataSyncS3DestinationPtrInput
 	SyncFormat    pulumi.StringPtrInput
+	SyncName      pulumi.StringInput
 	SyncSource    ResourceDataSyncSyncSourcePtrInput
 	SyncType      pulumi.StringPtrInput
 }

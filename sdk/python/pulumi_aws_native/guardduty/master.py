@@ -14,11 +14,13 @@ __all__ = ['MasterArgs', 'Master']
 class MasterArgs:
     def __init__(__self__, *,
                  detector_id: pulumi.Input[str],
+                 master_id: pulumi.Input[str],
                  invitation_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Master resource.
         """
         pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "master_id", master_id)
         if invitation_id is not None:
             pulumi.set(__self__, "invitation_id", invitation_id)
 
@@ -30,6 +32,15 @@ class MasterArgs:
     @detector_id.setter
     def detector_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "detector_id", value)
+
+    @property
+    @pulumi.getter(name="masterId")
+    def master_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "master_id")
+
+    @master_id.setter
+    def master_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "master_id", value)
 
     @property
     @pulumi.getter(name="invitationId")
@@ -53,6 +64,7 @@ class Master(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
+                 master_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Master
@@ -86,6 +98,7 @@ class Master(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
+                 master_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Master is deprecated: Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -103,7 +116,9 @@ class Master(pulumi.CustomResource):
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             __props__.__dict__["invitation_id"] = invitation_id
-            __props__.__dict__["master_id"] = None
+            if master_id is None and not opts.urn:
+                raise TypeError("Missing required property 'master_id'")
+            __props__.__dict__["master_id"] = master_id
         super(Master, __self__).__init__(
             'aws-native:guardduty:Master',
             resource_name,

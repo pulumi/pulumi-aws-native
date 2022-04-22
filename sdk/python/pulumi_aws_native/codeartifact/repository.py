@@ -15,7 +15,9 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_owner: Optional[pulumi.Input[str]] = None,
                  external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
@@ -23,15 +25,20 @@ class RepositoryArgs:
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
+        :param pulumi.Input[str] domain_name: The name of the domain that contains the repository.
         :param pulumi.Input[str] description: A text description of the repository.
+        :param pulumi.Input[str] domain_owner: The 12-digit account ID of the AWS account that owns the domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_connections: A list of external connections associated with the repository.
         :param Any permissions_policy_document: The access control resource policy on the provided repository.
         :param pulumi.Input[str] repository_name: The name of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: A list of upstream repositories associated with the repository.
         """
+        pulumi.set(__self__, "domain_name", domain_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_owner is not None:
+            pulumi.set(__self__, "domain_owner", domain_owner)
         if external_connections is not None:
             pulumi.set(__self__, "external_connections", external_connections)
         if permissions_policy_document is not None:
@@ -44,6 +51,18 @@ class RepositoryArgs:
             pulumi.set(__self__, "upstreams", upstreams)
 
     @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the domain that contains the repository.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -54,6 +73,18 @@ class RepositoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="domainOwner")
+    def domain_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The 12-digit account ID of the AWS account that owns the domain.
+        """
+        return pulumi.get(self, "domain_owner")
+
+    @domain_owner.setter
+    def domain_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_owner", value)
 
     @property
     @pulumi.getter(name="externalConnections")
@@ -122,6 +153,8 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_owner: Optional[pulumi.Input[str]] = None,
                  external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
@@ -134,6 +167,8 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A text description of the repository.
+        :param pulumi.Input[str] domain_name: The name of the domain that contains the repository.
+        :param pulumi.Input[str] domain_owner: The 12-digit account ID of the AWS account that owns the domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_connections: A list of external connections associated with the repository.
         :param Any permissions_policy_document: The access control resource policy on the provided repository.
         :param pulumi.Input[str] repository_name: The name of the repository.
@@ -144,7 +179,7 @@ class Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[RepositoryArgs] = None,
+                 args: RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema to create a CodeArtifact repository.
@@ -165,6 +200,8 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_owner: Optional[pulumi.Input[str]] = None,
                  external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
@@ -183,14 +220,16 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["description"] = description
+            if domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'domain_name'")
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["domain_owner"] = domain_owner
             __props__.__dict__["external_connections"] = external_connections
             __props__.__dict__["permissions_policy_document"] = permissions_policy_document
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upstreams"] = upstreams
             __props__.__dict__["arn"] = None
-            __props__.__dict__["domain_name"] = None
-            __props__.__dict__["domain_owner"] = None
             __props__.__dict__["name"] = None
         super(Repository, __self__).__init__(
             'aws-native:codeartifact:Repository',

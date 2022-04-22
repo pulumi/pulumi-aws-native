@@ -14,12 +14,15 @@ __all__ = ['InstanceArgs', 'Instance']
 class InstanceArgs:
     def __init__(__self__, *,
                  instance_attributes: Any,
-                 service_id: pulumi.Input[str]):
+                 service_id: pulumi.Input[str],
+                 instance_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Instance resource.
         """
         pulumi.set(__self__, "instance_attributes", instance_attributes)
         pulumi.set(__self__, "service_id", service_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
 
     @property
     @pulumi.getter(name="instanceAttributes")
@@ -39,6 +42,15 @@ class InstanceArgs:
     def service_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_id", value)
 
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_id", value)
+
 
 warnings.warn("""Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -51,6 +63,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_attributes: Optional[Any] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -84,6 +97,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_attributes: Optional[Any] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Instance is deprecated: Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -101,10 +115,10 @@ class Instance(pulumi.CustomResource):
             if instance_attributes is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_attributes'")
             __props__.__dict__["instance_attributes"] = instance_attributes
+            __props__.__dict__["instance_id"] = instance_id
             if service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_id'")
             __props__.__dict__["service_id"] = service_id
-            __props__.__dict__["instance_id"] = None
         super(Instance, __self__).__init__(
             'aws-native:servicediscovery:Instance',
             resource_name,

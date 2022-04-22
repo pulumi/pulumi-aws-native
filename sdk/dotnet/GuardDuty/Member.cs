@@ -88,6 +88,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
+        [Input("memberId", required: true)]
+        public Input<string> MemberId { get; set; } = null!;
+
         [Input("message")]
         public Input<string>? Message { get; set; }
 

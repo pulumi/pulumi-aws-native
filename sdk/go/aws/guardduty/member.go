@@ -38,6 +38,9 @@ func NewMember(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	if args.MemberId == nil {
+		return nil, errors.New("invalid value for required argument 'MemberId'")
+	}
 	var resource Member
 	err := ctx.RegisterResource("aws-native:guardduty:Member", name, args, &resource, opts...)
 	if err != nil {
@@ -73,6 +76,7 @@ type memberArgs struct {
 	DetectorId               string  `pulumi:"detectorId"`
 	DisableEmailNotification *bool   `pulumi:"disableEmailNotification"`
 	Email                    string  `pulumi:"email"`
+	MemberId                 string  `pulumi:"memberId"`
 	Message                  *string `pulumi:"message"`
 	Status                   *string `pulumi:"status"`
 }
@@ -82,6 +86,7 @@ type MemberArgs struct {
 	DetectorId               pulumi.StringInput
 	DisableEmailNotification pulumi.BoolPtrInput
 	Email                    pulumi.StringInput
+	MemberId                 pulumi.StringInput
 	Message                  pulumi.StringPtrInput
 	Status                   pulumi.StringPtrInput
 }

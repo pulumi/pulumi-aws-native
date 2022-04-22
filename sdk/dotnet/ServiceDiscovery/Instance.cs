@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         [Input("instanceAttributes", required: true)]
         public Input<object> InstanceAttributes { get; set; } = null!;
 
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
+
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 

@@ -32,6 +32,9 @@ func NewDomainName(ctx *pulumi.Context,
 	if args.CertificateArn == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateArn'")
 	}
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
 	var resource DomainName
 	err := ctx.RegisterResource("aws-native:appsync:DomainName", name, args, &resource, opts...)
 	if err != nil {
@@ -66,12 +69,14 @@ func (DomainNameState) ElementType() reflect.Type {
 type domainNameArgs struct {
 	CertificateArn string  `pulumi:"certificateArn"`
 	Description    *string `pulumi:"description"`
+	DomainName     string  `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
 	CertificateArn pulumi.StringInput
 	Description    pulumi.StringPtrInput
+	DomainName     pulumi.StringInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {

@@ -41,7 +41,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     public readonly kMSKeyArn!: pulumi.Output<string | undefined>;
     public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
     public readonly syncFormat!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly syncName!: pulumi.Output<string>;
+    public readonly syncName!: pulumi.Output<string>;
     public readonly syncSource!: pulumi.Output<outputs.ssm.ResourceDataSyncSyncSource | undefined>;
     public readonly syncType!: pulumi.Output<string | undefined>;
 
@@ -52,19 +52,22 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.syncName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'syncName'");
+            }
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
             resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
             resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
             resourceInputs["kMSKeyArn"] = args ? args.kMSKeyArn : undefined;
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
             resourceInputs["syncFormat"] = args ? args.syncFormat : undefined;
+            resourceInputs["syncName"] = args ? args.syncName : undefined;
             resourceInputs["syncSource"] = args ? args.syncSource : undefined;
             resourceInputs["syncType"] = args ? args.syncType : undefined;
-            resourceInputs["syncName"] = undefined /*out*/;
         } else {
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["bucketPrefix"] = undefined /*out*/;
@@ -91,6 +94,7 @@ export interface ResourceDataSyncArgs {
     kMSKeyArn?: pulumi.Input<string>;
     s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
     syncFormat?: pulumi.Input<string>;
+    syncName: pulumi.Input<string>;
     syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs>;
     syncType?: pulumi.Input<string>;
 }

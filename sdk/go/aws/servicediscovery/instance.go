@@ -68,12 +68,14 @@ func (InstanceState) ElementType() reflect.Type {
 
 type instanceArgs struct {
 	InstanceAttributes interface{} `pulumi:"instanceAttributes"`
+	InstanceId         *string     `pulumi:"instanceId"`
 	ServiceId          string      `pulumi:"serviceId"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
 	InstanceAttributes pulumi.Input
+	InstanceId         pulumi.StringPtrInput
 	ServiceId          pulumi.StringInput
 }
 

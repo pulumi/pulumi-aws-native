@@ -71,6 +71,8 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// The name of the domain.
 	DomainName *string `pulumi:"domainName"`
+	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
@@ -81,6 +83,8 @@ type domainArgs struct {
 type DomainArgs struct {
 	// The name of the domain.
 	DomainName pulumi.StringPtrInput
+	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+	EncryptionKey pulumi.StringPtrInput
 	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument pulumi.Input
 	// An array of key-value pairs to apply to this resource.

@@ -76,6 +76,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
+        [Input("masterId", required: true)]
+        public Input<string> MasterId { get; set; } = null!;
+
         public MasterArgs()
         {
         }

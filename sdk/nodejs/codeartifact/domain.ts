@@ -46,7 +46,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
      */
-    public /*out*/ readonly encryptionKey!: pulumi.Output<string>;
+    public readonly encryptionKey!: pulumi.Output<string>;
     /**
      * The name of the domain. This field is used for GetAtt
      */
@@ -76,10 +76,10 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["encryptionKey"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
         } else {
@@ -104,6 +104,10 @@ export interface DomainArgs {
      * The name of the domain.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+     */
+    encryptionKey?: pulumi.Input<string>;
     /**
      * The access control resource policy on the provided domain.
      */

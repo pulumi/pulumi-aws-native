@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,9 +41,12 @@ type Repository struct {
 func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
 	if args == nil {
-		args = &RepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
 	var resource Repository
 	err := ctx.RegisterResource("aws-native:codeartifact:Repository", name, args, &resource, opts...)
 	if err != nil {
@@ -77,6 +81,10 @@ func (RepositoryState) ElementType() reflect.Type {
 type repositoryArgs struct {
 	// A text description of the repository.
 	Description *string `pulumi:"description"`
+	// The name of the domain that contains the repository.
+	DomainName string `pulumi:"domainName"`
+	// The 12-digit account ID of the AWS account that owns the domain.
+	DomainOwner *string `pulumi:"domainOwner"`
 	// A list of external connections associated with the repository.
 	ExternalConnections []string `pulumi:"externalConnections"`
 	// The access control resource policy on the provided repository.
@@ -93,6 +101,10 @@ type repositoryArgs struct {
 type RepositoryArgs struct {
 	// A text description of the repository.
 	Description pulumi.StringPtrInput
+	// The name of the domain that contains the repository.
+	DomainName pulumi.StringInput
+	// The 12-digit account ID of the AWS account that owns the domain.
+	DomainOwner pulumi.StringPtrInput
 	// A list of external connections associated with the repository.
 	ExternalConnections pulumi.StringArrayInput
 	// The access control resource policy on the provided repository.
