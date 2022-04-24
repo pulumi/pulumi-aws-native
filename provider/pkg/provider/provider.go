@@ -60,6 +60,7 @@ import (
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/structpb"
 )
 
@@ -129,6 +130,15 @@ func LoadMetadata(metadataBytes []byte) (*schema.CloudAPIMetadata, error) {
 		return nil, errors.Wrap(err, "closing uncompress stream for metadata")
 	}
 	return &resourceMap, nil
+}
+
+func (p *cfnProvider) Attach(context context.Context, req *pulumirpc.PluginAttach) (*emptypb.Empty, error) {
+	host, err := provider.NewHostClient(req.GetAddress())
+	if err != nil {
+		return nil, err
+	}
+	p.host = host
+	return &pbempty.Empty{}, nil
 }
 
 func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaRequest) (*pulumirpc.GetSchemaResponse, error) {
