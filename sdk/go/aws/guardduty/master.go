@@ -32,6 +32,9 @@ func NewMaster(ctx *pulumi.Context,
 	if args.DetectorId == nil {
 		return nil, errors.New("invalid value for required argument 'DetectorId'")
 	}
+	if args.MasterId == nil {
+		return nil, errors.New("invalid value for required argument 'MasterId'")
+	}
 	var resource Master
 	err := ctx.RegisterResource("aws-native:guardduty:Master", name, args, &resource, opts...)
 	if err != nil {
@@ -66,12 +69,14 @@ func (MasterState) ElementType() reflect.Type {
 type masterArgs struct {
 	DetectorId   string  `pulumi:"detectorId"`
 	InvitationId *string `pulumi:"invitationId"`
+	MasterId     string  `pulumi:"masterId"`
 }
 
 // The set of arguments for constructing a Master resource.
 type MasterArgs struct {
 	DetectorId   pulumi.StringInput
 	InvitationId pulumi.StringPtrInput
+	MasterId     pulumi.StringInput
 }
 
 func (MasterArgs) ElementType() reflect.Type {

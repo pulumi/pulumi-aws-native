@@ -107,7 +107,7 @@ class Robot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[pulumi.InputType['RobotTagsArgs']]] = None,
                  __props__=None):
         """
-        AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+        AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class Robot(pulumi.CustomResource):
                  args: RobotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+        AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
 
         :param str resource_name: The name of the resource.
         :param RobotArgs args: The arguments to use to populate this resource's properties.

@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.BillingConductor
         /// Pricing rule name
         /// </summary>
         public readonly string? Name;
+        public readonly ImmutableArray<Outputs.PricingRuleTag> Tags;
         /// <summary>
         /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
         /// </summary>
@@ -104,6 +105,8 @@ namespace Pulumi.AwsNative.BillingConductor
 
             string? name,
 
+            ImmutableArray<Outputs.PricingRuleTag> tags,
+
             Pulumi.AwsNative.BillingConductor.PricingRuleType? type)
         {
             Arn = arn;
@@ -113,6 +116,7 @@ namespace Pulumi.AwsNative.BillingConductor
             LastModifiedTime = lastModifiedTime;
             ModifierPercentage = modifierPercentage;
             Name = name;
+            Tags = tags;
             Type = type;
         }
     }

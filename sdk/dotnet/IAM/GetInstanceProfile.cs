@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the instance profile to create.
+        /// </summary>
+        [Input("instanceProfileName", required: true)]
+        public string InstanceProfileName { get; set; } = null!;
 
         public GetInstanceProfileArgs()
         {
@@ -37,8 +40,11 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetInstanceProfileInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the instance profile to create.
+        /// </summary>
+        [Input("instanceProfileName", required: true)]
+        public Input<string> InstanceProfileName { get; set; } = null!;
 
         public GetInstanceProfileInvokeArgs()
         {
@@ -49,20 +55,22 @@ namespace Pulumi.AwsNative.IAM
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile.
+        /// </summary>
         public readonly string? Arn;
-        public readonly string? Id;
+        /// <summary>
+        /// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        /// </summary>
         public readonly ImmutableArray<string> Roles;
 
         [OutputConstructor]
         private GetInstanceProfileResult(
             string? arn,
 
-            string? id,
-
             ImmutableArray<string> roles)
         {
             Arn = arn;
-            Id = id;
             Roles = roles;
         }
     }

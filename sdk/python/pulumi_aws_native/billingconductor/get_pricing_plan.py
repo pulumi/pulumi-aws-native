@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPricingPlanResult',
@@ -17,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPricingPlanResult:
-    def __init__(__self__, arn=None, creation_time=None, description=None, last_modified_time=None, name=None, pricing_rule_arns=None, size=None):
+    def __init__(__self__, arn=None, creation_time=None, description=None, last_modified_time=None, name=None, pricing_rule_arns=None, size=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetPricingPlanResult:
         if size and not isinstance(size, int):
             raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -87,6 +91,11 @@ class GetPricingPlanResult:
         """
         return pulumi.get(self, "size")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.PricingPlanTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetPricingPlanResult(GetPricingPlanResult):
     # pylint: disable=using-constant-test
@@ -100,7 +109,8 @@ class AwaitableGetPricingPlanResult(GetPricingPlanResult):
             last_modified_time=self.last_modified_time,
             name=self.name,
             pricing_rule_arns=self.pricing_rule_arns,
-            size=self.size)
+            size=self.size,
+            tags=self.tags)
 
 
 def get_pricing_plan(arn: Optional[str] = None,
@@ -126,7 +136,8 @@ def get_pricing_plan(arn: Optional[str] = None,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         pricing_rule_arns=__ret__.pricing_rule_arns,
-        size=__ret__.size)
+        size=__ret__.size,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_pricing_plan)

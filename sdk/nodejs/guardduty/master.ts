@@ -39,7 +39,7 @@ export class Master extends pulumi.CustomResource {
 
     public readonly detectorId!: pulumi.Output<string>;
     public readonly invitationId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly masterId!: pulumi.Output<string>;
+    public readonly masterId!: pulumi.Output<string>;
 
     /**
      * Create a Master resource with the given unique name, arguments, and options.
@@ -57,9 +57,12 @@ export class Master extends pulumi.CustomResource {
             if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
+            if ((!args || args.masterId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'masterId'");
+            }
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["invitationId"] = args ? args.invitationId : undefined;
-            resourceInputs["masterId"] = undefined /*out*/;
+            resourceInputs["masterId"] = args ? args.masterId : undefined;
         } else {
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["invitationId"] = undefined /*out*/;
@@ -76,4 +79,5 @@ export class Master extends pulumi.CustomResource {
 export interface MasterArgs {
     detectorId: pulumi.Input<string>;
     invitationId?: pulumi.Input<string>;
+    masterId: pulumi.Input<string>;
 }

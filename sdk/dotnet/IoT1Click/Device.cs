@@ -70,6 +70,9 @@ namespace Pulumi.AwsNative.IoT1Click
 
     public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
+        [Input("deviceId", required: true)]
+        public Input<string> DeviceId { get; set; } = null!;
+
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

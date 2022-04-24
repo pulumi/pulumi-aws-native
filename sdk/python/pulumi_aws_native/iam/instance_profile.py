@@ -18,6 +18,9 @@ class InstanceProfileArgs:
                  path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        :param pulumi.Input[str] instance_profile_name: The name of the instance profile to create.
+        :param pulumi.Input[str] path: The path to the instance profile.
         """
         pulumi.set(__self__, "roles", roles)
         if instance_profile_name is not None:
@@ -28,6 +31,9 @@ class InstanceProfileArgs:
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        """
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -37,6 +43,9 @@ class InstanceProfileArgs:
     @property
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the instance profile to create.
+        """
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
@@ -46,6 +55,9 @@ class InstanceProfileArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the instance profile.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -53,12 +65,7 @@ class InstanceProfileArgs:
         pulumi.set(self, "path", value)
 
 
-warnings.warn("""InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class InstanceProfile(pulumi.CustomResource):
-    warnings.warn("""InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -72,6 +79,9 @@ class InstanceProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_profile_name: The name of the instance profile to create.
+        :param pulumi.Input[str] path: The path to the instance profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
         """
         ...
     @overload
@@ -101,7 +111,6 @@ class InstanceProfile(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""InstanceProfile is deprecated: InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -150,20 +159,32 @@ class InstanceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the instance profile to create.
+        """
         return pulumi.get(self, "instance_profile_name")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the instance profile.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+        """
         return pulumi.get(self, "roles")
 

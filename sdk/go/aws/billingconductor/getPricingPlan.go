@@ -36,7 +36,8 @@ type LookupPricingPlanResult struct {
 	Name             *string  `pulumi:"name"`
 	PricingRuleArns  []string `pulumi:"pricingRuleArns"`
 	// Number of associated pricing rules
-	Size *int `pulumi:"size"`
+	Size *int             `pulumi:"size"`
+	Tags []PricingPlanTag `pulumi:"tags"`
 }
 
 func LookupPricingPlanOutput(ctx *pulumi.Context, args LookupPricingPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPricingPlanResultOutput {
@@ -105,6 +106,10 @@ func (o LookupPricingPlanResultOutput) PricingRuleArns() pulumi.StringArrayOutpu
 // Number of associated pricing rules
 func (o LookupPricingPlanResultOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPricingPlanResult) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupPricingPlanResultOutput) Tags() PricingPlanTagArrayOutput {
+	return o.ApplyT(func(v LookupPricingPlanResult) []PricingPlanTag { return v.Tags }).(PricingPlanTagArrayOutput)
 }
 
 func init() {

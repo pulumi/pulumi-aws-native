@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly object? Tags;
         public readonly string Type;
+        public readonly bool? UpdateToLatestImageVersion;
 
         [OutputConstructor]
         private ComputeEnvironmentComputeResources(
@@ -68,7 +69,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             object? tags,
 
-            string type)
+            string type,
+
+            bool? updateToLatestImageVersion)
         {
             AllocationStrategy = allocationStrategy;
             BidPercentage = bidPercentage;
@@ -87,6 +90,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             Subnets = subnets;
             Tags = tags;
             Type = type;
+            UpdateToLatestImageVersion = updateToLatestImageVersion;
         }
     }
 }

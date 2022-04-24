@@ -50,7 +50,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
      */
@@ -84,13 +84,13 @@ export class AccessPoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'bucket'");
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["policyStatus"] = args ? args.policyStatus : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkOrigin"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;
@@ -116,6 +116,10 @@ export interface AccessPointArgs {
      * The name of the bucket that you want to associate this Access Point with.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The Access Point Policy you want to apply to this access point.
      */

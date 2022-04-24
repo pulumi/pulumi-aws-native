@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:SimulationApplication")]
     public partial class SimulationApplication : Pulumi.CustomResource

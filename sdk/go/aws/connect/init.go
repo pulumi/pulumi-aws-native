@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContactFlowModule{}
 	case "aws-native:connect:HoursOfOperation":
 		r = &HoursOfOperation{}
+	case "aws-native:connect:PhoneNumber":
+		r = &PhoneNumber{}
 	case "aws-native:connect:QuickConnect":
 		r = &QuickConnect{}
 	case "aws-native:connect:User":

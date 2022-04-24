@@ -123,7 +123,7 @@ class AwaitableGetSimulationApplicationResult(GetSimulationApplicationResult):
 def get_simulation_application(arn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimulationApplicationResult:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -148,6 +148,6 @@ def get_simulation_application(arn: Optional[str] = None,
 def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
     """
     ...

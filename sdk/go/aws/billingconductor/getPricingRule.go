@@ -39,7 +39,8 @@ type LookupPricingRuleResult struct {
 	// Pricing rule modifier percentage
 	ModifierPercentage *float64 `pulumi:"modifierPercentage"`
 	// Pricing rule name
-	Name *string `pulumi:"name"`
+	Name *string          `pulumi:"name"`
+	Tags []PricingRuleTag `pulumi:"tags"`
 	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
 	Type *PricingRuleType `pulumi:"type"`
 }
@@ -113,6 +114,10 @@ func (o LookupPricingRuleResultOutput) ModifierPercentage() pulumi.Float64PtrOut
 // Pricing rule name
 func (o LookupPricingRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPricingRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPricingRuleResultOutput) Tags() PricingRuleTagArrayOutput {
+	return o.ApplyT(func(v LookupPricingRuleResult) []PricingRuleTag { return v.Tags }).(PricingRuleTagArrayOutput)
 }
 
 // One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.

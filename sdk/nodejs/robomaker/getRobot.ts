@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+ * AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
  */
 export function getRobot(args: GetRobotArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotResult> {
     if (!opts) {

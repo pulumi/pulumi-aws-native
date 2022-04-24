@@ -13,11 +13,22 @@ __all__ = ['DeviceArgs', 'Device']
 @pulumi.input_type
 class DeviceArgs:
     def __init__(__self__, *,
+                 device_id: pulumi.Input[str],
                  enabled: pulumi.Input[bool]):
         """
         The set of arguments for constructing a Device resource.
         """
+        pulumi.set(__self__, "device_id", device_id)
         pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "device_id")
+
+    @device_id.setter
+    def device_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_id", value)
 
     @property
     @pulumi.getter
@@ -39,6 +50,7 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 device_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -71,6 +83,7 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 device_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         pulumi.log.warn("""Device is deprecated: Device is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -85,11 +98,13 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
+            if device_id is None and not opts.urn:
+                raise TypeError("Missing required property 'device_id'")
+            __props__.__dict__["device_id"] = device_id
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["arn"] = None
-            __props__.__dict__["device_id"] = None
         super(Device, __self__).__init__(
             'aws-native:iot1click:Device',
             resource_name,

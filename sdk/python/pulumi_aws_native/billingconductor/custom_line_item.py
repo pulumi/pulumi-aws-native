@@ -20,7 +20,8 @@ class CustomLineItemArgs:
                  billing_period_range: Optional[pulumi.Input['CustomLineItemBillingPeriodRangeArgs']] = None,
                  custom_line_item_charge_details: Optional[pulumi.Input['CustomLineItemChargeDetailsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemTagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomLineItem resource.
         :param pulumi.Input[str] billing_group_arn: Billing Group ARN
@@ -34,6 +35,8 @@ class CustomLineItemArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="billingGroupArn")
@@ -83,6 +86,15 @@ class CustomLineItemArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""CustomLineItem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -99,6 +111,7 @@ class CustomLineItem(pulumi.CustomResource):
                  custom_line_item_charge_details: Optional[pulumi.Input[pulumi.InputType['CustomLineItemChargeDetailsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLineItemTagArgs']]]]] = None,
                  __props__=None):
         """
         A custom line item is an one time charge that is applied to a specific billing group's bill.
@@ -136,6 +149,7 @@ class CustomLineItem(pulumi.CustomResource):
                  custom_line_item_charge_details: Optional[pulumi.Input[pulumi.InputType['CustomLineItemChargeDetailsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLineItemTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""CustomLineItem is deprecated: CustomLineItem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -156,6 +170,7 @@ class CustomLineItem(pulumi.CustomResource):
             __props__.__dict__["custom_line_item_charge_details"] = custom_line_item_charge_details
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_size"] = None
             __props__.__dict__["creation_time"] = None
@@ -195,6 +210,7 @@ class CustomLineItem(pulumi.CustomResource):
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["product_code"] = None
+        __props__.__dict__["tags"] = None
         return CustomLineItem(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -266,4 +282,9 @@ class CustomLineItem(pulumi.CustomResource):
     @pulumi.getter(name="productCode")
     def product_code(self) -> pulumi.Output[str]:
         return pulumi.get(self, "product_code")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomLineItemTag']]]:
+        return pulumi.get(self, "tags")
 

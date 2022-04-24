@@ -1133,6 +1133,7 @@ _utilities.register(
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
+   "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:QuickConnect": "QuickConnect",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"

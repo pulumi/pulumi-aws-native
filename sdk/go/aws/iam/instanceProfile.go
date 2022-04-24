@@ -12,15 +12,17 @@ import (
 )
 
 // Resource Type definition for AWS::IAM::InstanceProfile
-//
-// Deprecated: InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	Arn                 pulumi.StringOutput      `pulumi:"arn"`
-	InstanceProfileName pulumi.StringPtrOutput   `pulumi:"instanceProfileName"`
-	Path                pulumi.StringPtrOutput   `pulumi:"path"`
-	Roles               pulumi.StringArrayOutput `pulumi:"roles"`
+	// The Amazon Resource Name (ARN) of the instance profile.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the instance profile to create.
+	InstanceProfileName pulumi.StringPtrOutput `pulumi:"instanceProfileName"`
+	// The path to the instance profile.
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 }
 
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
@@ -65,16 +67,22 @@ func (InstanceProfileState) ElementType() reflect.Type {
 }
 
 type instanceProfileArgs struct {
-	InstanceProfileName *string  `pulumi:"instanceProfileName"`
-	Path                *string  `pulumi:"path"`
-	Roles               []string `pulumi:"roles"`
+	// The name of the instance profile to create.
+	InstanceProfileName *string `pulumi:"instanceProfileName"`
+	// The path to the instance profile.
+	Path *string `pulumi:"path"`
+	// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+	Roles []string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
+	// The name of the instance profile to create.
 	InstanceProfileName pulumi.StringPtrInput
-	Path                pulumi.StringPtrInput
-	Roles               pulumi.StringArrayInput
+	// The path to the instance profile.
+	Path pulumi.StringPtrInput
+	// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+	Roles pulumi.StringArrayInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {

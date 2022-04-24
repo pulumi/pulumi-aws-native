@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
  */
 export function getSimulationApplication(args: GetSimulationApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationResult> {
     if (!opts) {

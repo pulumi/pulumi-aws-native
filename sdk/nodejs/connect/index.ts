@@ -10,10 +10,12 @@ export * from "./contactFlowModule";
 export * from "./getContactFlow";
 export * from "./getContactFlowModule";
 export * from "./getHoursOfOperation";
+export * from "./getPhoneNumber";
 export * from "./getQuickConnect";
 export * from "./getUser";
 export * from "./getUserHierarchyGroup";
 export * from "./hoursOfOperation";
+export * from "./phoneNumber";
 export * from "./quickConnect";
 export * from "./user";
 export * from "./userHierarchyGroup";
@@ -25,6 +27,7 @@ export * from "../types/enums/connect";
 import { ContactFlow } from "./contactFlow";
 import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
+import { PhoneNumber } from "./phoneNumber";
 import { QuickConnect } from "./quickConnect";
 import { User } from "./user";
 import { UserHierarchyGroup } from "./userHierarchyGroup";
@@ -39,6 +42,8 @@ const _module = {
                 return new ContactFlowModule(name, <any>undefined, { urn })
             case "aws-native:connect:HoursOfOperation":
                 return new HoursOfOperation(name, <any>undefined, { urn })
+            case "aws-native:connect:PhoneNumber":
+                return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
             case "aws-native:connect:User":

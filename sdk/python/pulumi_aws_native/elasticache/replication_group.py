@@ -50,6 +50,7 @@ class ReplicationGroupArgs:
                  reader_end_point_address: Optional[pulumi.Input[str]] = None,
                  reader_end_point_port: Optional[pulumi.Input[str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[int]] = None,
+                 replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -131,6 +132,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "reader_end_point_port", reader_end_point_port)
         if replicas_per_node_group is not None:
             pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
+        if replication_group_id is not None:
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if snapshot_arns is not None:
@@ -466,6 +469,15 @@ class ReplicationGroupArgs:
         pulumi.set(self, "replicas_per_node_group", value)
 
     @property
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "replication_group_id")
+
+    @replication_group_id.setter
+    def replication_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_group_id", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "security_group_ids")
@@ -592,6 +604,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  reader_end_point_port: Optional[pulumi.Input[str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[int]] = None,
                  replication_group_description: Optional[pulumi.Input[str]] = None,
+                 replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -667,6 +680,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  reader_end_point_port: Optional[pulumi.Input[str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[int]] = None,
                  replication_group_description: Optional[pulumi.Input[str]] = None,
+                 replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -726,6 +740,7 @@ class ReplicationGroup(pulumi.CustomResource):
             if replication_group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_group_description'")
             __props__.__dict__["replication_group_description"] = replication_group_description
+            __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["snapshot_arns"] = snapshot_arns
             __props__.__dict__["snapshot_name"] = snapshot_name
@@ -735,7 +750,6 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["user_group_ids"] = user_group_ids
-            __props__.__dict__["replication_group_id"] = None
         super(ReplicationGroup, __self__).__init__(
             'aws-native:elasticache:ReplicationGroup',
             resource_name,

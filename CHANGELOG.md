@@ -3,7 +3,11 @@
 - Implement support for getUrlSuffix.
   [#456](https://github.com/pulumi/pulumi-aws-native/pull/456)
 
+- Ensure that all create-only properties are captured as input properties.
+  [#466](https://github.com/pulumi/pulumi-aws-native/pull/466)
+
 - Upgrade to Pulumi/Pulumi v3.30.0
+  [#458](https://github.com/pulumi/pulumi-aws-native/pull/458)
 
 ---
 

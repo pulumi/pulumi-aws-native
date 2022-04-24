@@ -65,6 +65,7 @@ func (ArchiveState) ElementType() reflect.Type {
 }
 
 type archiveArgs struct {
+	ArchiveName   *string     `pulumi:"archiveName"`
 	Description   *string     `pulumi:"description"`
 	EventPattern  interface{} `pulumi:"eventPattern"`
 	RetentionDays *int        `pulumi:"retentionDays"`
@@ -73,6 +74,7 @@ type archiveArgs struct {
 
 // The set of arguments for constructing a Archive resource.
 type ArchiveArgs struct {
+	ArchiveName   pulumi.StringPtrInput
 	Description   pulumi.StringPtrInput
 	EventPattern  pulumi.Input
 	RetentionDays pulumi.IntPtrInput

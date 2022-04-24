@@ -99,6 +99,7 @@ AWS::Config::StoredQuery
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
 AWS::Connect::HoursOfOperation
+AWS::Connect::PhoneNumber
 AWS::Connect::QuickConnect
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
@@ -234,6 +235,7 @@ AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
 AWS::HealthLake::FHIRDatastore
+AWS::IAM::InstanceProfile
 AWS::IAM::OIDCProvider
 AWS::IAM::Role
 AWS::IAM::SAMLProvider

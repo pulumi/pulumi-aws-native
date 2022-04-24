@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PricingPlanArgs', 'PricingPlan']
 
@@ -15,7 +17,8 @@ class PricingPlanArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pricing_rule_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 pricing_rule_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingPlanTagArgs']]]] = None):
         """
         The set of arguments for constructing a PricingPlan resource.
         """
@@ -25,6 +28,8 @@ class PricingPlanArgs:
             pulumi.set(__self__, "name", name)
         if pricing_rule_arns is not None:
             pulumi.set(__self__, "pricing_rule_arns", pricing_rule_arns)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -53,6 +58,15 @@ class PricingPlanArgs:
     def pricing_rule_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "pricing_rule_arns", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PricingPlanTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PricingPlanTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""PricingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -67,6 +81,7 @@ class PricingPlan(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_rule_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingPlanTagArgs']]]]] = None,
                  __props__=None):
         """
         Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
@@ -101,6 +116,7 @@ class PricingPlan(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_rule_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingPlanTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""PricingPlan is deprecated: PricingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -117,6 +133,7 @@ class PricingPlan(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["pricing_rule_arns"] = pricing_rule_arns
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modified_time"] = None
@@ -150,6 +167,7 @@ class PricingPlan(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["pricing_rule_arns"] = None
         __props__.__dict__["size"] = None
+        __props__.__dict__["tags"] = None
         return PricingPlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,4 +216,9 @@ class PricingPlan(pulumi.CustomResource):
         Number of associated pricing rules
         """
         return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PricingPlanTag']]]:
+        return pulumi.get(self, "tags")
 

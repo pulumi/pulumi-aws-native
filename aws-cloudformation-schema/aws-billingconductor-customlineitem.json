@@ -3,6 +3,23 @@
   "description" : "A custom line item is an one time charge that is applied to a specific billing group's bill.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-billing-conductor.git",
   "definitions" : {
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
+        }
+      },
+      "additionalProperties" : false,
+      "required" : [ "Key", "Value" ]
+    },
     "Type" : {
       "type" : "string",
       "enum" : [ "FEE", "CREDIT" ]
@@ -124,9 +141,24 @@
     "CurrencyCode" : {
       "type" : "string",
       "enum" : [ "USD", "CNY" ]
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "Name", "BillingGroupArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModifiedTime", "/properties/AssociationSize", "/properties/CurrencyCode", "/properties/ProductCode" ],
   "createOnlyProperties" : [ "/properties/BillingGroupArn", "/properties/BillingPeriodRange/InclusiveStartBillingPeriod", "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod", "/properties/CustomLineItemChargeDetails/Type" ],
@@ -136,13 +168,13 @@
       "permissions" : [ "billingconductor:CreateCustomLineItem", "billingconductor:BatchAssociateResourcesToCustomLineItem", "billingconductor:ListCustomLineItems" ]
     },
     "read" : {
-      "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem" ]
+      "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:ListTagsForResource" ]
     },
     "list" : {
-      "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem" ]
+      "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "billingconductor:UpdateCustomLineItem", "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:BatchAssociateResourcesToCustomLineItem", "billingconductor:BatchDisassociateResourcesFromCustomLineItem" ]
+      "permissions" : [ "billingconductor:UpdateCustomLineItem", "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:BatchAssociateResourcesToCustomLineItem", "billingconductor:BatchDisassociateResourcesFromCustomLineItem", "billingconductor:TagResource", "billingconductor:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "billingconductor:DeleteCustomLineItem", "billingconductor:BatchDisassociateResourcesFromCustomLineItem", "billingconductor:ListResourcesAssociatedToCustomLineItem" ]

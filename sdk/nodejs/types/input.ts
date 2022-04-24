@@ -4902,6 +4902,7 @@ export namespace batch {
          */
         tags?: any;
         type: pulumi.Input<string>;
+        updateToLatestImageVersion?: pulumi.Input<boolean>;
     }
 
     export interface ComputeEnvironmentEc2ConfigurationObjectArgs {
@@ -4913,6 +4914,11 @@ export namespace batch {
         launchTemplateId?: pulumi.Input<string>;
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
+    }
+
+    export interface ComputeEnvironmentUpdatePolicyArgs {
+        jobExecutionTimeoutMinutes?: pulumi.Input<number>;
+        terminateJobsOnUpdate?: pulumi.Input<boolean>;
     }
 
     export interface JobDefinitionAuthorizationConfigArgs {
@@ -5071,6 +5077,7 @@ export namespace batch {
         shareIdentifier?: pulumi.Input<string>;
         weightFactor?: pulumi.Input<number>;
     }
+
 }
 
 export namespace billingconductor {
@@ -5083,6 +5090,11 @@ export namespace billingconductor {
          * ARN of the attached pricing plan
          */
         pricingPlanArn: pulumi.Input<string>;
+    }
+
+    export interface BillingGroupTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface CustomLineItemBillingPeriodRangeArgs {
@@ -5103,6 +5115,21 @@ export namespace billingconductor {
     export interface CustomLineItemPercentageChargeDetailsArgs {
         childAssociatedResources?: pulumi.Input<pulumi.Input<string>[]>;
         percentageValue: pulumi.Input<number>;
+    }
+
+    export interface CustomLineItemTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PricingPlanTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PricingRuleTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -7007,6 +7034,20 @@ export namespace connect {
          * The minutes.
          */
         minutes: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PhoneNumberTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -14193,10 +14234,17 @@ export namespace guardduty {
 
     export interface FilterConditionArgs {
         eq?: pulumi.Input<pulumi.Input<string>[]>;
+        equals?: pulumi.Input<pulumi.Input<string>[]>;
+        greaterThan?: pulumi.Input<number>;
+        greaterThanOrEqual?: pulumi.Input<number>;
+        gt?: pulumi.Input<number>;
         gte?: pulumi.Input<number>;
+        lessThan?: pulumi.Input<number>;
+        lessThanOrEqual?: pulumi.Input<number>;
         lt?: pulumi.Input<number>;
         lte?: pulumi.Input<number>;
         neq?: pulumi.Input<pulumi.Input<string>[]>;
+        notEquals?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FilterFindingCriteriaArgs {

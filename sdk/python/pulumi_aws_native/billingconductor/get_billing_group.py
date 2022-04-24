@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBillingGroupResult:
-    def __init__(__self__, account_grouping=None, arn=None, computation_preference=None, creation_time=None, description=None, last_modified_time=None, name=None, size=None, status=None, status_reason=None):
+    def __init__(__self__, account_grouping=None, arn=None, computation_preference=None, creation_time=None, description=None, last_modified_time=None, name=None, size=None, status=None, status_reason=None, tags=None):
         if account_grouping and not isinstance(account_grouping, dict):
             raise TypeError("Expected argument 'account_grouping' to be a dict")
         pulumi.set(__self__, "account_grouping", account_grouping)
@@ -50,6 +50,9 @@ class GetBillingGroupResult:
         if status_reason and not isinstance(status_reason, str):
             raise TypeError("Expected argument 'status_reason' to be a str")
         pulumi.set(__self__, "status_reason", status_reason)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountGrouping")
@@ -113,6 +116,11 @@ class GetBillingGroupResult:
     def status_reason(self) -> Optional[str]:
         return pulumi.get(self, "status_reason")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.BillingGroupTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetBillingGroupResult(GetBillingGroupResult):
     # pylint: disable=using-constant-test
@@ -129,7 +137,8 @@ class AwaitableGetBillingGroupResult(GetBillingGroupResult):
             name=self.name,
             size=self.size,
             status=self.status,
-            status_reason=self.status_reason)
+            status_reason=self.status_reason,
+            tags=self.tags)
 
 
 def get_billing_group(arn: Optional[str] = None,
@@ -158,7 +167,8 @@ def get_billing_group(arn: Optional[str] = None,
         name=__ret__.name,
         size=__ret__.size,
         status=__ret__.status,
-        status_reason=__ret__.status_reason)
+        status_reason=__ret__.status_reason,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_billing_group)

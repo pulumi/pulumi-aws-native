@@ -685,7 +685,7 @@ func (ctx *context) gatherResourceType() error {
 			return err
 		}
 		properties[sdkName] = *propertySpec
-		if !readOnlyProperties.Has(prop) {
+		if createOnlyProperties.Has(sdkName) || !readOnlyProperties.Has(prop) {
 			inputProperties[sdkName] = *propertySpec
 		}
 	}

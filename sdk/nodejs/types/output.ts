@@ -4267,6 +4267,7 @@ export namespace batch {
          */
         tags?: any;
         type: string;
+        updateToLatestImageVersion?: boolean;
     }
 
     export interface ComputeEnvironmentEc2ConfigurationObject {
@@ -4278,6 +4279,11 @@ export namespace batch {
         launchTemplateId?: string;
         launchTemplateName?: string;
         version?: string;
+    }
+
+    export interface ComputeEnvironmentUpdatePolicy {
+        jobExecutionTimeoutMinutes?: number;
+        terminateJobsOnUpdate?: boolean;
     }
 
     export interface JobDefinitionAuthorizationConfig {
@@ -4451,6 +4457,11 @@ export namespace billingconductor {
         pricingPlanArn: string;
     }
 
+    export interface BillingGroupTag {
+        key: string;
+        value: string;
+    }
+
     export interface CustomLineItemBillingPeriodRange {
         exclusiveEndBillingPeriod?: string;
         inclusiveStartBillingPeriod?: string;
@@ -4469,6 +4480,21 @@ export namespace billingconductor {
     export interface CustomLineItemPercentageChargeDetails {
         childAssociatedResources?: string[];
         percentageValue: number;
+    }
+
+    export interface CustomLineItemTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PricingPlanTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PricingRuleTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -7099,6 +7125,20 @@ export namespace connect {
          * The minutes.
          */
         minutes: number;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PhoneNumberTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
     }
 
     /**
@@ -14461,10 +14501,17 @@ export namespace guardduty {
 
     export interface FilterCondition {
         eq?: string[];
+        equals?: string[];
+        greaterThan?: number;
+        greaterThanOrEqual?: number;
+        gt?: number;
         gte?: number;
+        lessThan?: number;
+        lessThanOrEqual?: number;
         lt?: number;
         lte?: number;
         neq?: string[];
+        notEquals?: string[];
     }
 
     export interface FilterFindingCriteria {

@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.BillingConductor
         [Output("size")]
         public Output<int> Size { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.PricingPlanTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PricingPlan resource with the given unique name, arguments, and options.
@@ -106,6 +109,14 @@ namespace Pulumi.AwsNative.BillingConductor
         {
             get => _pricingRuleArns ?? (_pricingRuleArns = new InputList<string>());
             set => _pricingRuleArns = value;
+        }
+
+        [Input("tags")]
+        private InputList<Inputs.PricingPlanTagArgs>? _tags;
+        public InputList<Inputs.PricingPlanTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.PricingPlanTagArgs>());
+            set => _tags = value;
         }
 
         public PricingPlanArgs()

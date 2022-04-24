@@ -34,7 +34,7 @@ export class Archive extends pulumi.CustomResource {
         return obj['__pulumiType'] === Archive.__pulumiType;
     }
 
-    public /*out*/ readonly archiveName!: pulumi.Output<string>;
+    public readonly archiveName!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly eventPattern!: pulumi.Output<any | undefined>;
@@ -55,11 +55,11 @@ export class Archive extends pulumi.CustomResource {
             if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
+            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["archiveName"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["archiveName"] = undefined /*out*/;
@@ -78,6 +78,7 @@ export class Archive extends pulumi.CustomResource {
  * The set of arguments for constructing a Archive resource.
  */
 export interface ArchiveArgs {
+    archiveName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     eventPattern?: any;
     retentionDays?: pulumi.Input<number>;

@@ -38,7 +38,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     public readonly instanceAttributes!: pulumi.Output<any>;
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     public readonly serviceId!: pulumi.Output<string>;
 
     /**
@@ -61,8 +61,8 @@ export class Instance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceId'");
             }
             resourceInputs["instanceAttributes"] = args ? args.instanceAttributes : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["serviceId"] = args ? args.serviceId : undefined;
-            resourceInputs["instanceId"] = undefined /*out*/;
         } else {
             resourceInputs["instanceAttributes"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
@@ -78,5 +78,6 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceArgs {
     instanceAttributes: any;
+    instanceId?: pulumi.Input<string>;
     serviceId: pulumi.Input<string>;
 }

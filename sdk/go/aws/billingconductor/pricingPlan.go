@@ -26,7 +26,8 @@ type PricingPlan struct {
 	Name             pulumi.StringOutput      `pulumi:"name"`
 	PricingRuleArns  pulumi.StringArrayOutput `pulumi:"pricingRuleArns"`
 	// Number of associated pricing rules
-	Size pulumi.IntOutput `pulumi:"size"`
+	Size pulumi.IntOutput          `pulumi:"size"`
+	Tags PricingPlanTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPricingPlan registers a new resource with the given unique name, arguments, and options.
@@ -68,9 +69,10 @@ func (PricingPlanState) ElementType() reflect.Type {
 }
 
 type pricingPlanArgs struct {
-	Description     *string  `pulumi:"description"`
-	Name            *string  `pulumi:"name"`
-	PricingRuleArns []string `pulumi:"pricingRuleArns"`
+	Description     *string          `pulumi:"description"`
+	Name            *string          `pulumi:"name"`
+	PricingRuleArns []string         `pulumi:"pricingRuleArns"`
+	Tags            []PricingPlanTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PricingPlan resource.
@@ -78,6 +80,7 @@ type PricingPlanArgs struct {
 	Description     pulumi.StringPtrInput
 	Name            pulumi.StringPtrInput
 	PricingRuleArns pulumi.StringArrayInput
+	Tags            PricingPlanTagArrayInput
 }
 
 func (PricingPlanArgs) ElementType() reflect.Type {

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -56,6 +57,7 @@ export class PricingPlan extends pulumi.CustomResource {
      * Number of associated pricing rules
      */
     public /*out*/ readonly size!: pulumi.Output<number>;
+    public readonly tags!: pulumi.Output<outputs.billingconductor.PricingPlanTag[] | undefined>;
 
     /**
      * Create a PricingPlan resource with the given unique name, arguments, and options.
@@ -73,6 +75,7 @@ export class PricingPlan extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pricingRuleArns"] = args ? args.pricingRuleArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
@@ -85,6 +88,7 @@ export class PricingPlan extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pricingRuleArns"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PricingPlan.__pulumiType, name, resourceInputs, opts);
@@ -98,4 +102,5 @@ export interface PricingPlanArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     pricingRuleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.PricingPlanTagArgs>[]>;
 }

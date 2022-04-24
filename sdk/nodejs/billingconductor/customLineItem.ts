@@ -64,6 +64,7 @@ export class CustomLineItem extends pulumi.CustomResource {
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly productCode!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.billingconductor.CustomLineItemTag[] | undefined>;
 
     /**
      * Create a CustomLineItem resource with the given unique name, arguments, and options.
@@ -86,6 +87,7 @@ export class CustomLineItem extends pulumi.CustomResource {
             resourceInputs["customLineItemChargeDetails"] = args ? args.customLineItemChargeDetails : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationSize"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -104,6 +106,7 @@ export class CustomLineItem extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["productCode"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomLineItem.__pulumiType, name, resourceInputs, opts);
@@ -122,4 +125,5 @@ export interface CustomLineItemArgs {
     customLineItemChargeDetails?: pulumi.Input<inputs.billingconductor.CustomLineItemChargeDetailsArgs>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.CustomLineItemTagArgs>[]>;
 }

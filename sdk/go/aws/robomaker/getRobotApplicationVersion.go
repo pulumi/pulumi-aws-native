@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An example resource schema demonstrating some basic constructs and validation rules.
+// AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
 func LookupRobotApplicationVersion(ctx *pulumi.Context, args *LookupRobotApplicationVersionArgs, opts ...pulumi.InvokeOption) (*LookupRobotApplicationVersionResult, error) {
 	var rv LookupRobotApplicationVersionResult
 	err := ctx.Invoke("aws-native:robomaker:getRobotApplicationVersion", args, &rv, opts...)

@@ -49,6 +49,7 @@ export interface GetBillingGroupResult {
     readonly size?: number;
     readonly status?: enums.billingconductor.BillingGroupStatus;
     readonly statusReason?: string;
+    readonly tags?: outputs.billingconductor.BillingGroupTag[];
 }
 
 export function getBillingGroupOutput(args: GetBillingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingGroupResult> {

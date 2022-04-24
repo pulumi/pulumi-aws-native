@@ -16,16 +16,20 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input[str]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] domain_name: The name of the domain.
+        :param pulumi.Input[str] encryption_key: The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
         if permissions_policy_document is not None:
             pulumi.set(__self__, "permissions_policy_document", permissions_policy_document)
         if tags is not None:
@@ -42,6 +46,18 @@ class DomainArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key", value)
 
     @property
     @pulumi.getter(name="permissionsPolicyDocument")
@@ -74,6 +90,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input[str]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
@@ -83,6 +100,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The name of the domain.
+        :param pulumi.Input[str] encryption_key: The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -111,6 +129,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input[str]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
@@ -126,10 +145,10 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["permissions_policy_document"] = permissions_policy_document
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["encryption_key"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["owner"] = None
         super(Domain, __self__).__init__(

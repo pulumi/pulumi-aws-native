@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:RobotApplicationVersion")]
     public partial class RobotApplicationVersion : Pulumi.CustomResource

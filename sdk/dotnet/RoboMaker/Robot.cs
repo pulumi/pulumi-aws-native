@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
-    /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+    /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:Robot")]
     public partial class Robot : Pulumi.CustomResource

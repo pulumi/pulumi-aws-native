@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Repository(string name, RepositoryArgs? args = null, CustomResourceOptions? options = null)
+        public Repository(string name, RepositoryArgs args, CustomResourceOptions? options = null)
             : base("aws-native:codeartifact:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -125,6 +125,18 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The name of the domain that contains the repository.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// The 12-digit account ID of the AWS account that owns the domain.
+        /// </summary>
+        [Input("domainOwner")]
+        public Input<string>? DomainOwner { get; set; }
 
         [Input("externalConnections")]
         private InputList<string>? _externalConnections;

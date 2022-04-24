@@ -18,10 +18,12 @@ class ComputeEnvironmentArgs:
                  type: pulumi.Input[str],
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+                 replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 unmanagedv_cpus: Optional[pulumi.Input[int]] = None):
+                 unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
+                 update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
         :param Any tags: A key-value pair to associate with a resource.
@@ -31,6 +33,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "compute_environment_name", compute_environment_name)
         if compute_resources is not None:
             pulumi.set(__self__, "compute_resources", compute_resources)
+        if replace_compute_environment is not None:
+            pulumi.set(__self__, "replace_compute_environment", replace_compute_environment)
         if service_role is not None:
             pulumi.set(__self__, "service_role", service_role)
         if state is not None:
@@ -39,6 +43,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "tags", tags)
         if unmanagedv_cpus is not None:
             pulumi.set(__self__, "unmanagedv_cpus", unmanagedv_cpus)
+        if update_policy is not None:
+            pulumi.set(__self__, "update_policy", update_policy)
 
     @property
     @pulumi.getter
@@ -66,6 +72,15 @@ class ComputeEnvironmentArgs:
     @compute_resources.setter
     def compute_resources(self, value: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']]):
         pulumi.set(self, "compute_resources", value)
+
+    @property
+    @pulumi.getter(name="replaceComputeEnvironment")
+    def replace_compute_environment(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "replace_compute_environment")
+
+    @replace_compute_environment.setter
+    def replace_compute_environment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace_compute_environment", value)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -106,6 +121,15 @@ class ComputeEnvironmentArgs:
     def unmanagedv_cpus(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unmanagedv_cpus", value)
 
+    @property
+    @pulumi.getter(name="updatePolicy")
+    def update_policy(self) -> Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']]:
+        return pulumi.get(self, "update_policy")
+
+    @update_policy.setter
+    def update_policy(self, value: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']]):
+        pulumi.set(self, "update_policy", value)
+
 
 class ComputeEnvironment(pulumi.CustomResource):
     @overload
@@ -114,11 +138,13 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
+                 replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
+                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::ComputeEnvironment
@@ -153,11 +179,13 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
+                 replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
+                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -172,6 +200,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
             __props__.__dict__["compute_environment_name"] = compute_environment_name
             __props__.__dict__["compute_resources"] = compute_resources
+            __props__.__dict__["replace_compute_environment"] = replace_compute_environment
             __props__.__dict__["service_role"] = service_role
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
@@ -179,6 +208,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["unmanagedv_cpus"] = unmanagedv_cpus
+            __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["compute_environment_arn"] = None
         super(ComputeEnvironment, __self__).__init__(
             'aws-native:batch:ComputeEnvironment',
@@ -205,11 +235,13 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["compute_environment_arn"] = None
         __props__.__dict__["compute_environment_name"] = None
         __props__.__dict__["compute_resources"] = None
+        __props__.__dict__["replace_compute_environment"] = None
         __props__.__dict__["service_role"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unmanagedv_cpus"] = None
+        __props__.__dict__["update_policy"] = None
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -226,6 +258,11 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentComputeResources']]:
         return pulumi.get(self, "compute_resources")
+
+    @property
+    @pulumi.getter(name="replaceComputeEnvironment")
+    def replace_compute_environment(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "replace_compute_environment")
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -254,4 +291,9 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="unmanagedvCpus")
     def unmanagedv_cpus(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "unmanagedv_cpus")
+
+    @property
+    @pulumi.getter(name="updatePolicy")
+    def update_policy(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentUpdatePolicy']]:
+        return pulumi.get(self, "update_policy")
 

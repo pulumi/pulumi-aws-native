@@ -29,6 +29,9 @@ func NewDevice(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DeviceId == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceId'")
+	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
@@ -64,12 +67,14 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	Enabled bool `pulumi:"enabled"`
+	DeviceId string `pulumi:"deviceId"`
+	Enabled  bool   `pulumi:"enabled"`
 }
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	Enabled pulumi.BoolInput
+	DeviceId pulumi.StringInput
+	Enabled  pulumi.BoolInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {

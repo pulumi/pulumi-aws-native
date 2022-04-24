@@ -21,12 +21,14 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs,
 }
 
 type LookupInstanceProfileArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the instance profile to create.
+	InstanceProfileName string `pulumi:"instanceProfileName"`
 }
 
 type LookupInstanceProfileResult struct {
-	Arn   *string  `pulumi:"arn"`
-	Id    *string  `pulumi:"id"`
+	// The Amazon Resource Name (ARN) of the instance profile.
+	Arn *string `pulumi:"arn"`
+	// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
 	Roles []string `pulumi:"roles"`
 }
 
@@ -44,7 +46,8 @@ func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfile
 }
 
 type LookupInstanceProfileOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the instance profile to create.
+	InstanceProfileName pulumi.StringInput `pulumi:"instanceProfileName"`
 }
 
 func (LookupInstanceProfileOutputArgs) ElementType() reflect.Type {
@@ -65,14 +68,12 @@ func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o LookupInstanceProfileResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInstanceProfileResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInstanceProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
 func (o LookupInstanceProfileResultOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }

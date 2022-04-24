@@ -13,10 +13,14 @@ from ._enums import *
 __all__ = [
     'BillingGroupAccountGrouping',
     'BillingGroupComputationPreference',
+    'BillingGroupTag',
     'CustomLineItemBillingPeriodRange',
     'CustomLineItemChargeDetails',
     'CustomLineItemFlatChargeDetails',
     'CustomLineItemPercentageChargeDetails',
+    'CustomLineItemTag',
+    'PricingPlanTag',
+    'PricingRuleTag',
 ]
 
 @pulumi.output_type
@@ -81,6 +85,25 @@ class BillingGroupComputationPreference(dict):
         ARN of the attached pricing plan
         """
         return pulumi.get(self, "pricing_plan_arn")
+
+
+@pulumi.output_type
+class BillingGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -217,5 +240,62 @@ class CustomLineItemPercentageChargeDetails(dict):
     @pulumi.getter(name="childAssociatedResources")
     def child_associated_resources(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "child_associated_resources")
+
+
+@pulumi.output_type
+class CustomLineItemTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PricingPlanTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PricingRuleTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

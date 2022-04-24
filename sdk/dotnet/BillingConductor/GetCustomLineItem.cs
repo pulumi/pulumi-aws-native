@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public readonly int? LastModifiedTime;
         public readonly string? Name;
         public readonly string? ProductCode;
+        public readonly ImmutableArray<Outputs.CustomLineItemTag> Tags;
 
         [OutputConstructor]
         private GetCustomLineItemResult(
@@ -98,7 +99,9 @@ namespace Pulumi.AwsNative.BillingConductor
 
             string? name,
 
-            string? productCode)
+            string? productCode,
+
+            ImmutableArray<Outputs.CustomLineItemTag> tags)
         {
             Arn = arn;
             AssociationSize = associationSize;
@@ -110,6 +113,7 @@ namespace Pulumi.AwsNative.BillingConductor
             LastModifiedTime = lastModifiedTime;
             Name = name;
             ProductCode = productCode;
+            Tags = tags;
         }
     }
 }

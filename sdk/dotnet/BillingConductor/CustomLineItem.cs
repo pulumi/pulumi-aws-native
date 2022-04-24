@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.BillingConductor
         [Output("productCode")]
         public Output<string> ProductCode { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.CustomLineItemTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CustomLineItem resource with the given unique name, arguments, and options.
@@ -126,6 +129,14 @@ namespace Pulumi.AwsNative.BillingConductor
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.CustomLineItemTagArgs>? _tags;
+        public InputList<Inputs.CustomLineItemTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.CustomLineItemTagArgs>());
+            set => _tags = value;
+        }
 
         public CustomLineItemArgs()
         {

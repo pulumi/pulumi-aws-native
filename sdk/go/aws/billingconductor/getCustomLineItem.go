@@ -37,9 +37,10 @@ type LookupCustomLineItemResult struct {
 	CustomLineItemChargeDetails *CustomLineItemChargeDetails `pulumi:"customLineItemChargeDetails"`
 	Description                 *string                      `pulumi:"description"`
 	// Latest modified timestamp in UNIX epoch time format
-	LastModifiedTime *int    `pulumi:"lastModifiedTime"`
-	Name             *string `pulumi:"name"`
-	ProductCode      *string `pulumi:"productCode"`
+	LastModifiedTime *int                `pulumi:"lastModifiedTime"`
+	Name             *string             `pulumi:"name"`
+	ProductCode      *string             `pulumi:"productCode"`
+	Tags             []CustomLineItemTag `pulumi:"tags"`
 }
 
 func LookupCustomLineItemOutput(ctx *pulumi.Context, args LookupCustomLineItemOutputArgs, opts ...pulumi.InvokeOption) LookupCustomLineItemResultOutput {
@@ -120,6 +121,10 @@ func (o LookupCustomLineItemResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupCustomLineItemResultOutput) ProductCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomLineItemResult) *string { return v.ProductCode }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCustomLineItemResultOutput) Tags() CustomLineItemTagArrayOutput {
+	return o.ApplyT(func(v LookupCustomLineItemResult) []CustomLineItemTag { return v.Tags }).(CustomLineItemTagArrayOutput)
 }
 
 func init() {

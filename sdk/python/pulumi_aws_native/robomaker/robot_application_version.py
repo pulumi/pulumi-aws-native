@@ -54,7 +54,7 @@ class RobotApplicationVersion(pulumi.CustomResource):
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,7 +67,7 @@ class RobotApplicationVersion(pulumi.CustomResource):
                  args: RobotApplicationVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
 
         :param str resource_name: The name of the resource.
         :param RobotApplicationVersionArgs args: The arguments to use to populate this resource's properties.

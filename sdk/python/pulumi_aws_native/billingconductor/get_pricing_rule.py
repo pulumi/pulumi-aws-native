@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPricingRuleResult:
-    def __init__(__self__, arn=None, associated_pricing_plan_count=None, creation_time=None, description=None, last_modified_time=None, modifier_percentage=None, name=None, type=None):
+    def __init__(__self__, arn=None, associated_pricing_plan_count=None, creation_time=None, description=None, last_modified_time=None, modifier_percentage=None, name=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +41,9 @@ class GetPricingRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -102,6 +106,11 @@ class GetPricingRuleResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.PricingRuleTag']]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional['PricingRuleType']:
         """
         One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
@@ -122,6 +131,7 @@ class AwaitableGetPricingRuleResult(GetPricingRuleResult):
             last_modified_time=self.last_modified_time,
             modifier_percentage=self.modifier_percentage,
             name=self.name,
+            tags=self.tags,
             type=self.type)
 
 
@@ -149,6 +159,7 @@ def get_pricing_rule(arn: Optional[str] = None,
         last_modified_time=__ret__.last_modified_time,
         modifier_percentage=__ret__.modifier_percentage,
         name=__ret__.name,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 

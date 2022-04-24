@@ -14,11 +14,13 @@ __all__ = ['DomainNameArgs', 'DomainName']
 class DomainNameArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DomainName resource.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
+        pulumi.set(__self__, "domain_name", domain_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -30,6 +32,15 @@ class DomainNameArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter
@@ -48,6 +59,7 @@ class DomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppSync::DomainName
@@ -81,6 +93,7 @@ class DomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -97,8 +110,10 @@ class DomainName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'certificate_arn'")
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["description"] = description
+            if domain_name is None and not opts.urn:
+                raise TypeError("Missing required property 'domain_name'")
+            __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["app_sync_domain_name"] = None
-            __props__.__dict__["domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
         super(DomainName, __self__).__init__(
             'aws-native:appsync:DomainName',

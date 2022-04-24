@@ -70,6 +70,9 @@ namespace Pulumi.AwsNative.BillingConductor
         [Output("service")]
         public Output<string?> Service { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.PricingRuleTag>> Tags { get; private set; } = null!;
+
         /// <summary>
         /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
         /// </summary>
@@ -150,6 +153,14 @@ namespace Pulumi.AwsNative.BillingConductor
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.PricingRuleTagArgs>? _tags;
+        public InputList<Inputs.PricingRuleTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.PricingRuleTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.

@@ -40,6 +40,7 @@ type LookupBillingGroupResult struct {
 	Size         *int                `pulumi:"size"`
 	Status       *BillingGroupStatus `pulumi:"status"`
 	StatusReason *string             `pulumi:"statusReason"`
+	Tags         []BillingGroupTag   `pulumi:"tags"`
 }
 
 func LookupBillingGroupOutput(ctx *pulumi.Context, args LookupBillingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBillingGroupResultOutput {
@@ -120,6 +121,10 @@ func (o LookupBillingGroupResultOutput) Status() BillingGroupStatusPtrOutput {
 
 func (o LookupBillingGroupResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBillingGroupResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBillingGroupResultOutput) Tags() BillingGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupBillingGroupResult) []BillingGroupTag { return v.Tags }).(BillingGroupTagArrayOutput)
 }
 
 func init() {

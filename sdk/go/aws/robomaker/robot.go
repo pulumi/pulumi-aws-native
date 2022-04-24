@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
+// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
 type Robot struct {
 	pulumi.CustomResourceState
 
