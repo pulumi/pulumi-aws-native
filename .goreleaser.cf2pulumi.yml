@@ -4,17 +4,17 @@ before:
     - make codegen
     - make generate_schema
 builds:
-    goos:
-      - darwin
-      - windows
-      - linux
-    goarch:
-      - amd64
-      - arm64
-    ldflags: -X github.com/pulumi/pulumi-aws-native/provider/version.Version={{.Tag}}
-    binary: cf2pulumi
-    dir: provider
-    main: ./cmd/cf2pulumi/
+    - goos:
+        - darwin
+        - windows
+        - linux
+      goarch:
+        - amd64
+        - arm64
+      ldflags: -X github.com/pulumi/pulumi-aws-native/provider/version.Version={{.Tag}}
+      binary: cf2pulumi
+      dir: provider
+      main: ./cmd/cf2pulumi/
 archives:
   - name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
     format_overrides:
