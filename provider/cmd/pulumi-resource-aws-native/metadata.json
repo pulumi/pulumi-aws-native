@@ -63443,6 +63443,10 @@
                     "$ref": "#/types/aws-native:mediapackage:PackagingConfigurationDashManifestProfile",
                     "description": "The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled."
                 },
+                "scteMarkersSource": {
+                    "$ref": "#/types/aws-native:mediapackage:PackagingConfigurationDashManifestScteMarkersSource",
+                    "description": "The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content."
+                },
                 "streamSelection": {
                     "$ref": "#/types/aws-native:mediapackage:PackagingConfigurationStreamSelection"
                 }
@@ -63452,6 +63456,9 @@
             "type": "string"
         },
         "aws-native:mediapackage:PackagingConfigurationDashManifestProfile": {
+            "type": "string"
+        },
+        "aws-native:mediapackage:PackagingConfigurationDashManifestScteMarkersSource": {
             "type": "string"
         },
         "aws-native:mediapackage:PackagingConfigurationDashPackage": {
