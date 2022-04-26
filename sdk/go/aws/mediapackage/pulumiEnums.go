@@ -3513,6 +3513,171 @@ func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfiguration
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestProfilePtrOutput)
 }
 
+// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+type PackagingConfigurationDashManifestScteMarkersSource string
+
+const (
+	PackagingConfigurationDashManifestScteMarkersSourceSegments = PackagingConfigurationDashManifestScteMarkersSource("SEGMENTS")
+	PackagingConfigurationDashManifestScteMarkersSourceManifest = PackagingConfigurationDashManifestScteMarkersSource("MANIFEST")
+)
+
+func (PackagingConfigurationDashManifestScteMarkersSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationDashManifestScteMarkersSource)(nil)).Elem()
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToPackagingConfigurationDashManifestScteMarkersSourceOutput() PackagingConfigurationDashManifestScteMarkersSourceOutput {
+	return pulumi.ToOutput(e).(PackagingConfigurationDashManifestScteMarkersSourceOutput)
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToPackagingConfigurationDashManifestScteMarkersSourceOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PackagingConfigurationDashManifestScteMarkersSourceOutput)
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutput() PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return e.ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return PackagingConfigurationDashManifestScteMarkersSource(e).ToPackagingConfigurationDashManifestScteMarkersSourceOutputWithContext(ctx).ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx)
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationDashManifestScteMarkersSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PackagingConfigurationDashManifestScteMarkersSourceOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationDashManifestScteMarkersSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationDashManifestScteMarkersSource)(nil)).Elem()
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToPackagingConfigurationDashManifestScteMarkersSourceOutput() PackagingConfigurationDashManifestScteMarkersSourceOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToPackagingConfigurationDashManifestScteMarkersSourceOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourceOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutput() PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return o.ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationDashManifestScteMarkersSource) *PackagingConfigurationDashManifestScteMarkersSource {
+		return &v
+	}).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationDashManifestScteMarkersSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationDashManifestScteMarkersSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PackagingConfigurationDashManifestScteMarkersSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationDashManifestScteMarkersSource)(nil)).Elem()
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutput() PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) Elem() PackagingConfigurationDashManifestScteMarkersSourceOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashManifestScteMarkersSource) PackagingConfigurationDashManifestScteMarkersSource {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingConfigurationDashManifestScteMarkersSource
+		return ret
+	}).(PackagingConfigurationDashManifestScteMarkersSourceOutput)
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PackagingConfigurationDashManifestScteMarkersSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PackagingConfigurationDashManifestScteMarkersSourceInput is an input type that accepts PackagingConfigurationDashManifestScteMarkersSourceArgs and PackagingConfigurationDashManifestScteMarkersSourceOutput values.
+// You can construct a concrete instance of `PackagingConfigurationDashManifestScteMarkersSourceInput` via:
+//
+//          PackagingConfigurationDashManifestScteMarkersSourceArgs{...}
+type PackagingConfigurationDashManifestScteMarkersSourceInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationDashManifestScteMarkersSourceOutput() PackagingConfigurationDashManifestScteMarkersSourceOutput
+	ToPackagingConfigurationDashManifestScteMarkersSourceOutputWithContext(context.Context) PackagingConfigurationDashManifestScteMarkersSourceOutput
+}
+
+var packagingConfigurationDashManifestScteMarkersSourcePtrType = reflect.TypeOf((**PackagingConfigurationDashManifestScteMarkersSource)(nil)).Elem()
+
+type PackagingConfigurationDashManifestScteMarkersSourcePtrInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutput() PackagingConfigurationDashManifestScteMarkersSourcePtrOutput
+	ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput
+}
+
+type packagingConfigurationDashManifestScteMarkersSourcePtr string
+
+func PackagingConfigurationDashManifestScteMarkersSourcePtr(v string) PackagingConfigurationDashManifestScteMarkersSourcePtrInput {
+	return (*packagingConfigurationDashManifestScteMarkersSourcePtr)(&v)
+}
+
+func (*packagingConfigurationDashManifestScteMarkersSourcePtr) ElementType() reflect.Type {
+	return packagingConfigurationDashManifestScteMarkersSourcePtrType
+}
+
+func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutput() PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return pulumi.ToOutput(in).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
+}
+
+func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
+}
+
 type PackagingConfigurationDashPackagePeriodTriggersItem string
 
 const (
@@ -4429,6 +4594,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestManifestLayoutPtrInput)(nil)).Elem(), PackagingConfigurationDashManifestManifestLayout("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestProfileInput)(nil)).Elem(), PackagingConfigurationDashManifestProfile("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestProfilePtrInput)(nil)).Elem(), PackagingConfigurationDashManifestProfile("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestScteMarkersSourceInput)(nil)).Elem(), PackagingConfigurationDashManifestScteMarkersSource("SEGMENTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestScteMarkersSourcePtrInput)(nil)).Elem(), PackagingConfigurationDashManifestScteMarkersSource("SEGMENTS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItem("ADS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemPtrInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItem("ADS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemArrayInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItemArray{})
@@ -4484,6 +4651,8 @@ func init() {
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestManifestLayoutPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestProfileOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestProfilePtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationDashManifestScteMarkersSourceOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput{})

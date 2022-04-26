@@ -1389,12 +1389,14 @@ class PackagingConfigurationDashManifestArgs:
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  min_buffer_time_seconds: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input['PackagingConfigurationDashManifestProfile']] = None,
+                 scte_markers_source: Optional[pulumi.Input['PackagingConfigurationDashManifestScteMarkersSource']] = None,
                  stream_selection: Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']] = None):
         """
         A DASH manifest configuration.
         :param pulumi.Input['PackagingConfigurationDashManifestManifestLayout'] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param pulumi.Input[int] min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
         :param pulumi.Input['PackagingConfigurationDashManifestProfile'] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+        :param pulumi.Input['PackagingConfigurationDashManifestScteMarkersSource'] scte_markers_source: The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
         """
         if manifest_layout is not None:
             pulumi.set(__self__, "manifest_layout", manifest_layout)
@@ -1404,6 +1406,8 @@ class PackagingConfigurationDashManifestArgs:
             pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
+        if scte_markers_source is not None:
+            pulumi.set(__self__, "scte_markers_source", scte_markers_source)
         if stream_selection is not None:
             pulumi.set(__self__, "stream_selection", stream_selection)
 
@@ -1451,6 +1455,18 @@ class PackagingConfigurationDashManifestArgs:
     @profile.setter
     def profile(self, value: Optional[pulumi.Input['PackagingConfigurationDashManifestProfile']]):
         pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="scteMarkersSource")
+    def scte_markers_source(self) -> Optional[pulumi.Input['PackagingConfigurationDashManifestScteMarkersSource']]:
+        """
+        The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+        """
+        return pulumi.get(self, "scte_markers_source")
+
+    @scte_markers_source.setter
+    def scte_markers_source(self, value: Optional[pulumi.Input['PackagingConfigurationDashManifestScteMarkersSource']]):
+        pulumi.set(self, "scte_markers_source", value)
 
     @property
     @pulumi.getter(name="streamSelection")

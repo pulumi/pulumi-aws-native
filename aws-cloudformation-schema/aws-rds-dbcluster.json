@@ -118,11 +118,11 @@
     "DBClusterParameterGroupName" : {
       "type" : "string"
     },
-    "BackupRetentionPeriod" : {
-      "type" : "integer"
-    },
     "Id" : {
       "type" : "string"
+    },
+    "BackupRetentionPeriod" : {
+      "type" : "integer"
     },
     "BacktrackWindow" : {
       "type" : "integer"
@@ -184,5 +184,5 @@
   "required" : [ "Engine" ],
   "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/DatabaseName", "/properties/EngineMode", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/SnapshotIdentifier", "/properties/RestoreType", "/properties/UseLatestRestorableTime", "/properties/SourceRegion", "/properties/StorageEncrypted" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/ReadEndpoint.Address", "/properties/Endpoint.Port", "/properties/Endpoint.Address" ]
+  "readOnlyProperties" : [ "/properties/Id" ]
 }

@@ -23007,6 +23007,10 @@ export namespace mediapackage {
          * The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
          */
         profile?: enums.mediapackage.PackagingConfigurationDashManifestProfile;
+        /**
+         * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+         */
+        scteMarkersSource?: enums.mediapackage.PackagingConfigurationDashManifestScteMarkersSource;
         streamSelection?: outputs.mediapackage.PackagingConfigurationStreamSelection;
     }
 

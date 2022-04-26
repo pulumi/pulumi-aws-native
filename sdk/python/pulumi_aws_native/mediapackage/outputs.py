@@ -1658,6 +1658,8 @@ class PackagingConfigurationDashManifest(dict):
             suggest = "manifest_name"
         elif key == "minBufferTimeSeconds":
             suggest = "min_buffer_time_seconds"
+        elif key == "scteMarkersSource":
+            suggest = "scte_markers_source"
         elif key == "streamSelection":
             suggest = "stream_selection"
 
@@ -1677,12 +1679,14 @@ class PackagingConfigurationDashManifest(dict):
                  manifest_name: Optional[str] = None,
                  min_buffer_time_seconds: Optional[int] = None,
                  profile: Optional['PackagingConfigurationDashManifestProfile'] = None,
+                 scte_markers_source: Optional['PackagingConfigurationDashManifestScteMarkersSource'] = None,
                  stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None):
         """
         A DASH manifest configuration.
         :param 'PackagingConfigurationDashManifestManifestLayout' manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param int min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
         :param 'PackagingConfigurationDashManifestProfile' profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+        :param 'PackagingConfigurationDashManifestScteMarkersSource' scte_markers_source: The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
         """
         if manifest_layout is not None:
             pulumi.set(__self__, "manifest_layout", manifest_layout)
@@ -1692,6 +1696,8 @@ class PackagingConfigurationDashManifest(dict):
             pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
+        if scte_markers_source is not None:
+            pulumi.set(__self__, "scte_markers_source", scte_markers_source)
         if stream_selection is not None:
             pulumi.set(__self__, "stream_selection", stream_selection)
 
@@ -1723,6 +1729,14 @@ class PackagingConfigurationDashManifest(dict):
         The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="scteMarkersSource")
+    def scte_markers_source(self) -> Optional['PackagingConfigurationDashManifestScteMarkersSource']:
+        """
+        The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+        """
+        return pulumi.get(self, "scte_markers_source")
 
     @property
     @pulumi.getter(name="streamSelection")

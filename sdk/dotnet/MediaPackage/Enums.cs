@@ -642,6 +642,37 @@ namespace Pulumi.AwsNative.MediaPackage
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+    /// </summary>
+    [EnumType]
+    public readonly struct PackagingConfigurationDashManifestScteMarkersSource : IEquatable<PackagingConfigurationDashManifestScteMarkersSource>
+    {
+        private readonly string _value;
+
+        private PackagingConfigurationDashManifestScteMarkersSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PackagingConfigurationDashManifestScteMarkersSource Segments { get; } = new PackagingConfigurationDashManifestScteMarkersSource("SEGMENTS");
+        public static PackagingConfigurationDashManifestScteMarkersSource Manifest { get; } = new PackagingConfigurationDashManifestScteMarkersSource("MANIFEST");
+
+        public static bool operator ==(PackagingConfigurationDashManifestScteMarkersSource left, PackagingConfigurationDashManifestScteMarkersSource right) => left.Equals(right);
+        public static bool operator !=(PackagingConfigurationDashManifestScteMarkersSource left, PackagingConfigurationDashManifestScteMarkersSource right) => !left.Equals(right);
+
+        public static explicit operator string(PackagingConfigurationDashManifestScteMarkersSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PackagingConfigurationDashManifestScteMarkersSource other && Equals(other);
+        public bool Equals(PackagingConfigurationDashManifestScteMarkersSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct PackagingConfigurationDashPackagePeriodTriggersItem : IEquatable<PackagingConfigurationDashPackagePeriodTriggersItem>
     {

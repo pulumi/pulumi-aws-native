@@ -25,6 +25,7 @@ __all__ = [
     'OriginEndpointStreamSelectionStreamOrder',
     'PackagingConfigurationDashManifestManifestLayout',
     'PackagingConfigurationDashManifestProfile',
+    'PackagingConfigurationDashManifestScteMarkersSource',
     'PackagingConfigurationDashPackagePeriodTriggersItem',
     'PackagingConfigurationDashPackageSegmentTemplateFormat',
     'PackagingConfigurationHlsEncryptionEncryptionMethod',
@@ -206,6 +207,14 @@ class PackagingConfigurationDashManifestProfile(str, Enum):
     """
     NONE = "NONE"
     HBBTV15 = "HBBTV_1_5"
+
+
+class PackagingConfigurationDashManifestScteMarkersSource(str, Enum):
+    """
+    The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+    """
+    SEGMENTS = "SEGMENTS"
+    MANIFEST = "MANIFEST"
 
 
 class PackagingConfigurationDashPackagePeriodTriggersItem(str, Enum):

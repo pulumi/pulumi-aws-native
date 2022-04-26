@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("profile")]
         public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestProfile>? Profile { get; set; }
 
+        /// <summary>
+        /// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+        /// </summary>
+        [Input("scteMarkersSource")]
+        public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestScteMarkersSource>? ScteMarkersSource { get; set; }
+
         [Input("streamSelection")]
         public Input<Inputs.PackagingConfigurationStreamSelectionArgs>? StreamSelection { get; set; }
 

@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestProfile? Profile;
+        /// <summary>
+        /// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+        /// </summary>
+        public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestScteMarkersSource? ScteMarkersSource;
         public readonly Outputs.PackagingConfigurationStreamSelection? StreamSelection;
 
         [OutputConstructor]
@@ -41,12 +45,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestProfile? profile,
 
+            Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestScteMarkersSource? scteMarkersSource,
+
             Outputs.PackagingConfigurationStreamSelection? streamSelection)
         {
             ManifestLayout = manifestLayout;
             ManifestName = manifestName;
             MinBufferTimeSeconds = minBufferTimeSeconds;
             Profile = profile;
+            ScteMarkersSource = scteMarkersSource;
             StreamSelection = streamSelection;
         }
     }

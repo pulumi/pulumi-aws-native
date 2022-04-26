@@ -3809,8 +3809,10 @@ type PackagingConfigurationDashManifest struct {
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds *int `pulumi:"minBufferTimeSeconds"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile         *PackagingConfigurationDashManifestProfile `pulumi:"profile"`
-	StreamSelection *PackagingConfigurationStreamSelection     `pulumi:"streamSelection"`
+	Profile *PackagingConfigurationDashManifestProfile `pulumi:"profile"`
+	// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+	ScteMarkersSource *PackagingConfigurationDashManifestScteMarkersSource `pulumi:"scteMarkersSource"`
+	StreamSelection   *PackagingConfigurationStreamSelection               `pulumi:"streamSelection"`
 }
 
 // PackagingConfigurationDashManifestInput is an input type that accepts PackagingConfigurationDashManifestArgs and PackagingConfigurationDashManifestOutput values.
@@ -3832,8 +3834,10 @@ type PackagingConfigurationDashManifestArgs struct {
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds pulumi.IntPtrInput `pulumi:"minBufferTimeSeconds"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile         PackagingConfigurationDashManifestProfilePtrInput `pulumi:"profile"`
-	StreamSelection PackagingConfigurationStreamSelectionPtrInput     `pulumi:"streamSelection"`
+	Profile PackagingConfigurationDashManifestProfilePtrInput `pulumi:"profile"`
+	// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+	ScteMarkersSource PackagingConfigurationDashManifestScteMarkersSourcePtrInput `pulumi:"scteMarkersSource"`
+	StreamSelection   PackagingConfigurationStreamSelectionPtrInput               `pulumi:"streamSelection"`
 }
 
 func (PackagingConfigurationDashManifestArgs) ElementType() reflect.Type {
@@ -3909,6 +3913,13 @@ func (o PackagingConfigurationDashManifestOutput) Profile() PackagingConfigurati
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *PackagingConfigurationDashManifestProfile {
 		return v.Profile
 	}).(PackagingConfigurationDashManifestProfilePtrOutput)
+}
+
+// The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+func (o PackagingConfigurationDashManifestOutput) ScteMarkersSource() PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashManifest) *PackagingConfigurationDashManifestScteMarkersSource {
+		return v.ScteMarkersSource
+	}).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
 }
 
 func (o PackagingConfigurationDashManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {

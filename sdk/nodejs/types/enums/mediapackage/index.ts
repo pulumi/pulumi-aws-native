@@ -217,6 +217,16 @@ export const PackagingConfigurationDashManifestProfile = {
  */
 export type PackagingConfigurationDashManifestProfile = (typeof PackagingConfigurationDashManifestProfile)[keyof typeof PackagingConfigurationDashManifestProfile];
 
+export const PackagingConfigurationDashManifestScteMarkersSource = {
+    Segments: "SEGMENTS",
+    Manifest: "MANIFEST",
+} as const;
+
+/**
+ * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+ */
+export type PackagingConfigurationDashManifestScteMarkersSource = (typeof PackagingConfigurationDashManifestScteMarkersSource)[keyof typeof PackagingConfigurationDashManifestScteMarkersSource];
+
 export const PackagingConfigurationDashPackagePeriodTriggersItem = {
     Ads: "ADS",
 } as const;
