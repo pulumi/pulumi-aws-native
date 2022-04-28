@@ -134,6 +134,12 @@
         },
         "Vpc" : {
           "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "TransitGateway" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "TransitGatewayRouteTableRoute" : {
+          "$ref" : "#/definitions/TransitGatewayRouteTableRoute"
         }
       }
     },
@@ -242,6 +248,33 @@
         },
         "Protocol" : {
           "$ref" : "#/definitions/Protocol"
+        }
+      }
+    },
+    "TransitGatewayRouteTableRoute" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "DestinationCidr" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "RouteOrigin" : {
+          "type" : "string"
+        },
+        "PrefixListId" : {
+          "type" : "string"
+        },
+        "AttachmentId" : {
+          "type" : "string"
+        },
+        "ResourceId" : {
+          "type" : "string"
+        },
+        "ResourceType" : {
+          "type" : "string"
         }
       }
     },
@@ -404,6 +437,18 @@
         },
         "VpnGateway" : {
           "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "TransitGateway" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "TransitGatewayAttachment" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "TransitGatewayRouteTable" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "TransitGatewayRouteTableRoute" : {
+          "$ref" : "#/definitions/TransitGatewayRouteTableRoute"
         }
       }
     },

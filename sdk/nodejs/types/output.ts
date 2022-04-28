@@ -9967,6 +9967,10 @@ export namespace ec2 {
         state?: string;
         subnet?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
         subnetRouteTable?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGateway?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayAttachment?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayRouteTable?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayRouteTableRoute?: outputs.ec2.NetworkInsightsAnalysisTransitGatewayRouteTableRoute;
         vpc?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
         vpcEndpoint?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
         vpcPeeringConnection?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
@@ -9985,6 +9989,8 @@ export namespace ec2 {
         sequenceNumber?: number;
         sourceVpc?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
         subnet?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGateway?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayRouteTableRoute?: outputs.ec2.NetworkInsightsAnalysisTransitGatewayRouteTableRoute;
         vpc?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
     }
 
@@ -9996,6 +10002,16 @@ export namespace ec2 {
     export interface NetworkInsightsAnalysisTag {
         key: string;
         value?: string;
+    }
+
+    export interface NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
+        attachmentId?: string;
+        destinationCidr?: string;
+        prefixListId?: string;
+        resourceId?: string;
+        resourceType?: string;
+        routeOrigin?: string;
+        state?: string;
     }
 
     export interface NetworkInsightsPathTag {

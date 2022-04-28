@@ -53,6 +53,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? State;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SubnetRouteTable;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayAttachment;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayRouteTable;
+        public readonly Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? TransitGatewayRouteTableRoute;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcEndpoint;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcPeeringConnection;
@@ -141,6 +145,14 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? subnetRouteTable,
 
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGateway,
+
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGatewayAttachment,
+
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGatewayRouteTable,
+
+            Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? transitGatewayRouteTableRoute,
+
             Outputs.NetworkInsightsAnalysisAnalysisComponent? vpc,
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? vpcEndpoint,
@@ -191,6 +203,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
             State = state;
             Subnet = subnet;
             SubnetRouteTable = subnetRouteTable;
+            TransitGateway = transitGateway;
+            TransitGatewayAttachment = transitGatewayAttachment;
+            TransitGatewayRouteTable = transitGatewayRouteTable;
+            TransitGatewayRouteTableRoute = transitGatewayRouteTableRoute;
             Vpc = vpc;
             VpcEndpoint = vpcEndpoint;
             VpcPeeringConnection = vpcPeeringConnection;

@@ -23,6 +23,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly int? SequenceNumber;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
+        public readonly Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? TransitGatewayRouteTableRoute;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
 
         [OutputConstructor]
@@ -47,6 +49,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? subnet,
 
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGateway,
+
+            Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? transitGatewayRouteTableRoute,
+
             Outputs.NetworkInsightsAnalysisAnalysisComponent? vpc)
         {
             AclRule = aclRule;
@@ -59,6 +65,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
             SequenceNumber = sequenceNumber;
             SourceVpc = sourceVpc;
             Subnet = subnet;
+            TransitGateway = transitGateway;
+            TransitGatewayRouteTableRoute = transitGatewayRouteTableRoute;
             Vpc = vpc;
         }
     }

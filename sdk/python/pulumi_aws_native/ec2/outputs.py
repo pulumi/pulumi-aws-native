@@ -137,6 +137,7 @@ __all__ = [
     'NetworkInsightsAnalysisPathComponent',
     'NetworkInsightsAnalysisPortRange',
     'NetworkInsightsAnalysisTag',
+    'NetworkInsightsAnalysisTransitGatewayRouteTableRoute',
     'NetworkInsightsPathTag',
     'NetworkInterfaceInstanceIpv6Address',
     'NetworkInterfacePrivateIpAddressSpecification',
@@ -5691,6 +5692,14 @@ class NetworkInsightsAnalysisExplanation(dict):
             suggest = "source_vpc"
         elif key == "subnetRouteTable":
             suggest = "subnet_route_table"
+        elif key == "transitGateway":
+            suggest = "transit_gateway"
+        elif key == "transitGatewayAttachment":
+            suggest = "transit_gateway_attachment"
+        elif key == "transitGatewayRouteTable":
+            suggest = "transit_gateway_route_table"
+        elif key == "transitGatewayRouteTableRoute":
+            suggest = "transit_gateway_route_table_route"
         elif key == "vpcEndpoint":
             suggest = "vpc_endpoint"
         elif key == "vpcPeeringConnection":
@@ -5752,6 +5761,10 @@ class NetworkInsightsAnalysisExplanation(dict):
                  state: Optional[str] = None,
                  subnet: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  subnet_route_table: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_attachment: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_route_table: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_route_table_route: Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute'] = None,
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  vpc_endpoint: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  vpc_peering_connection: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
@@ -5837,6 +5850,14 @@ class NetworkInsightsAnalysisExplanation(dict):
             pulumi.set(__self__, "subnet", subnet)
         if subnet_route_table is not None:
             pulumi.set(__self__, "subnet_route_table", subnet_route_table)
+        if transit_gateway is not None:
+            pulumi.set(__self__, "transit_gateway", transit_gateway)
+        if transit_gateway_attachment is not None:
+            pulumi.set(__self__, "transit_gateway_attachment", transit_gateway_attachment)
+        if transit_gateway_route_table is not None:
+            pulumi.set(__self__, "transit_gateway_route_table", transit_gateway_route_table)
+        if transit_gateway_route_table_route is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_route", transit_gateway_route_table_route)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
         if vpc_endpoint is not None:
@@ -6049,6 +6070,26 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "subnet_route_table")
 
     @property
+    @pulumi.getter(name="transitGateway")
+    def transit_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "transit_gateway")
+
+    @property
+    @pulumi.getter(name="transitGatewayAttachment")
+    def transit_gateway_attachment(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "transit_gateway_attachment")
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTable")
+    def transit_gateway_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "transit_gateway_route_table")
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableRoute")
+    def transit_gateway_route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute']:
+        return pulumi.get(self, "transit_gateway_route_table_route")
+
+    @property
     @pulumi.getter
     def vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         return pulumi.get(self, "vpc")
@@ -6095,6 +6136,10 @@ class NetworkInsightsAnalysisPathComponent(dict):
             suggest = "sequence_number"
         elif key == "sourceVpc":
             suggest = "source_vpc"
+        elif key == "transitGateway":
+            suggest = "transit_gateway"
+        elif key == "transitGatewayRouteTableRoute":
+            suggest = "transit_gateway_route_table_route"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisPathComponent. Access the value via the '{suggest}' property getter instead.")
@@ -6118,6 +6163,8 @@ class NetworkInsightsAnalysisPathComponent(dict):
                  sequence_number: Optional[int] = None,
                  source_vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  subnet: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_route_table_route: Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute'] = None,
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         if acl_rule is not None:
             pulumi.set(__self__, "acl_rule", acl_rule)
@@ -6139,6 +6186,10 @@ class NetworkInsightsAnalysisPathComponent(dict):
             pulumi.set(__self__, "source_vpc", source_vpc)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
+        if transit_gateway is not None:
+            pulumi.set(__self__, "transit_gateway", transit_gateway)
+        if transit_gateway_route_table_route is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_route", transit_gateway_route_table_route)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -6191,6 +6242,16 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter
     def subnet(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="transitGateway")
+    def transit_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "transit_gateway")
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableRoute")
+    def transit_gateway_route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute']:
+        return pulumi.get(self, "transit_gateway_route_table_route")
 
     @property
     @pulumi.getter
@@ -6254,6 +6315,94 @@ class NetworkInsightsAnalysisTag(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkInsightsAnalysisTransitGatewayRouteTableRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentId":
+            suggest = "attachment_id"
+        elif key == "destinationCidr":
+            suggest = "destination_cidr"
+        elif key == "prefixListId":
+            suggest = "prefix_list_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "routeOrigin":
+            suggest = "route_origin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisTransitGatewayRouteTableRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisTransitGatewayRouteTableRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisTransitGatewayRouteTableRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_id: Optional[str] = None,
+                 destination_cidr: Optional[str] = None,
+                 prefix_list_id: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 resource_type: Optional[str] = None,
+                 route_origin: Optional[str] = None,
+                 state: Optional[str] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[str]:
+        return pulumi.get(self, "attachment_id")
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[str]:
+        return pulumi.get(self, "destination_cidr")
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[str]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="routeOrigin")
+    def route_origin(self) -> Optional[str]:
+        return pulumi.get(self, "route_origin")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

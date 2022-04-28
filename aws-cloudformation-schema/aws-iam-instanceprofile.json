@@ -41,7 +41,7 @@
       "permissions" : [ "iam:PassRole", "iam:RemoveRoleFromInstanceProfile", "iam:AddRoleToInstanceProfile", "iam:GetInstanceProfile" ]
     },
     "delete" : {
-      "permissions" : [ "iam:RemoveRoleFromInstanceProfile", "iam:DeleteInstanceProfile" ]
+      "permissions" : [ "iam:GetInstanceProfile", "iam:RemoveRoleFromInstanceProfile", "iam:DeleteInstanceProfile" ]
     },
     "list" : {
       "permissions" : [ "iam:ListInstanceProfiles" ]

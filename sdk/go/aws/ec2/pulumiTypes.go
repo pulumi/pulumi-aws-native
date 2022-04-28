@@ -17042,51 +17042,55 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) SecurityGroup
 }
 
 type NetworkInsightsAnalysisExplanation struct {
-	Acl                         *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"acl"`
-	AclRule                     *NetworkInsightsAnalysisAnalysisAclRule              `pulumi:"aclRule"`
-	Address                     *string                                              `pulumi:"address"`
-	Addresses                   []string                                             `pulumi:"addresses"`
-	AttachedTo                  *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"attachedTo"`
-	AvailabilityZones           []string                                             `pulumi:"availabilityZones"`
-	Cidrs                       []string                                             `pulumi:"cidrs"`
-	ClassicLoadBalancerListener *NetworkInsightsAnalysisAnalysisLoadBalancerListener `pulumi:"classicLoadBalancerListener"`
-	Component                   *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"component"`
-	CustomerGateway             *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"customerGateway"`
-	Destination                 *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"destination"`
-	DestinationVpc              *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"destinationVpc"`
-	Direction                   *string                                              `pulumi:"direction"`
-	ElasticLoadBalancerListener *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"elasticLoadBalancerListener"`
-	ExplanationCode             *string                                              `pulumi:"explanationCode"`
-	IngressRouteTable           *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"ingressRouteTable"`
-	InternetGateway             *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"internetGateway"`
-	LoadBalancerArn             *string                                              `pulumi:"loadBalancerArn"`
-	LoadBalancerListenerPort    *int                                                 `pulumi:"loadBalancerListenerPort"`
-	LoadBalancerTarget          *NetworkInsightsAnalysisAnalysisLoadBalancerTarget   `pulumi:"loadBalancerTarget"`
-	LoadBalancerTargetGroup     *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"loadBalancerTargetGroup"`
-	LoadBalancerTargetGroups    []NetworkInsightsAnalysisAnalysisComponent           `pulumi:"loadBalancerTargetGroups"`
-	LoadBalancerTargetPort      *int                                                 `pulumi:"loadBalancerTargetPort"`
-	MissingComponent            *string                                              `pulumi:"missingComponent"`
-	NatGateway                  *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"natGateway"`
-	NetworkInterface            *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"networkInterface"`
-	PacketField                 *string                                              `pulumi:"packetField"`
-	Port                        *int                                                 `pulumi:"port"`
-	PortRanges                  []NetworkInsightsAnalysisPortRange                   `pulumi:"portRanges"`
-	PrefixList                  *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"prefixList"`
-	Protocols                   []string                                             `pulumi:"protocols"`
-	RouteTable                  *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"routeTable"`
-	RouteTableRoute             *NetworkInsightsAnalysisAnalysisRouteTableRoute      `pulumi:"routeTableRoute"`
-	SecurityGroup               *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"securityGroup"`
-	SecurityGroupRule           *NetworkInsightsAnalysisAnalysisSecurityGroupRule    `pulumi:"securityGroupRule"`
-	SecurityGroups              []NetworkInsightsAnalysisAnalysisComponent           `pulumi:"securityGroups"`
-	SourceVpc                   *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"sourceVpc"`
-	State                       *string                                              `pulumi:"state"`
-	Subnet                      *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"subnet"`
-	SubnetRouteTable            *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"subnetRouteTable"`
-	Vpc                         *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpc"`
-	VpcEndpoint                 *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpcEndpoint"`
-	VpcPeeringConnection        *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpcPeeringConnection"`
-	VpnConnection               *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpnConnection"`
-	VpnGateway                  *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpnGateway"`
+	Acl                           *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"acl"`
+	AclRule                       *NetworkInsightsAnalysisAnalysisAclRule               `pulumi:"aclRule"`
+	Address                       *string                                               `pulumi:"address"`
+	Addresses                     []string                                              `pulumi:"addresses"`
+	AttachedTo                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"attachedTo"`
+	AvailabilityZones             []string                                              `pulumi:"availabilityZones"`
+	Cidrs                         []string                                              `pulumi:"cidrs"`
+	ClassicLoadBalancerListener   *NetworkInsightsAnalysisAnalysisLoadBalancerListener  `pulumi:"classicLoadBalancerListener"`
+	Component                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"component"`
+	CustomerGateway               *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"customerGateway"`
+	Destination                   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destination"`
+	DestinationVpc                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destinationVpc"`
+	Direction                     *string                                               `pulumi:"direction"`
+	ElasticLoadBalancerListener   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"elasticLoadBalancerListener"`
+	ExplanationCode               *string                                               `pulumi:"explanationCode"`
+	IngressRouteTable             *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"ingressRouteTable"`
+	InternetGateway               *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"internetGateway"`
+	LoadBalancerArn               *string                                               `pulumi:"loadBalancerArn"`
+	LoadBalancerListenerPort      *int                                                  `pulumi:"loadBalancerListenerPort"`
+	LoadBalancerTarget            *NetworkInsightsAnalysisAnalysisLoadBalancerTarget    `pulumi:"loadBalancerTarget"`
+	LoadBalancerTargetGroup       *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"loadBalancerTargetGroup"`
+	LoadBalancerTargetGroups      []NetworkInsightsAnalysisAnalysisComponent            `pulumi:"loadBalancerTargetGroups"`
+	LoadBalancerTargetPort        *int                                                  `pulumi:"loadBalancerTargetPort"`
+	MissingComponent              *string                                               `pulumi:"missingComponent"`
+	NatGateway                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"natGateway"`
+	NetworkInterface              *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"networkInterface"`
+	PacketField                   *string                                               `pulumi:"packetField"`
+	Port                          *int                                                  `pulumi:"port"`
+	PortRanges                    []NetworkInsightsAnalysisPortRange                    `pulumi:"portRanges"`
+	PrefixList                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"prefixList"`
+	Protocols                     []string                                              `pulumi:"protocols"`
+	RouteTable                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"routeTable"`
+	RouteTableRoute               *NetworkInsightsAnalysisAnalysisRouteTableRoute       `pulumi:"routeTableRoute"`
+	SecurityGroup                 *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"securityGroup"`
+	SecurityGroupRule             *NetworkInsightsAnalysisAnalysisSecurityGroupRule     `pulumi:"securityGroupRule"`
+	SecurityGroups                []NetworkInsightsAnalysisAnalysisComponent            `pulumi:"securityGroups"`
+	SourceVpc                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"sourceVpc"`
+	State                         *string                                               `pulumi:"state"`
+	Subnet                        *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnet"`
+	SubnetRouteTable              *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnetRouteTable"`
+	TransitGateway                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGateway"`
+	TransitGatewayAttachment      *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGatewayAttachment"`
+	TransitGatewayRouteTable      *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGatewayRouteTable"`
+	TransitGatewayRouteTableRoute *NetworkInsightsAnalysisTransitGatewayRouteTableRoute `pulumi:"transitGatewayRouteTableRoute"`
+	Vpc                           *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpc"`
+	VpcEndpoint                   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpcEndpoint"`
+	VpcPeeringConnection          *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpcPeeringConnection"`
+	VpnConnection                 *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpnConnection"`
+	VpnGateway                    *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpnGateway"`
 }
 
 type NetworkInsightsAnalysisExplanationOutput struct{ *pulumi.OutputState }
@@ -17307,6 +17311,30 @@ func (o NetworkInsightsAnalysisExplanationOutput) SubnetRouteTable() NetworkInsi
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+func (o NetworkInsightsAnalysisExplanationOutput) TransitGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.TransitGateway
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayAttachment() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.TransitGatewayAttachment
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.TransitGatewayRouteTable
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayRouteTableRoute() NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
+		return v.TransitGatewayRouteTableRoute
+	}).(NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput)
+}
+
 func (o NetworkInsightsAnalysisExplanationOutput) Vpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Vpc }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
@@ -17356,17 +17384,19 @@ func (o NetworkInsightsAnalysisExplanationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type NetworkInsightsAnalysisPathComponent struct {
-	AclRule           *NetworkInsightsAnalysisAnalysisAclRule           `pulumi:"aclRule"`
-	Component         *NetworkInsightsAnalysisAnalysisComponent         `pulumi:"component"`
-	DestinationVpc    *NetworkInsightsAnalysisAnalysisComponent         `pulumi:"destinationVpc"`
-	InboundHeader     *NetworkInsightsAnalysisAnalysisPacketHeader      `pulumi:"inboundHeader"`
-	OutboundHeader    *NetworkInsightsAnalysisAnalysisPacketHeader      `pulumi:"outboundHeader"`
-	RouteTableRoute   *NetworkInsightsAnalysisAnalysisRouteTableRoute   `pulumi:"routeTableRoute"`
-	SecurityGroupRule *NetworkInsightsAnalysisAnalysisSecurityGroupRule `pulumi:"securityGroupRule"`
-	SequenceNumber    *int                                              `pulumi:"sequenceNumber"`
-	SourceVpc         *NetworkInsightsAnalysisAnalysisComponent         `pulumi:"sourceVpc"`
-	Subnet            *NetworkInsightsAnalysisAnalysisComponent         `pulumi:"subnet"`
-	Vpc               *NetworkInsightsAnalysisAnalysisComponent         `pulumi:"vpc"`
+	AclRule                       *NetworkInsightsAnalysisAnalysisAclRule               `pulumi:"aclRule"`
+	Component                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"component"`
+	DestinationVpc                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destinationVpc"`
+	InboundHeader                 *NetworkInsightsAnalysisAnalysisPacketHeader          `pulumi:"inboundHeader"`
+	OutboundHeader                *NetworkInsightsAnalysisAnalysisPacketHeader          `pulumi:"outboundHeader"`
+	RouteTableRoute               *NetworkInsightsAnalysisAnalysisRouteTableRoute       `pulumi:"routeTableRoute"`
+	SecurityGroupRule             *NetworkInsightsAnalysisAnalysisSecurityGroupRule     `pulumi:"securityGroupRule"`
+	SequenceNumber                *int                                                  `pulumi:"sequenceNumber"`
+	SourceVpc                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"sourceVpc"`
+	Subnet                        *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnet"`
+	TransitGateway                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGateway"`
+	TransitGatewayRouteTableRoute *NetworkInsightsAnalysisTransitGatewayRouteTableRoute `pulumi:"transitGatewayRouteTableRoute"`
+	Vpc                           *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"vpc"`
 }
 
 type NetworkInsightsAnalysisPathComponentOutput struct{ *pulumi.OutputState }
@@ -17437,6 +17467,18 @@ func (o NetworkInsightsAnalysisPathComponentOutput) Subnet() NetworkInsightsAnal
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Subnet
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) TransitGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.TransitGateway
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) TransitGatewayRouteTableRoute() NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
+		return v.TransitGatewayRouteTableRoute
+	}).(NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput)
 }
 
 func (o NetworkInsightsAnalysisPathComponentOutput) Vpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
@@ -17650,6 +17692,145 @@ func (o NetworkInsightsAnalysisTagArrayOutput) Index(i pulumi.IntInput) NetworkI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisTag {
 		return vs[0].([]NetworkInsightsAnalysisTag)[vs[1].(int)]
 	}).(NetworkInsightsAnalysisTagOutput)
+}
+
+type NetworkInsightsAnalysisTransitGatewayRouteTableRoute struct {
+	AttachmentId    *string `pulumi:"attachmentId"`
+	DestinationCidr *string `pulumi:"destinationCidr"`
+	PrefixListId    *string `pulumi:"prefixListId"`
+	ResourceId      *string `pulumi:"resourceId"`
+	ResourceType    *string `pulumi:"resourceType"`
+	RouteOrigin     *string `pulumi:"routeOrigin"`
+	State           *string `pulumi:"state"`
+}
+
+type NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisTransitGatewayRouteTableRoute)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ToNetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput() NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ToNetworkInsightsAnalysisTransitGatewayRouteTableRouteOutputWithContext(ctx context.Context) NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) DestinationCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.DestinationCidr }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) RouteOrigin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.RouteOrigin }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisTransitGatewayRouteTableRoute)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ToNetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput() NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ToNetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) Elem() NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsAnalysisTransitGatewayRouteTableRoute
+		return ret
+	}).(NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) DestinationCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixListId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) RouteOrigin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteOrigin
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisTransitGatewayRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 type NetworkInsightsPathTag struct {
@@ -26608,6 +26789,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangeArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisTagOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
