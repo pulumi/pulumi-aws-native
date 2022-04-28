@@ -532,6 +532,8 @@ Generic::Database::Schema
 Generic::Transcribe::Vocabulary
 MongoDB::Atlas::Project
 MongoDb::Atlas::AwsIamDatabaseUser
+PaloAltoNetworks::CloudNGFW::NGFW
+PaloAltoNetworks::CloudNGFW::RuleStack
 Snyk::Container::Helm
 Spot::Elastigroup::Group
 TF::AD::Computer

@@ -48293,6 +48293,18 @@
                 "subnetRouteTable": {
                     "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
                 },
+                "transitGateway": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
+                },
+                "transitGatewayAttachment": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
+                },
+                "transitGatewayRouteTable": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
+                },
+                "transitGatewayRouteTableRoute": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisTransitGatewayRouteTableRoute"
+                },
                 "vpc": {
                     "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
                 },
@@ -48343,6 +48355,12 @@
                 "subnet": {
                     "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
                 },
+                "transitGateway": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
+                },
+                "transitGatewayRouteTableRoute": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisTransitGatewayRouteTableRoute"
+                },
                 "vpc": {
                     "$ref": "#/types/aws-native:ec2:NetworkInsightsAnalysisAnalysisComponent"
                 }
@@ -48369,6 +48387,32 @@
                     "type": "string"
                 },
                 "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAnalysisTransitGatewayRouteTableRoute": {
+            "type": "object",
+            "properties": {
+                "attachmentId": {
+                    "type": "string"
+                },
+                "destinationCidr": {
+                    "type": "string"
+                },
+                "prefixListId": {
+                    "type": "string"
+                },
+                "resourceId": {
+                    "type": "string"
+                },
+                "resourceType": {
+                    "type": "string"
+                },
+                "routeOrigin": {
+                    "type": "string"
+                },
+                "state": {
                     "type": "string"
                 }
             }
