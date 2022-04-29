@@ -26,16 +26,16 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 	resp, err := p.ec2.DescribeAvailabilityZones(ctx, &ec2.DescribeAvailabilityZonesInput{
 		Filters: []types.Filter{{
 			Name:   aws.String("region-name"),
-			Values: []string{region.String()},
+			Values: []string{region.StringValue()},
 		}},
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	azs := make([]interface{}, len(resp.AvailabilityZones))
+	azs := make([]string, len(resp.AvailabilityZones))
 	for i, az := range resp.AvailabilityZones {
-		azs[i] = az.ZoneName
+		azs[i] = *az.ZoneName
 	}
 	return resource.NewPropertyMapFromMap(map[string]interface{}{
 		"azs": azs,
