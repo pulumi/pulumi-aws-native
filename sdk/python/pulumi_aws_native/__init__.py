@@ -1315,6 +1315,7 @@ _utilities.register(
    "aws-native:ec2:IPAMScope": "IPAMScope",
    "aws-native:ec2:Instance": "Instance",
    "aws-native:ec2:InternetGateway": "InternetGateway",
+   "aws-native:ec2:KeyPair": "KeyPair",
    "aws-native:ec2:LaunchTemplate": "LaunchTemplate",
    "aws-native:ec2:LocalGatewayRoute": "LocalGatewayRoute",
    "aws-native:ec2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",

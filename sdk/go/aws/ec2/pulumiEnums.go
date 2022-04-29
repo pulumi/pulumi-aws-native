@@ -4560,6 +4560,171 @@ func (o IPAMScopeIpamScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+// The title of the TPS report is a mandatory element.
+type KeyPairKeyType string
+
+const (
+	KeyPairKeyTypeRsa     = KeyPairKeyType("rsa")
+	KeyPairKeyTypeEd25519 = KeyPairKeyType("ed25519")
+)
+
+func (KeyPairKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPairKeyType)(nil)).Elem()
+}
+
+func (e KeyPairKeyType) ToKeyPairKeyTypeOutput() KeyPairKeyTypeOutput {
+	return pulumi.ToOutput(e).(KeyPairKeyTypeOutput)
+}
+
+func (e KeyPairKeyType) ToKeyPairKeyTypeOutputWithContext(ctx context.Context) KeyPairKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyPairKeyTypeOutput)
+}
+
+func (e KeyPairKeyType) ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOutput {
+	return e.ToKeyPairKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e KeyPairKeyType) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Context) KeyPairKeyTypePtrOutput {
+	return KeyPairKeyType(e).ToKeyPairKeyTypeOutputWithContext(ctx).ToKeyPairKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e KeyPairKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyPairKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyPairKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyPairKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyPairKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (KeyPairKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPairKeyType)(nil)).Elem()
+}
+
+func (o KeyPairKeyTypeOutput) ToKeyPairKeyTypeOutput() KeyPairKeyTypeOutput {
+	return o
+}
+
+func (o KeyPairKeyTypeOutput) ToKeyPairKeyTypeOutputWithContext(ctx context.Context) KeyPairKeyTypeOutput {
+	return o
+}
+
+func (o KeyPairKeyTypeOutput) ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOutput {
+	return o.ToKeyPairKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o KeyPairKeyTypeOutput) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Context) KeyPairKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyPairKeyType) *KeyPairKeyType {
+		return &v
+	}).(KeyPairKeyTypePtrOutput)
+}
+
+func (o KeyPairKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyPairKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyPairKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyPairKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyPairKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyPairKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyPairKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPairKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPairKeyType)(nil)).Elem()
+}
+
+func (o KeyPairKeyTypePtrOutput) ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOutput {
+	return o
+}
+
+func (o KeyPairKeyTypePtrOutput) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Context) KeyPairKeyTypePtrOutput {
+	return o
+}
+
+func (o KeyPairKeyTypePtrOutput) Elem() KeyPairKeyTypeOutput {
+	return o.ApplyT(func(v *KeyPairKeyType) KeyPairKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret KeyPairKeyType
+		return ret
+	}).(KeyPairKeyTypeOutput)
+}
+
+func (o KeyPairKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyPairKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyPairKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyPairKeyTypeInput is an input type that accepts KeyPairKeyTypeArgs and KeyPairKeyTypeOutput values.
+// You can construct a concrete instance of `KeyPairKeyTypeInput` via:
+//
+//          KeyPairKeyTypeArgs{...}
+type KeyPairKeyTypeInput interface {
+	pulumi.Input
+
+	ToKeyPairKeyTypeOutput() KeyPairKeyTypeOutput
+	ToKeyPairKeyTypeOutputWithContext(context.Context) KeyPairKeyTypeOutput
+}
+
+var keyPairKeyTypePtrType = reflect.TypeOf((**KeyPairKeyType)(nil)).Elem()
+
+type KeyPairKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOutput
+	ToKeyPairKeyTypePtrOutputWithContext(context.Context) KeyPairKeyTypePtrOutput
+}
+
+type keyPairKeyTypePtr string
+
+func KeyPairKeyTypePtr(v string) KeyPairKeyTypePtrInput {
+	return (*keyPairKeyTypePtr)(&v)
+}
+
+func (*keyPairKeyTypePtr) ElementType() reflect.Type {
+	return keyPairKeyTypePtrType
+}
+
+func (in *keyPairKeyTypePtr) ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(KeyPairKeyTypePtrOutput)
+}
+
+func (in *keyPairKeyTypePtr) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Context) KeyPairKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyPairKeyTypePtrOutput)
+}
+
 type NetworkInsightsAccessScopeAnalysisFindingsFound string
 
 const (
@@ -8717,6 +8882,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogResourceTypePtrInput)(nil)).Elem(), FlowLogResourceType("NetworkInterface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypeInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypePtrInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypeInput)(nil)).Elem(), KeyPairKeyType("rsa"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypePtrInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolPtrInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocolArray{})
@@ -8826,6 +8993,8 @@ func init() {
 	pulumi.RegisterOutputType(IPAMPoolStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IPAMScopeIpamScopeTypeOutput{})
 	pulumi.RegisterOutputType(IPAMScopeIpamScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(KeyPairKeyTypeOutput{})
+	pulumi.RegisterOutputType(KeyPairKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisFindingsFoundOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisStatusOutput{})

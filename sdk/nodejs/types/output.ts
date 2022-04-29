@@ -9545,6 +9545,20 @@ export namespace ec2 {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface KeyPairTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface LaunchTemplateAcceleratorCount {
         max?: number;
         min?: number;

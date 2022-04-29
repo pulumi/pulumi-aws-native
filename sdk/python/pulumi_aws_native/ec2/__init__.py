@@ -45,6 +45,7 @@ from .get_ipam import *
 from .get_ipam_allocation import *
 from .get_ipam_pool import *
 from .get_ipam_scope import *
+from .get_key_pair import *
 from .get_launch_template import *
 from .get_local_gateway_route import *
 from .get_local_gateway_route_table_vpcassociation import *
@@ -109,6 +110,7 @@ from .ipam import *
 from .ipam_allocation import *
 from .ipam_pool import *
 from .ipam_scope import *
+from .key_pair import *
 from .launch_template import *
 from .local_gateway_route import *
 from .local_gateway_route_table_vpcassociation import *

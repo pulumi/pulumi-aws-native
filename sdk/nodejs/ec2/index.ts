@@ -44,6 +44,7 @@ export * from "./getIPAMPool";
 export * from "./getIPAMScope";
 export * from "./getInstance";
 export * from "./getInternetGateway";
+export * from "./getKeyPair";
 export * from "./getLaunchTemplate";
 export * from "./getLocalGatewayRoute";
 export * from "./getLocalGatewayRouteTableVPCAssociation";
@@ -108,6 +109,7 @@ export * from "./ipam";
 export * from "./ipamallocation";
 export * from "./ipampool";
 export * from "./ipamscope";
+export * from "./keyPair";
 export * from "./launchTemplate";
 export * from "./localGatewayRoute";
 export * from "./localGatewayRouteTableVPCAssociation";
@@ -193,6 +195,7 @@ import { IPAMPool } from "./ipampool";
 import { IPAMScope } from "./ipamscope";
 import { Instance } from "./instance";
 import { InternetGateway } from "./internetGateway";
+import { KeyPair } from "./keyPair";
 import { LaunchTemplate } from "./launchTemplate";
 import { LocalGatewayRoute } from "./localGatewayRoute";
 import { LocalGatewayRouteTableVPCAssociation } from "./localGatewayRouteTableVPCAssociation";
@@ -301,6 +304,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:ec2:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:KeyPair":
+                return new KeyPair(name, <any>undefined, { urn })
             case "aws-native:ec2:LaunchTemplate":
                 return new LaunchTemplate(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRoute":

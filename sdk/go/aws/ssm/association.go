@@ -35,6 +35,7 @@ type Association struct {
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrOutput             `pulumi:"scheduleExpression"`
+	ScheduleOffset     pulumi.IntPtrOutput                `pulumi:"scheduleOffset"`
 	SyncCompliance     AssociationSyncCompliancePtrOutput `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
 	Targets                      AssociationTargetArrayOutput `pulumi:"targets"`
@@ -99,6 +100,7 @@ type associationArgs struct {
 	Parameters interface{} `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression *string                    `pulumi:"scheduleExpression"`
+	ScheduleOffset     *int                       `pulumi:"scheduleOffset"`
 	SyncCompliance     *AssociationSyncCompliance `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
 	Targets                      []AssociationTarget `pulumi:"targets"`
@@ -126,6 +128,7 @@ type AssociationArgs struct {
 	Parameters pulumi.Input
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrInput
+	ScheduleOffset     pulumi.IntPtrInput
 	SyncCompliance     AssociationSyncCompliancePtrInput
 	// The targets that the SSM document sends commands to.
 	Targets                      AssociationTargetArrayInput

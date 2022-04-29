@@ -10723,6 +10723,66 @@
                 }
             }
         },
+        "aws-native:ec2:KeyPair": {
+            "cf": "AWS::EC2::KeyPair",
+            "inputs": {
+                "keyName": {
+                    "type": "string",
+                    "description": "The name of the SSH key pair"
+                },
+                "keyType": {
+                    "$ref": "#/types/aws-native:ec2:KeyPairKeyType",
+                    "description": "The title of the TPS report is a mandatory element."
+                },
+                "publicKeyMaterial": {
+                    "type": "string",
+                    "description": "Plain text public key to import"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:KeyPairTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "keyFingerprint": {
+                    "type": "string",
+                    "description": "A short sequence of bytes used for public key verification"
+                },
+                "keyName": {
+                    "type": "string",
+                    "description": "The name of the SSH key pair"
+                },
+                "keyPairId": {
+                    "type": "string",
+                    "description": "An AWS generated ID for the key pair"
+                },
+                "keyType": {
+                    "$ref": "#/types/aws-native:ec2:KeyPairKeyType",
+                    "description": "The title of the TPS report is a mandatory element."
+                },
+                "publicKeyMaterial": {
+                    "type": "string",
+                    "description": "Plain text public key to import"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:KeyPairTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "keyName"
+            ],
+            "createOnly": [
+                "keyName",
+                "keyType"
+            ]
+        },
         "aws-native:ec2:LocalGatewayRoute": {
             "cf": "AWS::EC2::LocalGatewayRoute",
             "inputs": {
@@ -11700,6 +11760,60 @@
             "createOnly": [
                 "amazonSideAsn",
                 "multicastSupport"
+            ]
+        },
+        "aws-native:ec2:TransitGatewayAttachment": {
+            "cf": "AWS::EC2::TransitGatewayAttachment",
+            "inputs": {
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:TransitGatewayAttachmentTag"
+                    }
+                },
+                "transitGatewayId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:TransitGatewayAttachmentTag"
+                    }
+                },
+                "transitGatewayId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "subnetIds",
+                "transitGatewayId",
+                "vpcId"
+            ],
+            "createOnly": [
+                "subnetIds",
+                "tags",
+                "transitGatewayId",
+                "vpcId"
             ]
         },
         "aws-native:ec2:TransitGatewayConnect": {
@@ -36553,6 +36667,9 @@
                     "type": "string",
                     "description": "A Cron or Rate expression that specifies when the association is applied to the target."
                 },
+                "scheduleOffset": {
+                    "type": "integer"
+                },
                 "syncCompliance": {
                     "$ref": "#/types/aws-native:ssm:AssociationSyncCompliance"
                 },
@@ -36619,6 +36736,9 @@
                 "scheduleExpression": {
                     "type": "string",
                     "description": "A Cron or Rate expression that specifies when the association is applied to the target."
+                },
+                "scheduleOffset": {
+                    "type": "integer"
                 },
                 "syncCompliance": {
                     "$ref": "#/types/aws-native:ssm:AssociationSyncCompliance"
@@ -47833,6 +47953,22 @@
                 }
             }
         },
+        "aws-native:ec2:KeyPairKeyType": {
+            "type": "string"
+        },
+        "aws-native:ec2:KeyPairTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:ec2:LocalGatewayRouteTableVPCAssociationTag": {
             "type": "object",
             "properties": {
@@ -49199,6 +49335,17 @@
             }
         },
         "aws-native:ec2:SubnetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:TransitGatewayAttachmentTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -75832,6 +75979,12 @@
                 "internetGatewayId"
             ]
         },
+        "aws-native:ec2:getKeyPair": {
+            "cf": "AWS::EC2::KeyPair",
+            "ids": [
+                "keyName"
+            ]
+        },
         "aws-native:ec2:getLocalGatewayRoute": {
             "cf": "AWS::EC2::LocalGatewayRoute",
             "ids": [
@@ -75919,6 +76072,12 @@
         },
         "aws-native:ec2:getTransitGateway": {
             "cf": "AWS::EC2::TransitGateway",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayAttachment": {
+            "cf": "AWS::EC2::TransitGatewayAttachment",
             "ids": [
                 "id"
             ]

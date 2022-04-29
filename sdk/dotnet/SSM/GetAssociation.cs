@@ -90,6 +90,7 @@ namespace Pulumi.AwsNative.SSM
         /// A Cron or Rate expression that specifies when the association is applied to the target.
         /// </summary>
         public readonly string? ScheduleExpression;
+        public readonly int? ScheduleOffset;
         public readonly Pulumi.AwsNative.SSM.AssociationSyncCompliance? SyncCompliance;
         /// <summary>
         /// The targets that the SSM document sends commands to.
@@ -127,6 +128,8 @@ namespace Pulumi.AwsNative.SSM
 
             string? scheduleExpression,
 
+            int? scheduleOffset,
+
             Pulumi.AwsNative.SSM.AssociationSyncCompliance? syncCompliance,
 
             ImmutableArray<Outputs.AssociationTarget> targets,
@@ -147,6 +150,7 @@ namespace Pulumi.AwsNative.SSM
             OutputLocation = outputLocation;
             Parameters = parameters;
             ScheduleExpression = scheduleExpression;
+            ScheduleOffset = scheduleOffset;
             SyncCompliance = syncCompliance;
             Targets = targets;
             WaitForSuccessTimeoutSeconds = waitForSuccessTimeoutSeconds;

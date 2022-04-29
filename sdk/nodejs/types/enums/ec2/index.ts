@@ -277,6 +277,16 @@ export const IPAMScopeIpamScopeType = {
  */
 export type IPAMScopeIpamScopeType = (typeof IPAMScopeIpamScopeType)[keyof typeof IPAMScopeIpamScopeType];
 
+export const KeyPairKeyType = {
+    Rsa: "rsa",
+    Ed25519: "ed25519",
+} as const;
+
+/**
+ * The title of the TPS report is a mandatory element.
+ */
+export type KeyPairKeyType = (typeof KeyPairKeyType)[keyof typeof KeyPairKeyType];
+
 export const NetworkInsightsAccessScopeAnalysisFindingsFound = {
     True: "true",
     False: "false",

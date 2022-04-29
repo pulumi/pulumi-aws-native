@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssociationResult:
-    def __init__(__self__, apply_only_at_cron_interval=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, sync_compliance=None, targets=None, wait_for_success_timeout_seconds=None):
+    def __init__(__self__, apply_only_at_cron_interval=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, targets=None, wait_for_success_timeout_seconds=None):
         if apply_only_at_cron_interval and not isinstance(apply_only_at_cron_interval, bool):
             raise TypeError("Expected argument 'apply_only_at_cron_interval' to be a bool")
         pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
@@ -62,6 +62,9 @@ class GetAssociationResult:
         if schedule_expression and not isinstance(schedule_expression, str):
             raise TypeError("Expected argument 'schedule_expression' to be a str")
         pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_offset and not isinstance(schedule_offset, int):
+            raise TypeError("Expected argument 'schedule_offset' to be a int")
+        pulumi.set(__self__, "schedule_offset", schedule_offset)
         if sync_compliance and not isinstance(sync_compliance, str):
             raise TypeError("Expected argument 'sync_compliance' to be a str")
         pulumi.set(__self__, "sync_compliance", sync_compliance)
@@ -164,6 +167,11 @@ class GetAssociationResult:
         return pulumi.get(self, "schedule_expression")
 
     @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> Optional[int]:
+        return pulumi.get(self, "schedule_offset")
+
+    @property
     @pulumi.getter(name="syncCompliance")
     def sync_compliance(self) -> Optional['AssociationSyncCompliance']:
         return pulumi.get(self, "sync_compliance")
@@ -202,6 +210,7 @@ class AwaitableGetAssociationResult(GetAssociationResult):
             output_location=self.output_location,
             parameters=self.parameters,
             schedule_expression=self.schedule_expression,
+            schedule_offset=self.schedule_offset,
             sync_compliance=self.sync_compliance,
             targets=self.targets,
             wait_for_success_timeout_seconds=self.wait_for_success_timeout_seconds)
@@ -238,6 +247,7 @@ def get_association(association_id: Optional[str] = None,
         output_location=__ret__.output_location,
         parameters=__ret__.parameters,
         schedule_expression=__ret__.schedule_expression,
+        schedule_offset=__ret__.schedule_offset,
         sync_compliance=__ret__.sync_compliance,
         targets=__ret__.targets,
         wait_for_success_timeout_seconds=__ret__.wait_for_success_timeout_seconds)

@@ -62,6 +62,7 @@ export interface GetAssociationResult {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     readonly scheduleExpression?: string;
+    readonly scheduleOffset?: number;
     readonly syncCompliance?: enums.ssm.AssociationSyncCompliance;
     /**
      * The targets that the SSM document sends commands to.

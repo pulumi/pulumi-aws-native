@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.SSM
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
+        [Output("scheduleOffset")]
+        public Output<int?> ScheduleOffset { get; private set; } = null!;
+
         [Output("syncCompliance")]
         public Output<Pulumi.AwsNative.SSM.AssociationSyncCompliance?> SyncCompliance { get; private set; } = null!;
 
@@ -196,6 +199,9 @@ namespace Pulumi.AwsNative.SSM
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
+
+        [Input("scheduleOffset")]
+        public Input<int>? ScheduleOffset { get; set; }
 
         [Input("syncCompliance")]
         public Input<Pulumi.AwsNative.SSM.AssociationSyncCompliance>? SyncCompliance { get; set; }

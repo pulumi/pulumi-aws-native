@@ -29,6 +29,7 @@ class AssociationArgs:
                  output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
@@ -68,6 +69,8 @@ class AssociationArgs:
             pulumi.set(__self__, "parameters", parameters)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_offset is not None:
+            pulumi.set(__self__, "schedule_offset", schedule_offset)
         if sync_compliance is not None:
             pulumi.set(__self__, "sync_compliance", sync_compliance)
         if targets is not None:
@@ -211,6 +214,15 @@ class AssociationArgs:
         pulumi.set(self, "schedule_expression", value)
 
     @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "schedule_offset")
+
+    @schedule_offset.setter
+    def schedule_offset(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedule_offset", value)
+
+    @property
     @pulumi.getter(name="syncCompliance")
     def sync_compliance(self) -> Optional[pulumi.Input['AssociationSyncCompliance']]:
         return pulumi.get(self, "sync_compliance")
@@ -259,6 +271,7 @@ class Association(pulumi.CustomResource):
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -313,6 +326,7 @@ class Association(pulumi.CustomResource):
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -341,6 +355,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["schedule_expression"] = schedule_expression
+            __props__.__dict__["schedule_offset"] = schedule_offset
             __props__.__dict__["sync_compliance"] = sync_compliance
             __props__.__dict__["targets"] = targets
             __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
@@ -381,6 +396,7 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["output_location"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["schedule_expression"] = None
+        __props__.__dict__["schedule_offset"] = None
         __props__.__dict__["sync_compliance"] = None
         __props__.__dict__["targets"] = None
         __props__.__dict__["wait_for_success_timeout_seconds"] = None
@@ -476,6 +492,11 @@ class Association(pulumi.CustomResource):
         A Cron or Rate expression that specifies when the association is applied to the target.
         """
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "schedule_offset")
 
     @property
     @pulumi.getter(name="syncCompliance")

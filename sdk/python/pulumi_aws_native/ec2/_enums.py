@@ -32,6 +32,7 @@ __all__ = [
     'IPAMPoolIpamScopeType',
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
+    'KeyPairKeyType',
     'NetworkInsightsAccessScopeAnalysisFindingsFound',
     'NetworkInsightsAccessScopeAnalysisStatus',
     'NetworkInsightsAccessScopeProtocol',
@@ -278,6 +279,14 @@ class IPAMScopeIpamScopeType(str, Enum):
     """
     PUBLIC = "public"
     PRIVATE = "private"
+
+
+class KeyPairKeyType(str, Enum):
+    """
+    The title of the TPS report is a mandatory element.
+    """
+    RSA = "rsa"
+    ED25519 = "ed25519"
 
 
 class NetworkInsightsAccessScopeAnalysisFindingsFound(str, Enum):

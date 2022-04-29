@@ -67,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Instance{}
 	case "aws-native:ec2:InternetGateway":
 		r = &InternetGateway{}
+	case "aws-native:ec2:KeyPair":
+		r = &KeyPair{}
 	case "aws-native:ec2:LaunchTemplate":
 		r = &LaunchTemplate{}
 	case "aws-native:ec2:LocalGatewayRoute":

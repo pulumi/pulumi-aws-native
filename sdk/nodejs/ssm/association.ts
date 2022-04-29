@@ -70,6 +70,7 @@ export class Association extends pulumi.CustomResource {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
+    public readonly scheduleOffset!: pulumi.Output<number | undefined>;
     public readonly syncCompliance!: pulumi.Output<enums.ssm.AssociationSyncCompliance | undefined>;
     /**
      * The targets that the SSM document sends commands to.
@@ -101,6 +102,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
             resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
@@ -120,6 +122,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["outputLocation"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["scheduleExpression"] = undefined /*out*/;
+            resourceInputs["scheduleOffset"] = undefined /*out*/;
             resourceInputs["syncCompliance"] = undefined /*out*/;
             resourceInputs["targets"] = undefined /*out*/;
             resourceInputs["waitForSuccessTimeoutSeconds"] = undefined /*out*/;
@@ -164,6 +167,7 @@ export interface AssociationArgs {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     scheduleExpression?: pulumi.Input<string>;
+    scheduleOffset?: pulumi.Input<number>;
     syncCompliance?: pulumi.Input<enums.ssm.AssociationSyncCompliance>;
     /**
      * The targets that the SSM document sends commands to.

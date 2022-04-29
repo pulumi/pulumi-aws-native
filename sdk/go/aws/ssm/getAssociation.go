@@ -47,6 +47,7 @@ type LookupAssociationResult struct {
 	Parameters interface{} `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression *string                    `pulumi:"scheduleExpression"`
+	ScheduleOffset     *int                       `pulumi:"scheduleOffset"`
 	SyncCompliance     *AssociationSyncCompliance `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
 	Targets                      []AssociationTarget `pulumi:"targets"`
@@ -150,6 +151,10 @@ func (o LookupAssociationResultOutput) Parameters() pulumi.AnyOutput {
 // A Cron or Rate expression that specifies when the association is applied to the target.
 func (o LookupAssociationResultOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAssociationResultOutput) ScheduleOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAssociationResult) *int { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupAssociationResultOutput) SyncCompliance() AssociationSyncCompliancePtrOutput {

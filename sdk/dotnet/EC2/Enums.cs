@@ -849,6 +849,37 @@ namespace Pulumi.AwsNative.EC2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The title of the TPS report is a mandatory element.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyPairKeyType : IEquatable<KeyPairKeyType>
+    {
+        private readonly string _value;
+
+        private KeyPairKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyPairKeyType Rsa { get; } = new KeyPairKeyType("rsa");
+        public static KeyPairKeyType Ed25519 { get; } = new KeyPairKeyType("ed25519");
+
+        public static bool operator ==(KeyPairKeyType left, KeyPairKeyType right) => left.Equals(right);
+        public static bool operator !=(KeyPairKeyType left, KeyPairKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(KeyPairKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyPairKeyType other && Equals(other);
+        public bool Equals(KeyPairKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct NetworkInsightsAccessScopeAnalysisFindingsFound : IEquatable<NetworkInsightsAccessScopeAnalysisFindingsFound>
     {

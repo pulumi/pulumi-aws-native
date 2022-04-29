@@ -8845,6 +8845,115 @@ func (o InternetGatewayTagArrayOutput) Index(i pulumi.IntInput) InternetGatewayT
 	}).(InternetGatewayTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type KeyPairTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// KeyPairTagInput is an input type that accepts KeyPairTagArgs and KeyPairTagOutput values.
+// You can construct a concrete instance of `KeyPairTagInput` via:
+//
+//          KeyPairTagArgs{...}
+type KeyPairTagInput interface {
+	pulumi.Input
+
+	ToKeyPairTagOutput() KeyPairTagOutput
+	ToKeyPairTagOutputWithContext(context.Context) KeyPairTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type KeyPairTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (KeyPairTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPairTag)(nil)).Elem()
+}
+
+func (i KeyPairTagArgs) ToKeyPairTagOutput() KeyPairTagOutput {
+	return i.ToKeyPairTagOutputWithContext(context.Background())
+}
+
+func (i KeyPairTagArgs) ToKeyPairTagOutputWithContext(ctx context.Context) KeyPairTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPairTagOutput)
+}
+
+// KeyPairTagArrayInput is an input type that accepts KeyPairTagArray and KeyPairTagArrayOutput values.
+// You can construct a concrete instance of `KeyPairTagArrayInput` via:
+//
+//          KeyPairTagArray{ KeyPairTagArgs{...} }
+type KeyPairTagArrayInput interface {
+	pulumi.Input
+
+	ToKeyPairTagArrayOutput() KeyPairTagArrayOutput
+	ToKeyPairTagArrayOutputWithContext(context.Context) KeyPairTagArrayOutput
+}
+
+type KeyPairTagArray []KeyPairTagInput
+
+func (KeyPairTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyPairTag)(nil)).Elem()
+}
+
+func (i KeyPairTagArray) ToKeyPairTagArrayOutput() KeyPairTagArrayOutput {
+	return i.ToKeyPairTagArrayOutputWithContext(context.Background())
+}
+
+func (i KeyPairTagArray) ToKeyPairTagArrayOutputWithContext(ctx context.Context) KeyPairTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPairTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type KeyPairTagOutput struct{ *pulumi.OutputState }
+
+func (KeyPairTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPairTag)(nil)).Elem()
+}
+
+func (o KeyPairTagOutput) ToKeyPairTagOutput() KeyPairTagOutput {
+	return o
+}
+
+func (o KeyPairTagOutput) ToKeyPairTagOutputWithContext(ctx context.Context) KeyPairTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o KeyPairTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyPairTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o KeyPairTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyPairTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type KeyPairTagArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyPairTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyPairTag)(nil)).Elem()
+}
+
+func (o KeyPairTagArrayOutput) ToKeyPairTagArrayOutput() KeyPairTagArrayOutput {
+	return o
+}
+
+func (o KeyPairTagArrayOutput) ToKeyPairTagArrayOutputWithContext(ctx context.Context) KeyPairTagArrayOutput {
+	return o
+}
+
+func (o KeyPairTagArrayOutput) Index(i pulumi.IntInput) KeyPairTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyPairTag {
+		return vs[0].([]KeyPairTag)[vs[1].(int)]
+	}).(KeyPairTagOutput)
+}
+
 type LaunchTemplateAcceleratorCount struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
@@ -26313,6 +26422,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVolumeArrayInput)(nil)).Elem(), InstanceVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayTagInput)(nil)).Elem(), InternetGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayTagArrayInput)(nil)).Elem(), InternetGatewayTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairTagInput)(nil)).Elem(), KeyPairTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairTagArrayInput)(nil)).Elem(), KeyPairTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
@@ -26667,6 +26778,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(KeyPairTagOutput{})
+	pulumi.RegisterOutputType(KeyPairTagArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBOutput{})
