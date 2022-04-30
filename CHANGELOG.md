@@ -1,6 +1,9 @@
 ## HEAD (Unreleased)
 (None)
 
+## 0.16.1 (Apr 29, 2022)
+- Fix getAzs [#472](https://github.com/pulumi/pulumi-aws-native/pull/472)
+
 ## 0.16.0 (Apr 25, 2022)
 - Implement support for getUrlSuffix.
   [#456](https://github.com/pulumi/pulumi-aws-native/pull/456)
