@@ -28,6 +28,7 @@ class QueueArgs:
                  receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
+                 sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None):
         """
@@ -45,6 +46,7 @@ class QueueArgs:
         :param pulumi.Input[int] receive_message_wait_time_seconds: Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
         :param Any redrive_allow_policy: The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
         :param Any redrive_policy: A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+        :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
         :param pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
         """
@@ -74,6 +76,8 @@ class QueueArgs:
             pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if sqs_managed_sse_enabled is not None:
+            pulumi.set(__self__, "sqs_managed_sse_enabled", sqs_managed_sse_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if visibility_timeout is not None:
@@ -236,6 +240,18 @@ class QueueArgs:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter(name="sqsManagedSseEnabled")
+    def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+        """
+        return pulumi.get(self, "sqs_managed_sse_enabled")
+
+    @sqs_managed_sse_enabled.setter
+    def sqs_managed_sse_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sqs_managed_sse_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]]:
         """
@@ -278,6 +294,7 @@ class Queue(pulumi.CustomResource):
                  receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
+                 sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -299,6 +316,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] receive_message_wait_time_seconds: Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
         :param Any redrive_allow_policy: The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
         :param Any redrive_policy: A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+        :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
         """
@@ -339,6 +357,7 @@ class Queue(pulumi.CustomResource):
                  receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
+                 sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -366,6 +385,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["receive_message_wait_time_seconds"] = receive_message_wait_time_seconds
             __props__.__dict__["redrive_allow_policy"] = redrive_allow_policy
             __props__.__dict__["redrive_policy"] = redrive_policy
+            __props__.__dict__["sqs_managed_sse_enabled"] = sqs_managed_sse_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility_timeout"] = visibility_timeout
             __props__.__dict__["arn"] = None
@@ -407,6 +427,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["receive_message_wait_time_seconds"] = None
         __props__.__dict__["redrive_allow_policy"] = None
         __props__.__dict__["redrive_policy"] = None
+        __props__.__dict__["sqs_managed_sse_enabled"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["visibility_timeout"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
@@ -530,6 +551,14 @@ class Queue(pulumi.CustomResource):
         A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
         """
         return pulumi.get(self, "redrive_policy")
+
+    @property
+    @pulumi.getter(name="sqsManagedSseEnabled")
+    def sqs_managed_sse_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+        """
+        return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @property
     @pulumi.getter

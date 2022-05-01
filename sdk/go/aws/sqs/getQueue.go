@@ -52,6 +52,8 @@ type LookupQueueResult struct {
 	RedriveAllowPolicy interface{} `pulumi:"redriveAllowPolicy"`
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
 	RedrivePolicy interface{} `pulumi:"redrivePolicy"`
+	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
 	Tags []QueueTag `pulumi:"tags"`
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -157,6 +159,11 @@ func (o LookupQueueResultOutput) RedriveAllowPolicy() pulumi.AnyOutput {
 // A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
 func (o LookupQueueResultOutput) RedrivePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupQueueResult) interface{} { return v.RedrivePolicy }).(pulumi.AnyOutput)
+}
+
+// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+func (o LookupQueueResultOutput) SqsManagedSseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *bool { return v.SqsManagedSseEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The tags that you attach to this queue.

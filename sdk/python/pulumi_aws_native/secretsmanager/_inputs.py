@@ -20,6 +20,7 @@ __all__ = [
 class RotationScheduleHostedRotationLambdaArgs:
     def __init__(__self__, *,
                  rotation_type: pulumi.Input[str],
+                 exclude_characters: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  master_secret_arn: Optional[pulumi.Input[str]] = None,
                  master_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,8 @@ class RotationScheduleHostedRotationLambdaArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "rotation_type", rotation_type)
+        if exclude_characters is not None:
+            pulumi.set(__self__, "exclude_characters", exclude_characters)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if master_secret_arn is not None:
@@ -54,6 +57,15 @@ class RotationScheduleHostedRotationLambdaArgs:
     @rotation_type.setter
     def rotation_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "rotation_type", value)
+
+    @property
+    @pulumi.getter(name="excludeCharacters")
+    def exclude_characters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "exclude_characters")
+
+    @exclude_characters.setter
+    def exclude_characters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_characters", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")

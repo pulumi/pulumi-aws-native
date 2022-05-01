@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.SQS
         /// </summary>
         public readonly object? RedrivePolicy;
         /// <summary>
+        /// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+        /// </summary>
+        public readonly bool? SqsManagedSseEnabled;
+        /// <summary>
         /// The tags that you attach to this queue.
         /// </summary>
         public readonly ImmutableArray<Outputs.QueueTag> Tags;
@@ -144,6 +148,8 @@ namespace Pulumi.AwsNative.SQS
 
             object? redrivePolicy,
 
+            bool? sqsManagedSseEnabled,
+
             ImmutableArray<Outputs.QueueTag> tags,
 
             int? visibilityTimeout)
@@ -161,6 +167,7 @@ namespace Pulumi.AwsNative.SQS
             ReceiveMessageWaitTimeSeconds = receiveMessageWaitTimeSeconds;
             RedriveAllowPolicy = redriveAllowPolicy;
             RedrivePolicy = redrivePolicy;
+            SqsManagedSseEnabled = sqsManagedSseEnabled;
             Tags = tags;
             VisibilityTimeout = visibilityTimeout;
         }

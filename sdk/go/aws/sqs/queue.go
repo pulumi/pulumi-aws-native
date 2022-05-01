@@ -44,6 +44,8 @@ type Queue struct {
 	RedriveAllowPolicy pulumi.AnyOutput `pulumi:"redriveAllowPolicy"`
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
 	RedrivePolicy pulumi.AnyOutput `pulumi:"redrivePolicy"`
+	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+	SqsManagedSseEnabled pulumi.BoolPtrOutput `pulumi:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
 	Tags QueueTagArrayOutput `pulumi:"tags"`
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -115,6 +117,8 @@ type queueArgs struct {
 	RedriveAllowPolicy interface{} `pulumi:"redriveAllowPolicy"`
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
 	RedrivePolicy interface{} `pulumi:"redrivePolicy"`
+	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
 	Tags []QueueTag `pulumi:"tags"`
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -149,6 +153,8 @@ type QueueArgs struct {
 	RedriveAllowPolicy pulumi.Input
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
 	RedrivePolicy pulumi.Input
+	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// The tags that you attach to this queue.
 	Tags QueueTagArrayInput
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.

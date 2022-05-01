@@ -29502,6 +29502,7 @@ export namespace sagemaker {
 
 export namespace secretsmanager {
     export interface RotationScheduleHostedRotationLambdaArgs {
+        excludeCharacters?: pulumi.Input<string>;
         kmsKeyArn?: pulumi.Input<string>;
         masterSecretArn?: pulumi.Input<string>;
         masterSecretKmsKeyArn?: pulumi.Input<string>;

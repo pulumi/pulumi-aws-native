@@ -23,6 +23,8 @@ class RotationScheduleHostedRotationLambda(dict):
         suggest = None
         if key == "rotationType":
             suggest = "rotation_type"
+        elif key == "excludeCharacters":
+            suggest = "exclude_characters"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
         elif key == "masterSecretArn":
@@ -53,6 +55,7 @@ class RotationScheduleHostedRotationLambda(dict):
 
     def __init__(__self__, *,
                  rotation_type: str,
+                 exclude_characters: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
                  master_secret_arn: Optional[str] = None,
                  master_secret_kms_key_arn: Optional[str] = None,
@@ -62,6 +65,8 @@ class RotationScheduleHostedRotationLambda(dict):
                  vpc_security_group_ids: Optional[str] = None,
                  vpc_subnet_ids: Optional[str] = None):
         pulumi.set(__self__, "rotation_type", rotation_type)
+        if exclude_characters is not None:
+            pulumi.set(__self__, "exclude_characters", exclude_characters)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if master_secret_arn is not None:
@@ -83,6 +88,11 @@ class RotationScheduleHostedRotationLambda(dict):
     @pulumi.getter(name="rotationType")
     def rotation_type(self) -> str:
         return pulumi.get(self, "rotation_type")
+
+    @property
+    @pulumi.getter(name="excludeCharacters")
+    def exclude_characters(self) -> Optional[str]:
+        return pulumi.get(self, "exclude_characters")
 
     @property
     @pulumi.getter(name="kmsKeyArn")

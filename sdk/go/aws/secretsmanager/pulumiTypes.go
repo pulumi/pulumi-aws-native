@@ -11,6 +11,7 @@ import (
 )
 
 type RotationScheduleHostedRotationLambda struct {
+	ExcludeCharacters        *string `pulumi:"excludeCharacters"`
 	KmsKeyArn                *string `pulumi:"kmsKeyArn"`
 	MasterSecretArn          *string `pulumi:"masterSecretArn"`
 	MasterSecretKmsKeyArn    *string `pulumi:"masterSecretKmsKeyArn"`
@@ -34,6 +35,7 @@ type RotationScheduleHostedRotationLambdaInput interface {
 }
 
 type RotationScheduleHostedRotationLambdaArgs struct {
+	ExcludeCharacters        pulumi.StringPtrInput `pulumi:"excludeCharacters"`
 	KmsKeyArn                pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	MasterSecretArn          pulumi.StringPtrInput `pulumi:"masterSecretArn"`
 	MasterSecretKmsKeyArn    pulumi.StringPtrInput `pulumi:"masterSecretKmsKeyArn"`
@@ -122,6 +124,10 @@ func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRota
 	}).(RotationScheduleHostedRotationLambdaPtrOutput)
 }
 
+func (o RotationScheduleHostedRotationLambdaOutput) ExcludeCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.ExcludeCharacters }).(pulumi.StringPtrOutput)
+}
+
 func (o RotationScheduleHostedRotationLambdaOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -180,6 +186,15 @@ func (o RotationScheduleHostedRotationLambdaPtrOutput) Elem() RotationScheduleHo
 		var ret RotationScheduleHostedRotationLambda
 		return ret
 	}).(RotationScheduleHostedRotationLambdaOutput)
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) ExcludeCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeCharacters
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o RotationScheduleHostedRotationLambdaPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {

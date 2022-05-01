@@ -96,6 +96,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<any | undefined>;
     /**
+     * Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+     */
+    public readonly sqsManagedSseEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The tags that you attach to this queue.
      */
     public readonly tags!: pulumi.Output<outputs.sqs.QueueTag[] | undefined>;
@@ -128,6 +132,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["receiveMessageWaitTimeSeconds"] = args ? args.receiveMessageWaitTimeSeconds : undefined;
             resourceInputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
             resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["sqsManagedSseEnabled"] = args ? args.sqsManagedSseEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibilityTimeout"] = args ? args.visibilityTimeout : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["receiveMessageWaitTimeSeconds"] = undefined /*out*/;
             resourceInputs["redriveAllowPolicy"] = undefined /*out*/;
             resourceInputs["redrivePolicy"] = undefined /*out*/;
+            resourceInputs["sqsManagedSseEnabled"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["visibilityTimeout"] = undefined /*out*/;
         }
@@ -212,6 +218,10 @@ export interface QueueArgs {
      * A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
      */
     redrivePolicy?: any;
+    /**
+     * Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+     */
+    sqsManagedSseEnabled?: pulumi.Input<boolean>;
     /**
      * The tags that you attach to this queue.
      */

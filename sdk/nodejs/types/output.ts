@@ -30384,6 +30384,7 @@ export namespace sagemaker {
 
 export namespace secretsmanager {
     export interface RotationScheduleHostedRotationLambda {
+        excludeCharacters?: string;
         kmsKeyArn?: string;
         masterSecretArn?: string;
         masterSecretKmsKeyArn?: string;

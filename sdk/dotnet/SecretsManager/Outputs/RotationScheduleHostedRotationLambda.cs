@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
     [OutputType]
     public sealed class RotationScheduleHostedRotationLambda
     {
+        public readonly string? ExcludeCharacters;
         public readonly string? KmsKeyArn;
         public readonly string? MasterSecretArn;
         public readonly string? MasterSecretKmsKeyArn;
@@ -25,6 +26,8 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
 
         [OutputConstructor]
         private RotationScheduleHostedRotationLambda(
+            string? excludeCharacters,
+
             string? kmsKeyArn,
 
             string? masterSecretArn,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
 
             string? vpcSubnetIds)
         {
+            ExcludeCharacters = excludeCharacters;
             KmsKeyArn = kmsKeyArn;
             MasterSecretArn = masterSecretArn;
             MasterSecretKmsKeyArn = masterSecretKmsKeyArn;

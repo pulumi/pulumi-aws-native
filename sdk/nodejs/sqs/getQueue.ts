@@ -80,6 +80,10 @@ export interface GetQueueResult {
      */
     readonly redrivePolicy?: any;
     /**
+     * Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+     */
+    readonly sqsManagedSseEnabled?: boolean;
+    /**
      * The tags that you attach to this queue.
      */
     readonly tags?: outputs.sqs.QueueTag[];

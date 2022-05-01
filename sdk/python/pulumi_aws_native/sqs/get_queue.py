@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, arn=None, content_based_deduplication=None, deduplication_scope=None, delay_seconds=None, fifo_throughput_limit=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, maximum_message_size=None, message_retention_period=None, queue_url=None, receive_message_wait_time_seconds=None, redrive_allow_policy=None, redrive_policy=None, tags=None, visibility_timeout=None):
+    def __init__(__self__, arn=None, content_based_deduplication=None, deduplication_scope=None, delay_seconds=None, fifo_throughput_limit=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, maximum_message_size=None, message_retention_period=None, queue_url=None, receive_message_wait_time_seconds=None, redrive_allow_policy=None, redrive_policy=None, sqs_managed_sse_enabled=None, tags=None, visibility_timeout=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -58,6 +58,9 @@ class GetQueueResult:
         if redrive_policy and not isinstance(redrive_policy, dict):
             raise TypeError("Expected argument 'redrive_policy' to be a dict")
         pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if sqs_managed_sse_enabled and not isinstance(sqs_managed_sse_enabled, bool):
+            raise TypeError("Expected argument 'sqs_managed_sse_enabled' to be a bool")
+        pulumi.set(__self__, "sqs_managed_sse_enabled", sqs_managed_sse_enabled)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -170,6 +173,14 @@ class GetQueueResult:
         return pulumi.get(self, "redrive_policy")
 
     @property
+    @pulumi.getter(name="sqsManagedSseEnabled")
+    def sqs_managed_sse_enabled(self) -> Optional[bool]:
+        """
+        Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+        """
+        return pulumi.get(self, "sqs_managed_sse_enabled")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.QueueTag']]:
         """
@@ -205,6 +216,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             receive_message_wait_time_seconds=self.receive_message_wait_time_seconds,
             redrive_allow_policy=self.redrive_allow_policy,
             redrive_policy=self.redrive_policy,
+            sqs_managed_sse_enabled=self.sqs_managed_sse_enabled,
             tags=self.tags,
             visibility_timeout=self.visibility_timeout)
 
@@ -239,6 +251,7 @@ def get_queue(queue_url: Optional[str] = None,
         receive_message_wait_time_seconds=__ret__.receive_message_wait_time_seconds,
         redrive_allow_policy=__ret__.redrive_allow_policy,
         redrive_policy=__ret__.redrive_policy,
+        sqs_managed_sse_enabled=__ret__.sqs_managed_sse_enabled,
         tags=__ret__.tags,
         visibility_timeout=__ret__.visibility_timeout)
 

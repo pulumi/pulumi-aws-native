@@ -36523,6 +36523,10 @@
                     "$ref": "pulumi.json#/Any",
                     "description": "A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue."
                 },
+                "sqsManagedSseEnabled": {
+                    "type": "boolean",
+                    "description": "Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS )."
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -36595,6 +36599,10 @@
                 "redrivePolicy": {
                     "$ref": "pulumi.json#/Any",
                     "description": "A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue."
+                },
+                "sqsManagedSseEnabled": {
+                    "type": "boolean",
+                    "description": "Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS )."
                 },
                 "tags": {
                     "type": "array",

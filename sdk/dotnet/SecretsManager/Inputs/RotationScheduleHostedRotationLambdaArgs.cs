@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
 
     public sealed class RotationScheduleHostedRotationLambdaArgs : Pulumi.ResourceArgs
     {
+        [Input("excludeCharacters")]
+        public Input<string>? ExcludeCharacters { get; set; }
+
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
