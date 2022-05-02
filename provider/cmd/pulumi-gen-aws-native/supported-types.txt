@@ -524,6 +524,7 @@ AWSQS::Kubernetes::Resource
 Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
+ConfluentCloud::IAM::ServiceAccount
 Datadog::Dashboards::Dashboard
 Datadog::Integrations::AWS
 Datadog::Monitors::Downtime
