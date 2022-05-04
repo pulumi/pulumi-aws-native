@@ -32,7 +32,7 @@ func (p *cfnProvider) getSSMParameter(ctx context.Context, inputs resource.Prope
 }
 
 func (p *cfnProvider) getSSMParameterString(ctx context.Context, label string, inputs resource.PropertyMap) (resource.
-	PropertyMap,	error) {
+	PropertyMap, error) {
 	param, err := p.getSSMParameter(ctx, inputs)
 	if err != nil {
 		return nil, err

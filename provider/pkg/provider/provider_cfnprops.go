@@ -41,9 +41,9 @@ func (p *cfnProvider) mapCFNPropsToResource(_ context.Context, label string, inp
 	logging.V(9).Infof("%s[%s].CfnToSdk.result[%+v]", label, tok, transformed)
 	outputs := codegen.NewStringSet(codegen.SortedKeys(res.Outputs)...)
 	ins := codegen.NewStringSet(codegen.SortedKeys(res.Inputs)...)
-	return resource.NewPropertyMapFromMap(map[string]interface{} {
-		"props": transformed,
-		"outputs": codegen.SortedKeys(outputs.Subtract(ins)),
+	return resource.NewPropertyMapFromMap(map[string]interface{}{
+		"props":       transformed,
+		"outputs":     codegen.SortedKeys(outputs.Subtract(ins)),
 		"isSupported": true,
 	}), nil
 }
