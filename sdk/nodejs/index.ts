@@ -15,6 +15,7 @@ export * from "./getSsmParameterList";
 export * from "./getSsmParameterString";
 export * from "./getUrlSuffix";
 export * from "./importValue";
+export * from "./mapCfnPropsToResource";
 export * from "./provider";
 
 // Export enums:

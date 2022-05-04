@@ -5,6 +5,7 @@ package provider
 import (
 	"context"
 	"fmt"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	"net"
 
 	gocidr "github.com/apparentlymart/go-cidr/cidr"
@@ -15,14 +16,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) getAZs(ctx context.Context, label string, inputs resource.PropertyMap) (resource.PropertyMap,
+	error) {
 	region, ok := inputs["region"]
 	if !ok {
 		region = resource.NewStringProperty(p.region)
 	} else if !region.IsString() {
 		return nil, fmt.Errorf("'region' must be a string")
 	}
-
+	logging.V(9).Infof("%s %+v", label+".region", region)
 	resp, err := p.ec2.DescribeAvailabilityZones(ctx, &ec2.DescribeAvailabilityZonesInput{
 		Filters: []types.Filter{{
 			Name:   aws.String("region-name"),
@@ -42,7 +44,8 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 	}), nil
 }
 
-func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) cidr(ctx context.Context, label string, inputs resource.PropertyMap) (resource.PropertyMap,
+	error) {
 	ipBlock, ok := inputs["ipBlock"]
 	if !ok {
 		return nil, fmt.Errorf("missing required property 'ipBlock'")
@@ -89,7 +92,8 @@ func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (re
 	}, nil
 }
 
-func (p *cfnProvider) importValue(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) importValue(ctx context.Context, label string,
+	inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	name, ok := inputs["name"]
 	if !ok {
 		return nil, fmt.Errorf("missing required property 'name'")

@@ -21,6 +21,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	"os"
 	"os/user"
 	"path/filepath"
@@ -417,7 +418,8 @@ func varsOrEnv(vars map[string]string, key string, env ...string) (string, bool)
 	return "", false
 }
 
-var functions = map[string]func(*cfnProvider, context.Context, resource.PropertyMap) (resource.PropertyMap, error){
+var functions = map[string]func(*cfnProvider, context.Context, string,
+	resource.PropertyMap) (resource.PropertyMap, error){
 	"aws-native:index:getAccountId":          (*cfnProvider).getAccountID,
 	"aws-native:index:getAzs":                (*cfnProvider).getAZs,
 	"aws-native:index:getRegion":             (*cfnProvider).getRegion,
@@ -426,9 +428,12 @@ var functions = map[string]func(*cfnProvider, context.Context, resource.Property
 	"aws-native:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
 	"aws-native:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
 	"aws-native:index:importValue":           (*cfnProvider).importValue,
+	"aws-native:index:mapCfnPropsToResource": (*cfnProvider).mapCFNPropsToResource,
 }
 
-type invokeFunc func(p *cfnProvider, ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error)
+type invokeFunc func(p *cfnProvider, ctx context.Context, label string, inputs resource.PropertyMap) (resource.
+	PropertyMap,
+	error)
 
 // Invoke dynamically executes a built-in function in the provider.
 func (p *cfnProvider) Invoke(ctx context.Context,
@@ -436,9 +441,10 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 
 	// Unmarshal arguments.
 	tok := req.GetTok()
-
+	label := fmt.Sprintf("%s.Invoke(%s)", p.name, tok)
+	logging.V(9).Infof("%s Request: %+v", label, req.GetArgs())
 	inputs, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.Invoke(%s).inputs", p.name, tok),
+		Label:        label + ".inputs",
 		KeepUnknowns: true,
 		KeepSecrets:  true,
 	})
@@ -455,7 +461,7 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	if !ok {
 		return nil, fmt.Errorf("unknown function '%s'", tok)
 	}
-	result, err = fn(p, ctx, inputs)
+	result, err = fn(p, ctx, label, inputs)
 	if err != nil {
 		return nil, err
 	}
@@ -476,7 +482,8 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 	if !ok {
 		return nil, false
 	}
-	return func(p *cfnProvider, ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+	return func(p *cfnProvider, ctx context.Context, label string, inputs resource.PropertyMap) (resource.PropertyMap,
+		error) {
 		idParts := make([]string, len(cf.Identifiers))
 		for i, v := range cf.Identifiers {
 			pv, ok := inputs[resource.PropertyKey(v)]

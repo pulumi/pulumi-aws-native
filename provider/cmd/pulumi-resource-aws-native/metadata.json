@@ -63,7 +63,8 @@
             "createOnly": [
                 "analyzerName",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:acmpca:Certificate": {
             "cf": "AWS::ACMPCA::Certificate",
@@ -154,7 +155,8 @@
                 "templateArn",
                 "validity",
                 "validityNotBefore"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:acmpca:CertificateAuthority": {
             "cf": "AWS::ACMPCA::CertificateAuthority",
@@ -251,7 +253,8 @@
                 "signingAlgorithm",
                 "subject",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:acmpca:CertificateAuthorityActivation": {
             "cf": "AWS::ACMPCA::CertificateAuthorityActivation",
@@ -301,7 +304,8 @@
             ],
             "createOnly": [
                 "certificateAuthorityArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:acmpca:Permission": {
             "cf": "AWS::ACMPCA::Permission",
@@ -357,7 +361,8 @@
                 "certificateAuthorityArn",
                 "principal",
                 "sourceAccount"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:amplify:App": {
             "cf": "AWS::Amplify::App",
@@ -483,7 +488,8 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 255
-            }
+            },
+            "isSupported": true
         },
         "aws-native:amplify:Branch": {
             "cf": "AWS::Amplify::Branch",
@@ -589,7 +595,8 @@
             "createOnly": [
                 "appId",
                 "branchName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:amplify:Domain": {
             "cf": "AWS::Amplify::Domain",
@@ -668,7 +675,8 @@
             "createOnly": [
                 "appId",
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:amplifyuibuilder:Component": {
             "cf": "AWS::AmplifyUIBuilder::Component",
@@ -780,7 +788,8 @@
             ],
             "createOnly": [
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:amplifyuibuilder:Theme": {
             "cf": "AWS::AmplifyUIBuilder::Theme",
@@ -846,7 +855,8 @@
             ],
             "createOnly": [
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:Account": {
             "cf": "AWS::ApiGateway::Account",
@@ -861,7 +871,8 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:apigateway:ApiKey": {
             "cf": "AWS::ApiGateway::ApiKey",
@@ -956,7 +967,8 @@
                 "generateDistinctId",
                 "name",
                 "value"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:Authorizer": {
             "cf": "AWS::ApiGateway::Authorizer",
@@ -1062,7 +1074,8 @@
             ],
             "createOnly": [
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:BasePathMapping": {
             "cf": "AWS::ApiGateway::BasePathMapping",
@@ -1108,7 +1121,8 @@
             "createOnly": [
                 "basePath",
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:ClientCertificate": {
             "cf": "AWS::ApiGateway::ClientCertificate",
@@ -1141,7 +1155,8 @@
                     },
                     "description": "An array of arbitrary tags (key-value pairs) to associate with the client certificate."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:apigateway:Deployment": {
             "cf": "AWS::ApiGateway::Deployment",
@@ -1199,7 +1214,8 @@
             "createOnly": [
                 "deploymentCanarySettings",
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:DocumentationVersion": {
             "cf": "AWS::ApiGateway::DocumentationVersion",
@@ -1248,7 +1264,8 @@
             "createOnly": [
                 "documentationVersion",
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:DomainName": {
             "cf": "AWS::ApiGateway::DomainName",
@@ -1334,7 +1351,8 @@
             },
             "createOnly": [
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:Method": {
             "cf": "AWS::ApiGateway::Method",
@@ -1467,7 +1485,8 @@
                 "httpMethod",
                 "resourceId",
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:Model": {
             "cf": "AWS::ApiGateway::Model",
@@ -1525,7 +1544,8 @@
                 "contentType",
                 "name",
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:RequestValidator": {
             "cf": "AWS::ApiGateway::RequestValidator",
@@ -1578,7 +1598,8 @@
             "createOnly": [
                 "name",
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:Resource": {
             "cf": "AWS::ApiGateway::Resource",
@@ -1623,7 +1644,8 @@
                 "parentId",
                 "pathPart",
                 "restApiId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:Stage": {
             "cf": "AWS::ApiGateway::Stage",
@@ -1764,7 +1786,8 @@
             "createOnly": [
                 "restApiId",
                 "stageName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apigateway:UsagePlan": {
             "cf": "AWS::ApiGateway::UsagePlan",
@@ -1834,7 +1857,8 @@
             },
             "autoNamingSpec": {
                 "sdkName": "usagePlanName"
-            }
+            },
+            "isSupported": true
         },
         "aws-native:apigateway:UsagePlanKey": {
             "cf": "AWS::ApiGateway::UsagePlanKey",
@@ -1875,7 +1899,8 @@
                 "keyId",
                 "keyType",
                 "usagePlanId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appflow:ConnectorProfile": {
             "cf": "AWS::AppFlow::ConnectorProfile",
@@ -1943,7 +1968,8 @@
                 "connectorProfileName",
                 "connectorType",
                 "kMSArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appflow:Flow": {
             "cf": "AWS::AppFlow::Flow",
@@ -2051,7 +2077,8 @@
             "createOnly": [
                 "flowName",
                 "kMSArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appintegrations:DataIntegration": {
             "cf": "AWS::AppIntegrations::DataIntegration",
@@ -2131,7 +2158,8 @@
                 "kmsKey",
                 "scheduleConfig",
                 "sourceURI"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appintegrations:EventIntegration": {
             "cf": "AWS::AppIntegrations::EventIntegration",
@@ -2209,7 +2237,8 @@
                 "eventBridgeBus",
                 "eventFilter",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:applicationinsights:Application": {
             "cf": "AWS::ApplicationInsights::Application",
@@ -2322,7 +2351,8 @@
             ],
             "createOnly": [
                 "resourceGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apprunner:ObservabilityConfiguration": {
             "cf": "AWS::AppRunner::ObservabilityConfiguration",
@@ -2381,7 +2411,8 @@
                 "observabilityConfigurationName",
                 "tags",
                 "traceConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apprunner:Service": {
             "cf": "AWS::AppRunner::Service",
@@ -2481,7 +2512,8 @@
                 "encryptionConfiguration",
                 "serviceName",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:apprunner:VpcConnector": {
             "cf": "AWS::AppRunner::VpcConnector",
@@ -2560,7 +2592,8 @@
                 "subnets",
                 "tags",
                 "vpcConnectorName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appstream:AppBlock": {
             "cf": "AWS::AppStream::AppBlock",
@@ -2629,7 +2662,8 @@
                 "name",
                 "setupScriptDetails",
                 "sourceS3Location"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appstream:Application": {
             "cf": "AWS::AppStream::Application",
@@ -2753,7 +2787,8 @@
                 "instanceFamilies",
                 "name",
                 "platforms"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appstream:ApplicationEntitlementAssociation": {
             "cf": "AWS::AppStream::ApplicationEntitlementAssociation",
@@ -2788,7 +2823,8 @@
                 "applicationIdentifier",
                 "entitlementName",
                 "stackName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appstream:ApplicationFleetAssociation": {
             "cf": "AWS::AppStream::ApplicationFleetAssociation",
@@ -2815,7 +2851,8 @@
             "createOnly": [
                 "applicationArn",
                 "fleetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appstream:Entitlement": {
             "cf": "AWS::AppStream::Entitlement",
@@ -2876,7 +2913,8 @@
             "createOnly": [
                 "name",
                 "stackName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appsync:DomainName": {
             "cf": "AWS::AppSync::DomainName",
@@ -2925,7 +2963,8 @@
             "createOnly": [
                 "certificateArn",
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:appsync:DomainNameApiAssociation": {
             "cf": "AWS::AppSync::DomainNameApiAssociation",
@@ -2954,7 +2993,8 @@
             ],
             "createOnly": [
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:aps:RuleGroupsNamespace": {
             "cf": "AWS::APS::RuleGroupsNamespace",
@@ -3015,7 +3055,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:aps:Workspace": {
             "cf": "AWS::APS::Workspace",
@@ -3064,7 +3105,8 @@
                     "type": "string",
                     "description": "Required to identify a specific APS Workspace."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:athena:DataCatalog": {
             "cf": "AWS::Athena::DataCatalog",
@@ -3128,7 +3170,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:athena:NamedQuery": {
             "cf": "AWS::Athena::NamedQuery",
@@ -3195,7 +3238,8 @@
                 "name",
                 "queryString",
                 "workGroup"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:athena:PreparedStatement": {
             "cf": "AWS::Athena::PreparedStatement",
@@ -3243,7 +3287,8 @@
             "createOnly": [
                 "statementName",
                 "workGroup"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:athena:WorkGroup": {
             "cf": "AWS::Athena::WorkGroup",
@@ -3322,7 +3367,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:auditmanager:Assessment": {
             "cf": "AWS::AuditManager::Assessment",
@@ -3422,7 +3468,8 @@
             "createOnly": [
                 "awsAccount",
                 "frameworkId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:autoscaling:LaunchConfiguration": {
             "cf": "AWS::AutoScaling::LaunchConfiguration",
@@ -3629,7 +3676,8 @@
                 "securityGroups",
                 "spotPrice",
                 "userData"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:autoscaling:LifecycleHook": {
             "cf": "AWS::AutoScaling::LifecycleHook",
@@ -3713,7 +3761,8 @@
             "createOnly": [
                 "autoScalingGroupName",
                 "lifecycleHookName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:autoscaling:WarmPool": {
             "cf": "AWS::AutoScaling::WarmPool",
@@ -3756,7 +3805,8 @@
             ],
             "createOnly": [
                 "autoScalingGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:backup:BackupPlan": {
             "cf": "AWS::Backup::BackupPlan",
@@ -3797,7 +3847,8 @@
             },
             "required": [
                 "backupPlan"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:backup:BackupSelection": {
             "cf": "AWS::Backup::BackupSelection",
@@ -3837,7 +3888,8 @@
             "createOnly": [
                 "backupPlanId",
                 "backupSelection"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:backup:BackupVault": {
             "cf": "AWS::Backup::BackupVault",
@@ -3890,7 +3942,8 @@
             "createOnly": [
                 "backupVaultName",
                 "encryptionKeyArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:backup:Framework": {
             "cf": "AWS::Backup::Framework",
@@ -3968,7 +4021,8 @@
             ],
             "createOnly": [
                 "frameworkName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:backup:ReportPlan": {
             "cf": "AWS::Backup::ReportPlan",
@@ -4037,7 +4091,8 @@
             ],
             "createOnly": [
                 "reportPlanName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:batch:ComputeEnvironment": {
             "cf": "AWS::Batch::ComputeEnvironment",
@@ -4115,7 +4170,8 @@
                 "computeResources/SpotIamFleetRole",
                 "tags",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:batch:JobQueue": {
             "cf": "AWS::Batch::JobQueue",
@@ -4182,7 +4238,8 @@
             "createOnly": [
                 "jobQueueName",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:batch:SchedulingPolicy": {
             "cf": "AWS::Batch::SchedulingPolicy",
@@ -4221,7 +4278,8 @@
             "createOnly": [
                 "name",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:budgets:BudgetsAction": {
             "cf": "AWS::Budgets::BudgetsAction",
@@ -4298,7 +4356,8 @@
             "createOnly": [
                 "actionType",
                 "budgetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cassandra:Keyspace": {
             "cf": "AWS::Cassandra::Keyspace",
@@ -4331,7 +4390,8 @@
             },
             "createOnly": [
                 "keyspaceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cassandra:Table": {
             "cf": "AWS::Cassandra::Table",
@@ -4451,7 +4511,8 @@
                 "keyspaceName",
                 "partitionKeyColumns",
                 "tableName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ce:CostCategory": {
             "cf": "AWS::CE::CostCategory",
@@ -4513,7 +4574,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:certificatemanager:Account": {
             "cf": "AWS::CertificateManager::Account",
@@ -4532,7 +4594,8 @@
             },
             "required": [
                 "expiryEventsConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:chatbot:SlackChannelConfiguration": {
             "cf": "AWS::Chatbot::SlackChannelConfiguration",
@@ -4629,7 +4692,8 @@
             "createOnly": [
                 "configurationName",
                 "slackWorkspaceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:HookDefaultVersion": {
             "cf": "AWS::CloudFormation::HookDefaultVersion",
@@ -4664,7 +4728,8 @@
                     "type": "string",
                     "description": "The ID of an existing version of the hook to set as the default."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:cloudformation:HookTypeConfig": {
             "cf": "AWS::CloudFormation::HookTypeConfig",
@@ -4711,7 +4776,8 @@
             "createOnly": [
                 "configurationAlias",
                 "typeArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:HookVersion": {
             "cf": "AWS::CloudFormation::HookVersion",
@@ -4780,7 +4846,8 @@
                 "loggingConfig",
                 "schemaHandlerPackage",
                 "typeName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:ModuleDefaultVersion": {
             "cf": "AWS::CloudFormation::ModuleDefaultVersion",
@@ -4816,7 +4883,8 @@
                 "arn",
                 "moduleName",
                 "versionId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:ModuleVersion": {
             "cf": "AWS::CloudFormation::ModuleVersion",
@@ -4879,7 +4947,8 @@
             "createOnly": [
                 "moduleName",
                 "modulePackage"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:PublicTypeVersion": {
             "cf": "AWS::CloudFormation::PublicTypeVersion",
@@ -4945,7 +5014,8 @@
                 "publicVersionNumber",
                 "type",
                 "typeName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:Publisher": {
             "cf": "AWS::CloudFormation::Publisher",
@@ -4991,7 +5061,8 @@
             "createOnly": [
                 "acceptTermsAndConditions",
                 "connectionArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:ResourceDefaultVersion": {
             "cf": "AWS::CloudFormation::ResourceDefaultVersion",
@@ -5026,7 +5097,8 @@
                     "type": "string",
                     "description": "The ID of an existing version of the resource to set as the default."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:cloudformation:ResourceVersion": {
             "cf": "AWS::CloudFormation::ResourceVersion",
@@ -5099,7 +5171,8 @@
                 "loggingConfig",
                 "schemaHandlerPackage",
                 "typeName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:StackSet": {
             "cf": "AWS::CloudFormation::StackSet",
@@ -5263,7 +5336,8 @@
             "createOnly": [
                 "permissionModel",
                 "stackSetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudformation:TypeActivation": {
             "cf": "AWS::CloudFormation::TypeActivation",
@@ -5363,7 +5437,8 @@
                 "type",
                 "typeName",
                 "typeNameAlias"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:CachePolicy": {
             "cf": "AWS::CloudFront::CachePolicy",
@@ -5382,7 +5457,8 @@
             },
             "required": [
                 "cachePolicyConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:CloudFrontOriginAccessIdentity": {
             "cf": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
@@ -5401,7 +5477,8 @@
             },
             "required": [
                 "cloudFrontOriginAccessIdentityConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:Distribution": {
             "cf": "AWS::CloudFront::Distribution",
@@ -5432,7 +5509,8 @@
             },
             "required": [
                 "distributionConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:Function": {
             "cf": "AWS::CloudFront::Function",
@@ -5478,7 +5556,8 @@
             },
             "autoNamingSpec": {
                 "sdkName": "name"
-            }
+            },
+            "isSupported": true
         },
         "aws-native:cloudfront:KeyGroup": {
             "cf": "AWS::CloudFront::KeyGroup",
@@ -5497,7 +5576,8 @@
             },
             "required": [
                 "keyGroupConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:OriginRequestPolicy": {
             "cf": "AWS::CloudFront::OriginRequestPolicy",
@@ -5516,7 +5596,8 @@
             },
             "required": [
                 "originRequestPolicyConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:PublicKey": {
             "cf": "AWS::CloudFront::PublicKey",
@@ -5535,7 +5616,8 @@
             },
             "required": [
                 "publicKeyConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:RealtimeLogConfig": {
             "cf": "AWS::CloudFront::RealtimeLogConfig",
@@ -5592,7 +5674,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudfront:ResponseHeadersPolicy": {
             "cf": "AWS::CloudFront::ResponseHeadersPolicy",
@@ -5611,7 +5694,8 @@
             },
             "required": [
                 "responseHeadersPolicyConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudtrail:Trail": {
             "cf": "AWS::CloudTrail::Trail",
@@ -5770,7 +5854,8 @@
             ],
             "createOnly": [
                 "trailName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudwatch:CompositeAlarm": {
             "cf": "AWS::CloudWatch::CompositeAlarm",
@@ -5862,7 +5947,8 @@
             ],
             "createOnly": [
                 "alarmName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:cloudwatch:MetricStream": {
             "cf": "AWS::CloudWatch::MetricStream",
@@ -5986,7 +6072,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:codeartifact:Domain": {
             "cf": "AWS::CodeArtifact::Domain",
@@ -6052,7 +6139,8 @@
             "createOnly": [
                 "domainName",
                 "encryptionKey"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:codeartifact:Repository": {
             "cf": "AWS::CodeArtifact::Repository",
@@ -6162,7 +6250,8 @@
                 "domainName",
                 "domainOwner",
                 "repositoryName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:codeguruprofiler:ProfilingGroup": {
             "cf": "AWS::CodeGuruProfiler::ProfilingGroup",
@@ -6234,7 +6323,8 @@
             "createOnly": [
                 "computePlatform",
                 "profilingGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:codegurureviewer:RepositoryAssociation": {
             "cf": "AWS::CodeGuruReviewer::RepositoryAssociation",
@@ -6315,7 +6405,8 @@
                 "owner",
                 "tags",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:codestarconnections:Connection": {
             "cf": "AWS::CodeStarConnections::Connection",
@@ -6382,7 +6473,8 @@
                 "connectionName",
                 "hostArn",
                 "providerType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:codestarnotifications:NotificationRule": {
             "cf": "AWS::CodeStarNotifications::NotificationRule",
@@ -6479,7 +6571,8 @@
             "createOnly": [
                 "resource",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:configuration:AggregationAuthorization": {
             "cf": "AWS::Config::AggregationAuthorization",
@@ -6528,7 +6621,8 @@
             "createOnly": [
                 "authorizedAccountId",
                 "authorizedAwsRegion"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:configuration:ConfigurationAggregator": {
             "cf": "AWS::Config::ConfigurationAggregator",
@@ -6587,7 +6681,8 @@
             },
             "createOnly": [
                 "configurationAggregatorName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:configuration:ConformancePack": {
             "cf": "AWS::Config::ConformancePack",
@@ -6656,7 +6751,8 @@
             },
             "createOnly": [
                 "conformancePackName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:configuration:OrganizationConformancePack": {
             "cf": "AWS::Config::OrganizationConformancePack",
@@ -6739,7 +6835,8 @@
             },
             "createOnly": [
                 "organizationConformancePackName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:configuration:StoredQuery": {
             "cf": "AWS::Config::StoredQuery",
@@ -6791,7 +6888,8 @@
             ],
             "createOnly": [
                 "queryName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:ContactFlow": {
             "cf": "AWS::Connect::ContactFlow",
@@ -6876,7 +6974,8 @@
             ],
             "createOnly": [
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:ContactFlowModule": {
             "cf": "AWS::Connect::ContactFlowModule",
@@ -6954,7 +7053,8 @@
             "required": [
                 "content",
                 "instanceArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:HoursOfOperation": {
             "cf": "AWS::Connect::HoursOfOperation",
@@ -7035,7 +7135,8 @@
                 "config",
                 "instanceArn",
                 "timeZone"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:PhoneNumber": {
             "cf": "AWS::Connect::PhoneNumber",
@@ -7115,7 +7216,8 @@
                 "description",
                 "prefix",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:QuickConnect": {
             "cf": "AWS::Connect::QuickConnect",
@@ -7181,7 +7283,8 @@
             "required": [
                 "instanceArn",
                 "quickConnectConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:User": {
             "cf": "AWS::Connect::User",
@@ -7291,7 +7394,8 @@
                 "routingProfileArn",
                 "securityProfileArns",
                 "username"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:connect:UserHierarchyGroup": {
             "cf": "AWS::Connect::UserHierarchyGroup",
@@ -7337,7 +7441,8 @@
             ],
             "createOnly": [
                 "parentGroupArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:customerprofiles:Domain": {
             "cf": "AWS::CustomerProfiles::Domain",
@@ -7406,7 +7511,8 @@
             },
             "createOnly": [
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:customerprofiles:Integration": {
             "cf": "AWS::CustomerProfiles::Integration",
@@ -7486,7 +7592,8 @@
             "createOnly": [
                 "domainName",
                 "uri"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:customerprofiles:ObjectType": {
             "cf": "AWS::CustomerProfiles::ObjectType",
@@ -7611,7 +7718,8 @@
             "createOnly": [
                 "domainName",
                 "objectTypeName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:databrew:Dataset": {
             "cf": "AWS::DataBrew::Dataset",
@@ -7682,7 +7790,8 @@
             "createOnly": [
                 "name",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:databrew:Job": {
             "cf": "AWS::DataBrew::Job",
@@ -7883,7 +7992,8 @@
                 "name",
                 "tags",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:databrew:Project": {
             "cf": "AWS::DataBrew::Project",
@@ -7956,7 +8066,8 @@
             "createOnly": [
                 "name",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:databrew:Recipe": {
             "cf": "AWS::DataBrew::Recipe",
@@ -8015,7 +8126,8 @@
             "createOnly": [
                 "name",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:databrew:Ruleset": {
             "cf": "AWS::DataBrew::Ruleset",
@@ -8085,7 +8197,8 @@
             "createOnly": [
                 "name",
                 "targetArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:databrew:Schedule": {
             "cf": "AWS::DataBrew::Schedule",
@@ -8144,7 +8257,8 @@
             "createOnly": [
                 "name",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:Agent": {
             "cf": "AWS::DataSync::Agent",
@@ -8239,7 +8353,8 @@
                 "securityGroupArns",
                 "subnetArns",
                 "vpcEndpointId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationEFS": {
             "cf": "AWS::DataSync::LocationEFS",
@@ -8299,7 +8414,8 @@
                 "ec2Config",
                 "efsFilesystemArn",
                 "subdirectory"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationFSxLustre": {
             "cf": "AWS::DataSync::LocationFSxLustre",
@@ -8367,7 +8483,8 @@
                 "fsxFilesystemArn",
                 "securityGroupArns",
                 "subdirectory"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationFSxOpenZFS": {
             "cf": "AWS::DataSync::LocationFSxOpenZFS",
@@ -8443,7 +8560,8 @@
                 "protocol",
                 "securityGroupArns",
                 "subdirectory"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationFSxWindows": {
             "cf": "AWS::DataSync::LocationFSxWindows",
@@ -8540,7 +8658,8 @@
                 "securityGroupArns",
                 "subdirectory",
                 "user"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationHDFS": {
             "cf": "AWS::DataSync::LocationHDFS",
@@ -8680,7 +8799,8 @@
                 "agentArns",
                 "authenticationType",
                 "nameNodes"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationNFS": {
             "cf": "AWS::DataSync::LocationNFS",
@@ -8745,7 +8865,8 @@
             ],
             "createOnly": [
                 "serverHostname"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationObjectStorage": {
             "cf": "AWS::DataSync::LocationObjectStorage",
@@ -8853,7 +8974,8 @@
             "createOnly": [
                 "bucketName",
                 "serverHostname"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationS3": {
             "cf": "AWS::DataSync::LocationS3",
@@ -8922,7 +9044,8 @@
                 "s3Config",
                 "s3StorageClass",
                 "subdirectory"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:LocationSMB": {
             "cf": "AWS::DataSync::LocationSMB",
@@ -9021,7 +9144,8 @@
             ],
             "createOnly": [
                 "serverHostname"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:datasync:Task": {
             "cf": "AWS::DataSync::Task",
@@ -9151,7 +9275,8 @@
             "createOnly": [
                 "destinationLocationArn",
                 "sourceLocationArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:detective:Graph": {
             "cf": "AWS::Detective::Graph",
@@ -9174,7 +9299,8 @@
                         "$ref": "#/types/aws-native:detective:GraphTag"
                     }
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:detective:MemberInvitation": {
             "cf": "AWS::Detective::MemberInvitation",
@@ -9230,7 +9356,8 @@
             "createOnly": [
                 "graphArn",
                 "memberId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:devicefarm:DevicePool": {
             "cf": "AWS::DeviceFarm::DevicePool",
@@ -9300,7 +9427,8 @@
             ],
             "createOnly": [
                 "projectArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:devicefarm:InstanceProfile": {
             "cf": "AWS::DeviceFarm::InstanceProfile",
@@ -9363,7 +9491,8 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 256
-            }
+            },
+            "isSupported": true
         },
         "aws-native:devicefarm:NetworkProfile": {
             "cf": "AWS::DeviceFarm::NetworkProfile",
@@ -9462,7 +9591,8 @@
             ],
             "createOnly": [
                 "projectArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:devicefarm:Project": {
             "cf": "AWS::DeviceFarm::Project",
@@ -9501,7 +9631,8 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 256
-            }
+            },
+            "isSupported": true
         },
         "aws-native:devicefarm:TestGridProject": {
             "cf": "AWS::DeviceFarm::TestGridProject",
@@ -9546,7 +9677,8 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 64
-            }
+            },
+            "isSupported": true
         },
         "aws-native:devicefarm:VPCEConfiguration": {
             "cf": "AWS::DeviceFarm::VPCEConfiguration",
@@ -9597,7 +9729,8 @@
                 "serviceDnsName",
                 "vpceConfigurationName",
                 "vpceServiceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:devopsguru:NotificationChannel": {
             "cf": "AWS::DevOpsGuru::NotificationChannel",
@@ -9616,7 +9749,8 @@
             ],
             "createOnly": [
                 "config"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:devopsguru:ResourceCollection": {
             "cf": "AWS::DevOpsGuru::ResourceCollection",
@@ -9636,7 +9770,8 @@
             },
             "required": [
                 "resourceCollectionFilter"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:dynamodb:GlobalTable": {
             "cf": "AWS::DynamoDB::GlobalTable",
@@ -9758,7 +9893,8 @@
                 "keySchema",
                 "localSecondaryIndexes",
                 "tableName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:CapacityReservationFleet": {
             "cf": "AWS::EC2::CapacityReservationFleet",
@@ -9842,7 +9978,8 @@
                 "instanceTypeSpecifications",
                 "tagSpecifications",
                 "tenancy"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:CarrierGateway": {
             "cf": "AWS::EC2::CarrierGateway",
@@ -9889,7 +10026,8 @@
             ],
             "createOnly": [
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:DHCPOptions": {
             "cf": "AWS::EC2::DHCPOptions",
@@ -9978,7 +10116,8 @@
                 "netbiosNameServers",
                 "netbiosNodeType",
                 "ntpServers"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:EC2Fleet": {
             "cf": "AWS::EC2::EC2Fleet",
@@ -10087,7 +10226,8 @@
                 "type",
                 "validFrom",
                 "validUntil"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:EgressOnlyInternetGateway": {
             "cf": "AWS::EC2::EgressOnlyInternetGateway",
@@ -10108,7 +10248,8 @@
             ],
             "createOnly": [
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:EnclaveCertificateIamRoleAssociation": {
             "cf": "AWS::EC2::EnclaveCertificateIamRoleAssociation",
@@ -10151,7 +10292,8 @@
             "createOnly": [
                 "certificateArn",
                 "roleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:FlowLog": {
             "cf": "AWS::EC2::FlowLog",
@@ -10267,7 +10409,8 @@
                 "resourceId",
                 "resourceType",
                 "trafficType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:GatewayRouteTableAssociation": {
             "cf": "AWS::EC2::GatewayRouteTableAssociation",
@@ -10301,7 +10444,8 @@
             ],
             "createOnly": [
                 "gatewayId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:Host": {
             "cf": "AWS::EC2::Host",
@@ -10352,7 +10496,8 @@
             "createOnly": [
                 "availabilityZone",
                 "instanceType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:IPAM": {
             "cf": "AWS::EC2::IPAM",
@@ -10413,7 +10558,8 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:ec2:IPAMAllocation": {
             "cf": "AWS::EC2::IPAMAllocation",
@@ -10461,7 +10607,8 @@
                 "description",
                 "ipamPoolId",
                 "netmaskLength"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:IPAMPool": {
             "cf": "AWS::EC2::IPAMPool",
@@ -10631,7 +10778,8 @@
                 "locale",
                 "publiclyAdvertisable",
                 "sourceIpamPoolId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:IPAMScope": {
             "cf": "AWS::EC2::IPAMScope",
@@ -10696,7 +10844,8 @@
             ],
             "createOnly": [
                 "ipamId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:InternetGateway": {
             "cf": "AWS::EC2::InternetGateway",
@@ -10721,7 +10870,8 @@
                     },
                     "description": "Any tags to assign to the internet gateway."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:ec2:KeyPair": {
             "cf": "AWS::EC2::KeyPair",
@@ -10781,7 +10931,8 @@
             "createOnly": [
                 "keyName",
                 "keyType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:LocalGatewayRoute": {
             "cf": "AWS::EC2::LocalGatewayRoute",
@@ -10830,7 +10981,8 @@
                 "destinationCidrBlock",
                 "localGatewayRouteTableId",
                 "localGatewayVirtualInterfaceGroupId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:LocalGatewayRouteTableVPCAssociation": {
             "cf": "AWS::EC2::LocalGatewayRouteTableVPCAssociation",
@@ -10887,7 +11039,8 @@
             "createOnly": [
                 "localGatewayRouteTableId",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:NetworkAcl": {
             "cf": "AWS::EC2::NetworkAcl",
@@ -10922,7 +11075,8 @@
             ],
             "createOnly": [
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:NetworkInsightsAccessScope": {
             "cf": "AWS::EC2::NetworkInsightsAccessScope",
@@ -10981,7 +11135,8 @@
             "createOnly": [
                 "excludePaths",
                 "matchPaths"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:NetworkInsightsAccessScopeAnalysis": {
             "cf": "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
@@ -11036,7 +11191,8 @@
             ],
             "createOnly": [
                 "networkInsightsAccessScopeId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:NetworkInsightsAnalysis": {
             "cf": "AWS::EC2::NetworkInsightsAnalysis",
@@ -11122,7 +11278,8 @@
             "createOnly": [
                 "filterInArns",
                 "networkInsightsPathId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:NetworkInsightsPath": {
             "cf": "AWS::EC2::NetworkInsightsPath",
@@ -11199,7 +11356,8 @@
                 "protocol",
                 "source",
                 "sourceIp"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:NetworkInterface": {
             "cf": "AWS::EC2::NetworkInterface",
@@ -11337,7 +11495,8 @@
                 "interfaceType",
                 "privateIpAddress",
                 "subnetId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:PrefixList": {
             "cf": "AWS::EC2::PrefixList",
@@ -11421,7 +11580,8 @@
             "required": [
                 "addressFamily",
                 "maxEntries"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:RouteTable": {
             "cf": "AWS::EC2::RouteTable",
@@ -11460,7 +11620,8 @@
             ],
             "createOnly": [
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:SpotFleet": {
             "cf": "AWS::EC2::SpotFleet",
@@ -11496,7 +11657,8 @@
                 "spotFleetRequestConfigData/Type",
                 "spotFleetRequestConfigData/ValidFrom",
                 "spotFleetRequestConfigData/ValidUntil"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:Subnet": {
             "cf": "AWS::EC2::Subnet",
@@ -11604,7 +11766,8 @@
                 "ipv6Native",
                 "outpostArn",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:SubnetNetworkAclAssociation": {
             "cf": "AWS::EC2::SubnetNetworkAclAssociation",
@@ -11638,7 +11801,8 @@
             "createOnly": [
                 "networkAclId",
                 "subnetId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:SubnetRouteTableAssociation": {
             "cf": "AWS::EC2::SubnetRouteTableAssociation",
@@ -11665,7 +11829,8 @@
             "createOnly": [
                 "routeTableId",
                 "subnetId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGateway": {
             "cf": "AWS::EC2::TransitGateway",
@@ -11760,7 +11925,8 @@
             "createOnly": [
                 "amazonSideAsn",
                 "multicastSupport"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayAttachment": {
             "cf": "AWS::EC2::TransitGatewayAttachment",
@@ -11814,7 +11980,8 @@
                 "tags",
                 "transitGatewayId",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayConnect": {
             "cf": "AWS::EC2::TransitGatewayConnect",
@@ -11875,7 +12042,8 @@
             "createOnly": [
                 "options",
                 "transportTransitGatewayAttachmentId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayMulticastDomain": {
             "cf": "AWS::EC2::TransitGatewayMulticastDomain",
@@ -11934,7 +12102,8 @@
             ],
             "createOnly": [
                 "transitGatewayId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayMulticastDomainAssociation": {
             "cf": "AWS::EC2::TransitGatewayMulticastDomainAssociation",
@@ -11987,7 +12156,8 @@
                 "subnetId",
                 "transitGatewayAttachmentId",
                 "transitGatewayMulticastDomainId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayMulticastGroupMember": {
             "cf": "AWS::EC2::TransitGatewayMulticastGroupMember",
@@ -12060,7 +12230,8 @@
                 "groupIpAddress",
                 "networkInterfaceId",
                 "transitGatewayMulticastDomainId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayMulticastGroupSource": {
             "cf": "AWS::EC2::TransitGatewayMulticastGroupSource",
@@ -12133,7 +12304,8 @@
                 "groupIpAddress",
                 "networkInterfaceId",
                 "transitGatewayMulticastDomainId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayPeeringAttachment": {
             "cf": "AWS::EC2::TransitGatewayPeeringAttachment",
@@ -12214,7 +12386,8 @@
                 "peerRegion",
                 "peerTransitGatewayId",
                 "transitGatewayId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:TransitGatewayVpcAttachment": {
             "cf": "AWS::EC2::TransitGatewayVpcAttachment",
@@ -12299,7 +12472,8 @@
                 "subnetIds",
                 "transitGatewayId",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:VPC": {
             "cf": "AWS::EC2::VPC",
@@ -12399,7 +12573,8 @@
                 "cidrBlock",
                 "ipv4IpamPoolId",
                 "ipv4NetmaskLength"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ec2:VPCDHCPOptionsAssociation": {
             "cf": "AWS::EC2::VPCDHCPOptionsAssociation",
@@ -12430,7 +12605,8 @@
             "createOnly": [
                 "dhcpOptionsId",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecr:PullThroughCacheRule": {
             "cf": "AWS::ECR::PullThroughCacheRule",
@@ -12457,7 +12633,8 @@
             "createOnly": [
                 "ecrRepositoryPrefix",
                 "upstreamRegistryUrl"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecr:RegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
@@ -12478,7 +12655,8 @@
             },
             "required": [
                 "policyText"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecr:ReplicationConfiguration": {
             "cf": "AWS::ECR::ReplicationConfiguration",
@@ -12508,7 +12686,8 @@
             },
             "required": [
                 "replicationConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecr:Repository": {
             "cf": "AWS::ECR::Repository",
@@ -12588,7 +12767,8 @@
                 "encryptionConfiguration/EncryptionType",
                 "encryptionConfiguration/KmsKey",
                 "repositoryName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:CapacityProvider": {
             "cf": "AWS::ECS::CapacityProvider",
@@ -12629,7 +12809,8 @@
             "createOnly": [
                 "autoScalingGroupProvider/AutoScalingGroupArn",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:Cluster": {
             "cf": "AWS::ECS::Cluster",
@@ -12708,7 +12889,8 @@
             },
             "createOnly": [
                 "clusterName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:ClusterCapacityProviderAssociations": {
             "cf": "AWS::ECS::ClusterCapacityProviderAssociations",
@@ -12767,7 +12949,8 @@
             ],
             "createOnly": [
                 "cluster"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:PrimaryTaskSet": {
             "cf": "AWS::ECS::PrimaryTaskSet",
@@ -12807,7 +12990,8 @@
             "createOnly": [
                 "cluster",
                 "service"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:Service": {
             "cf": "AWS::ECS::Service",
@@ -12993,7 +13177,8 @@
                 "role",
                 "schedulingStrategy",
                 "serviceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:TaskDefinition": {
             "cf": "AWS::ECS::TaskDefinition",
@@ -13160,7 +13345,8 @@
                 "runtimePlatform",
                 "taskRoleArn",
                 "volumes"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ecs:TaskSet": {
             "cf": "AWS::ECS::TaskSet",
@@ -13271,7 +13457,8 @@
                 "service",
                 "serviceRegistries",
                 "taskDefinition"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:efs:AccessPoint": {
             "cf": "AWS::EFS::AccessPoint",
@@ -13346,7 +13533,8 @@
                 "rootDirectory",
                 "rootDirectory/CreationInfo",
                 "rootDirectory/Path"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:efs:FileSystem": {
             "cf": "AWS::EFS::FileSystem",
@@ -13445,7 +13633,8 @@
                 "encrypted",
                 "kmsKeyId",
                 "performanceMode"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:efs:MountTarget": {
             "cf": "AWS::EFS::MountTarget",
@@ -13492,7 +13681,8 @@
                 "fileSystemId",
                 "ipAddress",
                 "subnetId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:eks:Addon": {
             "cf": "AWS::EKS::Addon",
@@ -13568,7 +13758,8 @@
             "createOnly": [
                 "addonName",
                 "clusterName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:eks:Cluster": {
             "cf": "AWS::EKS::Cluster",
@@ -13684,7 +13875,8 @@
                 "resourcesVpcConfig/SecurityGroupIds",
                 "resourcesVpcConfig/SubnetIds",
                 "roleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:eks:FargateProfile": {
             "cf": "AWS::EKS::FargateProfile",
@@ -13772,7 +13964,8 @@
                 "podExecutionRoleArn",
                 "selectors",
                 "subnets"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:eks:IdentityProviderConfig": {
             "cf": "AWS::EKS::IdentityProviderConfig",
@@ -13840,7 +14033,8 @@
                 "identityProviderConfigName",
                 "oidc",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:eks:Nodegroup": {
             "cf": "AWS::EKS::Nodegroup",
@@ -14032,7 +14226,8 @@
                 "nodegroupName",
                 "remoteAccess",
                 "subnets"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:elasticache:GlobalReplicationGroup": {
             "cf": "AWS::ElastiCache::GlobalReplicationGroup",
@@ -14134,7 +14329,8 @@
             },
             "required": [
                 "members"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:elasticache:User": {
             "cf": "AWS::ElastiCache::User",
@@ -14215,7 +14411,8 @@
                 "engine",
                 "userId",
                 "userName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:elasticache:UserGroup": {
             "cf": "AWS::ElastiCache::UserGroup",
@@ -14268,7 +14465,8 @@
             "createOnly": [
                 "engine",
                 "userGroupId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:elasticloadbalancingv2:Listener": {
             "cf": "AWS::ElasticLoadBalancingV2::Listener",
@@ -14345,7 +14543,8 @@
             ],
             "createOnly": [
                 "loadBalancerArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:elasticloadbalancingv2:ListenerRule": {
             "cf": "AWS::ElasticLoadBalancingV2::ListenerRule",
@@ -14403,7 +14602,8 @@
             ],
             "createOnly": [
                 "listenerArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:emr:Studio": {
             "cf": "AWS::EMR::Studio",
@@ -14560,7 +14760,8 @@
                 "userRole",
                 "vpcId",
                 "workspaceSecurityGroupId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:emr:StudioSessionMapping": {
             "cf": "AWS::EMR::StudioSessionMapping",
@@ -14610,7 +14811,8 @@
                 "identityName",
                 "identityType",
                 "studioId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:emrcontainers:VirtualCluster": {
             "cf": "AWS::EMRContainers::VirtualCluster",
@@ -14662,7 +14864,8 @@
             "createOnly": [
                 "containerProvider",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:events:ApiDestination": {
             "cf": "AWS::Events::ApiDestination",
@@ -14728,7 +14931,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:events:Archive": {
             "cf": "AWS::Events::Archive",
@@ -14780,7 +14984,8 @@
             "createOnly": [
                 "archiveName",
                 "sourceArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:events:Connection": {
             "cf": "AWS::Events::Connection",
@@ -14835,7 +15040,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:events:Endpoint": {
             "cf": "AWS::Events::Endpoint",
@@ -14911,7 +15117,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:eventschemas:RegistryPolicy": {
             "cf": "AWS::EventSchemas::RegistryPolicy",
@@ -14940,7 +15147,8 @@
             "required": [
                 "policy",
                 "registryName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:evidently:Experiment": {
             "cf": "AWS::Evidently::Experiment",
@@ -15047,7 +15255,8 @@
             "createOnly": [
                 "name",
                 "project"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:evidently:Feature": {
             "cf": "AWS::Evidently::Feature",
@@ -15138,7 +15347,8 @@
             "createOnly": [
                 "name",
                 "project"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:evidently:Launch": {
             "cf": "AWS::Evidently::Launch",
@@ -15244,7 +15454,8 @@
             "createOnly": [
                 "name",
                 "project"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:evidently:Project": {
             "cf": "AWS::Evidently::Project",
@@ -15294,7 +15505,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:finspace:Environment": {
             "cf": "AWS::FinSpace::Environment",
@@ -15395,7 +15607,8 @@
                 "dataBundles",
                 "kmsKeyId",
                 "superuserParameters"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:fis:ExperimentTemplate": {
             "cf": "AWS::FIS::ExperimentTemplate",
@@ -15460,7 +15673,8 @@
             ],
             "createOnly": [
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:fms:NotificationChannel": {
             "cf": "AWS::FMS::NotificationChannel",
@@ -15483,7 +15697,8 @@
             "required": [
                 "snsRoleName",
                 "snsTopicArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:fms:Policy": {
             "cf": "AWS::FMS::Policy",
@@ -15594,7 +15809,8 @@
                 "remediationEnabled",
                 "resourceType",
                 "securityServicePolicyData"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:forecast:Dataset": {
             "cf": "AWS::Forecast::Dataset",
@@ -15673,7 +15889,8 @@
             ],
             "createOnly": [
                 "datasetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:forecast:DatasetGroup": {
             "cf": "AWS::Forecast::DatasetGroup",
@@ -15739,7 +15956,8 @@
             ],
             "createOnly": [
                 "datasetGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:frauddetector:Detector": {
             "cf": "AWS::FraudDetector::Detector",
@@ -15848,7 +16066,8 @@
             ],
             "createOnly": [
                 "detectorId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:frauddetector:EntityType": {
             "cf": "AWS::FraudDetector::EntityType",
@@ -15905,7 +16124,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:frauddetector:EventType": {
             "cf": "AWS::FraudDetector::EventType",
@@ -16003,7 +16223,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:frauddetector:Label": {
             "cf": "AWS::FraudDetector::Label",
@@ -16060,7 +16281,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:frauddetector:Outcome": {
             "cf": "AWS::FraudDetector::Outcome",
@@ -16117,7 +16339,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:frauddetector:Variable": {
             "cf": "AWS::FraudDetector::Variable",
@@ -16209,7 +16432,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:gamelift:Alias": {
             "cf": "AWS::GameLift::Alias",
@@ -16252,7 +16476,8 @@
             },
             "required": [
                 "routingStrategy"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:gamelift:Fleet": {
             "cf": "AWS::GameLift::Fleet",
@@ -16480,7 +16705,8 @@
                 "scriptId",
                 "serverLaunchParameters",
                 "serverLaunchPath"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:gamelift:GameServerGroup": {
             "cf": "AWS::GameLift::GameServerGroup",
@@ -16617,7 +16843,8 @@
                 "instanceDefinitions",
                 "launchTemplate",
                 "roleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:globalaccelerator:Accelerator": {
             "cf": "AWS::GlobalAccelerator::Accelerator",
@@ -16687,7 +16914,8 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 64
-            }
+            },
+            "isSupported": true
         },
         "aws-native:globalaccelerator:EndpointGroup": {
             "cf": "AWS::GlobalAccelerator::EndpointGroup",
@@ -16794,7 +17022,8 @@
             "createOnly": [
                 "endpointGroupRegion",
                 "listenerArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:globalaccelerator:Listener": {
             "cf": "AWS::GlobalAccelerator::Listener",
@@ -16849,7 +17078,8 @@
             ],
             "createOnly": [
                 "acceleratorArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:glue:Registry": {
             "cf": "AWS::Glue::Registry",
@@ -16898,7 +17128,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:glue:Schema": {
             "cf": "AWS::Glue::Schema",
@@ -16995,7 +17226,8 @@
                 "name",
                 "registry",
                 "schemaDefinition"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:glue:SchemaVersion": {
             "cf": "AWS::Glue::SchemaVersion",
@@ -17028,7 +17260,8 @@
             "createOnly": [
                 "schema",
                 "schemaDefinition"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:glue:SchemaVersionMetadata": {
             "cf": "AWS::Glue::SchemaVersionMetadata",
@@ -17069,7 +17302,8 @@
                 "key",
                 "schemaVersionId",
                 "value"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:greengrassv2:ComponentVersion": {
             "cf": "AWS::GreengrassV2::ComponentVersion",
@@ -17112,7 +17346,8 @@
             "createOnly": [
                 "inlineRecipe",
                 "lambdaFunction"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:groundstation:Config": {
             "cf": "AWS::GroundStation::Config",
@@ -17155,7 +17390,8 @@
             },
             "required": [
                 "configData"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:groundstation:DataflowEndpointGroup": {
             "cf": "AWS::GroundStation::DataflowEndpointGroup",
@@ -17192,7 +17428,8 @@
             },
             "required": [
                 "endpointDetails"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:groundstation:MissionProfile": {
             "cf": "AWS::GroundStation::MissionProfile",
@@ -17275,7 +17512,8 @@
                 "dataflowEdges",
                 "minimumViableContactDurationSeconds",
                 "trackingConfigArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:healthlake:FHIRDatastore": {
             "cf": "AWS::HealthLake::FHIRDatastore",
@@ -17343,7 +17581,8 @@
                 "kmsEncryptionConfig",
                 "preloadDataConfig",
                 "sseConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iam:InstanceProfile": {
             "cf": "AWS::IAM::InstanceProfile",
@@ -17394,7 +17633,8 @@
             "createOnly": [
                 "instanceProfileName",
                 "path"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iam:OIDCProvider": {
             "cf": "AWS::IAM::OIDCProvider",
@@ -17453,7 +17693,8 @@
             ],
             "createOnly": [
                 "url"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iam:Role": {
             "cf": "AWS::IAM::Role",
@@ -17569,7 +17810,8 @@
             "createOnly": [
                 "path",
                 "roleName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iam:SAMLProvider": {
             "cf": "AWS::IAM::SAMLProvider",
@@ -17615,7 +17857,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iam:ServerCertificate": {
             "cf": "AWS::IAM::ServerCertificate",
@@ -17679,7 +17922,8 @@
                 "certificateChain",
                 "privateKey",
                 "serverCertificateName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iam:VirtualMFADevice": {
             "cf": "AWS::IAM::VirtualMFADevice",
@@ -17733,7 +17977,8 @@
                 "base32StringSeed",
                 "path",
                 "virtualMfaDeviceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:Component": {
             "cf": "AWS::ImageBuilder::Component",
@@ -17857,7 +18102,8 @@
                 "tags",
                 "uri",
                 "version"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:ContainerRecipe": {
             "cf": "AWS::ImageBuilder::ContainerRecipe",
@@ -18014,7 +18260,8 @@
                 "targetRepository",
                 "version",
                 "workingDirectory"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:DistributionConfiguration": {
             "cf": "AWS::ImageBuilder::DistributionConfiguration",
@@ -18072,7 +18319,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:Image": {
             "cf": "AWS::ImageBuilder::Image",
@@ -18160,7 +18408,8 @@
                 "imageTestsConfiguration",
                 "infrastructureConfigurationArn",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:ImagePipeline": {
             "cf": "AWS::ImageBuilder::ImagePipeline",
@@ -18265,7 +18514,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:ImageRecipe": {
             "cf": "AWS::ImageBuilder::ImageRecipe",
@@ -18378,7 +18628,8 @@
                 "tags",
                 "version",
                 "workingDirectory"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:imagebuilder:InfrastructureConfiguration": {
             "cf": "AWS::ImageBuilder::InfrastructureConfiguration",
@@ -18514,7 +18765,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:index:ExtensionResource": {
             "cf": "",
@@ -18571,7 +18823,8 @@
             },
             "createOnly": [
                 "assessmentTargetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:inspector:AssessmentTemplate": {
             "cf": "AWS::Inspector::AssessmentTemplate",
@@ -18638,7 +18891,8 @@
                 "durationInSeconds",
                 "rulesPackageArns",
                 "userAttributesForFindings"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:inspector:ResourceGroup": {
             "cf": "AWS::Inspector::ResourceGroup",
@@ -18666,7 +18920,8 @@
             ],
             "createOnly": [
                 "resourceGroupTags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:inspectorv2:Filter": {
             "cf": "AWS::InspectorV2::Filter",
@@ -18718,7 +18973,8 @@
             "required": [
                 "filterAction",
                 "filterCriteria"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:AccountAuditConfiguration": {
             "cf": "AWS::IoT::AccountAuditConfiguration",
@@ -18761,7 +19017,8 @@
             ],
             "createOnly": [
                 "accountId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:Authorizer": {
             "cf": "AWS::IoT::Authorizer",
@@ -18837,7 +19094,8 @@
             "createOnly": [
                 "authorizerName",
                 "signingDisabled"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:Certificate": {
             "cf": "AWS::IoT::Certificate",
@@ -18886,7 +19144,8 @@
                 "certificateMode",
                 "certificatePem",
                 "certificateSigningRequest"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:CustomMetric": {
             "cf": "AWS::IoT::CustomMetric",
@@ -18942,7 +19201,8 @@
             "createOnly": [
                 "metricName",
                 "metricType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:Dimension": {
             "cf": "AWS::IoT::Dimension",
@@ -19010,7 +19270,8 @@
             "createOnly": [
                 "name",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:DomainConfiguration": {
             "cf": "AWS::IoT::DomainConfiguration",
@@ -19101,7 +19362,8 @@
                 "serverCertificateArns",
                 "serviceType",
                 "validationCertificateArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:FleetMetric": {
             "cf": "AWS::IoT::FleetMetric",
@@ -19214,7 +19476,8 @@
             ],
             "createOnly": [
                 "metricName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:JobTemplate": {
             "cf": "AWS::IoT::JobTemplate",
@@ -19330,7 +19593,8 @@
                 "presignedUrlConfig",
                 "tags",
                 "timeoutConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:Logging": {
             "cf": "AWS::IoT::Logging",
@@ -19369,7 +19633,8 @@
             ],
             "createOnly": [
                 "accountId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:MitigationAction": {
             "cf": "AWS::IoT::MitigationAction",
@@ -19423,7 +19688,8 @@
             ],
             "createOnly": [
                 "actionName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:ProvisioningTemplate": {
             "cf": "AWS::IoT::ProvisioningTemplate",
@@ -19488,7 +19754,8 @@
             ],
             "createOnly": [
                 "templateName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:ResourceSpecificLogging": {
             "cf": "AWS::IoT::ResourceSpecificLogging",
@@ -19532,7 +19799,8 @@
             "createOnly": [
                 "targetName",
                 "targetType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:ScheduledAudit": {
             "cf": "AWS::IoT::ScheduledAudit",
@@ -19615,7 +19883,8 @@
             ],
             "createOnly": [
                 "scheduledAuditName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:SecurityProfile": {
             "cf": "AWS::IoT::SecurityProfile",
@@ -19714,7 +19983,8 @@
             },
             "createOnly": [
                 "securityProfileName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:TopicRule": {
             "cf": "AWS::IoT::TopicRule",
@@ -19754,7 +20024,8 @@
             ],
             "createOnly": [
                 "ruleName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iot:TopicRuleDestination": {
             "cf": "AWS::IoT::TopicRuleDestination",
@@ -19797,7 +20068,8 @@
             "createOnly": [
                 "httpUrlProperties",
                 "vpcProperties"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotanalytics:Channel": {
             "cf": "AWS::IoTAnalytics::Channel",
@@ -19842,7 +20114,8 @@
             },
             "createOnly": [
                 "channelName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotanalytics:Dataset": {
             "cf": "AWS::IoTAnalytics::Dataset",
@@ -19938,7 +20211,8 @@
             ],
             "createOnly": [
                 "datasetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotanalytics:Datastore": {
             "cf": "AWS::IoTAnalytics::Datastore",
@@ -19995,7 +20269,8 @@
             },
             "createOnly": [
                 "datastoreName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotanalytics:Pipeline": {
             "cf": "AWS::IoTAnalytics::Pipeline",
@@ -20043,7 +20318,8 @@
             ],
             "createOnly": [
                 "pipelineName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotcoredeviceadvisor:SuiteDefinition": {
             "cf": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
@@ -20085,7 +20361,8 @@
             },
             "required": [
                 "suiteDefinitionConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotevents:AlarmModel": {
             "cf": "AWS::IoTEvents::AlarmModel",
@@ -20177,7 +20454,8 @@
             "createOnly": [
                 "alarmModelName",
                 "key"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotevents:DetectorModel": {
             "cf": "AWS::IoTEvents::DetectorModel",
@@ -20257,7 +20535,8 @@
             "createOnly": [
                 "detectorModelName",
                 "key"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotevents:Input": {
             "cf": "AWS::IoTEvents::Input",
@@ -20311,7 +20590,8 @@
             ],
             "createOnly": [
                 "inputName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotfleethub:Application": {
             "cf": "AWS::IoTFleetHub::Application",
@@ -20396,7 +20676,8 @@
             },
             "required": [
                 "roleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotsitewise:AccessPolicy": {
             "cf": "AWS::IoTSiteWise::AccessPolicy",
@@ -20440,7 +20721,8 @@
                 "accessPolicyIdentity",
                 "accessPolicyPermission",
                 "accessPolicyResource"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotsitewise:Asset": {
             "cf": "AWS::IoTSiteWise::Asset",
@@ -20515,7 +20797,8 @@
             },
             "required": [
                 "assetModelId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotsitewise:AssetModel": {
             "cf": "AWS::IoTSiteWise::AssetModel",
@@ -20605,7 +20888,8 @@
             },
             "autoNamingSpec": {
                 "sdkName": "assetModelName"
-            }
+            },
+            "isSupported": true
         },
         "aws-native:iotsitewise:Dashboard": {
             "cf": "AWS::IoTSiteWise::Dashboard",
@@ -20676,7 +20960,8 @@
             ],
             "createOnly": [
                 "projectId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotsitewise:Gateway": {
             "cf": "AWS::IoTSiteWise::Gateway",
@@ -20740,7 +21025,8 @@
             ],
             "createOnly": [
                 "gatewayPlatform"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotsitewise:Portal": {
             "cf": "AWS::IoTSiteWise::Portal",
@@ -20843,7 +21129,8 @@
             ],
             "createOnly": [
                 "portalAuthMode"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotsitewise:Project": {
             "cf": "AWS::IoTSiteWise::Project",
@@ -20919,7 +21206,8 @@
             ],
             "createOnly": [
                 "portalId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iottwinmaker:ComponentType": {
             "cf": "AWS::IoTTwinMaker::ComponentType",
@@ -21028,7 +21316,8 @@
             "createOnly": [
                 "componentTypeId",
                 "workspaceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iottwinmaker:Entity": {
             "cf": "AWS::IoTTwinMaker::Entity",
@@ -21123,7 +21412,8 @@
             "createOnly": [
                 "entityId",
                 "workspaceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iottwinmaker:Scene": {
             "cf": "AWS::IoTTwinMaker::Scene",
@@ -21205,7 +21495,8 @@
             "createOnly": [
                 "sceneId",
                 "workspaceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iottwinmaker:Workspace": {
             "cf": "AWS::IoTTwinMaker::Workspace",
@@ -21272,7 +21563,8 @@
             ],
             "createOnly": [
                 "workspaceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotwireless:Destination": {
             "cf": "AWS::IoTWireless::Destination",
@@ -21349,7 +21641,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotwireless:DeviceProfile": {
             "cf": "AWS::IoTWireless::DeviceProfile",
@@ -21394,7 +21687,8 @@
             "autoNamingSpec": {
                 "sdkName": "name",
                 "maxLength": 256
-            }
+            },
+            "isSupported": true
         },
         "aws-native:iotwireless:FuotaTask": {
             "cf": "AWS::IoTWireless::FuotaTask",
@@ -21504,7 +21798,8 @@
                 "firmwareUpdateImage",
                 "firmwareUpdateRole",
                 "loRaWAN"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotwireless:MulticastGroup": {
             "cf": "AWS::IoTWireless::MulticastGroup",
@@ -21580,7 +21875,8 @@
             },
             "required": [
                 "loRaWAN"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotwireless:ServiceProfile": {
             "cf": "AWS::IoTWireless::ServiceProfile",
@@ -21625,7 +21921,8 @@
             "autoNamingSpec": {
                 "sdkName": "name",
                 "maxLength": 256
-            }
+            },
+            "isSupported": true
         },
         "aws-native:iotwireless:TaskDefinition": {
             "cf": "AWS::IoTWireless::TaskDefinition",
@@ -21698,7 +21995,8 @@
             },
             "required": [
                 "autoCreateTasks"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotwireless:WirelessDevice": {
             "cf": "AWS::IoTWireless::WirelessDevice",
@@ -21791,7 +22089,8 @@
             "required": [
                 "destinationName",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:iotwireless:WirelessGateway": {
             "cf": "AWS::IoTWireless::WirelessGateway",
@@ -21867,7 +22166,8 @@
             },
             "required": [
                 "loRaWAN"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ivs:Channel": {
             "cf": "AWS::IVS::Channel",
@@ -21944,7 +22244,8 @@
             "autoNamingSpec": {
                 "sdkName": "name",
                 "maxLength": 128
-            }
+            },
+            "isSupported": true
         },
         "aws-native:ivs:PlaybackKeyPair": {
             "cf": "AWS::IVS::PlaybackKeyPair",
@@ -22000,7 +22301,8 @@
             "createOnly": [
                 "name",
                 "publicKeyMaterial"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ivs:RecordingConfiguration": {
             "cf": "AWS::IVS::RecordingConfiguration",
@@ -22065,7 +22367,8 @@
                 "thumbnailConfiguration",
                 "thumbnailConfiguration/RecordingMode",
                 "thumbnailConfiguration/TargetIntervalSeconds"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ivs:StreamKey": {
             "cf": "AWS::IVS::StreamKey",
@@ -22108,7 +22411,8 @@
             ],
             "createOnly": [
                 "channelArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kafkaconnect:Connector": {
             "cf": "AWS::KafkaConnect::Connector",
@@ -22237,7 +22541,8 @@
                 "plugins",
                 "serviceExecutionRoleArn",
                 "workerConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kendra:DataSource": {
             "cf": "AWS::Kendra::DataSource",
@@ -22319,7 +22624,8 @@
             ],
             "createOnly": [
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kendra:Faq": {
             "cf": "AWS::Kendra::Faq",
@@ -22407,7 +22713,8 @@
                 "name",
                 "roleArn",
                 "s3Path"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kendra:Index": {
             "cf": "AWS::Kendra::Index",
@@ -22516,7 +22823,8 @@
             "createOnly": [
                 "edition",
                 "serverSideEncryptionConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kinesis:Stream": {
             "cf": "AWS::Kinesis::Stream",
@@ -22589,7 +22897,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kinesisfirehose:DeliveryStream": {
             "cf": "AWS::KinesisFirehose::DeliveryStream",
@@ -22689,7 +22998,8 @@
                 "deliveryStreamType",
                 "elasticsearchDestinationConfiguration/VpcConfiguration",
                 "kinesisStreamSourceConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kinesisvideo:SignalingChannel": {
             "cf": "AWS::KinesisVideo::SignalingChannel",
@@ -22746,7 +23056,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kinesisvideo:Stream": {
             "cf": "AWS::KinesisVideo::Stream",
@@ -22819,7 +23130,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kms:Alias": {
             "cf": "AWS::KMS::Alias",
@@ -22853,7 +23165,8 @@
             ],
             "createOnly": [
                 "aliasName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kms:Key": {
             "cf": "AWS::KMS::Key",
@@ -22947,7 +23260,8 @@
             },
             "required": [
                 "keyPolicy"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:kms:ReplicaKey": {
             "cf": "AWS::KMS::ReplicaKey",
@@ -23021,7 +23335,8 @@
             ],
             "createOnly": [
                 "primaryKeyArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lambda:CodeSigningConfig": {
             "cf": "AWS::Lambda::CodeSigningConfig",
@@ -23063,7 +23378,8 @@
             },
             "required": [
                 "allowedPublishers"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lambda:EventSourceMapping": {
             "cf": "AWS::Lambda::EventSourceMapping",
@@ -23255,7 +23571,8 @@
                 "selfManagedEventSource",
                 "startingPosition",
                 "startingPositionTimestamp"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lambda:Function": {
             "cf": "AWS::Lambda::Function",
@@ -23475,7 +23792,8 @@
             ],
             "createOnly": [
                 "functionName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lambda:Url": {
             "cf": "AWS::Lambda::Url",
@@ -23528,7 +23846,8 @@
             "createOnly": [
                 "qualifier",
                 "targetFunctionArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lex:Bot": {
             "cf": "AWS::Lex::Bot",
@@ -23642,7 +23961,8 @@
                 "dataPrivacy",
                 "idleSessionTTLInSeconds",
                 "roleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lex:BotAlias": {
             "cf": "AWS::Lex::BotAlias",
@@ -23731,7 +24051,8 @@
             ],
             "createOnly": [
                 "botId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lex:BotVersion": {
             "cf": "AWS::Lex::BotVersion",
@@ -23777,7 +24098,8 @@
             ],
             "createOnly": [
                 "botId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lex:ResourcePolicy": {
             "cf": "AWS::Lex::ResourcePolicy",
@@ -23803,7 +24125,8 @@
             "required": [
                 "policy",
                 "resourceArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:licensemanager:Grant": {
             "cf": "AWS::LicenseManager::Grant",
@@ -23875,7 +24198,8 @@
             },
             "autoNamingSpec": {
                 "sdkName": "grantName"
-            }
+            },
+            "isSupported": true
         },
         "aws-native:licensemanager:License": {
             "cf": "AWS::LicenseManager::License",
@@ -23989,7 +24313,8 @@
                 "issuer",
                 "productName",
                 "validity"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Alarm": {
             "cf": "AWS::Lightsail::Alarm",
@@ -24118,7 +24443,8 @@
                 "alarmName",
                 "metricName",
                 "monitoredResourceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Bucket": {
             "cf": "AWS::Lightsail::Bucket",
@@ -24219,7 +24545,8 @@
             ],
             "createOnly": [
                 "bucketName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Certificate": {
             "cf": "AWS::Lightsail::Certificate",
@@ -24288,7 +24615,8 @@
                 "certificateName",
                 "domainName",
                 "subjectAlternativeNames"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Container": {
             "cf": "AWS::Lightsail::Container",
@@ -24378,7 +24706,8 @@
             ],
             "createOnly": [
                 "serviceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Database": {
             "cf": "AWS::Lightsail::Database",
@@ -24535,7 +24864,8 @@
                 "relationalDatabaseBlueprintId",
                 "relationalDatabaseBundleId",
                 "relationalDatabaseName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Disk": {
             "cf": "AWS::Lightsail::Disk",
@@ -24645,7 +24975,8 @@
                 "availabilityZone",
                 "diskName",
                 "sizeInGb"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:Instance": {
             "cf": "AWS::Lightsail::Instance",
@@ -24798,7 +25129,8 @@
                 "blueprintId",
                 "bundleId",
                 "instanceName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:LoadBalancer": {
             "cf": "AWS::Lightsail::LoadBalancer",
@@ -24895,7 +25227,8 @@
                 "instancePort",
                 "ipAddressType",
                 "loadBalancerName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:LoadBalancerTlsCertificate": {
             "cf": "AWS::Lightsail::LoadBalancerTlsCertificate",
@@ -24966,7 +25299,8 @@
                 "certificateDomainName",
                 "certificateName",
                 "loadBalancerName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lightsail:StaticIp": {
             "cf": "AWS::Lightsail::StaticIp",
@@ -25006,7 +25340,8 @@
             },
             "createOnly": [
                 "staticIpName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:location:GeofenceCollection": {
             "cf": "AWS::Location::GeofenceCollection",
@@ -25064,7 +25399,8 @@
                 "description",
                 "pricingPlan",
                 "pricingPlanDataSource"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:location:Map": {
             "cf": "AWS::Location::Map",
@@ -25124,7 +25460,8 @@
                 "description",
                 "mapName",
                 "pricingPlan"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:location:PlaceIndex": {
             "cf": "AWS::Location::PlaceIndex",
@@ -25184,7 +25521,8 @@
                 "description",
                 "indexName",
                 "pricingPlan"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:location:RouteCalculator": {
             "cf": "AWS::Location::RouteCalculator",
@@ -25237,7 +25575,8 @@
                 "dataSource",
                 "description",
                 "pricingPlan"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:location:Tracker": {
             "cf": "AWS::Location::Tracker",
@@ -25305,7 +25644,8 @@
                 "pricingPlan",
                 "pricingPlanDataSource",
                 "trackerName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:location:TrackerConsumer": {
             "cf": "AWS::Location::TrackerConsumer",
@@ -25332,7 +25672,8 @@
             "createOnly": [
                 "consumerArn",
                 "trackerName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:logs:LogGroup": {
             "cf": "AWS::Logs::LogGroup",
@@ -25389,7 +25730,8 @@
             },
             "createOnly": [
                 "logGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:logs:QueryDefinition": {
             "cf": "AWS::Logs::QueryDefinition",
@@ -25438,7 +25780,8 @@
             },
             "required": [
                 "queryString"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:logs:ResourcePolicy": {
             "cf": "AWS::Logs::ResourcePolicy",
@@ -25468,7 +25811,8 @@
             ],
             "createOnly": [
                 "policyName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lookoutmetrics:Alert": {
             "cf": "AWS::LookoutMetrics::Alert",
@@ -25536,7 +25880,8 @@
                 "alertName",
                 "alertSensitivityThreshold",
                 "anomalyDetectorArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lookoutmetrics:AnomalyDetector": {
             "cf": "AWS::LookoutMetrics::AnomalyDetector",
@@ -25605,7 +25950,8 @@
             "createOnly": [
                 "anomalyDetectorName",
                 "metricSource"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:lookoutvision:Project": {
             "cf": "AWS::LookoutVision::Project",
@@ -25627,7 +25973,8 @@
             },
             "createOnly": [
                 "projectName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:macie:CustomDataIdentifier": {
             "cf": "AWS::Macie::CustomDataIdentifier",
@@ -25712,7 +26059,8 @@
                 "maximumMatchDistance",
                 "name",
                 "regex"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:macie:FindingsFilter": {
             "cf": "AWS::Macie::FindingsFilter",
@@ -25776,7 +26124,8 @@
             },
             "required": [
                 "findingCriteria"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:macie:Session": {
             "cf": "AWS::Macie::Session",
@@ -25807,7 +26156,8 @@
                     "$ref": "#/types/aws-native:macie:SessionStatus",
                     "description": "A enumeration value that specifies the status of the Macie Session."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:mediaconnect:Flow": {
             "cf": "AWS::MediaConnect::Flow",
@@ -25865,7 +26215,8 @@
                 "availabilityZone",
                 "name",
                 "source/Name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediaconnect:FlowEntitlement": {
             "cf": "AWS::MediaConnect::FlowEntitlement",
@@ -25950,7 +26301,8 @@
             "createOnly": [
                 "dataTransferSubscriberFeePercent",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediaconnect:FlowOutput": {
             "cf": "AWS::MediaConnect::FlowOutput",
@@ -26089,7 +26441,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediaconnect:FlowSource": {
             "cf": "AWS::MediaConnect::FlowSource",
@@ -26213,7 +26566,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediaconnect:FlowVpcInterface": {
             "cf": "AWS::MediaConnect::FlowVpcInterface",
@@ -26286,7 +26640,8 @@
             "createOnly": [
                 "flowArn",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediapackage:Asset": {
             "cf": "AWS::MediaPackage::Asset",
@@ -26359,7 +26714,8 @@
                 "packagingGroupId",
                 "sourceArn",
                 "sourceRoleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediapackage:Channel": {
             "cf": "AWS::MediaPackage::Channel",
@@ -26416,7 +26772,8 @@
             "createOnly": [
                 "id",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediapackage:OriginEndpoint": {
             "cf": "AWS::MediaPackage::OriginEndpoint",
@@ -26543,7 +26900,8 @@
             ],
             "createOnly": [
                 "id"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediapackage:PackagingConfiguration": {
             "cf": "AWS::MediaPackage::PackagingConfiguration",
@@ -26614,7 +26972,8 @@
             ],
             "createOnly": [
                 "id"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediapackage:PackagingGroup": {
             "cf": "AWS::MediaPackage::PackagingGroup",
@@ -26663,7 +27022,8 @@
             "createOnly": [
                 "id",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mediatailor:PlaybackConfiguration": {
             "cf": "AWS::MediaTailor::PlaybackConfiguration",
@@ -26808,7 +27168,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:memorydb:ACL": {
             "cf": "AWS::MemoryDB::ACL",
@@ -26865,7 +27226,8 @@
             },
             "createOnly": [
                 "aCLName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:memorydb:Cluster": {
             "cf": "AWS::MemoryDB::Cluster",
@@ -27109,7 +27471,8 @@
                 "snapshotArns",
                 "snapshotName",
                 "tLSEnabled"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:memorydb:ParameterGroup": {
             "cf": "AWS::MemoryDB::ParameterGroup",
@@ -27177,7 +27540,8 @@
                 "description",
                 "family",
                 "parameterGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:memorydb:SubnetGroup": {
             "cf": "AWS::MemoryDB::SubnetGroup",
@@ -27241,7 +27605,8 @@
             ],
             "createOnly": [
                 "subnetGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:memorydb:User": {
             "cf": "AWS::MemoryDB::User",
@@ -27302,7 +27667,8 @@
             ],
             "createOnly": [
                 "userName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:msk:BatchScramSecret": {
             "cf": "AWS::MSK::BatchScramSecret",
@@ -27333,7 +27699,8 @@
             ],
             "createOnly": [
                 "clusterArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:msk:Cluster": {
             "cf": "AWS::MSK::Cluster",
@@ -27438,7 +27805,8 @@
                 "encryptionInfo/EncryptionAtRest",
                 "encryptionInfo/EncryptionInTransit/InCluster",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:msk:Configuration": {
             "cf": "AWS::MSK::Configuration",
@@ -27488,7 +27856,8 @@
             "createOnly": [
                 "kafkaVersionsList",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:mwaa:Environment": {
             "cf": "AWS::MWAA::Environment",
@@ -27633,7 +28002,8 @@
                 "kmsKey",
                 "name",
                 "networkConfiguration/SubnetIds"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkfirewall:Firewall": {
             "cf": "AWS::NetworkFirewall::Firewall",
@@ -27732,7 +28102,8 @@
             "createOnly": [
                 "firewallName",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkfirewall:FirewallPolicy": {
             "cf": "AWS::NetworkFirewall::FirewallPolicy",
@@ -27796,7 +28167,8 @@
             ],
             "createOnly": [
                 "firewallPolicyName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkfirewall:LoggingConfiguration": {
             "cf": "AWS::NetworkFirewall::LoggingConfiguration",
@@ -27839,7 +28211,8 @@
             "createOnly": [
                 "firewallArn",
                 "firewallName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkfirewall:RuleGroup": {
             "cf": "AWS::NetworkFirewall::RuleGroup",
@@ -27918,7 +28291,8 @@
                 "capacity",
                 "ruleGroupName",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkmanager:CustomerGatewayAssociation": {
             "cf": "AWS::NetworkManager::CustomerGatewayAssociation",
@@ -27968,7 +28342,8 @@
                 "deviceId",
                 "globalNetworkId",
                 "linkId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkmanager:Device": {
             "cf": "AWS::NetworkManager::Device",
@@ -28067,7 +28442,8 @@
             ],
             "createOnly": [
                 "globalNetworkId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkmanager:GlobalNetwork": {
             "cf": "AWS::NetworkManager::GlobalNetwork",
@@ -28100,7 +28476,8 @@
                     },
                     "description": "The tags for the global network."
                 }
-            }
+            },
+            "isSupported": true
         },
         "aws-native:networkmanager:Link": {
             "cf": "AWS::NetworkManager::Link",
@@ -28186,7 +28563,8 @@
             "createOnly": [
                 "globalNetworkId",
                 "siteId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkmanager:LinkAssociation": {
             "cf": "AWS::NetworkManager::LinkAssociation",
@@ -28227,7 +28605,8 @@
                 "deviceId",
                 "globalNetworkId",
                 "linkId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkmanager:Site": {
             "cf": "AWS::NetworkManager::Site",
@@ -28286,7 +28665,8 @@
             ],
             "createOnly": [
                 "globalNetworkId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:networkmanager:TransitGatewayRegistration": {
             "cf": "AWS::NetworkManager::TransitGatewayRegistration",
@@ -28317,7 +28697,8 @@
             "createOnly": [
                 "globalNetworkId",
                 "transitGatewayArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:nimblestudio:LaunchProfile": {
             "cf": "AWS::NimbleStudio::LaunchProfile",
@@ -28422,7 +28803,8 @@
                 "ec2SubnetIds",
                 "studioId",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:nimblestudio:StreamingImage": {
             "cf": "AWS::NimbleStudio::StreamingImage",
@@ -28501,7 +28883,8 @@
                 "ec2ImageId",
                 "studioId",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:nimblestudio:Studio": {
             "cf": "AWS::NimbleStudio::Studio",
@@ -28581,7 +28964,8 @@
             "createOnly": [
                 "studioName",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:nimblestudio:StudioComponent": {
             "cf": "AWS::NimbleStudio::StudioComponent",
@@ -28694,7 +29078,8 @@
                 "studioId",
                 "subtype",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:opensearchservice:Domain": {
             "cf": "AWS::OpenSearchService::Domain",
@@ -28821,7 +29206,8 @@
             "createOnly": [
                 "advancedSecurityOptions",
                 "domainName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:opsworkscm:Server": {
             "cf": "AWS::OpsWorksCM::Server",
@@ -29011,7 +29397,8 @@
                 "serverName",
                 "serviceRoleArn",
                 "subnetIds"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:panorama:ApplicationInstance": {
             "cf": "AWS::Panorama::ApplicationInstance",
@@ -29124,7 +29511,8 @@
                 "manifestPayload",
                 "name",
                 "runtimeRoleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:panorama:Package": {
             "cf": "AWS::Panorama::Package",
@@ -29167,7 +29555,8 @@
             },
             "createOnly": [
                 "packageName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:panorama:PackageVersion": {
             "cf": "AWS::Panorama::PackageVersion",
@@ -29249,7 +29638,8 @@
                 "packageId",
                 "packageVersion",
                 "patchVersion"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:personalize:Dataset": {
             "cf": "AWS::Personalize::Dataset",
@@ -29314,7 +29704,8 @@
                 "datasetType",
                 "name",
                 "schemaArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:personalize:DatasetGroup": {
             "cf": "AWS::Personalize::DatasetGroup",
@@ -29368,7 +29759,8 @@
                 "kmsKeyArn",
                 "name",
                 "roleArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:personalize:Schema": {
             "cf": "AWS::Personalize::Schema",
@@ -29426,7 +29818,8 @@
                 "domain",
                 "name",
                 "schema"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:personalize:Solution": {
             "cf": "AWS::Personalize::Solution",
@@ -29507,7 +29900,8 @@
                 "performHPO",
                 "recipeArn",
                 "solutionConfig"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:pinpoint:InAppTemplate": {
             "cf": "AWS::Pinpoint::InAppTemplate",
@@ -29565,7 +29959,8 @@
             ],
             "createOnly": [
                 "templateName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:qldb:Stream": {
             "cf": "AWS::QLDB::Stream",
@@ -29642,7 +30037,8 @@
                 "ledgerName",
                 "roleArn",
                 "streamName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:quicksight:Analysis": {
             "cf": "AWS::QuickSight::Analysis",
@@ -29774,7 +30170,8 @@
             "createOnly": [
                 "analysisId",
                 "awsAccountId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:quicksight:Dashboard": {
             "cf": "AWS::QuickSight::Dashboard",
@@ -29896,7 +30293,8 @@
             "createOnly": [
                 "awsAccountId",
                 "dashboardId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:quicksight:DataSet": {
             "cf": "AWS::QuickSight::DataSet",
@@ -30045,7 +30443,8 @@
             "createOnly": [
                 "awsAccountId",
                 "dataSetId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:quicksight:DataSource": {
             "cf": "AWS::QuickSight::DataSource",
@@ -30175,7 +30574,8 @@
                 "awsAccountId",
                 "dataSourceId",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:quicksight:Template": {
             "cf": "AWS::QuickSight::Template",
@@ -30273,7 +30673,8 @@
             "createOnly": [
                 "awsAccountId",
                 "templateId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:quicksight:Theme": {
             "cf": "AWS::QuickSight::Theme",
@@ -30381,7 +30782,8 @@
             "createOnly": [
                 "awsAccountId",
                 "themeId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rds:DBProxy": {
             "cf": "AWS::RDS::DBProxy",
@@ -30515,7 +30917,8 @@
                 "dBProxyName",
                 "engineFamily",
                 "vpcSubnetIds"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rds:DBProxyEndpoint": {
             "cf": "AWS::RDS::DBProxyEndpoint",
@@ -30618,7 +31021,8 @@
                 "dBProxyName",
                 "targetRole",
                 "vpcSubnetIds"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rds:DBProxyTargetGroup": {
             "cf": "AWS::RDS::DBProxyTargetGroup",
@@ -30683,7 +31087,8 @@
             "createOnly": [
                 "dBProxyName",
                 "targetGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rds:GlobalCluster": {
             "cf": "AWS::RDS::GlobalCluster",
@@ -30745,7 +31150,8 @@
                 "globalClusterIdentifier",
                 "sourceDBClusterIdentifier",
                 "storageEncrypted"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:redshift:Cluster": {
             "cf": "AWS::Redshift::Cluster",
@@ -31174,7 +31580,8 @@
                 "ownerAccount",
                 "snapshotClusterIdentifier",
                 "snapshotIdentifier"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:redshift:EndpointAccess": {
             "cf": "AWS::Redshift::EndpointAccess",
@@ -31264,7 +31671,8 @@
                 "endpointName",
                 "resourceOwner",
                 "subnetGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:redshift:EndpointAuthorization": {
             "cf": "AWS::Redshift::EndpointAuthorization",
@@ -31352,7 +31760,8 @@
             "createOnly": [
                 "account",
                 "clusterIdentifier"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:redshift:EventSubscription": {
             "cf": "AWS::Redshift::EventSubscription",
@@ -31477,7 +31886,8 @@
             ],
             "createOnly": [
                 "subscriptionName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:redshift:ScheduledAction": {
             "cf": "AWS::Redshift::ScheduledAction",
@@ -31565,7 +31975,8 @@
             },
             "createOnly": [
                 "scheduledActionName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:refactorspaces:Application": {
             "cf": "AWS::RefactorSpaces::Application",
@@ -31652,7 +32063,8 @@
                 "name",
                 "proxyType",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:refactorspaces:Environment": {
             "cf": "AWS::RefactorSpaces::Environment",
@@ -31710,7 +32122,8 @@
                 "description",
                 "name",
                 "networkFabricType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:refactorspaces:Route": {
             "cf": "AWS::RefactorSpaces::Route",
@@ -31782,7 +32195,8 @@
                 "routeType",
                 "serviceIdentifier",
                 "uriPathRoute"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:refactorspaces:Service": {
             "cf": "AWS::RefactorSpaces::Service",
@@ -31876,7 +32290,8 @@
                 "name",
                 "urlEndpoint",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rekognition:Collection": {
             "cf": "AWS::Rekognition::Collection",
@@ -31912,7 +32327,8 @@
             ],
             "createOnly": [
                 "collectionId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rekognition:Project": {
             "cf": "AWS::Rekognition::Project",
@@ -31934,7 +32350,8 @@
             },
             "createOnly": [
                 "projectName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:resiliencehub:App": {
             "cf": "AWS::ResilienceHub::App",
@@ -32007,7 +32424,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:resiliencehub:ResiliencyPolicy": {
             "cf": "AWS::ResilienceHub::ResiliencyPolicy",
@@ -32067,7 +32485,8 @@
                 "policy",
                 "policyName",
                 "tier"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:resourcegroups:Group": {
             "cf": "AWS::ResourceGroups::Group",
@@ -32143,7 +32562,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:robomaker:Fleet": {
             "cf": "AWS::RoboMaker::Fleet",
@@ -32175,7 +32595,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:robomaker:Robot": {
             "cf": "AWS::RoboMaker::Robot",
@@ -32238,7 +32659,8 @@
                 "fleet",
                 "greengrassGroupId",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:robomaker:RobotApplication": {
             "cf": "AWS::RoboMaker::RobotApplication",
@@ -32309,7 +32731,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:robomaker:RobotApplicationVersion": {
             "cf": "AWS::RoboMaker::RobotApplicationVersion",
@@ -32343,7 +32766,8 @@
             "createOnly": [
                 "application",
                 "currentRevisionId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:robomaker:SimulationApplication": {
             "cf": "AWS::RoboMaker::SimulationApplication",
@@ -32433,7 +32857,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:robomaker:SimulationApplicationVersion": {
             "cf": "AWS::RoboMaker::SimulationApplicationVersion",
@@ -32467,7 +32892,8 @@
             "createOnly": [
                 "application",
                 "currentRevisionId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53:DNSSEC": {
             "cf": "AWS::Route53::DNSSEC",
@@ -32488,7 +32914,8 @@
             ],
             "createOnly": [
                 "hostedZoneId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53:HealthCheck": {
             "cf": "AWS::Route53::HealthCheck",
@@ -32528,7 +32955,8 @@
                 "healthCheckConfig/MeasureLatency",
                 "healthCheckConfig/RequestInterval",
                 "healthCheckConfig/Type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53:HostedZone": {
             "cf": "AWS::Route53::HostedZone",
@@ -32596,7 +33024,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53:KeySigningKey": {
             "cf": "AWS::Route53::KeySigningKey",
@@ -32648,7 +33077,8 @@
                 "hostedZoneId",
                 "keyManagementServiceArn",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoverycontrol:Cluster": {
             "cf": "AWS::Route53RecoveryControl::Cluster",
@@ -32701,7 +33131,8 @@
             "createOnly": [
                 "name",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoverycontrol:ControlPanel": {
             "cf": "AWS::Route53RecoveryControl::ControlPanel",
@@ -32763,7 +33194,8 @@
             "createOnly": [
                 "clusterArn",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoverycontrol:RoutingControl": {
             "cf": "AWS::Route53RecoveryControl::RoutingControl",
@@ -32811,7 +33243,8 @@
             "createOnly": [
                 "clusterArn",
                 "controlPanelArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoverycontrol:SafetyRule": {
             "cf": "AWS::Route53RecoveryControl::SafetyRule",
@@ -32880,7 +33313,8 @@
                 "controlPanelArn",
                 "ruleConfig",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoveryreadiness:Cell": {
             "cf": "AWS::Route53RecoveryReadiness::Cell",
@@ -32941,7 +33375,8 @@
             },
             "createOnly": [
                 "cellName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoveryreadiness:ReadinessCheck": {
             "cf": "AWS::Route53RecoveryReadiness::ReadinessCheck",
@@ -32990,7 +33425,8 @@
             },
             "createOnly": [
                 "readinessCheckName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoveryreadiness:RecoveryGroup": {
             "cf": "AWS::Route53RecoveryReadiness::RecoveryGroup",
@@ -33045,7 +33481,8 @@
             },
             "createOnly": [
                 "recoveryGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53recoveryreadiness:ResourceSet": {
             "cf": "AWS::Route53RecoveryReadiness::ResourceSet",
@@ -33111,7 +33548,8 @@
             "createOnly": [
                 "resourceSetName",
                 "resourceSetType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:FirewallDomainList": {
             "cf": "AWS::Route53Resolver::FirewallDomainList",
@@ -33200,7 +33638,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:FirewallRuleGroup": {
             "cf": "AWS::Route53Resolver::FirewallRuleGroup",
@@ -33287,7 +33726,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:FirewallRuleGroupAssociation": {
             "cf": "AWS::Route53Resolver::FirewallRuleGroupAssociation",
@@ -33389,7 +33829,8 @@
             "createOnly": [
                 "firewallRuleGroupId",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:ResolverConfig": {
             "cf": "AWS::Route53Resolver::ResolverConfig",
@@ -33428,7 +33869,8 @@
             "createOnly": [
                 "autodefinedReverseFlag",
                 "resourceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:ResolverDNSSECConfig": {
             "cf": "AWS::Route53Resolver::ResolverDNSSECConfig",
@@ -33454,7 +33896,8 @@
             },
             "createOnly": [
                 "resourceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:ResolverQueryLoggingConfig": {
             "cf": "AWS::Route53Resolver::ResolverQueryLoggingConfig",
@@ -33514,7 +33957,8 @@
             "createOnly": [
                 "destinationArn",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": {
             "cf": "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
@@ -33557,7 +34001,8 @@
             "createOnly": [
                 "resolverQueryLogConfigId",
                 "resourceId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:ResolverRule": {
             "cf": "AWS::Route53Resolver::ResolverRule",
@@ -33644,7 +34089,8 @@
             "createOnly": [
                 "domainName",
                 "ruleType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:route53resolver:ResolverRuleAssociation": {
             "cf": "AWS::Route53Resolver::ResolverRuleAssociation",
@@ -33691,7 +34137,8 @@
                 "name",
                 "resolverRuleId",
                 "vPCId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:rum:AppMonitor": {
             "cf": "AWS::RUM::AppMonitor",
@@ -33751,7 +34198,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3:AccessPoint": {
             "cf": "AWS::S3::AccessPoint",
@@ -33830,7 +34278,8 @@
                 "name",
                 "publicAccessBlockConfiguration",
                 "vpcConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3:Bucket": {
             "cf": "AWS::S3::Bucket",
@@ -34048,7 +34497,8 @@
             "createOnly": [
                 "bucketName",
                 "objectLockEnabled"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3:MultiRegionAccessPoint": {
             "cf": "AWS::S3::MultiRegionAccessPoint",
@@ -34106,7 +34556,8 @@
                 "name",
                 "publicAccessBlockConfiguration",
                 "regions"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3:MultiRegionAccessPointPolicy": {
             "cf": "AWS::S3::MultiRegionAccessPointPolicy",
@@ -34140,7 +34591,8 @@
             ],
             "createOnly": [
                 "mrapName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3:StorageLens": {
             "cf": "AWS::S3::StorageLens",
@@ -34173,7 +34625,8 @@
             ],
             "createOnly": [
                 "storageLensConfiguration/Id"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3objectlambda:AccessPoint": {
             "cf": "AWS::S3ObjectLambda::AccessPoint",
@@ -34221,7 +34674,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3objectlambda:AccessPointPolicy": {
             "cf": "AWS::S3ObjectLambda::AccessPointPolicy",
@@ -34251,7 +34705,8 @@
             ],
             "createOnly": [
                 "objectLambdaAccessPoint"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3outposts:AccessPoint": {
             "cf": "AWS::S3Outposts::AccessPoint",
@@ -34308,7 +34763,8 @@
                 "bucket",
                 "name",
                 "vpcConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3outposts:Bucket": {
             "cf": "AWS::S3Outposts::Bucket",
@@ -34369,7 +34825,8 @@
             "createOnly": [
                 "bucketName",
                 "outpostId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3outposts:BucketPolicy": {
             "cf": "AWS::S3Outposts::BucketPolicy",
@@ -34399,7 +34856,8 @@
             ],
             "createOnly": [
                 "bucket"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:s3outposts:Endpoint": {
             "cf": "AWS::S3Outposts::Endpoint",
@@ -34480,7 +34938,8 @@
                 "outpostId",
                 "securityGroupId",
                 "subnetId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:App": {
             "cf": "AWS::SageMaker::App",
@@ -34562,7 +35021,8 @@
                 "domainId",
                 "tags",
                 "userProfileName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:AppImageConfig": {
             "cf": "AWS::SageMaker::AppImageConfig",
@@ -34612,7 +35072,8 @@
             "createOnly": [
                 "appImageConfigName",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:DataQualityJobDefinition": {
             "cf": "AWS::SageMaker::DataQualityJobDefinition",
@@ -34716,7 +35177,8 @@
                 "roleArn",
                 "stoppingCondition",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:Device": {
             "cf": "AWS::SageMaker::Device",
@@ -34769,7 +35231,8 @@
             ],
             "createOnly": [
                 "deviceFleetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:DeviceFleet": {
             "cf": "AWS::SageMaker::DeviceFleet",
@@ -34834,7 +35297,8 @@
             ],
             "createOnly": [
                 "deviceFleetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:Domain": {
             "cf": "AWS::SageMaker::Domain",
@@ -34978,7 +35442,8 @@
                 "subnetIds",
                 "tags",
                 "vpcId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:FeatureGroup": {
             "cf": "AWS::SageMaker::FeatureGroup",
@@ -35086,7 +35551,8 @@
                 "recordIdentifierFeatureName",
                 "roleArn",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:Image": {
             "cf": "AWS::SageMaker::Image",
@@ -35143,7 +35609,8 @@
             ],
             "createOnly": [
                 "imageName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:ImageVersion": {
             "cf": "AWS::SageMaker::ImageVersion",
@@ -35182,7 +35649,8 @@
             "createOnly": [
                 "baseImage",
                 "imageName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:ModelBiasJobDefinition": {
             "cf": "AWS::SageMaker::ModelBiasJobDefinition",
@@ -35286,7 +35754,8 @@
                 "roleArn",
                 "stoppingCondition",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:ModelExplainabilityJobDefinition": {
             "cf": "AWS::SageMaker::ModelExplainabilityJobDefinition",
@@ -35390,7 +35859,8 @@
                 "roleArn",
                 "stoppingCondition",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:ModelPackageGroup": {
             "cf": "AWS::SageMaker::ModelPackageGroup",
@@ -35447,7 +35917,8 @@
             "createOnly": [
                 "modelPackageGroupDescription",
                 "modelPackageGroupName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:ModelQualityJobDefinition": {
             "cf": "AWS::SageMaker::ModelQualityJobDefinition",
@@ -35551,7 +36022,8 @@
                 "roleArn",
                 "stoppingCondition",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:MonitoringSchedule": {
             "cf": "AWS::SageMaker::MonitoringSchedule",
@@ -35635,7 +36107,8 @@
             ],
             "createOnly": [
                 "monitoringScheduleName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:Pipeline": {
             "cf": "AWS::SageMaker::Pipeline",
@@ -35710,7 +36183,8 @@
             ],
             "createOnly": [
                 "pipelineName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:Project": {
             "cf": "AWS::SageMaker::Project",
@@ -35781,7 +36255,8 @@
                 "projectName",
                 "serviceCatalogProvisioningDetails",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sagemaker:UserProfile": {
             "cf": "AWS::SageMaker::UserProfile",
@@ -35863,7 +36338,8 @@
                 "userProfileName",
                 "userSettings/RStudioServerProAppSettings/AccessStatus",
                 "userSettings/RStudioServerProAppSettings/UserGroup"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
             "cf": "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
@@ -35977,7 +36453,8 @@
             "createOnly": [
                 "notificationArns",
                 "provisionedProductName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:servicecatalog:ServiceAction": {
             "cf": "AWS::ServiceCatalog::ServiceAction",
@@ -36029,7 +36506,8 @@
             "required": [
                 "definition",
                 "definitionType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:servicecatalog:ServiceActionAssociation": {
             "cf": "AWS::ServiceCatalog::ServiceActionAssociation",
@@ -36064,7 +36542,8 @@
                 "productId",
                 "provisioningArtifactId",
                 "serviceActionId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:servicecatalogappregistry:Application": {
             "cf": "AWS::ServiceCatalogAppRegistry::Application",
@@ -36101,7 +36580,8 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 256
-            }
+            },
+            "isSupported": true
         },
         "aws-native:servicecatalogappregistry:AttributeGroup": {
             "cf": "AWS::ServiceCatalogAppRegistry::AttributeGroup",
@@ -36147,7 +36627,8 @@
             },
             "required": [
                 "attributes"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:servicecatalogappregistry:AttributeGroupAssociation": {
             "cf": "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation",
@@ -36180,7 +36661,8 @@
             "required": [
                 "application",
                 "attributeGroup"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:servicecatalogappregistry:ResourceAssociation": {
             "cf": "AWS::ServiceCatalogAppRegistry::ResourceAssociation",
@@ -36222,7 +36704,8 @@
                 "application",
                 "resource",
                 "resourceType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ses:ConfigurationSet": {
             "cf": "AWS::SES::ConfigurationSet",
@@ -36243,7 +36726,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ses:ConfigurationSetEventDestination": {
             "cf": "AWS::SES::ConfigurationSetEventDestination",
@@ -36273,7 +36757,8 @@
             ],
             "createOnly": [
                 "configurationSetName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ses:ContactList": {
             "cf": "AWS::SES::ContactList",
@@ -36330,7 +36815,8 @@
             },
             "createOnly": [
                 "contactListName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ses:Template": {
             "cf": "AWS::SES::Template",
@@ -36356,7 +36842,8 @@
             },
             "createOnly": [
                 "template/TemplateName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:signer:ProfilePermission": {
             "cf": "AWS::Signer::ProfilePermission",
@@ -36406,7 +36893,8 @@
                 "profileName",
                 "profileVersion",
                 "statementId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:signer:SigningProfile": {
             "cf": "AWS::Signer::SigningProfile",
@@ -36466,7 +36954,8 @@
             "createOnly": [
                 "platformId",
                 "signatureValidityPeriod"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sqs:Queue": {
             "cf": "AWS::SQS::Queue",
@@ -36622,7 +37111,8 @@
             "createOnly": [
                 "fifoQueue",
                 "queueName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ssm:Association": {
             "cf": "AWS::SSM::Association",
@@ -36764,7 +37254,8 @@
             },
             "autoNamingSpec": {
                 "sdkName": "name"
-            }
+            },
+            "isSupported": true
         },
         "aws-native:ssm:Document": {
             "cf": "AWS::SSM::Document",
@@ -36879,7 +37370,8 @@
             "createOnly": [
                 "documentType",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ssm:ResourceDataSync": {
             "cf": "AWS::SSM::ResourceDataSync",
@@ -36953,7 +37445,8 @@
                 "syncFormat",
                 "syncName",
                 "syncType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ssmcontacts:Contact": {
             "cf": "AWS::SSMContacts::Contact",
@@ -37012,7 +37505,8 @@
             "createOnly": [
                 "alias",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ssmcontacts:ContactChannel": {
             "cf": "AWS::SSMContacts::ContactChannel",
@@ -37067,7 +37561,8 @@
             "createOnly": [
                 "channelType",
                 "contactId"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ssmincidents:ReplicationSet": {
             "cf": "AWS::SSMIncidents::ReplicationSet",
@@ -37101,7 +37596,8 @@
             },
             "required": [
                 "regions"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:ssmincidents:ResponsePlan": {
             "cf": "AWS::SSMIncidents::ResponsePlan",
@@ -37193,7 +37689,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sso:Assignment": {
             "cf": "AWS::SSO::Assignment",
@@ -37264,7 +37761,8 @@
                 "principalType",
                 "targetId",
                 "targetType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sso:InstanceAccessControlAttributeConfiguration": {
             "cf": "AWS::SSO::InstanceAccessControlAttributeConfiguration",
@@ -37315,7 +37813,8 @@
             ],
             "createOnly": [
                 "instanceArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:sso:PermissionSet": {
             "cf": "AWS::SSO::PermissionSet",
@@ -37410,7 +37909,8 @@
             "createOnly": [
                 "instanceArn",
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:stepfunctions:Activity": {
             "cf": "AWS::StepFunctions::Activity",
@@ -37446,7 +37946,8 @@
             },
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:stepfunctions:StateMachine": {
             "cf": "AWS::StepFunctions::StateMachine",
@@ -37537,7 +38038,8 @@
             "createOnly": [
                 "stateMachineName",
                 "stateMachineType"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:synthetics:Canary": {
             "cf": "AWS::Synthetics::Canary",
@@ -37678,7 +38180,8 @@
             ],
             "createOnly": [
                 "name"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:timestream:Database": {
             "cf": "AWS::Timestream::Database",
@@ -37724,7 +38227,8 @@
             },
             "createOnly": [
                 "databaseName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:timestream:ScheduledQuery": {
             "cf": "AWS::Timestream::ScheduledQuery",
@@ -37853,7 +38357,8 @@
                 "scheduledQueryExecutionRoleArn",
                 "scheduledQueryName",
                 "targetConfiguration"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:timestream:Table": {
             "cf": "AWS::Timestream::Table",
@@ -37923,7 +38428,8 @@
             "createOnly": [
                 "databaseName",
                 "tableName"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:transfer:Workflow": {
             "cf": "AWS::Transfer::Workflow",
@@ -37996,7 +38502,8 @@
                 "description",
                 "onExceptionSteps",
                 "steps"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wafv2:IPSet": {
             "cf": "AWS::WAFv2::IPSet",
@@ -38068,7 +38575,8 @@
             "createOnly": [
                 "name",
                 "scope"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wafv2:LoggingConfiguration": {
             "cf": "AWS::WAFv2::LoggingConfiguration",
@@ -38130,7 +38638,8 @@
             ],
             "createOnly": [
                 "resourceArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wafv2:RegexPatternSet": {
             "cf": "AWS::WAFv2::RegexPatternSet",
@@ -38200,7 +38709,8 @@
             "createOnly": [
                 "name",
                 "scope"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wafv2:RuleGroup": {
             "cf": "AWS::WAFv2::RuleGroup",
@@ -38301,7 +38811,8 @@
             "createOnly": [
                 "name",
                 "scope"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wafv2:WebACL": {
             "cf": "AWS::WAFv2::WebACL",
@@ -38397,7 +38908,8 @@
             "createOnly": [
                 "name",
                 "scope"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wafv2:WebACLAssociation": {
             "cf": "AWS::WAFv2::WebACLAssociation",
@@ -38424,7 +38936,8 @@
             "createOnly": [
                 "resourceArn",
                 "webACLArn"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wisdom:Assistant": {
             "cf": "AWS::Wisdom::Assistant",
@@ -38488,7 +39001,8 @@
                 "serverSideEncryptionConfiguration",
                 "tags",
                 "type"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wisdom:AssistantAssociation": {
             "cf": "AWS::Wisdom::AssistantAssociation",
@@ -38545,7 +39059,8 @@
                 "association",
                 "associationType",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:wisdom:KnowledgeBase": {
             "cf": "AWS::Wisdom::KnowledgeBase",
@@ -38622,7 +39137,8 @@
                 "serverSideEncryptionConfiguration",
                 "sourceConfiguration",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:workspaces:ConnectionAlias": {
             "cf": "AWS::WorkSpaces::ConnectionAlias",
@@ -38666,7 +39182,8 @@
             "createOnly": [
                 "connectionString",
                 "tags"
-            ]
+            ],
+            "isSupported": true
         },
         "aws-native:xray:Group": {
             "cf": "AWS::XRay::Group",
@@ -38716,7 +39233,8 @@
                 "sdkName": "groupName",
                 "minLength": 1,
                 "maxLength": 32
-            }
+            },
+            "isSupported": true
         },
         "aws-native:xray:SamplingRule": {
             "cf": "AWS::XRay::SamplingRule",
@@ -38772,7 +39290,8 @@
                         "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
-            }
+            },
+            "isSupported": true
         }
     },
     "types": {

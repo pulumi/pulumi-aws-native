@@ -19,6 +19,7 @@ type CloudAPIResource struct {
 	AutoNamingSpec *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
 	Required       []string                        `json:"required,omitempty"`
 	CreateOnly     []string                        `json:"createOnly,omitempty"`
+	IsSupported    bool                            `json:"isSupported,omitempty"`
 }
 
 type AutoNamingSpec struct {

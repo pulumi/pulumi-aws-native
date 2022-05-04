@@ -16,6 +16,7 @@ from .get_ssm_parameter_list import *
 from .get_ssm_parameter_string import *
 from .get_url_suffix import *
 from .import_value import *
+from .map_cfn_props_to_resource import *
 from .provider import *
 from ._inputs import *
 

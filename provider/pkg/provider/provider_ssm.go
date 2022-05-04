@@ -31,7 +31,8 @@ func (p *cfnProvider) getSSMParameter(ctx context.Context, inputs resource.Prope
 	return out.Parameter, nil
 }
 
-func (p *cfnProvider) getSSMParameterString(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) getSSMParameterString(ctx context.Context, label string, inputs resource.PropertyMap) (resource.
+	PropertyMap,	error) {
 	param, err := p.getSSMParameter(ctx, inputs)
 	if err != nil {
 		return nil, err
@@ -44,7 +45,8 @@ func (p *cfnProvider) getSSMParameterString(ctx context.Context, inputs resource
 	}, nil
 }
 
-func (p *cfnProvider) getSSMParameterList(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) getSSMParameterList(ctx context.Context, label string, inputs resource.PropertyMap) (resource.
+	PropertyMap, error) {
 	param, err := p.getSSMParameter(ctx, inputs)
 	if err != nil {
 		return nil, err

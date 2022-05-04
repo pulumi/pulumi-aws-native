@@ -413,7 +413,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		cfTypeName := jsonSchema.Extras["typeName"].(string)
 		isSupported := supportedResources.Has(cfTypeName)
 		if isSupported || genAll {
-			resourceName, resourceToken := typeToken(cfTypeName)
+			resourceName, resourceToken, err := CFTypeToToken(cfTypeName)
+			contract.AssertNoError(err)
 			fullMod := moduleName(cfTypeName)
 			mod := strings.ToLower(fullMod)
 			ctx := &context{
@@ -427,7 +428,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				visitedTypes:  codegen.NewStringSet(),
 				isSupported:   isSupported,
 			}
-			err := ctx.gatherResourceType()
+			err = ctx.gatherResourceType()
 			if err != nil {
 				return nil, nil, err
 			}
@@ -551,6 +552,26 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			Properties: map[string]pschema.PropertySpec{
 				"value": {TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"}},
 			},
+		},
+	}
+	p.Functions[packageName+":index:mapCfnPropsToResource"] = pschema.FunctionSpec{
+		Inputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"cf":    {TypeSpec: primitiveTypeSpec("String")},
+				"props": {TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+			Required: []string{"cf", "props"},
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"props": {TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"}},
+				"outputs": {TypeSpec: pschema.TypeSpec{
+					Type:  "array",
+					Items: &pschema.TypeSpec{Type: "string"},
+				}},
+				"isSupported": {TypeSpec: primitiveTypeSpec("Boolean")},
+			},
+			Required: []string{"isSupported"},
 		},
 	}
 
@@ -736,6 +757,7 @@ func (ctx *context) gatherResourceType() error {
 		CreateOnly:     createOnlyProperties.SortedValues(),
 		Required:       requiredInputs.SortedValues(),
 		AutoNamingSpec: autoNamingSpec,
+		IsSupported:    ctx.isSupported,
 	}
 	return nil
 }
@@ -1050,11 +1072,13 @@ func moduleName(resourceType string) string {
 	return module
 }
 
-func typeToken(typ string) (string, string) {
+func CFTypeToToken(typ string) (string, string, error) {
 	resourceTypeComponents := strings.Split(typ, "::")
 	resourceName := resourceTypeComponents[2]
 	module := strings.ToLower(moduleName(typ))
-	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
+	if len(resourceTypeComponents) != 3 {
+		return "", "", fmt.Errorf("expected three parts in type %q", resourceTypeComponents)
+	}
 
 	// Override name to avoid duplicate
 	// See https://github.com/pulumi/pulumi/issues/8018
@@ -1063,7 +1087,7 @@ func typeToken(typ string) (string, string) {
 		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
 	}
 
-	return resourceName, fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
+	return resourceName, fmt.Sprintf("%s:%s:%s", packageName, module, resourceName), nil
 }
 
 func getterToken(typ string) (string, string) {

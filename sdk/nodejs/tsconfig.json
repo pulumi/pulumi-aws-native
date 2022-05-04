@@ -1400,6 +1400,7 @@
         "managedblockchain/index.ts",
         "managedblockchain/member.ts",
         "managedblockchain/node.ts",
+        "mapCfnPropsToResource.ts",
         "mediaconnect/flow.ts",
         "mediaconnect/flowEntitlement.ts",
         "mediaconnect/flowOutput.ts",
