@@ -37998,6 +37998,54 @@
                 "steps"
             ]
         },
+        "aws-native:voiceid:Domain": {
+            "cf": "AWS::VoiceID::Domain",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws-native:voiceid:DomainServerSideEncryptionConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:voiceid:DomainTag"
+                    }
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string"
+                },
+                "domainId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws-native:voiceid:DomainServerSideEncryptionConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:voiceid:DomainTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
+            "required": [
+                "serverSideEncryptionConfiguration"
+            ]
+        },
         "aws-native:wafv2:IPSet": {
             "cf": "AWS::WAFv2::IPSet",
             "inputs": {
@@ -73363,6 +73411,25 @@
                 }
             }
         },
+        "aws-native:voiceid:DomainServerSideEncryptionConfiguration": {
+            "type": "object",
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:voiceid:DomainTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:wafv2:IPSetIPAddressVersion": {
             "type": "string"
         },
@@ -78186,6 +78253,12 @@
             "cf": "AWS::Transfer::Workflow",
             "ids": [
                 "workflowId"
+            ]
+        },
+        "aws-native:voiceid:getDomain": {
+            "cf": "AWS::VoiceID::Domain",
+            "ids": [
+                "domainId"
             ]
         },
         "aws-native:wafv2:getIPSet": {
