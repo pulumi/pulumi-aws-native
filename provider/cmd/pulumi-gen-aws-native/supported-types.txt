@@ -416,6 +416,7 @@ AWS::RefactorSpaces::Route
 AWS::RefactorSpaces::Service
 AWS::Rekognition::Collection
 AWS::Rekognition::Project
+AWS::Rekognition::StreamProcessor
 AWS::ResilienceHub::App
 AWS::ResilienceHub::ResiliencyPolicy
 AWS::ResourceGroups::Group
@@ -505,6 +506,7 @@ AWS::Timestream::Database
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table
 AWS::Transfer::Workflow
+AWS::VoiceID::Domain
 AWS::WAFv2::IPSet
 AWS::WAFv2::LoggingConfiguration
 AWS::WAFv2::RegexPatternSet

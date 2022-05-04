@@ -31658,6 +31658,18 @@ export namespace transfer {
 
 }
 
+export namespace voiceid {
+    export interface DomainServerSideEncryptionConfiguration {
+        kmsKeyId: string;
+    }
+
+    export interface DomainTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace waf {
     export interface ByteMatchSetByteMatchTuple {
         fieldToMatch: outputs.waf.ByteMatchSetFieldToMatch;

@@ -389,6 +389,8 @@ if typing.TYPE_CHECKING:
     timestream = __timestream
     import pulumi_aws_native.transfer as __transfer
     transfer = __transfer
+    import pulumi_aws_native.voiceid as __voiceid
+    voiceid = __voiceid
     import pulumi_aws_native.waf as __waf
     waf = __waf
     import pulumi_aws_native.wafregional as __wafregional
@@ -586,6 +588,7 @@ else:
     synthetics = _utilities.lazy_import('pulumi_aws_native.synthetics')
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
+    voiceid = _utilities.lazy_import('pulumi_aws_native.voiceid')
     waf = _utilities.lazy_import('pulumi_aws_native.waf')
     wafregional = _utilities.lazy_import('pulumi_aws_native.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
@@ -2769,6 +2772,14 @@ _utilities.register(
    "aws-native:transfer:Server": "Server",
    "aws-native:transfer:User": "User",
    "aws-native:transfer:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "voiceid",
+  "fqn": "pulumi_aws_native.voiceid",
+  "classes": {
+   "aws-native:voiceid:Domain": "Domain"
   }
  },
  {

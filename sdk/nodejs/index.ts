@@ -206,6 +206,7 @@ import * as synthetics from "./synthetics";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as voiceid from "./voiceid";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
@@ -399,6 +400,7 @@ export {
     timestream,
     transfer,
     types,
+    voiceid,
     waf,
     wafregional,
     wafv2,

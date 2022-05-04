@@ -30760,6 +30760,17 @@ export namespace transfer {
     }
 }
 
+export namespace voiceid {
+    export interface DomainServerSideEncryptionConfigurationArgs {
+        kmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface DomainTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace waf {
     export interface ByteMatchSetByteMatchTupleArgs {
         fieldToMatch: pulumi.Input<inputs.waf.ByteMatchSetFieldToMatchArgs>;
