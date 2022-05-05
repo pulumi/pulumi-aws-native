@@ -92,7 +92,7 @@ export type SimulationApplicationSimulationSoftwareSuiteName = (typeof Simulatio
 export const SimulationApplicationSimulationSoftwareSuiteVersion = {
     Seven: "7",
     Nine: "9",
-    11_11: "11",
+    SimulationApplicationSimulationSoftwareSuiteVersion_11: "11",
     Kinetic: "Kinetic",
     Melodic: "Melodic",
     Dashing: "Dashing",
