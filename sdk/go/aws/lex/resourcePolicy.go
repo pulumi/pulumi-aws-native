@@ -112,6 +112,18 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ResourcePolicyOutput) Policy() ResourcePolicyPolicyOutput {
+	return o.ApplyT(func(v *ResourcePolicy) ResourcePolicyPolicyOutput { return v.Policy }).(ResourcePolicyPolicyOutput)
+}
+
+func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+func (o ResourcePolicyOutput) RevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyInput)(nil)).Elem(), &ResourcePolicy{})
 	pulumi.RegisterOutputType(ResourcePolicyOutput{})

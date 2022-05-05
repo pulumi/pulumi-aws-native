@@ -118,6 +118,42 @@ func (o ResolverQueryLoggingConfigAssociationOutput) ToResolverQueryLoggingConfi
 	return o
 }
 
+// Rfc3339TimeString
+func (o ResolverQueryLoggingConfigAssociationOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// ResolverQueryLogConfigAssociationError
+func (o ResolverQueryLoggingConfigAssociationOutput) Error() ResolverQueryLoggingConfigAssociationErrorOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) ResolverQueryLoggingConfigAssociationErrorOutput {
+		return v.Error
+	}).(ResolverQueryLoggingConfigAssociationErrorOutput)
+}
+
+// ResolverQueryLogConfigAssociationErrorMessage
+func (o ResolverQueryLoggingConfigAssociationOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// ResolverQueryLogConfigId
+func (o ResolverQueryLoggingConfigAssociationOutput) ResolverQueryLogConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) pulumi.StringPtrOutput {
+		return v.ResolverQueryLogConfigId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceId
+func (o ResolverQueryLoggingConfigAssociationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// ResolverQueryLogConfigAssociationStatus
+func (o ResolverQueryLoggingConfigAssociationOutput) Status() ResolverQueryLoggingConfigAssociationStatusOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) ResolverQueryLoggingConfigAssociationStatusOutput {
+		return v.Status
+	}).(ResolverQueryLoggingConfigAssociationStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationInput)(nil)).Elem(), &ResolverQueryLoggingConfigAssociation{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationOutput{})

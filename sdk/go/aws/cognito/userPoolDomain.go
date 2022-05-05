@@ -116,6 +116,18 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o UserPoolDomainOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolDomain) UserPoolDomainCustomDomainConfigTypePtrOutput { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
+}
+
+func (o UserPoolDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o UserPoolDomainOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainInput)(nil)).Elem(), &UserPoolDomain{})
 	pulumi.RegisterOutputType(UserPoolDomainOutput{})

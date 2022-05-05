@@ -137,6 +137,54 @@ func (o ScalingPolicyOutput) ToScalingPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ScalingPolicyOutput) AdjustmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.AdjustmentType }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) AutoScalingGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.AutoScalingGroupName }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyOutput) Cooldown() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.Cooldown }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.IntPtrOutput { return v.EstimatedInstanceWarmup }).(pulumi.IntPtrOutput)
+}
+
+func (o ScalingPolicyOutput) MetricAggregationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.MetricAggregationType }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) MinAdjustmentMagnitude() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.IntPtrOutput { return v.MinAdjustmentMagnitude }).(pulumi.IntPtrOutput)
+}
+
+func (o ScalingPolicyOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) PredictiveScalingConfiguration() ScalingPolicyPredictiveScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyPredictiveScalingConfigurationPtrOutput {
+		return v.PredictiveScalingConfiguration
+	}).(ScalingPolicyPredictiveScalingConfigurationPtrOutput)
+}
+
+func (o ScalingPolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.IntPtrOutput { return v.ScalingAdjustment }).(pulumi.IntPtrOutput)
+}
+
+func (o ScalingPolicyOutput) StepAdjustments() ScalingPolicyStepAdjustmentArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyStepAdjustmentArrayOutput { return v.StepAdjustments }).(ScalingPolicyStepAdjustmentArrayOutput)
+}
+
+func (o ScalingPolicyOutput) TargetTrackingConfiguration() ScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyTargetTrackingConfigurationPtrOutput {
+		return v.TargetTrackingConfiguration
+	}).(ScalingPolicyTargetTrackingConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyInput)(nil)).Elem(), &ScalingPolicy{})
 	pulumi.RegisterOutputType(ScalingPolicyOutput{})

@@ -117,6 +117,16 @@ func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the specified bucket.
+func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// A policy document containing permissions to add to the specified bucket.
+func (o BucketPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BucketPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyInput)(nil)).Elem(), &BucketPolicy{})
 	pulumi.RegisterOutputType(BucketPolicyOutput{})

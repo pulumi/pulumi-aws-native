@@ -113,6 +113,23 @@ func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutputWithContex
 	return o
 }
 
+func (o RobotApplicationVersionOutput) Application() pulumi.StringOutput {
+	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
+}
+
+func (o RobotApplicationVersionOutput) ApplicationVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringOutput { return v.ApplicationVersion }).(pulumi.StringOutput)
+}
+
+func (o RobotApplicationVersionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The revision ID of robot application.
+func (o RobotApplicationVersionOutput) CurrentRevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RobotApplicationVersion) pulumi.StringPtrOutput { return v.CurrentRevisionId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationVersionInput)(nil)).Elem(), &RobotApplicationVersion{})
 	pulumi.RegisterOutputType(RobotApplicationVersionOutput{})

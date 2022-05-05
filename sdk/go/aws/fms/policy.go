@@ -148,6 +148,58 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+func (o PolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) DeleteAllPolicyResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.DeleteAllPolicyResources }).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyOutput) ExcludeMap() PolicyIEMapPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyIEMapPtrOutput { return v.ExcludeMap }).(PolicyIEMapPtrOutput)
+}
+
+func (o PolicyOutput) ExcludeResourceTags() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Policy) pulumi.BoolOutput { return v.ExcludeResourceTags }).(pulumi.BoolOutput)
+}
+
+func (o PolicyOutput) IncludeMap() PolicyIEMapPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyIEMapPtrOutput { return v.IncludeMap }).(PolicyIEMapPtrOutput)
+}
+
+func (o PolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) RemediationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Policy) pulumi.BoolOutput { return v.RemediationEnabled }).(pulumi.BoolOutput)
+}
+
+func (o PolicyOutput) ResourceTags() PolicyResourceTagArrayOutput {
+	return o.ApplyT(func(v *Policy) PolicyResourceTagArrayOutput { return v.ResourceTags }).(PolicyResourceTagArrayOutput)
+}
+
+func (o PolicyOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) ResourceTypeList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceTypeList }).(pulumi.StringArrayOutput)
+}
+
+func (o PolicyOutput) ResourcesCleanUp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.ResourcesCleanUp }).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyOutput) SecurityServicePolicyData() SecurityServicePolicyDataPropertiesOutput {
+	return o.ApplyT(func(v *Policy) SecurityServicePolicyDataPropertiesOutput { return v.SecurityServicePolicyData }).(SecurityServicePolicyDataPropertiesOutput)
+}
+
+func (o PolicyOutput) Tags() PolicyTagArrayOutput {
+	return o.ApplyT(func(v *Policy) PolicyTagArrayOutput { return v.Tags }).(PolicyTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyInput)(nil)).Elem(), &Policy{})
 	pulumi.RegisterOutputType(PolicyOutput{})

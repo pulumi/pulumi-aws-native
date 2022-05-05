@@ -201,6 +201,134 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+func (o EndpointOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) DocDbSettings() EndpointDocDbSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointDocDbSettingsPtrOutput { return v.DocDbSettings }).(EndpointDocDbSettingsPtrOutput)
+}
+
+func (o EndpointOutput) DynamoDbSettings() EndpointDynamoDbSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointDynamoDbSettingsPtrOutput { return v.DynamoDbSettings }).(EndpointDynamoDbSettingsPtrOutput)
+}
+
+func (o EndpointOutput) ElasticsearchSettings() EndpointElasticsearchSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointElasticsearchSettingsPtrOutput { return v.ElasticsearchSettings }).(EndpointElasticsearchSettingsPtrOutput)
+}
+
+func (o EndpointOutput) EndpointIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) EngineName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) ExtraConnectionAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ExtraConnectionAttributes }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) GcpMySQLSettings() EndpointGcpMySQLSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointGcpMySQLSettingsPtrOutput { return v.GcpMySQLSettings }).(EndpointGcpMySQLSettingsPtrOutput)
+}
+
+func (o EndpointOutput) IbmDb2Settings() EndpointIbmDb2SettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointIbmDb2SettingsPtrOutput { return v.IbmDb2Settings }).(EndpointIbmDb2SettingsPtrOutput)
+}
+
+func (o EndpointOutput) KafkaSettings() EndpointKafkaSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointKafkaSettingsPtrOutput { return v.KafkaSettings }).(EndpointKafkaSettingsPtrOutput)
+}
+
+func (o EndpointOutput) KinesisSettings() EndpointKinesisSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointKinesisSettingsPtrOutput { return v.KinesisSettings }).(EndpointKinesisSettingsPtrOutput)
+}
+
+func (o EndpointOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) MicrosoftSqlServerSettings() EndpointMicrosoftSqlServerSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointMicrosoftSqlServerSettingsPtrOutput { return v.MicrosoftSqlServerSettings }).(EndpointMicrosoftSqlServerSettingsPtrOutput)
+}
+
+func (o EndpointOutput) MongoDbSettings() EndpointMongoDbSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointMongoDbSettingsPtrOutput { return v.MongoDbSettings }).(EndpointMongoDbSettingsPtrOutput)
+}
+
+func (o EndpointOutput) MySqlSettings() EndpointMySqlSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointMySqlSettingsPtrOutput { return v.MySqlSettings }).(EndpointMySqlSettingsPtrOutput)
+}
+
+func (o EndpointOutput) NeptuneSettings() EndpointNeptuneSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointNeptuneSettingsPtrOutput { return v.NeptuneSettings }).(EndpointNeptuneSettingsPtrOutput)
+}
+
+func (o EndpointOutput) OracleSettings() EndpointOracleSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointOracleSettingsPtrOutput { return v.OracleSettings }).(EndpointOracleSettingsPtrOutput)
+}
+
+func (o EndpointOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointOutput) PostgreSqlSettings() EndpointPostgreSqlSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPostgreSqlSettingsPtrOutput { return v.PostgreSqlSettings }).(EndpointPostgreSqlSettingsPtrOutput)
+}
+
+func (o EndpointOutput) RedisSettings() EndpointRedisSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointRedisSettingsPtrOutput { return v.RedisSettings }).(EndpointRedisSettingsPtrOutput)
+}
+
+func (o EndpointOutput) RedshiftSettings() EndpointRedshiftSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointRedshiftSettingsPtrOutput { return v.RedshiftSettings }).(EndpointRedshiftSettingsPtrOutput)
+}
+
+func (o EndpointOutput) ResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) S3Settings() EndpointS3SettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointS3SettingsPtrOutput { return v.S3Settings }).(EndpointS3SettingsPtrOutput)
+}
+
+func (o EndpointOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) SybaseSettings() EndpointSybaseSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointSybaseSettingsPtrOutput { return v.SybaseSettings }).(EndpointSybaseSettingsPtrOutput)
+}
+
+func (o EndpointOutput) Tags() EndpointTagArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointTagArrayOutput { return v.Tags }).(EndpointTagArrayOutput)
+}
+
+func (o EndpointOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointInput)(nil)).Elem(), &Endpoint{})
 	pulumi.RegisterOutputType(EndpointOutput{})

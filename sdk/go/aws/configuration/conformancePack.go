@@ -134,6 +134,38 @@ func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Co
 	return o
 }
 
+// A list of ConformancePackInputParameter objects.
+func (o ConformancePackOutput) ConformancePackInputParameters() ConformancePackInputParameterArrayOutput {
+	return o.ApplyT(func(v *ConformancePack) ConformancePackInputParameterArrayOutput {
+		return v.ConformancePackInputParameters
+	}).(ConformancePackInputParameterArrayOutput)
+}
+
+// Name of the conformance pack which will be assigned as the unique identifier.
+func (o ConformancePackOutput) ConformancePackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.ConformancePackName }).(pulumi.StringOutput)
+}
+
+// AWS Config stores intermediate files while processing conformance pack template.
+func (o ConformancePackOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The prefix for delivery S3 bucket.
+func (o ConformancePackOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
+func (o ConformancePackOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
+}
+
+// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
+func (o ConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.TemplateS3Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInput)(nil)).Elem(), &ConformancePack{})
 	pulumi.RegisterOutputType(ConformancePackOutput{})

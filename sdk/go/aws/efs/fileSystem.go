@@ -136,6 +136,59 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 	return o
 }
 
+func (o FileSystemOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) BackupPolicy() FileSystemBackupPolicyPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemBackupPolicyPtrOutput { return v.BackupPolicy }).(FileSystemBackupPolicyPtrOutput)
+}
+
+// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
+func (o FileSystemOutput) BypassPolicyLockoutSafetyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.BoolPtrOutput { return v.BypassPolicyLockoutSafetyCheck }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOutput) FileSystemPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.AnyOutput { return v.FileSystemPolicy }).(pulumi.AnyOutput)
+}
+
+func (o FileSystemOutput) FileSystemTags() FileSystemElasticFileSystemTagArrayOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemElasticFileSystemTagArrayOutput { return v.FileSystemTags }).(FileSystemElasticFileSystemTagArrayOutput)
+}
+
+func (o FileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) LifecyclePolicies() FileSystemLifecyclePolicyArrayOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemLifecyclePolicyArrayOutput { return v.LifecyclePolicies }).(FileSystemLifecyclePolicyArrayOutput)
+}
+
+func (o FileSystemOutput) PerformanceMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.PerformanceMode }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) ProvisionedThroughputInMibps() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.Float64PtrOutput { return v.ProvisionedThroughputInMibps }).(pulumi.Float64PtrOutput)
+}
+
+func (o FileSystemOutput) ThroughputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.ThroughputMode }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemInput)(nil)).Elem(), &FileSystem{})
 	pulumi.RegisterOutputType(FileSystemOutput{})

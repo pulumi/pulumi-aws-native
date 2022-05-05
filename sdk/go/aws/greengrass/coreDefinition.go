@@ -111,6 +111,26 @@ func (o CoreDefinitionOutput) ToCoreDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CoreDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CoreDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o CoreDefinitionOutput) InitialVersion() CoreDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *CoreDefinition) CoreDefinitionVersionTypePtrOutput { return v.InitialVersion }).(CoreDefinitionVersionTypePtrOutput)
+}
+
+func (o CoreDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CoreDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o CoreDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CoreDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CoreDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CoreDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreDefinitionInput)(nil)).Elem(), &CoreDefinition{})
 	pulumi.RegisterOutputType(CoreDefinitionOutput{})

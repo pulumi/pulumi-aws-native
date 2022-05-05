@@ -224,6 +224,184 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+func (o InstanceOutput) AdditionalInfo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AdditionalInfo }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Affinity }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) BlockDeviceMappings() InstanceBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceBlockDeviceMappingArrayOutput { return v.BlockDeviceMappings }).(InstanceBlockDeviceMappingArrayOutput)
+}
+
+func (o InstanceOutput) CpuOptions() InstanceCpuOptionsPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceCpuOptionsPtrOutput { return v.CpuOptions }).(InstanceCpuOptionsPtrOutput)
+}
+
+func (o InstanceOutput) CreditSpecification() InstanceCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceCreditSpecificationPtrOutput { return v.CreditSpecification }).(InstanceCreditSpecificationPtrOutput)
+}
+
+func (o InstanceOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) ElasticGpuSpecifications() InstanceElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceElasticGpuSpecificationArrayOutput { return v.ElasticGpuSpecifications }).(InstanceElasticGpuSpecificationArrayOutput)
+}
+
+func (o InstanceOutput) ElasticInferenceAccelerators() InstanceElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceElasticInferenceAcceleratorArrayOutput {
+		return v.ElasticInferenceAccelerators
+	}).(InstanceElasticInferenceAcceleratorArrayOutput)
+}
+
+func (o InstanceOutput) EnclaveOptions() InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceEnclaveOptionsPtrOutput { return v.EnclaveOptions }).(InstanceEnclaveOptionsPtrOutput)
+}
+
+func (o InstanceOutput) HibernationOptions() InstanceHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceHibernationOptionsPtrOutput { return v.HibernationOptions }).(InstanceHibernationOptionsPtrOutput)
+}
+
+func (o InstanceOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.HostId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) IamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.IntPtrOutput { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceOutput) Ipv6Addresses() InstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceIpv6AddressArrayOutput { return v.Ipv6Addresses }).(InstanceIpv6AddressArrayOutput)
+}
+
+func (o InstanceOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) LaunchTemplate() InstanceLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceLaunchTemplateSpecificationPtrOutput { return v.LaunchTemplate }).(InstanceLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o InstanceOutput) LicenseSpecifications() InstanceLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceLicenseSpecificationArrayOutput { return v.LicenseSpecifications }).(InstanceLicenseSpecificationArrayOutput)
+}
+
+func (o InstanceOutput) Monitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.Monitoring }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) NetworkInterfaces() InstanceNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(InstanceNetworkInterfaceArrayOutput)
+}
+
+func (o InstanceOutput) PlacementGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.PlacementGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) PrivateDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateDnsName }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) PrivateDnsNameOptions() InstancePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyT(func(v *Instance) InstancePrivateDnsNameOptionsPtrOutput { return v.PrivateDnsNameOptions }).(InstancePrivateDnsNameOptionsPtrOutput)
+}
+
+func (o InstanceOutput) PrivateIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) PropagateTagsToVolumeOnCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.PropagateTagsToVolumeOnCreation }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) PublicDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicDnsName }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) PublicIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) RamdiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.RamdiskId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o InstanceOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o InstanceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.SourceDestCheck }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) SsmAssociations() InstanceSsmAssociationArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceSsmAssociationArrayOutput { return v.SsmAssociations }).(InstanceSsmAssociationArrayOutput)
+}
+
+func (o InstanceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Tags() InstanceTagArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceTagArrayOutput { return v.Tags }).(InstanceTagArrayOutput)
+}
+
+func (o InstanceOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Tenancy }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Volumes() InstanceVolumeArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceVolumeArrayOutput { return v.Volumes }).(InstanceVolumeArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInput)(nil)).Elem(), &Instance{})
 	pulumi.RegisterOutputType(InstanceOutput{})

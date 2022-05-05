@@ -139,6 +139,45 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// The time of this integration got created
+func (o IntegrationOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The unique name of the domain.
+func (o IntegrationOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o IntegrationOutput) FlowDefinition() IntegrationFlowDefinitionPtrOutput {
+	return o.ApplyT(func(v *Integration) IntegrationFlowDefinitionPtrOutput { return v.FlowDefinition }).(IntegrationFlowDefinitionPtrOutput)
+}
+
+// The time of this integration got last updated at
+func (o IntegrationOutput) LastUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
+}
+
+// The name of the ObjectType defined for the 3rd party data in Profile Service
+func (o IntegrationOutput) ObjectTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ObjectTypeName }).(pulumi.StringPtrOutput)
+}
+
+// The mapping between 3rd party event types and ObjectType names
+func (o IntegrationOutput) ObjectTypeNames() IntegrationObjectTypeMappingArrayOutput {
+	return o.ApplyT(func(v *Integration) IntegrationObjectTypeMappingArrayOutput { return v.ObjectTypeNames }).(IntegrationObjectTypeMappingArrayOutput)
+}
+
+// The tags (keys and values) associated with the integration
+func (o IntegrationOutput) Tags() IntegrationTagArrayOutput {
+	return o.ApplyT(func(v *Integration) IntegrationTagArrayOutput { return v.Tags }).(IntegrationTagArrayOutput)
+}
+
+// The URI of the S3 bucket or any other type of data source.
+func (o IntegrationOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationInput)(nil)).Elem(), &Integration{})
 	pulumi.RegisterOutputType(IntegrationOutput{})

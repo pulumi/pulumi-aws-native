@@ -161,6 +161,94 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o LoadBalancerOutput) AccessLoggingPolicy() LoadBalancerAccessLoggingPolicyPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAccessLoggingPolicyPtrOutput { return v.AccessLoggingPolicy }).(LoadBalancerAccessLoggingPolicyPtrOutput)
+}
+
+func (o LoadBalancerOutput) AppCookieStickinessPolicy() LoadBalancerAppCookieStickinessPolicyArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAppCookieStickinessPolicyArrayOutput {
+		return v.AppCookieStickinessPolicy
+	}).(LoadBalancerAppCookieStickinessPolicyArrayOutput)
+}
+
+func (o LoadBalancerOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerOutput) CanonicalHostedZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneName }).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerOutput) CanonicalHostedZoneNameID() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneNameID }).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerOutput) ConnectionDrainingPolicy() LoadBalancerConnectionDrainingPolicyPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerConnectionDrainingPolicyPtrOutput { return v.ConnectionDrainingPolicy }).(LoadBalancerConnectionDrainingPolicyPtrOutput)
+}
+
+func (o LoadBalancerOutput) ConnectionSettings() LoadBalancerConnectionSettingsPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerConnectionSettingsPtrOutput { return v.ConnectionSettings }).(LoadBalancerConnectionSettingsPtrOutput)
+}
+
+func (o LoadBalancerOutput) CrossZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.CrossZone }).(pulumi.BoolPtrOutput)
+}
+
+func (o LoadBalancerOutput) DNSName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DNSName }).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerOutput) HealthCheck() LoadBalancerHealthCheckPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerHealthCheckPtrOutput { return v.HealthCheck }).(LoadBalancerHealthCheckPtrOutput)
+}
+
+func (o LoadBalancerOutput) Instances() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerOutput) LBCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerLBCookieStickinessPolicyArrayOutput {
+		return v.LBCookieStickinessPolicy
+	}).(LoadBalancerLBCookieStickinessPolicyArrayOutput)
+}
+
+func (o LoadBalancerOutput) Listeners() LoadBalancerListenersArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerListenersArrayOutput { return v.Listeners }).(LoadBalancerListenersArrayOutput)
+}
+
+func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerOutput) Policies() LoadBalancerPoliciesArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerPoliciesArrayOutput { return v.Policies }).(LoadBalancerPoliciesArrayOutput)
+}
+
+func (o LoadBalancerOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerOutput) SourceSecurityGroupGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SourceSecurityGroupGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerOutput) SourceSecurityGroupOwnerAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SourceSecurityGroupOwnerAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerOutput) Tags() LoadBalancerTagArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTagArrayOutput { return v.Tags }).(LoadBalancerTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerInput)(nil)).Elem(), &LoadBalancer{})
 	pulumi.RegisterOutputType(LoadBalancerOutput{})

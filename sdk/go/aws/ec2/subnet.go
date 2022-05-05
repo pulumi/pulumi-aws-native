@@ -141,6 +141,68 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 	return o
 }
 
+func (o SubnetOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.AssignIpv6AddressOnCreation }).(pulumi.BoolPtrOutput)
+}
+
+func (o SubnetOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
+}
+
+func (o SubnetOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+func (o SubnetOutput) Ipv6Native() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.Ipv6Native }).(pulumi.BoolPtrOutput)
+}
+
+func (o SubnetOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
+}
+
+func (o SubnetOutput) NetworkAclAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.NetworkAclAssociationId }).(pulumi.StringOutput)
+}
+
+func (o SubnetOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+	return o.ApplyT(func(v *Subnet) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
+		return v.PrivateDnsNameOptionsOnLaunch
+	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
+}
+
+func (o SubnetOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+func (o SubnetOutput) Tags() SubnetTagArrayOutput {
+	return o.ApplyT(func(v *Subnet) SubnetTagArrayOutput { return v.Tags }).(SubnetTagArrayOutput)
+}
+
+func (o SubnetOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetInput)(nil)).Elem(), &Subnet{})
 	pulumi.RegisterOutputType(SubnetOutput{})

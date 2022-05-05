@@ -131,6 +131,31 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the specified AccessPoint.
+func (o AccessPointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
+func (o AccessPointOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// A name for the AccessPoint.
+func (o AccessPointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The access point policy associated with this access point.
+func (o AccessPointOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
+func (o AccessPointOutput) VpcConfiguration() AccessPointVpcConfigurationOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointVpcConfigurationOutput { return v.VpcConfiguration }).(AccessPointVpcConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointInput)(nil)).Elem(), &AccessPoint{})
 	pulumi.RegisterOutputType(AccessPointOutput{})

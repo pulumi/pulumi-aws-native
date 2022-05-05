@@ -169,6 +169,65 @@ func (o LicenseOutput) ToLicenseOutputWithContext(ctx context.Context) LicenseOu
 	return o
 }
 
+// Beneficiary of the license.
+func (o LicenseOutput) Beneficiary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Beneficiary }).(pulumi.StringPtrOutput)
+}
+
+func (o LicenseOutput) ConsumptionConfiguration() LicenseConsumptionConfigurationOutput {
+	return o.ApplyT(func(v *License) LicenseConsumptionConfigurationOutput { return v.ConsumptionConfiguration }).(LicenseConsumptionConfigurationOutput)
+}
+
+func (o LicenseOutput) Entitlements() LicenseEntitlementArrayOutput {
+	return o.ApplyT(func(v *License) LicenseEntitlementArrayOutput { return v.Entitlements }).(LicenseEntitlementArrayOutput)
+}
+
+// Home region for the created license.
+func (o LicenseOutput) HomeRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
+}
+
+func (o LicenseOutput) Issuer() LicenseIssuerDataOutput {
+	return o.ApplyT(func(v *License) LicenseIssuerDataOutput { return v.Issuer }).(LicenseIssuerDataOutput)
+}
+
+// Amazon Resource Name is a unique name for each resource.
+func (o LicenseOutput) LicenseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.LicenseArn }).(pulumi.StringOutput)
+}
+
+func (o LicenseOutput) LicenseMetadata() LicenseMetadataArrayOutput {
+	return o.ApplyT(func(v *License) LicenseMetadataArrayOutput { return v.LicenseMetadata }).(LicenseMetadataArrayOutput)
+}
+
+// Name for the created license.
+func (o LicenseOutput) LicenseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.LicenseName }).(pulumi.StringOutput)
+}
+
+// Product name for the created license.
+func (o LicenseOutput) ProductName() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.ProductName }).(pulumi.StringOutput)
+}
+
+// ProductSKU of the license.
+func (o LicenseOutput) ProductSKU() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.ProductSKU }).(pulumi.StringPtrOutput)
+}
+
+func (o LicenseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o LicenseOutput) Validity() LicenseValidityDateFormatOutput {
+	return o.ApplyT(func(v *License) LicenseValidityDateFormatOutput { return v.Validity }).(LicenseValidityDateFormatOutput)
+}
+
+// The version of the license.
+func (o LicenseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseInput)(nil)).Elem(), &License{})
 	pulumi.RegisterOutputType(LicenseOutput{})

@@ -154,6 +154,74 @@ func (o ModelExplainabilityJobDefinitionOutput) ToModelExplainabilityJobDefiniti
 	return o
 }
 
+// The time at which the job definition was created.
+func (o ModelExplainabilityJobDefinitionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of job definition.
+func (o ModelExplainabilityJobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) JobResources() ModelExplainabilityJobDefinitionMonitoringResourcesOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionMonitoringResourcesOutput {
+		return v.JobResources
+	}).(ModelExplainabilityJobDefinitionMonitoringResourcesOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityAppSpecification() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput {
+		return v.ModelExplainabilityAppSpecification
+	}).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityBaselineConfig() ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput {
+		return v.ModelExplainabilityBaselineConfig
+	}).(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityJobInput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput {
+		return v.ModelExplainabilityJobInput
+	}).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityJobOutputConfig() ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput {
+		return v.ModelExplainabilityJobOutputConfig
+	}).(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) NetworkConfig() ModelExplainabilityJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionNetworkConfigPtrOutput {
+		return v.NetworkConfig
+	}).(ModelExplainabilityJobDefinitionNetworkConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+func (o ModelExplainabilityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) StoppingCondition() ModelExplainabilityJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionStoppingConditionPtrOutput {
+		return v.StoppingCondition
+	}).(ModelExplainabilityJobDefinitionStoppingConditionPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ModelExplainabilityJobDefinitionOutput) Tags() ModelExplainabilityJobDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionTagArrayOutput {
+		return v.Tags
+	}).(ModelExplainabilityJobDefinitionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionInput)(nil)).Elem(), &ModelExplainabilityJobDefinition{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionOutput{})

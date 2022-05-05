@@ -113,6 +113,14 @@ func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutp
 	return o
 }
 
+func (o ElasticLoadBalancerAttachmentOutput) ElasticLoadBalancerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticLoadBalancerAttachment) pulumi.StringOutput { return v.ElasticLoadBalancerName }).(pulumi.StringOutput)
+}
+
+func (o ElasticLoadBalancerAttachmentOutput) LayerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticLoadBalancerAttachment) pulumi.StringOutput { return v.LayerId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticLoadBalancerAttachmentInput)(nil)).Elem(), &ElasticLoadBalancerAttachment{})
 	pulumi.RegisterOutputType(ElasticLoadBalancerAttachmentOutput{})

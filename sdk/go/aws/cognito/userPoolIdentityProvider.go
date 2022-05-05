@@ -128,6 +128,30 @@ func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithCont
 	return o
 }
 
+func (o UserPoolIdentityProviderOutput) AttributeMapping() pulumi.AnyOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.AnyOutput { return v.AttributeMapping }).(pulumi.AnyOutput)
+}
+
+func (o UserPoolIdentityProviderOutput) IdpIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringArrayOutput { return v.IdpIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolIdentityProviderOutput) ProviderDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.AnyOutput { return v.ProviderDetails }).(pulumi.AnyOutput)
+}
+
+func (o UserPoolIdentityProviderOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o UserPoolIdentityProviderOutput) ProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+func (o UserPoolIdentityProviderOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIdentityProviderInput)(nil)).Elem(), &UserPoolIdentityProvider{})
 	pulumi.RegisterOutputType(UserPoolIdentityProviderOutput{})

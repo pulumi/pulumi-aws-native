@@ -113,6 +113,14 @@ func (o StackFleetAssociationOutput) ToStackFleetAssociationOutputWithContext(ct
 	return o
 }
 
+func (o StackFleetAssociationOutput) FleetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackFleetAssociation) pulumi.StringOutput { return v.FleetName }).(pulumi.StringOutput)
+}
+
+func (o StackFleetAssociationOutput) StackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackFleetAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackFleetAssociationInput)(nil)).Elem(), &StackFleetAssociation{})
 	pulumi.RegisterOutputType(StackFleetAssociationOutput{})

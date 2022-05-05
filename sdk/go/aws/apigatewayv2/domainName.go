@@ -118,6 +118,30 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
+func (o DomainNameOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) DomainNameConfigurations() DomainNameConfigurationArrayOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameConfigurationArrayOutput { return v.DomainNameConfigurations }).(DomainNameConfigurationArrayOutput)
+}
+
+func (o DomainNameOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameMutualTlsAuthenticationPtrOutput { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+func (o DomainNameOutput) RegionalDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) RegionalHostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalHostedZoneId }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameInput)(nil)).Elem(), &DomainName{})
 	pulumi.RegisterOutputType(DomainNameOutput{})

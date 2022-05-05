@@ -110,6 +110,14 @@ func (o TransitGatewayRouteTableOutput) ToTransitGatewayRouteTableOutputWithCont
 	return o
 }
 
+func (o TransitGatewayRouteTableOutput) Tags() TransitGatewayRouteTableTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTable) TransitGatewayRouteTableTagArrayOutput { return v.Tags }).(TransitGatewayRouteTableTagArrayOutput)
+}
+
+func (o TransitGatewayRouteTableOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTable) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableInput)(nil)).Elem(), &TransitGatewayRouteTable{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableOutput{})

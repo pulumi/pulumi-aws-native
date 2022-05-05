@@ -175,6 +175,66 @@ func (o DBProxyOutput) ToDBProxyOutputWithContext(ctx context.Context) DBProxyOu
 	return o
 }
 
+// The authorization mechanism that the proxy uses.
+func (o DBProxyOutput) Auth() DBProxyAuthFormatArrayOutput {
+	return o.ApplyT(func(v *DBProxy) DBProxyAuthFormatArrayOutput { return v.Auth }).(DBProxyAuthFormatArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) for the proxy.
+func (o DBProxyOutput) DBProxyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.DBProxyArn }).(pulumi.StringOutput)
+}
+
+// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+func (o DBProxyOutput) DBProxyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.DBProxyName }).(pulumi.StringOutput)
+}
+
+// Whether the proxy includes detailed information about SQL statements in its logs.
+func (o DBProxyOutput) DebugLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.BoolPtrOutput { return v.DebugLogging }).(pulumi.BoolPtrOutput)
+}
+
+// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+func (o DBProxyOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The kinds of databases that the proxy can connect to.
+func (o DBProxyOutput) EngineFamily() DBProxyEngineFamilyOutput {
+	return o.ApplyT(func(v *DBProxy) DBProxyEngineFamilyOutput { return v.EngineFamily }).(DBProxyEngineFamilyOutput)
+}
+
+// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
+func (o DBProxyOutput) IdleClientTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.IntPtrOutput { return v.IdleClientTimeout }).(pulumi.IntPtrOutput)
+}
+
+// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+func (o DBProxyOutput) RequireTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.BoolPtrOutput { return v.RequireTLS }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+func (o DBProxyOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+func (o DBProxyOutput) Tags() DBProxyTagFormatArrayOutput {
+	return o.ApplyT(func(v *DBProxy) DBProxyTagFormatArrayOutput { return v.Tags }).(DBProxyTagFormatArrayOutput)
+}
+
+// VPC security group IDs to associate with the new proxy.
+func (o DBProxyOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// VPC subnet IDs to associate with the new proxy.
+func (o DBProxyOutput) VpcSubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringArrayOutput { return v.VpcSubnetIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyInput)(nil)).Elem(), &DBProxy{})
 	pulumi.RegisterOutputType(DBProxyOutput{})

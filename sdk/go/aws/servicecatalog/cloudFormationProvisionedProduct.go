@@ -139,6 +139,79 @@ func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProdu
 	return o
 }
 
+func (o CloudFormationProvisionedProductOutput) AcceptLanguage() CloudFormationProvisionedProductAcceptLanguagePtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductAcceptLanguagePtrOutput {
+		return v.AcceptLanguage
+	}).(CloudFormationProvisionedProductAcceptLanguagePtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) CloudformationStackArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.CloudformationStackArn }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) NotificationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
+}
+
+// List of key-value pair outputs.
+func (o CloudFormationProvisionedProductOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.AnyOutput { return v.Outputs }).(pulumi.AnyOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.PathId }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) PathName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.PathName }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProductId }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProvisionedProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.ProvisionedProductId }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProvisionedProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisionedProductName }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProvisioningArtifactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactName }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProvisioningParameters() CloudFormationProvisionedProductProvisioningParameterArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductProvisioningParameterArrayOutput {
+		return v.ProvisioningParameters
+	}).(CloudFormationProvisionedProductProvisioningParameterArrayOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) ProvisioningPreferences() CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
+		return v.ProvisioningPreferences
+	}).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) RecordId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.RecordId }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProvisionedProductOutput) Tags() CloudFormationProvisionedProductTagArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductTagArrayOutput {
+		return v.Tags
+	}).(CloudFormationProvisionedProductTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductInput)(nil)).Elem(), &CloudFormationProvisionedProduct{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductOutput{})

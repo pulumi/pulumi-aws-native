@@ -106,6 +106,16 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx 
 	return o
 }
 
+func (o SqlInjectionMatchSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlInjectionMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SqlInjectionMatchSetOutput) SqlInjectionMatchTuples() SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput {
+	return o.ApplyT(func(v *SqlInjectionMatchSet) SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput {
+		return v.SqlInjectionMatchTuples
+	}).(SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetInput)(nil)).Elem(), &SqlInjectionMatchSet{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetOutput{})

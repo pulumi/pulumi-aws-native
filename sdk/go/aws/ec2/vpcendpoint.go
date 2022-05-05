@@ -134,6 +134,50 @@ func (o VPCEndpointOutput) ToVPCEndpointOutputWithContext(ctx context.Context) V
 	return o
 }
 
+func (o VPCEndpointOutput) CreationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringOutput { return v.CreationTimestamp }).(pulumi.StringOutput)
+}
+
+func (o VPCEndpointOutput) DnsEntries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.DnsEntries }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o VPCEndpointOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.BoolPtrOutput { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o VPCEndpointOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+func (o VPCEndpointOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointOutput) VpcEndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringPtrOutput { return v.VpcEndpointType }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCEndpointOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointInput)(nil)).Elem(), &VPCEndpoint{})
 	pulumi.RegisterOutputType(VPCEndpointOutput{})

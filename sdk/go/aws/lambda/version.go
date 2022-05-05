@@ -117,6 +117,28 @@ func (o VersionOutput) ToVersionOutputWithContext(ctx context.Context) VersionOu
 	return o
 }
 
+func (o VersionOutput) CodeSha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Version) pulumi.StringPtrOutput { return v.CodeSha256 }).(pulumi.StringPtrOutput)
+}
+
+func (o VersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Version) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o VersionOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+func (o VersionOutput) ProvisionedConcurrencyConfig() VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ApplyT(func(v *Version) VersionProvisionedConcurrencyConfigurationPtrOutput {
+		return v.ProvisionedConcurrencyConfig
+	}).(VersionProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+func (o VersionOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionInput)(nil)).Elem(), &Version{})
 	pulumi.RegisterOutputType(VersionOutput{})

@@ -172,6 +172,66 @@ func (o FuotaTaskOutput) ToFuotaTaskOutputWithContext(ctx context.Context) Fuota
 	return o
 }
 
+// FUOTA task arn. Returned after successful create.
+func (o FuotaTaskOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Multicast group to associate. Only for update request.
+func (o FuotaTaskOutput) AssociateMulticastGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.AssociateMulticastGroup }).(pulumi.StringPtrOutput)
+}
+
+// Wireless device to associate. Only for update request.
+func (o FuotaTaskOutput) AssociateWirelessDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.AssociateWirelessDevice }).(pulumi.StringPtrOutput)
+}
+
+// FUOTA task description
+func (o FuotaTaskOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Multicast group to disassociate. Only for update request.
+func (o FuotaTaskOutput) DisassociateMulticastGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.DisassociateMulticastGroup }).(pulumi.StringPtrOutput)
+}
+
+// Wireless device to disassociate. Only for update request.
+func (o FuotaTaskOutput) DisassociateWirelessDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.DisassociateWirelessDevice }).(pulumi.StringPtrOutput)
+}
+
+// FUOTA task firmware update image binary S3 link
+func (o FuotaTaskOutput) FirmwareUpdateImage() pulumi.StringOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringOutput { return v.FirmwareUpdateImage }).(pulumi.StringOutput)
+}
+
+// FUOTA task firmware IAM role for reading S3
+func (o FuotaTaskOutput) FirmwareUpdateRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringOutput { return v.FirmwareUpdateRole }).(pulumi.StringOutput)
+}
+
+// FUOTA task status. Returned after successful read.
+func (o FuotaTaskOutput) FuotaTaskStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringOutput { return v.FuotaTaskStatus }).(pulumi.StringOutput)
+}
+
+// FUOTA task LoRaWAN
+func (o FuotaTaskOutput) LoRaWAN() FuotaTaskLoRaWANOutput {
+	return o.ApplyT(func(v *FuotaTask) FuotaTaskLoRaWANOutput { return v.LoRaWAN }).(FuotaTaskLoRaWANOutput)
+}
+
+// Name of FUOTA task
+func (o FuotaTaskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the FUOTA task.
+func (o FuotaTaskOutput) Tags() FuotaTaskTagArrayOutput {
+	return o.ApplyT(func(v *FuotaTask) FuotaTaskTagArrayOutput { return v.Tags }).(FuotaTaskTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskInput)(nil)).Elem(), &FuotaTask{})
 	pulumi.RegisterOutputType(FuotaTaskOutput{})

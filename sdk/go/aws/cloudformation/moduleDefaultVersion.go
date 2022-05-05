@@ -116,6 +116,21 @@ func (o ModuleDefaultVersionOutput) ToModuleDefaultVersionOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the module version to set as the default version.
+func (o ModuleDefaultVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The name of a module existing in the registry.
+func (o ModuleDefaultVersionOutput) ModuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersion) pulumi.StringPtrOutput { return v.ModuleName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an existing version of the named module to set as the default.
+func (o ModuleDefaultVersionOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersion) pulumi.StringPtrOutput { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleDefaultVersionInput)(nil)).Elem(), &ModuleDefaultVersion{})
 	pulumi.RegisterOutputType(ModuleDefaultVersionOutput{})

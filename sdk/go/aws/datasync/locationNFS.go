@@ -136,6 +136,39 @@ func (o LocationNFSOutput) ToLocationNFSOutputWithContext(ctx context.Context) L
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the NFS location.
+func (o LocationNFSOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationNFS) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the NFS location that was described.
+func (o LocationNFSOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationNFS) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationNFSOutput) MountOptions() LocationNFSMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationNFS) LocationNFSMountOptionsPtrOutput { return v.MountOptions }).(LocationNFSMountOptionsPtrOutput)
+}
+
+func (o LocationNFSOutput) OnPremConfig() LocationNFSOnPremConfigOutput {
+	return o.ApplyT(func(v *LocationNFS) LocationNFSOnPremConfigOutput { return v.OnPremConfig }).(LocationNFSOnPremConfigOutput)
+}
+
+// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
+func (o LocationNFSOutput) ServerHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationNFS) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
+}
+
+// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
+func (o LocationNFSOutput) Subdirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationNFS) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationNFSOutput) Tags() LocationNFSTagArrayOutput {
+	return o.ApplyT(func(v *LocationNFS) LocationNFSTagArrayOutput { return v.Tags }).(LocationNFSTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSInput)(nil)).Elem(), &LocationNFS{})
 	pulumi.RegisterOutputType(LocationNFSOutput{})

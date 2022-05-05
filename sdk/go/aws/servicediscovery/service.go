@@ -125,6 +125,42 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+func (o ServiceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) DnsConfig() ServiceDnsConfigPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceDnsConfigPtrOutput { return v.DnsConfig }).(ServiceDnsConfigPtrOutput)
+}
+
+func (o ServiceOutput) HealthCheckConfig() ServiceHealthCheckConfigPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigPtrOutput { return v.HealthCheckConfig }).(ServiceHealthCheckConfigPtrOutput)
+}
+
+func (o ServiceOutput) HealthCheckCustomConfig() ServiceHealthCheckCustomConfigPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceHealthCheckCustomConfigPtrOutput { return v.HealthCheckCustomConfig }).(ServiceHealthCheckCustomConfigPtrOutput)
+}
+
+func (o ServiceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.NamespaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) Tags() ServiceTagArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+}
+
+func (o ServiceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInput)(nil)).Elem(), &Service{})
 	pulumi.RegisterOutputType(ServiceOutput{})

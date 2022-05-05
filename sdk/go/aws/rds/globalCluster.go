@@ -140,6 +140,38 @@ func (o GlobalClusterOutput) ToGlobalClusterOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
+func (o GlobalClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+func (o GlobalClusterOutput) Engine() GlobalClusterEnginePtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) GlobalClusterEnginePtrOutput { return v.Engine }).(GlobalClusterEnginePtrOutput)
+}
+
+// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+func (o GlobalClusterOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
+func (o GlobalClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.GlobalClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
+func (o GlobalClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+//  The storage encryption setting for the new global database cluster.
+// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+func (o GlobalClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterInput)(nil)).Elem(), &GlobalCluster{})
 	pulumi.RegisterOutputType(GlobalClusterOutput{})

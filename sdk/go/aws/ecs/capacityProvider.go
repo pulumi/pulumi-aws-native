@@ -111,6 +111,20 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 	return o
 }
 
+func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderOutput {
+		return v.AutoScalingGroupProvider
+	}).(CapacityProviderAutoScalingGroupProviderOutput)
+}
+
+func (o CapacityProviderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderOutput) Tags() CapacityProviderTagArrayOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderTagArrayOutput { return v.Tags }).(CapacityProviderTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInput)(nil)).Elem(), &CapacityProvider{})
 	pulumi.RegisterOutputType(CapacityProviderOutput{})

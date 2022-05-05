@@ -116,6 +116,21 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
+// The route table ID.
+func (o RouteTableOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+// Any tags assigned to the route table.
+func (o RouteTableOutput) Tags() RouteTableTagArrayOutput {
+	return o.ApplyT(func(v *RouteTable) RouteTableTagArrayOutput { return v.Tags }).(RouteTableTagArrayOutput)
+}
+
+// The ID of the VPC.
+func (o RouteTableOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableInput)(nil)).Elem(), &RouteTable{})
 	pulumi.RegisterOutputType(RouteTableOutput{})

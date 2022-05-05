@@ -130,6 +130,35 @@ func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
 }
 
+// List of IPAddresses.
+func (o IPSetOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
+}
+
+func (o IPSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o IPSetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o IPSetOutput) IPAddressVersion() IPSetIPAddressVersionOutput {
+	return o.ApplyT(func(v *IPSet) IPSetIPAddressVersionOutput { return v.IPAddressVersion }).(IPSetIPAddressVersionOutput)
+}
+
+func (o IPSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o IPSetOutput) Scope() IPSetScopeOutput {
+	return o.ApplyT(func(v *IPSet) IPSetScopeOutput { return v.Scope }).(IPSetScopeOutput)
+}
+
+func (o IPSetOutput) Tags() IPSetTagArrayOutput {
+	return o.ApplyT(func(v *IPSet) IPSetTagArrayOutput { return v.Tags }).(IPSetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPSetInput)(nil)).Elem(), &IPSet{})
 	pulumi.RegisterOutputType(IPSetOutput{})

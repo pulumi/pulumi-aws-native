@@ -152,6 +152,42 @@ func (o StackSetConstraintOutput) ToStackSetConstraintOutputWithContext(ctx cont
 	return o
 }
 
+func (o StackSetConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o StackSetConstraintOutput) AccountList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringArrayOutput { return v.AccountList }).(pulumi.StringArrayOutput)
+}
+
+func (o StackSetConstraintOutput) AdminRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.AdminRole }).(pulumi.StringOutput)
+}
+
+func (o StackSetConstraintOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o StackSetConstraintOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+func (o StackSetConstraintOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o StackSetConstraintOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o StackSetConstraintOutput) RegionList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringArrayOutput { return v.RegionList }).(pulumi.StringArrayOutput)
+}
+
+func (o StackSetConstraintOutput) StackInstanceControl() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.StackInstanceControl }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetConstraintInput)(nil)).Elem(), &StackSetConstraint{})
 	pulumi.RegisterOutputType(StackSetConstraintOutput{})

@@ -128,6 +128,30 @@ func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutputWithContex
 	return o
 }
 
+func (o MaintenanceWindowTargetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTargetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTargetOutput) OwnerInformation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringPtrOutput { return v.OwnerInformation }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTargetOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTargetOutput) Targets() MaintenanceWindowTargetTargetsArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) MaintenanceWindowTargetTargetsArrayOutput { return v.Targets }).(MaintenanceWindowTargetTargetsArrayOutput)
+}
+
+func (o MaintenanceWindowTargetOutput) WindowId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringOutput { return v.WindowId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetInput)(nil)).Elem(), &MaintenanceWindowTarget{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetOutput{})

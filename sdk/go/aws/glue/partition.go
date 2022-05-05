@@ -125,6 +125,22 @@ func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) Parti
 	return o
 }
 
+func (o PartitionOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PartitionOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o PartitionOutput) PartitionInput() PartitionInputTypeOutput {
+	return o.ApplyT(func(v *Partition) PartitionInputTypeOutput { return v.PartitionInput }).(PartitionInputTypeOutput)
+}
+
+func (o PartitionOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInput)(nil)).Elem(), &Partition{})
 	pulumi.RegisterOutputType(PartitionOutput{})

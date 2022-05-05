@@ -128,6 +128,34 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApplicationOutput) ApplicationConfiguration() ApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationConfigurationPtrOutput { return v.ApplicationConfiguration }).(ApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationOutput) ApplicationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) ApplicationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationMode }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) RuntimeEnvironment() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.RuntimeEnvironment }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) ServiceExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ServiceExecutionRole }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

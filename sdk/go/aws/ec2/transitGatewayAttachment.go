@@ -120,6 +120,22 @@ func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutputWithCont
 	return o
 }
 
+func (o TransitGatewayAttachmentOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o TransitGatewayAttachmentOutput) Tags() TransitGatewayAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) TransitGatewayAttachmentTagArrayOutput { return v.Tags }).(TransitGatewayAttachmentTagArrayOutput)
+}
+
+func (o TransitGatewayAttachmentOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentInput)(nil)).Elem(), &TransitGatewayAttachment{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentOutput{})

@@ -128,6 +128,31 @@ func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.
 	return o
 }
 
+// Name of the request validator.
+func (o RequestValidatorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestValidator) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of the request validator.
+func (o RequestValidatorOutput) RequestValidatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RequestValidatorId }).(pulumi.StringOutput)
+}
+
+// The identifier of the targeted API entity.
+func (o RequestValidatorOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+func (o RequestValidatorOutput) ValidateRequestBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestBody }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to validate request parameters.
+func (o RequestValidatorOutput) ValidateRequestParameters() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestParameters }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorInput)(nil)).Elem(), &RequestValidator{})
 	pulumi.RegisterOutputType(RequestValidatorOutput{})

@@ -131,6 +131,31 @@ func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) Dimen
 	return o
 }
 
+// The ARN (Amazon resource name) of the created dimension.
+func (o DimensionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dimension) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the dimension.
+func (o DimensionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dimension) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the value or list of values for the dimension.
+func (o DimensionOutput) StringValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dimension) pulumi.StringArrayOutput { return v.StringValues }).(pulumi.StringArrayOutput)
+}
+
+// Metadata that can be used to manage the dimension.
+func (o DimensionOutput) Tags() DimensionTagArrayOutput {
+	return o.ApplyT(func(v *Dimension) DimensionTagArrayOutput { return v.Tags }).(DimensionTagArrayOutput)
+}
+
+// Specifies the type of the dimension.
+func (o DimensionOutput) Type() DimensionTypeOutput {
+	return o.ApplyT(func(v *Dimension) DimensionTypeOutput { return v.Type }).(DimensionTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionInput)(nil)).Elem(), &Dimension{})
 	pulumi.RegisterOutputType(DimensionOutput{})

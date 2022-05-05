@@ -111,6 +111,18 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+func (o PipelineOutput) PipelineActivities() PipelineActivityArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineActivityArrayOutput { return v.PipelineActivities }).(PipelineActivityArrayOutput)
+}
+
+func (o PipelineOutput) PipelineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineName }).(pulumi.StringPtrOutput)
+}
+
+func (o PipelineOutput) Tags() PipelineTagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInput)(nil)).Elem(), &Pipeline{})
 	pulumi.RegisterOutputType(PipelineOutput{})

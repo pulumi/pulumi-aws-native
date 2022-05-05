@@ -125,6 +125,26 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RateBasedRuleOutput) MatchPredicates() RateBasedRulePredicateArrayOutput {
+	return o.ApplyT(func(v *RateBasedRule) RateBasedRulePredicateArrayOutput { return v.MatchPredicates }).(RateBasedRulePredicateArrayOutput)
+}
+
+func (o RateBasedRuleOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
+}
+
+func (o RateBasedRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RateBasedRuleOutput) RateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.RateKey }).(pulumi.StringOutput)
+}
+
+func (o RateBasedRuleOutput) RateLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *RateBasedRule) pulumi.IntOutput { return v.RateLimit }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleInput)(nil)).Elem(), &RateBasedRule{})
 	pulumi.RegisterOutputType(RateBasedRuleOutput{})

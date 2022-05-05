@@ -165,6 +165,76 @@ func (o ComponentTypeOutput) ToComponentTypeOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ARN of the component type.
+func (o ComponentTypeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the component type.
+func (o ComponentTypeOutput) ComponentTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringOutput { return v.ComponentTypeId }).(pulumi.StringOutput)
+}
+
+// The date and time when the component type was created.
+func (o ComponentTypeOutput) CreationDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringOutput { return v.CreationDateTime }).(pulumi.StringOutput)
+}
+
+// The description of the component type.
+func (o ComponentTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the parent component type to extend.
+func (o ComponentTypeOutput) ExtendsFrom() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringArrayOutput { return v.ExtendsFrom }).(pulumi.StringArrayOutput)
+}
+
+// a Map of functions in the component type. Each function's key must be unique to this map.
+func (o ComponentTypeOutput) Functions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.AnyOutput { return v.Functions }).(pulumi.AnyOutput)
+}
+
+// A Boolean value that specifies whether the component type is abstract.
+func (o ComponentTypeOutput) IsAbstract() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.BoolOutput { return v.IsAbstract }).(pulumi.BoolOutput)
+}
+
+// A Boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
+func (o ComponentTypeOutput) IsSchemaInitialized() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.BoolOutput { return v.IsSchemaInitialized }).(pulumi.BoolOutput)
+}
+
+// A Boolean value that specifies whether an entity can have more than one component of this type.
+func (o ComponentTypeOutput) IsSingleton() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.BoolPtrOutput { return v.IsSingleton }).(pulumi.BoolPtrOutput)
+}
+
+// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
+func (o ComponentTypeOutput) PropertyDefinitions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.AnyOutput { return v.PropertyDefinitions }).(pulumi.AnyOutput)
+}
+
+// The current status of the component type.
+func (o ComponentTypeOutput) Status() ComponentTypeStatusOutput {
+	return o.ApplyT(func(v *ComponentType) ComponentTypeStatusOutput { return v.Status }).(ComponentTypeStatusOutput)
+}
+
+// A map of key-value pairs to associate with a resource.
+func (o ComponentTypeOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The last date and time when the component type was updated.
+func (o ComponentTypeOutput) UpdateDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringOutput { return v.UpdateDateTime }).(pulumi.StringOutput)
+}
+
+// The ID of the workspace that contains the component type.
+func (o ComponentTypeOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypeInput)(nil)).Elem(), &ComponentType{})
 	pulumi.RegisterOutputType(ComponentTypeOutput{})

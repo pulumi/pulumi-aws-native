@@ -107,6 +107,10 @@ func (o CustomResourceOutput) ToCustomResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CustomResourceOutput) ServiceToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomResource) pulumi.StringOutput { return v.ServiceToken }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomResourceInput)(nil)).Elem(), &CustomResource{})
 	pulumi.RegisterOutputType(CustomResourceOutput{})

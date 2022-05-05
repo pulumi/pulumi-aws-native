@@ -113,6 +113,14 @@ func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAss
 	return o
 }
 
+func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAssociationInput)(nil)).Elem(), &TransitGatewayRouteTableAssociation{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAssociationOutput{})

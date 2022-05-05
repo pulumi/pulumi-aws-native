@@ -183,6 +183,70 @@ func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return o
 }
 
+func (o AlarmOutput) AlarmArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.AlarmArn }).(pulumi.StringOutput)
+}
+
+// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
+func (o AlarmOutput) AlarmName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.AlarmName }).(pulumi.StringOutput)
+}
+
+// The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.
+func (o AlarmOutput) ComparisonOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.ComparisonOperator }).(pulumi.StringOutput)
+}
+
+// The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.
+func (o AlarmOutput) ContactProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.ContactProtocols }).(pulumi.StringArrayOutput)
+}
+
+// The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an "M out of N" alarm, this value (datapointsToAlarm) is the M.
+func (o AlarmOutput) DatapointsToAlarm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.DatapointsToAlarm }).(pulumi.IntPtrOutput)
+}
+
+// The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.
+func (o AlarmOutput) EvaluationPeriods() pulumi.IntOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.IntOutput { return v.EvaluationPeriods }).(pulumi.IntOutput)
+}
+
+// The name of the metric to associate with the alarm.
+func (o AlarmOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The validation status of the SSL/TLS certificate.
+func (o AlarmOutput) MonitoredResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.MonitoredResourceName }).(pulumi.StringOutput)
+}
+
+// Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
+func (o AlarmOutput) NotificationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.BoolPtrOutput { return v.NotificationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The alarm states that trigger a notification.
+func (o AlarmOutput) NotificationTriggers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.NotificationTriggers }).(pulumi.StringArrayOutput)
+}
+
+// The current state of the alarm.
+func (o AlarmOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The value against which the specified statistic is compared.
+func (o AlarmOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v *Alarm) pulumi.Float64Output { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// Sets how this alarm will handle missing data points.
+func (o AlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.TreatMissingData }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmInput)(nil)).Elem(), &Alarm{})
 	pulumi.RegisterOutputType(AlarmOutput{})

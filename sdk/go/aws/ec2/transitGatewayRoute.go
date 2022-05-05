@@ -116,6 +116,22 @@ func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutputWithContext(ctx co
 	return o
 }
 
+func (o TransitGatewayRouteOutput) Blackhole() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRoute) pulumi.BoolPtrOutput { return v.Blackhole }).(pulumi.BoolPtrOutput)
+}
+
+func (o TransitGatewayRouteOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRoute) pulumi.StringPtrOutput { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayRouteOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRoute) pulumi.StringPtrOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayRouteOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRoute) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteInput)(nil)).Elem(), &TransitGatewayRoute{})
 	pulumi.RegisterOutputType(TransitGatewayRouteOutput{})

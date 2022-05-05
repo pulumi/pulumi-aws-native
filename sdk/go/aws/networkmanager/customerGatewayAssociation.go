@@ -132,6 +132,26 @@ func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the customer gateway.
+func (o CustomerGatewayAssociationOutput) CustomerGatewayArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.CustomerGatewayArn }).(pulumi.StringOutput)
+}
+
+// The ID of the device
+func (o CustomerGatewayAssociationOutput) DeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
+}
+
+// The ID of the global network.
+func (o CustomerGatewayAssociationOutput) GlobalNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The ID of the link
+func (o CustomerGatewayAssociationOutput) LinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayAssociationInput)(nil)).Elem(), &CustomerGatewayAssociation{})
 	pulumi.RegisterOutputType(CustomerGatewayAssociationOutput{})

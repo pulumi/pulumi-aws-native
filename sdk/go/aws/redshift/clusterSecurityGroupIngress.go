@@ -116,6 +116,22 @@ func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutputWi
 	return o
 }
 
+func (o ClusterSecurityGroupIngressOutput) CIDRIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.CIDRIP }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterSecurityGroupIngressOutput) ClusterSecurityGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringOutput { return v.ClusterSecurityGroupName }).(pulumi.StringOutput)
+}
+
+func (o ClusterSecurityGroupIngressOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterSecurityGroupIngressOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSecurityGroupIngressInput)(nil)).Elem(), &ClusterSecurityGroupIngress{})
 	pulumi.RegisterOutputType(ClusterSecurityGroupIngressOutput{})

@@ -114,6 +114,26 @@ func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOu
 	return o
 }
 
+// AWS account ID of customer
+func (o SessionOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// A enumeration value that specifies how frequently finding updates are published.
+func (o SessionOutput) FindingPublishingFrequency() SessionFindingPublishingFrequencyPtrOutput {
+	return o.ApplyT(func(v *Session) SessionFindingPublishingFrequencyPtrOutput { return v.FindingPublishingFrequency }).(SessionFindingPublishingFrequencyPtrOutput)
+}
+
+// Service role used by Macie
+func (o SessionOutput) ServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// A enumeration value that specifies the status of the Macie Session.
+func (o SessionOutput) Status() SessionStatusPtrOutput {
+	return o.ApplyT(func(v *Session) SessionStatusPtrOutput { return v.Status }).(SessionStatusPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionInput)(nil)).Elem(), &Session{})
 	pulumi.RegisterOutputType(SessionOutput{})

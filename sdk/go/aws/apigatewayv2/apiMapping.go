@@ -122,6 +122,22 @@ func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) Api
 	return o
 }
 
+func (o ApiMappingOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ApiMappingOutput) ApiMappingKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiMapping) pulumi.StringPtrOutput { return v.ApiMappingKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiMappingOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o ApiMappingOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiMappingInput)(nil)).Elem(), &ApiMapping{})
 	pulumi.RegisterOutputType(ApiMappingOutput{})

@@ -136,6 +136,46 @@ func (o SimpleADOutput) ToSimpleADOutputWithContext(ctx context.Context) SimpleA
 	return o
 }
 
+func (o SimpleADOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o SimpleADOutput) CreateAlias() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.BoolPtrOutput { return v.CreateAlias }).(pulumi.BoolPtrOutput)
+}
+
+func (o SimpleADOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SimpleADOutput) DnsIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringArrayOutput { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o SimpleADOutput) EnableSso() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.BoolPtrOutput { return v.EnableSso }).(pulumi.BoolPtrOutput)
+}
+
+func (o SimpleADOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SimpleADOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o SimpleADOutput) ShortName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringPtrOutput { return v.ShortName }).(pulumi.StringPtrOutput)
+}
+
+func (o SimpleADOutput) Size() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
+}
+
+func (o SimpleADOutput) VpcSettings() SimpleADVpcSettingsOutput {
+	return o.ApplyT(func(v *SimpleAD) SimpleADVpcSettingsOutput { return v.VpcSettings }).(SimpleADVpcSettingsOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SimpleADInput)(nil)).Elem(), &SimpleAD{})
 	pulumi.RegisterOutputType(SimpleADOutput{})

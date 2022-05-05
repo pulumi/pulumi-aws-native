@@ -137,6 +137,35 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+// The ARN of the dataset
+func (o DatasetOutput) DatasetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.DatasetArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the dataset group to add the dataset to
+func (o DatasetOutput) DatasetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.DatasetGroupArn }).(pulumi.StringOutput)
+}
+
+func (o DatasetOutput) DatasetImportJob() DatasetImportJobPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetImportJobPtrOutput { return v.DatasetImportJob }).(DatasetImportJobPtrOutput)
+}
+
+// The type of dataset
+func (o DatasetOutput) DatasetType() DatasetTypeOutput {
+	return o.ApplyT(func(v *Dataset) DatasetTypeOutput { return v.DatasetType }).(DatasetTypeOutput)
+}
+
+// The name for the dataset
+func (o DatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
+func (o DatasetOutput) SchemaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.SchemaArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInput)(nil)).Elem(), &Dataset{})
 	pulumi.RegisterOutputType(DatasetOutput{})

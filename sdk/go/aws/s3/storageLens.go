@@ -111,6 +111,15 @@ func (o StorageLensOutput) ToStorageLensOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o StorageLensOutput) StorageLensConfiguration() StorageLensConfigurationOutput {
+	return o.ApplyT(func(v *StorageLens) StorageLensConfigurationOutput { return v.StorageLensConfiguration }).(StorageLensConfigurationOutput)
+}
+
+// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+func (o StorageLensOutput) Tags() StorageLensTagArrayOutput {
+	return o.ApplyT(func(v *StorageLens) StorageLensTagArrayOutput { return v.Tags }).(StorageLensTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensInput)(nil)).Elem(), &StorageLens{})
 	pulumi.RegisterOutputType(StorageLensOutput{})

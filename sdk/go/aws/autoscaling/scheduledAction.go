@@ -128,6 +128,38 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ScheduledActionOutput) AutoScalingGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.AutoScalingGroupName }).(pulumi.StringOutput)
+}
+
+func (o ScheduledActionOutput) DesiredCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.DesiredCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o ScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ScheduledActionOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ScheduledActionOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Recurrence }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionInput)(nil)).Elem(), &ScheduledAction{})
 	pulumi.RegisterOutputType(ScheduledActionOutput{})

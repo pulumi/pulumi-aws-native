@@ -134,6 +134,36 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// Specifies settings for the canary deployment.
+func (o DeploymentOutput) DeploymentCanarySettings() DeploymentCanarySettingsPtrOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentCanarySettingsPtrOutput { return v.DeploymentCanarySettings }).(DeploymentCanarySettingsPtrOutput)
+}
+
+// Primary Id for this resource
+func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// A description of the purpose of the API Gateway deployment.
+func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the RestApi resource to deploy.
+func (o DeploymentOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// Configures the stage that API Gateway creates with this deployment.
+func (o DeploymentOutput) StageDescription() DeploymentStageDescriptionPtrOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentStageDescriptionPtrOutput { return v.StageDescription }).(DeploymentStageDescriptionPtrOutput)
+}
+
+// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentInput)(nil)).Elem(), &Deployment{})
 	pulumi.RegisterOutputType(DeploymentOutput{})

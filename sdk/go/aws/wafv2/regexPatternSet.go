@@ -131,6 +131,34 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN of the WAF entity.
+func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Description of the entity.
+func (o RegexPatternSetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the RegexPatternSet.
+func (o RegexPatternSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o RegexPatternSetOutput) RegularExpressionList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegularExpressionList }).(pulumi.StringArrayOutput)
+}
+
+// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
+func (o RegexPatternSetOutput) Scope() RegexPatternSetScopeOutput {
+	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetScopeOutput { return v.Scope }).(RegexPatternSetScopeOutput)
+}
+
+func (o RegexPatternSetOutput) Tags() RegexPatternSetTagArrayOutput {
+	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetTagArrayOutput { return v.Tags }).(RegexPatternSetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetInput)(nil)).Elem(), &RegexPatternSet{})
 	pulumi.RegisterOutputType(RegexPatternSetOutput{})

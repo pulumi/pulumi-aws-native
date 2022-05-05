@@ -130,6 +130,42 @@ func (o MicrosoftADOutput) ToMicrosoftADOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o MicrosoftADOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o MicrosoftADOutput) CreateAlias() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.BoolPtrOutput { return v.CreateAlias }).(pulumi.BoolPtrOutput)
+}
+
+func (o MicrosoftADOutput) DnsIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.StringArrayOutput { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o MicrosoftADOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
+}
+
+func (o MicrosoftADOutput) EnableSso() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.BoolPtrOutput { return v.EnableSso }).(pulumi.BoolPtrOutput)
+}
+
+func (o MicrosoftADOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MicrosoftADOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o MicrosoftADOutput) ShortName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrosoftAD) pulumi.StringPtrOutput { return v.ShortName }).(pulumi.StringPtrOutput)
+}
+
+func (o MicrosoftADOutput) VpcSettings() MicrosoftADVpcSettingsOutput {
+	return o.ApplyT(func(v *MicrosoftAD) MicrosoftADVpcSettingsOutput { return v.VpcSettings }).(MicrosoftADVpcSettingsOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftADInput)(nil)).Elem(), &MicrosoftAD{})
 	pulumi.RegisterOutputType(MicrosoftADOutput{})

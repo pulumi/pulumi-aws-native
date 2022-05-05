@@ -106,6 +106,14 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.
 	return o
 }
 
+func (o DataLakeSettingsOutput) Admins() DataLakeSettingsAdminsPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsAdminsPtrOutput { return v.Admins }).(DataLakeSettingsAdminsPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) TrustedResourceOwners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.TrustedResourceOwners }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsInput)(nil)).Elem(), &DataLakeSettings{})
 	pulumi.RegisterOutputType(DataLakeSettingsOutput{})

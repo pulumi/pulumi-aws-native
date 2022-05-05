@@ -119,6 +119,18 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+func (o TableOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o TableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o TableOutput) TableInput() TableInputTypeOutput {
+	return o.ApplyT(func(v *Table) TableInputTypeOutput { return v.TableInput }).(TableInputTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableInput)(nil)).Elem(), &Table{})
 	pulumi.RegisterOutputType(TableOutput{})

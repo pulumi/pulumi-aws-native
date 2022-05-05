@@ -133,6 +133,46 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+func (o RepositoryOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) EncryptionConfiguration() RepositoryEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(RepositoryEncryptionConfigurationPtrOutput)
+}
+
+func (o RepositoryOutput) ImageScanningConfiguration() RepositoryImageScanningConfigurationPtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryImageScanningConfigurationPtrOutput { return v.ImageScanningConfiguration }).(RepositoryImageScanningConfigurationPtrOutput)
+}
+
+// The image tag mutability setting for the repository.
+func (o RepositoryOutput) ImageTagMutability() RepositoryImageTagMutabilityPtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryImageTagMutabilityPtrOutput { return v.ImageTagMutability }).(RepositoryImageTagMutabilityPtrOutput)
+}
+
+func (o RepositoryOutput) LifecyclePolicy() RepositoryLifecyclePolicyPtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryLifecyclePolicyPtrOutput { return v.LifecyclePolicy }).(RepositoryLifecyclePolicyPtrOutput)
+}
+
+// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+func (o RepositoryOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide.
+func (o RepositoryOutput) RepositoryPolicyText() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Repository) pulumi.AnyOutput { return v.RepositoryPolicyText }).(pulumi.AnyOutput)
+}
+
+func (o RepositoryOutput) RepositoryUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUri }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o RepositoryOutput) Tags() RepositoryTagArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryTagArrayOutput { return v.Tags }).(RepositoryTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryInput)(nil)).Elem(), &Repository{})
 	pulumi.RegisterOutputType(RepositoryOutput{})

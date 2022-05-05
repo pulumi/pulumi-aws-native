@@ -121,6 +121,38 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Amazon ECS cluster, such as arn:aws:ecs:us-east-2:123456789012:cluster/MyECSCluster.
+func (o ClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) CapacityProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.CapacityProviders }).(pulumi.StringArrayOutput)
+}
+
+// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
+func (o ClusterOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ClusterSettings() ClusterSettingsArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSettingsArrayOutput { return v.ClusterSettings }).(ClusterSettingsArrayOutput)
+}
+
+func (o ClusterOutput) Configuration() ClusterConfigurationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterConfigurationPtrOutput { return v.Configuration }).(ClusterConfigurationPtrOutput)
+}
+
+func (o ClusterOutput) DefaultCapacityProviderStrategy() ClusterCapacityProviderStrategyItemArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCapacityProviderStrategyItemArrayOutput {
+		return v.DefaultCapacityProviderStrategy
+	}).(ClusterCapacityProviderStrategyItemArrayOutput)
+}
+
+func (o ClusterOutput) Tags() ClusterTagArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

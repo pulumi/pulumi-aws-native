@@ -128,6 +128,31 @@ func (o DatasetGroupOutput) ToDatasetGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
+func (o DatasetGroupOutput) DatasetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringArrayOutput { return v.DatasetArns }).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the dataset group to delete.
+func (o DatasetGroupOutput) DatasetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringOutput { return v.DatasetGroupArn }).(pulumi.StringOutput)
+}
+
+// A name for the dataset group.
+func (o DatasetGroupOutput) DatasetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringOutput { return v.DatasetGroupName }).(pulumi.StringOutput)
+}
+
+// The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
+func (o DatasetGroupOutput) Domain() DatasetGroupDomainOutput {
+	return o.ApplyT(func(v *DatasetGroup) DatasetGroupDomainOutput { return v.Domain }).(DatasetGroupDomainOutput)
+}
+
+// The tags of Application Insights application.
+func (o DatasetGroupOutput) Tags() DatasetGroupTagArrayOutput {
+	return o.ApplyT(func(v *DatasetGroup) DatasetGroupTagArrayOutput { return v.Tags }).(DatasetGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetGroupInput)(nil)).Elem(), &DatasetGroup{})
 	pulumi.RegisterOutputType(DatasetGroupOutput{})

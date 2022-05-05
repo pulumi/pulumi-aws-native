@@ -113,6 +113,14 @@ func (o WebACLAssociationOutput) ToWebACLAssociationOutputWithContext(ctx contex
 	return o
 }
 
+func (o WebACLAssociationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACLAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+func (o WebACLAssociationOutput) WebACLId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACLAssociation) pulumi.StringOutput { return v.WebACLId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAssociationInput)(nil)).Elem(), &WebACLAssociation{})
 	pulumi.RegisterOutputType(WebACLAssociationOutput{})

@@ -133,6 +133,34 @@ func (o RobotOutput) ToRobotOutputWithContext(ctx context.Context) RobotOutput {
 	return o
 }
 
+// The target architecture of the robot.
+func (o RobotOutput) Architecture() RobotArchitectureOutput {
+	return o.ApplyT(func(v *Robot) RobotArchitectureOutput { return v.Architecture }).(RobotArchitectureOutput)
+}
+
+func (o RobotOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Robot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the fleet.
+func (o RobotOutput) Fleet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Robot) pulumi.StringPtrOutput { return v.Fleet }).(pulumi.StringPtrOutput)
+}
+
+// The Greengrass group id.
+func (o RobotOutput) GreengrassGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Robot) pulumi.StringOutput { return v.GreengrassGroupId }).(pulumi.StringOutput)
+}
+
+// The name for the robot.
+func (o RobotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Robot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o RobotOutput) Tags() RobotTagsPtrOutput {
+	return o.ApplyT(func(v *Robot) RobotTagsPtrOutput { return v.Tags }).(RobotTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotInput)(nil)).Elem(), &Robot{})
 	pulumi.RegisterOutputType(RobotOutput{})

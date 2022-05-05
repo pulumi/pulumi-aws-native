@@ -109,6 +109,18 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CertificateOutput) CertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificatePem }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) CertificateWallet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateWallet }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateInput)(nil)).Elem(), &Certificate{})
 	pulumi.RegisterOutputType(CertificateOutput{})

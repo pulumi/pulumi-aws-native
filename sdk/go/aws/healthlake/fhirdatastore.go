@@ -122,6 +122,46 @@ func (o FHIRDatastoreOutput) ToFHIRDatastoreOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o FHIRDatastoreOutput) CreatedAt() FHIRDatastoreCreatedAtOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreCreatedAtOutput { return v.CreatedAt }).(FHIRDatastoreCreatedAtOutput)
+}
+
+func (o FHIRDatastoreOutput) DatastoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FHIRDatastore) pulumi.StringOutput { return v.DatastoreArn }).(pulumi.StringOutput)
+}
+
+func (o FHIRDatastoreOutput) DatastoreEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *FHIRDatastore) pulumi.StringOutput { return v.DatastoreEndpoint }).(pulumi.StringOutput)
+}
+
+func (o FHIRDatastoreOutput) DatastoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FHIRDatastore) pulumi.StringOutput { return v.DatastoreId }).(pulumi.StringOutput)
+}
+
+func (o FHIRDatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastore) pulumi.StringPtrOutput { return v.DatastoreName }).(pulumi.StringPtrOutput)
+}
+
+func (o FHIRDatastoreOutput) DatastoreStatus() FHIRDatastoreDatastoreStatusOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreDatastoreStatusOutput { return v.DatastoreStatus }).(FHIRDatastoreDatastoreStatusOutput)
+}
+
+func (o FHIRDatastoreOutput) DatastoreTypeVersion() FHIRDatastoreDatastoreTypeVersionOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreDatastoreTypeVersionOutput { return v.DatastoreTypeVersion }).(FHIRDatastoreDatastoreTypeVersionOutput)
+}
+
+func (o FHIRDatastoreOutput) PreloadDataConfig() FHIRDatastorePreloadDataConfigPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastorePreloadDataConfigPtrOutput { return v.PreloadDataConfig }).(FHIRDatastorePreloadDataConfigPtrOutput)
+}
+
+func (o FHIRDatastoreOutput) SseConfiguration() FHIRDatastoreSseConfigurationPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreSseConfigurationPtrOutput { return v.SseConfiguration }).(FHIRDatastoreSseConfigurationPtrOutput)
+}
+
+func (o FHIRDatastoreOutput) Tags() FHIRDatastoreTagArrayOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreTagArrayOutput { return v.Tags }).(FHIRDatastoreTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreInput)(nil)).Elem(), &FHIRDatastore{})
 	pulumi.RegisterOutputType(FHIRDatastoreOutput{})

@@ -179,6 +179,69 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+func (o ConnectorOutput) Capacity() ConnectorCapacityOutput {
+	return o.ApplyT(func(v *Connector) ConnectorCapacityOutput { return v.Capacity }).(ConnectorCapacityOutput)
+}
+
+// Amazon Resource Name for the created Connector.
+func (o ConnectorOutput) ConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
+}
+
+// The configuration for the connector.
+func (o ConnectorOutput) ConnectorConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Connector) pulumi.AnyOutput { return v.ConnectorConfiguration }).(pulumi.AnyOutput)
+}
+
+// A summary description of the connector.
+func (o ConnectorOutput) ConnectorDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.ConnectorDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the connector.
+func (o ConnectorOutput) ConnectorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorName }).(pulumi.StringOutput)
+}
+
+func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
+	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
+}
+
+func (o ConnectorOutput) KafkaClusterClientAuthentication() ConnectorKafkaClusterClientAuthenticationOutput {
+	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterClientAuthenticationOutput {
+		return v.KafkaClusterClientAuthentication
+	}).(ConnectorKafkaClusterClientAuthenticationOutput)
+}
+
+func (o ConnectorOutput) KafkaClusterEncryptionInTransit() ConnectorKafkaClusterEncryptionInTransitOutput {
+	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterEncryptionInTransitOutput {
+		return v.KafkaClusterEncryptionInTransit
+	}).(ConnectorKafkaClusterEncryptionInTransitOutput)
+}
+
+// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
+func (o ConnectorOutput) KafkaConnectVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.KafkaConnectVersion }).(pulumi.StringOutput)
+}
+
+func (o ConnectorOutput) LogDelivery() ConnectorLogDeliveryPtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorLogDeliveryPtrOutput { return v.LogDelivery }).(ConnectorLogDeliveryPtrOutput)
+}
+
+// List of plugins to use with the connector.
+func (o ConnectorOutput) Plugins() ConnectorPluginArrayOutput {
+	return o.ApplyT(func(v *Connector) ConnectorPluginArrayOutput { return v.Plugins }).(ConnectorPluginArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
+func (o ConnectorOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ServiceExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+func (o ConnectorOutput) WorkerConfiguration() ConnectorWorkerConfigurationPtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorWorkerConfigurationPtrOutput { return v.WorkerConfiguration }).(ConnectorWorkerConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorInput)(nil)).Elem(), &Connector{})
 	pulumi.RegisterOutputType(ConnectorOutput{})

@@ -131,6 +131,41 @@ func (o TransitGatewayConnectOutput) ToTransitGatewayConnectOutputWithContext(ct
 	return o
 }
 
+// The creation time.
+func (o TransitGatewayConnectOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The Connect attachment options.
+func (o TransitGatewayConnectOutput) Options() TransitGatewayConnectOptionsOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) TransitGatewayConnectOptionsOutput { return v.Options }).(TransitGatewayConnectOptionsOutput)
+}
+
+// The state of the attachment.
+func (o TransitGatewayConnectOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The tags for the attachment.
+func (o TransitGatewayConnectOutput) Tags() TransitGatewayConnectTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) TransitGatewayConnectTagArrayOutput { return v.Tags }).(TransitGatewayConnectTagArrayOutput)
+}
+
+// The ID of the Connect attachment.
+func (o TransitGatewayConnectOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway.
+func (o TransitGatewayConnectOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+// The ID of the attachment from which the Connect attachment was created.
+func (o TransitGatewayConnectOutput) TransportTransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) pulumi.StringOutput { return v.TransportTransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectInput)(nil)).Elem(), &TransitGatewayConnect{})
 	pulumi.RegisterOutputType(TransitGatewayConnectOutput{})

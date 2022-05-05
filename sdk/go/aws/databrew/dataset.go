@@ -135,6 +135,35 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+// Dataset format
+func (o DatasetOutput) Format() DatasetFormatPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetFormatPtrOutput { return v.Format }).(DatasetFormatPtrOutput)
+}
+
+// Format options for dataset
+func (o DatasetOutput) FormatOptions() DatasetFormatOptionsPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetFormatOptionsPtrOutput { return v.FormatOptions }).(DatasetFormatOptionsPtrOutput)
+}
+
+// Input
+func (o DatasetOutput) Input() DatasetInputTypeOutput {
+	return o.ApplyT(func(v *Dataset) DatasetInputTypeOutput { return v.Input }).(DatasetInputTypeOutput)
+}
+
+// Dataset name
+func (o DatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// PathOptions
+func (o DatasetOutput) PathOptions() DatasetPathOptionsPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetPathOptionsPtrOutput { return v.PathOptions }).(DatasetPathOptionsPtrOutput)
+}
+
+func (o DatasetOutput) Tags() DatasetTagArrayOutput {
+	return o.ApplyT(func(v *Dataset) DatasetTagArrayOutput { return v.Tags }).(DatasetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInput)(nil)).Elem(), &Dataset{})
 	pulumi.RegisterOutputType(DatasetOutput{})

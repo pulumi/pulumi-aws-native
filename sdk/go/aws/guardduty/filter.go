@@ -134,6 +134,30 @@ func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutpu
 	return o
 }
 
+func (o FilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o FilterOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o FilterOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+func (o FilterOutput) FindingCriteria() FilterFindingCriteriaOutput {
+	return o.ApplyT(func(v *Filter) FilterFindingCriteriaOutput { return v.FindingCriteria }).(FilterFindingCriteriaOutput)
+}
+
+func (o FilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FilterOutput) Rank() pulumi.IntOutput {
+	return o.ApplyT(func(v *Filter) pulumi.IntOutput { return v.Rank }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterInput)(nil)).Elem(), &Filter{})
 	pulumi.RegisterOutputType(FilterOutput{})

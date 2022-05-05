@@ -128,6 +128,31 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the specified bucket.
+func (o BucketOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A name for the bucket.
+func (o BucketOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// Rules that define how Amazon S3Outposts manages objects during their lifetime.
+func (o BucketOutput) LifecycleConfiguration() BucketLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketLifecycleConfigurationPtrOutput { return v.LifecycleConfiguration }).(BucketLifecycleConfigurationPtrOutput)
+}
+
+// The id of the customer outpost on which the bucket resides.
+func (o BucketOutput) OutpostId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.OutpostId }).(pulumi.StringOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+func (o BucketOutput) Tags() BucketTagArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInput)(nil)).Elem(), &Bucket{})
 	pulumi.RegisterOutputType(BucketOutput{})

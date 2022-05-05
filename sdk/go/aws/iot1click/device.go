@@ -114,6 +114,18 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 	return o
 }
 
+func (o DeviceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DeviceOutput) DeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
+}
+
+func (o DeviceOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Device) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceInput)(nil)).Elem(), &Device{})
 	pulumi.RegisterOutputType(DeviceOutput{})

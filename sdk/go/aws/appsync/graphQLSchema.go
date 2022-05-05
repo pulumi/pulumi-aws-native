@@ -113,6 +113,18 @@ func (o GraphQLSchemaOutput) ToGraphQLSchemaOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o GraphQLSchemaOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLSchema) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o GraphQLSchemaOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLSchema) pulumi.StringPtrOutput { return v.Definition }).(pulumi.StringPtrOutput)
+}
+
+func (o GraphQLSchemaOutput) DefinitionS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLSchema) pulumi.StringPtrOutput { return v.DefinitionS3Location }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLSchemaInput)(nil)).Elem(), &GraphQLSchema{})
 	pulumi.RegisterOutputType(GraphQLSchemaOutput{})

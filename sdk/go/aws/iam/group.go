@@ -113,6 +113,26 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+func (o GroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
+}
+
+func (o GroupOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupOutput) Policies() GroupPolicyArrayOutput {
+	return o.ApplyT(func(v *Group) GroupPolicyArrayOutput { return v.Policies }).(GroupPolicyArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInput)(nil)).Elem(), &Group{})
 	pulumi.RegisterOutputType(GroupOutput{})

@@ -142,6 +142,50 @@ func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.
 	return o
 }
 
+func (o NotificationRuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o NotificationRuleOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationRuleOutput) DetailType() NotificationRuleDetailTypeOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleDetailTypeOutput { return v.DetailType }).(NotificationRuleDetailTypeOutput)
+}
+
+func (o NotificationRuleOutput) EventTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.EventTypeId }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationRuleOutput) EventTypeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringArrayOutput { return v.EventTypeIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NotificationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o NotificationRuleOutput) Resource() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Resource }).(pulumi.StringOutput)
+}
+
+func (o NotificationRuleOutput) Status() NotificationRuleStatusPtrOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleStatusPtrOutput { return v.Status }).(NotificationRuleStatusPtrOutput)
+}
+
+func (o NotificationRuleOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o NotificationRuleOutput) TargetAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.TargetAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationRuleOutput) Targets() NotificationRuleTargetArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleTargetArrayOutput { return v.Targets }).(NotificationRuleTargetArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleInput)(nil)).Elem(), &NotificationRule{})
 	pulumi.RegisterOutputType(NotificationRuleOutput{})

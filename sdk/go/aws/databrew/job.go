@@ -210,6 +210,101 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+func (o JobOutput) DataCatalogOutputs() JobDataCatalogOutputArrayOutput {
+	return o.ApplyT(func(v *Job) JobDataCatalogOutputArrayOutput { return v.DataCatalogOutputs }).(JobDataCatalogOutputArrayOutput)
+}
+
+func (o JobOutput) DatabaseOutputs() JobDatabaseOutputArrayOutput {
+	return o.ApplyT(func(v *Job) JobDatabaseOutputArrayOutput { return v.DatabaseOutputs }).(JobDatabaseOutputArrayOutput)
+}
+
+// Dataset name
+func (o JobOutput) DatasetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.DatasetName }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Key Arn
+func (o JobOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Encryption mode
+func (o JobOutput) EncryptionMode() JobEncryptionModePtrOutput {
+	return o.ApplyT(func(v *Job) JobEncryptionModePtrOutput { return v.EncryptionMode }).(JobEncryptionModePtrOutput)
+}
+
+// Job Sample
+func (o JobOutput) JobSample() JobSamplePtrOutput {
+	return o.ApplyT(func(v *Job) JobSamplePtrOutput { return v.JobSample }).(JobSamplePtrOutput)
+}
+
+// Log subscription
+func (o JobOutput) LogSubscription() JobLogSubscriptionPtrOutput {
+	return o.ApplyT(func(v *Job) JobLogSubscriptionPtrOutput { return v.LogSubscription }).(JobLogSubscriptionPtrOutput)
+}
+
+// Max capacity
+func (o JobOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Max retries
+func (o JobOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.MaxRetries }).(pulumi.IntPtrOutput)
+}
+
+// Job name
+func (o JobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Output location
+func (o JobOutput) OutputLocation() JobOutputLocationPtrOutput {
+	return o.ApplyT(func(v *Job) JobOutputLocationPtrOutput { return v.OutputLocation }).(JobOutputLocationPtrOutput)
+}
+
+func (o JobOutput) Outputs() JobOutputTypeArrayOutput {
+	return o.ApplyT(func(v *Job) JobOutputTypeArrayOutput { return v.Outputs }).(JobOutputTypeArrayOutput)
+}
+
+// Profile Job configuration
+func (o JobOutput) ProfileConfiguration() JobProfileConfigurationPtrOutput {
+	return o.ApplyT(func(v *Job) JobProfileConfigurationPtrOutput { return v.ProfileConfiguration }).(JobProfileConfigurationPtrOutput)
+}
+
+// Project name
+func (o JobOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) Recipe() JobRecipePtrOutput {
+	return o.ApplyT(func(v *Job) JobRecipePtrOutput { return v.Recipe }).(JobRecipePtrOutput)
+}
+
+// Role arn
+func (o JobOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o JobOutput) Tags() JobTagArrayOutput {
+	return o.ApplyT(func(v *Job) JobTagArrayOutput { return v.Tags }).(JobTagArrayOutput)
+}
+
+// Timeout
+func (o JobOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Job type
+func (o JobOutput) Type() JobTypeOutput {
+	return o.ApplyT(func(v *Job) JobTypeOutput { return v.Type }).(JobTypeOutput)
+}
+
+// Data quality rules configuration
+func (o JobOutput) ValidationConfigurations() JobValidationConfigurationArrayOutput {
+	return o.ApplyT(func(v *Job) JobValidationConfigurationArrayOutput { return v.ValidationConfigurations }).(JobValidationConfigurationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobInput)(nil)).Elem(), &Job{})
 	pulumi.RegisterOutputType(JobOutput{})

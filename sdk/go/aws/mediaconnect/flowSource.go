@@ -180,6 +180,81 @@ func (o FlowSourceOutput) ToFlowSourceOutputWithContext(ctx context.Context) Flo
 	return o
 }
 
+// The type of encryption that is used on the content ingested from this source.
+func (o FlowSourceOutput) Decryption() FlowSourceEncryptionPtrOutput {
+	return o.ApplyT(func(v *FlowSource) FlowSourceEncryptionPtrOutput { return v.Decryption }).(FlowSourceEncryptionPtrOutput)
+}
+
+// A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+func (o FlowSourceOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+func (o FlowSourceOutput) EntitlementArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.EntitlementArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the flow.
+func (o FlowSourceOutput) FlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.FlowArn }).(pulumi.StringPtrOutput)
+}
+
+// The IP address that the flow will be listening on for incoming content.
+func (o FlowSourceOutput) IngestIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringOutput { return v.IngestIp }).(pulumi.StringOutput)
+}
+
+// The port that the flow will be listening on for incoming content.
+func (o FlowSourceOutput) IngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.IntPtrOutput { return v.IngestPort }).(pulumi.IntPtrOutput)
+}
+
+// The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+func (o FlowSourceOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.IntPtrOutput { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+func (o FlowSourceOutput) MaxLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.IntPtrOutput { return v.MaxLatency }).(pulumi.IntPtrOutput)
+}
+
+// The name of the source.
+func (o FlowSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocol that is used by the source.
+func (o FlowSourceOutput) Protocol() FlowSourceProtocolPtrOutput {
+	return o.ApplyT(func(v *FlowSource) FlowSourceProtocolPtrOutput { return v.Protocol }).(FlowSourceProtocolPtrOutput)
+}
+
+// The ARN of the source.
+func (o FlowSourceOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+// The port that the flow will be listening on for incoming content.(ReadOnly)
+func (o FlowSourceOutput) SourceIngestPort() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringOutput { return v.SourceIngestPort }).(pulumi.StringOutput)
+}
+
+// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+func (o FlowSourceOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the VPC Interface this Source is configured with.
+func (o FlowSourceOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+func (o FlowSourceOutput) WhitelistCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.WhitelistCidr }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceInput)(nil)).Elem(), &FlowSource{})
 	pulumi.RegisterOutputType(FlowSourceOutput{})

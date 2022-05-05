@@ -132,6 +132,31 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
+// The content type for the model.
+func (o ModelOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// A description that identifies this model.
+func (o ModelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
+func (o ModelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ID of a REST API with which to associate this model.
+func (o ModelOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
+func (o ModelOutput) Schema() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Model) pulumi.AnyOutput { return v.Schema }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInput)(nil)).Elem(), &Model{})
 	pulumi.RegisterOutputType(ModelOutput{})

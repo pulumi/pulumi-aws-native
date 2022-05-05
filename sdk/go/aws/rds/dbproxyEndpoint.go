@@ -149,6 +149,56 @@ func (o DBProxyEndpointOutput) ToDBProxyEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the DB proxy endpoint.
+func (o DBProxyEndpointOutput) DBProxyEndpointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DBProxyEndpointArn }).(pulumi.StringOutput)
+}
+
+// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+func (o DBProxyEndpointOutput) DBProxyEndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DBProxyEndpointName }).(pulumi.StringOutput)
+}
+
+// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+func (o DBProxyEndpointOutput) DBProxyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DBProxyName }).(pulumi.StringOutput)
+}
+
+// The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
+func (o DBProxyEndpointOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
+func (o DBProxyEndpointOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
+func (o DBProxyEndpointOutput) Tags() DBProxyEndpointTagFormatArrayOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) DBProxyEndpointTagFormatArrayOutput { return v.Tags }).(DBProxyEndpointTagFormatArrayOutput)
+}
+
+// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+func (o DBProxyEndpointOutput) TargetRole() DBProxyEndpointTargetRolePtrOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) DBProxyEndpointTargetRolePtrOutput { return v.TargetRole }).(DBProxyEndpointTargetRolePtrOutput)
+}
+
+// VPC ID to associate with the new DB proxy endpoint.
+func (o DBProxyEndpointOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
+// VPC security group IDs to associate with the new DB proxy endpoint.
+func (o DBProxyEndpointOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// VPC subnet IDs to associate with the new DB proxy endpoint.
+func (o DBProxyEndpointOutput) VpcSubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringArrayOutput { return v.VpcSubnetIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointInput)(nil)).Elem(), &DBProxyEndpoint{})
 	pulumi.RegisterOutputType(DBProxyEndpointOutput{})

@@ -142,6 +142,48 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+func (o SecurityProfileOutput) AdditionalMetricsToRetainV2() SecurityProfileMetricToRetainArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) SecurityProfileMetricToRetainArrayOutput {
+		return v.AdditionalMetricsToRetainV2
+	}).(SecurityProfileMetricToRetainArrayOutput)
+}
+
+// Specifies the destinations to which alerts are sent.
+func (o SecurityProfileOutput) AlertTargets() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.AnyOutput { return v.AlertTargets }).(pulumi.AnyOutput)
+}
+
+// Specifies the behaviors that, when violated by a device (thing), cause an alert.
+func (o SecurityProfileOutput) Behaviors() SecurityProfileBehaviorArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) SecurityProfileBehaviorArrayOutput { return v.Behaviors }).(SecurityProfileBehaviorArrayOutput)
+}
+
+// The ARN (Amazon resource name) of the created security profile.
+func (o SecurityProfileOutput) SecurityProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.SecurityProfileArn }).(pulumi.StringOutput)
+}
+
+// A description of the security profile.
+func (o SecurityProfileOutput) SecurityProfileDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.SecurityProfileDescription }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the security profile.
+func (o SecurityProfileOutput) SecurityProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.SecurityProfileName }).(pulumi.StringPtrOutput)
+}
+
+// Metadata that can be used to manage the security profile.
+func (o SecurityProfileOutput) Tags() SecurityProfileTagArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) SecurityProfileTagArrayOutput { return v.Tags }).(SecurityProfileTagArrayOutput)
+}
+
+// A set of target ARNs that the security profile is attached to.
+func (o SecurityProfileOutput) TargetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringArrayOutput { return v.TargetArns }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileInput)(nil)).Elem(), &SecurityProfile{})
 	pulumi.RegisterOutputType(SecurityProfileOutput{})

@@ -102,6 +102,14 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+func (o ProjectOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

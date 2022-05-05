@@ -124,6 +124,37 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// The Resource Group ARN.
+func (o GroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) Configuration() GroupConfigurationItemArrayOutput {
+	return o.ApplyT(func(v *Group) GroupConfigurationItemArrayOutput { return v.Configuration }).(GroupConfigurationItemArrayOutput)
+}
+
+// The description of the resource group
+func (o GroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group
+func (o GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) ResourceQuery() GroupResourceQueryPtrOutput {
+	return o.ApplyT(func(v *Group) GroupResourceQueryPtrOutput { return v.ResourceQuery }).(GroupResourceQueryPtrOutput)
+}
+
+func (o GroupOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+func (o GroupOutput) Tags() GroupTagArrayOutput {
+	return o.ApplyT(func(v *Group) GroupTagArrayOutput { return v.Tags }).(GroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInput)(nil)).Elem(), &Group{})
 	pulumi.RegisterOutputType(GroupOutput{})

@@ -188,6 +188,112 @@ func (o CacheClusterOutput) ToCacheClusterOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o CacheClusterOutput) AZMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.AZMode }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o CacheClusterOutput) CacheNodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringOutput { return v.CacheNodeType }).(pulumi.StringOutput)
+}
+
+func (o CacheClusterOutput) CacheParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.CacheParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) CacheSecurityGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringArrayOutput { return v.CacheSecurityGroupNames }).(pulumi.StringArrayOutput)
+}
+
+func (o CacheClusterOutput) CacheSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.CacheSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) ConfigurationEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.ConfigurationEndpointAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) ConfigurationEndpointPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.ConfigurationEndpointPort }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+}
+
+func (o CacheClusterOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) LogDeliveryConfigurations() CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+		return v.LogDeliveryConfigurations
+	}).(CacheClusterLogDeliveryConfigurationRequestArrayOutput)
+}
+
+func (o CacheClusterOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) NumCacheNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.IntOutput { return v.NumCacheNodes }).(pulumi.IntOutput)
+}
+
+func (o CacheClusterOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o CacheClusterOutput) PreferredAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.PreferredAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) PreferredAvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringArrayOutput { return v.PreferredAvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o CacheClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) RedisEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.RedisEndpointAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) RedisEndpointPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.RedisEndpointPort }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) SnapshotArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringArrayOutput { return v.SnapshotArns }).(pulumi.StringArrayOutput)
+}
+
+func (o CacheClusterOutput) SnapshotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.SnapshotName }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) SnapshotRetentionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.IntPtrOutput { return v.SnapshotRetentionLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o CacheClusterOutput) SnapshotWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterOutput) Tags() CacheClusterTagArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) CacheClusterTagArrayOutput { return v.Tags }).(CacheClusterTagArrayOutput)
+}
+
+func (o CacheClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterInput)(nil)).Elem(), &CacheCluster{})
 	pulumi.RegisterOutputType(CacheClusterOutput{})

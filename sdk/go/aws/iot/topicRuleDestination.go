@@ -120,6 +120,35 @@ func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutputWithContext(ctx 
 	return o
 }
 
+// Amazon Resource Name (ARN).
+func (o TopicRuleDestinationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// HTTP URL destination properties.
+func (o TopicRuleDestinationOutput) HttpUrlProperties() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+		return v.HttpUrlProperties
+	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
+}
+
+// The status of the TopicRuleDestination.
+func (o TopicRuleDestinationOutput) Status() TopicRuleDestinationStatusPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationStatusPtrOutput { return v.Status }).(TopicRuleDestinationStatusPtrOutput)
+}
+
+// The reasoning for the current status of the TopicRuleDestination.
+func (o TopicRuleDestinationOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// VPC destination properties.
+func (o TopicRuleDestinationOutput) VpcProperties() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+		return v.VpcProperties
+	}).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationInput)(nil)).Elem(), &TopicRuleDestination{})
 	pulumi.RegisterOutputType(TopicRuleDestinationOutput{})

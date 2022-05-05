@@ -122,6 +122,22 @@ func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.
 	return o
 }
 
+func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
+}
+
+func (o SourceCredentialOutput) ServerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.ServerType }).(pulumi.StringOutput)
+}
+
+func (o SourceCredentialOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
+}
+
+func (o SourceCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceCredentialInput)(nil)).Elem(), &SourceCredential{})
 	pulumi.RegisterOutputType(SourceCredentialOutput{})

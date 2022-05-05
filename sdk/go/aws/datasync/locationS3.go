@@ -136,6 +136,40 @@ func (o LocationS3Output) ToLocationS3OutputWithContext(ctx context.Context) Loc
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
+func (o LocationS3Output) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationS3) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the S3 location that was described.
+func (o LocationS3Output) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationS3) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+func (o LocationS3Output) S3BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationS3) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
+}
+
+func (o LocationS3Output) S3Config() LocationS3S3ConfigOutput {
+	return o.ApplyT(func(v *LocationS3) LocationS3S3ConfigOutput { return v.S3Config }).(LocationS3S3ConfigOutput)
+}
+
+// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+func (o LocationS3Output) S3StorageClass() LocationS3S3StorageClassPtrOutput {
+	return o.ApplyT(func(v *LocationS3) LocationS3S3StorageClassPtrOutput { return v.S3StorageClass }).(LocationS3S3StorageClassPtrOutput)
+}
+
+// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
+func (o LocationS3Output) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationS3) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationS3Output) Tags() LocationS3TagArrayOutput {
+	return o.ApplyT(func(v *LocationS3) LocationS3TagArrayOutput { return v.Tags }).(LocationS3TagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3Input)(nil)).Elem(), &LocationS3{})
 	pulumi.RegisterOutputType(LocationS3Output{})

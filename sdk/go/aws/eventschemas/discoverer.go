@@ -118,6 +118,30 @@ func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) Dis
 	return o
 }
 
+func (o DiscovererOutput) CrossAccount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.BoolPtrOutput { return v.CrossAccount }).(pulumi.BoolPtrOutput)
+}
+
+func (o DiscovererOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DiscovererOutput) DiscovererArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.DiscovererArn }).(pulumi.StringOutput)
+}
+
+func (o DiscovererOutput) DiscovererId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.DiscovererId }).(pulumi.StringOutput)
+}
+
+func (o DiscovererOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+func (o DiscovererOutput) Tags() DiscovererTagsEntryArrayOutput {
+	return o.ApplyT(func(v *Discoverer) DiscovererTagsEntryArrayOutput { return v.Tags }).(DiscovererTagsEntryArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererInput)(nil)).Elem(), &Discoverer{})
 	pulumi.RegisterOutputType(DiscovererOutput{})

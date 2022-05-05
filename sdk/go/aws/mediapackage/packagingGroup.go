@@ -120,6 +120,31 @@ func (o PackagingGroupOutput) ToPackagingGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the PackagingGroup.
+func (o PackagingGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackagingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// CDN Authorization
+func (o PackagingGroupOutput) Authorization() PackagingGroupAuthorizationPtrOutput {
+	return o.ApplyT(func(v *PackagingGroup) PackagingGroupAuthorizationPtrOutput { return v.Authorization }).(PackagingGroupAuthorizationPtrOutput)
+}
+
+// The fully qualified domain name for Assets in the PackagingGroup.
+func (o PackagingGroupOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackagingGroup) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The configuration parameters for egress access logging.
+func (o PackagingGroupOutput) EgressAccessLogs() PackagingGroupLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *PackagingGroup) PackagingGroupLogConfigurationPtrOutput { return v.EgressAccessLogs }).(PackagingGroupLogConfigurationPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o PackagingGroupOutput) Tags() PackagingGroupTagArrayOutput {
+	return o.ApplyT(func(v *PackagingGroup) PackagingGroupTagArrayOutput { return v.Tags }).(PackagingGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingGroupInput)(nil)).Elem(), &PackagingGroup{})
 	pulumi.RegisterOutputType(PackagingGroupOutput{})

@@ -118,6 +118,35 @@ func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx contex
 	return o
 }
 
+// Amazon Resource Name (ARN) of the server certificate
+func (o ServerCertificateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServerCertificateOutput) CertificateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.CertificateBody }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerCertificateOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerCertificateOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerCertificateOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerCertificateOutput) ServerCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.ServerCertificateName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerCertificateOutput) Tags() ServerCertificateTagArrayOutput {
+	return o.ApplyT(func(v *ServerCertificate) ServerCertificateTagArrayOutput { return v.Tags }).(ServerCertificateTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerCertificateInput)(nil)).Elem(), &ServerCertificate{})
 	pulumi.RegisterOutputType(ServerCertificateOutput{})

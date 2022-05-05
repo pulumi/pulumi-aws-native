@@ -119,6 +119,20 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DirectoryConfigOutput) DirectoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.DirectoryName }).(pulumi.StringOutput)
+}
+
+func (o DirectoryConfigOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringArrayOutput { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
+}
+
+func (o DirectoryConfigOutput) ServiceAccountCredentials() DirectoryConfigServiceAccountCredentialsOutput {
+	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigServiceAccountCredentialsOutput {
+		return v.ServiceAccountCredentials
+	}).(DirectoryConfigServiceAccountCredentialsOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigInput)(nil)).Elem(), &DirectoryConfig{})
 	pulumi.RegisterOutputType(DirectoryConfigOutput{})

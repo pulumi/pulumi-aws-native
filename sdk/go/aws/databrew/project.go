@@ -141,6 +141,35 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// Dataset name
+func (o ProjectOutput) DatasetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DatasetName }).(pulumi.StringOutput)
+}
+
+// Project name
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Recipe name
+func (o ProjectOutput) RecipeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.RecipeName }).(pulumi.StringOutput)
+}
+
+// Role arn
+func (o ProjectOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Sample
+func (o ProjectOutput) Sample() ProjectSamplePtrOutput {
+	return o.ApplyT(func(v *Project) ProjectSamplePtrOutput { return v.Sample }).(ProjectSamplePtrOutput)
+}
+
+func (o ProjectOutput) Tags() ProjectTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

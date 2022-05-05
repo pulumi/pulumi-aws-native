@@ -122,6 +122,22 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWith
 	return o
 }
 
+func (o NetworkInterfaceAttachmentOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.BoolPtrOutput { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o NetworkInterfaceAttachmentOutput) DeviceIndex() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.DeviceIndex }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceAttachmentOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentInput)(nil)).Elem(), &NetworkInterfaceAttachment{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentOutput{})

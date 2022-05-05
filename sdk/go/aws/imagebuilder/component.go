@@ -171,6 +171,71 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the component.
+func (o ComponentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The change description of the component.
+func (o ComponentOutput) ChangeDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.ChangeDescription }).(pulumi.StringPtrOutput)
+}
+
+// The data of the component.
+func (o ComponentOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Data }).(pulumi.StringPtrOutput)
+}
+
+// The description of the component.
+func (o ComponentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The encryption status of the component.
+func (o ComponentOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// The KMS key identifier used to encrypt the component.
+func (o ComponentOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the component.
+func (o ComponentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The platform of the component.
+func (o ComponentOutput) Platform() ComponentPlatformOutput {
+	return o.ApplyT(func(v *Component) ComponentPlatformOutput { return v.Platform }).(ComponentPlatformOutput)
+}
+
+// The operating system (OS) version supported by the component.
+func (o ComponentOutput) SupportedOsVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringArrayOutput { return v.SupportedOsVersions }).(pulumi.StringArrayOutput)
+}
+
+// The tags associated with the component.
+func (o ComponentOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Component) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The type of the component denotes whether the component is used to build the image or only to test it.
+func (o ComponentOutput) Type() ComponentTypeOutput {
+	return o.ApplyT(func(v *Component) ComponentTypeOutput { return v.Type }).(ComponentTypeOutput)
+}
+
+// The uri of the component.
+func (o ComponentOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// The version of the component.
+func (o ComponentOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentInput)(nil)).Elem(), &Component{})
 	pulumi.RegisterOutputType(ComponentOutput{})

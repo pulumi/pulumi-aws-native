@@ -106,6 +106,14 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx co
 	return o
 }
 
+func (o OriginRequestPolicyOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+func (o OriginRequestPolicyOutput) OriginRequestPolicyConfig() OriginRequestPolicyConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicyConfigOutput { return v.OriginRequestPolicyConfig }).(OriginRequestPolicyConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyInput)(nil)).Elem(), &OriginRequestPolicy{})
 	pulumi.RegisterOutputType(OriginRequestPolicyOutput{})

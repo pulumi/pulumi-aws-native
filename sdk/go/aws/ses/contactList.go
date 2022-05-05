@@ -122,6 +122,26 @@ func (o ContactListOutput) ToContactListOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The name of the contact list.
+func (o ContactListOutput) ContactListName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactList) pulumi.StringPtrOutput { return v.ContactListName }).(pulumi.StringPtrOutput)
+}
+
+// The description of the contact list.
+func (o ContactListOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactList) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The tags (keys and values) associated with the contact list.
+func (o ContactListOutput) Tags() ContactListTagArrayOutput {
+	return o.ApplyT(func(v *ContactList) ContactListTagArrayOutput { return v.Tags }).(ContactListTagArrayOutput)
+}
+
+// The topics associated with the contact list.
+func (o ContactListOutput) Topics() ContactListTopicArrayOutput {
+	return o.ApplyT(func(v *ContactList) ContactListTopicArrayOutput { return v.Topics }).(ContactListTopicArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListInput)(nil)).Elem(), &ContactList{})
 	pulumi.RegisterOutputType(ContactListOutput{})

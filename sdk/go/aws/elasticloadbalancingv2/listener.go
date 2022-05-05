@@ -127,6 +127,38 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 	return o
 }
 
+func (o ListenerOutput) AlpnPolicy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringArrayOutput { return v.AlpnPolicy }).(pulumi.StringArrayOutput)
+}
+
+func (o ListenerOutput) Certificates() ListenerCertificateTypeArrayOutput {
+	return o.ApplyT(func(v *Listener) ListenerCertificateTypeArrayOutput { return v.Certificates }).(ListenerCertificateTypeArrayOutput)
+}
+
+func (o ListenerOutput) DefaultActions() ListenerActionArrayOutput {
+	return o.ApplyT(func(v *Listener) ListenerActionArrayOutput { return v.DefaultActions }).(ListenerActionArrayOutput)
+}
+
+func (o ListenerOutput) ListenerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o ListenerOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerOutput) SslPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.SslPolicy }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerInput)(nil)).Elem(), &Listener{})
 	pulumi.RegisterOutputType(ListenerOutput{})

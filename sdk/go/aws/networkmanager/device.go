@@ -160,6 +160,61 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 	return o
 }
 
+// The description of the device.
+func (o DeviceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the device.
+func (o DeviceOutput) DeviceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceArn }).(pulumi.StringOutput)
+}
+
+// The ID of the device.
+func (o DeviceOutput) DeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
+}
+
+// The ID of the global network.
+func (o DeviceOutput) GlobalNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The site location.
+func (o DeviceOutput) Location() DeviceLocationPtrOutput {
+	return o.ApplyT(func(v *Device) DeviceLocationPtrOutput { return v.Location }).(DeviceLocationPtrOutput)
+}
+
+// The device model
+func (o DeviceOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+// The device serial number.
+func (o DeviceOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.SerialNumber }).(pulumi.StringPtrOutput)
+}
+
+// The site ID.
+func (o DeviceOutput) SiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.SiteId }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the device.
+func (o DeviceOutput) Tags() DeviceTagArrayOutput {
+	return o.ApplyT(func(v *Device) DeviceTagArrayOutput { return v.Tags }).(DeviceTagArrayOutput)
+}
+
+// The device type.
+func (o DeviceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The device vendor.
+func (o DeviceOutput) Vendor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Vendor }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceInput)(nil)).Elem(), &Device{})
 	pulumi.RegisterOutputType(DeviceOutput{})

@@ -141,6 +141,59 @@ func (o BillingGroupOutput) ToBillingGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o BillingGroupOutput) AccountGrouping() BillingGroupAccountGroupingOutput {
+	return o.ApplyT(func(v *BillingGroup) BillingGroupAccountGroupingOutput { return v.AccountGrouping }).(BillingGroupAccountGroupingOutput)
+}
+
+// Billing Group ARN
+func (o BillingGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BillingGroupOutput) ComputationPreference() BillingGroupComputationPreferenceOutput {
+	return o.ApplyT(func(v *BillingGroup) BillingGroupComputationPreferenceOutput { return v.ComputationPreference }).(BillingGroupComputationPreferenceOutput)
+}
+
+// Creation timestamp in UNIX epoch time format
+func (o BillingGroupOutput) CreationTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.IntOutput { return v.CreationTime }).(pulumi.IntOutput)
+}
+
+func (o BillingGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Latest modified timestamp in UNIX epoch time format
+func (o BillingGroupOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.IntOutput { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+func (o BillingGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This account will act as a virtual payer account of the billing group
+func (o BillingGroupOutput) PrimaryAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.PrimaryAccountId }).(pulumi.StringOutput)
+}
+
+// Number of accounts in the billing group
+func (o BillingGroupOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.IntOutput { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o BillingGroupOutput) Status() BillingGroupStatusOutput {
+	return o.ApplyT(func(v *BillingGroup) BillingGroupStatusOutput { return v.Status }).(BillingGroupStatusOutput)
+}
+
+func (o BillingGroupOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+func (o BillingGroupOutput) Tags() BillingGroupTagArrayOutput {
+	return o.ApplyT(func(v *BillingGroup) BillingGroupTagArrayOutput { return v.Tags }).(BillingGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupInput)(nil)).Elem(), &BillingGroup{})
 	pulumi.RegisterOutputType(BillingGroupOutput{})

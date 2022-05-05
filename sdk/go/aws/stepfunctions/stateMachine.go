@@ -134,6 +134,54 @@ func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o StateMachineOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o StateMachineOutput) Definition() StateMachineDefinitionPtrOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineDefinitionPtrOutput { return v.Definition }).(StateMachineDefinitionPtrOutput)
+}
+
+func (o StateMachineOutput) DefinitionS3Location() StateMachineS3LocationPtrOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineS3LocationPtrOutput { return v.DefinitionS3Location }).(StateMachineS3LocationPtrOutput)
+}
+
+func (o StateMachineOutput) DefinitionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringPtrOutput { return v.DefinitionString }).(pulumi.StringPtrOutput)
+}
+
+func (o StateMachineOutput) DefinitionSubstitutions() StateMachineDefinitionSubstitutionsPtrOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineDefinitionSubstitutionsPtrOutput { return v.DefinitionSubstitutions }).(StateMachineDefinitionSubstitutionsPtrOutput)
+}
+
+func (o StateMachineOutput) LoggingConfiguration() StateMachineLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(StateMachineLoggingConfigurationPtrOutput)
+}
+
+func (o StateMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o StateMachineOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o StateMachineOutput) StateMachineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringPtrOutput { return v.StateMachineName }).(pulumi.StringPtrOutput)
+}
+
+func (o StateMachineOutput) StateMachineType() StateMachineTypePtrOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineTypePtrOutput { return v.StateMachineType }).(StateMachineTypePtrOutput)
+}
+
+func (o StateMachineOutput) Tags() StateMachineTagsEntryArrayOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineTagsEntryArrayOutput { return v.Tags }).(StateMachineTagsEntryArrayOutput)
+}
+
+func (o StateMachineOutput) TracingConfiguration() StateMachineTracingConfigurationPtrOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineTracingConfigurationPtrOutput { return v.TracingConfiguration }).(StateMachineTracingConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineInput)(nil)).Elem(), &StateMachine{})
 	pulumi.RegisterOutputType(StateMachineOutput{})

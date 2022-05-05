@@ -152,6 +152,62 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
+func (o ComponentOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesOutput {
+	return o.ApplyT(func(v *Component) ComponentBindingPropertiesOutput { return v.BindingProperties }).(ComponentBindingPropertiesOutput)
+}
+
+func (o ComponentOutput) Children() ComponentChildArrayOutput {
+	return o.ApplyT(func(v *Component) ComponentChildArrayOutput { return v.Children }).(ComponentChildArrayOutput)
+}
+
+func (o ComponentOutput) CollectionProperties() ComponentCollectionPropertiesPtrOutput {
+	return o.ApplyT(func(v *Component) ComponentCollectionPropertiesPtrOutput { return v.CollectionProperties }).(ComponentCollectionPropertiesPtrOutput)
+}
+
+func (o ComponentOutput) ComponentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ComponentType }).(pulumi.StringOutput)
+}
+
+func (o ComponentOutput) EnvironmentName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
+}
+
+func (o ComponentOutput) Events() ComponentEventsPtrOutput {
+	return o.ApplyT(func(v *Component) ComponentEventsPtrOutput { return v.Events }).(ComponentEventsPtrOutput)
+}
+
+func (o ComponentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ComponentOutput) Overrides() ComponentOverridesOutput {
+	return o.ApplyT(func(v *Component) ComponentOverridesOutput { return v.Overrides }).(ComponentOverridesOutput)
+}
+
+func (o ComponentOutput) Properties() ComponentPropertiesOutput {
+	return o.ApplyT(func(v *Component) ComponentPropertiesOutput { return v.Properties }).(ComponentPropertiesOutput)
+}
+
+func (o ComponentOutput) SchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.SchemaVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentOutput) Tags() ComponentTagsPtrOutput {
+	return o.ApplyT(func(v *Component) ComponentTagsPtrOutput { return v.Tags }).(ComponentTagsPtrOutput)
+}
+
+func (o ComponentOutput) Variants() ComponentVariantArrayOutput {
+	return o.ApplyT(func(v *Component) ComponentVariantArrayOutput { return v.Variants }).(ComponentVariantArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentInput)(nil)).Elem(), &Component{})
 	pulumi.RegisterOutputType(ComponentOutput{})

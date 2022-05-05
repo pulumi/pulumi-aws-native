@@ -114,6 +114,22 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
+func (o SnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SnapshotOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+}
+
+func (o SnapshotOutput) Tags() SnapshotTagArrayOutput {
+	return o.ApplyT(func(v *Snapshot) SnapshotTagArrayOutput { return v.Tags }).(SnapshotTagArrayOutput)
+}
+
+func (o SnapshotOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotInput)(nil)).Elem(), &Snapshot{})
 	pulumi.RegisterOutputType(SnapshotOutput{})

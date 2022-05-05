@@ -119,6 +119,26 @@ func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutpu
 	return o
 }
 
+func (o LedgerOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+func (o LedgerOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o LedgerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LedgerOutput) PermissionsMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.PermissionsMode }).(pulumi.StringOutput)
+}
+
+func (o LedgerOutput) Tags() LedgerTagArrayOutput {
+	return o.ApplyT(func(v *Ledger) LedgerTagArrayOutput { return v.Tags }).(LedgerTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LedgerInput)(nil)).Elem(), &Ledger{})
 	pulumi.RegisterOutputType(LedgerOutput{})

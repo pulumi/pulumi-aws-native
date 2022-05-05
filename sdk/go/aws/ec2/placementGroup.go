@@ -103,6 +103,10 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PlacementGroupOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupInput)(nil)).Elem(), &PlacementGroup{})
 	pulumi.RegisterOutputType(PlacementGroupOutput{})

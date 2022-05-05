@@ -166,6 +166,65 @@ func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) J
 	return o
 }
 
+// The criteria that determine when and how a job abort takes place.
+func (o JobTemplateOutput) AbortConfig() AbortConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) AbortConfigPropertiesPtrOutput { return v.AbortConfig }).(AbortConfigPropertiesPtrOutput)
+}
+
+func (o JobTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A description of the Job Template.
+func (o JobTemplateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The job document. Required if you don't specify a value for documentSource.
+func (o JobTemplateOutput) Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Document }).(pulumi.StringPtrOutput)
+}
+
+// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
+func (o JobTemplateOutput) DocumentSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.DocumentSource }).(pulumi.StringPtrOutput)
+}
+
+// Optional for copying a JobTemplate from a pre-existing Job configuration.
+func (o JobTemplateOutput) JobArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.JobArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateOutput) JobExecutionsRetryConfig() JobExecutionsRetryConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) JobExecutionsRetryConfigPropertiesPtrOutput { return v.JobExecutionsRetryConfig }).(JobExecutionsRetryConfigPropertiesPtrOutput)
+}
+
+// Allows you to create a staged rollout of a job.
+func (o JobTemplateOutput) JobExecutionsRolloutConfig() JobExecutionsRolloutConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) JobExecutionsRolloutConfigPropertiesPtrOutput {
+		return v.JobExecutionsRolloutConfig
+	}).(JobExecutionsRolloutConfigPropertiesPtrOutput)
+}
+
+func (o JobTemplateOutput) JobTemplateId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.JobTemplateId }).(pulumi.StringOutput)
+}
+
+// Configuration for pre-signed S3 URLs.
+func (o JobTemplateOutput) PresignedUrlConfig() PresignedUrlConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) PresignedUrlConfigPropertiesPtrOutput { return v.PresignedUrlConfig }).(PresignedUrlConfigPropertiesPtrOutput)
+}
+
+// Metadata that can be used to manage the JobTemplate.
+func (o JobTemplateOutput) Tags() JobTemplateTagArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) JobTemplateTagArrayOutput { return v.Tags }).(JobTemplateTagArrayOutput)
+}
+
+// Specifies the amount of time each device has to finish its execution of the job.
+func (o JobTemplateOutput) TimeoutConfig() TimeoutConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) TimeoutConfigPropertiesPtrOutput { return v.TimeoutConfig }).(TimeoutConfigPropertiesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInput)(nil)).Elem(), &JobTemplate{})
 	pulumi.RegisterOutputType(JobTemplateOutput{})

@@ -119,6 +119,42 @@ func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return o
 }
 
+func (o MapOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MapOutput) Configuration() MapConfigurationOutput {
+	return o.ApplyT(func(v *Map) MapConfigurationOutput { return v.Configuration }).(MapConfigurationOutput)
+}
+
+func (o MapOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+func (o MapOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
+}
+
+func (o MapOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MapOutput) MapArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapArn }).(pulumi.StringOutput)
+}
+
+func (o MapOutput) MapName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapName }).(pulumi.StringOutput)
+}
+
+func (o MapOutput) PricingPlan() MapPricingPlanPtrOutput {
+	return o.ApplyT(func(v *Map) MapPricingPlanPtrOutput { return v.PricingPlan }).(MapPricingPlanPtrOutput)
+}
+
+func (o MapOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MapInput)(nil)).Elem(), &Map{})
 	pulumi.RegisterOutputType(MapOutput{})

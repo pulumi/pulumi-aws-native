@@ -124,6 +124,51 @@ func (o ResolverQueryLoggingConfigOutput) ToResolverQueryLoggingConfigOutputWith
 	return o
 }
 
+// Arn
+func (o ResolverQueryLoggingConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Count
+func (o ResolverQueryLoggingConfigOutput) AssociationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.IntOutput { return v.AssociationCount }).(pulumi.IntOutput)
+}
+
+// Rfc3339TimeString
+func (o ResolverQueryLoggingConfigOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The id of the creator request.
+func (o ResolverQueryLoggingConfigOutput) CreatorRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringOutput { return v.CreatorRequestId }).(pulumi.StringOutput)
+}
+
+// destination arn
+func (o ResolverQueryLoggingConfigOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringPtrOutput { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// ResolverQueryLogConfigName
+func (o ResolverQueryLoggingConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// AccountId
+func (o ResolverQueryLoggingConfigOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+func (o ResolverQueryLoggingConfigOutput) ShareStatus() ResolverQueryLoggingConfigShareStatusOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) ResolverQueryLoggingConfigShareStatusOutput { return v.ShareStatus }).(ResolverQueryLoggingConfigShareStatusOutput)
+}
+
+// ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
+func (o ResolverQueryLoggingConfigOutput) Status() ResolverQueryLoggingConfigStatusOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) ResolverQueryLoggingConfigStatusOutput { return v.Status }).(ResolverQueryLoggingConfigStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigInput)(nil)).Elem(), &ResolverQueryLoggingConfig{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigOutput{})

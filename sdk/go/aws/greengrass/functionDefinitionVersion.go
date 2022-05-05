@@ -116,6 +116,20 @@ func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutputWithCo
 	return o
 }
 
+func (o FunctionDefinitionVersionOutput) DefaultConfig() FunctionDefinitionVersionDefaultConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersion) FunctionDefinitionVersionDefaultConfigPtrOutput {
+		return v.DefaultConfig
+	}).(FunctionDefinitionVersionDefaultConfigPtrOutput)
+}
+
+func (o FunctionDefinitionVersionOutput) FunctionDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersion) pulumi.StringOutput { return v.FunctionDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o FunctionDefinitionVersionOutput) Functions() FunctionDefinitionVersionFunctionArrayOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersion) FunctionDefinitionVersionFunctionArrayOutput { return v.Functions }).(FunctionDefinitionVersionFunctionArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDefinitionVersionInput)(nil)).Elem(), &FunctionDefinitionVersion{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionOutput{})

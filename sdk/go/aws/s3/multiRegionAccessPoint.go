@@ -124,6 +124,33 @@ func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutputWithContext(
 	return o
 }
 
+// The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point
+func (o MultiRegionAccessPointOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The timestamp of the when the Multi Region Access Point is created
+func (o MultiRegionAccessPointOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The name you want to assign to this Multi Region Access Point.
+func (o MultiRegionAccessPointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+func (o MultiRegionAccessPointOutput) PublicAccessBlockConfiguration() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPoint) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+		return v.PublicAccessBlockConfiguration
+	}).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// The list of buckets that you want to associate this Multi Region Access Point with.
+func (o MultiRegionAccessPointOutput) Regions() MultiRegionAccessPointRegionArrayOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPoint) MultiRegionAccessPointRegionArrayOutput { return v.Regions }).(MultiRegionAccessPointRegionArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointInput)(nil)).Elem(), &MultiRegionAccessPoint{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointOutput{})

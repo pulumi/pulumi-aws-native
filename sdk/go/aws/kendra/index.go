@@ -151,6 +151,57 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return o
 }
 
+func (o IndexOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Capacity units
+func (o IndexOutput) CapacityUnits() IndexCapacityUnitsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Index) IndexCapacityUnitsConfigurationPtrOutput { return v.CapacityUnits }).(IndexCapacityUnitsConfigurationPtrOutput)
+}
+
+// A description for the index
+func (o IndexOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Document metadata configurations
+func (o IndexOutput) DocumentMetadataConfigurations() IndexDocumentMetadataConfigurationArrayOutput {
+	return o.ApplyT(func(v *Index) IndexDocumentMetadataConfigurationArrayOutput { return v.DocumentMetadataConfigurations }).(IndexDocumentMetadataConfigurationArrayOutput)
+}
+
+func (o IndexOutput) Edition() IndexEditionOutput {
+	return o.ApplyT(func(v *Index) IndexEditionOutput { return v.Edition }).(IndexEditionOutput)
+}
+
+func (o IndexOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o IndexOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Server side encryption configuration
+func (o IndexOutput) ServerSideEncryptionConfiguration() IndexServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Index) IndexServerSideEncryptionConfigurationPtrOutput {
+		return v.ServerSideEncryptionConfiguration
+	}).(IndexServerSideEncryptionConfigurationPtrOutput)
+}
+
+// Tags for labeling the index
+func (o IndexOutput) Tags() IndexTagArrayOutput {
+	return o.ApplyT(func(v *Index) IndexTagArrayOutput { return v.Tags }).(IndexTagArrayOutput)
+}
+
+func (o IndexOutput) UserContextPolicy() IndexUserContextPolicyPtrOutput {
+	return o.ApplyT(func(v *Index) IndexUserContextPolicyPtrOutput { return v.UserContextPolicy }).(IndexUserContextPolicyPtrOutput)
+}
+
+func (o IndexOutput) UserTokenConfigurations() IndexUserTokenConfigurationArrayOutput {
+	return o.ApplyT(func(v *Index) IndexUserTokenConfigurationArrayOutput { return v.UserTokenConfigurations }).(IndexUserTokenConfigurationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexInput)(nil)).Elem(), &Index{})
 	pulumi.RegisterOutputType(IndexOutput{})

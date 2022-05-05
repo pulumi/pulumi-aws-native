@@ -105,6 +105,18 @@ func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.
 	return o
 }
 
+func (o AssessmentTargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AssessmentTargetOutput) AssessmentTargetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringPtrOutput { return v.AssessmentTargetName }).(pulumi.StringPtrOutput)
+}
+
+func (o AssessmentTargetOutput) ResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentTarget) pulumi.StringPtrOutput { return v.ResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTargetInput)(nil)).Elem(), &AssessmentTarget{})
 	pulumi.RegisterOutputType(AssessmentTargetOutput{})

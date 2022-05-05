@@ -140,6 +140,41 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx 
 	return o
 }
 
+// Custom data identifier ARN.
+func (o CustomDataIdentifierOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Description of custom data identifier.
+func (o CustomDataIdentifierOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Words to be ignored.
+func (o CustomDataIdentifierOutput) IgnoreWords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringArrayOutput { return v.IgnoreWords }).(pulumi.StringArrayOutput)
+}
+
+// Keywords to be matched against.
+func (o CustomDataIdentifierOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringArrayOutput { return v.Keywords }).(pulumi.StringArrayOutput)
+}
+
+// Maximum match distance.
+func (o CustomDataIdentifierOutput) MaximumMatchDistance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.IntPtrOutput { return v.MaximumMatchDistance }).(pulumi.IntPtrOutput)
+}
+
+// Name of custom data identifier.
+func (o CustomDataIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Regular expression for custom data identifier.
+func (o CustomDataIdentifierOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Regex }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierInput)(nil)).Elem(), &CustomDataIdentifier{})
 	pulumi.RegisterOutputType(CustomDataIdentifierOutput{})

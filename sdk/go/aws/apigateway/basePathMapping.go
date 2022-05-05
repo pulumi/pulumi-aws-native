@@ -126,6 +126,26 @@ func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Co
 	return o
 }
 
+// The base path name that callers of the API must provide in the URL after the domain name.
+func (o BasePathMappingOutput) BasePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.BasePath }).(pulumi.StringPtrOutput)
+}
+
+// The DomainName of an AWS::ApiGateway::DomainName resource.
+func (o BasePathMappingOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasePathMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The ID of the API.
+func (o BasePathMappingOutput) RestApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.RestApiId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the API's stage.
+func (o BasePathMappingOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingInput)(nil)).Elem(), &BasePathMapping{})
 	pulumi.RegisterOutputType(BasePathMappingOutput{})

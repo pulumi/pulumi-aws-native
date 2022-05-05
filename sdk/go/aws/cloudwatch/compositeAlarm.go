@@ -149,6 +149,46 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+func (o CompositeAlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
+func (o CompositeAlarmOutput) AlarmActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.AlarmActions }).(pulumi.StringArrayOutput)
+}
+
+// The description of the alarm
+func (o CompositeAlarmOutput) AlarmDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringPtrOutput { return v.AlarmDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Composite Alarm
+func (o CompositeAlarmOutput) AlarmName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.AlarmName }).(pulumi.StringOutput)
+}
+
+// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
+func (o CompositeAlarmOutput) AlarmRule() pulumi.StringOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.AlarmRule }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the alarm
+func (o CompositeAlarmOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+func (o CompositeAlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.InsufficientDataActions }).(pulumi.StringArrayOutput)
+}
+
+// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+func (o CompositeAlarmOutput) OKActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.OKActions }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmInput)(nil)).Elem(), &CompositeAlarm{})
 	pulumi.RegisterOutputType(CompositeAlarmOutput{})

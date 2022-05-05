@@ -140,6 +140,41 @@ func (o ResiliencyPolicyOutput) ToResiliencyPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// Data Location Constraint of the Policy.
+func (o ResiliencyPolicyOutput) DataLocationConstraint() ResiliencyPolicyDataLocationConstraintPtrOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyDataLocationConstraintPtrOutput {
+		return v.DataLocationConstraint
+	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
+}
+
+func (o ResiliencyPolicyOutput) Policy() ResiliencyPolicyPolicyMapOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyPolicyMapOutput { return v.Policy }).(ResiliencyPolicyPolicyMapOutput)
+}
+
+// Amazon Resource Name (ARN) of the Resiliency Policy.
+func (o ResiliencyPolicyOutput) PolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
+}
+
+// Description of Resiliency Policy.
+func (o ResiliencyPolicyOutput) PolicyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringPtrOutput { return v.PolicyDescription }).(pulumi.StringPtrOutput)
+}
+
+// Name of Resiliency Policy.
+func (o ResiliencyPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+func (o ResiliencyPolicyOutput) Tags() ResiliencyPolicyTagMapPtrOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyTagMapPtrOutput { return v.Tags }).(ResiliencyPolicyTagMapPtrOutput)
+}
+
+// Resiliency Policy Tier.
+func (o ResiliencyPolicyOutput) Tier() ResiliencyPolicyTierOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyTierOutput { return v.Tier }).(ResiliencyPolicyTierOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyInput)(nil)).Elem(), &ResiliencyPolicy{})
 	pulumi.RegisterOutputType(ResiliencyPolicyOutput{})

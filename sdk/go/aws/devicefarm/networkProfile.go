@@ -139,6 +139,58 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NetworkProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o NetworkProfileOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkProfileOutput) DownlinkBandwidthBits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkBandwidthBits }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) DownlinkDelayMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkDelayMs }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) DownlinkJitterMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkJitterMs }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) DownlinkLossPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkLossPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+func (o NetworkProfileOutput) Tags() NetworkProfileTagArrayOutput {
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfileTagArrayOutput { return v.Tags }).(NetworkProfileTagArrayOutput)
+}
+
+func (o NetworkProfileOutput) UplinkBandwidthBits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkBandwidthBits }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) UplinkDelayMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkDelayMs }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) UplinkJitterMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkJitterMs }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkProfileOutput) UplinkLossPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkLossPercent }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileInput)(nil)).Elem(), &NetworkProfile{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})

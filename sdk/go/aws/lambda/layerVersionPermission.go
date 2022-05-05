@@ -122,6 +122,22 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(
 	return o
 }
 
+func (o LayerVersionPermissionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o LayerVersionPermissionOutput) LayerVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.LayerVersionArn }).(pulumi.StringOutput)
+}
+
+func (o LayerVersionPermissionOutput) OrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringPtrOutput { return v.OrganizationId }).(pulumi.StringPtrOutput)
+}
+
+func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPermissionInput)(nil)).Elem(), &LayerVersionPermission{})
 	pulumi.RegisterOutputType(LayerVersionPermissionOutput{})

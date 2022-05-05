@@ -149,6 +149,46 @@ func (o ContactFlowOutput) ToContactFlowOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The identifier of the contact flow (ARN).
+func (o ContactFlowOutput) ContactFlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.ContactFlowArn }).(pulumi.StringOutput)
+}
+
+// The content of the contact flow in JSON format.
+func (o ContactFlowOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// The description of the contact flow.
+func (o ContactFlowOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Amazon Connect instance (ARN).
+func (o ContactFlowOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The name of the contact flow.
+func (o ContactFlowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the contact flow.
+func (o ContactFlowOutput) State() ContactFlowStateEnumPtrOutput {
+	return o.ApplyT(func(v *ContactFlow) ContactFlowStateEnumPtrOutput { return v.State }).(ContactFlowStateEnumPtrOutput)
+}
+
+// One or more tags.
+func (o ContactFlowOutput) Tags() ContactFlowTagArrayOutput {
+	return o.ApplyT(func(v *ContactFlow) ContactFlowTagArrayOutput { return v.Tags }).(ContactFlowTagArrayOutput)
+}
+
+// The type of the contact flow.
+func (o ContactFlowOutput) Type() ContactFlowTypePtrOutput {
+	return o.ApplyT(func(v *ContactFlow) ContactFlowTypePtrOutput { return v.Type }).(ContactFlowTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowInput)(nil)).Elem(), &ContactFlow{})
 	pulumi.RegisterOutputType(ContactFlowOutput{})

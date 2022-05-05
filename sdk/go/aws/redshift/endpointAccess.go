@@ -147,6 +147,61 @@ func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The DNS address of the endpoint.
+func (o EndpointAccessOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
+func (o EndpointAccessOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The time (UTC) that the endpoint was created.
+func (o EndpointAccessOutput) EndpointCreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.EndpointCreateTime }).(pulumi.StringOutput)
+}
+
+// The name of the endpoint.
+func (o EndpointAccessOutput) EndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
+}
+
+// The status of the endpoint.
+func (o EndpointAccessOutput) EndpointStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.EndpointStatus }).(pulumi.StringOutput)
+}
+
+// The port number on which the cluster accepts incoming connections.
+func (o EndpointAccessOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// The AWS account ID of the owner of the cluster.
+func (o EndpointAccessOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.ResourceOwner }).(pulumi.StringPtrOutput)
+}
+
+// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
+func (o EndpointAccessOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+func (o EndpointAccessOutput) VpcEndpoint() VpcEndpointPropertiesOutput {
+	return o.ApplyT(func(v *EndpointAccess) VpcEndpointPropertiesOutput { return v.VpcEndpoint }).(VpcEndpointPropertiesOutput)
+}
+
+// A list of vpc security group ids to apply to the created endpoint access.
+func (o EndpointAccessOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
+func (o EndpointAccessOutput) VpcSecurityGroups() EndpointAccessVpcSecurityGroupArrayOutput {
+	return o.ApplyT(func(v *EndpointAccess) EndpointAccessVpcSecurityGroupArrayOutput { return v.VpcSecurityGroups }).(EndpointAccessVpcSecurityGroupArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessInput)(nil)).Elem(), &EndpointAccess{})
 	pulumi.RegisterOutputType(EndpointAccessOutput{})

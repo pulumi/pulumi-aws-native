@@ -144,6 +144,46 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The ARN of the workspace.
+func (o WorkspaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The date and time when the workspace was created.
+func (o WorkspaceOutput) CreationDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CreationDateTime }).(pulumi.StringOutput)
+}
+
+// The description of the workspace.
+func (o WorkspaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the execution role associated with the workspace.
+func (o WorkspaceOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// The ARN of the S3 bucket where resources associated with the workspace are stored.
+func (o WorkspaceOutput) S3Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.S3Location }).(pulumi.StringOutput)
+}
+
+// A map of key-value pairs to associate with a resource.
+func (o WorkspaceOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The date and time of the current update.
+func (o WorkspaceOutput) UpdateDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.UpdateDateTime }).(pulumi.StringOutput)
+}
+
+// The ID of the workspace.
+func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInput)(nil)).Elem(), &Workspace{})
 	pulumi.RegisterOutputType(WorkspaceOutput{})

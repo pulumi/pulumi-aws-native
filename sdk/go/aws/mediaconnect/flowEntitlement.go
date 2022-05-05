@@ -152,6 +152,46 @@ func (o FlowEntitlementOutput) ToFlowEntitlementOutputWithContext(ctx context.Co
 	return o
 }
 
+// Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+func (o FlowEntitlementOutput) DataTransferSubscriberFeePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowEntitlement) pulumi.IntPtrOutput { return v.DataTransferSubscriberFeePercent }).(pulumi.IntPtrOutput)
+}
+
+// A description of the entitlement.
+func (o FlowEntitlementOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The type of encryption that will be used on the output that is associated with this entitlement.
+func (o FlowEntitlementOutput) Encryption() FlowEntitlementEncryptionPtrOutput {
+	return o.ApplyT(func(v *FlowEntitlement) FlowEntitlementEncryptionPtrOutput { return v.Encryption }).(FlowEntitlementEncryptionPtrOutput)
+}
+
+// The ARN of the entitlement.
+func (o FlowEntitlementOutput) EntitlementArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringOutput { return v.EntitlementArn }).(pulumi.StringOutput)
+}
+
+//  An indication of whether the entitlement is enabled.
+func (o FlowEntitlementOutput) EntitlementStatus() FlowEntitlementEntitlementStatusPtrOutput {
+	return o.ApplyT(func(v *FlowEntitlement) FlowEntitlementEntitlementStatusPtrOutput { return v.EntitlementStatus }).(FlowEntitlementEntitlementStatusPtrOutput)
+}
+
+// The ARN of the flow.
+func (o FlowEntitlementOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// The name of the entitlement.
+func (o FlowEntitlementOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+func (o FlowEntitlementOutput) Subscribers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringArrayOutput { return v.Subscribers }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementInput)(nil)).Elem(), &FlowEntitlement{})
 	pulumi.RegisterOutputType(FlowEntitlementOutput{})

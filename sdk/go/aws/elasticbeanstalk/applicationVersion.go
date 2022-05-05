@@ -116,6 +116,18 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx cont
 	return o
 }
 
+func (o ApplicationVersionOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationVersionOutput) SourceBundle() ApplicationVersionSourceBundleOutput {
+	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersionSourceBundleOutput { return v.SourceBundle }).(ApplicationVersionSourceBundleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionInput)(nil)).Elem(), &ApplicationVersion{})
 	pulumi.RegisterOutputType(ApplicationVersionOutput{})

@@ -110,6 +110,14 @@ func (o FlowTemplateOutput) ToFlowTemplateOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o FlowTemplateOutput) CompatibleNamespaceVersion() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowTemplate) pulumi.Float64PtrOutput { return v.CompatibleNamespaceVersion }).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowTemplateOutput) Definition() FlowTemplateDefinitionDocumentOutput {
+	return o.ApplyT(func(v *FlowTemplate) FlowTemplateDefinitionDocumentOutput { return v.Definition }).(FlowTemplateDefinitionDocumentOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTemplateInput)(nil)).Elem(), &FlowTemplate{})
 	pulumi.RegisterOutputType(FlowTemplateOutput{})

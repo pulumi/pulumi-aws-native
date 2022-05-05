@@ -121,6 +121,26 @@ func (o ResolverConfigOutput) ToResolverConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+func (o ResolverConfigOutput) AutodefinedReverse() ResolverConfigAutodefinedReverseOutput {
+	return o.ApplyT(func(v *ResolverConfig) ResolverConfigAutodefinedReverseOutput { return v.AutodefinedReverse }).(ResolverConfigAutodefinedReverseOutput)
+}
+
+// Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
+func (o ResolverConfigOutput) AutodefinedReverseFlag() ResolverConfigAutodefinedReverseFlagOutput {
+	return o.ApplyT(func(v *ResolverConfig) ResolverConfigAutodefinedReverseFlagOutput { return v.AutodefinedReverseFlag }).(ResolverConfigAutodefinedReverseFlagOutput)
+}
+
+// AccountId
+func (o ResolverConfigOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// ResourceId
+func (o ResolverConfigOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigInput)(nil)).Elem(), &ResolverConfig{})
 	pulumi.RegisterOutputType(ResolverConfigOutput{})

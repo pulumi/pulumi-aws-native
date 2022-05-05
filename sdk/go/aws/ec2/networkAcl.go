@@ -114,6 +114,16 @@ func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) Net
 	return o
 }
 
+// The tags to assign to the network ACL.
+func (o NetworkAclOutput) Tags() NetworkAclTagArrayOutput {
+	return o.ApplyT(func(v *NetworkAcl) NetworkAclTagArrayOutput { return v.Tags }).(NetworkAclTagArrayOutput)
+}
+
+// The ID of the VPC.
+func (o NetworkAclOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclInput)(nil)).Elem(), &NetworkAcl{})
 	pulumi.RegisterOutputType(NetworkAclOutput{})

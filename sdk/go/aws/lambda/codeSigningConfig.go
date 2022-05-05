@@ -124,6 +124,31 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigOutputWithContext(ctx contex
 	return o
 }
 
+// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+func (o CodeSigningConfigOutput) AllowedPublishers() CodeSigningConfigAllowedPublishersOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigAllowedPublishersOutput { return v.AllowedPublishers }).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+// A unique Arn for CodeSigningConfig resource
+func (o CodeSigningConfigOutput) CodeSigningConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.CodeSigningConfigArn }).(pulumi.StringOutput)
+}
+
+// A unique identifier for CodeSigningConfig resource
+func (o CodeSigningConfigOutput) CodeSigningConfigId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.CodeSigningConfigId }).(pulumi.StringOutput)
+}
+
+// Policies to control how to act if a signature is invalid
+func (o CodeSigningConfigOutput) CodeSigningPolicies() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigCodeSigningPoliciesPtrOutput { return v.CodeSigningPolicies }).(CodeSigningConfigCodeSigningPoliciesPtrOutput)
+}
+
+// A description of the CodeSigningConfig
+func (o CodeSigningConfigOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigInput)(nil)).Elem(), &CodeSigningConfig{})
 	pulumi.RegisterOutputType(CodeSigningConfigOutput{})

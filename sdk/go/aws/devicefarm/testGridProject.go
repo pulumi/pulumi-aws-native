@@ -111,6 +111,26 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o TestGridProjectOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o TestGridProjectOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestGridProject) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TestGridProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o TestGridProjectOutput) Tags() TestGridProjectTagArrayOutput {
+	return o.ApplyT(func(v *TestGridProject) TestGridProjectTagArrayOutput { return v.Tags }).(TestGridProjectTagArrayOutput)
+}
+
+func (o TestGridProjectOutput) VpcConfig() TestGridProjectVpcConfigPtrOutput {
+	return o.ApplyT(func(v *TestGridProject) TestGridProjectVpcConfigPtrOutput { return v.VpcConfig }).(TestGridProjectVpcConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectInput)(nil)).Elem(), &TestGridProject{})
 	pulumi.RegisterOutputType(TestGridProjectOutput{})

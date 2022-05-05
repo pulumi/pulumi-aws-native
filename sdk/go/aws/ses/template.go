@@ -101,6 +101,10 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
+func (o TemplateOutput) Template() TemplateTypePtrOutput {
+	return o.ApplyT(func(v *Template) TemplateTypePtrOutput { return v.Template }).(TemplateTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateInput)(nil)).Elem(), &Template{})
 	pulumi.RegisterOutputType(TemplateOutput{})

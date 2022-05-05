@@ -130,6 +130,35 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// Access permissions string used for this user account.
+func (o UserOutput) AccessString() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AccessString }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the user account.
+func (o UserOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) AuthenticationMode() AuthenticationModePropertiesOutput {
+	return o.ApplyT(func(v *User) AuthenticationModePropertiesOutput { return v.AuthenticationMode }).(AuthenticationModePropertiesOutput)
+}
+
+// Indicates the user status. Can be "active", "modifying" or "deleting".
+func (o UserOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this user.
+func (o UserOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+}
+
+// The name of the user.
+func (o UserOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
 	pulumi.RegisterOutputType(UserOutput{})

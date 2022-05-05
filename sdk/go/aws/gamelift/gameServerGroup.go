@@ -184,6 +184,78 @@ func (o GameServerGroupOutput) ToGameServerGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+// A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
+func (o GameServerGroupOutput) AutoScalingGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
+}
+
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+func (o GameServerGroupOutput) AutoScalingPolicy() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupAutoScalingPolicyPtrOutput { return v.AutoScalingPolicy }).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
+func (o GameServerGroupOutput) BalancingStrategy() GameServerGroupBalancingStrategyPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupBalancingStrategyPtrOutput { return v.BalancingStrategy }).(GameServerGroupBalancingStrategyPtrOutput)
+}
+
+// The type of delete to perform.
+func (o GameServerGroupOutput) DeleteOption() GameServerGroupDeleteOptionPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupDeleteOptionPtrOutput { return v.DeleteOption }).(GameServerGroupDeleteOptionPtrOutput)
+}
+
+// A generated unique ID for the game server group.
+func (o GameServerGroupOutput) GameServerGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.GameServerGroupArn }).(pulumi.StringOutput)
+}
+
+// An identifier for the new game server group.
+func (o GameServerGroupOutput) GameServerGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.GameServerGroupName }).(pulumi.StringOutput)
+}
+
+// A flag that indicates whether instances in the game server group are protected from early termination.
+func (o GameServerGroupOutput) GameServerProtectionPolicy() GameServerGroupGameServerProtectionPolicyPtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupGameServerProtectionPolicyPtrOutput {
+		return v.GameServerProtectionPolicy
+	}).(GameServerGroupGameServerProtectionPolicyPtrOutput)
+}
+
+// A set of EC2 instance types to use when creating instances in the group.
+func (o GameServerGroupOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionArrayOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupInstanceDefinitionArrayOutput { return v.InstanceDefinitions }).(GameServerGroupInstanceDefinitionArrayOutput)
+}
+
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+func (o GameServerGroupOutput) LaunchTemplate() GameServerGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupLaunchTemplateOutput { return v.LaunchTemplate }).(GameServerGroupLaunchTemplateOutput)
+}
+
+// The maximum number of instances allowed in the EC2 Auto Scaling group.
+func (o GameServerGroupOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.Float64PtrOutput { return v.MaxSize }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum number of instances allowed in the EC2 Auto Scaling group.
+func (o GameServerGroupOutput) MinSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.Float64PtrOutput { return v.MinSize }).(pulumi.Float64PtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+func (o GameServerGroupOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A list of labels to assign to the new game server group resource.
+func (o GameServerGroupOutput) Tags() GameServerGroupTagArrayOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupTagArrayOutput { return v.Tags }).(GameServerGroupTagArrayOutput)
+}
+
+// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+func (o GameServerGroupOutput) VpcSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GameServerGroup) pulumi.StringArrayOutput { return v.VpcSubnets }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInput)(nil)).Elem(), &GameServerGroup{})
 	pulumi.RegisterOutputType(GameServerGroupOutput{})

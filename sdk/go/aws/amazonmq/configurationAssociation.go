@@ -113,6 +113,16 @@ func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutputWithCont
 	return o
 }
 
+func (o ConfigurationAssociationOutput) Broker() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationAssociation) pulumi.StringOutput { return v.Broker }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationAssociationOutput) Configuration() ConfigurationAssociationConfigurationIdOutput {
+	return o.ApplyT(func(v *ConfigurationAssociation) ConfigurationAssociationConfigurationIdOutput {
+		return v.Configuration
+	}).(ConfigurationAssociationConfigurationIdOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssociationInput)(nil)).Elem(), &ConfigurationAssociation{})
 	pulumi.RegisterOutputType(ConfigurationAssociationOutput{})

@@ -162,6 +162,54 @@ func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOu
 	return o
 }
 
+// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+func (o TaskSetOutput) Cluster() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
+}
+
+// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
+func (o TaskSetOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringPtrOutput { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
+func (o TaskSetOutput) LaunchType() TaskSetLaunchTypePtrOutput {
+	return o.ApplyT(func(v *TaskSet) TaskSetLaunchTypePtrOutput { return v.LaunchType }).(TaskSetLaunchTypePtrOutput)
+}
+
+func (o TaskSetOutput) LoadBalancers() TaskSetLoadBalancerArrayOutput {
+	return o.ApplyT(func(v *TaskSet) TaskSetLoadBalancerArrayOutput { return v.LoadBalancers }).(TaskSetLoadBalancerArrayOutput)
+}
+
+func (o TaskSetOutput) NetworkConfiguration() TaskSetNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *TaskSet) TaskSetNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(TaskSetNetworkConfigurationPtrOutput)
+}
+
+// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
+func (o TaskSetOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringPtrOutput { return v.PlatformVersion }).(pulumi.StringPtrOutput)
+}
+
+// A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+func (o TaskSetOutput) Scale() TaskSetScalePtrOutput {
+	return o.ApplyT(func(v *TaskSet) TaskSetScalePtrOutput { return v.Scale }).(TaskSetScalePtrOutput)
+}
+
+// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+func (o TaskSetOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
+}
+
+// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
+func (o TaskSetOutput) ServiceRegistries() TaskSetServiceRegistryArrayOutput {
+	return o.ApplyT(func(v *TaskSet) TaskSetServiceRegistryArrayOutput { return v.ServiceRegistries }).(TaskSetServiceRegistryArrayOutput)
+}
+
+// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
+func (o TaskSetOutput) TaskDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.TaskDefinition }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetInput)(nil)).Elem(), &TaskSet{})
 	pulumi.RegisterOutputType(TaskSetOutput{})

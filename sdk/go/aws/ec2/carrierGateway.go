@@ -120,6 +120,31 @@ func (o CarrierGatewayOutput) ToCarrierGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ID of the carrier gateway.
+func (o CarrierGatewayOutput) CarrierGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.CarrierGatewayId }).(pulumi.StringOutput)
+}
+
+// The ID of the owner.
+func (o CarrierGatewayOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The state of the carrier gateway.
+func (o CarrierGatewayOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The tags for the carrier gateway.
+func (o CarrierGatewayOutput) Tags() CarrierGatewayTagArrayOutput {
+	return o.ApplyT(func(v *CarrierGateway) CarrierGatewayTagArrayOutput { return v.Tags }).(CarrierGatewayTagArrayOutput)
+}
+
+// The ID of the VPC.
+func (o CarrierGatewayOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayInput)(nil)).Elem(), &CarrierGateway{})
 	pulumi.RegisterOutputType(CarrierGatewayOutput{})

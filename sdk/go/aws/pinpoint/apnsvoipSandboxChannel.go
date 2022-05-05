@@ -131,6 +131,42 @@ func (o APNSVoipSandboxChannelOutput) ToAPNSVoipSandboxChannelOutputWithContext(
 	return o
 }
 
+func (o APNSVoipSandboxChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) BundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.BundleId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) TokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.TokenKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipSandboxChannelOutput) TokenKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipSandboxChannel) pulumi.StringPtrOutput { return v.TokenKeyId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APNSVoipSandboxChannelInput)(nil)).Elem(), &APNSVoipSandboxChannel{})
 	pulumi.RegisterOutputType(APNSVoipSandboxChannelOutput{})

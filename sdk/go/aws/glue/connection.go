@@ -113,6 +113,14 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+func (o ConnectionOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o ConnectionOutput) ConnectionInput() ConnectionInputTypeOutput {
+	return o.ApplyT(func(v *Connection) ConnectionInputTypeOutput { return v.ConnectionInput }).(ConnectionInputTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionInput)(nil)).Elem(), &Connection{})
 	pulumi.RegisterOutputType(ConnectionOutput{})

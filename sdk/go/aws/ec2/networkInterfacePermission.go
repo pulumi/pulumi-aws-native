@@ -119,6 +119,18 @@ func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutputWith
 	return o
 }
 
+func (o NetworkInterfacePermissionOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfacePermissionOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfacePermissionOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionInput)(nil)).Elem(), &NetworkInterfacePermission{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionOutput{})

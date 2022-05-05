@@ -106,6 +106,14 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 	return o
 }
 
+func (o XssMatchSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o XssMatchSetOutput) XssMatchTuples() XssMatchSetXssMatchTupleArrayOutput {
+	return o.ApplyT(func(v *XssMatchSet) XssMatchSetXssMatchTupleArrayOutput { return v.XssMatchTuples }).(XssMatchSetXssMatchTupleArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetInput)(nil)).Elem(), &XssMatchSet{})
 	pulumi.RegisterOutputType(XssMatchSetOutput{})

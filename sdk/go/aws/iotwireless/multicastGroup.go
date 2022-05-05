@@ -142,6 +142,46 @@ func (o MulticastGroupOutput) ToMulticastGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Multicast group arn. Returned after successful create.
+func (o MulticastGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Wireless device to associate. Only for update request.
+func (o MulticastGroupOutput) AssociateWirelessDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringPtrOutput { return v.AssociateWirelessDevice }).(pulumi.StringPtrOutput)
+}
+
+// Multicast group description
+func (o MulticastGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Wireless device to disassociate. Only for update request.
+func (o MulticastGroupOutput) DisassociateWirelessDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringPtrOutput { return v.DisassociateWirelessDevice }).(pulumi.StringPtrOutput)
+}
+
+// Multicast group LoRaWAN
+func (o MulticastGroupOutput) LoRaWAN() MulticastGroupLoRaWANOutput {
+	return o.ApplyT(func(v *MulticastGroup) MulticastGroupLoRaWANOutput { return v.LoRaWAN }).(MulticastGroupLoRaWANOutput)
+}
+
+// Name of Multicast group
+func (o MulticastGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Multicast group status. Returned after successful read.
+func (o MulticastGroupOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the Multicast group.
+func (o MulticastGroupOutput) Tags() MulticastGroupTagArrayOutput {
+	return o.ApplyT(func(v *MulticastGroup) MulticastGroupTagArrayOutput { return v.Tags }).(MulticastGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupInput)(nil)).Elem(), &MulticastGroup{})
 	pulumi.RegisterOutputType(MulticastGroupOutput{})

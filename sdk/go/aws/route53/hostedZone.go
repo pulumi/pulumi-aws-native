@@ -135,6 +135,37 @@ func (o HostedZoneOutput) ToHostedZoneOutputWithContext(ctx context.Context) Hos
 	return o
 }
 
+func (o HostedZoneOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {
+	return o.ApplyT(func(v *HostedZone) HostedZoneConfigPtrOutput { return v.HostedZoneConfig }).(HostedZoneConfigPtrOutput)
+}
+
+// Adds, edits, or deletes tags for a health check or a hosted zone.
+//
+// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
+func (o HostedZoneOutput) HostedZoneTags() HostedZoneTagArrayOutput {
+	return o.ApplyT(func(v *HostedZone) HostedZoneTagArrayOutput { return v.HostedZoneTags }).(HostedZoneTagArrayOutput)
+}
+
+// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+//
+// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+func (o HostedZoneOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedZone) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o HostedZoneOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HostedZone) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+func (o HostedZoneOutput) QueryLoggingConfig() HostedZoneQueryLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *HostedZone) HostedZoneQueryLoggingConfigPtrOutput { return v.QueryLoggingConfig }).(HostedZoneQueryLoggingConfigPtrOutput)
+}
+
+// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+func (o HostedZoneOutput) VPCs() HostedZoneVPCArrayOutput {
+	return o.ApplyT(func(v *HostedZone) HostedZoneVPCArrayOutput { return v.VPCs }).(HostedZoneVPCArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneInput)(nil)).Elem(), &HostedZone{})
 	pulumi.RegisterOutputType(HostedZoneOutput{})

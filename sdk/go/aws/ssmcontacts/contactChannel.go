@@ -130,6 +130,36 @@ func (o ContactChannelOutput) ToContactChannelOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the engagement to a contact channel.
+func (o ContactChannelOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The details that SSM Incident Manager uses when trying to engage the contact channel.
+func (o ContactChannelOutput) ChannelAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.StringPtrOutput { return v.ChannelAddress }).(pulumi.StringPtrOutput)
+}
+
+// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
+func (o ContactChannelOutput) ChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
+}
+
+// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+func (o ContactChannelOutput) ChannelType() ContactChannelChannelTypePtrOutput {
+	return o.ApplyT(func(v *ContactChannel) ContactChannelChannelTypePtrOutput { return v.ChannelType }).(ContactChannelChannelTypePtrOutput)
+}
+
+// ARN of the contact resource
+func (o ContactChannelOutput) ContactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.StringPtrOutput { return v.ContactId }).(pulumi.StringPtrOutput)
+}
+
+// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
+func (o ContactChannelOutput) DeferActivation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContactChannel) pulumi.BoolPtrOutput { return v.DeferActivation }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelInput)(nil)).Elem(), &ContactChannel{})
 	pulumi.RegisterOutputType(ContactChannelOutput{})

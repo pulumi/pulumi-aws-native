@@ -125,6 +125,34 @@ func (o EntitlementOutput) ToEntitlementOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EntitlementOutput) AppVisibility() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.AppVisibility }).(pulumi.StringOutput)
+}
+
+func (o EntitlementOutput) Attributes() EntitlementAttributeArrayOutput {
+	return o.ApplyT(func(v *Entitlement) EntitlementAttributeArrayOutput { return v.Attributes }).(EntitlementAttributeArrayOutput)
+}
+
+func (o EntitlementOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o EntitlementOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Entitlement) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EntitlementOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+func (o EntitlementOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EntitlementOutput) StackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementInput)(nil)).Elem(), &Entitlement{})
 	pulumi.RegisterOutputType(EntitlementOutput{})

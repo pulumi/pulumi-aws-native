@@ -134,6 +134,37 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(
 	return o
 }
 
+// The name of the identity provider configuration.
+func (o IdentityProviderConfigOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// The ARN of the configuration.
+func (o IdentityProviderConfigOutput) IdentityProviderConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.IdentityProviderConfigArn }).(pulumi.StringOutput)
+}
+
+// The name of the OIDC provider configuration.
+func (o IdentityProviderConfigOutput) IdentityProviderConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringPtrOutput { return v.IdentityProviderConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
+		return v.Oidc
+	}).(IdentityProviderConfigOidcIdentityProviderConfigPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o IdentityProviderConfigOutput) Tags() IdentityProviderConfigTagArrayOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigTagArrayOutput { return v.Tags }).(IdentityProviderConfigTagArrayOutput)
+}
+
+// The type of the identity provider configuration.
+func (o IdentityProviderConfigOutput) Type() IdentityProviderConfigTypeOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigTypeOutput { return v.Type }).(IdentityProviderConfigTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigInput)(nil)).Elem(), &IdentityProviderConfig{})
 	pulumi.RegisterOutputType(IdentityProviderConfigOutput{})

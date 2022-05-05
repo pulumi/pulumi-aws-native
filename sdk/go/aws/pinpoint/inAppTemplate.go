@@ -121,6 +121,34 @@ func (o InAppTemplateOutput) ToInAppTemplateOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InAppTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InAppTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InAppTemplateOutput) Content() InAppTemplateInAppMessageContentArrayOutput {
+	return o.ApplyT(func(v *InAppTemplate) InAppTemplateInAppMessageContentArrayOutput { return v.Content }).(InAppTemplateInAppMessageContentArrayOutput)
+}
+
+func (o InAppTemplateOutput) CustomConfig() pulumi.AnyOutput {
+	return o.ApplyT(func(v *InAppTemplate) pulumi.AnyOutput { return v.CustomConfig }).(pulumi.AnyOutput)
+}
+
+func (o InAppTemplateOutput) Layout() InAppTemplateLayoutPtrOutput {
+	return o.ApplyT(func(v *InAppTemplate) InAppTemplateLayoutPtrOutput { return v.Layout }).(InAppTemplateLayoutPtrOutput)
+}
+
+func (o InAppTemplateOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *InAppTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o InAppTemplateOutput) TemplateDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplate) pulumi.StringPtrOutput { return v.TemplateDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *InAppTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateInput)(nil)).Elem(), &InAppTemplate{})
 	pulumi.RegisterOutputType(InAppTemplateOutput{})

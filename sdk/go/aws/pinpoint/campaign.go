@@ -163,6 +163,78 @@ func (o CampaignOutput) ToCampaignOutputWithContext(ctx context.Context) Campaig
 	return o
 }
 
+func (o CampaignOutput) AdditionalTreatments() CampaignWriteTreatmentResourceArrayOutput {
+	return o.ApplyT(func(v *Campaign) CampaignWriteTreatmentResourceArrayOutput { return v.AdditionalTreatments }).(CampaignWriteTreatmentResourceArrayOutput)
+}
+
+func (o CampaignOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) CampaignHook() CampaignHookPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignHookPtrOutput { return v.CampaignHook }).(CampaignHookPtrOutput)
+}
+
+func (o CampaignOutput) CampaignId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.CampaignId }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignOutput) HoldoutPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.IntPtrOutput { return v.HoldoutPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o CampaignOutput) IsPaused() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.BoolPtrOutput { return v.IsPaused }).(pulumi.BoolPtrOutput)
+}
+
+func (o CampaignOutput) Limits() CampaignLimitsPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignLimitsPtrOutput { return v.Limits }).(CampaignLimitsPtrOutput)
+}
+
+func (o CampaignOutput) MessageConfiguration() CampaignMessageConfigurationOutput {
+	return o.ApplyT(func(v *Campaign) CampaignMessageConfigurationOutput { return v.MessageConfiguration }).(CampaignMessageConfigurationOutput)
+}
+
+func (o CampaignOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o CampaignOutput) Schedule() CampaignScheduleOutput {
+	return o.ApplyT(func(v *Campaign) CampaignScheduleOutput { return v.Schedule }).(CampaignScheduleOutput)
+}
+
+func (o CampaignOutput) SegmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.SegmentId }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) SegmentVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.IntPtrOutput { return v.SegmentVersion }).(pulumi.IntPtrOutput)
+}
+
+func (o CampaignOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o CampaignOutput) TreatmentDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringPtrOutput { return v.TreatmentDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignOutput) TreatmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Campaign) pulumi.StringPtrOutput { return v.TreatmentName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInput)(nil)).Elem(), &Campaign{})
 	pulumi.RegisterOutputType(CampaignOutput{})

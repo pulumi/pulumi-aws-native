@@ -128,6 +128,43 @@ func (o SigningProfileOutput) ToSigningProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the specified signing profile.
+func (o SigningProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the target signing platform.
+func (o SigningProfileOutput) PlatformId() SigningProfilePlatformIdOutput {
+	return o.ApplyT(func(v *SigningProfile) SigningProfilePlatformIdOutput { return v.PlatformId }).(SigningProfilePlatformIdOutput)
+}
+
+// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
+func (o SigningProfileOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
+}
+
+// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
+func (o SigningProfileOutput) ProfileVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.ProfileVersion }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the specified signing profile version.
+func (o SigningProfileOutput) ProfileVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.ProfileVersionArn }).(pulumi.StringOutput)
+}
+
+// Signature validity period of the profile.
+func (o SigningProfileOutput) SignatureValidityPeriod() SigningProfileSignatureValidityPeriodPtrOutput {
+	return o.ApplyT(func(v *SigningProfile) SigningProfileSignatureValidityPeriodPtrOutput {
+		return v.SignatureValidityPeriod
+	}).(SigningProfileSignatureValidityPeriodPtrOutput)
+}
+
+// A list of tags associated with the signing profile.
+func (o SigningProfileOutput) Tags() SigningProfileTagArrayOutput {
+	return o.ApplyT(func(v *SigningProfile) SigningProfileTagArrayOutput { return v.Tags }).(SigningProfileTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileInput)(nil)).Elem(), &SigningProfile{})
 	pulumi.RegisterOutputType(SigningProfileOutput{})

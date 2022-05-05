@@ -123,6 +123,26 @@ func (o InsightRuleOutput) ToInsightRuleOutputWithContext(ctx context.Context) I
 	return o
 }
 
+func (o InsightRuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InsightRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InsightRuleOutput) RuleBody() pulumi.StringOutput {
+	return o.ApplyT(func(v *InsightRule) pulumi.StringOutput { return v.RuleBody }).(pulumi.StringOutput)
+}
+
+func (o InsightRuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *InsightRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
+}
+
+func (o InsightRuleOutput) RuleState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InsightRule) pulumi.StringOutput { return v.RuleState }).(pulumi.StringOutput)
+}
+
+func (o InsightRuleOutput) Tags() InsightRuleTagsPtrOutput {
+	return o.ApplyT(func(v *InsightRule) InsightRuleTagsPtrOutput { return v.Tags }).(InsightRuleTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleInput)(nil)).Elem(), &InsightRule{})
 	pulumi.RegisterOutputType(InsightRuleOutput{})

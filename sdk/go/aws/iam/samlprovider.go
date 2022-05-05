@@ -113,6 +113,23 @@ func (o SAMLProviderOutput) ToSAMLProviderOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Amazon Resource Name (ARN) of the SAML provider
+func (o SAMLProviderOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SAMLProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SAMLProviderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SAMLProvider) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SAMLProviderOutput) SamlMetadataDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v *SAMLProvider) pulumi.StringOutput { return v.SamlMetadataDocument }).(pulumi.StringOutput)
+}
+
+func (o SAMLProviderOutput) Tags() SAMLProviderTagArrayOutput {
+	return o.ApplyT(func(v *SAMLProvider) SAMLProviderTagArrayOutput { return v.Tags }).(SAMLProviderTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SAMLProviderInput)(nil)).Elem(), &SAMLProvider{})
 	pulumi.RegisterOutputType(SAMLProviderOutput{})

@@ -110,6 +110,22 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
+func (o RegistryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RegistryOutput) RegistryArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.RegistryArn }).(pulumi.StringOutput)
+}
+
+func (o RegistryOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+func (o RegistryOutput) Tags() RegistryTagsEntryArrayOutput {
+	return o.ApplyT(func(v *Registry) RegistryTagsEntryArrayOutput { return v.Tags }).(RegistryTagsEntryArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryInput)(nil)).Elem(), &Registry{})
 	pulumi.RegisterOutputType(RegistryOutput{})

@@ -135,6 +135,50 @@ func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) J
 	return o
 }
 
+func (o JobTemplateOutput) AccelerationSettings() JobTemplateAccelerationSettingsPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) JobTemplateAccelerationSettingsPtrOutput { return v.AccelerationSettings }).(JobTemplateAccelerationSettingsPtrOutput)
+}
+
+func (o JobTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateOutput) HopDestinations() JobTemplateHopDestinationArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) JobTemplateHopDestinationArrayOutput { return v.HopDestinations }).(JobTemplateHopDestinationArrayOutput)
+}
+
+func (o JobTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o JobTemplateOutput) Queue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Queue }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateOutput) SettingsJson() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.AnyOutput { return v.SettingsJson }).(pulumi.AnyOutput)
+}
+
+func (o JobTemplateOutput) StatusUpdateInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.StatusUpdateInterval }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInput)(nil)).Elem(), &JobTemplate{})
 	pulumi.RegisterOutputType(JobTemplateOutput{})

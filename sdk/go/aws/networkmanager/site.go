@@ -130,6 +130,36 @@ func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return o
 }
 
+// The description of the site.
+func (o SiteOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the global network.
+func (o SiteOutput) GlobalNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The location of the site.
+func (o SiteOutput) Location() SiteLocationPtrOutput {
+	return o.ApplyT(func(v *Site) SiteLocationPtrOutput { return v.Location }).(SiteLocationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the site.
+func (o SiteOutput) SiteArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.SiteArn }).(pulumi.StringOutput)
+}
+
+// The ID of the site.
+func (o SiteOutput) SiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// The tags for the site.
+func (o SiteOutput) Tags() SiteTagArrayOutput {
+	return o.ApplyT(func(v *Site) SiteTagArrayOutput { return v.Tags }).(SiteTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteInput)(nil)).Elem(), &Site{})
 	pulumi.RegisterOutputType(SiteOutput{})

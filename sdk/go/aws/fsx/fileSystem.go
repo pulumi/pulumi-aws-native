@@ -149,6 +149,70 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 	return o
 }
 
+func (o FileSystemOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) DNSName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.DNSName }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOutput) FileSystemType() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.FileSystemType }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOutput) FileSystemTypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.FileSystemTypeVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) LustreConfiguration() FileSystemLustreConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemLustreConfigurationPtrOutput { return v.LustreConfiguration }).(FileSystemLustreConfigurationPtrOutput)
+}
+
+func (o FileSystemOutput) LustreMountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.LustreMountName }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOutput) OntapConfiguration() FileSystemOntapConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemOntapConfigurationPtrOutput { return v.OntapConfiguration }).(FileSystemOntapConfigurationPtrOutput)
+}
+
+func (o FileSystemOutput) OpenZFSConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemOpenZFSConfigurationPtrOutput { return v.OpenZFSConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+}
+
+func (o FileSystemOutput) RootVolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.RootVolumeId }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FileSystemOutput) StorageCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.IntPtrOutput { return v.StorageCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FileSystemOutput) Tags() FileSystemTagArrayOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemTagArrayOutput { return v.Tags }).(FileSystemTagArrayOutput)
+}
+
+func (o FileSystemOutput) WindowsConfiguration() FileSystemWindowsConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemWindowsConfigurationPtrOutput { return v.WindowsConfiguration }).(FileSystemWindowsConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemInput)(nil)).Elem(), &FileSystem{})
 	pulumi.RegisterOutputType(FileSystemOutput{})

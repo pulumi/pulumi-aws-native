@@ -204,6 +204,86 @@ func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutpu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the EMR Studio.
+func (o StudioOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
+func (o StudioOutput) AuthMode() StudioAuthModeOutput {
+	return o.ApplyT(func(v *Studio) StudioAuthModeOutput { return v.AuthMode }).(StudioAuthModeOutput)
+}
+
+// The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
+func (o StudioOutput) DefaultS3Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.DefaultS3Location }).(pulumi.StringOutput)
+}
+
+// A detailed description of the Studio.
+func (o StudioOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
+func (o StudioOutput) EngineSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.EngineSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
+func (o StudioOutput) IdpAuthUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.IdpAuthUrl }).(pulumi.StringPtrOutput)
+}
+
+// The name of relay state parameter for external Identity Provider.
+func (o StudioOutput) IdpRelayStateParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.IdpRelayStateParameterName }).(pulumi.StringPtrOutput)
+}
+
+// A descriptive name for the Amazon EMR Studio.
+func (o StudioOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
+func (o StudioOutput) ServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// The ID of the EMR Studio.
+func (o StudioOutput) StudioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
+}
+
+// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
+func (o StudioOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+func (o StudioOutput) Tags() StudioTagArrayOutput {
+	return o.ApplyT(func(v *Studio) StudioTagArrayOutput { return v.Tags }).(StudioTagArrayOutput)
+}
+
+// The unique Studio access URL.
+func (o StudioOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
+func (o StudioOutput) UserRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.UserRole }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+func (o StudioOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
+// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by VpcId.
+func (o StudioOutput) WorkspaceSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.WorkspaceSecurityGroupId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioInput)(nil)).Elem(), &Studio{})
 	pulumi.RegisterOutputType(StudioOutput{})

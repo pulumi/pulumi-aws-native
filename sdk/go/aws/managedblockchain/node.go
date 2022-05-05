@@ -121,6 +121,26 @@ func (o NodeOutput) ToNodeOutputWithContext(ctx context.Context) NodeOutput {
 	return o
 }
 
+func (o NodeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o NodeOutput) MemberId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
+}
+
+func (o NodeOutput) NetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.NetworkId }).(pulumi.StringOutput)
+}
+
+func (o NodeOutput) NodeConfiguration() NodeConfigurationOutput {
+	return o.ApplyT(func(v *Node) NodeConfigurationOutput { return v.NodeConfiguration }).(NodeConfigurationOutput)
+}
+
+func (o NodeOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeInput)(nil)).Elem(), &Node{})
 	pulumi.RegisterOutputType(NodeOutput{})

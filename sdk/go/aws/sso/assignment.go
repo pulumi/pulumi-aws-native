@@ -153,6 +153,36 @@ func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// The sso instance that the permission set is owned.
+func (o AssignmentOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The permission set that the assignemt will be assigned
+func (o AssignmentOutput) PermissionSetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
+}
+
+// The assignee's identifier, user id/group id
+func (o AssignmentOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The assignee's type, user/group
+func (o AssignmentOutput) PrincipalType() AssignmentPrincipalTypeOutput {
+	return o.ApplyT(func(v *Assignment) AssignmentPrincipalTypeOutput { return v.PrincipalType }).(AssignmentPrincipalTypeOutput)
+}
+
+// The account id to be provisioned.
+func (o AssignmentOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
+}
+
+// The type of resource to be provsioned to, only aws account now
+func (o AssignmentOutput) TargetType() AssignmentTargetTypeOutput {
+	return o.ApplyT(func(v *Assignment) AssignmentTargetTypeOutput { return v.TargetType }).(AssignmentTargetTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentInput)(nil)).Elem(), &Assignment{})
 	pulumi.RegisterOutputType(AssignmentOutput{})

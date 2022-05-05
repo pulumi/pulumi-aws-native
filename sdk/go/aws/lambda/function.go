@@ -236,6 +236,120 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
+func (o FunctionOutput) Architectures() FunctionArchitecturesItemArrayOutput {
+	return o.ApplyT(func(v *Function) FunctionArchitecturesItemArrayOutput { return v.Architectures }).(FunctionArchitecturesItemArrayOutput)
+}
+
+// Unique identifier for function resources
+func (o FunctionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The code for the function.
+func (o FunctionOutput) Code() FunctionCodeOutput {
+	return o.ApplyT(func(v *Function) FunctionCodeOutput { return v.Code }).(FunctionCodeOutput)
+}
+
+// A unique Arn for CodeSigningConfig resource
+func (o FunctionOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.CodeSigningConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+func (o FunctionOutput) DeadLetterConfig() FunctionDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionDeadLetterConfigPtrOutput { return v.DeadLetterConfig }).(FunctionDeadLetterConfigPtrOutput)
+}
+
+// A description of the function.
+func (o FunctionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Environment variables that are accessible from function code during execution.
+func (o FunctionOutput) Environment() FunctionEnvironmentPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionEnvironmentPtrOutput { return v.Environment }).(FunctionEnvironmentPtrOutput)
+}
+
+// A function's ephemeral storage settings.
+func (o FunctionOutput) EphemeralStorage() FunctionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v *Function) FunctionEphemeralStoragePtrOutput { return v.EphemeralStorage }).(FunctionEphemeralStoragePtrOutput)
+}
+
+// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+func (o FunctionOutput) FileSystemConfigs() FunctionFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v *Function) FunctionFileSystemConfigArrayOutput { return v.FileSystemConfigs }).(FunctionFileSystemConfigArrayOutput)
+}
+
+// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+func (o FunctionOutput) FunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+func (o FunctionOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Handler }).(pulumi.StringPtrOutput)
+}
+
+// ImageConfig
+func (o FunctionOutput) ImageConfig() FunctionImageConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionImageConfigPtrOutput { return v.ImageConfig }).(FunctionImageConfigPtrOutput)
+}
+
+// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+func (o FunctionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+func (o FunctionOutput) Layers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Layers }).(pulumi.StringArrayOutput)
+}
+
+// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+func (o FunctionOutput) MemorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.MemorySize }).(pulumi.IntPtrOutput)
+}
+
+// PackageType.
+func (o FunctionOutput) PackageType() FunctionPackageTypePtrOutput {
+	return o.ApplyT(func(v *Function) FunctionPackageTypePtrOutput { return v.PackageType }).(FunctionPackageTypePtrOutput)
+}
+
+// The number of simultaneous executions to reserve for the function.
+func (o FunctionOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.ReservedConcurrentExecutions }).(pulumi.IntPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the function's execution role.
+func (o FunctionOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// The identifier of the function's runtime.
+func (o FunctionOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to apply to the function.
+func (o FunctionOutput) Tags() FunctionTagArrayOutput {
+	return o.ApplyT(func(v *Function) FunctionTagArrayOutput { return v.Tags }).(FunctionTagArrayOutput)
+}
+
+// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+func (o FunctionOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+func (o FunctionOutput) TracingConfig() FunctionTracingConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionTracingConfigPtrOutput { return v.TracingConfig }).(FunctionTracingConfigPtrOutput)
+}
+
+// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+func (o FunctionOutput) VpcConfig() FunctionVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionVpcConfigPtrOutput { return v.VpcConfig }).(FunctionVpcConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionInput)(nil)).Elem(), &Function{})
 	pulumi.RegisterOutputType(FunctionOutput{})

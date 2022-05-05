@@ -139,6 +139,41 @@ func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.
 	return o
 }
 
+// The associations with the event integration.
+func (o EventIntegrationOutput) Associations() EventIntegrationAssociationArrayOutput {
+	return o.ApplyT(func(v *EventIntegration) EventIntegrationAssociationArrayOutput { return v.Associations }).(EventIntegrationAssociationArrayOutput)
+}
+
+// The event integration description.
+func (o EventIntegrationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventIntegration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Eventbridge bus for the event integration.
+func (o EventIntegrationOutput) EventBridgeBus() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.EventBridgeBus }).(pulumi.StringOutput)
+}
+
+// The EventFilter (source) associated with the event integration.
+func (o EventIntegrationOutput) EventFilter() EventIntegrationEventFilterOutput {
+	return o.ApplyT(func(v *EventIntegration) EventIntegrationEventFilterOutput { return v.EventFilter }).(EventIntegrationEventFilterOutput)
+}
+
+// The Amazon Resource Name (ARN) of the event integration.
+func (o EventIntegrationOutput) EventIntegrationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.EventIntegrationArn }).(pulumi.StringOutput)
+}
+
+// The name of the event integration.
+func (o EventIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags (keys and values) associated with the event integration.
+func (o EventIntegrationOutput) Tags() EventIntegrationTagArrayOutput {
+	return o.ApplyT(func(v *EventIntegration) EventIntegrationTagArrayOutput { return v.Tags }).(EventIntegrationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationInput)(nil)).Elem(), &EventIntegration{})
 	pulumi.RegisterOutputType(EventIntegrationOutput{})

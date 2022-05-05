@@ -127,6 +127,31 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the user account.
+func (o UserGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Must be redis.
+func (o UserGroupOutput) Engine() UserGroupEngineOutput {
+	return o.ApplyT(func(v *UserGroup) UserGroupEngineOutput { return v.Engine }).(UserGroupEngineOutput)
+}
+
+// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+func (o UserGroupOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The ID of the user group.
+func (o UserGroupOutput) UserGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.UserGroupId }).(pulumi.StringOutput)
+}
+
+// List of users associated to this user group.
+func (o UserGroupOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringArrayOutput { return v.UserIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupInput)(nil)).Elem(), &UserGroup{})
 	pulumi.RegisterOutputType(UserGroupOutput{})

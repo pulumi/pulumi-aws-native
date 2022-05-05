@@ -127,6 +127,46 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+func (o DomainOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.AutoSubDomainCreationPatterns }).(pulumi.StringArrayOutput)
+}
+
+func (o DomainOutput) AutoSubDomainIAMRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AutoSubDomainIAMRole }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainOutput) CertificateRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CertificateRecord }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) DomainStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainStatus }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.EnableAutoSubDomain }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) SubDomainSettings() DomainSubDomainSettingArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainSubDomainSettingArrayOutput { return v.SubDomainSettings }).(DomainSubDomainSettingArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainInput)(nil)).Elem(), &Domain{})
 	pulumi.RegisterOutputType(DomainOutput{})

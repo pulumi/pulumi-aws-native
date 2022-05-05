@@ -191,6 +191,85 @@ func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSe
 	return o
 }
 
+// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
+func (o StackSetOutput) AdministrationRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.AdministrationRoleARN }).(pulumi.StringPtrOutput)
+}
+
+// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
+func (o StackSetOutput) AutoDeployment() StackSetAutoDeploymentPtrOutput {
+	return o.ApplyT(func(v *StackSet) StackSetAutoDeploymentPtrOutput { return v.AutoDeployment }).(StackSetAutoDeploymentPtrOutput)
+}
+
+// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
+func (o StackSetOutput) CallAs() StackSetCallAsPtrOutput {
+	return o.ApplyT(func(v *StackSet) StackSetCallAsPtrOutput { return v.CallAs }).(StackSetCallAsPtrOutput)
+}
+
+// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
+func (o StackSetOutput) Capabilities() StackSetCapabilityArrayOutput {
+	return o.ApplyT(func(v *StackSet) StackSetCapabilityArrayOutput { return v.Capabilities }).(StackSetCapabilityArrayOutput)
+}
+
+// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
+func (o StackSetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
+func (o StackSetOutput) ExecutionRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.ExecutionRoleName }).(pulumi.StringPtrOutput)
+}
+
+// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+func (o StackSetOutput) ManagedExecution() ManagedExecutionPropertiesPtrOutput {
+	return o.ApplyT(func(v *StackSet) ManagedExecutionPropertiesPtrOutput { return v.ManagedExecution }).(ManagedExecutionPropertiesPtrOutput)
+}
+
+func (o StackSetOutput) OperationPreferences() StackSetOperationPreferencesPtrOutput {
+	return o.ApplyT(func(v *StackSet) StackSetOperationPreferencesPtrOutput { return v.OperationPreferences }).(StackSetOperationPreferencesPtrOutput)
+}
+
+// The input parameters for the stack set template.
+func (o StackSetOutput) Parameters() StackSetParameterArrayOutput {
+	return o.ApplyT(func(v *StackSet) StackSetParameterArrayOutput { return v.Parameters }).(StackSetParameterArrayOutput)
+}
+
+// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
+func (o StackSetOutput) PermissionModel() StackSetPermissionModelOutput {
+	return o.ApplyT(func(v *StackSet) StackSetPermissionModelOutput { return v.PermissionModel }).(StackSetPermissionModelOutput)
+}
+
+// A group of stack instances with parameters in some specific accounts and regions.
+func (o StackSetOutput) StackInstancesGroup() StackSetStackInstancesArrayOutput {
+	return o.ApplyT(func(v *StackSet) StackSetStackInstancesArrayOutput { return v.StackInstancesGroup }).(StackSetStackInstancesArrayOutput)
+}
+
+// The ID of the stack set that you're creating.
+func (o StackSetOutput) StackSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.StackSetId }).(pulumi.StringOutput)
+}
+
+// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
+func (o StackSetOutput) StackSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.StackSetName }).(pulumi.StringOutput)
+}
+
+// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+func (o StackSetOutput) Tags() StackSetTagArrayOutput {
+	return o.ApplyT(func(v *StackSet) StackSetTagArrayOutput { return v.Tags }).(StackSetTagArrayOutput)
+}
+
+// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+func (o StackSetOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
+}
+
+// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
+func (o StackSetOutput) TemplateURL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.TemplateURL }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInput)(nil)).Elem(), &StackSet{})
 	pulumi.RegisterOutputType(StackSetOutput{})

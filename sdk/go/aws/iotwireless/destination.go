@@ -146,6 +146,41 @@ func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Destination arn. Returned after successful create.
+func (o DestinationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Destination description
+func (o DestinationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Destination expression
+func (o DestinationOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Must be RuleName
+func (o DestinationOutput) ExpressionType() DestinationExpressionTypeOutput {
+	return o.ApplyT(func(v *Destination) DestinationExpressionTypeOutput { return v.ExpressionType }).(DestinationExpressionTypeOutput)
+}
+
+// Unique name of destination
+func (o DestinationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// AWS role ARN that grants access
+func (o DestinationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the destination.
+func (o DestinationOutput) Tags() DestinationTagArrayOutput {
+	return o.ApplyT(func(v *Destination) DestinationTagArrayOutput { return v.Tags }).(DestinationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationInput)(nil)).Elem(), &Destination{})
 	pulumi.RegisterOutputType(DestinationOutput{})

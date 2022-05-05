@@ -122,6 +122,26 @@ func (o QueryDefinitionOutput) ToQueryDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
+// Optionally define specific log groups as part of your query definition
+func (o QueryDefinitionOutput) LogGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringArrayOutput { return v.LogGroupNames }).(pulumi.StringArrayOutput)
+}
+
+// A name for the saved query definition
+func (o QueryDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Unique identifier of a query definition
+func (o QueryDefinitionOutput) QueryDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryDefinitionId }).(pulumi.StringOutput)
+}
+
+// The query string to use for this definition
+func (o QueryDefinitionOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionInput)(nil)).Elem(), &QueryDefinition{})
 	pulumi.RegisterOutputType(QueryDefinitionOutput{})

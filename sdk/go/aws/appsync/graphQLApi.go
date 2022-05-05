@@ -134,6 +134,56 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
+func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
+		return v.AdditionalAuthenticationProviders
+	}).(GraphQLApiAdditionalAuthenticationProvidersPtrOutput)
+}
+
+func (o GraphQLApiOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiOutput) GraphQLUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.GraphQLUrl }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiOutput) LambdaAuthorizerConfig() GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLambdaAuthorizerConfigPtrOutput { return v.LambdaAuthorizerConfig }).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
+}
+
+func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLogConfigPtrOutput { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
+}
+
+func (o GraphQLApiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenIDConnectConfigPtrOutput { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
+}
+
+func (o GraphQLApiOutput) Tags() GraphQLApiTagsPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiTagsPtrOutput { return v.Tags }).(GraphQLApiTagsPtrOutput)
+}
+
+func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
+}
+
+func (o GraphQLApiOutput) XrayEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.BoolPtrOutput { return v.XrayEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiInput)(nil)).Elem(), &GraphQLApi{})
 	pulumi.RegisterOutputType(GraphQLApiOutput{})

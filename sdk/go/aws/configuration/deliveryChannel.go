@@ -122,6 +122,32 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DeliveryChannelOutput) ConfigSnapshotDeliveryProperties() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannel) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+		return v.ConfigSnapshotDeliveryProperties
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
+}
+
+func (o DeliveryChannelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringOutput { return v.S3BucketName }).(pulumi.StringOutput)
+}
+
+func (o DeliveryChannelOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryChannelOutput) S3KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.S3KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryChannelOutput) SnsTopicARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.SnsTopicARN }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelInput)(nil)).Elem(), &DeliveryChannel{})
 	pulumi.RegisterOutputType(DeliveryChannelOutput{})

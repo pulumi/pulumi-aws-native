@@ -153,6 +153,72 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
+func (o ClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The certificate-authority-data for your cluster.
+func (o ClusterOutput) CertificateAuthorityData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CertificateAuthorityData }).(pulumi.StringOutput)
+}
+
+// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
+func (o ClusterOutput) ClusterSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterSecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) EncryptionConfig() ClusterEncryptionConfigArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterEncryptionConfigArrayOutput { return v.EncryptionConfig }).(ClusterEncryptionConfigArrayOutput)
+}
+
+// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
+func (o ClusterOutput) EncryptionConfigKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EncryptionConfigKeyArn }).(pulumi.StringOutput)
+}
+
+// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
+func (o ClusterOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigPtrOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+func (o ClusterOutput) Logging() ClusterLoggingPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterLoggingPtrOutput { return v.Logging }).(ClusterLoggingPtrOutput)
+}
+
+// The unique name to give to your cluster.
+func (o ClusterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
+func (o ClusterOutput) OpenIdConnectIssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.OpenIdConnectIssuerUrl }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterResourcesVpcConfigOutput { return v.ResourcesVpcConfig }).(ClusterResourcesVpcConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+func (o ClusterOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ClusterOutput) Tags() ClusterTagArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+}
+
+// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
+func (o ClusterOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

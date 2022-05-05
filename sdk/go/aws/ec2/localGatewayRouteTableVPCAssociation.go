@@ -129,6 +129,40 @@ func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCA
 	return o
 }
 
+// The ID of the local gateway.
+func (o LocalGatewayRouteTableVPCAssociationOutput) LocalGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociation) pulumi.StringOutput { return v.LocalGatewayId }).(pulumi.StringOutput)
+}
+
+// The ID of the local gateway route table.
+func (o LocalGatewayRouteTableVPCAssociationOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociation) pulumi.StringOutput { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
+}
+
+// The ID of the association.
+func (o LocalGatewayRouteTableVPCAssociationOutput) LocalGatewayRouteTableVpcAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociation) pulumi.StringOutput {
+		return v.LocalGatewayRouteTableVpcAssociationId
+	}).(pulumi.StringOutput)
+}
+
+// The state of the association.
+func (o LocalGatewayRouteTableVPCAssociationOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The tags for the association.
+func (o LocalGatewayRouteTableVPCAssociationOutput) Tags() LocalGatewayRouteTableVPCAssociationTagArrayOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociation) LocalGatewayRouteTableVPCAssociationTagArrayOutput {
+		return v.Tags
+	}).(LocalGatewayRouteTableVPCAssociationTagArrayOutput)
+}
+
+// The ID of the VPC.
+func (o LocalGatewayRouteTableVPCAssociationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationInput)(nil)).Elem(), &LocalGatewayRouteTableVPCAssociation{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationOutput{})

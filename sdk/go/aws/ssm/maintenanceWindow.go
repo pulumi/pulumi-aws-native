@@ -146,6 +146,50 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx contex
 	return o
 }
 
+func (o MaintenanceWindowOutput) AllowUnassociatedTargets() pulumi.BoolOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.BoolOutput { return v.AllowUnassociatedTargets }).(pulumi.BoolOutput)
+}
+
+func (o MaintenanceWindowOutput) Cutoff() pulumi.IntOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntOutput { return v.Cutoff }).(pulumi.IntOutput)
+}
+
+func (o MaintenanceWindowOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntOutput { return v.Duration }).(pulumi.IntOutput)
+}
+
+func (o MaintenanceWindowOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowOutput) ScheduleOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntPtrOutput { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
+}
+
+func (o MaintenanceWindowOutput) ScheduleTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.ScheduleTimezone }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowOutput) Tags() MaintenanceWindowTagArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindowTagArrayOutput { return v.Tags }).(MaintenanceWindowTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowInput)(nil)).Elem(), &MaintenanceWindow{})
 	pulumi.RegisterOutputType(MaintenanceWindowOutput{})

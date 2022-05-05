@@ -117,6 +117,16 @@ func (o AccessPointPolicyOutput) ToAccessPointPolicyOutputWithContext(ctx contex
 	return o
 }
 
+// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
+func (o AccessPointPolicyOutput) ObjectLambdaAccessPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.ObjectLambdaAccessPoint }).(pulumi.StringOutput)
+}
+
+// A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.
+func (o AccessPointPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AccessPointPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPolicyInput)(nil)).Elem(), &AccessPointPolicy{})
 	pulumi.RegisterOutputType(AccessPointPolicyOutput{})

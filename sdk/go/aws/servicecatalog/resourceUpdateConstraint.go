@@ -125,6 +125,26 @@ func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutputWithCont
 	return o
 }
 
+func (o ResourceUpdateConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceUpdateConstraintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceUpdateConstraintOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o ResourceUpdateConstraintOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o ResourceUpdateConstraintOutput) TagUpdateOnProvisionedProduct() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringOutput { return v.TagUpdateOnProvisionedProduct }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceUpdateConstraintInput)(nil)).Elem(), &ResourceUpdateConstraint{})
 	pulumi.RegisterOutputType(ResourceUpdateConstraintOutput{})

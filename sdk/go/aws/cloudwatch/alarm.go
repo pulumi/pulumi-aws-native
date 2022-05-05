@@ -171,6 +171,94 @@ func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return o
 }
 
+func (o AlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlarmOutput) AlarmActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.AlarmActions }).(pulumi.StringArrayOutput)
+}
+
+func (o AlarmOutput) AlarmDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.AlarmDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) AlarmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.AlarmName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AlarmOutput) ComparisonOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.ComparisonOperator }).(pulumi.StringOutput)
+}
+
+func (o AlarmOutput) DatapointsToAlarm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.DatapointsToAlarm }).(pulumi.IntPtrOutput)
+}
+
+func (o AlarmOutput) Dimensions() AlarmDimensionArrayOutput {
+	return o.ApplyT(func(v *Alarm) AlarmDimensionArrayOutput { return v.Dimensions }).(AlarmDimensionArrayOutput)
+}
+
+func (o AlarmOutput) EvaluateLowSampleCountPercentile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.EvaluateLowSampleCountPercentile }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) EvaluationPeriods() pulumi.IntOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.IntOutput { return v.EvaluationPeriods }).(pulumi.IntOutput)
+}
+
+func (o AlarmOutput) ExtendedStatistic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.ExtendedStatistic }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.InsufficientDataActions }).(pulumi.StringArrayOutput)
+}
+
+func (o AlarmOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) Metrics() AlarmMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *Alarm) AlarmMetricDataQueryArrayOutput { return v.Metrics }).(AlarmMetricDataQueryArrayOutput)
+}
+
+func (o AlarmOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) OKActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.OKActions }).(pulumi.StringArrayOutput)
+}
+
+func (o AlarmOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
+}
+
+func (o AlarmOutput) Statistic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Statistic }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.Float64PtrOutput { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o AlarmOutput) ThresholdMetricId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.ThresholdMetricId }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.TreatMissingData }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmInput)(nil)).Elem(), &Alarm{})
 	pulumi.RegisterOutputType(AlarmOutput{})

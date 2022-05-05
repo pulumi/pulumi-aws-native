@@ -157,6 +157,51 @@ func (o LocationFSxWindowsOutput) ToLocationFSxWindowsOutputWithContext(ctx cont
 	return o
 }
 
+// The name of the Windows domain that the FSx for Windows server belongs to.
+func (o LocationFSxWindowsOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+func (o LocationFSxWindowsOutput) FsxFilesystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
+func (o LocationFSxWindowsOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the FSx for Windows location that was described.
+func (o LocationFSxWindowsOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+func (o LocationFSxWindowsOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
+func (o LocationFSxWindowsOutput) SecurityGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
+}
+
+// A subdirectory in the location's path.
+func (o LocationFSxWindowsOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationFSxWindowsOutput) Tags() LocationFSxWindowsTagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) LocationFSxWindowsTagArrayOutput { return v.Tags }).(LocationFSxWindowsTagArrayOutput)
+}
+
+// The user who has the permissions to access files and folders in the FSx for Windows file system.
+func (o LocationFSxWindowsOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.User }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsInput)(nil)).Elem(), &LocationFSxWindows{})
 	pulumi.RegisterOutputType(LocationFSxWindowsOutput{})

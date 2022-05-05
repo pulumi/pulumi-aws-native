@@ -177,6 +177,85 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+// <p>A set of alternate data source parameters that you want to share for the credentials
+//             stored with this data source. The credentials are applied in tandem with the data source
+//             parameters when you copy a data source by using a create or update request. The API
+//             operation compares the <code>DataSourceParameters</code> structure that's in the request
+//             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+//             structures are an exact match, the request is allowed to use the credentials from this
+//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+//             are automatically allowed.</p>
+func (o DataSourceOutput) AlternateDataSourceParameters() DataSourceParametersArrayOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceParametersArrayOutput { return v.AlternateDataSourceParameters }).(DataSourceParametersArrayOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the data source.</p>
+func (o DataSourceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// <p>The time that this data source was created.</p>
+func (o DataSourceOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) Credentials() DataSourceCredentialsPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceCredentialsPtrOutput { return v.Credentials }).(DataSourceCredentialsPtrOutput)
+}
+
+func (o DataSourceOutput) DataSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.DataSourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOutput) DataSourceParameters() DataSourceParametersPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceParametersPtrOutput { return v.DataSourceParameters }).(DataSourceParametersPtrOutput)
+}
+
+func (o DataSourceOutput) ErrorInfo() DataSourceErrorInfoPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceErrorInfoPtrOutput { return v.ErrorInfo }).(DataSourceErrorInfoPtrOutput)
+}
+
+// <p>The last time that this data source was updated.</p>
+func (o DataSourceOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// <p>A display name for the data source.</p>
+func (o DataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// <p>A list of resource permissions on the data source.</p>
+func (o DataSourceOutput) Permissions() DataSourceResourcePermissionArrayOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceResourcePermissionArrayOutput { return v.Permissions }).(DataSourceResourcePermissionArrayOutput)
+}
+
+func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesPtrOutput { return v.SslProperties }).(DataSourceSslPropertiesPtrOutput)
+}
+
+func (o DataSourceOutput) Status() DataSourceResourceStatusOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceResourceStatusOutput { return v.Status }).(DataSourceResourceStatusOutput)
+}
+
+// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+func (o DataSourceOutput) Tags() DataSourceTagArrayOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceTagArrayOutput { return v.Tags }).(DataSourceTagArrayOutput)
+}
+
+func (o DataSourceOutput) Type() DataSourceTypePtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceTypePtrOutput { return v.Type }).(DataSourceTypePtrOutput)
+}
+
+func (o DataSourceOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceVpcConnectionPropertiesPtrOutput { return v.VpcConnectionProperties }).(DataSourceVpcConnectionPropertiesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), &DataSource{})
 	pulumi.RegisterOutputType(DataSourceOutput{})

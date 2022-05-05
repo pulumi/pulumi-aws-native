@@ -114,6 +114,22 @@ func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx cont
 	return o
 }
 
+func (o MatchmakingRuleSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingRuleSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingRuleSetOutput) RuleSetBody() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.RuleSetBody }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingRuleSetOutput) Tags() MatchmakingRuleSetTagArrayOutput {
+	return o.ApplyT(func(v *MatchmakingRuleSet) MatchmakingRuleSetTagArrayOutput { return v.Tags }).(MatchmakingRuleSetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetInput)(nil)).Elem(), &MatchmakingRuleSet{})
 	pulumi.RegisterOutputType(MatchmakingRuleSetOutput{})

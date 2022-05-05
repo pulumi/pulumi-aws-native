@@ -121,6 +121,31 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
+func (o ImageOutput) ImageArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
+}
+
+func (o ImageOutput) ImageDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageOutput) ImageDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageDisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
+}
+
+func (o ImageOutput) ImageRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageRoleArn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ImageOutput) Tags() ImageTagArrayOutput {
+	return o.ApplyT(func(v *Image) ImageTagArrayOutput { return v.Tags }).(ImageTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageInput)(nil)).Elem(), &Image{})
 	pulumi.RegisterOutputType(ImageOutput{})

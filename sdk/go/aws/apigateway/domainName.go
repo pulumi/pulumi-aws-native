@@ -126,6 +126,54 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
+func (o DomainNameOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) DistributionDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DistributionDomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) DistributionHostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DistributionHostedZoneId }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
+}
+
+func (o DomainNameOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameMutualTlsAuthenticationPtrOutput { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) RegionalDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) RegionalHostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalHostedZoneId }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) Tags() DomainNameTagArrayOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameTagArrayOutput { return v.Tags }).(DomainNameTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameInput)(nil)).Elem(), &DomainName{})
 	pulumi.RegisterOutputType(DomainNameOutput{})

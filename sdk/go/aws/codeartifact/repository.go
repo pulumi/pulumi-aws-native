@@ -154,6 +154,56 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+// The ARN of the repository.
+func (o RepositoryOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A text description of the repository.
+func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the domain that contains the repository.
+func (o RepositoryOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The 12-digit account ID of the AWS account that owns the domain.
+func (o RepositoryOutput) DomainOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.DomainOwner }).(pulumi.StringOutput)
+}
+
+// A list of external connections associated with the repository.
+func (o RepositoryOutput) ExternalConnections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringArrayOutput { return v.ExternalConnections }).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository. This is used for GetAtt
+func (o RepositoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The access control resource policy on the provided repository.
+func (o RepositoryOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Repository) pulumi.AnyOutput { return v.PermissionsPolicyDocument }).(pulumi.AnyOutput)
+}
+
+// The name of the repository.
+func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o RepositoryOutput) Tags() RepositoryTagArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryTagArrayOutput { return v.Tags }).(RepositoryTagArrayOutput)
+}
+
+// A list of upstream repositories associated with the repository.
+func (o RepositoryOutput) Upstreams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringArrayOutput { return v.Upstreams }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryInput)(nil)).Elem(), &Repository{})
 	pulumi.RegisterOutputType(RepositoryOutput{})

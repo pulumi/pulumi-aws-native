@@ -151,6 +151,50 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The names of the instances attached to the load balancer.
+func (o LoadBalancerOutput) AttachedInstances() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.AttachedInstances }).(pulumi.StringArrayOutput)
+}
+
+// The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
+func (o LoadBalancerOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+// The instance port where you're creating your load balancer.
+func (o LoadBalancerOutput) InstancePort() pulumi.IntOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.IntOutput { return v.InstancePort }).(pulumi.IntOutput)
+}
+
+// The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.
+func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerOutput) LoadBalancerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+// The name of your load balancer.
+func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
+}
+
+// Configuration option to enable session stickiness.
+func (o LoadBalancerOutput) SessionStickinessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.SessionStickinessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration option to adjust session stickiness cookie duration parameter.
+func (o LoadBalancerOutput) SessionStickinessLBCookieDurationSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SessionStickinessLBCookieDurationSeconds }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LoadBalancerOutput) Tags() LoadBalancerTagArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTagArrayOutput { return v.Tags }).(LoadBalancerTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerInput)(nil)).Elem(), &LoadBalancer{})
 	pulumi.RegisterOutputType(LoadBalancerOutput{})

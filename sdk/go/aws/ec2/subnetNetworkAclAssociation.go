@@ -118,6 +118,20 @@ func (o SubnetNetworkAclAssociationOutput) ToSubnetNetworkAclAssociationOutputWi
 	return o
 }
 
+func (o SubnetNetworkAclAssociationOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetNetworkAclAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// The ID of the network ACL
+func (o SubnetNetworkAclAssociationOutput) NetworkAclId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetNetworkAclAssociation) pulumi.StringOutput { return v.NetworkAclId }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet
+func (o SubnetNetworkAclAssociationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetNetworkAclAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNetworkAclAssociationInput)(nil)).Elem(), &SubnetNetworkAclAssociation{})
 	pulumi.RegisterOutputType(SubnetNetworkAclAssociationOutput{})

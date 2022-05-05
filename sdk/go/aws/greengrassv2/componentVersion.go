@@ -110,6 +110,30 @@ func (o ComponentVersionOutput) ToComponentVersionOutputWithContext(ctx context.
 	return o
 }
 
+func (o ComponentVersionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ComponentVersionOutput) ComponentName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentVersion) pulumi.StringOutput { return v.ComponentName }).(pulumi.StringOutput)
+}
+
+func (o ComponentVersionOutput) ComponentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentVersion) pulumi.StringOutput { return v.ComponentVersion }).(pulumi.StringOutput)
+}
+
+func (o ComponentVersionOutput) InlineRecipe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentVersion) pulumi.StringPtrOutput { return v.InlineRecipe }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentVersionOutput) LambdaFunction() ComponentVersionLambdaFunctionRecipeSourcePtrOutput {
+	return o.ApplyT(func(v *ComponentVersion) ComponentVersionLambdaFunctionRecipeSourcePtrOutput { return v.LambdaFunction }).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
+}
+
+func (o ComponentVersionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentVersion) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionInput)(nil)).Elem(), &ComponentVersion{})
 	pulumi.RegisterOutputType(ComponentVersionOutput{})

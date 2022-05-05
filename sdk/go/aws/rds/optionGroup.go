@@ -128,6 +128,26 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 	return o
 }
 
+func (o OptionGroupOutput) EngineName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
+}
+
+func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
+}
+
+func (o OptionGroupOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
+	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionConfigurationArrayOutput { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
+}
+
+func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
+}
+
+func (o OptionGroupOutput) Tags() OptionGroupTagArrayOutput {
+	return o.ApplyT(func(v *OptionGroup) OptionGroupTagArrayOutput { return v.Tags }).(OptionGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupInput)(nil)).Elem(), &OptionGroup{})
 	pulumi.RegisterOutputType(OptionGroupOutput{})

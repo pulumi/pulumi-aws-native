@@ -129,6 +129,43 @@ func (o GrantOutput) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return o
 }
 
+func (o GrantOutput) AllowedOperations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringArrayOutput { return v.AllowedOperations }).(pulumi.StringArrayOutput)
+}
+
+// Arn of the grant.
+func (o GrantOutput) GrantArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringOutput { return v.GrantArn }).(pulumi.StringOutput)
+}
+
+// Name for the created Grant.
+func (o GrantOutput) GrantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.GrantName }).(pulumi.StringPtrOutput)
+}
+
+// Home region for the created grant.
+func (o GrantOutput) HomeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.HomeRegion }).(pulumi.StringPtrOutput)
+}
+
+// License Arn for the grant.
+func (o GrantOutput) LicenseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.LicenseArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GrantOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+func (o GrantOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The version of the grant.
+func (o GrantOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Grant) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantInput)(nil)).Elem(), &Grant{})
 	pulumi.RegisterOutputType(GrantOutput{})

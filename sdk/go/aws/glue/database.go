@@ -113,6 +113,14 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+func (o DatabaseOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o DatabaseOutput) DatabaseInput() DatabaseInputTypeOutput {
+	return o.ApplyT(func(v *Database) DatabaseInputTypeOutput { return v.DatabaseInput }).(DatabaseInputTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInput)(nil)).Elem(), &Database{})
 	pulumi.RegisterOutputType(DatabaseOutput{})

@@ -132,6 +132,46 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx co
 	return o
 }
 
+func (o NetworkInsightsPathOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathOutput) DestinationIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.DestinationIp }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsPathOutput) NetworkInsightsPathArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.NetworkInsightsPathArn }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathOutput) NetworkInsightsPathId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathOutput) Protocol() NetworkInsightsPathProtocolOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathProtocolOutput { return v.Protocol }).(NetworkInsightsPathProtocolOutput)
+}
+
+func (o NetworkInsightsPathOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathOutput) Tags() NetworkInsightsPathTagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathTagArrayOutput { return v.Tags }).(NetworkInsightsPathTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathInput)(nil)).Elem(), &NetworkInsightsPath{})
 	pulumi.RegisterOutputType(NetworkInsightsPathOutput{})

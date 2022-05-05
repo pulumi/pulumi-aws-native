@@ -131,6 +131,30 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWith
 	return o
 }
 
+func (o HostedConfigurationVersionOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o HostedConfigurationVersionOutput) ConfigurationProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
+}
+
+func (o HostedConfigurationVersionOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+func (o HostedConfigurationVersionOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
+}
+
+func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o HostedConfigurationVersionOutput) LatestVersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.Float64PtrOutput { return v.LatestVersionNumber }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedConfigurationVersionInput)(nil)).Elem(), &HostedConfigurationVersion{})
 	pulumi.RegisterOutputType(HostedConfigurationVersionOutput{})

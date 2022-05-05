@@ -154,6 +154,51 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
 }
 
+// The Bandwidth for the link.
+func (o LinkOutput) Bandwidth() LinkBandwidthOutput {
+	return o.ApplyT(func(v *Link) LinkBandwidthOutput { return v.Bandwidth }).(LinkBandwidthOutput)
+}
+
+// The description of the link.
+func (o LinkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the global network.
+func (o LinkOutput) GlobalNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the link.
+func (o LinkOutput) LinkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkArn }).(pulumi.StringOutput)
+}
+
+// The ID of the link.
+func (o LinkOutput) LinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
+}
+
+// The provider of the link.
+func (o LinkOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Provider }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the site
+func (o LinkOutput) SiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// The tags for the link.
+func (o LinkOutput) Tags() LinkTagArrayOutput {
+	return o.ApplyT(func(v *Link) LinkTagArrayOutput { return v.Tags }).(LinkTagArrayOutput)
+}
+
+// The type of the link.
+func (o LinkOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkInput)(nil)).Elem(), &Link{})
 	pulumi.RegisterOutputType(LinkOutput{})

@@ -115,6 +115,26 @@ func (o VirtualMFADeviceOutput) ToVirtualMFADeviceOutputWithContext(ctx context.
 	return o
 }
 
+func (o VirtualMFADeviceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMFADevice) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualMFADeviceOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMFADevice) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+func (o VirtualMFADeviceOutput) Tags() VirtualMFADeviceTagArrayOutput {
+	return o.ApplyT(func(v *VirtualMFADevice) VirtualMFADeviceTagArrayOutput { return v.Tags }).(VirtualMFADeviceTagArrayOutput)
+}
+
+func (o VirtualMFADeviceOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualMFADevice) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+func (o VirtualMFADeviceOutput) VirtualMfaDeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMFADevice) pulumi.StringPtrOutput { return v.VirtualMfaDeviceName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMFADeviceInput)(nil)).Elem(), &VirtualMFADevice{})
 	pulumi.RegisterOutputType(VirtualMFADeviceOutput{})

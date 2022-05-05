@@ -119,6 +119,18 @@ func (o SkillOutput) ToSkillOutputWithContext(ctx context.Context) SkillOutput {
 	return o
 }
 
+func (o SkillOutput) AuthenticationConfiguration() SkillAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *Skill) SkillAuthenticationConfigurationOutput { return v.AuthenticationConfiguration }).(SkillAuthenticationConfigurationOutput)
+}
+
+func (o SkillOutput) SkillPackage() SkillPackageOutput {
+	return o.ApplyT(func(v *Skill) SkillPackageOutput { return v.SkillPackage }).(SkillPackageOutput)
+}
+
+func (o SkillOutput) VendorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Skill) pulumi.StringOutput { return v.VendorId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SkillInput)(nil)).Elem(), &Skill{})
 	pulumi.RegisterOutputType(SkillOutput{})

@@ -108,6 +108,14 @@ func (o BatchScramSecretOutput) ToBatchScramSecretOutputWithContext(ctx context.
 	return o
 }
 
+func (o BatchScramSecretOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchScramSecret) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+func (o BatchScramSecretOutput) SecretArnList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BatchScramSecret) pulumi.StringArrayOutput { return v.SecretArnList }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BatchScramSecretInput)(nil)).Elem(), &BatchScramSecret{})
 	pulumi.RegisterOutputType(BatchScramSecretOutput{})

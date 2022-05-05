@@ -110,6 +110,14 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RegexPatternSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RegexPatternSetOutput) RegexPatternStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegexPatternStrings }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetInput)(nil)).Elem(), &RegexPatternSet{})
 	pulumi.RegisterOutputType(RegexPatternSetOutput{})

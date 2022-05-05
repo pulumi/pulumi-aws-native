@@ -112,6 +112,19 @@ func (o CollectionOutput) ToCollectionOutputWithContext(ctx context.Context) Col
 	return o
 }
 
+func (o CollectionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o CollectionOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o CollectionOutput) Tags() CollectionTagArrayOutput {
+	return o.ApplyT(func(v *Collection) CollectionTagArrayOutput { return v.Tags }).(CollectionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionInput)(nil)).Elem(), &Collection{})
 	pulumi.RegisterOutputType(CollectionOutput{})

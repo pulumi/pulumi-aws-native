@@ -108,6 +108,22 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+func (o ProjectOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) DefaultJobTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.DefaultJobTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) Tags() ProjectTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

@@ -107,6 +107,15 @@ func (o ResourceCollectionOutput) ToResourceCollectionOutputWithContext(ctx cont
 	return o
 }
 
+func (o ResourceCollectionOutput) ResourceCollectionFilter() ResourceCollectionFilterOutput {
+	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionFilterOutput { return v.ResourceCollectionFilter }).(ResourceCollectionFilterOutput)
+}
+
+// The type of ResourceCollection
+func (o ResourceCollectionOutput) ResourceCollectionType() ResourceCollectionTypeOutput {
+	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionTypeOutput { return v.ResourceCollectionType }).(ResourceCollectionTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionInput)(nil)).Elem(), &ResourceCollection{})
 	pulumi.RegisterOutputType(ResourceCollectionOutput{})

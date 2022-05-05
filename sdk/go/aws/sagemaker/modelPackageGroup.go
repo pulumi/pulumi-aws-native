@@ -118,6 +118,37 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx contex
 	return o
 }
 
+// The time at which the model package group was created.
+func (o ModelPackageGroupOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ModelPackageGroupOutput) ModelPackageGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.ModelPackageGroupArn }).(pulumi.StringOutput)
+}
+
+func (o ModelPackageGroupOutput) ModelPackageGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringPtrOutput { return v.ModelPackageGroupDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelPackageGroupOutput) ModelPackageGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
+}
+
+func (o ModelPackageGroupOutput) ModelPackageGroupPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) pulumi.AnyOutput { return v.ModelPackageGroupPolicy }).(pulumi.AnyOutput)
+}
+
+// The status of a modelpackage group job.
+func (o ModelPackageGroupOutput) ModelPackageGroupStatus() ModelPackageGroupStatusOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) ModelPackageGroupStatusOutput { return v.ModelPackageGroupStatus }).(ModelPackageGroupStatusOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ModelPackageGroupOutput) Tags() ModelPackageGroupTagArrayOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) ModelPackageGroupTagArrayOutput { return v.Tags }).(ModelPackageGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupInput)(nil)).Elem(), &ModelPackageGroup{})
 	pulumi.RegisterOutputType(ModelPackageGroupOutput{})

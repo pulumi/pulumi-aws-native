@@ -143,6 +143,58 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+func (o RouteOutput) CarrierGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.CarrierGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) DestinationIpv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.DestinationIpv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) EgressOnlyInternetGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.EgressOnlyInternetGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.GatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) NatGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.NatGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.VpcPeeringConnectionId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteInput)(nil)).Elem(), &Route{})
 	pulumi.RegisterOutputType(RouteOutput{})

@@ -135,6 +135,52 @@ func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAlia
 	return o
 }
 
+func (o BotAliasOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BotAliasOutput) BotAliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotAliasId }).(pulumi.StringOutput)
+}
+
+func (o BotAliasOutput) BotAliasLocaleSettings() BotAliasLocaleSettingsItemArrayOutput {
+	return o.ApplyT(func(v *BotAlias) BotAliasLocaleSettingsItemArrayOutput { return v.BotAliasLocaleSettings }).(BotAliasLocaleSettingsItemArrayOutput)
+}
+
+func (o BotAliasOutput) BotAliasName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotAliasName }).(pulumi.StringOutput)
+}
+
+func (o BotAliasOutput) BotAliasStatus() BotAliasStatusOutput {
+	return o.ApplyT(func(v *BotAlias) BotAliasStatusOutput { return v.BotAliasStatus }).(BotAliasStatusOutput)
+}
+
+// A list of tags to add to the bot alias.
+func (o BotAliasOutput) BotAliasTags() BotAliasTagArrayOutput {
+	return o.ApplyT(func(v *BotAlias) BotAliasTagArrayOutput { return v.BotAliasTags }).(BotAliasTagArrayOutput)
+}
+
+func (o BotAliasOutput) BotId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotId }).(pulumi.StringOutput)
+}
+
+func (o BotAliasOutput) BotVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.BotVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o BotAliasOutput) ConversationLogSettings() BotAliasConversationLogSettingsPtrOutput {
+	return o.ApplyT(func(v *BotAlias) BotAliasConversationLogSettingsPtrOutput { return v.ConversationLogSettings }).(BotAliasConversationLogSettingsPtrOutput)
+}
+
+func (o BotAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+func (o BotAliasOutput) SentimentAnalysisSettings() SentimentAnalysisSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotAlias) SentimentAnalysisSettingsPropertiesPtrOutput { return v.SentimentAnalysisSettings }).(SentimentAnalysisSettingsPropertiesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasInput)(nil)).Elem(), &BotAlias{})
 	pulumi.RegisterOutputType(BotAliasOutput{})

@@ -109,6 +109,18 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx co
 	return o
 }
 
+func (o TrafficMirrorFilterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TrafficMirrorFilterOutput) NetworkServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringArrayOutput { return v.NetworkServices }).(pulumi.StringArrayOutput)
+}
+
+func (o TrafficMirrorFilterOutput) Tags() TrafficMirrorFilterTagArrayOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) TrafficMirrorFilterTagArrayOutput { return v.Tags }).(TrafficMirrorFilterTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterInput)(nil)).Elem(), &TrafficMirrorFilter{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterOutput{})

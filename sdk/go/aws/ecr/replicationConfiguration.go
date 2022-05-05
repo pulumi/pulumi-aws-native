@@ -107,6 +107,17 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 	return o
 }
 
+// The RegistryId associated with the aws account.
+func (o ReplicationConfigurationOutput) RegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationOutput) ReplicationConfiguration() ReplicationConfigurationTypeOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) ReplicationConfigurationTypeOutput {
+		return v.ReplicationConfiguration
+	}).(ReplicationConfigurationTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationInput)(nil)).Elem(), &ReplicationConfiguration{})
 	pulumi.RegisterOutputType(ReplicationConfigurationOutput{})

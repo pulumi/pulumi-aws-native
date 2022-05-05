@@ -111,6 +111,26 @@ func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutputWithContext(ctx co
 	return o
 }
 
+func (o ConnectorDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConnectorDefinitionOutput) InitialVersion() ConnectorDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) ConnectorDefinitionVersionTypePtrOutput { return v.InitialVersion }).(ConnectorDefinitionVersionTypePtrOutput)
+}
+
+func (o ConnectorDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o ConnectorDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConnectorDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorDefinitionInput)(nil)).Elem(), &ConnectorDefinition{})
 	pulumi.RegisterOutputType(ConnectorDefinitionOutput{})

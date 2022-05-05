@@ -112,6 +112,18 @@ func (o BackupSelectionOutput) ToBackupSelectionOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o BackupSelectionOutput) BackupPlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.BackupPlanId }).(pulumi.StringOutput)
+}
+
+func (o BackupSelectionOutput) BackupSelection() BackupSelectionResourceTypeOutput {
+	return o.ApplyT(func(v *BackupSelection) BackupSelectionResourceTypeOutput { return v.BackupSelection }).(BackupSelectionResourceTypeOutput)
+}
+
+func (o BackupSelectionOutput) SelectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.SelectionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionInput)(nil)).Elem(), &BackupSelection{})
 	pulumi.RegisterOutputType(BackupSelectionOutput{})

@@ -138,6 +138,56 @@ func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o IdentityPoolOutput) AllowClassicFlow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.BoolPtrOutput { return v.AllowClassicFlow }).(pulumi.BoolPtrOutput)
+}
+
+func (o IdentityPoolOutput) AllowUnauthenticatedIdentities() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.BoolOutput { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolOutput)
+}
+
+func (o IdentityPoolOutput) CognitoEvents() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.AnyOutput { return v.CognitoEvents }).(pulumi.AnyOutput)
+}
+
+func (o IdentityPoolOutput) CognitoIdentityProviders() IdentityPoolCognitoIdentityProviderArrayOutput {
+	return o.ApplyT(func(v *IdentityPool) IdentityPoolCognitoIdentityProviderArrayOutput {
+		return v.CognitoIdentityProviders
+	}).(IdentityPoolCognitoIdentityProviderArrayOutput)
+}
+
+func (o IdentityPoolOutput) CognitoStreams() IdentityPoolCognitoStreamsPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) IdentityPoolCognitoStreamsPtrOutput { return v.CognitoStreams }).(IdentityPoolCognitoStreamsPtrOutput)
+}
+
+func (o IdentityPoolOutput) DeveloperProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringPtrOutput { return v.DeveloperProviderName }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityPoolOutput) IdentityPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringPtrOutput { return v.IdentityPoolName }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o IdentityPoolOutput) OpenIdConnectProviderARNs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.OpenIdConnectProviderARNs }).(pulumi.StringArrayOutput)
+}
+
+func (o IdentityPoolOutput) PushSync() IdentityPoolPushSyncPtrOutput {
+	return o.ApplyT(func(v *IdentityPool) IdentityPoolPushSyncPtrOutput { return v.PushSync }).(IdentityPoolPushSyncPtrOutput)
+}
+
+func (o IdentityPoolOutput) SamlProviderARNs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.SamlProviderARNs }).(pulumi.StringArrayOutput)
+}
+
+func (o IdentityPoolOutput) SupportedLoginProviders() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.AnyOutput { return v.SupportedLoginProviders }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolInput)(nil)).Elem(), &IdentityPool{})
 	pulumi.RegisterOutputType(IdentityPoolOutput{})

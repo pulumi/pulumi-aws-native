@@ -113,6 +113,26 @@ func (o EIPOutput) ToEIPOutputWithContext(ctx context.Context) EIPOutput {
 	return o
 }
 
+func (o EIPOutput) AllocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EIP) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+func (o EIPOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIP) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIP) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPOutput) PublicIpv4Pool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIP) pulumi.StringPtrOutput { return v.PublicIpv4Pool }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPOutput) Tags() EIPTagArrayOutput {
+	return o.ApplyT(func(v *EIP) EIPTagArrayOutput { return v.Tags }).(EIPTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EIPInput)(nil)).Elem(), &EIP{})
 	pulumi.RegisterOutputType(EIPOutput{})

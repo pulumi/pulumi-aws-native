@@ -113,6 +113,18 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+func (o DeploymentOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentInput)(nil)).Elem(), &Deployment{})
 	pulumi.RegisterOutputType(DeploymentOutput{})

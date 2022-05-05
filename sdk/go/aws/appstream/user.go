@@ -119,6 +119,26 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+func (o UserOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) MessageAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.MessageAction }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
 	pulumi.RegisterOutputType(UserOutput{})

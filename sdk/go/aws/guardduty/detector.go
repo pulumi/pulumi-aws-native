@@ -113,6 +113,18 @@ func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) Detecto
 	return o
 }
 
+func (o DetectorOutput) DataSources() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o.ApplyT(func(v *Detector) DetectorCFNDataSourceConfigurationsPtrOutput { return v.DataSources }).(DetectorCFNDataSourceConfigurationsPtrOutput)
+}
+
+func (o DetectorOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Detector) pulumi.BoolOutput { return v.Enable }).(pulumi.BoolOutput)
+}
+
+func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorInput)(nil)).Elem(), &Detector{})
 	pulumi.RegisterOutputType(DetectorOutput{})

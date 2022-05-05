@@ -154,6 +154,72 @@ func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutputWithCont
 	return o
 }
 
+// The time at which the job definition was created.
+func (o DataQualityJobDefinitionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) DataQualityAppSpecification() DataQualityJobDefinitionDataQualityAppSpecificationOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityAppSpecificationOutput {
+		return v.DataQualityAppSpecification
+	}).(DataQualityJobDefinitionDataQualityAppSpecificationOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) DataQualityBaselineConfig() DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput {
+		return v.DataQualityBaselineConfig
+	}).(DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) DataQualityJobInput() DataQualityJobDefinitionDataQualityJobInputOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityJobInputOutput {
+		return v.DataQualityJobInput
+	}).(DataQualityJobDefinitionDataQualityJobInputOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) DataQualityJobOutputConfig() DataQualityJobDefinitionMonitoringOutputConfigOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionMonitoringOutputConfigOutput {
+		return v.DataQualityJobOutputConfig
+	}).(DataQualityJobDefinitionMonitoringOutputConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of job definition.
+func (o DataQualityJobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) JobResources() DataQualityJobDefinitionMonitoringResourcesOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionMonitoringResourcesOutput {
+		return v.JobResources
+	}).(DataQualityJobDefinitionMonitoringResourcesOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) NetworkConfig() DataQualityJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionNetworkConfigPtrOutput {
+		return v.NetworkConfig
+	}).(DataQualityJobDefinitionNetworkConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+func (o DataQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) StoppingCondition() DataQualityJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionStoppingConditionPtrOutput {
+		return v.StoppingCondition
+	}).(DataQualityJobDefinitionStoppingConditionPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o DataQualityJobDefinitionOutput) Tags() DataQualityJobDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionTagArrayOutput { return v.Tags }).(DataQualityJobDefinitionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionInput)(nil)).Elem(), &DataQualityJobDefinition{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionOutput{})

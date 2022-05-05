@@ -141,6 +141,55 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx cont
 	return o
 }
 
+// The time at which the schedule was created.
+func (o MonitoringScheduleOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o MonitoringScheduleOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
+}
+
+// Contains the reason a monitoring job failed, if it failed.
+func (o MonitoringScheduleOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringPtrOutput { return v.FailureReason }).(pulumi.StringPtrOutput)
+}
+
+// A timestamp that indicates the last time the monitoring job was modified.
+func (o MonitoringScheduleOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Describes metadata on the last execution to run, if there was one.
+func (o MonitoringScheduleOutput) LastMonitoringExecutionSummary() MonitoringScheduleMonitoringExecutionSummaryPtrOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleMonitoringExecutionSummaryPtrOutput {
+		return v.LastMonitoringExecutionSummary
+	}).(MonitoringScheduleMonitoringExecutionSummaryPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the monitoring schedule.
+func (o MonitoringScheduleOutput) MonitoringScheduleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.MonitoringScheduleArn }).(pulumi.StringOutput)
+}
+
+func (o MonitoringScheduleOutput) MonitoringScheduleConfig() MonitoringScheduleConfigOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleConfigOutput { return v.MonitoringScheduleConfig }).(MonitoringScheduleConfigOutput)
+}
+
+func (o MonitoringScheduleOutput) MonitoringScheduleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.MonitoringScheduleName }).(pulumi.StringOutput)
+}
+
+// The status of a schedule job.
+func (o MonitoringScheduleOutput) MonitoringScheduleStatus() MonitoringScheduleStatusPtrOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleStatusPtrOutput { return v.MonitoringScheduleStatus }).(MonitoringScheduleStatusPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o MonitoringScheduleOutput) Tags() MonitoringScheduleTagArrayOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleTagArrayOutput { return v.Tags }).(MonitoringScheduleTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleInput)(nil)).Elem(), &MonitoringSchedule{})
 	pulumi.RegisterOutputType(MonitoringScheduleOutput{})

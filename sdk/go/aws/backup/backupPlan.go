@@ -111,6 +111,26 @@ func (o BackupPlanOutput) ToBackupPlanOutputWithContext(ctx context.Context) Bac
 	return o
 }
 
+func (o BackupPlanOutput) BackupPlan() BackupPlanResourceTypeOutput {
+	return o.ApplyT(func(v *BackupPlan) BackupPlanResourceTypeOutput { return v.BackupPlan }).(BackupPlanResourceTypeOutput)
+}
+
+func (o BackupPlanOutput) BackupPlanArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.BackupPlanArn }).(pulumi.StringOutput)
+}
+
+func (o BackupPlanOutput) BackupPlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.BackupPlanId }).(pulumi.StringOutput)
+}
+
+func (o BackupPlanOutput) BackupPlanTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BackupPlan) pulumi.AnyOutput { return v.BackupPlanTags }).(pulumi.AnyOutput)
+}
+
+func (o BackupPlanOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanInput)(nil)).Elem(), &BackupPlan{})
 	pulumi.RegisterOutputType(BackupPlanOutput{})

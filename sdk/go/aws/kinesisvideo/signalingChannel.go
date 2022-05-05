@@ -124,6 +124,31 @@ func (o SignalingChannelOutput) ToSignalingChannelOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Kinesis Video Signaling Channel.
+func (o SignalingChannelOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalingChannel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The period of time a signaling channel retains undelivered messages before they are discarded.
+func (o SignalingChannelOutput) MessageTtlSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SignalingChannel) pulumi.IntPtrOutput { return v.MessageTtlSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Kinesis Video Signaling Channel.
+func (o SignalingChannelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalingChannel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o SignalingChannelOutput) Tags() SignalingChannelTagArrayOutput {
+	return o.ApplyT(func(v *SignalingChannel) SignalingChannelTagArrayOutput { return v.Tags }).(SignalingChannelTagArrayOutput)
+}
+
+// The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
+func (o SignalingChannelOutput) Type() SignalingChannelTypePtrOutput {
+	return o.ApplyT(func(v *SignalingChannel) SignalingChannelTypePtrOutput { return v.Type }).(SignalingChannelTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalingChannelInput)(nil)).Elem(), &SignalingChannel{})
 	pulumi.RegisterOutputType(SignalingChannelOutput{})

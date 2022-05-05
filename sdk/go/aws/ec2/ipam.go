@@ -123,6 +123,45 @@ func (o IPAMOutput) ToIPAMOutputWithContext(ctx context.Context) IPAMOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the IPAM.
+func (o IPAMOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o IPAMOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Id of the IPAM.
+func (o IPAMOutput) IpamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
+}
+
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+func (o IPAMOutput) OperatingRegions() IPAMIpamOperatingRegionArrayOutput {
+	return o.ApplyT(func(v *IPAM) IPAMIpamOperatingRegionArrayOutput { return v.OperatingRegions }).(IPAMIpamOperatingRegionArrayOutput)
+}
+
+// The Id of the default scope for publicly routable IP space, created with this IPAM.
+func (o IPAMOutput) PrivateDefaultScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
+}
+
+// The Id of the default scope for publicly routable IP space, created with this IPAM.
+func (o IPAMOutput) PublicDefaultScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+}
+
+// The number of scopes that currently exist in this IPAM.
+func (o IPAMOutput) ScopeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.IntOutput { return v.ScopeCount }).(pulumi.IntOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o IPAMOutput) Tags() IPAMTagArrayOutput {
+	return o.ApplyT(func(v *IPAM) IPAMTagArrayOutput { return v.Tags }).(IPAMTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMInput)(nil)).Elem(), &IPAM{})
 	pulumi.RegisterOutputType(IPAMOutput{})

@@ -106,6 +106,14 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResourceGroupOutput) ResourceGroupTags() ResourceGroupTagArrayOutput {
+	return o.ApplyT(func(v *ResourceGroup) ResourceGroupTagArrayOutput { return v.ResourceGroupTags }).(ResourceGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupInput)(nil)).Elem(), &ResourceGroup{})
 	pulumi.RegisterOutputType(ResourceGroupOutput{})

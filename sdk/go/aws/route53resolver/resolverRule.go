@@ -145,6 +145,46 @@ func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the resolver rule.
+func (o ResolverRuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+func (o ResolverRuleOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The name for the Resolver rule
+func (o ResolverRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the endpoint that the rule is associated with.
+func (o ResolverRuleOutput) ResolverEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringPtrOutput { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the endpoint that the rule is associated with.
+func (o ResolverRuleOutput) ResolverRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.ResolverRuleId }).(pulumi.StringOutput)
+}
+
+// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+func (o ResolverRuleOutput) RuleType() ResolverRuleRuleTypeOutput {
+	return o.ApplyT(func(v *ResolverRule) ResolverRuleRuleTypeOutput { return v.RuleType }).(ResolverRuleRuleTypeOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ResolverRuleOutput) Tags() ResolverRuleTagArrayOutput {
+	return o.ApplyT(func(v *ResolverRule) ResolverRuleTagArrayOutput { return v.Tags }).(ResolverRuleTagArrayOutput)
+}
+
+// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+func (o ResolverRuleOutput) TargetIps() ResolverRuleTargetAddressArrayOutput {
+	return o.ApplyT(func(v *ResolverRule) ResolverRuleTargetAddressArrayOutput { return v.TargetIps }).(ResolverRuleTargetAddressArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleInput)(nil)).Elem(), &ResolverRule{})
 	pulumi.RegisterOutputType(ResolverRuleOutput{})

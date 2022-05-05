@@ -158,6 +158,73 @@ func (o FirewallRuleGroupAssociationOutput) ToFirewallRuleGroupAssociationOutput
 	return o
 }
 
+// Arn
+func (o FirewallRuleGroupAssociationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Rfc3339TimeString
+func (o FirewallRuleGroupAssociationOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The id of the creator request.
+func (o FirewallRuleGroupAssociationOutput) CreatorRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.CreatorRequestId }).(pulumi.StringOutput)
+}
+
+// FirewallRuleGroupId
+func (o FirewallRuleGroupAssociationOutput) FirewallRuleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
+}
+
+// ServicePrincipal
+func (o FirewallRuleGroupAssociationOutput) ManagedOwnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.ManagedOwnerName }).(pulumi.StringOutput)
+}
+
+// Rfc3339TimeString
+func (o FirewallRuleGroupAssociationOutput) ModificationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.ModificationTime }).(pulumi.StringOutput)
+}
+
+// MutationProtectionStatus
+func (o FirewallRuleGroupAssociationOutput) MutationProtection() FirewallRuleGroupAssociationMutationProtectionPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) FirewallRuleGroupAssociationMutationProtectionPtrOutput {
+		return v.MutationProtection
+	}).(FirewallRuleGroupAssociationMutationProtectionPtrOutput)
+}
+
+// FirewallRuleGroupAssociationName
+func (o FirewallRuleGroupAssociationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority
+func (o FirewallRuleGroupAssociationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+func (o FirewallRuleGroupAssociationOutput) Status() FirewallRuleGroupAssociationStatusOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) FirewallRuleGroupAssociationStatusOutput { return v.Status }).(FirewallRuleGroupAssociationStatusOutput)
+}
+
+// FirewallDomainListAssociationStatus
+func (o FirewallRuleGroupAssociationOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Tags
+func (o FirewallRuleGroupAssociationOutput) Tags() FirewallRuleGroupAssociationTagArrayOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) FirewallRuleGroupAssociationTagArrayOutput { return v.Tags }).(FirewallRuleGroupAssociationTagArrayOutput)
+}
+
+// VpcId
+func (o FirewallRuleGroupAssociationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationInput)(nil)).Elem(), &FirewallRuleGroupAssociation{})
 	pulumi.RegisterOutputType(FirewallRuleGroupAssociationOutput{})

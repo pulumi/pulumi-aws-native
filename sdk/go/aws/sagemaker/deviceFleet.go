@@ -135,6 +135,31 @@ func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Description for the edge device fleet
+func (o DeviceFleetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the edge device fleet
+func (o DeviceFleetOutput) DeviceFleetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.DeviceFleetName }).(pulumi.StringOutput)
+}
+
+// S3 bucket and an ecryption key id (if available) to store outputs for the fleet
+func (o DeviceFleetOutput) OutputConfig() DeviceFleetEdgeOutputConfigOutput {
+	return o.ApplyT(func(v *DeviceFleet) DeviceFleetEdgeOutputConfigOutput { return v.OutputConfig }).(DeviceFleetEdgeOutputConfigOutput)
+}
+
+// Role associated with the device fleet
+func (o DeviceFleetOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Associate tags with the resource
+func (o DeviceFleetOutput) Tags() DeviceFleetTagArrayOutput {
+	return o.ApplyT(func(v *DeviceFleet) DeviceFleetTagArrayOutput { return v.Tags }).(DeviceFleetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetInput)(nil)).Elem(), &DeviceFleet{})
 	pulumi.RegisterOutputType(DeviceFleetOutput{})

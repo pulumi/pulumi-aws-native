@@ -122,6 +122,36 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The AMP Workspace alert manager definition data
+func (o WorkspaceOutput) AlertManagerDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.AlertManagerDefinition }).(pulumi.StringPtrOutput)
+}
+
+// AMP Workspace alias.
+func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// Workspace arn.
+func (o WorkspaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// AMP Workspace prometheus endpoint
+func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PrometheusEndpoint }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o WorkspaceOutput) Tags() WorkspaceTagArrayOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceTagArrayOutput { return v.Tags }).(WorkspaceTagArrayOutput)
+}
+
+// Required to identify a specific APS Workspace.
+func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInput)(nil)).Elem(), &Workspace{})
 	pulumi.RegisterOutputType(WorkspaceOutput{})

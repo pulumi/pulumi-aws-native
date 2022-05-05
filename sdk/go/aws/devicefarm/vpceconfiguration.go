@@ -124,6 +124,30 @@ func (o VPCEConfigurationOutput) ToVPCEConfigurationOutputWithContext(ctx contex
 	return o
 }
 
+func (o VPCEConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VPCEConfigurationOutput) ServiceDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEConfiguration) pulumi.StringOutput { return v.ServiceDnsName }).(pulumi.StringOutput)
+}
+
+func (o VPCEConfigurationOutput) Tags() VPCEConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *VPCEConfiguration) VPCEConfigurationTagArrayOutput { return v.Tags }).(VPCEConfigurationTagArrayOutput)
+}
+
+func (o VPCEConfigurationOutput) VpceConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEConfiguration) pulumi.StringPtrOutput { return v.VpceConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCEConfigurationOutput) VpceConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEConfiguration) pulumi.StringOutput { return v.VpceConfigurationName }).(pulumi.StringOutput)
+}
+
+func (o VPCEConfigurationOutput) VpceServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEConfiguration) pulumi.StringOutput { return v.VpceServiceName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCEConfigurationInput)(nil)).Elem(), &VPCEConfiguration{})
 	pulumi.RegisterOutputType(VPCEConfigurationOutput{})

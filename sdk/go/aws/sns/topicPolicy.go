@@ -113,6 +113,14 @@ func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TopicPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TopicPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o TopicPolicyOutput) Topics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicPolicy) pulumi.StringArrayOutput { return v.Topics }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicPolicyInput)(nil)).Elem(), &TopicPolicy{})
 	pulumi.RegisterOutputType(TopicPolicyOutput{})

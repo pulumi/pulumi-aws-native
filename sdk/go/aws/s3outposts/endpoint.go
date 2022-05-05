@@ -147,6 +147,55 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
+func (o EndpointOutput) AccessType() EndpointAccessTypePtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointAccessTypePtrOutput { return v.AccessType }).(EndpointAccessTypePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the endpoint.
+func (o EndpointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The VPC CIDR committed by this endpoint.
+func (o EndpointOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// The time the endpoint was created.
+func (o EndpointOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
+func (o EndpointOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
+}
+
+// The network interfaces of the endpoint.
+func (o EndpointOutput) NetworkInterfaces() EndpointNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(EndpointNetworkInterfaceArrayOutput)
+}
+
+// The id of the customer outpost on which the bucket resides.
+func (o EndpointOutput) OutpostId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.OutpostId }).(pulumi.StringOutput)
+}
+
+// The ID of the security group to use with the endpoint.
+func (o EndpointOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) Status() EndpointStatusOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointStatusOutput { return v.Status }).(EndpointStatusOutput)
+}
+
+// The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
+func (o EndpointOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointInput)(nil)).Elem(), &Endpoint{})
 	pulumi.RegisterOutputType(EndpointOutput{})

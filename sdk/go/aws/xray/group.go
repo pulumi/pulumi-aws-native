@@ -118,6 +118,29 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// The filter expression defining criteria by which to group traces.
+func (o GroupOutput) FilterExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.FilterExpression }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the group that was generated on creation.
+func (o GroupOutput) GroupARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupARN }).(pulumi.StringOutput)
+}
+
+// The case-sensitive name of the new group. Names must be unique.
+func (o GroupOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Group) GroupInsightsConfigurationPtrOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
+}
+
+func (o GroupOutput) Tags() TagsItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *Group) TagsItemPropertiesArrayOutput { return v.Tags }).(TagsItemPropertiesArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInput)(nil)).Elem(), &Group{})
 	pulumi.RegisterOutputType(GroupOutput{})

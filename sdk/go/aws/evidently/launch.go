@@ -142,6 +142,48 @@ func (o LaunchOutput) ToLaunchOutputWithContext(ctx context.Context) LaunchOutpu
 	return o
 }
 
+func (o LaunchOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LaunchOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Start or Stop Launch Launch. Default is not started.
+func (o LaunchOutput) ExecutionStatus() LaunchExecutionStatusObjectPtrOutput {
+	return o.ApplyT(func(v *Launch) LaunchExecutionStatusObjectPtrOutput { return v.ExecutionStatus }).(LaunchExecutionStatusObjectPtrOutput)
+}
+
+func (o LaunchOutput) Groups() LaunchGroupObjectArrayOutput {
+	return o.ApplyT(func(v *Launch) LaunchGroupObjectArrayOutput { return v.Groups }).(LaunchGroupObjectArrayOutput)
+}
+
+func (o LaunchOutput) MetricMonitors() LaunchMetricDefinitionObjectArrayOutput {
+	return o.ApplyT(func(v *Launch) LaunchMetricDefinitionObjectArrayOutput { return v.MetricMonitors }).(LaunchMetricDefinitionObjectArrayOutput)
+}
+
+func (o LaunchOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LaunchOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
+}
+
+func (o LaunchOutput) RandomizationSalt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchOutput) ScheduledSplitsConfig() LaunchStepConfigArrayOutput {
+	return o.ApplyT(func(v *Launch) LaunchStepConfigArrayOutput { return v.ScheduledSplitsConfig }).(LaunchStepConfigArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LaunchOutput) Tags() LaunchTagArrayOutput {
+	return o.ApplyT(func(v *Launch) LaunchTagArrayOutput { return v.Tags }).(LaunchTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchInput)(nil)).Elem(), &Launch{})
 	pulumi.RegisterOutputType(LaunchOutput{})

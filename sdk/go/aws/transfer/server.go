@@ -144,6 +144,70 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+func (o ServerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) EndpointDetails() ServerEndpointDetailsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerEndpointDetailsPtrOutput { return v.EndpointDetails }).(ServerEndpointDetailsPtrOutput)
+}
+
+func (o ServerOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) IdentityProviderDetails() ServerIdentityProviderDetailsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerIdentityProviderDetailsPtrOutput { return v.IdentityProviderDetails }).(ServerIdentityProviderDetailsPtrOutput)
+}
+
+func (o ServerOutput) IdentityProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.IdentityProviderType }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) LoggingRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) PostAuthenticationLoginBanner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PostAuthenticationLoginBanner }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) PreAuthenticationLoginBanner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PreAuthenticationLoginBanner }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) ProtocolDetails() ServerProtocolDetailsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerProtocolDetailsPtrOutput { return v.ProtocolDetails }).(ServerProtocolDetailsPtrOutput)
+}
+
+func (o ServerOutput) Protocols() ServerProtocolArrayOutput {
+	return o.ApplyT(func(v *Server) ServerProtocolArrayOutput { return v.Protocols }).(ServerProtocolArrayOutput)
+}
+
+func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) ServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) Tags() ServerTagArrayOutput {
+	return o.ApplyT(func(v *Server) ServerTagArrayOutput { return v.Tags }).(ServerTagArrayOutput)
+}
+
+func (o ServerOutput) WorkflowDetails() ServerWorkflowDetailsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerWorkflowDetailsPtrOutput { return v.WorkflowDetails }).(ServerWorkflowDetailsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerInput)(nil)).Elem(), &Server{})
 	pulumi.RegisterOutputType(ServerOutput{})

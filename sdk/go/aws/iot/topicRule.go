@@ -112,6 +112,22 @@ func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) Topic
 	return o
 }
 
+func (o TopicRuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleOutput) Tags() TopicRuleTagArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleTagArrayOutput { return v.Tags }).(TopicRuleTagArrayOutput)
+}
+
+func (o TopicRuleOutput) TopicRulePayload() TopicRulePayloadOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRulePayloadOutput { return v.TopicRulePayload }).(TopicRulePayloadOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInput)(nil)).Elem(), &TopicRule{})
 	pulumi.RegisterOutputType(TopicRuleOutput{})

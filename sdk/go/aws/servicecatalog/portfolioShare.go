@@ -119,6 +119,22 @@ func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioShareOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func (o PortfolioShareOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o PortfolioShareOutput) ShareTagOptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolPtrOutput { return v.ShareTagOptions }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareInput)(nil)).Elem(), &PortfolioShare{})
 	pulumi.RegisterOutputType(PortfolioShareOutput{})

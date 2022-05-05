@@ -123,6 +123,26 @@ func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DestinationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DestinationOutput) DestinationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.DestinationName }).(pulumi.StringOutput)
+}
+
+func (o DestinationOutput) DestinationPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.DestinationPolicy }).(pulumi.StringOutput)
+}
+
+func (o DestinationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o DestinationOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationInput)(nil)).Elem(), &Destination{})
 	pulumi.RegisterOutputType(DestinationOutput{})

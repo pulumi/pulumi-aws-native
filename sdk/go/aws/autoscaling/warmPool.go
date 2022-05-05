@@ -117,6 +117,26 @@ func (o WarmPoolOutput) ToWarmPoolOutputWithContext(ctx context.Context) WarmPoo
 	return o
 }
 
+func (o WarmPoolOutput) AutoScalingGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WarmPool) pulumi.StringOutput { return v.AutoScalingGroupName }).(pulumi.StringOutput)
+}
+
+func (o WarmPoolOutput) InstanceReusePolicy() WarmPoolInstanceReusePolicyPtrOutput {
+	return o.ApplyT(func(v *WarmPool) WarmPoolInstanceReusePolicyPtrOutput { return v.InstanceReusePolicy }).(WarmPoolInstanceReusePolicyPtrOutput)
+}
+
+func (o WarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WarmPool) pulumi.IntPtrOutput { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o WarmPoolOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WarmPool) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
+}
+
+func (o WarmPoolOutput) PoolState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WarmPool) pulumi.StringPtrOutput { return v.PoolState }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WarmPoolInput)(nil)).Elem(), &WarmPool{})
 	pulumi.RegisterOutputType(WarmPoolOutput{})

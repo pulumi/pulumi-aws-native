@@ -150,6 +150,79 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
+// An array of objects representing the add-ons to enable for the new instance.
+func (o DiskOutput) AddOns() DiskAddOnArrayOutput {
+	return o.ApplyT(func(v *Disk) DiskAddOnArrayOutput { return v.AddOns }).(DiskAddOnArrayOutput)
+}
+
+// Name of the attached Lightsail Instance
+func (o DiskOutput) AttachedTo() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.AttachedTo }).(pulumi.StringOutput)
+}
+
+// Attachment State of the Lightsail disk
+func (o DiskOutput) AttachmentState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.AttachmentState }).(pulumi.StringOutput)
+}
+
+// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+func (o DiskOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o DiskOutput) DiskArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.DiskArn }).(pulumi.StringOutput)
+}
+
+// The names to use for your new Lightsail disk.
+func (o DiskOutput) DiskName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.DiskName }).(pulumi.StringOutput)
+}
+
+// Iops of the Lightsail disk
+func (o DiskOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v *Disk) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
+}
+
+// Check is Disk is attached state
+func (o DiskOutput) IsAttached() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Disk) pulumi.BoolOutput { return v.IsAttached }).(pulumi.BoolOutput)
+}
+
+func (o DiskOutput) Location() DiskLocationOutput {
+	return o.ApplyT(func(v *Disk) DiskLocationOutput { return v.Location }).(DiskLocationOutput)
+}
+
+// Path of the  attached Disk
+func (o DiskOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
+}
+
+// Resource type of Lightsail instance.
+func (o DiskOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Size of the Lightsail disk
+func (o DiskOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v *Disk) pulumi.IntOutput { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+// State of the Lightsail disk
+func (o DiskOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Support code to help identify any issues
+func (o DiskOutput) SupportCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o DiskOutput) Tags() DiskTagArrayOutput {
+	return o.ApplyT(func(v *Disk) DiskTagArrayOutput { return v.Tags }).(DiskTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskInput)(nil)).Elem(), &Disk{})
 	pulumi.RegisterOutputType(DiskOutput{})

@@ -125,6 +125,38 @@ func (o AppBlockOutput) ToAppBlockOutputWithContext(ctx context.Context) AppBloc
 	return o
 }
 
+func (o AppBlockOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppBlock) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AppBlockOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppBlock) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o AppBlockOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlock) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlock) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppBlock) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppBlockOutput) SetupScriptDetails() AppBlockScriptDetailsOutput {
+	return o.ApplyT(func(v *AppBlock) AppBlockScriptDetailsOutput { return v.SetupScriptDetails }).(AppBlockScriptDetailsOutput)
+}
+
+func (o AppBlockOutput) SourceS3Location() AppBlockS3LocationOutput {
+	return o.ApplyT(func(v *AppBlock) AppBlockS3LocationOutput { return v.SourceS3Location }).(AppBlockS3LocationOutput)
+}
+
+func (o AppBlockOutput) Tags() AppBlockTagArrayOutput {
+	return o.ApplyT(func(v *AppBlock) AppBlockTagArrayOutput { return v.Tags }).(AppBlockTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockInput)(nil)).Elem(), &AppBlock{})
 	pulumi.RegisterOutputType(AppBlockOutput{})

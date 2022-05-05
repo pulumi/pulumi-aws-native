@@ -130,6 +130,39 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return o
 }
 
+// The ARN of the asset
+func (o AssetOutput) AssetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetArn }).(pulumi.StringOutput)
+}
+
+func (o AssetOutput) AssetHierarchies() AssetHierarchyArrayOutput {
+	return o.ApplyT(func(v *Asset) AssetHierarchyArrayOutput { return v.AssetHierarchies }).(AssetHierarchyArrayOutput)
+}
+
+// The ID of the asset
+func (o AssetOutput) AssetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetId }).(pulumi.StringOutput)
+}
+
+// The ID of the asset model from which to create the asset.
+func (o AssetOutput) AssetModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetModelId }).(pulumi.StringOutput)
+}
+
+// A unique, friendly name for the asset.
+func (o AssetOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetName }).(pulumi.StringOutput)
+}
+
+func (o AssetOutput) AssetProperties() AssetPropertyArrayOutput {
+	return o.ApplyT(func(v *Asset) AssetPropertyArrayOutput { return v.AssetProperties }).(AssetPropertyArrayOutput)
+}
+
+// A list of key-value pairs that contain metadata for the asset.
+func (o AssetOutput) Tags() AssetTagArrayOutput {
+	return o.ApplyT(func(v *Asset) AssetTagArrayOutput { return v.Tags }).(AssetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetInput)(nil)).Elem(), &Asset{})
 	pulumi.RegisterOutputType(AssetOutput{})

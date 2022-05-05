@@ -130,6 +130,38 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
+func (o SchemaOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+func (o SchemaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaOutput) RegistryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
+}
+
+func (o SchemaOutput) SchemaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaArn }).(pulumi.StringOutput)
+}
+
+func (o SchemaOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaOutput) SchemaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaVersion }).(pulumi.StringOutput)
+}
+
+func (o SchemaOutput) Tags() SchemaTagsEntryArrayOutput {
+	return o.ApplyT(func(v *Schema) SchemaTagsEntryArrayOutput { return v.Tags }).(SchemaTagsEntryArrayOutput)
+}
+
+func (o SchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaInput)(nil)).Elem(), &Schema{})
 	pulumi.RegisterOutputType(SchemaOutput{})

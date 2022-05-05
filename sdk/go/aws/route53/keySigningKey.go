@@ -132,6 +132,26 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The unique string (ID) used to identify a hosted zone.
+func (o KeySigningKeyOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+// The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
+func (o KeySigningKeyOutput) KeyManagementServiceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.KeyManagementServiceArn }).(pulumi.StringOutput)
+}
+
+// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
+func (o KeySigningKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
+func (o KeySigningKeyOutput) Status() KeySigningKeyStatusOutput {
+	return o.ApplyT(func(v *KeySigningKey) KeySigningKeyStatusOutput { return v.Status }).(KeySigningKeyStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyInput)(nil)).Elem(), &KeySigningKey{})
 	pulumi.RegisterOutputType(KeySigningKeyOutput{})

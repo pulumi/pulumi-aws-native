@@ -146,6 +146,41 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 	return o
 }
 
+// Configuration information for the hours of operation: day, start time, and end time.
+func (o HoursOfOperationOutput) Config() HoursOfOperationConfigArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationConfigArrayOutput { return v.Config }).(HoursOfOperationConfigArrayOutput)
+}
+
+// The description of the hours of operation.
+func (o HoursOfOperationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the hours of operation.
+func (o HoursOfOperationOutput) HoursOfOperationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationArn }).(pulumi.StringOutput)
+}
+
+// The identifier of the Amazon Connect instance.
+func (o HoursOfOperationOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The name of the hours of operation.
+func (o HoursOfOperationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more tags.
+func (o HoursOfOperationOutput) Tags() HoursOfOperationTagArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationTagArrayOutput { return v.Tags }).(HoursOfOperationTagArrayOutput)
+}
+
+// The time zone of the hours of operation.
+func (o HoursOfOperationOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationInput)(nil)).Elem(), &HoursOfOperation{})
 	pulumi.RegisterOutputType(HoursOfOperationOutput{})

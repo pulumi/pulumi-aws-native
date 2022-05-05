@@ -158,6 +158,64 @@ func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) Detecto
 	return o
 }
 
+// The ARN of the detector.
+func (o DetectorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The models to associate with this detector.
+func (o DetectorOutput) AssociatedModels() DetectorModelArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorModelArrayOutput { return v.AssociatedModels }).(DetectorModelArrayOutput)
+}
+
+// The time when the detector was created.
+func (o DetectorOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The description of the detector.
+func (o DetectorOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the detector
+func (o DetectorOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+// The active version ID of the detector
+func (o DetectorOutput) DetectorVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.DetectorVersionId }).(pulumi.StringOutput)
+}
+
+// The desired detector version status for the detector
+func (o DetectorOutput) DetectorVersionStatus() DetectorVersionStatusPtrOutput {
+	return o.ApplyT(func(v *Detector) DetectorVersionStatusPtrOutput { return v.DetectorVersionStatus }).(DetectorVersionStatusPtrOutput)
+}
+
+// The event type to associate this detector with.
+func (o DetectorOutput) EventType() DetectorEventTypeOutput {
+	return o.ApplyT(func(v *Detector) DetectorEventTypeOutput { return v.EventType }).(DetectorEventTypeOutput)
+}
+
+// The time when the detector was last updated.
+func (o DetectorOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+func (o DetectorOutput) RuleExecutionMode() DetectorRuleExecutionModePtrOutput {
+	return o.ApplyT(func(v *Detector) DetectorRuleExecutionModePtrOutput { return v.RuleExecutionMode }).(DetectorRuleExecutionModePtrOutput)
+}
+
+func (o DetectorOutput) Rules() DetectorRuleArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorRuleArrayOutput { return v.Rules }).(DetectorRuleArrayOutput)
+}
+
+// Tags associated with this detector.
+func (o DetectorOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorTagArrayOutput { return v.Tags }).(DetectorTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorInput)(nil)).Elem(), &Detector{})
 	pulumi.RegisterOutputType(DetectorOutput{})

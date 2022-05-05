@@ -157,6 +157,75 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
+// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
+func (o TaskOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an AWS storage resource's location.
+func (o TaskOutput) DestinationLocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.DestinationLocationArn }).(pulumi.StringOutput)
+}
+
+func (o TaskOutput) DestinationNetworkInterfaceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringArrayOutput { return v.DestinationNetworkInterfaceArns }).(pulumi.StringArrayOutput)
+}
+
+// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
+func (o TaskOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// Detailed description of an error that was encountered during the task execution.
+func (o TaskOutput) ErrorDetail() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.ErrorDetail }).(pulumi.StringOutput)
+}
+
+func (o TaskOutput) Excludes() TaskFilterRuleArrayOutput {
+	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Excludes }).(TaskFilterRuleArrayOutput)
+}
+
+func (o TaskOutput) Includes() TaskFilterRuleArrayOutput {
+	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Includes }).(TaskFilterRuleArrayOutput)
+}
+
+// The name of a task. This value is a text reference that is used to identify the task in the console.
+func (o TaskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskOutput) Options() TaskOptionsPtrOutput {
+	return o.ApplyT(func(v *Task) TaskOptionsPtrOutput { return v.Options }).(TaskOptionsPtrOutput)
+}
+
+func (o TaskOutput) Schedule() TaskSchedulePtrOutput {
+	return o.ApplyT(func(v *Task) TaskSchedulePtrOutput { return v.Schedule }).(TaskSchedulePtrOutput)
+}
+
+// The ARN of the source location for the task.
+func (o TaskOutput) SourceLocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SourceLocationArn }).(pulumi.StringOutput)
+}
+
+func (o TaskOutput) SourceNetworkInterfaceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringArrayOutput { return v.SourceNetworkInterfaceArns }).(pulumi.StringArrayOutput)
+}
+
+// The status of the task that was described.
+func (o TaskOutput) Status() TaskStatusOutput {
+	return o.ApplyT(func(v *Task) TaskStatusOutput { return v.Status }).(TaskStatusOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o TaskOutput) Tags() TaskTagArrayOutput {
+	return o.ApplyT(func(v *Task) TaskTagArrayOutput { return v.Tags }).(TaskTagArrayOutput)
+}
+
+// The ARN of the task.
+func (o TaskOutput) TaskArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.TaskArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskInput)(nil)).Elem(), &Task{})
 	pulumi.RegisterOutputType(TaskOutput{})

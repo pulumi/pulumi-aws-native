@@ -124,6 +124,28 @@ func (o ResourceDefaultVersionOutput) ToResourceDefaultVersionOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
+func (o ResourceDefaultVersionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefaultVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o ResourceDefaultVersionOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDefaultVersion) pulumi.StringPtrOutput { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the type version.
+func (o ResourceDefaultVersionOutput) TypeVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDefaultVersion) pulumi.StringPtrOutput { return v.TypeVersionArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an existing version of the resource to set as the default.
+func (o ResourceDefaultVersionOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDefaultVersion) pulumi.StringPtrOutput { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDefaultVersionInput)(nil)).Elem(), &ResourceDefaultVersion{})
 	pulumi.RegisterOutputType(ResourceDefaultVersionOutput{})

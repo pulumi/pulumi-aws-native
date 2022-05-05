@@ -114,6 +114,18 @@ func (o StreamingDistributionOutput) ToStreamingDistributionOutputWithContext(ct
 	return o
 }
 
+func (o StreamingDistributionOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingDistribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o StreamingDistributionOutput) StreamingDistributionConfig() StreamingDistributionConfigOutput {
+	return o.ApplyT(func(v *StreamingDistribution) StreamingDistributionConfigOutput { return v.StreamingDistributionConfig }).(StreamingDistributionConfigOutput)
+}
+
+func (o StreamingDistributionOutput) Tags() StreamingDistributionTagArrayOutput {
+	return o.ApplyT(func(v *StreamingDistribution) StreamingDistributionTagArrayOutput { return v.Tags }).(StreamingDistributionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionInput)(nil)).Elem(), &StreamingDistribution{})
 	pulumi.RegisterOutputType(StreamingDistributionOutput{})

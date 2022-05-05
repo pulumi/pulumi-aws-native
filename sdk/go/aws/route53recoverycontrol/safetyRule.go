@@ -126,6 +126,42 @@ func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) Saf
 	return o
 }
 
+func (o SafetyRuleOutput) AssertionRule() SafetyRuleAssertionRulePtrOutput {
+	return o.ApplyT(func(v *SafetyRule) SafetyRuleAssertionRulePtrOutput { return v.AssertionRule }).(SafetyRuleAssertionRulePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the control panel.
+func (o SafetyRuleOutput) ControlPanelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringPtrOutput { return v.ControlPanelArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SafetyRuleOutput) GatingRule() SafetyRuleGatingRulePtrOutput {
+	return o.ApplyT(func(v *SafetyRule) SafetyRuleGatingRulePtrOutput { return v.GatingRule }).(SafetyRuleGatingRulePtrOutput)
+}
+
+func (o SafetyRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SafetyRuleOutput) RuleConfig() SafetyRuleRuleConfigPtrOutput {
+	return o.ApplyT(func(v *SafetyRule) SafetyRuleRuleConfigPtrOutput { return v.RuleConfig }).(SafetyRuleRuleConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the safety rule.
+func (o SafetyRuleOutput) SafetyRuleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.SafetyRuleArn }).(pulumi.StringOutput)
+}
+
+// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+func (o SafetyRuleOutput) Status() SafetyRuleStatusOutput {
+	return o.ApplyT(func(v *SafetyRule) SafetyRuleStatusOutput { return v.Status }).(SafetyRuleStatusOutput)
+}
+
+// A collection of tags associated with a resource
+func (o SafetyRuleOutput) Tags() SafetyRuleTagArrayOutput {
+	return o.ApplyT(func(v *SafetyRule) SafetyRuleTagArrayOutput { return v.Tags }).(SafetyRuleTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleInput)(nil)).Elem(), &SafetyRule{})
 	pulumi.RegisterOutputType(SafetyRuleOutput{})

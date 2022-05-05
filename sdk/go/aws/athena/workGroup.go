@@ -142,6 +142,46 @@ func (o WorkGroupOutput) ToWorkGroupOutputWithContext(ctx context.Context) WorkG
 	return o
 }
 
+// The date and time the workgroup was created.
+func (o WorkGroupOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkGroup) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The workgroup description.
+func (o WorkGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The workGroup name.
+func (o WorkGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+func (o WorkGroupOutput) RecursiveDeleteOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroup) pulumi.BoolPtrOutput { return v.RecursiveDeleteOption }).(pulumi.BoolPtrOutput)
+}
+
+// The state of the workgroup: ENABLED or DISABLED.
+func (o WorkGroupOutput) State() WorkGroupStateEnumPtrOutput {
+	return o.ApplyT(func(v *WorkGroup) WorkGroupStateEnumPtrOutput { return v.State }).(WorkGroupStateEnumPtrOutput)
+}
+
+// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+func (o WorkGroupOutput) Tags() WorkGroupTagArrayOutput {
+	return o.ApplyT(func(v *WorkGroup) WorkGroupTagArrayOutput { return v.Tags }).(WorkGroupTagArrayOutput)
+}
+
+// The workgroup configuration
+func (o WorkGroupOutput) WorkGroupConfiguration() WorkGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroup) WorkGroupConfigurationPtrOutput { return v.WorkGroupConfiguration }).(WorkGroupConfigurationPtrOutput)
+}
+
+// The workgroup configuration update object
+func (o WorkGroupOutput) WorkGroupConfigurationUpdates() WorkGroupConfigurationUpdatesPtrOutput {
+	return o.ApplyT(func(v *WorkGroup) WorkGroupConfigurationUpdatesPtrOutput { return v.WorkGroupConfigurationUpdates }).(WorkGroupConfigurationUpdatesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupInput)(nil)).Elem(), &WorkGroup{})
 	pulumi.RegisterOutputType(WorkGroupOutput{})

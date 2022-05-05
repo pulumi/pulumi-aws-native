@@ -111,6 +111,26 @@ func (o LoggerDefinitionOutput) ToLoggerDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+func (o LoggerDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggerDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LoggerDefinitionOutput) InitialVersion() LoggerDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *LoggerDefinition) LoggerDefinitionVersionTypePtrOutput { return v.InitialVersion }).(LoggerDefinitionVersionTypePtrOutput)
+}
+
+func (o LoggerDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggerDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o LoggerDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggerDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LoggerDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LoggerDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerDefinitionInput)(nil)).Elem(), &LoggerDefinition{})
 	pulumi.RegisterOutputType(LoggerDefinitionOutput{})

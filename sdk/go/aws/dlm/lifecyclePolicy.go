@@ -116,6 +116,30 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LifecyclePolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailsPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailsPtrOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailsPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) Tags() LifecyclePolicyTagArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyTagArrayOutput { return v.Tags }).(LifecyclePolicyTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyInput)(nil)).Elem(), &LifecyclePolicy{})
 	pulumi.RegisterOutputType(LifecyclePolicyOutput{})

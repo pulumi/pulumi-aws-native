@@ -143,6 +143,80 @@ func (o ApplicationInstanceOutput) ToApplicationInstanceOutputWithContext(ctx co
 	return o
 }
 
+func (o ApplicationInstanceOutput) ApplicationInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.ApplicationInstanceId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationInstanceOutput) ApplicationInstanceIdToReplace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.ApplicationInstanceIdToReplace }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationInstanceOutput) CreatedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.IntOutput { return v.CreatedTime }).(pulumi.IntOutput)
+}
+
+func (o ApplicationInstanceOutput) DefaultRuntimeContextDevice() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.DefaultRuntimeContextDevice }).(pulumi.StringOutput)
+}
+
+func (o ApplicationInstanceOutput) DefaultRuntimeContextDeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.DefaultRuntimeContextDeviceName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationInstanceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) DeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.DeviceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) HealthStatus() ApplicationInstanceHealthStatusOutput {
+	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceHealthStatusOutput { return v.HealthStatus }).(ApplicationInstanceHealthStatusOutput)
+}
+
+func (o ApplicationInstanceOutput) LastUpdatedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.IntOutput { return v.LastUpdatedTime }).(pulumi.IntOutput)
+}
+
+func (o ApplicationInstanceOutput) ManifestOverridesPayload() ApplicationInstanceManifestOverridesPayloadPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceManifestOverridesPayloadPtrOutput {
+		return v.ManifestOverridesPayload
+	}).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) ManifestPayload() ApplicationInstanceManifestPayloadOutput {
+	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceManifestPayloadOutput { return v.ManifestPayload }).(ApplicationInstanceManifestPayloadOutput)
+}
+
+func (o ApplicationInstanceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) Status() ApplicationInstanceStatusOutput {
+	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceStatusOutput { return v.Status }).(ApplicationInstanceStatusOutput)
+}
+
+func (o ApplicationInstanceOutput) StatusDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.StatusDescription }).(pulumi.StringOutput)
+}
+
+func (o ApplicationInstanceOutput) StatusFilter() ApplicationInstanceStatusFilterPtrOutput {
+	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceStatusFilterPtrOutput { return v.StatusFilter }).(ApplicationInstanceStatusFilterPtrOutput)
+}
+
+func (o ApplicationInstanceOutput) Tags() ApplicationInstanceTagArrayOutput {
+	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceTagArrayOutput { return v.Tags }).(ApplicationInstanceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceInput)(nil)).Elem(), &ApplicationInstance{})
 	pulumi.RegisterOutputType(ApplicationInstanceOutput{})

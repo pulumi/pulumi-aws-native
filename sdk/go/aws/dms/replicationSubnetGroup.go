@@ -119,6 +119,22 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(
 	return o
 }
 
+func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.ReplicationSubnetGroupDescription }).(pulumi.StringOutput)
+}
+
+func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringPtrOutput { return v.ReplicationSubnetGroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationSubnetGroupOutput) Tags() ReplicationSubnetGroupTagArrayOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) ReplicationSubnetGroupTagArrayOutput { return v.Tags }).(ReplicationSubnetGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupInput)(nil)).Elem(), &ReplicationSubnetGroup{})
 	pulumi.RegisterOutputType(ReplicationSubnetGroupOutput{})

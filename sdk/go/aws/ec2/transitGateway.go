@@ -134,6 +134,54 @@ func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.IntPtrOutput { return v.AmazonSideAsn }).(pulumi.IntPtrOutput)
+}
+
+func (o TransitGatewayOutput) AssociationDefaultRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AssociationDefaultRouteTableId }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) AutoAcceptSharedAttachments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AutoAcceptSharedAttachments }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) DefaultRouteTableAssociation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTableAssociation }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) DefaultRouteTablePropagation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTablePropagation }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) DnsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) MulticastSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.MulticastSupport }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) Tags() TransitGatewayTagArrayOutput {
+	return o.ApplyT(func(v *TransitGateway) TransitGatewayTagArrayOutput { return v.Tags }).(TransitGatewayTagArrayOutput)
+}
+
+func (o TransitGatewayOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringArrayOutput { return v.TransitGatewayCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+func (o TransitGatewayOutput) VpnEcmpSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.VpnEcmpSupport }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayInput)(nil)).Elem(), &TransitGateway{})
 	pulumi.RegisterOutputType(TransitGatewayOutput{})

@@ -161,6 +161,89 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DataSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DataSetOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+func (o DataSetOutput) ColumnGroups() DataSetColumnGroupArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetColumnGroupArrayOutput { return v.ColumnGroups }).(DataSetColumnGroupArrayOutput)
+}
+
+func (o DataSetOutput) ColumnLevelPermissionRules() DataSetColumnLevelPermissionRuleArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetColumnLevelPermissionRuleArrayOutput { return v.ColumnLevelPermissionRules }).(DataSetColumnLevelPermissionRuleArrayOutput)
+}
+
+// <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+//             imported into SPICE.</p>
+func (o DataSetOutput) ConsumedSpiceCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *DataSet) pulumi.Float64Output { return v.ConsumedSpiceCapacityInBytes }).(pulumi.Float64Output)
+}
+
+// <p>The time that this dataset was created.</p>
+func (o DataSetOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o DataSetOutput) DataSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.DataSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSetOutput) FieldFolders() DataSetFieldFolderMapPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetFieldFolderMapPtrOutput { return v.FieldFolders }).(DataSetFieldFolderMapPtrOutput)
+}
+
+func (o DataSetOutput) ImportMode() DataSetImportModePtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetImportModePtrOutput { return v.ImportMode }).(DataSetImportModePtrOutput)
+}
+
+func (o DataSetOutput) IngestionWaitPolicy() DataSetIngestionWaitPolicyPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetIngestionWaitPolicyPtrOutput { return v.IngestionWaitPolicy }).(DataSetIngestionWaitPolicyPtrOutput)
+}
+
+// <p>The last time that this dataset was updated.</p>
+func (o DataSetOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+func (o DataSetOutput) LogicalTableMap() DataSetLogicalTableMapPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetLogicalTableMapPtrOutput { return v.LogicalTableMap }).(DataSetLogicalTableMapPtrOutput)
+}
+
+// <p>The display name for the dataset.</p>
+func (o DataSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// <p>The list of columns after all transforms. These columns are available in templates,
+//             analyses, and dashboards.</p>
+func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
+}
+
+// <p>A list of resource permissions on the dataset.</p>
+func (o DataSetOutput) Permissions() DataSetResourcePermissionArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetResourcePermissionArrayOutput { return v.Permissions }).(DataSetResourcePermissionArrayOutput)
+}
+
+func (o DataSetOutput) PhysicalTableMap() DataSetPhysicalTableMapPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapPtrOutput { return v.PhysicalTableMap }).(DataSetPhysicalTableMapPtrOutput)
+}
+
+func (o DataSetOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionDataSetPtrOutput { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
+}
+
+// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+func (o DataSetOutput) Tags() DataSetTagArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetTagArrayOutput { return v.Tags }).(DataSetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetInput)(nil)).Elem(), &DataSet{})
 	pulumi.RegisterOutputType(DataSetOutput{})

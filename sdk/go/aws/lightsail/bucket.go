@@ -146,6 +146,54 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
+// Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
+func (o BucketOutput) AbleToUpdateBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.BoolOutput { return v.AbleToUpdateBundle }).(pulumi.BoolOutput)
+}
+
+func (o BucketOutput) AccessRules() BucketAccessRulesPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketAccessRulesPtrOutput { return v.AccessRules }).(BucketAccessRulesPtrOutput)
+}
+
+func (o BucketOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// The name for the bucket.
+func (o BucketOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The ID of the bundle to use for the bucket.
+func (o BucketOutput) BundleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
+}
+
+// Specifies whether to enable or disable versioning of objects in the bucket.
+func (o BucketOutput) ObjectVersioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.BoolPtrOutput { return v.ObjectVersioning }).(pulumi.BoolPtrOutput)
+}
+
+// An array of strings to specify the AWS account IDs that can access the bucket.
+func (o BucketOutput) ReadOnlyAccessAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringArrayOutput { return v.ReadOnlyAccessAccounts }).(pulumi.StringArrayOutput)
+}
+
+// The names of the Lightsail resources for which to set bucket access.
+func (o BucketOutput) ResourcesReceivingAccess() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringArrayOutput { return v.ResourcesReceivingAccess }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o BucketOutput) Tags() BucketTagArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
+}
+
+// The URL of the bucket.
+func (o BucketOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInput)(nil)).Elem(), &Bucket{})
 	pulumi.RegisterOutputType(BucketOutput{})

@@ -106,6 +106,14 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DedicatedIpPoolOutput) PoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.PoolName }).(pulumi.StringPtrOutput)
+}
+
+func (o DedicatedIpPoolOutput) Tags() DedicatedIpPoolTagsArrayOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) DedicatedIpPoolTagsArrayOutput { return v.Tags }).(DedicatedIpPoolTagsArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedIpPoolInput)(nil)).Elem(), &DedicatedIpPool{})
 	pulumi.RegisterOutputType(DedicatedIpPoolOutput{})

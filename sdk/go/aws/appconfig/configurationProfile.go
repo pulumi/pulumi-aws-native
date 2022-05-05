@@ -131,6 +131,38 @@ func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx 
 	return o
 }
 
+func (o ConfigurationProfileOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationProfileOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationProfileOutput) RetrievalRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.RetrievalRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileOutput) Tags() ConfigurationProfileTagsArrayOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileTagsArrayOutput { return v.Tags }).(ConfigurationProfileTagsArrayOutput)
+}
+
+func (o ConfigurationProfileOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileOutput) Validators() ConfigurationProfileValidatorsArrayOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileValidatorsArrayOutput { return v.Validators }).(ConfigurationProfileValidatorsArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileInput)(nil)).Elem(), &ConfigurationProfile{})
 	pulumi.RegisterOutputType(ConfigurationProfileOutput{})

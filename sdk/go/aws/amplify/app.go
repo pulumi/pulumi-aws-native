@@ -144,6 +144,78 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
+func (o AppOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) AppName() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppName }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) AutoBranchCreationConfig() AppAutoBranchCreationConfigPtrOutput {
+	return o.ApplyT(func(v *App) AppAutoBranchCreationConfigPtrOutput { return v.AutoBranchCreationConfig }).(AppAutoBranchCreationConfigPtrOutput)
+}
+
+func (o AppOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
+	return o.ApplyT(func(v *App) AppBasicAuthConfigPtrOutput { return v.BasicAuthConfig }).(AppBasicAuthConfigPtrOutput)
+}
+
+func (o AppOutput) BuildSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.BuildSpec }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) CustomHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.CustomHeaders }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) CustomRules() AppCustomRuleArrayOutput {
+	return o.ApplyT(func(v *App) AppCustomRuleArrayOutput { return v.CustomRules }).(AppCustomRuleArrayOutput)
+}
+
+func (o AppOutput) DefaultDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DefaultDomain }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) EnableBranchAutoDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.BoolPtrOutput { return v.EnableBranchAutoDeletion }).(pulumi.BoolPtrOutput)
+}
+
+func (o AppOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v *App) AppEnvironmentVariableArrayOutput { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
+}
+
+func (o AppOutput) IAMServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IAMServiceRole }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) OauthToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.OauthToken }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) Tags() AppTagArrayOutput {
+	return o.ApplyT(func(v *App) AppTagArrayOutput { return v.Tags }).(AppTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppInput)(nil)).Elem(), &App{})
 	pulumi.RegisterOutputType(AppOutput{})

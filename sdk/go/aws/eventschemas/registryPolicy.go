@@ -114,6 +114,18 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RegistryPolicyOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+func (o RegistryPolicyOutput) RegistryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
+}
+
+func (o RegistryPolicyOutput) RevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringPtrOutput { return v.RevisionId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyInput)(nil)).Elem(), &RegistryPolicy{})
 	pulumi.RegisterOutputType(RegistryPolicyOutput{})

@@ -110,6 +110,14 @@ func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
+func (o ClusterSecurityGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ClusterSecurityGroupOutput) Tags() ClusterSecurityGroupTagArrayOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroup) ClusterSecurityGroupTagArrayOutput { return v.Tags }).(ClusterSecurityGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSecurityGroupInput)(nil)).Elem(), &ClusterSecurityGroup{})
 	pulumi.RegisterOutputType(ClusterSecurityGroupOutput{})

@@ -109,6 +109,18 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o DistributionOutput) DistributionConfig() DistributionConfigOutput {
+	return o.ApplyT(func(v *Distribution) DistributionConfigOutput { return v.DistributionConfig }).(DistributionConfigOutput)
+}
+
+func (o DistributionOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o DistributionOutput) Tags() DistributionTagArrayOutput {
+	return o.ApplyT(func(v *Distribution) DistributionTagArrayOutput { return v.Tags }).(DistributionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionInput)(nil)).Elem(), &Distribution{})
 	pulumi.RegisterOutputType(DistributionOutput{})

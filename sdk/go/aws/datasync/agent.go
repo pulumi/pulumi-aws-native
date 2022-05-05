@@ -142,6 +142,46 @@ func (o AgentOutput) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 	return o
 }
 
+// Activation key of the Agent.
+func (o AgentOutput) ActivationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.ActivationKey }).(pulumi.StringOutput)
+}
+
+// The DataSync Agent ARN.
+func (o AgentOutput) AgentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.AgentArn }).(pulumi.StringOutput)
+}
+
+// The name configured for the agent. Text reference used to identify the agent in the console.
+func (o AgentOutput) AgentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.AgentName }).(pulumi.StringPtrOutput)
+}
+
+// The service endpoints that the agent will connect to.
+func (o AgentOutput) EndpointType() AgentEndpointTypeOutput {
+	return o.ApplyT(func(v *Agent) AgentEndpointTypeOutput { return v.EndpointType }).(AgentEndpointTypeOutput)
+}
+
+// The ARNs of the security group used to protect your data transfer task subnets.
+func (o AgentOutput) SecurityGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
+}
+
+// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+func (o AgentOutput) SubnetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringArrayOutput { return v.SubnetArns }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o AgentOutput) Tags() AgentTagArrayOutput {
+	return o.ApplyT(func(v *Agent) AgentTagArrayOutput { return v.Tags }).(AgentTagArrayOutput)
+}
+
+// The ID of the VPC endpoint that the agent has access to.
+func (o AgentOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentInput)(nil)).Elem(), &Agent{})
 	pulumi.RegisterOutputType(AgentOutput{})

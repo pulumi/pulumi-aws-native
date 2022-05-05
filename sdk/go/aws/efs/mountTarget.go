@@ -120,6 +120,22 @@ func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o MountTargetOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+func (o MountTargetOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MountTarget) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o MountTargetOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MountTarget) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o MountTargetOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MountTargetInput)(nil)).Elem(), &MountTarget{})
 	pulumi.RegisterOutputType(MountTargetOutput{})

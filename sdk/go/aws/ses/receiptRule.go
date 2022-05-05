@@ -116,6 +116,18 @@ func (o ReceiptRuleOutput) ToReceiptRuleOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o ReceiptRuleOutput) After() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRule) pulumi.StringPtrOutput { return v.After }).(pulumi.StringPtrOutput)
+}
+
+func (o ReceiptRuleOutput) Rule() ReceiptRuleRuleOutput {
+	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleRuleOutput { return v.Rule }).(ReceiptRuleRuleOutput)
+}
+
+func (o ReceiptRuleOutput) RuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleInput)(nil)).Elem(), &ReceiptRule{})
 	pulumi.RegisterOutputType(ReceiptRuleOutput{})

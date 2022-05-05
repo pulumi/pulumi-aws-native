@@ -113,6 +113,18 @@ func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutputWithContext(ctx 
 	return o
 }
 
+func (o VPCGatewayAttachmentOutput) InternetGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCGatewayAttachment) pulumi.StringPtrOutput { return v.InternetGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func (o VPCGatewayAttachmentOutput) VpnGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCGatewayAttachment) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCGatewayAttachmentInput)(nil)).Elem(), &VPCGatewayAttachment{})
 	pulumi.RegisterOutputType(VPCGatewayAttachmentOutput{})

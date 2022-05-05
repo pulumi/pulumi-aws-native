@@ -192,6 +192,21 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+func (o ProviderOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
+func (o ProviderOutput) SharedCredentialsFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SharedCredentialsFile }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})

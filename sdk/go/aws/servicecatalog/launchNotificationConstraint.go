@@ -125,6 +125,26 @@ func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutput
 	return o
 }
 
+func (o LaunchNotificationConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchNotificationConstraintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchNotificationConstraintOutput) NotificationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchNotificationConstraintOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o LaunchNotificationConstraintOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchNotificationConstraintInput)(nil)).Elem(), &LaunchNotificationConstraint{})
 	pulumi.RegisterOutputType(LaunchNotificationConstraintOutput{})

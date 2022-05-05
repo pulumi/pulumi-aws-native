@@ -190,6 +190,86 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the container recipe.
+func (o ContainerRecipeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Components for build and test that are included in the container recipe.
+func (o ContainerRecipeOutput) Components() ContainerRecipeComponentConfigurationArrayOutput {
+	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeComponentConfigurationArrayOutput { return v.Components }).(ContainerRecipeComponentConfigurationArrayOutput)
+}
+
+// Specifies the type of container, such as Docker.
+func (o ContainerRecipeOutput) ContainerType() ContainerRecipeContainerTypePtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeContainerTypePtrOutput { return v.ContainerType }).(ContainerRecipeContainerTypePtrOutput)
+}
+
+// The description of the container recipe.
+func (o ContainerRecipeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
+func (o ContainerRecipeOutput) DockerfileTemplateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.DockerfileTemplateData }).(pulumi.StringPtrOutput)
+}
+
+// The S3 URI for the Dockerfile that will be used to build your container image.
+func (o ContainerRecipeOutput) DockerfileTemplateUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.DockerfileTemplateUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the operating system version for the source image.
+func (o ContainerRecipeOutput) ImageOsVersionOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.ImageOsVersionOverride }).(pulumi.StringPtrOutput)
+}
+
+// A group of options that can be used to configure an instance for building and testing container images.
+func (o ContainerRecipeOutput) InstanceConfiguration() ContainerRecipeInstanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeInstanceConfigurationPtrOutput { return v.InstanceConfiguration }).(ContainerRecipeInstanceConfigurationPtrOutput)
+}
+
+// Identifies which KMS key is used to encrypt the container image.
+func (o ContainerRecipeOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the container recipe.
+func (o ContainerRecipeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The source image for the container recipe.
+func (o ContainerRecipeOutput) ParentImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.ParentImage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the operating system platform when you use a custom source image.
+func (o ContainerRecipeOutput) PlatformOverride() ContainerRecipePlatformOverridePtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipePlatformOverridePtrOutput { return v.PlatformOverride }).(ContainerRecipePlatformOverridePtrOutput)
+}
+
+// Tags that are attached to the container recipe.
+func (o ContainerRecipeOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The destination repository for the container image.
+func (o ContainerRecipeOutput) TargetRepository() ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeTargetContainerRepositoryPtrOutput { return v.TargetRepository }).(ContainerRecipeTargetContainerRepositoryPtrOutput)
+}
+
+// The semantic version of the container recipe (<major>.<minor>.<patch>).
+func (o ContainerRecipeOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// The working directory to be used during build and test workflows.
+func (o ContainerRecipeOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInput)(nil)).Elem(), &ContainerRecipe{})
 	pulumi.RegisterOutputType(ContainerRecipeOutput{})

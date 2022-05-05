@@ -163,6 +163,98 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+func (o ServiceOutput) CapacityProviderStrategy() ServiceCapacityProviderStrategyItemArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceCapacityProviderStrategyItemArrayOutput { return v.CapacityProviderStrategy }).(ServiceCapacityProviderStrategyItemArrayOutput)
+}
+
+func (o ServiceOutput) Cluster() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Cluster }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceDeploymentConfigurationPtrOutput { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
+}
+
+func (o ServiceOutput) DeploymentController() ServiceDeploymentControllerPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceDeploymentControllerPtrOutput { return v.DeploymentController }).(ServiceDeploymentControllerPtrOutput)
+}
+
+func (o ServiceOutput) DesiredCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.DesiredCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.HealthCheckGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceOutput) LaunchType() ServiceLaunchTypePtrOutput {
+	return o.ApplyT(func(v *Service) ServiceLaunchTypePtrOutput { return v.LaunchType }).(ServiceLaunchTypePtrOutput)
+}
+
+func (o ServiceOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceLoadBalancerArrayOutput { return v.LoadBalancers }).(ServiceLoadBalancerArrayOutput)
+}
+
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
+}
+
+func (o ServiceOutput) PlacementConstraints() ServicePlacementConstraintArrayOutput {
+	return o.ApplyT(func(v *Service) ServicePlacementConstraintArrayOutput { return v.PlacementConstraints }).(ServicePlacementConstraintArrayOutput)
+}
+
+func (o ServiceOutput) PlacementStrategies() ServicePlacementStrategyArrayOutput {
+	return o.ApplyT(func(v *Service) ServicePlacementStrategyArrayOutput { return v.PlacementStrategies }).(ServicePlacementStrategyArrayOutput)
+}
+
+func (o ServiceOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.PlatformVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) PropagateTags() ServicePropagateTagsPtrOutput {
+	return o.ApplyT(func(v *Service) ServicePropagateTagsPtrOutput { return v.PropagateTags }).(ServicePropagateTagsPtrOutput)
+}
+
+func (o ServiceOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) SchedulingStrategy() ServiceSchedulingStrategyPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceSchedulingStrategyPtrOutput { return v.SchedulingStrategy }).(ServiceSchedulingStrategyPtrOutput)
+}
+
+func (o ServiceOutput) ServiceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) ServiceRegistries() ServiceRegistryArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceRegistryArrayOutput { return v.ServiceRegistries }).(ServiceRegistryArrayOutput)
+}
+
+func (o ServiceOutput) Tags() ServiceTagArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+}
+
+func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.TaskDefinition }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInput)(nil)).Elem(), &Service{})
 	pulumi.RegisterOutputType(ServiceOutput{})

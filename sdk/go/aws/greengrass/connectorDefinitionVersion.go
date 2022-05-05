@@ -113,6 +113,16 @@ func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutputWith
 	return o
 }
 
+func (o ConnectorDefinitionVersionOutput) ConnectorDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorDefinitionVersion) pulumi.StringOutput { return v.ConnectorDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o ConnectorDefinitionVersionOutput) Connectors() ConnectorDefinitionVersionConnectorArrayOutput {
+	return o.ApplyT(func(v *ConnectorDefinitionVersion) ConnectorDefinitionVersionConnectorArrayOutput {
+		return v.Connectors
+	}).(ConnectorDefinitionVersionConnectorArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorDefinitionVersionInput)(nil)).Elem(), &ConnectorDefinitionVersion{})
 	pulumi.RegisterOutputType(ConnectorDefinitionVersionOutput{})

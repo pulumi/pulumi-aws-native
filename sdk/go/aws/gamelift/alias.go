@@ -122,6 +122,26 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+// Unique alias ID
+func (o AliasOutput) AliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.AliasId }).(pulumi.StringOutput)
+}
+
+// A human-readable description of the alias.
+func (o AliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A descriptive label that is associated with an alias. Alias names do not need to be unique.
+func (o AliasOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
+func (o AliasOutput) RoutingStrategy() AliasRoutingStrategyOutput {
+	return o.ApplyT(func(v *Alias) AliasRoutingStrategyOutput { return v.RoutingStrategy }).(AliasRoutingStrategyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasInput)(nil)).Elem(), &Alias{})
 	pulumi.RegisterOutputType(AliasOutput{})

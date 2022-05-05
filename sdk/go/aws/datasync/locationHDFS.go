@@ -187,6 +187,80 @@ func (o LocationHDFSOutput) ToLocationHDFSOutputWithContext(ctx context.Context)
 	return o
 }
 
+// ARN(s) of the agent(s) to use for an HDFS location.
+func (o LocationHDFSOutput) AgentArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
+}
+
+// The authentication mode used to determine identity of user.
+func (o LocationHDFSOutput) AuthenticationType() LocationHDFSAuthenticationTypeOutput {
+	return o.ApplyT(func(v *LocationHDFS) LocationHDFSAuthenticationTypeOutput { return v.AuthenticationType }).(LocationHDFSAuthenticationTypeOutput)
+}
+
+// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
+func (o LocationHDFSOutput) BlockSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.IntPtrOutput { return v.BlockSize }).(pulumi.IntPtrOutput)
+}
+
+// The Base64 string representation of the Keytab file.
+func (o LocationHDFSOutput) KerberosKeytab() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringPtrOutput { return v.KerberosKeytab }).(pulumi.StringPtrOutput)
+}
+
+// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
+func (o LocationHDFSOutput) KerberosKrb5Conf() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringPtrOutput { return v.KerberosKrb5Conf }).(pulumi.StringPtrOutput)
+}
+
+// The unique identity, or principal, to which Kerberos can assign tickets.
+func (o LocationHDFSOutput) KerberosPrincipal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringPtrOutput { return v.KerberosPrincipal }).(pulumi.StringPtrOutput)
+}
+
+// The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
+func (o LocationHDFSOutput) KmsKeyProviderUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringPtrOutput { return v.KmsKeyProviderUri }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the HDFS location.
+func (o LocationHDFSOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the HDFS location that was described.
+func (o LocationHDFSOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+// An array of Name Node(s) of the HDFS location.
+func (o LocationHDFSOutput) NameNodes() LocationHDFSNameNodeArrayOutput {
+	return o.ApplyT(func(v *LocationHDFS) LocationHDFSNameNodeArrayOutput { return v.NameNodes }).(LocationHDFSNameNodeArrayOutput)
+}
+
+func (o LocationHDFSOutput) QopConfiguration() LocationHDFSQopConfigurationPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) LocationHDFSQopConfigurationPtrOutput { return v.QopConfiguration }).(LocationHDFSQopConfigurationPtrOutput)
+}
+
+// Number of copies of each block that exists inside the HDFS cluster.
+func (o LocationHDFSOutput) ReplicationFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.IntPtrOutput { return v.ReplicationFactor }).(pulumi.IntPtrOutput)
+}
+
+// The user name that has read and write permissions on the specified HDFS cluster.
+func (o LocationHDFSOutput) SimpleUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringPtrOutput { return v.SimpleUser }).(pulumi.StringPtrOutput)
+}
+
+// The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
+func (o LocationHDFSOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHDFS) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationHDFSOutput) Tags() LocationHDFSTagArrayOutput {
+	return o.ApplyT(func(v *LocationHDFS) LocationHDFSTagArrayOutput { return v.Tags }).(LocationHDFSTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSInput)(nil)).Elem(), &LocationHDFS{})
 	pulumi.RegisterOutputType(LocationHDFSOutput{})

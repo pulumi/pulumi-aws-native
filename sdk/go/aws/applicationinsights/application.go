@@ -158,6 +158,58 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The ARN of the ApplicationInsights application.
+func (o ApplicationOutput) ApplicationARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationARN }).(pulumi.StringOutput)
+}
+
+// If set to true, application will be configured with recommended monitoring configuration.
+func (o ApplicationOutput) AutoConfigurationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AutoConfigurationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+func (o ApplicationOutput) CWEMonitorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.CWEMonitorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The monitoring settings of the components.
+func (o ApplicationOutput) ComponentMonitoringSettings() ApplicationComponentMonitoringSettingArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationComponentMonitoringSettingArrayOutput {
+		return v.ComponentMonitoringSettings
+	}).(ApplicationComponentMonitoringSettingArrayOutput)
+}
+
+// The custom grouped components.
+func (o ApplicationOutput) CustomComponents() ApplicationCustomComponentArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationCustomComponentArrayOutput { return v.CustomComponents }).(ApplicationCustomComponentArrayOutput)
+}
+
+// The log pattern sets.
+func (o ApplicationOutput) LogPatternSets() ApplicationLogPatternSetArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationLogPatternSetArrayOutput { return v.LogPatternSets }).(ApplicationLogPatternSetArrayOutput)
+}
+
+// When set to true, creates opsItems for any problems detected on an application.
+func (o ApplicationOutput) OpsCenterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.OpsCenterEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The SNS topic provided to Application Insights that is associated to the created opsItem.
+func (o ApplicationOutput) OpsItemSNSTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.OpsItemSNSTopicArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group.
+func (o ApplicationOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The tags of Application Insights application.
+func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

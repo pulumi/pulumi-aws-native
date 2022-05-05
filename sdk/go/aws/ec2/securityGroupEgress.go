@@ -134,6 +134,42 @@ func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutputWithContext(ctx co
 	return o
 }
 
+func (o SecurityGroupEgressOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressOutput) DestinationSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.DestinationSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.IntPtrOutput { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+func (o SecurityGroupEgressOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressOutput) IpProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringOutput { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.IntPtrOutput { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressInput)(nil)).Elem(), &SecurityGroupEgress{})
 	pulumi.RegisterOutputType(SecurityGroupEgressOutput{})

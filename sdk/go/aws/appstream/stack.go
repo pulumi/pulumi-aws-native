@@ -139,6 +139,58 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
+func (o StackOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
+	return o.ApplyT(func(v *Stack) StackAccessEndpointArrayOutput { return v.AccessEndpoints }).(StackAccessEndpointArrayOutput)
+}
+
+func (o StackOutput) ApplicationSettings() StackApplicationSettingsPtrOutput {
+	return o.ApplyT(func(v *Stack) StackApplicationSettingsPtrOutput { return v.ApplicationSettings }).(StackApplicationSettingsPtrOutput)
+}
+
+func (o StackOutput) AttributesToDelete() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.AttributesToDelete }).(pulumi.StringArrayOutput)
+}
+
+func (o StackOutput) DeleteStorageConnectors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.DeleteStorageConnectors }).(pulumi.BoolPtrOutput)
+}
+
+func (o StackOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) EmbedHostDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.EmbedHostDomains }).(pulumi.StringArrayOutput)
+}
+
+func (o StackOutput) FeedbackURL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.FeedbackURL }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) RedirectURL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.RedirectURL }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
+	return o.ApplyT(func(v *Stack) StackStorageConnectorArrayOutput { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
+}
+
+func (o StackOutput) Tags() StackTagArrayOutput {
+	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+}
+
+func (o StackOutput) UserSettings() StackUserSettingArrayOutput {
+	return o.ApplyT(func(v *Stack) StackUserSettingArrayOutput { return v.UserSettings }).(StackUserSettingArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackInput)(nil)).Elem(), &Stack{})
 	pulumi.RegisterOutputType(StackOutput{})

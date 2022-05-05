@@ -116,6 +116,18 @@ func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutputWithContext(ctx cont
 	return o
 }
 
+func (o ClusterSubnetGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ClusterSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterSubnetGroupOutput) Tags() ClusterSubnetGroupTagArrayOutput {
+	return o.ApplyT(func(v *ClusterSubnetGroup) ClusterSubnetGroupTagArrayOutput { return v.Tags }).(ClusterSubnetGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSubnetGroupInput)(nil)).Elem(), &ClusterSubnetGroup{})
 	pulumi.RegisterOutputType(ClusterSubnetGroupOutput{})

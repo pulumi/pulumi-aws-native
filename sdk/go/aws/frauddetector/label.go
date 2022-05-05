@@ -122,6 +122,36 @@ func (o LabelOutput) ToLabelOutputWithContext(ctx context.Context) LabelOutput {
 	return o
 }
 
+// The label ARN.
+func (o LabelOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Label) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The timestamp when the label was created.
+func (o LabelOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Label) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The label description.
+func (o LabelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Label) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the label was last updated.
+func (o LabelOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Label) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The name of the label.
+func (o LabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Label) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags associated with this label.
+func (o LabelOutput) Tags() LabelTagArrayOutput {
+	return o.ApplyT(func(v *Label) LabelTagArrayOutput { return v.Tags }).(LabelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelInput)(nil)).Elem(), &Label{})
 	pulumi.RegisterOutputType(LabelOutput{})

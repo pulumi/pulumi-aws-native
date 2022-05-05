@@ -134,6 +134,38 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx cont
 	return o
 }
 
+func (o DeploymentStrategyOutput) DeploymentDurationInMinutes() pulumi.Float64Output {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.Float64Output { return v.DeploymentDurationInMinutes }).(pulumi.Float64Output)
+}
+
+func (o DeploymentStrategyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStrategyOutput) FinalBakeTimeInMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.Float64PtrOutput { return v.FinalBakeTimeInMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentStrategyOutput) GrowthFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.Float64Output { return v.GrowthFactor }).(pulumi.Float64Output)
+}
+
+func (o DeploymentStrategyOutput) GrowthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringPtrOutput { return v.GrowthType }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStrategyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DeploymentStrategyOutput) ReplicateTo() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.ReplicateTo }).(pulumi.StringOutput)
+}
+
+func (o DeploymentStrategyOutput) Tags() DeploymentStrategyTagsArrayOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) DeploymentStrategyTagsArrayOutput { return v.Tags }).(DeploymentStrategyTagsArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyInput)(nil)).Elem(), &DeploymentStrategy{})
 	pulumi.RegisterOutputType(DeploymentStrategyOutput{})

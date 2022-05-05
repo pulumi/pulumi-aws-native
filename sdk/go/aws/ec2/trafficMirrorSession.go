@@ -137,6 +137,38 @@ func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx 
 	return o
 }
 
+func (o TrafficMirrorSessionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TrafficMirrorSessionOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorSessionOutput) PacketLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntPtrOutput { return v.PacketLength }).(pulumi.IntPtrOutput)
+}
+
+func (o TrafficMirrorSessionOutput) SessionNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.SessionNumber }).(pulumi.IntOutput)
+}
+
+func (o TrafficMirrorSessionOutput) Tags() TrafficMirrorSessionTagArrayOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) TrafficMirrorSessionTagArrayOutput { return v.Tags }).(TrafficMirrorSessionTagArrayOutput)
+}
+
+func (o TrafficMirrorSessionOutput) TrafficMirrorFilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.TrafficMirrorFilterId }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorSessionOutput) TrafficMirrorTargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.TrafficMirrorTargetId }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorSessionOutput) VirtualNetworkId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntPtrOutput { return v.VirtualNetworkId }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorSessionInput)(nil)).Elem(), &TrafficMirrorSession{})
 	pulumi.RegisterOutputType(TrafficMirrorSessionOutput{})

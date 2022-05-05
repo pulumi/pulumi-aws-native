@@ -131,6 +131,38 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o AccessPointOutput) AccessPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.AccessPointId }).(pulumi.StringOutput)
+}
+
+func (o AccessPointOutput) AccessPointTags() AccessPointTagArrayOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointTagArrayOutput { return v.AccessPointTags }).(AccessPointTagArrayOutput)
+}
+
+func (o AccessPointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
+func (o AccessPointOutput) ClientToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the EFS file system that the access point provides access to.
+func (o AccessPointOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The operating system user and group applied to all file system requests made using the access point.
+func (o AccessPointOutput) PosixUser() AccessPointPosixUserPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointPosixUserPtrOutput { return v.PosixUser }).(AccessPointPosixUserPtrOutput)
+}
+
+// Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
+func (o AccessPointOutput) RootDirectory() AccessPointRootDirectoryPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointRootDirectoryPtrOutput { return v.RootDirectory }).(AccessPointRootDirectoryPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointInput)(nil)).Elem(), &AccessPoint{})
 	pulumi.RegisterOutputType(AccessPointOutput{})

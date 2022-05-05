@@ -111,6 +111,26 @@ func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutputWithContext(
 	return o
 }
 
+func (o SubscriptionDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionDefinitionOutput) InitialVersion() SubscriptionDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *SubscriptionDefinition) SubscriptionDefinitionVersionTypePtrOutput { return v.InitialVersion }).(SubscriptionDefinitionVersionTypePtrOutput)
+}
+
+func (o SubscriptionDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionDefinitionInput)(nil)).Elem(), &SubscriptionDefinition{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionOutput{})

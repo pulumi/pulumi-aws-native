@@ -116,6 +116,18 @@ func (o GCMChannelOutput) ToGCMChannelOutputWithContext(ctx context.Context) GCM
 	return o
 }
 
+func (o GCMChannelOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *GCMChannel) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+func (o GCMChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GCMChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o GCMChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GCMChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GCMChannelInput)(nil)).Elem(), &GCMChannel{})
 	pulumi.RegisterOutputType(GCMChannelOutput{})

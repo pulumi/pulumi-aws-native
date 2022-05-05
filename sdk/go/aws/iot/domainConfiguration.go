@@ -125,6 +125,52 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 	return o
 }
 
+func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DomainConfigurationOutput) AuthorizerConfig() DomainConfigurationAuthorizerConfigPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationAuthorizerConfigPtrOutput { return v.AuthorizerConfig }).(DomainConfigurationAuthorizerConfigPtrOutput)
+}
+
+func (o DomainConfigurationOutput) DomainConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.DomainConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainConfigurationOutput) DomainConfigurationStatus() DomainConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationStatusPtrOutput { return v.DomainConfigurationStatus }).(DomainConfigurationStatusPtrOutput)
+}
+
+func (o DomainConfigurationOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainConfigurationOutput) DomainType() DomainConfigurationDomainTypeOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationDomainTypeOutput { return v.DomainType }).(DomainConfigurationDomainTypeOutput)
+}
+
+func (o DomainConfigurationOutput) ServerCertificateArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringArrayOutput { return v.ServerCertificateArns }).(pulumi.StringArrayOutput)
+}
+
+func (o DomainConfigurationOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServerCertificateSummaryArrayOutput {
+		return v.ServerCertificates
+	}).(DomainConfigurationServerCertificateSummaryArrayOutput)
+}
+
+func (o DomainConfigurationOutput) ServiceType() DomainConfigurationServiceTypePtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServiceTypePtrOutput { return v.ServiceType }).(DomainConfigurationServiceTypePtrOutput)
+}
+
+func (o DomainConfigurationOutput) Tags() DomainConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTagArrayOutput { return v.Tags }).(DomainConfigurationTagArrayOutput)
+}
+
+func (o DomainConfigurationOutput) ValidationCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.ValidationCertificateArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationInput)(nil)).Elem(), &DomainConfiguration{})
 	pulumi.RegisterOutputType(DomainConfigurationOutput{})

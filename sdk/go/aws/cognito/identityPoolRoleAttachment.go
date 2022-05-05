@@ -113,6 +113,18 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 	return o
 }
 
+func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
+}
+
+func (o IdentityPoolRoleAttachmentOutput) RoleMappings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.AnyOutput { return v.RoleMappings }).(pulumi.AnyOutput)
+}
+
+func (o IdentityPoolRoleAttachmentOutput) Roles() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.AnyOutput { return v.Roles }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentInput)(nil)).Elem(), &IdentityPoolRoleAttachment{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})

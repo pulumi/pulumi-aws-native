@@ -121,6 +121,50 @@ func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) Identit
 	return o
 }
 
+func (o IdentityOutput) DkimSigningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Identity) pulumi.BoolPtrOutput { return v.DkimSigningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o IdentityOutput) FeedbackForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Identity) pulumi.BoolPtrOutput { return v.FeedbackForwardingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o IdentityOutput) IdentityDNSRecordName1() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordName1 }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) IdentityDNSRecordName2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordName2 }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) IdentityDNSRecordName3() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordName3 }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) IdentityDNSRecordValue1() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordValue1 }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) IdentityDNSRecordValue2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordValue2 }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) IdentityDNSRecordValue3() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordValue3 }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) MailFromAttributes() IdentityMailFromAttributesPtrOutput {
+	return o.ApplyT(func(v *Identity) IdentityMailFromAttributesPtrOutput { return v.MailFromAttributes }).(IdentityMailFromAttributesPtrOutput)
+}
+
+func (o IdentityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o IdentityOutput) Tags() IdentityTagsArrayOutput {
+	return o.ApplyT(func(v *Identity) IdentityTagsArrayOutput { return v.Tags }).(IdentityTagsArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityInput)(nil)).Elem(), &Identity{})
 	pulumi.RegisterOutputType(IdentityOutput{})

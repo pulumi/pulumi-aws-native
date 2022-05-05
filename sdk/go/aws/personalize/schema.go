@@ -122,6 +122,26 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
+// The domain of a Domain dataset group.
+func (o SchemaOutput) Domain() SchemaDomainPtrOutput {
+	return o.ApplyT(func(v *Schema) SchemaDomainPtrOutput { return v.Domain }).(SchemaDomainPtrOutput)
+}
+
+// Name for the schema.
+func (o SchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A schema in Avro JSON format.
+func (o SchemaOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Arn for the schema.
+func (o SchemaOutput) SchemaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaInput)(nil)).Elem(), &Schema{})
 	pulumi.RegisterOutputType(SchemaOutput{})

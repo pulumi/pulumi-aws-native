@@ -119,6 +119,22 @@ func (o WebACLOutput) ToWebACLOutputWithContext(ctx context.Context) WebACLOutpu
 	return o
 }
 
+func (o WebACLOutput) DefaultAction() WebACLWafActionOutput {
+	return o.ApplyT(func(v *WebACL) WebACLWafActionOutput { return v.DefaultAction }).(WebACLWafActionOutput)
+}
+
+func (o WebACLOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
+}
+
+func (o WebACLOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebACLOutput) Rules() WebACLActivatedRuleArrayOutput {
+	return o.ApplyT(func(v *WebACL) WebACLActivatedRuleArrayOutput { return v.Rules }).(WebACLActivatedRuleArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLInput)(nil)).Elem(), &WebACL{})
 	pulumi.RegisterOutputType(WebACLOutput{})

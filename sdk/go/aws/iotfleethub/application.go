@@ -142,6 +142,66 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The ARN of the application.
+func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// When the Application was created
+func (o ApplicationOutput) ApplicationCreationDate() pulumi.IntOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntOutput { return v.ApplicationCreationDate }).(pulumi.IntOutput)
+}
+
+// Application Description, should be between 1 and 2048 characters.
+func (o ApplicationOutput) ApplicationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the application.
+func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// When the Application was last updated
+func (o ApplicationOutput) ApplicationLastUpdateDate() pulumi.IntOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntOutput { return v.ApplicationLastUpdateDate }).(pulumi.IntOutput)
+}
+
+// Application Name, should be between 1 and 256 characters.
+func (o ApplicationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The current state of the application.
+func (o ApplicationOutput) ApplicationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationState }).(pulumi.StringOutput)
+}
+
+// The URL of the application.
+func (o ApplicationOutput) ApplicationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationUrl }).(pulumi.StringOutput)
+}
+
+// A message indicating why Create or Delete Application failed.
+func (o ApplicationOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
+func (o ApplicationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The AWS SSO application generated client ID (used with AWS SSO APIs).
+func (o ApplicationOutput) SsoClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.SsoClientId }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the application.
+func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

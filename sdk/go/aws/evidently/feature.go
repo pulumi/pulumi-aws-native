@@ -133,6 +133,43 @@ func (o FeatureOutput) ToFeatureOutputWithContext(ctx context.Context) FeatureOu
 	return o
 }
 
+func (o FeatureOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FeatureOutput) DefaultVariation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.DefaultVariation }).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureOutput) EntityOverrides() FeatureEntityOverrideArrayOutput {
+	return o.ApplyT(func(v *Feature) FeatureEntityOverrideArrayOutput { return v.EntityOverrides }).(FeatureEntityOverrideArrayOutput)
+}
+
+func (o FeatureOutput) EvaluationStrategy() FeatureEvaluationStrategyPtrOutput {
+	return o.ApplyT(func(v *Feature) FeatureEvaluationStrategyPtrOutput { return v.EvaluationStrategy }).(FeatureEvaluationStrategyPtrOutput)
+}
+
+func (o FeatureOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FeatureOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o FeatureOutput) Tags() FeatureTagArrayOutput {
+	return o.ApplyT(func(v *Feature) FeatureTagArrayOutput { return v.Tags }).(FeatureTagArrayOutput)
+}
+
+func (o FeatureOutput) Variations() FeatureVariationObjectArrayOutput {
+	return o.ApplyT(func(v *Feature) FeatureVariationObjectArrayOutput { return v.Variations }).(FeatureVariationObjectArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureInput)(nil)).Elem(), &Feature{})
 	pulumi.RegisterOutputType(FeatureOutput{})

@@ -167,6 +167,75 @@ func (o FleetMetricOutput) ToFleetMetricOutputWithContext(ctx context.Context) F
 	return o
 }
 
+// The aggregation field to perform aggregation and metric emission
+func (o FleetMetricOutput) AggregationField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.AggregationField }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetMetricOutput) AggregationType() FleetMetricAggregationTypePtrOutput {
+	return o.ApplyT(func(v *FleetMetric) FleetMetricAggregationTypePtrOutput { return v.AggregationType }).(FleetMetricAggregationTypePtrOutput)
+}
+
+// The creation date of a fleet metric
+func (o FleetMetricOutput) CreationDate() pulumi.Float64Output {
+	return o.ApplyT(func(v *FleetMetric) pulumi.Float64Output { return v.CreationDate }).(pulumi.Float64Output)
+}
+
+// The description of a fleet metric
+func (o FleetMetricOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The index name of a fleet metric
+func (o FleetMetricOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.IndexName }).(pulumi.StringPtrOutput)
+}
+
+// The last modified date of a fleet metric
+func (o FleetMetricOutput) LastModifiedDate() pulumi.Float64Output {
+	return o.ApplyT(func(v *FleetMetric) pulumi.Float64Output { return v.LastModifiedDate }).(pulumi.Float64Output)
+}
+
+// The Amazon Resource Number (ARN) of a fleet metric metric
+func (o FleetMetricOutput) MetricArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringOutput { return v.MetricArn }).(pulumi.StringOutput)
+}
+
+// The name of the fleet metric
+func (o FleetMetricOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The period of metric emission in seconds
+func (o FleetMetricOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
+}
+
+// The Fleet Indexing query used by a fleet metric
+func (o FleetMetricOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The version of a Fleet Indexing query used by a fleet metric
+func (o FleetMetricOutput) QueryVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.QueryVersion }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource
+func (o FleetMetricOutput) Tags() FleetMetricTagArrayOutput {
+	return o.ApplyT(func(v *FleetMetric) FleetMetricTagArrayOutput { return v.Tags }).(FleetMetricTagArrayOutput)
+}
+
+// The unit of data points emitted by a fleet metric
+func (o FleetMetricOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+// The version of a fleet metric
+func (o FleetMetricOutput) Version() pulumi.Float64Output {
+	return o.ApplyT(func(v *FleetMetric) pulumi.Float64Output { return v.Version }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricInput)(nil)).Elem(), &FleetMetric{})
 	pulumi.RegisterOutputType(FleetMetricOutput{})

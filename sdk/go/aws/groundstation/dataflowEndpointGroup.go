@@ -109,6 +109,20 @@ func (o DataflowEndpointGroupOutput) ToDataflowEndpointGroupOutputWithContext(ct
 	return o
 }
 
+func (o DataflowEndpointGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DataflowEndpointGroupOutput) EndpointDetails() DataflowEndpointGroupEndpointDetailsArrayOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroup) DataflowEndpointGroupEndpointDetailsArrayOutput {
+		return v.EndpointDetails
+	}).(DataflowEndpointGroupEndpointDetailsArrayOutput)
+}
+
+func (o DataflowEndpointGroupOutput) Tags() DataflowEndpointGroupTagArrayOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroup) DataflowEndpointGroupTagArrayOutput { return v.Tags }).(DataflowEndpointGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupInput)(nil)).Elem(), &DataflowEndpointGroup{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupOutput{})

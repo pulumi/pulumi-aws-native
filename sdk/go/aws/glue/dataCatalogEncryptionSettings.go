@@ -113,6 +113,16 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 	return o
 }
 
+func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o DataCatalogEncryptionSettingsOutput) DataCatalogEncryptionSettings() DataCatalogEncryptionSettingsTypeOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettingsTypeOutput {
+		return v.DataCatalogEncryptionSettings
+	}).(DataCatalogEncryptionSettingsTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsInput)(nil)).Elem(), &DataCatalogEncryptionSettings{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsOutput{})

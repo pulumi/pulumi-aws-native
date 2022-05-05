@@ -134,6 +134,42 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 	return o
 }
 
+func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.AllowedPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) Policies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Policies }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o ParameterOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterInput)(nil)).Elem(), &Parameter{})
 	pulumi.RegisterOutputType(ParameterOutput{})

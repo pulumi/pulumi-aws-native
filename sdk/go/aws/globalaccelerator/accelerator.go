@@ -129,6 +129,40 @@ func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the accelerator.
+func (o AcceleratorOutput) AcceleratorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.AcceleratorArn }).(pulumi.StringOutput)
+}
+
+// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+func (o AcceleratorOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// Indicates whether an accelerator is enabled. The value is true or false.
+func (o AcceleratorOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// IP Address type.
+func (o AcceleratorOutput) IpAddressType() AcceleratorIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *Accelerator) AcceleratorIpAddressTypePtrOutput { return v.IpAddressType }).(AcceleratorIpAddressTypePtrOutput)
+}
+
+// The IP addresses from BYOIP Prefix pool.
+func (o AcceleratorOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Name of accelerator.
+func (o AcceleratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AcceleratorOutput) Tags() AcceleratorTagArrayOutput {
+	return o.ApplyT(func(v *Accelerator) AcceleratorTagArrayOutput { return v.Tags }).(AcceleratorTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorInput)(nil)).Elem(), &Accelerator{})
 	pulumi.RegisterOutputType(AcceleratorOutput{})

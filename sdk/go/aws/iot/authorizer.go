@@ -127,6 +127,42 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+func (o AuthorizerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AuthorizerOutput) AuthorizerFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerFunctionArn }).(pulumi.StringOutput)
+}
+
+func (o AuthorizerOutput) AuthorizerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerName }).(pulumi.StringPtrOutput)
+}
+
+func (o AuthorizerOutput) EnableCachingForHttp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.EnableCachingForHttp }).(pulumi.BoolPtrOutput)
+}
+
+func (o AuthorizerOutput) SigningDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.SigningDisabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o AuthorizerOutput) Status() AuthorizerStatusPtrOutput {
+	return o.ApplyT(func(v *Authorizer) AuthorizerStatusPtrOutput { return v.Status }).(AuthorizerStatusPtrOutput)
+}
+
+func (o AuthorizerOutput) Tags() AuthorizerTagArrayOutput {
+	return o.ApplyT(func(v *Authorizer) AuthorizerTagArrayOutput { return v.Tags }).(AuthorizerTagArrayOutput)
+}
+
+func (o AuthorizerOutput) TokenKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.TokenKeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o AuthorizerOutput) TokenSigningPublicKeys() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.AnyOutput { return v.TokenSigningPublicKeys }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerInput)(nil)).Elem(), &Authorizer{})
 	pulumi.RegisterOutputType(AuthorizerOutput{})

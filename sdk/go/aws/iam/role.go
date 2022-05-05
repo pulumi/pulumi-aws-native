@@ -160,6 +160,61 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the role.
+func (o RoleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The trust policy that is associated with this role.
+func (o RoleOutput) AssumeRolePolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Role) pulumi.AnyOutput { return v.AssumeRolePolicyDocument }).(pulumi.AnyOutput)
+}
+
+// A description of the role that you provide.
+func (o RoleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+func (o RoleOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
+}
+
+// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+func (o RoleOutput) MaxSessionDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.IntPtrOutput { return v.MaxSessionDuration }).(pulumi.IntPtrOutput)
+}
+
+// The path to the role.
+func (o RoleOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the policy used to set the permissions boundary for the role.
+func (o RoleOutput) PermissionsBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
+}
+
+// Adds or updates an inline policy document that is embedded in the specified IAM role.
+func (o RoleOutput) Policies() RolePolicyArrayOutput {
+	return o.ApplyT(func(v *Role) RolePolicyArrayOutput { return v.Policies }).(RolePolicyArrayOutput)
+}
+
+// The stable and unique string identifying the role.
+func (o RoleOutput) RoleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.RoleId }).(pulumi.StringOutput)
+}
+
+// A name for the IAM role, up to 64 characters in length.
+func (o RoleOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags that are attached to the role.
+func (o RoleOutput) Tags() RoleTagArrayOutput {
+	return o.ApplyT(func(v *Role) RoleTagArrayOutput { return v.Tags }).(RoleTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInput)(nil)).Elem(), &Role{})
 	pulumi.RegisterOutputType(RoleOutput{})

@@ -128,6 +128,51 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// The time at which the project was created.
+func (o ProjectOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) ProjectArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) ProjectDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// The status of a project.
+func (o ProjectOutput) ProjectStatus() ProjectStatusOutput {
+	return o.ApplyT(func(v *Project) ProjectStatusOutput { return v.ProjectStatus }).(ProjectStatusOutput)
+}
+
+// Provisioned ServiceCatalog  Details
+func (o ProjectOutput) ServiceCatalogProvisionedProductDetails() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return o.ApplyT(func(v *Project) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+		return v.ServiceCatalogProvisionedProductDetails
+	}).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
+}
+
+// Input ServiceCatalog Provisioning Details
+func (o ProjectOutput) ServiceCatalogProvisioningDetails() ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return o.ApplyT(func(v *Project) ServiceCatalogProvisioningDetailsPropertiesOutput {
+		return v.ServiceCatalogProvisioningDetails
+	}).(ServiceCatalogProvisioningDetailsPropertiesOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ProjectOutput) Tags() ProjectTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

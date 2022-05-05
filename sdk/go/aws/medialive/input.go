@@ -131,6 +131,50 @@ func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return o
 }
 
+func (o InputOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InputOutput) Destinations() InputDestinationRequestArrayOutput {
+	return o.ApplyT(func(v *Input) InputDestinationRequestArrayOutput { return v.Destinations }).(InputDestinationRequestArrayOutput)
+}
+
+func (o InputOutput) InputDevices() InputDeviceSettingsArrayOutput {
+	return o.ApplyT(func(v *Input) InputDeviceSettingsArrayOutput { return v.InputDevices }).(InputDeviceSettingsArrayOutput)
+}
+
+func (o InputOutput) InputSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringArrayOutput { return v.InputSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o InputOutput) MediaConnectFlows() InputMediaConnectFlowRequestArrayOutput {
+	return o.ApplyT(func(v *Input) InputMediaConnectFlowRequestArrayOutput { return v.MediaConnectFlows }).(InputMediaConnectFlowRequestArrayOutput)
+}
+
+func (o InputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o InputOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o InputOutput) Sources() InputSourceRequestArrayOutput {
+	return o.ApplyT(func(v *Input) InputSourceRequestArrayOutput { return v.Sources }).(InputSourceRequestArrayOutput)
+}
+
+func (o InputOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Input) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o InputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o InputOutput) Vpc() InputVpcRequestPtrOutput {
+	return o.ApplyT(func(v *Input) InputVpcRequestPtrOutput { return v.Vpc }).(InputVpcRequestPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputInput)(nil)).Elem(), &Input{})
 	pulumi.RegisterOutputType(InputOutput{})

@@ -162,6 +162,56 @@ func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) Documen
 	return o
 }
 
+// A list of key and value pairs that describe attachments to a version of a document.
+func (o DocumentOutput) Attachments() DocumentAttachmentsSourceArrayOutput {
+	return o.ApplyT(func(v *Document) DocumentAttachmentsSourceArrayOutput { return v.Attachments }).(DocumentAttachmentsSourceArrayOutput)
+}
+
+// The content for the Systems Manager document in JSON, YAML or String format.
+func (o DocumentOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Document) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
+}
+
+// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+func (o DocumentOutput) DocumentFormat() DocumentFormatPtrOutput {
+	return o.ApplyT(func(v *Document) DocumentFormatPtrOutput { return v.DocumentFormat }).(DocumentFormatPtrOutput)
+}
+
+// The type of document to create.
+func (o DocumentOutput) DocumentType() DocumentTypePtrOutput {
+	return o.ApplyT(func(v *Document) DocumentTypePtrOutput { return v.DocumentType }).(DocumentTypePtrOutput)
+}
+
+// A name for the Systems Manager document.
+func (o DocumentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+func (o DocumentOutput) Requires() DocumentRequiresArrayOutput {
+	return o.ApplyT(func(v *Document) DocumentRequiresArrayOutput { return v.Requires }).(DocumentRequiresArrayOutput)
+}
+
+// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
+func (o DocumentOutput) Tags() DocumentTagArrayOutput {
+	return o.ApplyT(func(v *Document) DocumentTagArrayOutput { return v.Tags }).(DocumentTagArrayOutput)
+}
+
+// Specify a target type to define the kinds of resources the document can run on.
+func (o DocumentOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
+}
+
+// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
+func (o DocumentOutput) UpdateMethod() DocumentUpdateMethodPtrOutput {
+	return o.ApplyT(func(v *Document) DocumentUpdateMethodPtrOutput { return v.UpdateMethod }).(DocumentUpdateMethodPtrOutput)
+}
+
+// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
+func (o DocumentOutput) VersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.VersionName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentInput)(nil)).Elem(), &Document{})
 	pulumi.RegisterOutputType(DocumentOutput{})

@@ -133,6 +133,47 @@ func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
+func (o ComputeEnvironmentOutput) ComputeEnvironmentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.ComputeEnvironmentArn }).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentOutput) ComputeEnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.ComputeEnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeResourcesPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentComputeResourcesPtrOutput { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) ReplaceComputeEnvironment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.BoolPtrOutput { return v.ReplaceComputeEnvironment }).(pulumi.BoolPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o ComputeEnvironmentOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentOutput) UnmanagedvCpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.IntPtrOutput { return v.UnmanagedvCpus }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentUpdatePolicyPtrOutput { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInput)(nil)).Elem(), &ComputeEnvironment{})
 	pulumi.RegisterOutputType(ComputeEnvironmentOutput{})

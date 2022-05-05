@@ -121,6 +121,64 @@ func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutputWithContex
 	return o
 }
 
+func (o NetworkInsightsAnalysisOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+		return v.AlternatePathHints
+	}).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisExplanationArrayOutput { return v.Explanations }).(NetworkInsightsAnalysisExplanationArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) FilterInArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.FilterInArns }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) ForwardPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisPathComponentArrayOutput {
+		return v.ForwardPathComponents
+	}).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) NetworkInsightsAnalysisArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.NetworkInsightsAnalysisArn }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) NetworkInsightsAnalysisId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.NetworkInsightsAnalysisId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) NetworkInsightsPathId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) NetworkPathFound() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.BoolOutput { return v.NetworkPathFound }).(pulumi.BoolOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) ReturnPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisPathComponentArrayOutput {
+		return v.ReturnPathComponents
+	}).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) Status() NetworkInsightsAnalysisStatusOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisStatusOutput { return v.Status }).(NetworkInsightsAnalysisStatusOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) Tags() NetworkInsightsAnalysisTagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisTagArrayOutput { return v.Tags }).(NetworkInsightsAnalysisTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisInput)(nil)).Elem(), &NetworkInsightsAnalysis{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisOutput{})

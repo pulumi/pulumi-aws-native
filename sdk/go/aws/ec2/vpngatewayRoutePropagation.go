@@ -119,6 +119,16 @@ func (o VPNGatewayRoutePropagationOutput) ToVPNGatewayRoutePropagationOutputWith
 	return o
 }
 
+// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
+func (o VPNGatewayRoutePropagationOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPNGatewayRoutePropagation) pulumi.StringArrayOutput { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+func (o VPNGatewayRoutePropagationOutput) VpnGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPNGatewayRoutePropagation) pulumi.StringOutput { return v.VpnGatewayId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayRoutePropagationInput)(nil)).Elem(), &VPNGatewayRoutePropagation{})
 	pulumi.RegisterOutputType(VPNGatewayRoutePropagationOutput{})

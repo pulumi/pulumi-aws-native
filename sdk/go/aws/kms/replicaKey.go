@@ -143,6 +143,44 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+func (o ReplicaKeyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
+func (o ReplicaKeyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
+func (o ReplicaKeyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicaKeyOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+func (o ReplicaKeyOutput) KeyPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.AnyOutput { return v.KeyPolicy }).(pulumi.AnyOutput)
+}
+
+// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+func (o ReplicaKeyOutput) PendingWindowInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.IntPtrOutput { return v.PendingWindowInDays }).(pulumi.IntPtrOutput)
+}
+
+// Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
+func (o ReplicaKeyOutput) PrimaryKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.PrimaryKeyArn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ReplicaKeyOutput) Tags() ReplicaKeyTagArrayOutput {
+	return o.ApplyT(func(v *ReplicaKey) ReplicaKeyTagArrayOutput { return v.Tags }).(ReplicaKeyTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyInput)(nil)).Elem(), &ReplicaKey{})
 	pulumi.RegisterOutputType(ReplicaKeyOutput{})

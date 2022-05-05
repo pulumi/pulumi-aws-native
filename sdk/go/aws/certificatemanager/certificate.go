@@ -125,6 +125,34 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CertificateOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidationOptionArrayOutput {
+	return o.ApplyT(func(v *Certificate) CertificateDomainValidationOptionArrayOutput { return v.DomainValidationOptions }).(CertificateDomainValidationOptionArrayOutput)
+}
+
+func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+func (o CertificateOutput) Tags() CertificateTagArrayOutput {
+	return o.ApplyT(func(v *Certificate) CertificateTagArrayOutput { return v.Tags }).(CertificateTagArrayOutput)
+}
+
+func (o CertificateOutput) ValidationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ValidationMethod }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateInput)(nil)).Elem(), &Certificate{})
 	pulumi.RegisterOutputType(CertificateOutput{})

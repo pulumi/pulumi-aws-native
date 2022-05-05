@@ -110,6 +110,16 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ct
 	return o
 }
 
+func (o SecurityConfigurationOutput) EncryptionConfiguration() SecurityConfigurationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) SecurityConfigurationEncryptionConfigurationOutput {
+		return v.EncryptionConfiguration
+	}).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+func (o SecurityConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationInput)(nil)).Elem(), &SecurityConfiguration{})
 	pulumi.RegisterOutputType(SecurityConfigurationOutput{})

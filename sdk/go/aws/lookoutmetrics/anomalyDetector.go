@@ -136,6 +136,35 @@ func (o AnomalyDetectorOutput) ToAnomalyDetectorOutputWithContext(ctx context.Co
 	return o
 }
 
+// Configuration options for the AnomalyDetector
+func (o AnomalyDetectorOutput) AnomalyDetectorConfig() AnomalyDetectorConfigOutput {
+	return o.ApplyT(func(v *AnomalyDetector) AnomalyDetectorConfigOutput { return v.AnomalyDetectorConfig }).(AnomalyDetectorConfigOutput)
+}
+
+// A description for the AnomalyDetector.
+func (o AnomalyDetectorOutput) AnomalyDetectorDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringPtrOutput { return v.AnomalyDetectorDescription }).(pulumi.StringPtrOutput)
+}
+
+// Name for the Amazon Lookout for Metrics Anomaly Detector
+func (o AnomalyDetectorOutput) AnomalyDetectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringPtrOutput { return v.AnomalyDetectorName }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// KMS key used to encrypt the AnomalyDetector data
+func (o AnomalyDetectorOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// List of metric sets for anomaly detection
+func (o AnomalyDetectorOutput) MetricSetList() AnomalyDetectorMetricSetArrayOutput {
+	return o.ApplyT(func(v *AnomalyDetector) AnomalyDetectorMetricSetArrayOutput { return v.MetricSetList }).(AnomalyDetectorMetricSetArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorInput)(nil)).Elem(), &AnomalyDetector{})
 	pulumi.RegisterOutputType(AnomalyDetectorOutput{})

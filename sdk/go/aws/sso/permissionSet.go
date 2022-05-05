@@ -146,6 +146,49 @@ func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The permission set description.
+func (o PermissionSetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The inline policy to put in permission set.
+func (o PermissionSetOutput) InlinePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.AnyOutput { return v.InlinePolicy }).(pulumi.AnyOutput)
+}
+
+// The sso instance arn that the permission set is owned.
+func (o PermissionSetOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+func (o PermissionSetOutput) ManagedPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringArrayOutput { return v.ManagedPolicies }).(pulumi.StringArrayOutput)
+}
+
+// The name you want to assign to this permission set.
+func (o PermissionSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The permission set that the policy will be attached to
+func (o PermissionSetOutput) PermissionSetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
+}
+
+// The relay state URL that redirect links to any service in the AWS Management Console.
+func (o PermissionSetOutput) RelayStateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.RelayStateType }).(pulumi.StringPtrOutput)
+}
+
+// The length of time that a user can be signed in to an AWS account.
+func (o PermissionSetOutput) SessionDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.SessionDuration }).(pulumi.StringPtrOutput)
+}
+
+func (o PermissionSetOutput) Tags() PermissionSetTagArrayOutput {
+	return o.ApplyT(func(v *PermissionSet) PermissionSetTagArrayOutput { return v.Tags }).(PermissionSetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInput)(nil)).Elem(), &PermissionSet{})
 	pulumi.RegisterOutputType(PermissionSetOutput{})

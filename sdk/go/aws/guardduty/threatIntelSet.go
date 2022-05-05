@@ -128,6 +128,26 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ThreatIntelSetOutput) Activate() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
+}
+
+func (o ThreatIntelSetOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+func (o ThreatIntelSetOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
+}
+
+func (o ThreatIntelSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o ThreatIntelSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetInput)(nil)).Elem(), &ThreatIntelSet{})
 	pulumi.RegisterOutputType(ThreatIntelSetOutput{})

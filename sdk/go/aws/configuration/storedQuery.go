@@ -122,6 +122,31 @@ func (o StoredQueryOutput) ToStoredQueryOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o StoredQueryOutput) QueryArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryArn }).(pulumi.StringOutput)
+}
+
+func (o StoredQueryOutput) QueryDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StoredQuery) pulumi.StringPtrOutput { return v.QueryDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o StoredQueryOutput) QueryExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryExpression }).(pulumi.StringOutput)
+}
+
+func (o StoredQueryOutput) QueryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryId }).(pulumi.StringOutput)
+}
+
+func (o StoredQueryOutput) QueryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StoredQuery) pulumi.StringOutput { return v.QueryName }).(pulumi.StringOutput)
+}
+
+// The tags for the stored query.
+func (o StoredQueryOutput) Tags() StoredQueryTagArrayOutput {
+	return o.ApplyT(func(v *StoredQuery) StoredQueryTagArrayOutput { return v.Tags }).(StoredQueryTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryInput)(nil)).Elem(), &StoredQuery{})
 	pulumi.RegisterOutputType(StoredQueryOutput{})

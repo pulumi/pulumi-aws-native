@@ -164,6 +164,58 @@ func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// Specify additional settings and launch scripts for your build instances.
+func (o ImageRecipeOutput) AdditionalInstanceConfiguration() ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+		return v.AdditionalInstanceConfiguration
+	}).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the image recipe.
+func (o ImageRecipeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The block device mappings to apply when creating images from this recipe.
+func (o ImageRecipeOutput) BlockDeviceMappings() ImageRecipeInstanceBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *ImageRecipe) ImageRecipeInstanceBlockDeviceMappingArrayOutput { return v.BlockDeviceMappings }).(ImageRecipeInstanceBlockDeviceMappingArrayOutput)
+}
+
+// The components of the image recipe.
+func (o ImageRecipeOutput) Components() ImageRecipeComponentConfigurationArrayOutput {
+	return o.ApplyT(func(v *ImageRecipe) ImageRecipeComponentConfigurationArrayOutput { return v.Components }).(ImageRecipeComponentConfigurationArrayOutput)
+}
+
+// The description of the image recipe.
+func (o ImageRecipeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the image recipe.
+func (o ImageRecipeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parent image of the image recipe.
+func (o ImageRecipeOutput) ParentImage() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.ParentImage }).(pulumi.StringOutput)
+}
+
+// The tags of the image recipe.
+func (o ImageRecipeOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The version of the image recipe.
+func (o ImageRecipeOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
+// The working directory to be used during build and test workflows.
+func (o ImageRecipeOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeInput)(nil)).Elem(), &ImageRecipe{})
 	pulumi.RegisterOutputType(ImageRecipeOutput{})

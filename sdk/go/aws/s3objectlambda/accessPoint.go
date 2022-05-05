@@ -120,6 +120,36 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o AccessPointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The date and time when the Object lambda Access Point was created.
+func (o AccessPointOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The name you want to assign to this Object lambda Access Point.
+func (o AccessPointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
+func (o AccessPointOutput) ObjectLambdaConfiguration() AccessPointObjectLambdaConfigurationOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointObjectLambdaConfigurationOutput { return v.ObjectLambdaConfiguration }).(AccessPointObjectLambdaConfigurationOutput)
+}
+
+func (o AccessPointOutput) PolicyStatus() PolicyStatusPropertiesOutput {
+	return o.ApplyT(func(v *AccessPoint) PolicyStatusPropertiesOutput { return v.PolicyStatus }).(PolicyStatusPropertiesOutput)
+}
+
+// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+func (o AccessPointOutput) PublicAccessBlockConfiguration() AccessPointPublicAccessBlockConfigurationOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointPublicAccessBlockConfigurationOutput {
+		return v.PublicAccessBlockConfiguration
+	}).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointInput)(nil)).Elem(), &AccessPoint{})
 	pulumi.RegisterOutputType(AccessPointOutput{})

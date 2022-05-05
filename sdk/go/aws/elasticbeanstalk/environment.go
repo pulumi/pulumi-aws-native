@@ -141,6 +141,58 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EnvironmentOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) CNAMEPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.CNAMEPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) EndpointURL() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointURL }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) EnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) OperationsRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.OperationsRole }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) OptionSettings() EnvironmentOptionSettingArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentOptionSettingArrayOutput { return v.OptionSettings }).(EnvironmentOptionSettingArrayOutput)
+}
+
+func (o EnvironmentOutput) PlatformArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.PlatformArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) SolutionStackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.SolutionStackName }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
+}
+
+func (o EnvironmentOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) Tier() EnvironmentTierPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTierPtrOutput { return v.Tier }).(EnvironmentTierPtrOutput)
+}
+
+func (o EnvironmentOutput) VersionLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.VersionLabel }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentInput)(nil)).Elem(), &Environment{})
 	pulumi.RegisterOutputType(EnvironmentOutput{})

@@ -121,6 +121,28 @@ func (o AttributeGroupOutput) ToAttributeGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o AttributeGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AttributeGroupOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AttributeGroup) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+// The description of the attribute group.
+func (o AttributeGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttributeGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the attribute group.
+func (o AttributeGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AttributeGroupOutput) Tags() AttributeGroupTagsPtrOutput {
+	return o.ApplyT(func(v *AttributeGroup) AttributeGroupTagsPtrOutput { return v.Tags }).(AttributeGroupTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AttributeGroupInput)(nil)).Elem(), &AttributeGroup{})
 	pulumi.RegisterOutputType(AttributeGroupOutput{})

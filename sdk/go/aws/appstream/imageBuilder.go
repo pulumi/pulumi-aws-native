@@ -144,6 +144,62 @@ func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
+}
+
+func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.AppstreamAgentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) DomainJoinInfo() ImageBuilderDomainJoinInfoPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderDomainJoinInfoPtrOutput { return v.DomainJoinInfo }).(ImageBuilderDomainJoinInfoPtrOutput)
+}
+
+func (o ImageBuilderOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.BoolPtrOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
+}
+
+func (o ImageBuilderOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) ImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.ImageArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o ImageBuilderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ImageBuilderOutput) StreamingUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.StreamingUrl }).(pulumi.StringOutput)
+}
+
+func (o ImageBuilderOutput) Tags() ImageBuilderTagArrayOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderTagArrayOutput { return v.Tags }).(ImageBuilderTagArrayOutput)
+}
+
+func (o ImageBuilderOutput) VpcConfig() ImageBuilderVpcConfigPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderVpcConfigPtrOutput { return v.VpcConfig }).(ImageBuilderVpcConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderInput)(nil)).Elem(), &ImageBuilder{})
 	pulumi.RegisterOutputType(ImageBuilderOutput{})

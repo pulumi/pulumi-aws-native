@@ -115,6 +115,34 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+func (o GroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) InitialVersion() GroupVersionTypePtrOutput {
+	return o.ApplyT(func(v *Group) GroupVersionTypePtrOutput { return v.InitialVersion }).(GroupVersionTypePtrOutput)
+}
+
+func (o GroupOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupOutput) RoleAttachedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.RoleAttachedAt }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Group) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInput)(nil)).Elem(), &Group{})
 	pulumi.RegisterOutputType(GroupOutput{})

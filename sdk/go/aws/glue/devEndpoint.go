@@ -149,6 +149,66 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DevEndpointOutput) Arguments() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.AnyOutput { return v.Arguments }).(pulumi.AnyOutput)
+}
+
+func (o DevEndpointOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) ExtraJarsS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.ExtraJarsS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) ExtraPythonLibsS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.ExtraPythonLibsS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) NumberOfNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.IntPtrOutput { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o DevEndpointOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.IntPtrOutput { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o DevEndpointOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) PublicKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringArrayOutput { return v.PublicKeys }).(pulumi.StringArrayOutput)
+}
+
+func (o DevEndpointOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o DevEndpointOutput) SecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o DevEndpointOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o DevEndpointOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o DevEndpointOutput) WorkerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevEndpointInput)(nil)).Elem(), &DevEndpoint{})
 	pulumi.RegisterOutputType(DevEndpointOutput{})

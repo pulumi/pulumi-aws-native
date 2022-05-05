@@ -110,6 +110,14 @@ func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutp
 	return o
 }
 
+func (o VPCEndpointServicePermissionsOutput) AllowedPrincipals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpointServicePermissions) pulumi.StringArrayOutput { return v.AllowedPrincipals }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointServicePermissionsOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEndpointServicePermissions) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointServicePermissionsInput)(nil)).Elem(), &VPCEndpointServicePermissions{})
 	pulumi.RegisterOutputType(VPCEndpointServicePermissionsOutput{})

@@ -146,6 +146,58 @@ func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOu
 	return o
 }
 
+func (o CrawlerOutput) Classifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringArrayOutput { return v.Classifiers }).(pulumi.StringArrayOutput)
+}
+
+func (o CrawlerOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerOutput) CrawlerSecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.CrawlerSecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerOutput) RecrawlPolicy() CrawlerRecrawlPolicyPtrOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerRecrawlPolicyPtrOutput { return v.RecrawlPolicy }).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+func (o CrawlerOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o CrawlerOutput) Schedule() CrawlerSchedulePtrOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerSchedulePtrOutput { return v.Schedule }).(CrawlerSchedulePtrOutput)
+}
+
+func (o CrawlerOutput) SchemaChangePolicy() CrawlerSchemaChangePolicyPtrOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerSchemaChangePolicyPtrOutput { return v.SchemaChangePolicy }).(CrawlerSchemaChangePolicyPtrOutput)
+}
+
+func (o CrawlerOutput) TablePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.TablePrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o CrawlerOutput) Targets() CrawlerTargetsOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerTargetsOutput { return v.Targets }).(CrawlerTargetsOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerInput)(nil)).Elem(), &Crawler{})
 	pulumi.RegisterOutputType(CrawlerOutput{})

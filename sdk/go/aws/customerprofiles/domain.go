@@ -132,6 +132,41 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// The time of this integration got created
+func (o DomainOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The URL of the SQS dead letter queue
+func (o DomainOutput) DeadLetterQueueUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DeadLetterQueueUrl }).(pulumi.StringPtrOutput)
+}
+
+// The default encryption key
+func (o DomainOutput) DefaultEncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DefaultEncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// The default number of days until the data within the domain expires.
+func (o DomainOutput) DefaultExpirationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.IntPtrOutput { return v.DefaultExpirationDays }).(pulumi.IntPtrOutput)
+}
+
+// The unique name of the domain.
+func (o DomainOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The time of this integration got last updated at
+func (o DomainOutput) LastUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
+}
+
+// The tags (keys and values) associated with the domain
+func (o DomainOutput) Tags() DomainTagArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainInput)(nil)).Elem(), &Domain{})
 	pulumi.RegisterOutputType(DomainOutput{})

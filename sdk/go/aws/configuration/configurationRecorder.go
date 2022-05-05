@@ -113,6 +113,18 @@ func (o ConfigurationRecorderOutput) ToConfigurationRecorderOutputWithContext(ct
 	return o
 }
 
+func (o ConfigurationRecorderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorder) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationRecorderOutput) RecordingGroup() ConfigurationRecorderRecordingGroupPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorder) ConfigurationRecorderRecordingGroupPtrOutput { return v.RecordingGroup }).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+func (o ConfigurationRecorderOutput) RoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationRecorder) pulumi.StringOutput { return v.RoleARN }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderInput)(nil)).Elem(), &ConfigurationRecorder{})
 	pulumi.RegisterOutputType(ConfigurationRecorderOutput{})

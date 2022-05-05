@@ -106,6 +106,14 @@ func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) Publi
 	return o
 }
 
+func (o PublicKeyOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicKey) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o PublicKeyOutput) PublicKeyConfig() PublicKeyConfigOutput {
+	return o.ApplyT(func(v *PublicKey) PublicKeyConfigOutput { return v.PublicKeyConfig }).(PublicKeyConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyInput)(nil)).Elem(), &PublicKey{})
 	pulumi.RegisterOutputType(PublicKeyOutput{})

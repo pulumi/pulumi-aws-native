@@ -119,6 +119,22 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ct
 	return o
 }
 
+func (o ClusterParameterGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ClusterParameterGroupOutput) ParameterGroupFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.ParameterGroupFamily }).(pulumi.StringOutput)
+}
+
+func (o ClusterParameterGroupOutput) Parameters() ClusterParameterGroupParameterArrayOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) ClusterParameterGroupParameterArrayOutput { return v.Parameters }).(ClusterParameterGroupParameterArrayOutput)
+}
+
+func (o ClusterParameterGroupOutput) Tags() ClusterParameterGroupTagArrayOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) ClusterParameterGroupTagArrayOutput { return v.Tags }).(ClusterParameterGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupInput)(nil)).Elem(), &ClusterParameterGroup{})
 	pulumi.RegisterOutputType(ClusterParameterGroupOutput{})

@@ -116,6 +116,26 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
+func (o DomainNameOutput) AppSyncDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.AppSyncDomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameInput)(nil)).Elem(), &DomainName{})
 	pulumi.RegisterOutputType(DomainNameOutput{})

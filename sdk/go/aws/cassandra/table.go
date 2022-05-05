@@ -159,6 +159,54 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+func (o TableOutput) BillingMode() TableBillingModePtrOutput {
+	return o.ApplyT(func(v *Table) TableBillingModePtrOutput { return v.BillingMode }).(TableBillingModePtrOutput)
+}
+
+// Clustering key columns of the table
+func (o TableOutput) ClusteringKeyColumns() TableClusteringKeyColumnArrayOutput {
+	return o.ApplyT(func(v *Table) TableClusteringKeyColumnArrayOutput { return v.ClusteringKeyColumns }).(TableClusteringKeyColumnArrayOutput)
+}
+
+// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+func (o TableOutput) DefaultTimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DefaultTimeToLive }).(pulumi.IntPtrOutput)
+}
+
+func (o TableOutput) EncryptionSpecification() TableEncryptionSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableEncryptionSpecificationPtrOutput { return v.EncryptionSpecification }).(TableEncryptionSpecificationPtrOutput)
+}
+
+// Name for Cassandra keyspace
+func (o TableOutput) KeyspaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.KeyspaceName }).(pulumi.StringOutput)
+}
+
+// Partition key columns of the table
+func (o TableOutput) PartitionKeyColumns() TableColumnArrayOutput {
+	return o.ApplyT(func(v *Table) TableColumnArrayOutput { return v.PartitionKeyColumns }).(TableColumnArrayOutput)
+}
+
+// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
+func (o TableOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Non-key columns of the table
+func (o TableOutput) RegularColumns() TableColumnArrayOutput {
+	return o.ApplyT(func(v *Table) TableColumnArrayOutput { return v.RegularColumns }).(TableColumnArrayOutput)
+}
+
+// Name for Cassandra table
+func (o TableOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource
+func (o TableOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableInput)(nil)).Elem(), &Table{})
 	pulumi.RegisterOutputType(TableOutput{})

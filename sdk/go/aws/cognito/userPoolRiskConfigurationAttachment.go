@@ -122,6 +122,32 @@ func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAt
 	return o
 }
 
+func (o UserPoolRiskConfigurationAttachmentOutput) AccountTakeoverRiskConfiguration() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
+		return v.AccountTakeoverRiskConfiguration
+	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
+}
+
+func (o UserPoolRiskConfigurationAttachmentOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolRiskConfigurationAttachmentOutput) CompromisedCredentialsRiskConfiguration() UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
+		return v.CompromisedCredentialsRiskConfiguration
+	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
+}
+
+func (o UserPoolRiskConfigurationAttachmentOutput) RiskExceptionConfiguration() UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
+		return v.RiskExceptionConfiguration
+	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput)
+}
+
+func (o UserPoolRiskConfigurationAttachmentOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRiskConfigurationAttachmentInput)(nil)).Elem(), &UserPoolRiskConfigurationAttachment{})
 	pulumi.RegisterOutputType(UserPoolRiskConfigurationAttachmentOutput{})

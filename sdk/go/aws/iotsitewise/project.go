@@ -136,6 +136,41 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// The IDs of the assets to be associated to the project.
+func (o ProjectOutput) AssetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringArrayOutput { return v.AssetIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the portal in which to create the project.
+func (o ProjectOutput) PortalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.PortalId }).(pulumi.StringOutput)
+}
+
+// The ARN of the project.
+func (o ProjectOutput) ProjectArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+// A description for the project.
+func (o ProjectOutput) ProjectDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectDescription }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the project.
+func (o ProjectOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// A friendly name for the project.
+func (o ProjectOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the project.
+func (o ProjectOutput) Tags() ProjectTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

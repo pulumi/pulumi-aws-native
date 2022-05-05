@@ -116,6 +116,20 @@ func (o SchemaVersionOutput) ToSchemaVersionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o SchemaVersionOutput) Schema() SchemaVersionSchemaOutput {
+	return o.ApplyT(func(v *SchemaVersion) SchemaVersionSchemaOutput { return v.Schema }).(SchemaVersionSchemaOutput)
+}
+
+// Complete definition of the schema in plain-text.
+func (o SchemaVersionOutput) SchemaDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchemaVersion) pulumi.StringOutput { return v.SchemaDefinition }).(pulumi.StringOutput)
+}
+
+// Represents the version ID associated with the schema version.
+func (o SchemaVersionOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchemaVersion) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionInput)(nil)).Elem(), &SchemaVersion{})
 	pulumi.RegisterOutputType(SchemaVersionOutput{})

@@ -132,6 +132,38 @@ func (o CostCategoryOutput) ToCostCategoryOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Cost category ARN
+func (o CostCategoryOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The default value for the cost category
+func (o CostCategoryOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o CostCategoryOutput) EffectiveStart() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.EffectiveStart }).(pulumi.StringOutput)
+}
+
+func (o CostCategoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CostCategoryOutput) RuleVersion() CostCategoryRuleVersionOutput {
+	return o.ApplyT(func(v *CostCategory) CostCategoryRuleVersionOutput { return v.RuleVersion }).(CostCategoryRuleVersionOutput)
+}
+
+// JSON array format of Expression in Billing and Cost Management API
+func (o CostCategoryOutput) Rules() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Rules }).(pulumi.StringOutput)
+}
+
+// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
+func (o CostCategoryOutput) SplitChargeRules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.SplitChargeRules }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryInput)(nil)).Elem(), &CostCategory{})
 	pulumi.RegisterOutputType(CostCategoryOutput{})

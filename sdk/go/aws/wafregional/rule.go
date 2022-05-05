@@ -113,6 +113,18 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
+func (o RuleOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
+}
+
+func (o RuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleOutput) Predicates() RulePredicateArrayOutput {
+	return o.ApplyT(func(v *Rule) RulePredicateArrayOutput { return v.Predicates }).(RulePredicateArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleInput)(nil)).Elem(), &Rule{})
 	pulumi.RegisterOutputType(RuleOutput{})

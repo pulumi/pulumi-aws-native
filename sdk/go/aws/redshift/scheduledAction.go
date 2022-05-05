@@ -150,6 +150,56 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
+// If true, the schedule is enabled. If false, the scheduled action does not trigger.
+func (o ScheduledActionOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
+func (o ScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The IAM role to assume to run the target action.
+func (o ScheduledActionOutput) IamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.IamRole }).(pulumi.StringPtrOutput)
+}
+
+// List of times when the scheduled action will run.
+func (o ScheduledActionOutput) NextInvocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringArrayOutput { return v.NextInvocations }).(pulumi.StringArrayOutput)
+}
+
+// The schedule in `at( )` or `cron( )` format.
+func (o ScheduledActionOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+// The description of the scheduled action.
+func (o ScheduledActionOutput) ScheduledActionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.ScheduledActionDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the scheduled action. The name must be unique within an account.
+func (o ScheduledActionOutput) ScheduledActionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ScheduledActionName }).(pulumi.StringOutput)
+}
+
+// The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
+func (o ScheduledActionOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The state of the scheduled action.
+func (o ScheduledActionOutput) State() ScheduledActionStateEnumOutput {
+	return o.ApplyT(func(v *ScheduledAction) ScheduledActionStateEnumOutput { return v.State }).(ScheduledActionStateEnumOutput)
+}
+
+// A JSON format string of the Amazon Redshift API operation with input parameters.
+func (o ScheduledActionOutput) TargetAction() ScheduledActionTypePtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) ScheduledActionTypePtrOutput { return v.TargetAction }).(ScheduledActionTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionInput)(nil)).Elem(), &ScheduledAction{})
 	pulumi.RegisterOutputType(ScheduledActionOutput{})

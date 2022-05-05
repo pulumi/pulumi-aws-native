@@ -140,6 +140,54 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx 
 	return o
 }
 
+func (o SecurityGroupIngressOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.IntPtrOutput { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) IpProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressOutput) SourcePrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.SourcePrefixListId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) SourceSecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.SourceSecurityGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) SourceSecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.SourceSecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.IntPtrOutput { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), &SecurityGroupIngress{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})

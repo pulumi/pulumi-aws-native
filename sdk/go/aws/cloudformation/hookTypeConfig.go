@@ -130,6 +130,33 @@ func (o HookTypeConfigOutput) ToHookTypeConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The configuration data for the extension, in this account and region.
+func (o HookTypeConfigOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookTypeConfig) pulumi.StringPtrOutput { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+// An alias by which to refer to this extension configuration data.
+func (o HookTypeConfigOutput) ConfigurationAlias() HookTypeConfigConfigurationAliasPtrOutput {
+	return o.ApplyT(func(v *HookTypeConfig) HookTypeConfigConfigurationAliasPtrOutput { return v.ConfigurationAlias }).(HookTypeConfigConfigurationAliasPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
+func (o HookTypeConfigOutput) ConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *HookTypeConfig) pulumi.StringOutput { return v.ConfigurationArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the type version.
+func (o HookTypeConfigOutput) TypeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookTypeConfig) pulumi.StringPtrOutput { return v.TypeArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o HookTypeConfigOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookTypeConfig) pulumi.StringPtrOutput { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HookTypeConfigInput)(nil)).Elem(), &HookTypeConfig{})
 	pulumi.RegisterOutputType(HookTypeConfigOutput{})

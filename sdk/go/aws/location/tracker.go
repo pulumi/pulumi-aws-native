@@ -120,6 +120,46 @@ func (o TrackerOutput) ToTrackerOutputWithContext(ctx context.Context) TrackerOu
 	return o
 }
 
+func (o TrackerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o TrackerOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+func (o TrackerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TrackerOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o TrackerOutput) PositionFiltering() TrackerPositionFilteringPtrOutput {
+	return o.ApplyT(func(v *Tracker) TrackerPositionFilteringPtrOutput { return v.PositionFiltering }).(TrackerPositionFilteringPtrOutput)
+}
+
+func (o TrackerOutput) PricingPlan() TrackerPricingPlanPtrOutput {
+	return o.ApplyT(func(v *Tracker) TrackerPricingPlanPtrOutput { return v.PricingPlan }).(TrackerPricingPlanPtrOutput)
+}
+
+func (o TrackerOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
+}
+
+func (o TrackerOutput) TrackerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerArn }).(pulumi.StringOutput)
+}
+
+func (o TrackerOutput) TrackerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
+}
+
+func (o TrackerOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrackerInput)(nil)).Elem(), &Tracker{})
 	pulumi.RegisterOutputType(TrackerOutput{})

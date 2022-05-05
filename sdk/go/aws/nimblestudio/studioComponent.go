@@ -154,6 +154,58 @@ func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o StudioComponentOutput) Configuration() StudioComponentConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentConfigurationPtrOutput { return v.Configuration }).(StudioComponentConfigurationPtrOutput)
+}
+
+// <p>The description.</p>
+func (o StudioComponentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>The EC2 security groups that control access to the studio component.</p>
+func (o StudioComponentOutput) Ec2SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringArrayOutput { return v.Ec2SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// <p>Initialization scripts for studio components.</p>
+func (o StudioComponentOutput) InitializationScripts() StudioComponentInitializationScriptArrayOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentInitializationScriptArrayOutput {
+		return v.InitializationScripts
+	}).(StudioComponentInitializationScriptArrayOutput)
+}
+
+// <p>The name for the studio component.</p>
+func (o StudioComponentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// <p>Parameters for the studio component scripts.</p>
+func (o StudioComponentOutput) ScriptParameters() StudioComponentScriptParameterKeyValueArrayOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentScriptParameterKeyValueArrayOutput { return v.ScriptParameters }).(StudioComponentScriptParameterKeyValueArrayOutput)
+}
+
+func (o StudioComponentOutput) StudioComponentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioComponentId }).(pulumi.StringOutput)
+}
+
+// <p>The studioId. </p>
+func (o StudioComponentOutput) StudioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
+}
+
+func (o StudioComponentOutput) Subtype() StudioComponentSubtypePtrOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentSubtypePtrOutput { return v.Subtype }).(StudioComponentSubtypePtrOutput)
+}
+
+func (o StudioComponentOutput) Tags() StudioComponentTagsPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentTagsPtrOutput { return v.Tags }).(StudioComponentTagsPtrOutput)
+}
+
+func (o StudioComponentOutput) Type() StudioComponentTypeOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentTypeOutput { return v.Type }).(StudioComponentTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInput)(nil)).Elem(), &StudioComponent{})
 	pulumi.RegisterOutputType(StudioComponentOutput{})

@@ -149,6 +149,66 @@ func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) Recor
 	return o
 }
 
+func (o RecordSetOutput) AliasTarget() RecordSetAliasTargetPtrOutput {
+	return o.ApplyT(func(v *RecordSet) RecordSetAliasTargetPtrOutput { return v.AliasTarget }).(RecordSetAliasTargetPtrOutput)
+}
+
+func (o RecordSetOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) Failover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.Failover }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) GeoLocation() RecordSetGeoLocationPtrOutput {
+	return o.ApplyT(func(v *RecordSet) RecordSetGeoLocationPtrOutput { return v.GeoLocation }).(RecordSetGeoLocationPtrOutput)
+}
+
+func (o RecordSetOutput) HealthCheckId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.HealthCheckId }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) HostedZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.HostedZoneName }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) MultiValueAnswer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.BoolPtrOutput { return v.MultiValueAnswer }).(pulumi.BoolPtrOutput)
+}
+
+func (o RecordSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RecordSetOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) ResourceRecords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringArrayOutput { return v.ResourceRecords }).(pulumi.StringArrayOutput)
+}
+
+func (o RecordSetOutput) SetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.SetIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) TTL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.TTL }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o RecordSetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.IntPtrOutput { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetInput)(nil)).Elem(), &RecordSet{})
 	pulumi.RegisterOutputType(RecordSetOutput{})

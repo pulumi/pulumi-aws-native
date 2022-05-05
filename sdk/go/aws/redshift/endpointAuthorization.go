@@ -145,6 +145,66 @@ func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutputWithContext(ct
 	return o
 }
 
+// The target AWS account ID to grant or revoke access for.
+func (o EndpointAuthorizationOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Account }).(pulumi.StringOutput)
+}
+
+// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
+func (o EndpointAuthorizationOutput) AllowedAllVPCs() pulumi.BoolOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolOutput { return v.AllowedAllVPCs }).(pulumi.BoolOutput)
+}
+
+// The VPCs allowed access to the cluster.
+func (o EndpointAuthorizationOutput) AllowedVPCs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringArrayOutput { return v.AllowedVPCs }).(pulumi.StringArrayOutput)
+}
+
+// The time (UTC) when the authorization was created.
+func (o EndpointAuthorizationOutput) AuthorizeTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.AuthorizeTime }).(pulumi.StringOutput)
+}
+
+// The cluster identifier.
+func (o EndpointAuthorizationOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// The status of the cluster.
+func (o EndpointAuthorizationOutput) ClusterStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.ClusterStatus }).(pulumi.StringOutput)
+}
+
+// The number of Redshift-managed VPC endpoints created for the authorization.
+func (o EndpointAuthorizationOutput) EndpointCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.IntOutput { return v.EndpointCount }).(pulumi.IntOutput)
+}
+
+//  Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
+func (o EndpointAuthorizationOutput) Force() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS account ID of the grantee of the cluster.
+func (o EndpointAuthorizationOutput) Grantee() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantee }).(pulumi.StringOutput)
+}
+
+// The AWS account ID of the cluster owner.
+func (o EndpointAuthorizationOutput) Grantor() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantor }).(pulumi.StringOutput)
+}
+
+// The status of the authorization action.
+func (o EndpointAuthorizationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The virtual private cloud (VPC) identifiers to grant or revoke access to.
+func (o EndpointAuthorizationOutput) VpcIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringArrayOutput { return v.VpcIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthorizationInput)(nil)).Elem(), &EndpointAuthorization{})
 	pulumi.RegisterOutputType(EndpointAuthorizationOutput{})

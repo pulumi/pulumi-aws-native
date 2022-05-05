@@ -125,6 +125,30 @@ func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) Analyze
 	return o
 }
 
+// Analyzer name
+func (o AnalyzerOutput) AnalyzerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analyzer) pulumi.StringPtrOutput { return v.AnalyzerName }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyzerOutput) ArchiveRules() AnalyzerArchiveRuleArrayOutput {
+	return o.ApplyT(func(v *Analyzer) AnalyzerArchiveRuleArrayOutput { return v.ArchiveRules }).(AnalyzerArchiveRuleArrayOutput)
+}
+
+// Amazon Resource Name (ARN) of the analyzer
+func (o AnalyzerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o AnalyzerOutput) Tags() AnalyzerTagArrayOutput {
+	return o.ApplyT(func(v *Analyzer) AnalyzerTagArrayOutput { return v.Tags }).(AnalyzerTagArrayOutput)
+}
+
+// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+func (o AnalyzerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInput)(nil)).Elem(), &Analyzer{})
 	pulumi.RegisterOutputType(AnalyzerOutput{})

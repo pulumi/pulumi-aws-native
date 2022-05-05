@@ -115,6 +115,34 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
+func (o FunctionOutput) AutoPublish() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.AutoPublish }).(pulumi.BoolPtrOutput)
+}
+
+func (o FunctionOutput) FunctionARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionARN }).(pulumi.StringOutput)
+}
+
+func (o FunctionOutput) FunctionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionCode }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionOutput) FunctionConfig() FunctionConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionConfigPtrOutput { return v.FunctionConfig }).(FunctionConfigPtrOutput)
+}
+
+func (o FunctionOutput) FunctionMetadata() FunctionMetadataPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionMetadataPtrOutput { return v.FunctionMetadata }).(FunctionMetadataPtrOutput)
+}
+
+func (o FunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FunctionOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionInput)(nil)).Elem(), &Function{})
 	pulumi.RegisterOutputType(FunctionOutput{})

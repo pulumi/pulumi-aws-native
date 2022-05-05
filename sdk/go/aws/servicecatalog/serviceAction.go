@@ -120,6 +120,26 @@ func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ServiceActionOutput) AcceptLanguage() ServiceActionAcceptLanguagePtrOutput {
+	return o.ApplyT(func(v *ServiceAction) ServiceActionAcceptLanguagePtrOutput { return v.AcceptLanguage }).(ServiceActionAcceptLanguagePtrOutput)
+}
+
+func (o ServiceActionOutput) Definition() ServiceActionDefinitionParameterArrayOutput {
+	return o.ApplyT(func(v *ServiceAction) ServiceActionDefinitionParameterArrayOutput { return v.Definition }).(ServiceActionDefinitionParameterArrayOutput)
+}
+
+func (o ServiceActionOutput) DefinitionType() ServiceActionDefinitionTypeOutput {
+	return o.ApplyT(func(v *ServiceAction) ServiceActionDefinitionTypeOutput { return v.DefinitionType }).(ServiceActionDefinitionTypeOutput)
+}
+
+func (o ServiceActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionInput)(nil)).Elem(), &ServiceAction{})
 	pulumi.RegisterOutputType(ServiceActionOutput{})

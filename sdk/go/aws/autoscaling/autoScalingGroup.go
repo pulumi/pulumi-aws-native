@@ -189,6 +189,124 @@ func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.
 	return o
 }
 
+func (o AutoScalingGroupOutput) AutoScalingGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.AutoScalingGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) CapacityRebalance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) Cooldown() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.Cooldown }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) DesiredCapacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.DesiredCapacity }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) DesiredCapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.DesiredCapacityType }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) HealthCheckGracePeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.IntPtrOutput { return v.HealthCheckGracePeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) HealthCheckType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.HealthCheckType }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) LaunchConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.LaunchConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) LaunchTemplate() AutoScalingGroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupLaunchTemplateSpecificationPtrOutput {
+		return v.LaunchTemplate
+	}).(AutoScalingGroupLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) LaunchTemplateSpecification() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringOutput { return v.LaunchTemplateSpecification }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupOutput) LifecycleHookSpecificationList() AutoScalingGroupLifecycleHookSpecificationArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupLifecycleHookSpecificationArrayOutput {
+		return v.LifecycleHookSpecificationList
+	}).(AutoScalingGroupLifecycleHookSpecificationArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) LoadBalancerNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.LoadBalancerNames }).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) MaxInstanceLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.IntPtrOutput { return v.MaxInstanceLifetime }).(pulumi.IntPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) MaxSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringOutput { return v.MaxSize }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupOutput) MetricsCollection() AutoScalingGroupMetricsCollectionArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupMetricsCollectionArrayOutput { return v.MetricsCollection }).(AutoScalingGroupMetricsCollectionArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) MinSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringOutput { return v.MinSize }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupOutput) MixedInstancesPolicy() AutoScalingGroupMixedInstancesPolicyPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupMixedInstancesPolicyPtrOutput { return v.MixedInstancesPolicy }).(AutoScalingGroupMixedInstancesPolicyPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) NotificationConfigurations() AutoScalingGroupNotificationConfigurationArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupNotificationConfigurationArrayOutput {
+		return v.NotificationConfigurations
+	}).(AutoScalingGroupNotificationConfigurationArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.PlacementGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) ServiceLinkedRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.ServiceLinkedRoleARN }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) Tags() AutoScalingGroupTagPropertyArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupTagPropertyArrayOutput { return v.Tags }).(AutoScalingGroupTagPropertyArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) TargetGroupARNs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.TargetGroupARNs }).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) TerminationPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.TerminationPolicies }).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupOutput) VPCZoneIdentifier() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.VPCZoneIdentifier }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInput)(nil)).Elem(), &AutoScalingGroup{})
 	pulumi.RegisterOutputType(AutoScalingGroupOutput{})

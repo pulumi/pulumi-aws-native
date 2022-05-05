@@ -122,6 +122,22 @@ func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o BaiduChannelOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+func (o BaiduChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o BaiduChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BaiduChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o BaiduChannelOutput) SecretKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.SecretKey }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BaiduChannelInput)(nil)).Elem(), &BaiduChannel{})
 	pulumi.RegisterOutputType(BaiduChannelOutput{})

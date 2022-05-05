@@ -106,6 +106,14 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) G
 	return o
 }
 
+func (o GeoMatchSetOutput) GeoMatchConstraints() GeoMatchSetGeoMatchConstraintArrayOutput {
+	return o.ApplyT(func(v *GeoMatchSet) GeoMatchSetGeoMatchConstraintArrayOutput { return v.GeoMatchConstraints }).(GeoMatchSetGeoMatchConstraintArrayOutput)
+}
+
+func (o GeoMatchSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GeoMatchSetInput)(nil)).Elem(), &GeoMatchSet{})
 	pulumi.RegisterOutputType(GeoMatchSetOutput{})

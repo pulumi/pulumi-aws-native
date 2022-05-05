@@ -146,6 +146,50 @@ func (o InstanceGroupConfigOutput) ToInstanceGroupConfigOutputWithContext(ctx co
 	return o
 }
 
+func (o InstanceGroupConfigOutput) AutoScalingPolicy() InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) InstanceGroupConfigAutoScalingPolicyPtrOutput { return v.AutoScalingPolicy }).(InstanceGroupConfigAutoScalingPolicyPtrOutput)
+}
+
+func (o InstanceGroupConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringPtrOutput { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceGroupConfigOutput) Configurations() InstanceGroupConfigConfigurationArrayOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) InstanceGroupConfigConfigurationArrayOutput { return v.Configurations }).(InstanceGroupConfigConfigurationArrayOutput)
+}
+
+func (o InstanceGroupConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringPtrOutput { return v.CustomAmiId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceGroupConfigOutput) EbsConfiguration() InstanceGroupConfigEbsConfigurationPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) InstanceGroupConfigEbsConfigurationPtrOutput { return v.EbsConfiguration }).(InstanceGroupConfigEbsConfigurationPtrOutput)
+}
+
+func (o InstanceGroupConfigOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+func (o InstanceGroupConfigOutput) InstanceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringOutput { return v.InstanceRole }).(pulumi.StringOutput)
+}
+
+func (o InstanceGroupConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o InstanceGroupConfigOutput) JobFlowId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringOutput { return v.JobFlowId }).(pulumi.StringOutput)
+}
+
+func (o InstanceGroupConfigOutput) Market() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringPtrOutput { return v.Market }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceGroupConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigInput)(nil)).Elem(), &InstanceGroupConfig{})
 	pulumi.RegisterOutputType(InstanceGroupConfigOutput{})

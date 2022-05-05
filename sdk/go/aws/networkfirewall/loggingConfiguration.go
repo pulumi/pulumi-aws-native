@@ -114,6 +114,18 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx 
 	return o
 }
 
+func (o LoggingConfigurationOutput) FirewallArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationOutput) FirewallName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringPtrOutput { return v.FirewallName }).(pulumi.StringPtrOutput)
+}
+
+func (o LoggingConfigurationOutput) LoggingConfiguration() LoggingConfigurationTypeOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationTypeOutput { return v.LoggingConfiguration }).(LoggingConfigurationTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationInput)(nil)).Elem(), &LoggingConfiguration{})
 	pulumi.RegisterOutputType(LoggingConfigurationOutput{})

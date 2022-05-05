@@ -132,6 +132,42 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+func (o PipelineOutput) ArtifactStore() PipelineArtifactStorePtrOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineArtifactStorePtrOutput { return v.ArtifactStore }).(PipelineArtifactStorePtrOutput)
+}
+
+func (o PipelineOutput) ArtifactStores() PipelineArtifactStoreMapArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineArtifactStoreMapArrayOutput { return v.ArtifactStores }).(PipelineArtifactStoreMapArrayOutput)
+}
+
+func (o PipelineOutput) DisableInboundStageTransitions() PipelineStageTransitionArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineStageTransitionArrayOutput { return v.DisableInboundStageTransitions }).(PipelineStageTransitionArrayOutput)
+}
+
+func (o PipelineOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PipelineOutput) RestartExecutionOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.BoolPtrOutput { return v.RestartExecutionOnUpdate }).(pulumi.BoolPtrOutput)
+}
+
+func (o PipelineOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o PipelineOutput) Stages() PipelineStageDeclarationArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineStageDeclarationArrayOutput { return v.Stages }).(PipelineStageDeclarationArrayOutput)
+}
+
+func (o PipelineOutput) Tags() PipelineTagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+}
+
+func (o PipelineOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInput)(nil)).Elem(), &Pipeline{})
 	pulumi.RegisterOutputType(PipelineOutput{})

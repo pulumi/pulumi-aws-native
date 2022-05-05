@@ -111,6 +111,14 @@ func (o ApplicationFleetAssociationOutput) ToApplicationFleetAssociationOutputWi
 	return o
 }
 
+func (o ApplicationFleetAssociationOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationFleetAssociation) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationFleetAssociationOutput) FleetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationFleetAssociation) pulumi.StringOutput { return v.FleetName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFleetAssociationInput)(nil)).Elem(), &ApplicationFleetAssociation{})
 	pulumi.RegisterOutputType(ApplicationFleetAssociationOutput{})

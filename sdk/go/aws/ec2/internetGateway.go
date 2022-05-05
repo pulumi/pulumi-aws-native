@@ -106,6 +106,16 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+// ID of internet gateway.
+func (o InternetGatewayOutput) InternetGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.InternetGatewayId }).(pulumi.StringOutput)
+}
+
+// Any tags to assign to the internet gateway.
+func (o InternetGatewayOutput) Tags() InternetGatewayTagArrayOutput {
+	return o.ApplyT(func(v *InternetGateway) InternetGatewayTagArrayOutput { return v.Tags }).(InternetGatewayTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayInput)(nil)).Elem(), &InternetGateway{})
 	pulumi.RegisterOutputType(InternetGatewayOutput{})

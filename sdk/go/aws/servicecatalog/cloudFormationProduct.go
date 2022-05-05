@@ -143,6 +143,64 @@ func (o CloudFormationProductOutput) ToCloudFormationProductOutputWithContext(ct
 	return o
 }
 
+func (o CloudFormationProductOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) Distributor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.Distributor }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductOutput) ProductName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.ProductName }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductOutput) ProvisioningArtifactIds() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.ProvisioningArtifactIds }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductOutput) ProvisioningArtifactNames() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.ProvisioningArtifactNames }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductOutput) ProvisioningArtifactParameters() CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
+		return v.ProvisioningArtifactParameters
+	}).(CloudFormationProductProvisioningArtifactPropertiesArrayOutput)
+}
+
+func (o CloudFormationProductOutput) ReplaceProvisioningArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.BoolPtrOutput { return v.ReplaceProvisioningArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+func (o CloudFormationProductOutput) SupportDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.SupportDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) SupportEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.SupportEmail }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) SupportUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.SupportUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) Tags() CloudFormationProductTagArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) CloudFormationProductTagArrayOutput { return v.Tags }).(CloudFormationProductTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductInput)(nil)).Elem(), &CloudFormationProduct{})
 	pulumi.RegisterOutputType(CloudFormationProductOutput{})

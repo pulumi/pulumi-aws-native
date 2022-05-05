@@ -119,6 +119,22 @@ func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o PermissionsOutput) DataLakePrincipal() PermissionsDataLakePrincipalOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsDataLakePrincipalOutput { return v.DataLakePrincipal }).(PermissionsDataLakePrincipalOutput)
+}
+
+func (o PermissionsOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Permissions) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+func (o PermissionsOutput) PermissionsWithGrantOption() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Permissions) pulumi.StringArrayOutput { return v.PermissionsWithGrantOption }).(pulumi.StringArrayOutput)
+}
+
+func (o PermissionsOutput) Resource() PermissionsResourceOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsResourceOutput { return v.Resource }).(PermissionsResourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsInput)(nil)).Elem(), &Permissions{})
 	pulumi.RegisterOutputType(PermissionsOutput{})

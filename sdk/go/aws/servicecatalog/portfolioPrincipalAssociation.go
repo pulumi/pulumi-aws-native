@@ -122,6 +122,22 @@ func (o PortfolioPrincipalAssociationOutput) ToPortfolioPrincipalAssociationOutp
 	return o
 }
 
+func (o PortfolioPrincipalAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioPrincipalAssociationOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o PortfolioPrincipalAssociationOutput) PrincipalARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringOutput { return v.PrincipalARN }).(pulumi.StringOutput)
+}
+
+func (o PortfolioPrincipalAssociationOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioPrincipalAssociationInput)(nil)).Elem(), &PortfolioPrincipalAssociation{})
 	pulumi.RegisterOutputType(PortfolioPrincipalAssociationOutput{})

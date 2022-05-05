@@ -138,6 +138,46 @@ func (o AssetModelOutput) ToAssetModelOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// The ARN of the asset model, which has the following format.
+func (o AssetModelOutput) AssetModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssetModel) pulumi.StringOutput { return v.AssetModelArn }).(pulumi.StringOutput)
+}
+
+// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
+func (o AssetModelOutput) AssetModelCompositeModels() AssetModelCompositeModelArrayOutput {
+	return o.ApplyT(func(v *AssetModel) AssetModelCompositeModelArrayOutput { return v.AssetModelCompositeModels }).(AssetModelCompositeModelArrayOutput)
+}
+
+// A description for the asset model.
+func (o AssetModelOutput) AssetModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssetModel) pulumi.StringPtrOutput { return v.AssetModelDescription }).(pulumi.StringPtrOutput)
+}
+
+// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
+func (o AssetModelOutput) AssetModelHierarchies() AssetModelHierarchyArrayOutput {
+	return o.ApplyT(func(v *AssetModel) AssetModelHierarchyArrayOutput { return v.AssetModelHierarchies }).(AssetModelHierarchyArrayOutput)
+}
+
+// The ID of the asset model.
+func (o AssetModelOutput) AssetModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssetModel) pulumi.StringOutput { return v.AssetModelId }).(pulumi.StringOutput)
+}
+
+// A unique, friendly name for the asset model.
+func (o AssetModelOutput) AssetModelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssetModel) pulumi.StringOutput { return v.AssetModelName }).(pulumi.StringOutput)
+}
+
+// The property definitions of the asset model. You can specify up to 200 properties per asset model.
+func (o AssetModelOutput) AssetModelProperties() AssetModelPropertyArrayOutput {
+	return o.ApplyT(func(v *AssetModel) AssetModelPropertyArrayOutput { return v.AssetModelProperties }).(AssetModelPropertyArrayOutput)
+}
+
+// A list of key-value pairs that contain metadata for the asset model.
+func (o AssetModelOutput) Tags() AssetModelTagArrayOutput {
+	return o.ApplyT(func(v *AssetModel) AssetModelTagArrayOutput { return v.Tags }).(AssetModelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelInput)(nil)).Elem(), &AssetModel{})
 	pulumi.RegisterOutputType(AssetModelOutput{})

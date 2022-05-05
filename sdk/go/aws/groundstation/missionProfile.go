@@ -143,6 +143,46 @@ func (o MissionProfileOutput) ToMissionProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o MissionProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Post-pass time needed after the contact.
+func (o MissionProfileOutput) ContactPostPassDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.IntPtrOutput { return v.ContactPostPassDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Pre-pass time needed before the contact.
+func (o MissionProfileOutput) ContactPrePassDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.IntPtrOutput { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o MissionProfileOutput) DataflowEdges() MissionProfileDataflowEdgeArrayOutput {
+	return o.ApplyT(func(v *MissionProfile) MissionProfileDataflowEdgeArrayOutput { return v.DataflowEdges }).(MissionProfileDataflowEdgeArrayOutput)
+}
+
+// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
+func (o MissionProfileOutput) MinimumViableContactDurationSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.IntOutput { return v.MinimumViableContactDurationSeconds }).(pulumi.IntOutput)
+}
+
+// A name used to identify a mission profile.
+func (o MissionProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MissionProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o MissionProfileOutput) Tags() MissionProfileTagArrayOutput {
+	return o.ApplyT(func(v *MissionProfile) MissionProfileTagArrayOutput { return v.Tags }).(MissionProfileTagArrayOutput)
+}
+
+func (o MissionProfileOutput) TrackingConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.TrackingConfigArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileInput)(nil)).Elem(), &MissionProfile{})
 	pulumi.RegisterOutputType(MissionProfileOutput{})

@@ -130,6 +130,36 @@ func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOu
 	return o
 }
 
+// A short sequence of bytes used for public key verification
+func (o KeyPairOutput) KeyFingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
+}
+
+// The name of the SSH key pair
+func (o KeyPairOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// An AWS generated ID for the key pair
+func (o KeyPairOutput) KeyPairId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyPairId }).(pulumi.StringOutput)
+}
+
+// The title of the TPS report is a mandatory element.
+func (o KeyPairOutput) KeyType() KeyPairKeyTypePtrOutput {
+	return o.ApplyT(func(v *KeyPair) KeyPairKeyTypePtrOutput { return v.KeyType }).(KeyPairKeyTypePtrOutput)
+}
+
+// Plain text public key to import
+func (o KeyPairOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyPair) pulumi.StringPtrOutput { return v.PublicKeyMaterial }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o KeyPairOutput) Tags() KeyPairTagArrayOutput {
+	return o.ApplyT(func(v *KeyPair) KeyPairTagArrayOutput { return v.Tags }).(KeyPairTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairInput)(nil)).Elem(), &KeyPair{})
 	pulumi.RegisterOutputType(KeyPairOutput{})

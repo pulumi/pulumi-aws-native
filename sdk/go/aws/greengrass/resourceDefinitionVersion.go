@@ -113,6 +113,16 @@ func (o ResourceDefinitionVersionOutput) ToResourceDefinitionVersionOutputWithCo
 	return o
 }
 
+func (o ResourceDefinitionVersionOutput) ResourceDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefinitionVersion) pulumi.StringOutput { return v.ResourceDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o ResourceDefinitionVersionOutput) Resources() ResourceDefinitionVersionResourceInstanceArrayOutput {
+	return o.ApplyT(func(v *ResourceDefinitionVersion) ResourceDefinitionVersionResourceInstanceArrayOutput {
+		return v.Resources
+	}).(ResourceDefinitionVersionResourceInstanceArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDefinitionVersionInput)(nil)).Elem(), &ResourceDefinitionVersion{})
 	pulumi.RegisterOutputType(ResourceDefinitionVersionOutput{})

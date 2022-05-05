@@ -111,6 +111,26 @@ func (o ConnectionAliasOutput) ToConnectionAliasOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ConnectionAliasOutput) AliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.AliasId }).(pulumi.StringOutput)
+}
+
+func (o ConnectionAliasOutput) Associations() ConnectionAliasAssociationArrayOutput {
+	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasAssociationArrayOutput { return v.Associations }).(ConnectionAliasAssociationArrayOutput)
+}
+
+func (o ConnectionAliasOutput) ConnectionAliasState() ConnectionAliasStateEnumOutput {
+	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasStateEnumOutput { return v.ConnectionAliasState }).(ConnectionAliasStateEnumOutput)
+}
+
+func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+func (o ConnectionAliasOutput) Tags() ConnectionAliasTagArrayOutput {
+	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasTagArrayOutput { return v.Tags }).(ConnectionAliasTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasInput)(nil)).Elem(), &ConnectionAlias{})
 	pulumi.RegisterOutputType(ConnectionAliasOutput{})

@@ -111,6 +111,26 @@ func (o EventBusOutput) ToEventBusOutputWithContext(ctx context.Context) EventBu
 	return o
 }
 
+func (o EventBusOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.EventSourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o EventBusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EventBusOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o EventBusOutput) Tags() EventBusTagEntryArrayOutput {
+	return o.ApplyT(func(v *EventBus) EventBusTagEntryArrayOutput { return v.Tags }).(EventBusTagEntryArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusInput)(nil)).Elem(), &EventBus{})
 	pulumi.RegisterOutputType(EventBusOutput{})

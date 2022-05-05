@@ -128,6 +128,30 @@ func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RouteResponseOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o RouteResponseOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteResponseOutput) ResponseModels() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.AnyOutput { return v.ResponseModels }).(pulumi.AnyOutput)
+}
+
+func (o RouteResponseOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+func (o RouteResponseOutput) RouteId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
+}
+
+func (o RouteResponseOutput) RouteResponseKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseKey }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseInput)(nil)).Elem(), &RouteResponse{})
 	pulumi.RegisterOutputType(RouteResponseOutput{})

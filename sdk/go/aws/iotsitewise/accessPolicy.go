@@ -130,6 +130,31 @@ func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The ARN of the access policy.
+func (o AccessPolicyOutput) AccessPolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.AccessPolicyArn }).(pulumi.StringOutput)
+}
+
+// The ID of the access policy.
+func (o AccessPolicyOutput) AccessPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.AccessPolicyId }).(pulumi.StringOutput)
+}
+
+// The identity for this access policy. Choose either a user or a group but not both.
+func (o AccessPolicyOutput) AccessPolicyIdentity() AccessPolicyIdentityOutput {
+	return o.ApplyT(func(v *AccessPolicy) AccessPolicyIdentityOutput { return v.AccessPolicyIdentity }).(AccessPolicyIdentityOutput)
+}
+
+// The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
+func (o AccessPolicyOutput) AccessPolicyPermission() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.AccessPolicyPermission }).(pulumi.StringOutput)
+}
+
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+func (o AccessPolicyOutput) AccessPolicyResource() AccessPolicyResourceOutput {
+	return o.ApplyT(func(v *AccessPolicy) AccessPolicyResourceOutput { return v.AccessPolicyResource }).(AccessPolicyResourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyInput)(nil)).Elem(), &AccessPolicy{})
 	pulumi.RegisterOutputType(AccessPolicyOutput{})

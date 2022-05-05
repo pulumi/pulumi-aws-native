@@ -114,6 +114,22 @@ func (o AccessKeyOutput) ToAccessKeyOutputWithContext(ctx context.Context) Acces
 	return o
 }
 
+func (o AccessKeyOutput) SecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
+}
+
+func (o AccessKeyOutput) Serial() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessKey) pulumi.IntPtrOutput { return v.Serial }).(pulumi.IntPtrOutput)
+}
+
+func (o AccessKeyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessKey) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o AccessKeyOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyInput)(nil)).Elem(), &AccessKey{})
 	pulumi.RegisterOutputType(AccessKeyOutput{})

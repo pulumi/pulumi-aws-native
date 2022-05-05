@@ -151,6 +151,74 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx co
 	return o
 }
 
+func (o ReplicationInstanceOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.IntPtrOutput { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.AllowMajorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) MultiAZ() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) ReplicationInstanceClass() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstanceClass }).(pulumi.StringOutput)
+}
+
+func (o ReplicationInstanceOutput) ReplicationInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.ReplicationInstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) ReplicationInstancePrivateIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstancePrivateIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o ReplicationInstanceOutput) ReplicationInstancePublicIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstancePublicIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o ReplicationInstanceOutput) ReplicationSubnetGroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.ReplicationSubnetGroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) ResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) Tags() ReplicationInstanceTagArrayOutput {
+	return o.ApplyT(func(v *ReplicationInstance) ReplicationInstanceTagArrayOutput { return v.Tags }).(ReplicationInstanceTagArrayOutput)
+}
+
+func (o ReplicationInstanceOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceInput)(nil)).Elem(), &ReplicationInstance{})
 	pulumi.RegisterOutputType(ReplicationInstanceOutput{})

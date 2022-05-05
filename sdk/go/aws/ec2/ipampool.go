@@ -196,6 +196,110 @@ func (o IPAMPoolOutput) ToIPAMPoolOutputWithContext(ctx context.Context) IPAMPoo
 	return o
 }
 
+// The address family of the address space in this pool. Either IPv4 or IPv6.
+func (o IPAMPoolOutput) AddressFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.AddressFamily }).(pulumi.StringOutput)
+}
+
+// The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
+func (o IPAMPoolOutput) AllocationDefaultNetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.IntPtrOutput { return v.AllocationDefaultNetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// The maximum allowed netmask length for allocations made from this pool.
+func (o IPAMPoolOutput) AllocationMaxNetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.IntPtrOutput { return v.AllocationMaxNetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// The minimum allowed netmask length for allocations made from this pool.
+func (o IPAMPoolOutput) AllocationMinNetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.IntPtrOutput { return v.AllocationMinNetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// When specified, an allocation will not be allowed unless a resource has a matching set of tags.
+func (o IPAMPoolOutput) AllocationResourceTags() IPAMPoolTagArrayOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolTagArrayOutput { return v.AllocationResourceTags }).(IPAMPoolTagArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IPAM Pool.
+func (o IPAMPoolOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
+func (o IPAMPoolOutput) AutoImport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.BoolPtrOutput { return v.AutoImport }).(pulumi.BoolPtrOutput)
+}
+
+func (o IPAMPoolOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
+func (o IPAMPoolOutput) IpamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.IpamArn }).(pulumi.StringOutput)
+}
+
+// Id of the IPAM Pool.
+func (o IPAMPoolOutput) IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the scope this pool is a part of.
+func (o IPAMPoolOutput) IpamScopeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.IpamScopeArn }).(pulumi.StringOutput)
+}
+
+// The Id of the scope this pool is a part of.
+func (o IPAMPoolOutput) IpamScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.IpamScopeId }).(pulumi.StringOutput)
+}
+
+// Determines whether this scope contains publicly routable space or space for a private network
+func (o IPAMPoolOutput) IpamScopeType() IPAMPoolIpamScopeTypeOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolIpamScopeTypeOutput { return v.IpamScopeType }).(IPAMPoolIpamScopeTypeOutput)
+}
+
+// The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
+func (o IPAMPoolOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+// The depth of this pool in the source pool hierarchy.
+func (o IPAMPoolOutput) PoolDepth() pulumi.IntOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.IntOutput { return v.PoolDepth }).(pulumi.IntOutput)
+}
+
+// A list of cidrs representing the address space available for allocation in this pool.
+func (o IPAMPoolOutput) ProvisionedCidrs() IPAMPoolProvisionedCidrArrayOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolProvisionedCidrArrayOutput { return v.ProvisionedCidrs }).(IPAMPoolProvisionedCidrArrayOutput)
+}
+
+// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
+func (o IPAMPoolOutput) PubliclyAdvertisable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.BoolPtrOutput { return v.PubliclyAdvertisable }).(pulumi.BoolPtrOutput)
+}
+
+// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
+func (o IPAMPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringPtrOutput { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
+func (o IPAMPoolOutput) State() IPAMPoolStateEnumOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolStateEnumOutput { return v.State }).(IPAMPoolStateEnumOutput)
+}
+
+// An explanation of how the pool arrived at it current state.
+func (o IPAMPoolOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMPool) pulumi.StringOutput { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o IPAMPoolOutput) Tags() IPAMPoolTagArrayOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolTagArrayOutput { return v.Tags }).(IPAMPoolTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolInput)(nil)).Elem(), &IPAMPool{})
 	pulumi.RegisterOutputType(IPAMPoolOutput{})

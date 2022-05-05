@@ -186,6 +186,71 @@ func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutpu
 	return o
 }
 
+// Indicates whether the method requires clients to submit a valid API key.
+func (o MethodOutput) ApiKeyRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Method) pulumi.BoolPtrOutput { return v.ApiKeyRequired }).(pulumi.BoolPtrOutput)
+}
+
+// A list of authorization scopes configured on the method.
+func (o MethodOutput) AuthorizationScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringArrayOutput { return v.AuthorizationScopes }).(pulumi.StringArrayOutput)
+}
+
+// The method's authorization type.
+func (o MethodOutput) AuthorizationType() MethodAuthorizationTypePtrOutput {
+	return o.ApplyT(func(v *Method) MethodAuthorizationTypePtrOutput { return v.AuthorizationType }).(MethodAuthorizationTypePtrOutput)
+}
+
+// The identifier of the authorizer to use on this method.
+func (o MethodOutput) AuthorizerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringPtrOutput { return v.AuthorizerId }).(pulumi.StringPtrOutput)
+}
+
+// The backend system that the method calls when it receives a request.
+func (o MethodOutput) HttpMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringOutput { return v.HttpMethod }).(pulumi.StringOutput)
+}
+
+// The backend system that the method calls when it receives a request.
+func (o MethodOutput) Integration() MethodIntegrationPtrOutput {
+	return o.ApplyT(func(v *Method) MethodIntegrationPtrOutput { return v.Integration }).(MethodIntegrationPtrOutput)
+}
+
+// The responses that can be sent to the client who calls the method.
+func (o MethodOutput) MethodResponses() MethodResponseArrayOutput {
+	return o.ApplyT(func(v *Method) MethodResponseArrayOutput { return v.MethodResponses }).(MethodResponseArrayOutput)
+}
+
+// A friendly operation name for the method.
+func (o MethodOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringPtrOutput { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+func (o MethodOutput) RequestModels() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Method) pulumi.AnyOutput { return v.RequestModels }).(pulumi.AnyOutput)
+}
+
+// The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+func (o MethodOutput) RequestParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Method) pulumi.AnyOutput { return v.RequestParameters }).(pulumi.AnyOutput)
+}
+
+// The ID of the associated request validator.
+func (o MethodOutput) RequestValidatorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringPtrOutput { return v.RequestValidatorId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an API Gateway resource.
+func (o MethodOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The ID of the RestApi resource in which API Gateway creates the method.
+func (o MethodOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodInput)(nil)).Elem(), &Method{})
 	pulumi.RegisterOutputType(MethodOutput{})

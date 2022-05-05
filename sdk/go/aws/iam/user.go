@@ -125,6 +125,42 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+func (o UserOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o UserOutput) LoginProfile() UserLoginProfilePtrOutput {
+	return o.ApplyT(func(v *User) UserLoginProfilePtrOutput { return v.LoginProfile }).(UserLoginProfilePtrOutput)
+}
+
+func (o UserOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
+}
+
+func (o UserOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) PermissionsBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) Policies() UserPolicyArrayOutput {
+	return o.ApplyT(func(v *User) UserPolicyArrayOutput { return v.Policies }).(UserPolicyArrayOutput)
+}
+
+func (o UserOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+}
+
+func (o UserOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
 	pulumi.RegisterOutputType(UserOutput{})

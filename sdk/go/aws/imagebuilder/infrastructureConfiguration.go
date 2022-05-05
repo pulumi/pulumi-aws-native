@@ -182,6 +182,78 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The description of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The instance metadata option settings for the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) InstanceMetadataOptions() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+		return v.InstanceMetadataOptions
+	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
+}
+
+// The instance profile of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) InstanceProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.InstanceProfileName }).(pulumi.StringOutput)
+}
+
+// The instance types of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringArrayOutput { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The EC2 key pair of the infrastructure configuration..
+func (o InfrastructureConfigurationOutput) KeyPair() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.KeyPair }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) Logging() InfrastructureConfigurationLoggingPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationLoggingPtrOutput { return v.Logging }).(InfrastructureConfigurationLoggingPtrOutput)
+}
+
+// The name of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags attached to the resource created by Image Builder.
+func (o InfrastructureConfigurationOutput) ResourceTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.AnyOutput { return v.ResourceTags }).(pulumi.AnyOutput)
+}
+
+// The security group IDs of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+// The subnet ID of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The tags associated with the component.
+func (o InfrastructureConfigurationOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The terminate instance on failure configuration of the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) TerminateInstanceOnFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.BoolPtrOutput { return v.TerminateInstanceOnFailure }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInput)(nil)).Elem(), &InfrastructureConfiguration{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationOutput{})

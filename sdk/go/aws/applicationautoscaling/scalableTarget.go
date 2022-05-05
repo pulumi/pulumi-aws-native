@@ -143,6 +143,38 @@ func (o ScalableTargetOutput) ToScalableTargetOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ScalableTargetOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.IntOutput { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+func (o ScalableTargetOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.IntOutput { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+func (o ScalableTargetOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+func (o ScalableTargetOutput) RoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.RoleARN }).(pulumi.StringOutput)
+}
+
+func (o ScalableTargetOutput) ScalableDimension() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.ScalableDimension }).(pulumi.StringOutput)
+}
+
+func (o ScalableTargetOutput) ScheduledActions() ScalableTargetScheduledActionArrayOutput {
+	return o.ApplyT(func(v *ScalableTarget) ScalableTargetScheduledActionArrayOutput { return v.ScheduledActions }).(ScalableTargetScheduledActionArrayOutput)
+}
+
+func (o ScalableTargetOutput) ServiceNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
+}
+
+func (o ScalableTargetOutput) SuspendedState() ScalableTargetSuspendedStatePtrOutput {
+	return o.ApplyT(func(v *ScalableTarget) ScalableTargetSuspendedStatePtrOutput { return v.SuspendedState }).(ScalableTargetSuspendedStatePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalableTargetInput)(nil)).Elem(), &ScalableTarget{})
 	pulumi.RegisterOutputType(ScalableTargetOutput{})

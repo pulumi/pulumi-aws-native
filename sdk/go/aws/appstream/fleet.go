@@ -167,6 +167,90 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+func (o FleetOutput) ComputeCapacity() FleetComputeCapacityPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetComputeCapacityPtrOutput { return v.ComputeCapacity }).(FleetComputeCapacityPtrOutput)
+}
+
+func (o FleetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) DisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.DisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) DomainJoinInfo() FleetDomainJoinInfoPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetDomainJoinInfoPtrOutput { return v.DomainJoinInfo }).(FleetDomainJoinInfoPtrOutput)
+}
+
+func (o FleetOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
+}
+
+func (o FleetOutput) FleetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FleetType }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.IdleDisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetOutput) ImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageArn }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o FleetOutput) MaxConcurrentSessions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxConcurrentSessions }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxUserDurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FleetOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) SessionScriptS3Location() FleetS3LocationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetS3LocationPtrOutput { return v.SessionScriptS3Location }).(FleetS3LocationPtrOutput)
+}
+
+func (o FleetOutput) StreamView() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.StreamView }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) Tags() FleetTagArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetTagArrayOutput { return v.Tags }).(FleetTagArrayOutput)
+}
+
+func (o FleetOutput) UsbDeviceFilterStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringArrayOutput { return v.UsbDeviceFilterStrings }).(pulumi.StringArrayOutput)
+}
+
+func (o FleetOutput) VpcConfig() FleetVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetVpcConfigPtrOutput { return v.VpcConfig }).(FleetVpcConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetInput)(nil)).Elem(), &Fleet{})
 	pulumi.RegisterOutputType(FleetOutput{})

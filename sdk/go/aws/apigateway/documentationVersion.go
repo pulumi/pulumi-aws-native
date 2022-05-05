@@ -123,6 +123,21 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx 
 	return o
 }
 
+// The description of the API documentation snapshot.
+func (o DocumentationVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The version identifier of the API documentation snapshot.
+func (o DocumentationVersionOutput) DocumentationVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.DocumentationVersion }).(pulumi.StringOutput)
+}
+
+// The identifier of the API.
+func (o DocumentationVersionOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionInput)(nil)).Elem(), &DocumentationVersion{})
 	pulumi.RegisterOutputType(DocumentationVersionOutput{})

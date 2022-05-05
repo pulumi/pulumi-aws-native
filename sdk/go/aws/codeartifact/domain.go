@@ -128,6 +128,41 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// The ARN of the domain.
+func (o DomainOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the domain.
+func (o DomainOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+func (o DomainOutput) EncryptionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
+}
+
+// The name of the domain. This field is used for GetAtt
+func (o DomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
+func (o DomainOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The access control resource policy on the provided domain.
+func (o DomainOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.PermissionsPolicyDocument }).(pulumi.AnyOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o DomainOutput) Tags() DomainTagArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainInput)(nil)).Elem(), &Domain{})
 	pulumi.RegisterOutputType(DomainOutput{})

@@ -131,6 +131,42 @@ func (o APNSChannelOutput) ToAPNSChannelOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o APNSChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o APNSChannelOutput) BundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.BundleId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSChannelOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o APNSChannelOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSChannelOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSChannelOutput) TokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.TokenKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSChannelOutput) TokenKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSChannel) pulumi.StringPtrOutput { return v.TokenKeyId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APNSChannelInput)(nil)).Elem(), &APNSChannel{})
 	pulumi.RegisterOutputType(APNSChannelOutput{})

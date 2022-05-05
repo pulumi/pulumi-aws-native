@@ -131,6 +131,30 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the accelerator.
+func (o ListenerOutput) AcceleratorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.AcceleratorArn }).(pulumi.StringOutput)
+}
+
+// Client affinity lets you direct all requests from a user to the same endpoint.
+func (o ListenerOutput) ClientAffinity() ListenerClientAffinityPtrOutput {
+	return o.ApplyT(func(v *Listener) ListenerClientAffinityPtrOutput { return v.ClientAffinity }).(ListenerClientAffinityPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the listener.
+func (o ListenerOutput) ListenerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerOutput) PortRanges() ListenerPortRangeArrayOutput {
+	return o.ApplyT(func(v *Listener) ListenerPortRangeArrayOutput { return v.PortRanges }).(ListenerPortRangeArrayOutput)
+}
+
+// The protocol for the listener.
+func (o ListenerOutput) Protocol() ListenerProtocolOutput {
+	return o.ApplyT(func(v *Listener) ListenerProtocolOutput { return v.Protocol }).(ListenerProtocolOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerInput)(nil)).Elem(), &Listener{})
 	pulumi.RegisterOutputType(ListenerOutput{})

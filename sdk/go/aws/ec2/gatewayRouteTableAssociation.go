@@ -119,6 +119,21 @@ func (o GatewayRouteTableAssociationOutput) ToGatewayRouteTableAssociationOutput
 	return o
 }
 
+// The route table association ID.
+func (o GatewayRouteTableAssociationOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRouteTableAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// The ID of the gateway.
+func (o GatewayRouteTableAssociationOutput) GatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRouteTableAssociation) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
+}
+
+// The ID of the route table.
+func (o GatewayRouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteTableAssociationInput)(nil)).Elem(), &GatewayRouteTableAssociation{})
 	pulumi.RegisterOutputType(GatewayRouteTableAssociationOutput{})

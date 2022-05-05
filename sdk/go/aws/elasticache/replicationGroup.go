@@ -239,6 +239,190 @@ func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.
 	return o
 }
 
+func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) AuthToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthToken }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) CacheNodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.CacheNodeType }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) CacheParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.CacheParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) CacheSecurityGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.CacheSecurityGroupNames }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationGroupOutput) CacheSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.CacheSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ConfigurationEndPointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ConfigurationEndPointAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ConfigurationEndPointPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ConfigurationEndPointPort }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) DataTieringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.DataTieringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.GlobalReplicationGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) LogDeliveryConfigurations() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+		return v.LogDeliveryConfigurations
+	}).(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput)
+}
+
+func (o ReplicationGroupOutput) MultiAZEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.MultiAZEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) NodeGroupConfiguration() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupNodeGroupConfigurationArrayOutput {
+		return v.NodeGroupConfiguration
+	}).(ReplicationGroupNodeGroupConfigurationArrayOutput)
+}
+
+func (o ReplicationGroupOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) NumCacheClusters() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.NumCacheClusters }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationGroupOutput) NumNodeGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationGroupOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationGroupOutput) PreferredCacheClusterAZs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.PreferredCacheClusterAZs }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationGroupOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) PrimaryClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.PrimaryClusterId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) PrimaryEndPointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.PrimaryEndPointAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) PrimaryEndPointPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.PrimaryEndPointPort }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ReadEndPointAddresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ReadEndPointAddresses }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ReadEndPointAddressesList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.ReadEndPointAddressesList }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationGroupOutput) ReadEndPointPorts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ReadEndPointPorts }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ReadEndPointPortsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.ReadEndPointPortsList }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationGroupOutput) ReaderEndPointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ReaderEndPointAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ReaderEndPointPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ReaderEndPointPort }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ReplicationGroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ReplicationGroupDescription }).(pulumi.StringOutput)
+}
+
+func (o ReplicationGroupOutput) ReplicationGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ReplicationGroupId }).(pulumi.StringOutput)
+}
+
+func (o ReplicationGroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationGroupOutput) SnapshotArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.SnapshotArns }).(pulumi.StringArrayOutput)
+}
+
+func (o ReplicationGroupOutput) SnapshotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.SnapshotName }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) SnapshotRetentionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.SnapshotRetentionLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationGroupOutput) SnapshotWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) SnapshottingClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.SnapshottingClusterId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) Tags() ReplicationGroupTagArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupTagArrayOutput { return v.Tags }).(ReplicationGroupTagArrayOutput)
+}
+
+func (o ReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) UserGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.UserGroupIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupInput)(nil)).Elem(), &ReplicationGroup{})
 	pulumi.RegisterOutputType(ReplicationGroupOutput{})

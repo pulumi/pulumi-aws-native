@@ -140,6 +140,40 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
+// Amazon Resource Name (ARN) of the App.
+func (o AppOutput) AppArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppArn }).(pulumi.StringOutput)
+}
+
+// A string containing full ResilienceHub app template body.
+func (o AppOutput) AppTemplateBody() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppTemplateBody }).(pulumi.StringOutput)
+}
+
+// App description.
+func (o AppOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the app.
+func (o AppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the Resiliency Policy.
+func (o AppOutput) ResiliencyPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.ResiliencyPolicyArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of ResourceMapping objects.
+func (o AppOutput) ResourceMappings() AppResourceMappingArrayOutput {
+	return o.ApplyT(func(v *App) AppResourceMappingArrayOutput { return v.ResourceMappings }).(AppResourceMappingArrayOutput)
+}
+
+func (o AppOutput) Tags() AppTagMapPtrOutput {
+	return o.ApplyT(func(v *App) AppTagMapPtrOutput { return v.Tags }).(AppTagMapPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppInput)(nil)).Elem(), &App{})
 	pulumi.RegisterOutputType(AppOutput{})

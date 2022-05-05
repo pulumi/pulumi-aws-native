@@ -156,6 +156,44 @@ func (o DetectorModelOutput) ToDetectorModelOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DetectorModelOutput) DetectorModelDefinition() DetectorModelDefinitionOutput {
+	return o.ApplyT(func(v *DetectorModel) DetectorModelDefinitionOutput { return v.DetectorModelDefinition }).(DetectorModelDefinitionOutput)
+}
+
+// A brief description of the detector model.
+func (o DetectorModelOutput) DetectorModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModel) pulumi.StringPtrOutput { return v.DetectorModelDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the detector model.
+func (o DetectorModelOutput) DetectorModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModel) pulumi.StringPtrOutput { return v.DetectorModelName }).(pulumi.StringPtrOutput)
+}
+
+// Information about the order in which events are evaluated and how actions are executed.
+func (o DetectorModelOutput) EvaluationMethod() DetectorModelEvaluationMethodPtrOutput {
+	return o.ApplyT(func(v *DetectorModel) DetectorModelEvaluationMethodPtrOutput { return v.EvaluationMethod }).(DetectorModelEvaluationMethodPtrOutput)
+}
+
+// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
+//
+// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
+func (o DetectorModelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModel) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+func (o DetectorModelOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DetectorModel) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+func (o DetectorModelOutput) Tags() DetectorModelTagArrayOutput {
+	return o.ApplyT(func(v *DetectorModel) DetectorModelTagArrayOutput { return v.Tags }).(DetectorModelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelInput)(nil)).Elem(), &DetectorModel{})
 	pulumi.RegisterOutputType(DetectorModelOutput{})

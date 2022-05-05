@@ -126,6 +126,21 @@ func (o SchemaVersionMetadataOutput) ToSchemaVersionMetadataOutputWithContext(ct
 	return o
 }
 
+// Metadata key
+func (o SchemaVersionMetadataOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadata) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Represents the version ID associated with the schema version.
+func (o SchemaVersionMetadataOutput) SchemaVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadata) pulumi.StringOutput { return v.SchemaVersionId }).(pulumi.StringOutput)
+}
+
+// Metadata value
+func (o SchemaVersionMetadataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadata) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionMetadataInput)(nil)).Elem(), &SchemaVersionMetadata{})
 	pulumi.RegisterOutputType(SchemaVersionMetadataOutput{})

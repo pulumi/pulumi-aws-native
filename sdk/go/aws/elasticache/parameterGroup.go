@@ -119,6 +119,22 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ParameterGroupOutput) CacheParameterGroupFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.CacheParameterGroupFamily }).(pulumi.StringOutput)
+}
+
+func (o ParameterGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ParameterGroupOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+func (o ParameterGroupOutput) Tags() ParameterGroupTagArrayOutput {
+	return o.ApplyT(func(v *ParameterGroup) ParameterGroupTagArrayOutput { return v.Tags }).(ParameterGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupInput)(nil)).Elem(), &ParameterGroup{})
 	pulumi.RegisterOutputType(ParameterGroupOutput{})

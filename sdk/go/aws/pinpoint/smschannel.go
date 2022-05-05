@@ -116,6 +116,22 @@ func (o SMSChannelOutput) ToSMSChannelOutputWithContext(ctx context.Context) SMS
 	return o
 }
 
+func (o SMSChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SMSChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o SMSChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SMSChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o SMSChannelOutput) SenderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SMSChannel) pulumi.StringPtrOutput { return v.SenderId }).(pulumi.StringPtrOutput)
+}
+
+func (o SMSChannelOutput) ShortCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SMSChannel) pulumi.StringPtrOutput { return v.ShortCode }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SMSChannelInput)(nil)).Elem(), &SMSChannel{})
 	pulumi.RegisterOutputType(SMSChannelOutput{})

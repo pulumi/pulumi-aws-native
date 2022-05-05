@@ -150,6 +150,62 @@ func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) Resolve
 	return o
 }
 
+func (o ResolverOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ResolverOutput) CachingConfig() ResolverCachingConfigPtrOutput {
+	return o.ApplyT(func(v *Resolver) ResolverCachingConfigPtrOutput { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
+}
+
+func (o ResolverOutput) DataSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.DataSourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) FieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.FieldName }).(pulumi.StringOutput)
+}
+
+func (o ResolverOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ResolverOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
+	return o.ApplyT(func(v *Resolver) ResolverPipelineConfigPtrOutput { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
+}
+
+func (o ResolverOutput) RequestMappingTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) RequestMappingTemplateS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.RequestMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) ResolverArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.ResolverArn }).(pulumi.StringOutput)
+}
+
+func (o ResolverOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) SyncConfig() ResolverSyncConfigPtrOutput {
+	return o.ApplyT(func(v *Resolver) ResolverSyncConfigPtrOutput { return v.SyncConfig }).(ResolverSyncConfigPtrOutput)
+}
+
+func (o ResolverOutput) TypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.TypeName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInput)(nil)).Elem(), &Resolver{})
 	pulumi.RegisterOutputType(ResolverOutput{})

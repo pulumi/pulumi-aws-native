@@ -151,6 +151,45 @@ func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return o
 }
 
+func (o FaqOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// FAQ description
+func (o FaqOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// FAQ file format
+func (o FaqOutput) FileFormat() FaqFileFormatPtrOutput {
+	return o.ApplyT(func(v *Faq) FaqFileFormatPtrOutput { return v.FileFormat }).(FaqFileFormatPtrOutput)
+}
+
+// Index ID
+func (o FaqOutput) IndexId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
+}
+
+// FAQ name
+func (o FaqOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// FAQ role ARN
+func (o FaqOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// FAQ S3 path
+func (o FaqOutput) S3Path() FaqS3PathOutput {
+	return o.ApplyT(func(v *Faq) FaqS3PathOutput { return v.S3Path }).(FaqS3PathOutput)
+}
+
+// Tags for labeling the FAQ
+func (o FaqOutput) Tags() FaqTagArrayOutput {
+	return o.ApplyT(func(v *Faq) FaqTagArrayOutput { return v.Tags }).(FaqTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqInput)(nil)).Elem(), &Faq{})
 	pulumi.RegisterOutputType(FaqOutput{})

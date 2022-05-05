@@ -123,6 +123,34 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o SecurityGroupOutput) GroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.GroupDescription }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupOutput) SecurityGroupEgress() SecurityGroupEgressTypeArrayOutput {
+	return o.ApplyT(func(v *SecurityGroup) SecurityGroupEgressTypeArrayOutput { return v.SecurityGroupEgress }).(SecurityGroupEgressTypeArrayOutput)
+}
+
+func (o SecurityGroupOutput) SecurityGroupIngress() SecurityGroupIngressTypeArrayOutput {
+	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressTypeArrayOutput { return v.SecurityGroupIngress }).(SecurityGroupIngressTypeArrayOutput)
+}
+
+func (o SecurityGroupOutput) Tags() SecurityGroupTagArrayOutput {
+	return o.ApplyT(func(v *SecurityGroup) SecurityGroupTagArrayOutput { return v.Tags }).(SecurityGroupTagArrayOutput)
+}
+
+func (o SecurityGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupInput)(nil)).Elem(), &SecurityGroup{})
 	pulumi.RegisterOutputType(SecurityGroupOutput{})

@@ -124,6 +124,41 @@ func (o ControlPanelOutput) ToControlPanelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Cluster to associate with the Control Panel
+func (o ControlPanelOutput) ClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.StringPtrOutput { return v.ClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the cluster.
+func (o ControlPanelOutput) ControlPanelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.ControlPanelArn }).(pulumi.StringOutput)
+}
+
+// A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
+func (o ControlPanelOutput) DefaultControlPanel() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.BoolOutput { return v.DefaultControlPanel }).(pulumi.BoolOutput)
+}
+
+// The name of the control panel. You can use any non-white space character in the name.
+func (o ControlPanelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Count of associated routing controls
+func (o ControlPanelOutput) RoutingControlCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.IntOutput { return v.RoutingControlCount }).(pulumi.IntOutput)
+}
+
+// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+func (o ControlPanelOutput) Status() ControlPanelStatusOutput {
+	return o.ApplyT(func(v *ControlPanel) ControlPanelStatusOutput { return v.Status }).(ControlPanelStatusOutput)
+}
+
+// A collection of tags associated with a resource
+func (o ControlPanelOutput) Tags() ControlPanelTagArrayOutput {
+	return o.ApplyT(func(v *ControlPanel) ControlPanelTagArrayOutput { return v.Tags }).(ControlPanelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelInput)(nil)).Elem(), &ControlPanel{})
 	pulumi.RegisterOutputType(ControlPanelOutput{})

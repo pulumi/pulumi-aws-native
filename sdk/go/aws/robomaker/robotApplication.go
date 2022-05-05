@@ -133,6 +133,38 @@ func (o RobotApplicationOutput) ToRobotApplicationOutputWithContext(ctx context.
 	return o
 }
 
+func (o RobotApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RobotApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The revision ID of robot application.
+func (o RobotApplicationOutput) CurrentRevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RobotApplication) pulumi.StringPtrOutput { return v.CurrentRevisionId }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the Docker image for the robot application.
+func (o RobotApplicationOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RobotApplication) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
+// The name of the robot application.
+func (o RobotApplicationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RobotApplication) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o RobotApplicationOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuiteOutput {
+	return o.ApplyT(func(v *RobotApplication) RobotApplicationRobotSoftwareSuiteOutput { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuiteOutput)
+}
+
+// The sources of the robot application.
+func (o RobotApplicationOutput) Sources() RobotApplicationSourceConfigArrayOutput {
+	return o.ApplyT(func(v *RobotApplication) RobotApplicationSourceConfigArrayOutput { return v.Sources }).(RobotApplicationSourceConfigArrayOutput)
+}
+
+func (o RobotApplicationOutput) Tags() RobotApplicationTagsPtrOutput {
+	return o.ApplyT(func(v *RobotApplication) RobotApplicationTagsPtrOutput { return v.Tags }).(RobotApplicationTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationInput)(nil)).Elem(), &RobotApplication{})
 	pulumi.RegisterOutputType(RobotApplicationOutput{})

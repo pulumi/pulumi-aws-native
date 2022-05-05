@@ -135,6 +135,59 @@ func (o CustomLineItemOutput) ToCustomLineItemOutputWithContext(ctx context.Cont
 	return o
 }
 
+// ARN
+func (o CustomLineItemOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Number of source values associated to this custom line item
+func (o CustomLineItemOutput) AssociationSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.IntOutput { return v.AssociationSize }).(pulumi.IntOutput)
+}
+
+// Billing Group ARN
+func (o CustomLineItemOutput) BillingGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.StringOutput { return v.BillingGroupArn }).(pulumi.StringOutput)
+}
+
+func (o CustomLineItemOutput) BillingPeriodRange() CustomLineItemBillingPeriodRangePtrOutput {
+	return o.ApplyT(func(v *CustomLineItem) CustomLineItemBillingPeriodRangePtrOutput { return v.BillingPeriodRange }).(CustomLineItemBillingPeriodRangePtrOutput)
+}
+
+// Creation timestamp in UNIX epoch time format
+func (o CustomLineItemOutput) CreationTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.IntOutput { return v.CreationTime }).(pulumi.IntOutput)
+}
+
+func (o CustomLineItemOutput) CurrencyCode() CustomLineItemCurrencyCodeOutput {
+	return o.ApplyT(func(v *CustomLineItem) CustomLineItemCurrencyCodeOutput { return v.CurrencyCode }).(CustomLineItemCurrencyCodeOutput)
+}
+
+func (o CustomLineItemOutput) CustomLineItemChargeDetails() CustomLineItemChargeDetailsPtrOutput {
+	return o.ApplyT(func(v *CustomLineItem) CustomLineItemChargeDetailsPtrOutput { return v.CustomLineItemChargeDetails }).(CustomLineItemChargeDetailsPtrOutput)
+}
+
+func (o CustomLineItemOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Latest modified timestamp in UNIX epoch time format
+func (o CustomLineItemOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.IntOutput { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+func (o CustomLineItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CustomLineItemOutput) ProductCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.StringOutput { return v.ProductCode }).(pulumi.StringOutput)
+}
+
+func (o CustomLineItemOutput) Tags() CustomLineItemTagArrayOutput {
+	return o.ApplyT(func(v *CustomLineItem) CustomLineItemTagArrayOutput { return v.Tags }).(CustomLineItemTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemInput)(nil)).Elem(), &CustomLineItem{})
 	pulumi.RegisterOutputType(CustomLineItemOutput{})

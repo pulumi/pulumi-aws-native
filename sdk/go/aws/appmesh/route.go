@@ -131,6 +131,42 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+func (o RouteOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) RouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.RouteName }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) Spec() RouteSpecOutput {
+	return o.ApplyT(func(v *Route) RouteSpecOutput { return v.Spec }).(RouteSpecOutput)
+}
+
+func (o RouteOutput) Tags() RouteTagArrayOutput {
+	return o.ApplyT(func(v *Route) RouteTagArrayOutput { return v.Tags }).(RouteTagArrayOutput)
+}
+
+func (o RouteOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) VirtualRouterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.VirtualRouterName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteInput)(nil)).Elem(), &Route{})
 	pulumi.RegisterOutputType(RouteOutput{})

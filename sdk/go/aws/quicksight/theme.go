@@ -176,6 +176,74 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the theme.</p>
+func (o ThemeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+// 				<code>ListThemes</code> or choose <b>Themes</b> from
+// 			within a QuickSight analysis. </p>
+func (o ThemeOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.BaseThemeId }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v *Theme) ThemeConfigurationPtrOutput { return v.Configuration }).(ThemeConfigurationPtrOutput)
+}
+
+// <p>The date and time that the theme was created.</p>
+func (o ThemeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// <p>The date and time that the theme was last updated.</p>
+func (o ThemeOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// <p>A display name for the theme.</p>
+func (o ThemeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// <p>A valid grouping of resource permissions to apply to the new theme.
+// 			</p>
+func (o ThemeOutput) Permissions() ThemeResourcePermissionArrayOutput {
+	return o.ApplyT(func(v *Theme) ThemeResourcePermissionArrayOutput { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
+}
+
+// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+// 			resource.</p>
+func (o ThemeOutput) Tags() ThemeTagArrayOutput {
+	return o.ApplyT(func(v *Theme) ThemeTagArrayOutput { return v.Tags }).(ThemeTagArrayOutput)
+}
+
+func (o ThemeOutput) ThemeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ThemeId }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) Type() ThemeTypeOutput {
+	return o.ApplyT(func(v *Theme) ThemeTypeOutput { return v.Type }).(ThemeTypeOutput)
+}
+
+func (o ThemeOutput) Version() ThemeVersionOutput {
+	return o.ApplyT(func(v *Theme) ThemeVersionOutput { return v.Version }).(ThemeVersionOutput)
+}
+
+// <p>A description of the first version of the theme that you're creating. Every time
+// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+// 			theme has a description of the version in the <code>VersionDescription</code>
+// 			field.</p>
+func (o ThemeOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeInput)(nil)).Elem(), &Theme{})
 	pulumi.RegisterOutputType(ThemeOutput{})

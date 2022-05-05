@@ -140,6 +140,43 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWi
 	return o
 }
 
+// A list of ConformancePackInputParameter objects.
+func (o OrganizationConformancePackOutput) ConformancePackInputParameters() OrganizationConformancePackConformancePackInputParameterArrayOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) OrganizationConformancePackConformancePackInputParameterArrayOutput {
+		return v.ConformancePackInputParameters
+	}).(OrganizationConformancePackConformancePackInputParameterArrayOutput)
+}
+
+// AWS Config stores intermediate files while processing conformance pack template.
+func (o OrganizationConformancePackOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The prefix for the delivery S3 bucket.
+func (o OrganizationConformancePackOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+func (o OrganizationConformancePackOutput) ExcludedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringArrayOutput { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
+}
+
+// The name of the organization conformance pack.
+func (o OrganizationConformancePackOutput) OrganizationConformancePackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.OrganizationConformancePackName }).(pulumi.StringOutput)
+}
+
+// A string containing full conformance pack template body.
+func (o OrganizationConformancePackOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
+}
+
+// Location of file containing the template body.
+func (o OrganizationConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.TemplateS3Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackInput)(nil)).Elem(), &OrganizationConformancePack{})
 	pulumi.RegisterOutputType(OrganizationConformancePackOutput{})

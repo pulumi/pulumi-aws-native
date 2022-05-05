@@ -149,6 +149,53 @@ func (o TransitGatewayPeeringAttachmentOutput) ToTransitGatewayPeeringAttachment
 	return o
 }
 
+// The time the transit gateway peering attachment was created.
+func (o TransitGatewayPeeringAttachmentOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The ID of the peer account
+func (o TransitGatewayPeeringAttachmentOutput) PeerAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.PeerAccountId }).(pulumi.StringOutput)
+}
+
+// Peer Region
+func (o TransitGatewayPeeringAttachmentOutput) PeerRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.PeerRegion }).(pulumi.StringOutput)
+}
+
+// The ID of the peer transit gateway.
+func (o TransitGatewayPeeringAttachmentOutput) PeerTransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
+}
+
+// The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
+func (o TransitGatewayPeeringAttachmentOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The status of the transit gateway peering attachment.
+func (o TransitGatewayPeeringAttachmentOutput) Status() TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput {
+		return v.Status
+	}).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput)
+}
+
+// The tags for the transit gateway peering attachment.
+func (o TransitGatewayPeeringAttachmentOutput) Tags() TransitGatewayPeeringAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) TransitGatewayPeeringAttachmentTagArrayOutput { return v.Tags }).(TransitGatewayPeeringAttachmentTagArrayOutput)
+}
+
+// The ID of the transit gateway peering attachment.
+func (o TransitGatewayPeeringAttachmentOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway.
+func (o TransitGatewayPeeringAttachmentOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentInput)(nil)).Elem(), &TransitGatewayPeeringAttachment{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOutput{})

@@ -130,6 +130,36 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+// Specifies the unique Amazon Resource Name (ARN) for the workflow.
+func (o WorkflowOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A textual description for the workflow.
+func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
+func (o WorkflowOutput) OnExceptionSteps() WorkflowStepArrayOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowStepArrayOutput { return v.OnExceptionSteps }).(WorkflowStepArrayOutput)
+}
+
+// Specifies the details for the steps that are in the specified workflow.
+func (o WorkflowOutput) Steps() WorkflowStepArrayOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowStepArrayOutput { return v.Steps }).(WorkflowStepArrayOutput)
+}
+
+// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+func (o WorkflowOutput) Tags() WorkflowTagArrayOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowTagArrayOutput { return v.Tags }).(WorkflowTagArrayOutput)
+}
+
+// A unique identifier for the workflow.
+func (o WorkflowOutput) WorkflowId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.WorkflowId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInput)(nil)).Elem(), &Workflow{})
 	pulumi.RegisterOutputType(WorkflowOutput{})

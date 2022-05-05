@@ -109,6 +109,18 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) ResourceLifecycleConfig() ApplicationResourceLifecycleConfigPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationResourceLifecycleConfigPtrOutput { return v.ResourceLifecycleConfig }).(ApplicationResourceLifecycleConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

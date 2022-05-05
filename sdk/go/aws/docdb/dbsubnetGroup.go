@@ -119,6 +119,22 @@ func (o DBSubnetGroupOutput) ToDBSubnetGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DBSubnetGroupOutput) DBSubnetGroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBSubnetGroup) pulumi.StringOutput { return v.DBSubnetGroupDescription }).(pulumi.StringOutput)
+}
+
+func (o DBSubnetGroupOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSubnetGroup) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o DBSubnetGroupOutput) Tags() DBSubnetGroupTagArrayOutput {
+	return o.ApplyT(func(v *DBSubnetGroup) DBSubnetGroupTagArrayOutput { return v.Tags }).(DBSubnetGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBSubnetGroupInput)(nil)).Elem(), &DBSubnetGroup{})
 	pulumi.RegisterOutputType(DBSubnetGroupOutput{})

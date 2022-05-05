@@ -122,6 +122,22 @@ func (o SubscriptionFilterOutput) ToSubscriptionFilterOutputWithContext(ctx cont
 	return o
 }
 
+func (o SubscriptionFilterOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionFilter) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionFilterOutput) FilterPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionFilter) pulumi.StringOutput { return v.FilterPattern }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionFilterOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionFilter) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionFilterOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionFilter) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterInput)(nil)).Elem(), &SubscriptionFilter{})
 	pulumi.RegisterOutputType(SubscriptionFilterOutput{})

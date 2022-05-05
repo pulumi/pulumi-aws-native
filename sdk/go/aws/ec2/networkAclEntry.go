@@ -167,6 +167,51 @@ func (o NetworkAclEntryOutput) ToNetworkAclEntryOutputWithContext(ctx context.Co
 	return o
 }
 
+// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+func (o NetworkAclEntryOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+func (o NetworkAclEntryOutput) Egress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.BoolPtrOutput { return v.Egress }).(pulumi.BoolPtrOutput)
+}
+
+// The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+func (o NetworkAclEntryOutput) Icmp() NetworkAclEntryIcmpPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) NetworkAclEntryIcmpPtrOutput { return v.Icmp }).(NetworkAclEntryIcmpPtrOutput)
+}
+
+// The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+func (o NetworkAclEntryOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the network ACL
+func (o NetworkAclEntryOutput) NetworkAclId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.StringOutput { return v.NetworkAclId }).(pulumi.StringOutput)
+}
+
+// The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+func (o NetworkAclEntryOutput) PortRange() NetworkAclEntryPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) NetworkAclEntryPortRangePtrOutput { return v.PortRange }).(NetworkAclEntryPortRangePtrOutput)
+}
+
+// The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+func (o NetworkAclEntryOutput) Protocol() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.IntOutput { return v.Protocol }).(pulumi.IntOutput)
+}
+
+// Indicates whether to allow or deny the traffic that matches the rule
+func (o NetworkAclEntryOutput) RuleAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.StringOutput { return v.RuleAction }).(pulumi.StringOutput)
+}
+
+// Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+func (o NetworkAclEntryOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.IntOutput { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEntryInput)(nil)).Elem(), &NetworkAclEntry{})
 	pulumi.RegisterOutputType(NetworkAclEntryOutput{})

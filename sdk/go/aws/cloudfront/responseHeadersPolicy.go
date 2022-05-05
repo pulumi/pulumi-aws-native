@@ -106,6 +106,14 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ct
 	return o
 }
 
+func (o ResponseHeadersPolicyOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+func (o ResponseHeadersPolicyOutput) ResponseHeadersPolicyConfig() ResponseHeadersPolicyConfigOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyConfigOutput { return v.ResponseHeadersPolicyConfig }).(ResponseHeadersPolicyConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyInput)(nil)).Elem(), &ResponseHeadersPolicy{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyOutput{})

@@ -128,6 +128,30 @@ func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o EmailChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o EmailChannelOutput) ConfigurationSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringPtrOutput { return v.ConfigurationSet }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o EmailChannelOutput) FromAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.FromAddress }).(pulumi.StringOutput)
+}
+
+func (o EmailChannelOutput) Identity() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.Identity }).(pulumi.StringOutput)
+}
+
+func (o EmailChannelOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailChannelInput)(nil)).Elem(), &EmailChannel{})
 	pulumi.RegisterOutputType(EmailChannelOutput{})

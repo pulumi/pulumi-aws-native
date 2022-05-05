@@ -135,6 +135,40 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+func (o TableOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name for the database which the table to be created belongs to.
+func (o TableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The properties that determine whether magnetic store writes are enabled.
+func (o TableOutput) MagneticStoreWriteProperties() MagneticStoreWritePropertiesPropertiesPtrOutput {
+	return o.ApplyT(func(v *Table) MagneticStoreWritePropertiesPropertiesPtrOutput { return v.MagneticStoreWriteProperties }).(MagneticStoreWritePropertiesPropertiesPtrOutput)
+}
+
+// The table name exposed as a read-only attribute.
+func (o TableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The retention duration of the memory store and the magnetic store.
+func (o TableOutput) RetentionProperties() RetentionPropertiesPropertiesPtrOutput {
+	return o.ApplyT(func(v *Table) RetentionPropertiesPropertiesPtrOutput { return v.RetentionProperties }).(RetentionPropertiesPropertiesPtrOutput)
+}
+
+// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
+func (o TableOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o TableOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableInput)(nil)).Elem(), &Table{})
 	pulumi.RegisterOutputType(TableOutput{})

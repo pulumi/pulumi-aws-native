@@ -143,6 +143,54 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+func (o RouteOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) ApiKeyRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.BoolPtrOutput { return v.ApiKeyRequired }).(pulumi.BoolPtrOutput)
+}
+
+func (o RouteOutput) AuthorizationScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringArrayOutput { return v.AuthorizationScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o RouteOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.AuthorizationType }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) AuthorizerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.AuthorizerId }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) RequestModels() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Route) pulumi.AnyOutput { return v.RequestModels }).(pulumi.AnyOutput)
+}
+
+func (o RouteOutput) RequestParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Route) pulumi.AnyOutput { return v.RequestParameters }).(pulumi.AnyOutput)
+}
+
+func (o RouteOutput) RouteKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteKey }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) RouteResponseSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.RouteResponseSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Target }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteInput)(nil)).Elem(), &Route{})
 	pulumi.RegisterOutputType(RouteOutput{})

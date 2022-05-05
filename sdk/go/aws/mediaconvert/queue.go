@@ -116,6 +116,30 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
+func (o QueueOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o QueueOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutput) PricingPlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.PricingPlan }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Queue) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueInput)(nil)).Elem(), &Queue{})
 	pulumi.RegisterOutputType(QueueOutput{})

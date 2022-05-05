@@ -132,6 +132,46 @@ func (o PushTemplateOutput) ToPushTemplateOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o PushTemplateOutput) ADM() PushTemplateAndroidPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.ADM }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
+}
+
+func (o PushTemplateOutput) APNS() PushTemplateAPNSPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAPNSPushNotificationTemplatePtrOutput { return v.APNS }).(PushTemplateAPNSPushNotificationTemplatePtrOutput)
+}
+
+func (o PushTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PushTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PushTemplateOutput) Baidu() PushTemplateAndroidPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.Baidu }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
+}
+
+func (o PushTemplateOutput) Default() PushTemplateDefaultPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateDefaultPushNotificationTemplatePtrOutput { return v.Default }).(PushTemplateDefaultPushNotificationTemplatePtrOutput)
+}
+
+func (o PushTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplate) pulumi.StringPtrOutput { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateOutput) GCM() PushTemplateAndroidPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.GCM }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
+}
+
+func (o PushTemplateOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PushTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o PushTemplateOutput) TemplateDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushTemplate) pulumi.StringPtrOutput { return v.TemplateDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o PushTemplateOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PushTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateInput)(nil)).Elem(), &PushTemplate{})
 	pulumi.RegisterOutputType(PushTemplateOutput{})

@@ -112,6 +112,22 @@ func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) Cla
 	return o
 }
 
+func (o ClassifierOutput) CsvClassifier() ClassifierCsvClassifierPtrOutput {
+	return o.ApplyT(func(v *Classifier) ClassifierCsvClassifierPtrOutput { return v.CsvClassifier }).(ClassifierCsvClassifierPtrOutput)
+}
+
+func (o ClassifierOutput) GrokClassifier() ClassifierGrokClassifierPtrOutput {
+	return o.ApplyT(func(v *Classifier) ClassifierGrokClassifierPtrOutput { return v.GrokClassifier }).(ClassifierGrokClassifierPtrOutput)
+}
+
+func (o ClassifierOutput) JsonClassifier() ClassifierJsonClassifierPtrOutput {
+	return o.ApplyT(func(v *Classifier) ClassifierJsonClassifierPtrOutput { return v.JsonClassifier }).(ClassifierJsonClassifierPtrOutput)
+}
+
+func (o ClassifierOutput) XMLClassifier() ClassifierXMLClassifierPtrOutput {
+	return o.ApplyT(func(v *Classifier) ClassifierXMLClassifierPtrOutput { return v.XMLClassifier }).(ClassifierXMLClassifierPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierInput)(nil)).Elem(), &Classifier{})
 	pulumi.RegisterOutputType(ClassifierOutput{})

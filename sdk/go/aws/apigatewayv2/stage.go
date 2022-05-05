@@ -140,6 +140,54 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
 }
 
+func (o StageOutput) AccessLogSettings() StageAccessLogSettingsPtrOutput {
+	return o.ApplyT(func(v *Stage) StageAccessLogSettingsPtrOutput { return v.AccessLogSettings }).(StageAccessLogSettingsPtrOutput)
+}
+
+func (o StageOutput) AccessPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.AccessPolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o StageOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o StageOutput) AutoDeploy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.AutoDeploy }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
+func (o StageOutput) DefaultRouteSettings() StageRouteSettingsPtrOutput {
+	return o.ApplyT(func(v *Stage) StageRouteSettingsPtrOutput { return v.DefaultRouteSettings }).(StageRouteSettingsPtrOutput)
+}
+
+func (o StageOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DeploymentId }).(pulumi.StringPtrOutput)
+}
+
+func (o StageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o StageOutput) RouteSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.RouteSettings }).(pulumi.AnyOutput)
+}
+
+func (o StageOutput) StageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
+}
+
+func (o StageOutput) StageVariables() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.StageVariables }).(pulumi.AnyOutput)
+}
+
+func (o StageOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageInput)(nil)).Elem(), &Stage{})
 	pulumi.RegisterOutputType(StageOutput{})

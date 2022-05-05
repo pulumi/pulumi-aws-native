@@ -118,6 +118,33 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContex
 	return o
 }
 
+func (o ConfigurationAggregatorOutput) AccountAggregationSources() ConfigurationAggregatorAccountAggregationSourceArrayOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorAccountAggregationSourceArrayOutput {
+		return v.AccountAggregationSources
+	}).(ConfigurationAggregatorAccountAggregationSourceArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the aggregator.
+func (o ConfigurationAggregatorOutput) ConfigurationAggregatorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringOutput { return v.ConfigurationAggregatorArn }).(pulumi.StringOutput)
+}
+
+// The name of the aggregator.
+func (o ConfigurationAggregatorOutput) ConfigurationAggregatorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringPtrOutput { return v.ConfigurationAggregatorName }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationAggregatorOutput) OrganizationAggregationSource() ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
+		return v.OrganizationAggregationSource
+	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
+}
+
+// The tags for the configuration aggregator.
+func (o ConfigurationAggregatorOutput) Tags() ConfigurationAggregatorTagArrayOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorTagArrayOutput { return v.Tags }).(ConfigurationAggregatorTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorInput)(nil)).Elem(), &ConfigurationAggregator{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOutput{})

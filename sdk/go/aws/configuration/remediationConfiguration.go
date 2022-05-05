@@ -140,6 +140,48 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithCont
 	return o
 }
 
+func (o RemediationConfigurationOutput) Automatic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.BoolPtrOutput { return v.Automatic }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemediationConfigurationOutput) ConfigRuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.ConfigRuleName }).(pulumi.StringOutput)
+}
+
+func (o RemediationConfigurationOutput) ExecutionControls() RemediationConfigurationExecutionControlsPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) RemediationConfigurationExecutionControlsPtrOutput {
+		return v.ExecutionControls
+	}).(RemediationConfigurationExecutionControlsPtrOutput)
+}
+
+func (o RemediationConfigurationOutput) MaximumAutomaticAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.IntPtrOutput { return v.MaximumAutomaticAttempts }).(pulumi.IntPtrOutput)
+}
+
+func (o RemediationConfigurationOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o RemediationConfigurationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o RemediationConfigurationOutput) RetryAttemptSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.IntPtrOutput { return v.RetryAttemptSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o RemediationConfigurationOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
+}
+
+func (o RemediationConfigurationOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
+}
+
+func (o RemediationConfigurationOutput) TargetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringPtrOutput { return v.TargetVersion }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationInput)(nil)).Elem(), &RemediationConfiguration{})
 	pulumi.RegisterOutputType(RemediationConfigurationOutput{})

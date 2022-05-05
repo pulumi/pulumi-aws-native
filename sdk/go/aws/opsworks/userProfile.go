@@ -116,6 +116,22 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
+func (o UserProfileOutput) AllowSelfManagement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.BoolPtrOutput { return v.AllowSelfManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserProfileOutput) IamUserArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.IamUserArn }).(pulumi.StringOutput)
+}
+
+func (o UserProfileOutput) SshPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SshPublicKey }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProfileOutput) SshUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SshUsername }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileInput)(nil)).Elem(), &UserProfile{})
 	pulumi.RegisterOutputType(UserProfileOutput{})

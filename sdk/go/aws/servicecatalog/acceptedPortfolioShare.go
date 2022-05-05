@@ -110,6 +110,14 @@ func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutputWithContext(
 	return o
 }
 
+func (o AcceptedPortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AcceptedPortfolioShare) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o AcceptedPortfolioShareOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AcceptedPortfolioShare) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceptedPortfolioShareInput)(nil)).Elem(), &AcceptedPortfolioShare{})
 	pulumi.RegisterOutputType(AcceptedPortfolioShareOutput{})

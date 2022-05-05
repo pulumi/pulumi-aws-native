@@ -182,6 +182,106 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
+func (o StackOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o StackOutput) ChefConfiguration() StackChefConfigurationPtrOutput {
+	return o.ApplyT(func(v *Stack) StackChefConfigurationPtrOutput { return v.ChefConfiguration }).(StackChefConfigurationPtrOutput)
+}
+
+func (o StackOutput) CloneAppIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.CloneAppIds }).(pulumi.StringArrayOutput)
+}
+
+func (o StackOutput) ClonePermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.ClonePermissions }).(pulumi.BoolPtrOutput)
+}
+
+func (o StackOutput) ConfigurationManager() StackConfigurationManagerPtrOutput {
+	return o.ApplyT(func(v *Stack) StackConfigurationManagerPtrOutput { return v.ConfigurationManager }).(StackConfigurationManagerPtrOutput)
+}
+
+func (o StackOutput) CustomCookbooksSource() StackSourcePtrOutput {
+	return o.ApplyT(func(v *Stack) StackSourcePtrOutput { return v.CustomCookbooksSource }).(StackSourcePtrOutput)
+}
+
+func (o StackOutput) CustomJson() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.CustomJson }).(pulumi.AnyOutput)
+}
+
+func (o StackOutput) DefaultAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) DefaultInstanceProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DefaultInstanceProfileArn }).(pulumi.StringOutput)
+}
+
+func (o StackOutput) DefaultOs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultOs }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) DefaultRootDeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultRootDeviceType }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) DefaultSshKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultSshKeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) DefaultSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultSubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) EcsClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.EcsClusterArn }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) ElasticIps() StackElasticIpArrayOutput {
+	return o.ApplyT(func(v *Stack) StackElasticIpArrayOutput { return v.ElasticIps }).(StackElasticIpArrayOutput)
+}
+
+func (o StackOutput) HostnameTheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.HostnameTheme }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o StackOutput) RdsDbInstances() StackRdsDbInstanceArrayOutput {
+	return o.ApplyT(func(v *Stack) StackRdsDbInstanceArrayOutput { return v.RdsDbInstances }).(StackRdsDbInstanceArrayOutput)
+}
+
+func (o StackOutput) ServiceRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
+}
+
+func (o StackOutput) SourceStackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.SourceStackId }).(pulumi.StringPtrOutput)
+}
+
+func (o StackOutput) Tags() StackTagArrayOutput {
+	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+}
+
+func (o StackOutput) UseCustomCookbooks() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.UseCustomCookbooks }).(pulumi.BoolPtrOutput)
+}
+
+func (o StackOutput) UseOpsworksSecurityGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.UseOpsworksSecurityGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o StackOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackInput)(nil)).Elem(), &Stack{})
 	pulumi.RegisterOutputType(StackOutput{})

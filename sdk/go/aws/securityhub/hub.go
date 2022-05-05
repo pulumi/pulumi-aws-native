@@ -103,6 +103,10 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
 }
 
+func (o HubOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Hub) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HubInput)(nil)).Elem(), &Hub{})
 	pulumi.RegisterOutputType(HubOutput{})

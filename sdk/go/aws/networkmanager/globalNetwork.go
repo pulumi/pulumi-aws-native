@@ -112,6 +112,21 @@ func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the global network.
+func (o GlobalNetworkOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The description of the global network.
+func (o GlobalNetworkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the global network.
+func (o GlobalNetworkOutput) Tags() GlobalNetworkTagArrayOutput {
+	return o.ApplyT(func(v *GlobalNetwork) GlobalNetworkTagArrayOutput { return v.Tags }).(GlobalNetworkTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkInput)(nil)).Elem(), &GlobalNetwork{})
 	pulumi.RegisterOutputType(GlobalNetworkOutput{})

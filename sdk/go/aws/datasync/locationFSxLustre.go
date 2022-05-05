@@ -133,6 +133,36 @@ func (o LocationFSxLustreOutput) ToLocationFSxLustreOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+func (o LocationFSxLustreOutput) FsxFilesystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
+func (o LocationFSxLustreOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the FSx for Lustre location that was described.
+func (o LocationFSxLustreOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+// The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
+func (o LocationFSxLustreOutput) SecurityGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
+}
+
+// A subdirectory in the location's path.
+func (o LocationFSxLustreOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationFSxLustreOutput) Tags() LocationFSxLustreTagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) LocationFSxLustreTagArrayOutput { return v.Tags }).(LocationFSxLustreTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreInput)(nil)).Elem(), &LocationFSxLustre{})
 	pulumi.RegisterOutputType(LocationFSxLustreOutput{})

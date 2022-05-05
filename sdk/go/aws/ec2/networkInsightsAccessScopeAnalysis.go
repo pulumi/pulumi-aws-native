@@ -116,6 +116,56 @@ func (o NetworkInsightsAccessScopeAnalysisOutput) ToNetworkInsightsAccessScopeAn
 	return o
 }
 
+func (o NetworkInsightsAccessScopeAnalysisOutput) AnalyzedEniCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.IntOutput { return v.AnalyzedEniCount }).(pulumi.IntOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.EndDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) FindingsFound() NetworkInsightsAccessScopeAnalysisFindingsFoundOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisFindingsFoundOutput {
+		return v.FindingsFound
+	}).(NetworkInsightsAccessScopeAnalysisFindingsFoundOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) NetworkInsightsAccessScopeAnalysisArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput {
+		return v.NetworkInsightsAccessScopeAnalysisArn
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) NetworkInsightsAccessScopeAnalysisId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput {
+		return v.NetworkInsightsAccessScopeAnalysisId
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) NetworkInsightsAccessScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.NetworkInsightsAccessScopeId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) Status() NetworkInsightsAccessScopeAnalysisStatusOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisStatusOutput {
+		return v.Status
+	}).(NetworkInsightsAccessScopeAnalysisStatusOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisOutput) Tags() NetworkInsightsAccessScopeAnalysisTagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisTagArrayOutput {
+		return v.Tags
+	}).(NetworkInsightsAccessScopeAnalysisTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAnalysisInput)(nil)).Elem(), &NetworkInsightsAccessScopeAnalysis{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisOutput{})

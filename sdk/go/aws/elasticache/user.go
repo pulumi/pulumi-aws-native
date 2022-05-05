@@ -145,6 +145,46 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// Access permissions string used for this user account.
+func (o UserOutput) AccessString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.AccessString }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the user account.
+func (o UserOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Must be redis.
+func (o UserOutput) Engine() UserEngineOutput {
+	return o.ApplyT(func(v *User) UserEngineOutput { return v.Engine }).(UserEngineOutput)
+}
+
+// Indicates a password is not required for this user account.
+func (o UserOutput) NoPasswordRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.NoPasswordRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Passwords used for this user account. You can create up to two passwords for each user.
+func (o UserOutput) Passwords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Passwords }).(pulumi.StringArrayOutput)
+}
+
+// Indicates the user status. Can be "active", "modifying" or "deleting".
+func (o UserOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The ID of the user.
+func (o UserOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// The username of the user.
+func (o UserOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
 	pulumi.RegisterOutputType(UserOutput{})

@@ -169,6 +169,106 @@ func (o DBClusterOutput) ToDBClusterOutputWithContext(ctx context.Context) DBClu
 	return o
 }
 
+func (o DBClusterOutput) AssociatedRoles() DBClusterRoleArrayOutput {
+	return o.ApplyT(func(v *DBCluster) DBClusterRoleArrayOutput { return v.AssociatedRoles }).(DBClusterRoleArrayOutput)
+}
+
+func (o DBClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o DBClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o DBClusterOutput) ClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
+}
+
+func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+func (o DBClusterOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringArrayOutput { return v.EnableCloudwatchLogsExports }).(pulumi.StringArrayOutput)
+}
+
+func (o DBClusterOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o DBClusterOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DBClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o DBClusterOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) ReadEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.ReadEndpoint }).(pulumi.StringOutput)
+}
+
+func (o DBClusterOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreToTime }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o DBClusterOutput) Tags() DBClusterTagArrayOutput {
+	return o.ApplyT(func(v *DBCluster) DBClusterTagArrayOutput { return v.Tags }).(DBClusterTagArrayOutput)
+}
+
+func (o DBClusterOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
+}
+
+func (o DBClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterInput)(nil)).Elem(), &DBCluster{})
 	pulumi.RegisterOutputType(DBClusterOutput{})

@@ -122,6 +122,30 @@ func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o LayerVersionOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
+}
+
+func (o LayerVersionOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
+}
+
+func (o LayerVersionOutput) Content() LayerVersionContentOutput {
+	return o.ApplyT(func(v *LayerVersion) LayerVersionContentOutput { return v.Content }).(LayerVersionContentOutput)
+}
+
+func (o LayerVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LayerVersionOutput) LayerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LayerName }).(pulumi.StringPtrOutput)
+}
+
+func (o LayerVersionOutput) LicenseInfo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LicenseInfo }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionInput)(nil)).Elem(), &LayerVersion{})
 	pulumi.RegisterOutputType(LayerVersionOutput{})

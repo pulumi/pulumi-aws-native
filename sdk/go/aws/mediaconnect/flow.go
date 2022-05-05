@@ -130,6 +130,36 @@ func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return o
 }
 
+// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+func (o FlowOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+func (o FlowOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
+func (o FlowOutput) FlowAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowAvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The name of the flow.
+func (o FlowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source of the flow.
+func (o FlowOutput) Source() FlowSourceTypeOutput {
+	return o.ApplyT(func(v *Flow) FlowSourceTypeOutput { return v.Source }).(FlowSourceTypeOutput)
+}
+
+// The source failover config of the flow.
+func (o FlowOutput) SourceFailoverConfig() FlowFailoverConfigPtrOutput {
+	return o.ApplyT(func(v *Flow) FlowFailoverConfigPtrOutput { return v.SourceFailoverConfig }).(FlowFailoverConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInput)(nil)).Elem(), &Flow{})
 	pulumi.RegisterOutputType(FlowOutput{})

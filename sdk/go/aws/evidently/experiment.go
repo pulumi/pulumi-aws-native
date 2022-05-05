@@ -148,6 +148,52 @@ func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) Exp
 	return o
 }
 
+func (o ExperimentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ExperimentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ExperimentOutput) MetricGoals() ExperimentMetricGoalObjectArrayOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentMetricGoalObjectArrayOutput { return v.MetricGoals }).(ExperimentMetricGoalObjectArrayOutput)
+}
+
+func (o ExperimentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ExperimentOutput) OnlineAbConfig() ExperimentOnlineAbConfigObjectOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentOnlineAbConfigObjectOutput { return v.OnlineAbConfig }).(ExperimentOnlineAbConfigObjectOutput)
+}
+
+func (o ExperimentOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
+}
+
+func (o ExperimentOutput) RandomizationSalt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
+}
+
+// Start Experiment. Default is False
+func (o ExperimentOutput) RunningStatus() ExperimentRunningStatusObjectPtrOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentRunningStatusObjectPtrOutput { return v.RunningStatus }).(ExperimentRunningStatusObjectPtrOutput)
+}
+
+func (o ExperimentOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.IntPtrOutput { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ExperimentOutput) Tags() ExperimentTagArrayOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentTagArrayOutput { return v.Tags }).(ExperimentTagArrayOutput)
+}
+
+func (o ExperimentOutput) Treatments() ExperimentTreatmentObjectArrayOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentTreatmentObjectArrayOutput { return v.Treatments }).(ExperimentTreatmentObjectArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentInput)(nil)).Elem(), &Experiment{})
 	pulumi.RegisterOutputType(ExperimentOutput{})

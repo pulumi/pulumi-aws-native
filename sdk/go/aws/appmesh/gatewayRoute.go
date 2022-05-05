@@ -131,6 +131,42 @@ func (o GatewayRouteOutput) ToGatewayRouteOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GatewayRouteOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteOutput) GatewayRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringPtrOutput { return v.GatewayRouteName }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteOutput) Spec() GatewayRouteSpecOutput {
+	return o.ApplyT(func(v *GatewayRoute) GatewayRouteSpecOutput { return v.Spec }).(GatewayRouteSpecOutput)
+}
+
+func (o GatewayRouteOutput) Tags() GatewayRouteTagArrayOutput {
+	return o.ApplyT(func(v *GatewayRoute) GatewayRouteTagArrayOutput { return v.Tags }).(GatewayRouteTagArrayOutput)
+}
+
+func (o GatewayRouteOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteOutput) VirtualGatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.VirtualGatewayName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteInput)(nil)).Elem(), &GatewayRoute{})
 	pulumi.RegisterOutputType(GatewayRouteOutput{})

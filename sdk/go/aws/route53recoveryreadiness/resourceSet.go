@@ -137,6 +137,33 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the resource set.
+func (o ResourceSetOutput) ResourceSetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.ResourceSetArn }).(pulumi.StringOutput)
+}
+
+// The name of the resource set to create.
+func (o ResourceSetOutput) ResourceSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.ResourceSetName }).(pulumi.StringOutput)
+}
+
+// The resource type of the resources in the resource set. Enter one of the following values for resource type:
+//
+// AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+func (o ResourceSetOutput) ResourceSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.ResourceSetType }).(pulumi.StringOutput)
+}
+
+// A list of resource objects in the resource set.
+func (o ResourceSetOutput) Resources() ResourceSetResourceArrayOutput {
+	return o.ApplyT(func(v *ResourceSet) ResourceSetResourceArrayOutput { return v.Resources }).(ResourceSetResourceArrayOutput)
+}
+
+// A tag to associate with the parameters for a resource set.
+func (o ResourceSetOutput) Tags() ResourceSetTagArrayOutput {
+	return o.ApplyT(func(v *ResourceSet) ResourceSetTagArrayOutput { return v.Tags }).(ResourceSetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetInput)(nil)).Elem(), &ResourceSet{})
 	pulumi.RegisterOutputType(ResourceSetOutput{})

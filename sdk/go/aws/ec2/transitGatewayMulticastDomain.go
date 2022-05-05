@@ -128,6 +128,41 @@ func (o TransitGatewayMulticastDomainOutput) ToTransitGatewayMulticastDomainOutp
 	return o
 }
 
+// The time the transit gateway multicast domain was created.
+func (o TransitGatewayMulticastDomainOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The options for the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainOutput) Options() OptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) OptionsPropertiesPtrOutput { return v.Options }).(OptionsPropertiesPtrOutput)
+}
+
+// The state of the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The tags for the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainOutput) Tags() TransitGatewayMulticastDomainTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) TransitGatewayMulticastDomainTagArrayOutput { return v.Tags }).(TransitGatewayMulticastDomainTagArrayOutput)
+}
+
+// The ID of the transit gateway.
+func (o TransitGatewayMulticastDomainOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainOutput) TransitGatewayMulticastDomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) pulumi.StringOutput { return v.TransitGatewayMulticastDomainArn }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainOutput) TransitGatewayMulticastDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) pulumi.StringOutput { return v.TransitGatewayMulticastDomainId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastDomainInput)(nil)).Elem(), &TransitGatewayMulticastDomain{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainOutput{})

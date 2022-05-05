@@ -134,6 +134,42 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
+func (o TriggerOutput) Actions() TriggerActionArrayOutput {
+	return o.ApplyT(func(v *Trigger) TriggerActionArrayOutput { return v.Actions }).(TriggerActionArrayOutput)
+}
+
+func (o TriggerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerOutput) Predicate() TriggerPredicatePtrOutput {
+	return o.ApplyT(func(v *Trigger) TriggerPredicatePtrOutput { return v.Predicate }).(TriggerPredicatePtrOutput)
+}
+
+func (o TriggerOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerOutput) StartOnCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.BoolPtrOutput { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
+}
+
+func (o TriggerOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o TriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o TriggerOutput) WorkflowName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.WorkflowName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerInput)(nil)).Elem(), &Trigger{})
 	pulumi.RegisterOutputType(TriggerOutput{})

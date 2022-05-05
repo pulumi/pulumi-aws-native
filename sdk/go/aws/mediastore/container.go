@@ -122,6 +122,38 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
+func (o ContainerOutput) AccessLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.BoolPtrOutput { return v.AccessLoggingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ContainerOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+func (o ContainerOutput) CorsPolicy() ContainerCorsRuleArrayOutput {
+	return o.ApplyT(func(v *Container) ContainerCorsRuleArrayOutput { return v.CorsPolicy }).(ContainerCorsRuleArrayOutput)
+}
+
+func (o ContainerOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o ContainerOutput) LifecyclePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.LifecyclePolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerOutput) MetricPolicy() ContainerMetricPolicyPtrOutput {
+	return o.ApplyT(func(v *Container) ContainerMetricPolicyPtrOutput { return v.MetricPolicy }).(ContainerMetricPolicyPtrOutput)
+}
+
+func (o ContainerOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerOutput) Tags() ContainerTagArrayOutput {
+	return o.ApplyT(func(v *Container) ContainerTagArrayOutput { return v.Tags }).(ContainerTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerInput)(nil)).Elem(), &Container{})
 	pulumi.RegisterOutputType(ContainerOutput{})

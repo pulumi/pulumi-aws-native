@@ -139,6 +139,41 @@ func (o ConnectorProfileOutput) ToConnectorProfileOutputWithContext(ctx context.
 	return o
 }
 
+// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
+func (o ConnectorProfileOutput) ConnectionMode() ConnectorProfileConnectionModeOutput {
+	return o.ApplyT(func(v *ConnectorProfile) ConnectorProfileConnectionModeOutput { return v.ConnectionMode }).(ConnectorProfileConnectionModeOutput)
+}
+
+// Unique identifier for connector profile resources
+func (o ConnectorProfileOutput) ConnectorProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.ConnectorProfileArn }).(pulumi.StringOutput)
+}
+
+// Connector specific configurations needed to create connector profile
+func (o ConnectorProfileOutput) ConnectorProfileConfig() ConnectorProfileConfigPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfile) ConnectorProfileConfigPtrOutput { return v.ConnectorProfileConfig }).(ConnectorProfileConfigPtrOutput)
+}
+
+// The maximum number of items to retrieve in a single batch.
+func (o ConnectorProfileOutput) ConnectorProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.ConnectorProfileName }).(pulumi.StringOutput)
+}
+
+// List of Saas providers that need connector profile to be created
+func (o ConnectorProfileOutput) ConnectorType() ConnectorProfileConnectorTypeOutput {
+	return o.ApplyT(func(v *ConnectorProfile) ConnectorProfileConnectorTypeOutput { return v.ConnectorType }).(ConnectorProfileConnectorTypeOutput)
+}
+
+// A unique Arn for Connector-Profile resource
+func (o ConnectorProfileOutput) CredentialsArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.CredentialsArn }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+func (o ConnectorProfileOutput) KMSArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringPtrOutput { return v.KMSArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileInput)(nil)).Elem(), &ConnectorProfile{})
 	pulumi.RegisterOutputType(ConnectorProfileOutput{})

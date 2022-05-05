@@ -125,6 +125,30 @@ func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutputWithContext(ctx 
 	return o
 }
 
+func (o LaunchRoleConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchRoleConstraintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchRoleConstraintOutput) LocalRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringPtrOutput { return v.LocalRoleName }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchRoleConstraintOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o LaunchRoleConstraintOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o LaunchRoleConstraintOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchRoleConstraintInput)(nil)).Elem(), &LaunchRoleConstraint{})
 	pulumi.RegisterOutputType(LaunchRoleConstraintOutput{})

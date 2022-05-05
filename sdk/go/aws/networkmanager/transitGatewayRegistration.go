@@ -117,6 +117,16 @@ func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutputWith
 	return o
 }
 
+// The ID of the global network.
+func (o TransitGatewayRegistrationOutput) GlobalNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRegistration) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the transit gateway.
+func (o TransitGatewayRegistrationOutput) TransitGatewayArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRegistration) pulumi.StringOutput { return v.TransitGatewayArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRegistrationInput)(nil)).Elem(), &TransitGatewayRegistration{})
 	pulumi.RegisterOutputType(TransitGatewayRegistrationOutput{})

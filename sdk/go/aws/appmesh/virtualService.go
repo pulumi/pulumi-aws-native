@@ -125,6 +125,38 @@ func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o VirtualServiceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualServiceOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o VirtualServiceOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualServiceOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o VirtualServiceOutput) Spec() VirtualServiceSpecOutput {
+	return o.ApplyT(func(v *VirtualService) VirtualServiceSpecOutput { return v.Spec }).(VirtualServiceSpecOutput)
+}
+
+func (o VirtualServiceOutput) Tags() VirtualServiceTagArrayOutput {
+	return o.ApplyT(func(v *VirtualService) VirtualServiceTagArrayOutput { return v.Tags }).(VirtualServiceTagArrayOutput)
+}
+
+func (o VirtualServiceOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o VirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.VirtualServiceName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceInput)(nil)).Elem(), &VirtualService{})
 	pulumi.RegisterOutputType(VirtualServiceOutput{})

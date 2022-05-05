@@ -112,6 +112,22 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+func (o WorkflowOutput) DefaultRunProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.DefaultRunProperties }).(pulumi.AnyOutput)
+}
+
+func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInput)(nil)).Elem(), &Workflow{})
 	pulumi.RegisterOutputType(WorkflowOutput{})

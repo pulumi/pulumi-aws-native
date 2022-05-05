@@ -115,6 +115,22 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o ScalingPlanOutput) ApplicationSource() ScalingPlanApplicationSourceOutput {
+	return o.ApplyT(func(v *ScalingPlan) ScalingPlanApplicationSourceOutput { return v.ApplicationSource }).(ScalingPlanApplicationSourceOutput)
+}
+
+func (o ScalingPlanOutput) ScalingInstructions() ScalingPlanScalingInstructionArrayOutput {
+	return o.ApplyT(func(v *ScalingPlan) ScalingPlanScalingInstructionArrayOutput { return v.ScalingInstructions }).(ScalingPlanScalingInstructionArrayOutput)
+}
+
+func (o ScalingPlanOutput) ScalingPlanName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.ScalingPlanName }).(pulumi.StringOutput)
+}
+
+func (o ScalingPlanOutput) ScalingPlanVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.ScalingPlanVersion }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanInput)(nil)).Elem(), &ScalingPlan{})
 	pulumi.RegisterOutputType(ScalingPlanOutput{})

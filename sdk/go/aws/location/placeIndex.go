@@ -124,6 +124,42 @@ func (o PlaceIndexOutput) ToPlaceIndexOutputWithContext(ctx context.Context) Pla
 	return o
 }
 
+func (o PlaceIndexOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PlaceIndexOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+func (o PlaceIndexOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
+}
+
+func (o PlaceIndexOutput) DataSourceConfiguration() PlaceIndexDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaceIndex) PlaceIndexDataSourceConfigurationPtrOutput { return v.DataSourceConfiguration }).(PlaceIndexDataSourceConfigurationPtrOutput)
+}
+
+func (o PlaceIndexOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PlaceIndexOutput) IndexArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexArn }).(pulumi.StringOutput)
+}
+
+func (o PlaceIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o PlaceIndexOutput) PricingPlan() PlaceIndexPricingPlanPtrOutput {
+	return o.ApplyT(func(v *PlaceIndex) PlaceIndexPricingPlanPtrOutput { return v.PricingPlan }).(PlaceIndexPricingPlanPtrOutput)
+}
+
+func (o PlaceIndexOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexInput)(nil)).Elem(), &PlaceIndex{})
 	pulumi.RegisterOutputType(PlaceIndexOutput{})

@@ -148,6 +148,74 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// AWS account ID associated with the Environment
+func (o EnvironmentOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// ARNs of FinSpace Data Bundles to install
+func (o EnvironmentOutput) DataBundles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.DataBundles }).(pulumi.StringArrayOutput)
+}
+
+// ID for FinSpace created account used to store Environment artifacts
+func (o EnvironmentOutput) DedicatedServiceAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DedicatedServiceAccountId }).(pulumi.StringOutput)
+}
+
+// Description of the Environment
+func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Environment
+func (o EnvironmentOutput) EnvironmentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentArn }).(pulumi.StringOutput)
+}
+
+// Unique identifier for representing FinSpace Environment
+func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+// URL used to login to the Environment
+func (o EnvironmentOutput) EnvironmentUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentUrl }).(pulumi.StringOutput)
+}
+
+// Federation mode used with the Environment
+func (o EnvironmentOutput) FederationMode() EnvironmentFederationModePtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentFederationModePtrOutput { return v.FederationMode }).(EnvironmentFederationModePtrOutput)
+}
+
+func (o EnvironmentOutput) FederationParameters() EnvironmentFederationParametersPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentFederationParametersPtrOutput { return v.FederationParameters }).(EnvironmentFederationParametersPtrOutput)
+}
+
+// KMS key used to encrypt customer data within FinSpace Environment infrastructure
+func (o EnvironmentOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Environment
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// SageMaker Studio Domain URL associated with the Environment
+func (o EnvironmentOutput) SageMakerStudioDomainUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.SageMakerStudioDomainUrl }).(pulumi.StringOutput)
+}
+
+// State of the Environment
+func (o EnvironmentOutput) Status() EnvironmentStatusOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentStatusOutput { return v.Status }).(EnvironmentStatusOutput)
+}
+
+func (o EnvironmentOutput) SuperuserParameters() EnvironmentSuperuserParametersPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentSuperuserParametersPtrOutput { return v.SuperuserParameters }).(EnvironmentSuperuserParametersPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentInput)(nil)).Elem(), &Environment{})
 	pulumi.RegisterOutputType(EnvironmentOutput{})

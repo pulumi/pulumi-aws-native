@@ -129,6 +129,42 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.
 	return o
 }
 
+func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointOutput) HostVPCId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.HostVPCId }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointOutput) IpAddressCount() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.IpAddressCount }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointOutput) IpAddresses() ResolverEndpointIpAddressRequestArrayOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpointIpAddressRequestArrayOutput { return v.IpAddresses }).(ResolverEndpointIpAddressRequestArrayOutput)
+}
+
+func (o ResolverEndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverEndpointOutput) ResolverEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointId }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ResolverEndpointOutput) Tags() ResolverEndpointTagArrayOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpointTagArrayOutput { return v.Tags }).(ResolverEndpointTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointInput)(nil)).Elem(), &ResolverEndpoint{})
 	pulumi.RegisterOutputType(ResolverEndpointOutput{})

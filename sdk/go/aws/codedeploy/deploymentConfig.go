@@ -112,6 +112,22 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.
 	return o
 }
 
+func (o DeploymentConfigOutput) ComputePlatform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentConfigOutput) DeploymentConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.DeploymentConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHealthyHostsPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigMinimumHealthyHostsPtrOutput { return v.MinimumHealthyHosts }).(DeploymentConfigMinimumHealthyHostsPtrOutput)
+}
+
+func (o DeploymentConfigOutput) TrafficRoutingConfig() DeploymentConfigTrafficRoutingConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigTrafficRoutingConfigPtrOutput { return v.TrafficRoutingConfig }).(DeploymentConfigTrafficRoutingConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigInput)(nil)).Elem(), &DeploymentConfig{})
 	pulumi.RegisterOutputType(DeploymentConfigOutput{})

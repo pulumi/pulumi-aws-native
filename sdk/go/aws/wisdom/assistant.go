@@ -119,6 +119,36 @@ func (o AssistantOutput) ToAssistantOutputWithContext(ctx context.Context) Assis
 	return o
 }
 
+func (o AssistantOutput) AssistantArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
+}
+
+func (o AssistantOutput) AssistantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
+}
+
+func (o AssistantOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assistant) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AssistantOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AssistantOutput) ServerSideEncryptionConfiguration() AssistantServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Assistant) AssistantServerSideEncryptionConfigurationPtrOutput {
+		return v.ServerSideEncryptionConfiguration
+	}).(AssistantServerSideEncryptionConfigurationPtrOutput)
+}
+
+func (o AssistantOutput) Tags() AssistantTagArrayOutput {
+	return o.ApplyT(func(v *Assistant) AssistantTagArrayOutput { return v.Tags }).(AssistantTagArrayOutput)
+}
+
+func (o AssistantOutput) Type() AssistantTypeOutput {
+	return o.ApplyT(func(v *Assistant) AssistantTypeOutput { return v.Type }).(AssistantTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantInput)(nil)).Elem(), &Assistant{})
 	pulumi.RegisterOutputType(AssistantOutput{})

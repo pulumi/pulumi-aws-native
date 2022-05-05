@@ -180,6 +180,101 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+// An array of objects representing the add-ons to enable for the new instance.
+func (o InstanceOutput) AddOns() InstanceAddOnArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceAddOnArrayOutput { return v.AddOns }).(InstanceAddOnArrayOutput)
+}
+
+// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+func (o InstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
+func (o InstanceOutput) BlueprintId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BlueprintId }).(pulumi.StringOutput)
+}
+
+// The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
+func (o InstanceOutput) BundleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) Hardware() InstanceHardwarePtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceHardwarePtrOutput { return v.Hardware }).(InstanceHardwarePtrOutput)
+}
+
+func (o InstanceOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The names to use for your new Lightsail instance.
+func (o InstanceOutput) InstanceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
+}
+
+// Is the IP Address of the Instance is the static IP
+func (o InstanceOutput) IsStaticIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.IsStaticIp }).(pulumi.BoolOutput)
+}
+
+// The name of your key pair.
+func (o InstanceOutput) KeyPairName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.KeyPairName }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Location() InstanceLocationPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceLocationPtrOutput { return v.Location }).(InstanceLocationPtrOutput)
+}
+
+func (o InstanceOutput) Networking() InstanceNetworkingPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceNetworkingPtrOutput { return v.Networking }).(InstanceNetworkingPtrOutput)
+}
+
+// Private IP Address of the Instance
+func (o InstanceOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Public IP Address of the Instance
+func (o InstanceOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// Resource type of Lightsail instance.
+func (o InstanceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// SSH Key Name of the  Lightsail instance.
+func (o InstanceOutput) SshKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.SshKeyName }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) State() InstanceStateTypePtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceStateTypePtrOutput { return v.State }).(InstanceStateTypePtrOutput)
+}
+
+// Support code to help identify any issues
+func (o InstanceOutput) SupportCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o InstanceOutput) Tags() InstanceTagArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceTagArrayOutput { return v.Tags }).(InstanceTagArrayOutput)
+}
+
+// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
+func (o InstanceOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+// Username of the  Lightsail instance.
+func (o InstanceOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInput)(nil)).Elem(), &Instance{})
 	pulumi.RegisterOutputType(InstanceOutput{})

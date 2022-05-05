@@ -112,6 +112,26 @@ func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutputWithContext(
 	return o
 }
 
+func (o OrganizationConfigRuleOutput) ExcludedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRule) pulumi.StringArrayOutput { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
+}
+
+func (o OrganizationConfigRuleOutput) OrganizationConfigRuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConfigRule) pulumi.StringOutput { return v.OrganizationConfigRuleName }).(pulumi.StringOutput)
+}
+
+func (o OrganizationConfigRuleOutput) OrganizationCustomRuleMetadata() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRule) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+		return v.OrganizationCustomRuleMetadata
+	}).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
+}
+
+func (o OrganizationConfigRuleOutput) OrganizationManagedRuleMetadata() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRule) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+		return v.OrganizationManagedRuleMetadata
+	}).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleInput)(nil)).Elem(), &OrganizationConfigRule{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOutput{})

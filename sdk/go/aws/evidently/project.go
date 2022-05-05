@@ -114,6 +114,27 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+func (o ProjectOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) DataDelivery() ProjectDataDeliveryObjectPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectDataDeliveryObjectPtrOutput { return v.DataDelivery }).(ProjectDataDeliveryObjectPtrOutput)
+}
+
+func (o ProjectOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ProjectOutput) Tags() ProjectTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

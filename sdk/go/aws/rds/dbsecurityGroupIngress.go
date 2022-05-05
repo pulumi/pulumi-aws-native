@@ -119,6 +119,26 @@ func (o DBSecurityGroupIngressOutput) ToDBSecurityGroupIngressOutputWithContext(
 	return o
 }
 
+func (o DBSecurityGroupIngressOutput) CIDRIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.CIDRIP }).(pulumi.StringPtrOutput)
+}
+
+func (o DBSecurityGroupIngressOutput) DBSecurityGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringOutput { return v.DBSecurityGroupName }).(pulumi.StringOutput)
+}
+
+func (o DBSecurityGroupIngressOutput) EC2SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o DBSecurityGroupIngressOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBSecurityGroupIngressOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupIngressInput)(nil)).Elem(), &DBSecurityGroupIngress{})
 	pulumi.RegisterOutputType(DBSecurityGroupIngressOutput{})

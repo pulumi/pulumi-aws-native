@@ -129,6 +129,38 @@ func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EmailTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EmailTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringPtrOutput { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailTemplateOutput) HtmlPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringPtrOutput { return v.HtmlPart }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailTemplateOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Subject }).(pulumi.StringOutput)
+}
+
+func (o EmailTemplateOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o EmailTemplateOutput) TemplateDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringPtrOutput { return v.TemplateDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailTemplateOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
+}
+
+func (o EmailTemplateOutput) TextPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringPtrOutput { return v.TextPart }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateInput)(nil)).Elem(), &EmailTemplate{})
 	pulumi.RegisterOutputType(EmailTemplateOutput{})

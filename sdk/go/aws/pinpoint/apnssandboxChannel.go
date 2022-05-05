@@ -131,6 +131,42 @@ func (o APNSSandboxChannelOutput) ToAPNSSandboxChannelOutputWithContext(ctx cont
 	return o
 }
 
+func (o APNSSandboxChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o APNSSandboxChannelOutput) BundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.BundleId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) TokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.TokenKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSSandboxChannelOutput) TokenKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSSandboxChannel) pulumi.StringPtrOutput { return v.TokenKeyId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APNSSandboxChannelInput)(nil)).Elem(), &APNSSandboxChannel{})
 	pulumi.RegisterOutputType(APNSSandboxChannelOutput{})

@@ -125,6 +125,34 @@ func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ManagedPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedPolicyOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o ManagedPolicyOutput) ManagedPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.ManagedPolicyName }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedPolicyOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o ManagedPolicyOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+func (o ManagedPolicyOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyInput)(nil)).Elem(), &ManagedPolicy{})
 	pulumi.RegisterOutputType(ManagedPolicyOutput{})

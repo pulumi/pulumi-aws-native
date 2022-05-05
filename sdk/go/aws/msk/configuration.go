@@ -115,6 +115,26 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationOutput) KafkaVersionsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringArrayOutput { return v.KafkaVersionsList }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) ServerProperties() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.ServerProperties }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInput)(nil)).Elem(), &Configuration{})
 	pulumi.RegisterOutputType(ConfigurationOutput{})

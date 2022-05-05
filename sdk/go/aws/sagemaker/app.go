@@ -146,6 +146,41 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the app.
+func (o AppOutput) AppArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppArn }).(pulumi.StringOutput)
+}
+
+// The name of the app.
+func (o AppOutput) AppName() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppName }).(pulumi.StringOutput)
+}
+
+// The type of app.
+func (o AppOutput) AppType() AppTypeOutput {
+	return o.ApplyT(func(v *App) AppTypeOutput { return v.AppType }).(AppTypeOutput)
+}
+
+// The domain ID.
+func (o AppOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o AppOutput) ResourceSpec() AppResourceSpecPtrOutput {
+	return o.ApplyT(func(v *App) AppResourceSpecPtrOutput { return v.ResourceSpec }).(AppResourceSpecPtrOutput)
+}
+
+// A list of tags to apply to the app.
+func (o AppOutput) Tags() AppTagArrayOutput {
+	return o.ApplyT(func(v *App) AppTagArrayOutput { return v.Tags }).(AppTagArrayOutput)
+}
+
+// The user profile name.
+func (o AppOutput) UserProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.UserProfileName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppInput)(nil)).Elem(), &App{})
 	pulumi.RegisterOutputType(AppOutput{})

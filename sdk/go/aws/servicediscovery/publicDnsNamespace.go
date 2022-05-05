@@ -114,6 +114,30 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 	return o
 }
 
+func (o PublicDnsNamespaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PublicDnsNamespaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PublicDnsNamespaceOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+func (o PublicDnsNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PublicDnsNamespaceOutput) Properties() PublicDnsNamespacePropertiesPtrOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) PublicDnsNamespacePropertiesPtrOutput { return v.Properties }).(PublicDnsNamespacePropertiesPtrOutput)
+}
+
+func (o PublicDnsNamespaceOutput) Tags() PublicDnsNamespaceTagArrayOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) PublicDnsNamespaceTagArrayOutput { return v.Tags }).(PublicDnsNamespaceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceInput)(nil)).Elem(), &PublicDnsNamespace{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})

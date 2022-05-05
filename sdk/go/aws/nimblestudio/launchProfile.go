@@ -166,6 +166,51 @@ func (o LaunchProfileOutput) ToLaunchProfileOutputWithContext(ctx context.Contex
 	return o
 }
 
+// <p>The description.</p>
+func (o LaunchProfileOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+//             These subnets must support the specified instance types. </p>
+func (o LaunchProfileOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.Ec2SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchProfileOutput) LaunchProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.LaunchProfileId }).(pulumi.StringOutput)
+}
+
+// <p>The version number of the protocol that is used by the launch profile. The only valid
+//             version is "2021-03-31".</p>
+func (o LaunchProfileOutput) LaunchProfileProtocolVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.LaunchProfileProtocolVersions }).(pulumi.StringArrayOutput)
+}
+
+// <p>The name for the launch profile.</p>
+func (o LaunchProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LaunchProfileOutput) StreamConfiguration() LaunchProfileStreamConfigurationOutput {
+	return o.ApplyT(func(v *LaunchProfile) LaunchProfileStreamConfigurationOutput { return v.StreamConfiguration }).(LaunchProfileStreamConfigurationOutput)
+}
+
+// <p>Unique identifiers for a collection of studio components that can be used with this
+//             launch profile.</p>
+func (o LaunchProfileOutput) StudioComponentIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.StudioComponentIds }).(pulumi.StringArrayOutput)
+}
+
+// <p>The studio ID. </p>
+func (o LaunchProfileOutput) StudioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
+}
+
+func (o LaunchProfileOutput) Tags() LaunchProfileTagsPtrOutput {
+	return o.ApplyT(func(v *LaunchProfile) LaunchProfileTagsPtrOutput { return v.Tags }).(LaunchProfileTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileInput)(nil)).Elem(), &LaunchProfile{})
 	pulumi.RegisterOutputType(LaunchProfileOutput{})

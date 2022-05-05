@@ -134,6 +134,36 @@ func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) Usage
 	return o
 }
 
+// The API stages to associate with this usage plan.
+func (o UsagePlanOutput) ApiStages() UsagePlanApiStageArrayOutput {
+	return o.ApplyT(func(v *UsagePlan) UsagePlanApiStageArrayOutput { return v.ApiStages }).(UsagePlanApiStageArrayOutput)
+}
+
+// A description of the usage plan.
+func (o UsagePlanOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlan) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Configures the number of requests that users can make within a given interval.
+func (o UsagePlanOutput) Quota() UsagePlanQuotaSettingsPtrOutput {
+	return o.ApplyT(func(v *UsagePlan) UsagePlanQuotaSettingsPtrOutput { return v.Quota }).(UsagePlanQuotaSettingsPtrOutput)
+}
+
+// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+func (o UsagePlanOutput) Tags() UsagePlanTagArrayOutput {
+	return o.ApplyT(func(v *UsagePlan) UsagePlanTagArrayOutput { return v.Tags }).(UsagePlanTagArrayOutput)
+}
+
+// Configures the overall request rate (average requests per second) and burst capacity.
+func (o UsagePlanOutput) Throttle() UsagePlanThrottleSettingsPtrOutput {
+	return o.ApplyT(func(v *UsagePlan) UsagePlanThrottleSettingsPtrOutput { return v.Throttle }).(UsagePlanThrottleSettingsPtrOutput)
+}
+
+// A name for the usage plan.
+func (o UsagePlanOutput) UsagePlanName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlan) pulumi.StringPtrOutput { return v.UsagePlanName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanInput)(nil)).Elem(), &UsagePlan{})
 	pulumi.RegisterOutputType(UsagePlanOutput{})

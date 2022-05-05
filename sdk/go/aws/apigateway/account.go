@@ -104,6 +104,11 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+func (o AccountOutput) CloudWatchRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CloudWatchRoleArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountInput)(nil)).Elem(), &Account{})
 	pulumi.RegisterOutputType(AccountOutput{})

@@ -108,6 +108,11 @@ func (o DNSSECOutput) ToDNSSECOutputWithContext(ctx context.Context) DNSSECOutpu
 	return o
 }
 
+// The unique string (ID) used to identify a hosted zone.
+func (o DNSSECOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DNSSEC) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DNSSECInput)(nil)).Elem(), &DNSSEC{})
 	pulumi.RegisterOutputType(DNSSECOutput{})

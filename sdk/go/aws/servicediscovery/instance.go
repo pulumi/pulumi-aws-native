@@ -116,6 +116,18 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+func (o InstanceOutput) InstanceAttributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Instance) pulumi.AnyOutput { return v.InstanceAttributes }).(pulumi.AnyOutput)
+}
+
+func (o InstanceOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInput)(nil)).Elem(), &Instance{})
 	pulumi.RegisterOutputType(InstanceOutput{})

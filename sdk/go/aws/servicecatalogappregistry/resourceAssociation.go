@@ -128,6 +128,29 @@ func (o ResourceAssociationOutput) ToResourceAssociationOutputWithContext(ctx co
 	return o
 }
 
+// The name or the Id of the Application.
+func (o ResourceAssociationOutput) Application() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
+}
+
+func (o ResourceAssociationOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// The name or the Id of the Resource.
+func (o ResourceAssociationOutput) Resource() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.Resource }).(pulumi.StringOutput)
+}
+
+func (o ResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The type of the CFN Resource for now it's enum CFN_STACK.
+func (o ResourceAssociationOutput) ResourceType() ResourceAssociationResourceTypeOutput {
+	return o.ApplyT(func(v *ResourceAssociation) ResourceAssociationResourceTypeOutput { return v.ResourceType }).(ResourceAssociationResourceTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationInput)(nil)).Elem(), &ResourceAssociation{})
 	pulumi.RegisterOutputType(ResourceAssociationOutput{})

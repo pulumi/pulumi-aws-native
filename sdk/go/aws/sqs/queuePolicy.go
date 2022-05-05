@@ -113,6 +113,14 @@ func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) Q
 	return o
 }
 
+func (o QueuePolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *QueuePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o QueuePolicyOutput) Queues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *QueuePolicy) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueuePolicyInput)(nil)).Elem(), &QueuePolicy{})
 	pulumi.RegisterOutputType(QueuePolicyOutput{})

@@ -148,6 +148,78 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+func (o DomainOutput) AccessPolicies() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AccessPolicies }).(pulumi.AnyOutput)
+}
+
+func (o DomainOutput) AdvancedOptions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AdvancedOptions }).(pulumi.AnyOutput)
+}
+
+func (o DomainOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainAdvancedSecurityOptionsInputPtrOutput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsInputPtrOutput)
+}
+
+func (o DomainOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainCognitoOptionsPtrOutput { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
+}
+
+func (o DomainOutput) DomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainArn }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) DomainEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainEndpoint }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) DomainEndpointOptions() DomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainEndpointOptionsPtrOutput { return v.DomainEndpointOptions }).(DomainEndpointOptionsPtrOutput)
+}
+
+func (o DomainOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainOutput) EBSOptions() DomainEBSOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainEBSOptionsPtrOutput { return v.EBSOptions }).(DomainEBSOptionsPtrOutput)
+}
+
+func (o DomainOutput) ElasticsearchClusterConfig() DomainElasticsearchClusterConfigPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainElasticsearchClusterConfigPtrOutput { return v.ElasticsearchClusterConfig }).(DomainElasticsearchClusterConfigPtrOutput)
+}
+
+func (o DomainOutput) ElasticsearchVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.ElasticsearchVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainEncryptionAtRestOptionsPtrOutput { return v.EncryptionAtRestOptions }).(DomainEncryptionAtRestOptionsPtrOutput)
+}
+
+func (o DomainOutput) LogPublishingOptions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.LogPublishingOptions }).(pulumi.AnyOutput)
+}
+
+func (o DomainOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainNodeToNodeEncryptionOptionsPtrOutput { return v.NodeToNodeEncryptionOptions }).(DomainNodeToNodeEncryptionOptionsPtrOutput)
+}
+
+func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
+}
+
+func (o DomainOutput) Tags() DomainTagArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+}
+
+func (o DomainOutput) VPCOptions() DomainVPCOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainVPCOptionsPtrOutput { return v.VPCOptions }).(DomainVPCOptionsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainInput)(nil)).Elem(), &Domain{})
 	pulumi.RegisterOutputType(DomainOutput{})

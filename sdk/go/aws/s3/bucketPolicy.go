@@ -113,6 +113,14 @@ func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o BucketPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BucketPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyInput)(nil)).Elem(), &BucketPolicy{})
 	pulumi.RegisterOutputType(BucketPolicyOutput{})

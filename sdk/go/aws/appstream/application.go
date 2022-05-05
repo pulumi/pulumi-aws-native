@@ -152,6 +152,62 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApplicationOutput) AppBlockArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AppBlockArn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) AttributesToDelete() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.AttributesToDelete }).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) IconS3Location() ApplicationS3LocationOutput {
+	return o.ApplyT(func(v *Application) ApplicationS3LocationOutput { return v.IconS3Location }).(ApplicationS3LocationOutput)
+}
+
+func (o ApplicationOutput) InstanceFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.InstanceFamilies }).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationOutput) LaunchParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.LaunchParameters }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) LaunchPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.LaunchPath }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Platforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Platforms }).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+}
+
+func (o ApplicationOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

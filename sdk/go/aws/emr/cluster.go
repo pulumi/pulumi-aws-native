@@ -177,6 +177,98 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+func (o ClusterOutput) AdditionalInfo() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.AdditionalInfo }).(pulumi.AnyOutput)
+}
+
+func (o ClusterOutput) Applications() ClusterApplicationArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterApplicationArrayOutput { return v.Applications }).(ClusterApplicationArrayOutput)
+}
+
+func (o ClusterOutput) AutoScalingRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AutoScalingRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) BootstrapActions() ClusterBootstrapActionConfigArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterBootstrapActionConfigArrayOutput { return v.BootstrapActions }).(ClusterBootstrapActionConfigArrayOutput)
+}
+
+func (o ClusterOutput) Configurations() ClusterConfigurationArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterConfigurationArrayOutput { return v.Configurations }).(ClusterConfigurationArrayOutput)
+}
+
+func (o ClusterOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CustomAmiId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) EbsRootVolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.EbsRootVolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterOutput) Instances() ClusterJobFlowInstancesConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterJobFlowInstancesConfigOutput { return v.Instances }).(ClusterJobFlowInstancesConfigOutput)
+}
+
+func (o ClusterOutput) JobFlowRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.JobFlowRole }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) KerberosAttributes() ClusterKerberosAttributesPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKerberosAttributesPtrOutput { return v.KerberosAttributes }).(ClusterKerberosAttributesPtrOutput)
+}
+
+func (o ClusterOutput) LogEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LogEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ManagedScalingPolicy() ClusterManagedScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterManagedScalingPolicyPtrOutput { return v.ManagedScalingPolicy }).(ClusterManagedScalingPolicyPtrOutput)
+}
+
+func (o ClusterOutput) MasterPublicDNS() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPublicDNS }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) ReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReleaseLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ScaleDownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ScaleDownBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) SecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.StepConcurrencyLevel }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterOutput) Steps() ClusterStepConfigArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterStepConfigArrayOutput { return v.Steps }).(ClusterStepConfigArrayOutput)
+}
+
+func (o ClusterOutput) Tags() ClusterTagArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+}
+
+func (o ClusterOutput) VisibleToAllUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.VisibleToAllUsers }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

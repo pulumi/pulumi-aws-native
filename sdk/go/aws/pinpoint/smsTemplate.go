@@ -123,6 +123,30 @@ func (o SmsTemplateOutput) ToSmsTemplateOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o SmsTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SmsTemplateOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
+}
+
+func (o SmsTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.StringPtrOutput { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
+}
+
+func (o SmsTemplateOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o SmsTemplateOutput) TemplateDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.StringPtrOutput { return v.TemplateDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o SmsTemplateOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SmsTemplateInput)(nil)).Elem(), &SmsTemplate{})
 	pulumi.RegisterOutputType(SmsTemplateOutput{})
