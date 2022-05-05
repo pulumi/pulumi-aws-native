@@ -154,6 +154,72 @@ func (o ModelQualityJobDefinitionOutput) ToModelQualityJobDefinitionOutputWithCo
 	return o
 }
 
+// The time at which the job definition was created.
+func (o ModelQualityJobDefinitionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of job definition.
+func (o ModelQualityJobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) JobResources() ModelQualityJobDefinitionMonitoringResourcesOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionMonitoringResourcesOutput {
+		return v.JobResources
+	}).(ModelQualityJobDefinitionMonitoringResourcesOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) ModelQualityAppSpecification() ModelQualityJobDefinitionModelQualityAppSpecificationOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionModelQualityAppSpecificationOutput {
+		return v.ModelQualityAppSpecification
+	}).(ModelQualityJobDefinitionModelQualityAppSpecificationOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) ModelQualityBaselineConfig() ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput {
+		return v.ModelQualityBaselineConfig
+	}).(ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) ModelQualityJobInput() ModelQualityJobDefinitionModelQualityJobInputOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionModelQualityJobInputOutput {
+		return v.ModelQualityJobInput
+	}).(ModelQualityJobDefinitionModelQualityJobInputOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) ModelQualityJobOutputConfig() ModelQualityJobDefinitionMonitoringOutputConfigOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionMonitoringOutputConfigOutput {
+		return v.ModelQualityJobOutputConfig
+	}).(ModelQualityJobDefinitionMonitoringOutputConfigOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) NetworkConfig() ModelQualityJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionNetworkConfigPtrOutput {
+		return v.NetworkConfig
+	}).(ModelQualityJobDefinitionNetworkConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+func (o ModelQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) StoppingCondition() ModelQualityJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionStoppingConditionPtrOutput {
+		return v.StoppingCondition
+	}).(ModelQualityJobDefinitionStoppingConditionPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ModelQualityJobDefinitionOutput) Tags() ModelQualityJobDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionTagArrayOutput { return v.Tags }).(ModelQualityJobDefinitionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionInput)(nil)).Elem(), &ModelQualityJobDefinition{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionOutput{})

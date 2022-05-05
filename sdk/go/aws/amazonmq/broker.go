@@ -185,6 +185,114 @@ func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutpu
 	return o
 }
 
+func (o BrokerOutput) AmqpEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.AmqpEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o BrokerOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Broker) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
+}
+
+func (o BrokerOutput) BrokerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.BrokerName }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) Configuration() BrokerConfigurationIdPtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerConfigurationIdPtrOutput { return v.Configuration }).(BrokerConfigurationIdPtrOutput)
+}
+
+func (o BrokerOutput) ConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) ConfigurationRevision() pulumi.IntOutput {
+	return o.ApplyT(func(v *Broker) pulumi.IntOutput { return v.ConfigurationRevision }).(pulumi.IntOutput)
+}
+
+func (o BrokerOutput) DeploymentMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.DeploymentMode }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) EncryptionOptions() BrokerEncryptionOptionsPtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerEncryptionOptionsPtrOutput { return v.EncryptionOptions }).(BrokerEncryptionOptionsPtrOutput)
+}
+
+func (o BrokerOutput) EngineType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.EngineType }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) HostInstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.HostInstanceType }).(pulumi.StringOutput)
+}
+
+func (o BrokerOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) LdapServerMetadata() BrokerLdapServerMetadataPtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerLdapServerMetadataPtrOutput { return v.LdapServerMetadata }).(BrokerLdapServerMetadataPtrOutput)
+}
+
+func (o BrokerOutput) Logs() BrokerLogListPtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerLogListPtrOutput { return v.Logs }).(BrokerLogListPtrOutput)
+}
+
+func (o BrokerOutput) MaintenanceWindowStartTime() BrokerMaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v *Broker) BrokerMaintenanceWindowPtrOutput { return v.MaintenanceWindowStartTime }).(BrokerMaintenanceWindowPtrOutput)
+}
+
+func (o BrokerOutput) MqttEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.MqttEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) OpenWireEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.OpenWireEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) PubliclyAccessible() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Broker) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o BrokerOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) StompEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.StompEndpoints }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+func (o BrokerOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerOutput) Tags() BrokerTagsEntryArrayOutput {
+	return o.ApplyT(func(v *Broker) BrokerTagsEntryArrayOutput { return v.Tags }).(BrokerTagsEntryArrayOutput)
+}
+
+func (o BrokerOutput) Users() BrokerUserArrayOutput {
+	return o.ApplyT(func(v *Broker) BrokerUserArrayOutput { return v.Users }).(BrokerUserArrayOutput)
+}
+
+func (o BrokerOutput) WssEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.WssEndpoints }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerInput)(nil)).Elem(), &Broker{})
 	pulumi.RegisterOutputType(BrokerOutput{})

@@ -175,6 +175,70 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Indicates whether the bundle that is currently applied to your distribution, specified using the distributionName parameter, can be changed to another bundle.
+func (o DistributionOutput) AbleToUpdateBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.BoolOutput { return v.AbleToUpdateBundle }).(pulumi.BoolOutput)
+}
+
+// The bundle ID to use for the distribution.
+func (o DistributionOutput) BundleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
+}
+
+// An object that describes the cache behavior settings for the distribution.
+func (o DistributionOutput) CacheBehaviorSettings() DistributionCacheSettingsPtrOutput {
+	return o.ApplyT(func(v *Distribution) DistributionCacheSettingsPtrOutput { return v.CacheBehaviorSettings }).(DistributionCacheSettingsPtrOutput)
+}
+
+// An array of objects that describe the per-path cache behavior for the distribution.
+func (o DistributionOutput) CacheBehaviors() DistributionCacheBehaviorPerPathArrayOutput {
+	return o.ApplyT(func(v *Distribution) DistributionCacheBehaviorPerPathArrayOutput { return v.CacheBehaviors }).(DistributionCacheBehaviorPerPathArrayOutput)
+}
+
+// The certificate attached to the Distribution.
+func (o DistributionOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.CertificateName }).(pulumi.StringPtrOutput)
+}
+
+// An object that describes the default cache behavior for the distribution.
+func (o DistributionOutput) DefaultCacheBehavior() DistributionCacheBehaviorOutput {
+	return o.ApplyT(func(v *Distribution) DistributionCacheBehaviorOutput { return v.DefaultCacheBehavior }).(DistributionCacheBehaviorOutput)
+}
+
+func (o DistributionOutput) DistributionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DistributionArn }).(pulumi.StringOutput)
+}
+
+// The name for the distribution.
+func (o DistributionOutput) DistributionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DistributionName }).(pulumi.StringOutput)
+}
+
+// The IP address type for the distribution.
+func (o DistributionOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the distribution is enabled.
+func (o DistributionOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
+func (o DistributionOutput) Origin() DistributionInputOriginOutput {
+	return o.ApplyT(func(v *Distribution) DistributionInputOriginOutput { return v.Origin }).(DistributionInputOriginOutput)
+}
+
+// The status of the distribution.
+func (o DistributionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o DistributionOutput) Tags() DistributionTagArrayOutput {
+	return o.ApplyT(func(v *Distribution) DistributionTagArrayOutput { return v.Tags }).(DistributionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionInput)(nil)).Elem(), &Distribution{})
 	pulumi.RegisterOutputType(DistributionOutput{})

@@ -106,6 +106,14 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+func (o AccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func (o AccountOutput) ExpiryEventsConfiguration() AccountExpiryEventsConfigurationOutput {
+	return o.ApplyT(func(v *Account) AccountExpiryEventsConfigurationOutput { return v.ExpiryEventsConfiguration }).(AccountExpiryEventsConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountInput)(nil)).Elem(), &Account{})
 	pulumi.RegisterOutputType(AccountOutput{})

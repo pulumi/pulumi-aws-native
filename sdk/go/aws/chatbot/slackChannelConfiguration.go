@@ -161,6 +161,51 @@ func (o SlackChannelConfigurationOutput) ToSlackChannelConfigurationOutputWithCo
 	return o
 }
 
+// Amazon Resource Name (ARN) of the configuration
+func (o SlackChannelConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the configuration
+func (o SlackChannelConfigurationOutput) ConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.ConfigurationName }).(pulumi.StringOutput)
+}
+
+// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+func (o SlackChannelConfigurationOutput) GuardrailPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringArrayOutput { return v.GuardrailPolicies }).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the IAM role that defines the permissions for AWS Chatbot
+func (o SlackChannelConfigurationOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
+func (o SlackChannelConfigurationOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringPtrOutput { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// The id of the Slack channel
+func (o SlackChannelConfigurationOutput) SlackChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackChannelId }).(pulumi.StringOutput)
+}
+
+// The id of the Slack workspace
+func (o SlackChannelConfigurationOutput) SlackWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackWorkspaceId }).(pulumi.StringOutput)
+}
+
+// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+func (o SlackChannelConfigurationOutput) SnsTopicArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringArrayOutput { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
+}
+
+// Enables use of a user role requirement in your chat configuration
+func (o SlackChannelConfigurationOutput) UserRoleRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.BoolPtrOutput { return v.UserRoleRequired }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackChannelConfigurationInput)(nil)).Elem(), &SlackChannelConfiguration{})
 	pulumi.RegisterOutputType(SlackChannelConfigurationOutput{})

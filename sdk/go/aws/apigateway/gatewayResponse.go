@@ -137,6 +137,31 @@ func (o GatewayResponseOutput) ToGatewayResponseOutputWithContext(ctx context.Co
 	return o
 }
 
+// The response parameters (paths, query strings, and headers) for the response.
+func (o GatewayResponseOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+// The response templates for the response.
+func (o GatewayResponseOutput) ResponseTemplates() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.AnyOutput { return v.ResponseTemplates }).(pulumi.AnyOutput)
+}
+
+// The type of the Gateway Response.
+func (o GatewayResponseOutput) ResponseType() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.StringOutput { return v.ResponseType }).(pulumi.StringOutput)
+}
+
+// The identifier of the API.
+func (o GatewayResponseOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// The HTTP status code for the response.
+func (o GatewayResponseOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.StringPtrOutput { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayResponseInput)(nil)).Elem(), &GatewayResponse{})
 	pulumi.RegisterOutputType(GatewayResponseOutput{})

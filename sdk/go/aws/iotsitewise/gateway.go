@@ -128,6 +128,31 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 	return o
 }
 
+// A list of gateway capability summaries that each contain a namespace and status.
+func (o GatewayOutput) GatewayCapabilitySummaries() GatewayCapabilitySummaryArrayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayCapabilitySummaryArrayOutput { return v.GatewayCapabilitySummaries }).(GatewayCapabilitySummaryArrayOutput)
+}
+
+// The ID of the gateway device.
+func (o GatewayOutput) GatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
+}
+
+// A unique, friendly name for the gateway.
+func (o GatewayOutput) GatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayName }).(pulumi.StringOutput)
+}
+
+// The gateway's platform. You can only specify one platform in a gateway.
+func (o GatewayOutput) GatewayPlatform() GatewayPlatformOutput {
+	return o.ApplyT(func(v *Gateway) GatewayPlatformOutput { return v.GatewayPlatform }).(GatewayPlatformOutput)
+}
+
+// A list of key-value pairs that contain metadata for the gateway.
+func (o GatewayOutput) Tags() GatewayTagArrayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayTagArrayOutput { return v.Tags }).(GatewayTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInput)(nil)).Elem(), &Gateway{})
 	pulumi.RegisterOutputType(GatewayOutput{})

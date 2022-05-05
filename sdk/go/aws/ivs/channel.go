@@ -140,6 +140,51 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// Channel ARN is automatically generated on creation and assigned as the unique identifier.
+func (o ChannelOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether the channel is authorized.
+func (o ChannelOutput) Authorized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.BoolPtrOutput { return v.Authorized }).(pulumi.BoolPtrOutput)
+}
+
+// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
+func (o ChannelOutput) IngestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.IngestEndpoint }).(pulumi.StringOutput)
+}
+
+// Channel latency mode.
+func (o ChannelOutput) LatencyMode() ChannelLatencyModePtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelLatencyModePtrOutput { return v.LatencyMode }).(ChannelLatencyModePtrOutput)
+}
+
+// Channel
+func (o ChannelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Channel Playback URL.
+func (o ChannelOutput) PlaybackUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.PlaybackUrl }).(pulumi.StringOutput)
+}
+
+// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+func (o ChannelOutput) RecordingConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RecordingConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the asset model.
+func (o ChannelOutput) Tags() ChannelTagArrayOutput {
+	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+}
+
+// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
+func (o ChannelOutput) Type() ChannelTypePtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelTypePtrOutput { return v.Type }).(ChannelTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
 	pulumi.RegisterOutputType(ChannelOutput{})

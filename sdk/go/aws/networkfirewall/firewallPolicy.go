@@ -116,6 +116,30 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o FirewallPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallPolicyOutput) FirewallPolicy() FirewallPolicyTypeOutput {
+	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyTypeOutput { return v.FirewallPolicy }).(FirewallPolicyTypeOutput)
+}
+
+func (o FirewallPolicyOutput) FirewallPolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyOutput) FirewallPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyId }).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyOutput) FirewallPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyName }).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyOutput) Tags() FirewallPolicyTagArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyTagArrayOutput { return v.Tags }).(FirewallPolicyTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInput)(nil)).Elem(), &FirewallPolicy{})
 	pulumi.RegisterOutputType(FirewallPolicyOutput{})

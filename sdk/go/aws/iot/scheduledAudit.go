@@ -143,6 +143,41 @@ func (o ScheduledAuditOutput) ToScheduledAuditOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
+func (o ScheduledAuditOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAudit) pulumi.StringPtrOutput { return v.DayOfMonth }).(pulumi.StringPtrOutput)
+}
+
+// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
+func (o ScheduledAuditOutput) DayOfWeek() ScheduledAuditDayOfWeekPtrOutput {
+	return o.ApplyT(func(v *ScheduledAudit) ScheduledAuditDayOfWeekPtrOutput { return v.DayOfWeek }).(ScheduledAuditDayOfWeekPtrOutput)
+}
+
+// How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
+func (o ScheduledAuditOutput) Frequency() ScheduledAuditFrequencyOutput {
+	return o.ApplyT(func(v *ScheduledAudit) ScheduledAuditFrequencyOutput { return v.Frequency }).(ScheduledAuditFrequencyOutput)
+}
+
+// The ARN (Amazon resource name) of the scheduled audit.
+func (o ScheduledAuditOutput) ScheduledAuditArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAudit) pulumi.StringOutput { return v.ScheduledAuditArn }).(pulumi.StringOutput)
+}
+
+// The name you want to give to the scheduled audit.
+func (o ScheduledAuditOutput) ScheduledAuditName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAudit) pulumi.StringPtrOutput { return v.ScheduledAuditName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ScheduledAuditOutput) Tags() ScheduledAuditTagArrayOutput {
+	return o.ApplyT(func(v *ScheduledAudit) ScheduledAuditTagArrayOutput { return v.Tags }).(ScheduledAuditTagArrayOutput)
+}
+
+// Which checks are performed during the scheduled audit. Checks must be enabled for your account.
+func (o ScheduledAuditOutput) TargetCheckNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledAudit) pulumi.StringArrayOutput { return v.TargetCheckNames }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAuditInput)(nil)).Elem(), &ScheduledAudit{})
 	pulumi.RegisterOutputType(ScheduledAuditOutput{})

@@ -113,6 +113,18 @@ func (o VPNGatewayOutput) ToVPNGatewayOutputWithContext(ctx context.Context) VPN
 	return o
 }
 
+func (o VPNGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VPNGateway) pulumi.IntPtrOutput { return v.AmazonSideAsn }).(pulumi.IntPtrOutput)
+}
+
+func (o VPNGatewayOutput) Tags() VPNGatewayTagArrayOutput {
+	return o.ApplyT(func(v *VPNGateway) VPNGatewayTagArrayOutput { return v.Tags }).(VPNGatewayTagArrayOutput)
+}
+
+func (o VPNGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPNGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayInput)(nil)).Elem(), &VPNGateway{})
 	pulumi.RegisterOutputType(VPNGatewayOutput{})

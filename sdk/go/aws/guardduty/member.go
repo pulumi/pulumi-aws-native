@@ -128,6 +128,30 @@ func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutpu
 	return o
 }
 
+func (o MemberOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+func (o MemberOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.BoolPtrOutput { return v.DisableEmailNotification }).(pulumi.BoolPtrOutput)
+}
+
+func (o MemberOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o MemberOutput) MemberId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
+}
+
+func (o MemberOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o MemberOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberInput)(nil)).Elem(), &Member{})
 	pulumi.RegisterOutputType(MemberOutput{})

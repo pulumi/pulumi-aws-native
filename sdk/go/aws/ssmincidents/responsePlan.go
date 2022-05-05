@@ -140,6 +140,44 @@ func (o ResponsePlanOutput) ToResponsePlanOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The list of actions.
+func (o ResponsePlanOutput) Actions() ResponsePlanActionArrayOutput {
+	return o.ApplyT(func(v *ResponsePlan) ResponsePlanActionArrayOutput { return v.Actions }).(ResponsePlanActionArrayOutput)
+}
+
+// The ARN of the response plan.
+func (o ResponsePlanOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResponsePlanOutput) ChatChannel() ResponsePlanChatChannelPtrOutput {
+	return o.ApplyT(func(v *ResponsePlan) ResponsePlanChatChannelPtrOutput { return v.ChatChannel }).(ResponsePlanChatChannelPtrOutput)
+}
+
+// The display name of the response plan.
+func (o ResponsePlanOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The list of engagements to use.
+func (o ResponsePlanOutput) Engagements() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringArrayOutput { return v.Engagements }).(pulumi.StringArrayOutput)
+}
+
+func (o ResponsePlanOutput) IncidentTemplate() ResponsePlanIncidentTemplateOutput {
+	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIncidentTemplateOutput { return v.IncidentTemplate }).(ResponsePlanIncidentTemplateOutput)
+}
+
+// The name of the response plan.
+func (o ResponsePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags to apply to the response plan.
+func (o ResponsePlanOutput) Tags() ResponsePlanTagArrayOutput {
+	return o.ApplyT(func(v *ResponsePlan) ResponsePlanTagArrayOutput { return v.Tags }).(ResponsePlanTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanInput)(nil)).Elem(), &ResponsePlan{})
 	pulumi.RegisterOutputType(ResponsePlanOutput{})

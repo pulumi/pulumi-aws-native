@@ -121,6 +121,42 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+func (o VolumeOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) OntapConfiguration() VolumeOntapConfigurationPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeOntapConfigurationPtrOutput { return v.OntapConfiguration }).(VolumeOntapConfigurationPtrOutput)
+}
+
+func (o VolumeOutput) OpenZFSConfiguration() VolumeOpenZFSConfigurationPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeOpenZFSConfigurationPtrOutput { return v.OpenZFSConfiguration }).(VolumeOpenZFSConfigurationPtrOutput)
+}
+
+func (o VolumeOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) Tags() VolumeTagArrayOutput {
+	return o.ApplyT(func(v *Volume) VolumeTagArrayOutput { return v.Tags }).(VolumeTagArrayOutput)
+}
+
+func (o VolumeOutput) UUID() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.UUID }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeInput)(nil)).Elem(), &Volume{})
 	pulumi.RegisterOutputType(VolumeOutput{})

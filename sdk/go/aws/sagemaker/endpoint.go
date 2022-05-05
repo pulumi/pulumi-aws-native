@@ -125,6 +125,34 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+func (o EndpointOutput) DeploymentConfig() EndpointDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointDeploymentConfigPtrOutput { return v.DeploymentConfig }).(EndpointDeploymentConfigPtrOutput)
+}
+
+func (o EndpointOutput) EndpointConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointConfigName }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) ExcludeRetainedVariantProperties() EndpointVariantPropertyArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointVariantPropertyArrayOutput { return v.ExcludeRetainedVariantProperties }).(EndpointVariantPropertyArrayOutput)
+}
+
+func (o EndpointOutput) RetainAllVariantProperties() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.RetainAllVariantProperties }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOutput) RetainDeploymentConfig() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.RetainDeploymentConfig }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointOutput) Tags() EndpointTagArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointTagArrayOutput { return v.Tags }).(EndpointTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointInput)(nil)).Elem(), &Endpoint{})
 	pulumi.RegisterOutputType(EndpointOutput{})

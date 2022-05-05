@@ -116,6 +116,18 @@ func (o UserPoolUICustomizationAttachmentOutput) ToUserPoolUICustomizationAttach
 	return o
 }
 
+func (o UserPoolUICustomizationAttachmentOutput) CSS() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUICustomizationAttachment) pulumi.StringPtrOutput { return v.CSS }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolUICustomizationAttachmentOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUICustomizationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolUICustomizationAttachmentOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUICustomizationAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationAttachmentInput)(nil)).Elem(), &UserPoolUICustomizationAttachment{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationAttachmentOutput{})

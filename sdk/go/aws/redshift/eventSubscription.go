@@ -162,6 +162,76 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
+// The name of the Amazon Redshift event notification subscription.
+func (o EventSubscriptionOutput) CustSubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.CustSubscriptionId }).(pulumi.StringOutput)
+}
+
+// The AWS account associated with the Amazon Redshift event notification subscription.
+func (o EventSubscriptionOutput) CustomerAwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.CustomerAwsId }).(pulumi.StringOutput)
+}
+
+// A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
+func (o EventSubscriptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Amazon Redshift event categories to be published by the event notification subscription.
+func (o EventSubscriptionOutput) EventCategories() EventSubscriptionEventCategoriesItemArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) EventSubscriptionEventCategoriesItemArrayOutput { return v.EventCategories }).(EventSubscriptionEventCategoriesItemArrayOutput)
+}
+
+// The list of Amazon Redshift event categories specified in the event notification subscription.
+func (o EventSubscriptionOutput) EventCategoriesList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.EventCategoriesList }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Amazon Redshift event severity to be published by the event notification subscription.
+func (o EventSubscriptionOutput) Severity() EventSubscriptionSeverityPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) EventSubscriptionSeverityPtrOutput { return v.Severity }).(EventSubscriptionSeverityPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications.
+func (o EventSubscriptionOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of one or more identifiers of Amazon Redshift source objects.
+func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of the sources that publish events to the Amazon Redshift event notification subscription.
+func (o EventSubscriptionOutput) SourceIdsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIdsList }).(pulumi.StringArrayOutput)
+}
+
+// The type of source that will be generating the events.
+func (o EventSubscriptionOutput) SourceType() EventSubscriptionSourceTypePtrOutput {
+	return o.ApplyT(func(v *EventSubscription) EventSubscriptionSourceTypePtrOutput { return v.SourceType }).(EventSubscriptionSourceTypePtrOutput)
+}
+
+// The status of the Amazon Redshift event notification subscription.
+func (o EventSubscriptionOutput) Status() EventSubscriptionStatusOutput {
+	return o.ApplyT(func(v *EventSubscription) EventSubscriptionStatusOutput { return v.Status }).(EventSubscriptionStatusOutput)
+}
+
+// The date and time the Amazon Redshift event notification subscription was created.
+func (o EventSubscriptionOutput) SubscriptionCreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SubscriptionCreationTime }).(pulumi.StringOutput)
+}
+
+// The name of the Amazon Redshift event notification subscription
+func (o EventSubscriptionOutput) SubscriptionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SubscriptionName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o EventSubscriptionOutput) Tags() EventSubscriptionTagArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) EventSubscriptionTagArrayOutput { return v.Tags }).(EventSubscriptionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionInput)(nil)).Elem(), &EventSubscription{})
 	pulumi.RegisterOutputType(EventSubscriptionOutput{})

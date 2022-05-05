@@ -113,6 +113,16 @@ func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutp
 	return o
 }
 
+func (o SubscriptionDefinitionVersionOutput) SubscriptionDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionDefinitionVersion) pulumi.StringOutput { return v.SubscriptionDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionDefinitionVersionOutput) Subscriptions() SubscriptionDefinitionVersionSubscriptionArrayOutput {
+	return o.ApplyT(func(v *SubscriptionDefinitionVersion) SubscriptionDefinitionVersionSubscriptionArrayOutput {
+		return v.Subscriptions
+	}).(SubscriptionDefinitionVersionSubscriptionArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionDefinitionVersionInput)(nil)).Elem(), &SubscriptionDefinitionVersion{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionVersionOutput{})

@@ -116,6 +116,35 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EnvironmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) EnvironmentIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) NetworkFabricType() EnvironmentNetworkFabricTypePtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentNetworkFabricTypePtrOutput { return v.NetworkFabricType }).(EnvironmentNetworkFabricTypePtrOutput)
+}
+
+// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
+}
+
+func (o EnvironmentOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentInput)(nil)).Elem(), &Environment{})
 	pulumi.RegisterOutputType(EnvironmentOutput{})

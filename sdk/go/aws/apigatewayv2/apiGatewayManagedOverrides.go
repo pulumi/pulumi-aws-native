@@ -116,6 +116,24 @@ func (o ApiGatewayManagedOverridesOutput) ToApiGatewayManagedOverridesOutputWith
 	return o
 }
 
+func (o ApiGatewayManagedOverridesOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverrides) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ApiGatewayManagedOverridesOutput) Integration() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverrides) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+		return v.Integration
+	}).(ApiGatewayManagedOverridesIntegrationOverridesPtrOutput)
+}
+
+func (o ApiGatewayManagedOverridesOutput) Route() ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverrides) ApiGatewayManagedOverridesRouteOverridesPtrOutput { return v.Route }).(ApiGatewayManagedOverridesRouteOverridesPtrOutput)
+}
+
+func (o ApiGatewayManagedOverridesOutput) Stage() ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverrides) ApiGatewayManagedOverridesStageOverridesPtrOutput { return v.Stage }).(ApiGatewayManagedOverridesStageOverridesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesInput)(nil)).Elem(), &ApiGatewayManagedOverrides{})
 	pulumi.RegisterOutputType(ApiGatewayManagedOverridesOutput{})

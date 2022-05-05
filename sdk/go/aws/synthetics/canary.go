@@ -200,6 +200,80 @@ func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutpu
 	return o
 }
 
+// Provide artifact configuration
+func (o CanaryOutput) ArtifactConfig() CanaryArtifactConfigPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryArtifactConfigPtrOutput { return v.ArtifactConfig }).(CanaryArtifactConfigPtrOutput)
+}
+
+// Provide the s3 bucket output location for test results
+func (o CanaryOutput) ArtifactS3Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.ArtifactS3Location }).(pulumi.StringOutput)
+}
+
+// Provide the canary script source
+func (o CanaryOutput) Code() CanaryCodeOutput {
+	return o.ApplyT(func(v *Canary) CanaryCodeOutput { return v.Code }).(CanaryCodeOutput)
+}
+
+// Lambda Execution role used to run your canaries
+func (o CanaryOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// Retention period of failed canary runs represented in number of days
+func (o CanaryOutput) FailureRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.IntPtrOutput { return v.FailureRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Name of the canary.
+func (o CanaryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provide canary run configuration
+func (o CanaryOutput) RunConfig() CanaryRunConfigPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryRunConfigPtrOutput { return v.RunConfig }).(CanaryRunConfigPtrOutput)
+}
+
+// Runtime version of Synthetics Library
+func (o CanaryOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// Frequency to run your canaries
+func (o CanaryOutput) Schedule() CanaryScheduleOutput {
+	return o.ApplyT(func(v *Canary) CanaryScheduleOutput { return v.Schedule }).(CanaryScheduleOutput)
+}
+
+// Runs canary if set to True. Default is False
+func (o CanaryOutput) StartCanaryAfterCreation() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Canary) pulumi.BoolOutput { return v.StartCanaryAfterCreation }).(pulumi.BoolOutput)
+}
+
+// State of the canary
+func (o CanaryOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Retention period of successful canary runs represented in number of days
+func (o CanaryOutput) SuccessRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.IntPtrOutput { return v.SuccessRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o CanaryOutput) Tags() CanaryTagArrayOutput {
+	return o.ApplyT(func(v *Canary) CanaryTagArrayOutput { return v.Tags }).(CanaryTagArrayOutput)
+}
+
+// Provide VPC Configuration if enabled.
+func (o CanaryOutput) VPCConfig() CanaryVPCConfigPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryVPCConfigPtrOutput { return v.VPCConfig }).(CanaryVPCConfigPtrOutput)
+}
+
+// Visual reference configuration for visual testing
+func (o CanaryOutput) VisualReference() CanaryVisualReferencePtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryVisualReferencePtrOutput { return v.VisualReference }).(CanaryVisualReferencePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryInput)(nil)).Elem(), &Canary{})
 	pulumi.RegisterOutputType(CanaryOutput{})

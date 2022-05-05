@@ -122,6 +122,30 @@ func (o EndpointConfigOutput) ToEndpointConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EndpointConfigOutput) AsyncInferenceConfig() EndpointConfigAsyncInferenceConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigAsyncInferenceConfigPtrOutput { return v.AsyncInferenceConfig }).(EndpointConfigAsyncInferenceConfigPtrOutput)
+}
+
+func (o EndpointConfigOutput) DataCaptureConfig() EndpointConfigDataCaptureConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigDataCaptureConfigPtrOutput { return v.DataCaptureConfig }).(EndpointConfigDataCaptureConfigPtrOutput)
+}
+
+func (o EndpointConfigOutput) EndpointConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) pulumi.StringPtrOutput { return v.EndpointConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigOutput) ProductionVariants() EndpointConfigProductionVariantArrayOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigProductionVariantArrayOutput { return v.ProductionVariants }).(EndpointConfigProductionVariantArrayOutput)
+}
+
+func (o EndpointConfigOutput) Tags() EndpointConfigTagArrayOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigTagArrayOutput { return v.Tags }).(EndpointConfigTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigInput)(nil)).Elem(), &EndpointConfig{})
 	pulumi.RegisterOutputType(EndpointConfigOutput{})

@@ -115,6 +115,26 @@ func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) Worktea
 	return o
 }
 
+func (o WorkteamOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkteamOutput) MemberDefinitions() WorkteamMemberDefinitionArrayOutput {
+	return o.ApplyT(func(v *Workteam) WorkteamMemberDefinitionArrayOutput { return v.MemberDefinitions }).(WorkteamMemberDefinitionArrayOutput)
+}
+
+func (o WorkteamOutput) NotificationConfiguration() WorkteamNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Workteam) WorkteamNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(WorkteamNotificationConfigurationPtrOutput)
+}
+
+func (o WorkteamOutput) Tags() WorkteamTagArrayOutput {
+	return o.ApplyT(func(v *Workteam) WorkteamTagArrayOutput { return v.Tags }).(WorkteamTagArrayOutput)
+}
+
+func (o WorkteamOutput) WorkteamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringPtrOutput { return v.WorkteamName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamInput)(nil)).Elem(), &Workteam{})
 	pulumi.RegisterOutputType(WorkteamOutput{})

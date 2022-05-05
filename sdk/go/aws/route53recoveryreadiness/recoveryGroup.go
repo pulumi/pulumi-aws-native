@@ -118,6 +118,26 @@ func (o RecoveryGroupOutput) ToRecoveryGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
+func (o RecoveryGroupOutput) Cells() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringArrayOutput { return v.Cells }).(pulumi.StringArrayOutput)
+}
+
+// A collection of tags associated with a resource.
+func (o RecoveryGroupOutput) RecoveryGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.RecoveryGroupArn }).(pulumi.StringOutput)
+}
+
+// The name of the recovery group to create.
+func (o RecoveryGroupOutput) RecoveryGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.RecoveryGroupName }).(pulumi.StringOutput)
+}
+
+// A collection of tags associated with a resource.
+func (o RecoveryGroupOutput) Tags() RecoveryGroupTagArrayOutput {
+	return o.ApplyT(func(v *RecoveryGroup) RecoveryGroupTagArrayOutput { return v.Tags }).(RecoveryGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupInput)(nil)).Elem(), &RecoveryGroup{})
 	pulumi.RegisterOutputType(RecoveryGroupOutput{})

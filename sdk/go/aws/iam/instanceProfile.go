@@ -122,6 +122,26 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the instance profile.
+func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the instance profile to create.
+func (o InstanceProfileOutput) InstanceProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.InstanceProfileName }).(pulumi.StringPtrOutput)
+}
+
+// The path to the instance profile.
+func (o InstanceProfileOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
+func (o InstanceProfileOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileInput)(nil)).Elem(), &InstanceProfile{})
 	pulumi.RegisterOutputType(InstanceProfileOutput{})

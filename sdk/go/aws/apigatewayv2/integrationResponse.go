@@ -131,6 +131,34 @@ func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx co
 	return o
 }
 
+func (o IntegrationResponseOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o IntegrationResponseOutput) ContentHandlingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringPtrOutput { return v.ContentHandlingStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationResponseOutput) IntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.IntegrationId }).(pulumi.StringOutput)
+}
+
+func (o IntegrationResponseOutput) IntegrationResponseKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.IntegrationResponseKey }).(pulumi.StringOutput)
+}
+
+func (o IntegrationResponseOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+func (o IntegrationResponseOutput) ResponseTemplates() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.AnyOutput { return v.ResponseTemplates }).(pulumi.AnyOutput)
+}
+
+func (o IntegrationResponseOutput) TemplateSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringPtrOutput { return v.TemplateSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseInput)(nil)).Elem(), &IntegrationResponse{})
 	pulumi.RegisterOutputType(IntegrationResponseOutput{})

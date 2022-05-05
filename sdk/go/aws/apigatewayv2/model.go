@@ -122,6 +122,26 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
+func (o ModelOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ModelOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ModelOutput) Schema() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Model) pulumi.AnyOutput { return v.Schema }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInput)(nil)).Elem(), &Model{})
 	pulumi.RegisterOutputType(ModelOutput{})

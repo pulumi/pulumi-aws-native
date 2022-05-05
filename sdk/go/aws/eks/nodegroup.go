@@ -217,6 +217,100 @@ func (o NodegroupOutput) ToNodegroupOutputWithContext(ctx context.Context) Nodeg
 	return o
 }
 
+// The AMI type for your node group.
+func (o NodegroupOutput) AmiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.AmiType }).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The capacity type of your managed node group.
+func (o NodegroupOutput) CapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.CapacityType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the cluster to create the node group in.
+func (o NodegroupOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// The root device disk size (in GiB) for your node group instances.
+func (o NodegroupOutput) DiskSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.IntPtrOutput { return v.DiskSize }).(pulumi.IntPtrOutput)
+}
+
+// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+func (o NodegroupOutput) ForceUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.BoolPtrOutput { return v.ForceUpdateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specify the instance types for a node group.
+func (o NodegroupOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringArrayOutput { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+func (o NodegroupOutput) Labels() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.AnyOutput { return v.Labels }).(pulumi.AnyOutput)
+}
+
+// An object representing a node group's launch template specification.
+func (o NodegroupOutput) LaunchTemplate() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupLaunchTemplateSpecificationPtrOutput { return v.LaunchTemplate }).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
+func (o NodegroupOutput) NodeRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringOutput { return v.NodeRole }).(pulumi.StringOutput)
+}
+
+// The unique name to give your node group.
+func (o NodegroupOutput) NodegroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.NodegroupName }).(pulumi.StringPtrOutput)
+}
+
+// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
+func (o NodegroupOutput) ReleaseVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.ReleaseVersion }).(pulumi.StringPtrOutput)
+}
+
+// The remote access (SSH) configuration to use with your node group.
+func (o NodegroupOutput) RemoteAccess() NodegroupRemoteAccessPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupRemoteAccessPtrOutput { return v.RemoteAccess }).(NodegroupRemoteAccessPtrOutput)
+}
+
+// The scaling configuration details for the Auto Scaling group that is created for your node group.
+func (o NodegroupOutput) ScalingConfig() NodegroupScalingConfigPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupScalingConfigPtrOutput { return v.ScalingConfig }).(NodegroupScalingConfigPtrOutput)
+}
+
+// The subnets to use for the Auto Scaling group that is created for your node group.
+func (o NodegroupOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+func (o NodegroupOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+func (o NodegroupOutput) Taints() NodegroupTaintArrayOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupTaintArrayOutput { return v.Taints }).(NodegroupTaintArrayOutput)
+}
+
+// The node group update configuration.
+func (o NodegroupOutput) UpdateConfig() NodegroupUpdateConfigPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupUpdateConfigPtrOutput { return v.UpdateConfig }).(NodegroupUpdateConfigPtrOutput)
+}
+
+// The Kubernetes version to use for your managed nodes.
+func (o NodegroupOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupInput)(nil)).Elem(), &Nodegroup{})
 	pulumi.RegisterOutputType(NodegroupOutput{})

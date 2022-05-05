@@ -122,6 +122,38 @@ func (o ObservabilityConfigurationOutput) ToObservabilityConfigurationOutputWith
 	return o
 }
 
+// It's set to true for the configuration with the highest Revision among all configurations that share the same Name. It's set to false otherwise.
+func (o ObservabilityConfigurationOutput) Latest() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.BoolOutput { return v.Latest }).(pulumi.BoolOutput)
+}
+
+// The Amazon Resource Name (ARN) of this ObservabilityConfiguration
+func (o ObservabilityConfigurationOutput) ObservabilityConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringOutput { return v.ObservabilityConfigurationArn }).(pulumi.StringOutput)
+}
+
+// A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
+func (o ObservabilityConfigurationOutput) ObservabilityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringPtrOutput { return v.ObservabilityConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+// The revision of this observability configuration. It's unique among all the active configurations ('Status': 'ACTIVE') that share the same ObservabilityConfigurationName.
+func (o ObservabilityConfigurationOutput) ObservabilityConfigurationRevision() pulumi.IntOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.IntOutput { return v.ObservabilityConfigurationRevision }).(pulumi.IntOutput)
+}
+
+// A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
+func (o ObservabilityConfigurationOutput) Tags() ObservabilityConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) ObservabilityConfigurationTagArrayOutput { return v.Tags }).(ObservabilityConfigurationTagArrayOutput)
+}
+
+// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
+func (o ObservabilityConfigurationOutput) TraceConfiguration() ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) ObservabilityConfigurationTraceConfigurationPtrOutput {
+		return v.TraceConfiguration
+	}).(ObservabilityConfigurationTraceConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationInput)(nil)).Elem(), &ObservabilityConfiguration{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationOutput{})

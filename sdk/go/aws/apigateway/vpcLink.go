@@ -116,6 +116,22 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
+func (o VpcLinkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o VpcLinkOutput) Tags() VpcLinkTagArrayOutput {
+	return o.ApplyT(func(v *VpcLink) VpcLinkTagArrayOutput { return v.Tags }).(VpcLinkTagArrayOutput)
+}
+
+func (o VpcLinkOutput) TargetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.TargetArns }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkInput)(nil)).Elem(), &VpcLink{})
 	pulumi.RegisterOutputType(VpcLinkOutput{})

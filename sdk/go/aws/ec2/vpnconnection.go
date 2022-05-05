@@ -128,6 +128,36 @@ func (o VPNConnectionOutput) ToVPNConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o VPNConnectionOutput) CustomerGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPNConnection) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
+}
+
+func (o VPNConnectionOutput) StaticRoutesOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPNConnection) pulumi.BoolPtrOutput { return v.StaticRoutesOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o VPNConnectionOutput) Tags() VPNConnectionTagArrayOutput {
+	return o.ApplyT(func(v *VPNConnection) VPNConnectionTagArrayOutput { return v.Tags }).(VPNConnectionTagArrayOutput)
+}
+
+func (o VPNConnectionOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPNConnection) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPNConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPNConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VPNConnectionOutput) VpnGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPNConnection) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPNConnectionOutput) VpnTunnelOptionsSpecifications() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o.ApplyT(func(v *VPNConnection) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+		return v.VpnTunnelOptionsSpecifications
+	}).(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPNConnectionInput)(nil)).Elem(), &VPNConnection{})
 	pulumi.RegisterOutputType(VPNConnectionOutput{})

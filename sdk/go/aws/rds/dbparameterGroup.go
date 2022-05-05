@@ -119,6 +119,22 @@ func (o DBParameterGroupOutput) ToDBParameterGroupOutputWithContext(ctx context.
 	return o
 }
 
+func (o DBParameterGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o DBParameterGroupOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
+}
+
+func (o DBParameterGroupOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DBParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o DBParameterGroupOutput) Tags() DBParameterGroupTagArrayOutput {
+	return o.ApplyT(func(v *DBParameterGroup) DBParameterGroupTagArrayOutput { return v.Tags }).(DBParameterGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBParameterGroupInput)(nil)).Elem(), &DBParameterGroup{})
 	pulumi.RegisterOutputType(DBParameterGroupOutput{})

@@ -141,6 +141,40 @@ func (o LoadBalancerTlsCertificateOutput) ToLoadBalancerTlsCertificateOutputWith
 	return o
 }
 
+// An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
+func (o LoadBalancerTlsCertificateOutput) CertificateAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringArrayOutput { return v.CertificateAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+// The domain name (e.g., example.com ) for your SSL/TLS certificate.
+func (o LoadBalancerTlsCertificateOutput) CertificateDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.CertificateDomainName }).(pulumi.StringOutput)
+}
+
+// The SSL/TLS certificate name.
+func (o LoadBalancerTlsCertificateOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
+func (o LoadBalancerTlsCertificateOutput) IsAttached() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.BoolPtrOutput { return v.IsAttached }).(pulumi.BoolPtrOutput)
+}
+
+// The name of your load balancer.
+func (o LoadBalancerTlsCertificateOutput) LoadBalancerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerTlsCertificateOutput) LoadBalancerTlsCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.LoadBalancerTlsCertificateArn }).(pulumi.StringOutput)
+}
+
+// The validation status of the SSL/TLS certificate.
+func (o LoadBalancerTlsCertificateOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTlsCertificateInput)(nil)).Elem(), &LoadBalancerTlsCertificate{})
 	pulumi.RegisterOutputType(LoadBalancerTlsCertificateOutput{})

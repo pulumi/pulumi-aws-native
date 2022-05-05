@@ -136,6 +136,61 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+func (o AssessmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AssessmentOutput) AssessmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AssessmentId }).(pulumi.StringOutput)
+}
+
+func (o AssessmentOutput) AssessmentReportsDestination() AssessmentReportsDestinationPtrOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentReportsDestinationPtrOutput { return v.AssessmentReportsDestination }).(AssessmentReportsDestinationPtrOutput)
+}
+
+func (o AssessmentOutput) AwsAccount() AssessmentAWSAccountPtrOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentAWSAccountPtrOutput { return v.AwsAccount }).(AssessmentAWSAccountPtrOutput)
+}
+
+func (o AssessmentOutput) CreationTime() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.CreationTime }).(pulumi.Float64Output)
+}
+
+// The list of delegations.
+func (o AssessmentOutput) Delegations() AssessmentDelegationArrayOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentDelegationArrayOutput { return v.Delegations }).(AssessmentDelegationArrayOutput)
+}
+
+func (o AssessmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AssessmentOutput) FrameworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.FrameworkId }).(pulumi.StringPtrOutput)
+}
+
+func (o AssessmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The list of roles for the specified assessment.
+func (o AssessmentOutput) Roles() AssessmentRoleArrayOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentRoleArrayOutput { return v.Roles }).(AssessmentRoleArrayOutput)
+}
+
+func (o AssessmentOutput) Scope() AssessmentScopePtrOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentScopePtrOutput { return v.Scope }).(AssessmentScopePtrOutput)
+}
+
+func (o AssessmentOutput) Status() AssessmentStatusPtrOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentStatusPtrOutput { return v.Status }).(AssessmentStatusPtrOutput)
+}
+
+// The tags associated with the assessment.
+func (o AssessmentOutput) Tags() AssessmentTagArrayOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentTagArrayOutput { return v.Tags }).(AssessmentTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentInput)(nil)).Elem(), &Assessment{})
 	pulumi.RegisterOutputType(AssessmentOutput{})

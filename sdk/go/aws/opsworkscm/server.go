@@ -173,6 +173,98 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+func (o ServerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServerOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) BackupRetentionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.BackupRetentionCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ServerOutput) CustomCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CustomCertificate }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) CustomDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CustomDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) CustomPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CustomPrivateKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) DisableAutomatedBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.DisableAutomatedBackup }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServerOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) EngineAttributes() ServerEngineAttributeArrayOutput {
+	return o.ApplyT(func(v *Server) ServerEngineAttributeArrayOutput { return v.EngineAttributes }).(ServerEngineAttributeArrayOutput)
+}
+
+func (o ServerOutput) EngineModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.EngineModel }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) InstanceProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.InstanceProfileArn }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) KeyPair() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.KeyPair }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ServerOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) ServiceRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ServerOutput) Tags() ServerTagArrayOutput {
+	return o.ApplyT(func(v *Server) ServerTagArrayOutput { return v.Tags }).(ServerTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerInput)(nil)).Elem(), &Server{})
 	pulumi.RegisterOutputType(ServerOutput{})

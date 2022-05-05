@@ -131,6 +131,42 @@ func (o ScalingPolicyOutput) ToScalingPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ScalingPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) ScalableDimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ScalableDimension }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) ScalingTargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ScalingTargetId }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) ServiceNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ServiceNamespace }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyOutput) StepScalingPolicyConfiguration() ScalingPolicyStepScalingPolicyConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyStepScalingPolicyConfigurationPtrOutput {
+		return v.StepScalingPolicyConfiguration
+	}).(ScalingPolicyStepScalingPolicyConfigurationPtrOutput)
+}
+
+func (o ScalingPolicyOutput) TargetTrackingScalingPolicyConfiguration() ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
+		return v.TargetTrackingScalingPolicyConfiguration
+	}).(ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyInput)(nil)).Elem(), &ScalingPolicy{})
 	pulumi.RegisterOutputType(ScalingPolicyOutput{})

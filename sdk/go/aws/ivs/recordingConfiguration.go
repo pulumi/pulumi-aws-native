@@ -124,6 +124,38 @@ func (o RecordingConfigurationOutput) ToRecordingConfigurationOutputWithContext(
 	return o
 }
 
+// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
+func (o RecordingConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RecordingConfigurationOutput) DestinationConfiguration() RecordingConfigurationDestinationConfigurationOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationDestinationConfigurationOutput {
+		return v.DestinationConfiguration
+	}).(RecordingConfigurationDestinationConfigurationOutput)
+}
+
+// Recording Configuration Name.
+func (o RecordingConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Recording Configuration State.
+func (o RecordingConfigurationOutput) State() RecordingConfigurationStateEnumOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationStateEnumOutput { return v.State }).(RecordingConfigurationStateEnumOutput)
+}
+
+// A list of key-value pairs that contain metadata for the asset model.
+func (o RecordingConfigurationOutput) Tags() RecordingConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationTagArrayOutput { return v.Tags }).(RecordingConfigurationTagArrayOutput)
+}
+
+func (o RecordingConfigurationOutput) ThumbnailConfiguration() RecordingConfigurationThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationThumbnailConfigurationPtrOutput {
+		return v.ThumbnailConfiguration
+	}).(RecordingConfigurationThumbnailConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationInput)(nil)).Elem(), &RecordingConfiguration{})
 	pulumi.RegisterOutputType(RecordingConfigurationOutput{})

@@ -198,6 +198,96 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
+// Amazon Resource Name (ARN) of the queue.
+func (o QueueOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message.
+func (o QueueOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether message deduplication occurs at the message group or queue level. Valid values are messageGroup and queue.
+func (o QueueOutput) DeduplicationScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.DeduplicationScope }).(pulumi.StringPtrOutput)
+}
+
+// The time in seconds for which the delivery of all messages in the queue is delayed. You can specify an integer value of 0 to 900 (15 minutes). The default value is 0.
+func (o QueueOutput) DelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.DelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+// If set to true, creates a FIFO queue. If you don't specify this property, Amazon SQS creates a standard queue.
+func (o QueueOutput) FifoQueue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.FifoQueue }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are perQueue and perMessageGroupId. The perMessageGroupId value is allowed only when the value for DeduplicationScope is messageGroup.
+func (o QueueOutput) FifoThroughputLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.FifoThroughputLimit }).(pulumi.StringPtrOutput)
+}
+
+// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
+func (o QueueOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK. To use the AWS managed CMK for Amazon SQS, specify the (default) alias alias/aws/sqs.
+func (o QueueOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The limit of how many bytes that a message can contain before Amazon SQS rejects it. You can specify an integer value from 1,024 bytes (1 KiB) to 262,144 bytes (256 KiB). The default value is 262,144 (256 KiB).
+func (o QueueOutput) MaximumMessageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaximumMessageSize }).(pulumi.IntPtrOutput)
+}
+
+// The number of seconds that Amazon SQS retains a message. You can specify an integer value from 60 seconds (1 minute) to 1,209,600 seconds (14 days). The default value is 345,600 seconds (4 days).
+func (o QueueOutput) MessageRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MessageRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the .fifo suffix.
+func (o QueueOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+// URL of the source queue.
+func (o QueueOutput) QueueUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
+}
+
+// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
+func (o QueueOutput) ReceiveMessageWaitTimeSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.ReceiveMessageWaitTimeSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+func (o QueueOutput) RedriveAllowPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Queue) pulumi.AnyOutput { return v.RedriveAllowPolicy }).(pulumi.AnyOutput)
+}
+
+// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+func (o QueueOutput) RedrivePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Queue) pulumi.AnyOutput { return v.RedrivePolicy }).(pulumi.AnyOutput)
+}
+
+// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
+func (o QueueOutput) SqsManagedSseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.SqsManagedSseEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The tags that you attach to this queue.
+func (o QueueOutput) Tags() QueueTagArrayOutput {
+	return o.ApplyT(func(v *Queue) QueueTagArrayOutput { return v.Tags }).(QueueTagArrayOutput)
+}
+
+// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
+func (o QueueOutput) VisibilityTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.VisibilityTimeout }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueInput)(nil)).Elem(), &Queue{})
 	pulumi.RegisterOutputType(QueueOutput{})

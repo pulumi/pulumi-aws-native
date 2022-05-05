@@ -134,6 +134,66 @@ func (o FirewallRuleGroupOutput) ToFirewallRuleGroupOutputWithContext(ctx contex
 	return o
 }
 
+// Arn
+func (o FirewallRuleGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Rfc3339TimeString
+func (o FirewallRuleGroupOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The id of the creator request.
+func (o FirewallRuleGroupOutput) CreatorRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringOutput { return v.CreatorRequestId }).(pulumi.StringOutput)
+}
+
+// FirewallRules
+func (o FirewallRuleGroupOutput) FirewallRules() FirewallRuleGroupFirewallRuleArrayOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) FirewallRuleGroupFirewallRuleArrayOutput { return v.FirewallRules }).(FirewallRuleGroupFirewallRuleArrayOutput)
+}
+
+// Rfc3339TimeString
+func (o FirewallRuleGroupOutput) ModificationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringOutput { return v.ModificationTime }).(pulumi.StringOutput)
+}
+
+// FirewallRuleGroupName
+func (o FirewallRuleGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// AccountId
+func (o FirewallRuleGroupOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Count
+func (o FirewallRuleGroupOutput) RuleCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.IntOutput { return v.RuleCount }).(pulumi.IntOutput)
+}
+
+// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+func (o FirewallRuleGroupOutput) ShareStatus() FirewallRuleGroupShareStatusOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) FirewallRuleGroupShareStatusOutput { return v.ShareStatus }).(FirewallRuleGroupShareStatusOutput)
+}
+
+// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+func (o FirewallRuleGroupOutput) Status() FirewallRuleGroupStatusOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) FirewallRuleGroupStatusOutput { return v.Status }).(FirewallRuleGroupStatusOutput)
+}
+
+// FirewallRuleGroupStatus
+func (o FirewallRuleGroupOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Tags
+func (o FirewallRuleGroupOutput) Tags() FirewallRuleGroupTagArrayOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) FirewallRuleGroupTagArrayOutput { return v.Tags }).(FirewallRuleGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupInput)(nil)).Elem(), &FirewallRuleGroup{})
 	pulumi.RegisterOutputType(FirewallRuleGroupOutput{})

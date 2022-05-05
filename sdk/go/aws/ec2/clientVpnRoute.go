@@ -122,6 +122,22 @@ func (o ClientVpnRouteOutput) ToClientVpnRouteOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ClientVpnRouteOutput) ClientVpnEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnRoute) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnRouteOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnRoute) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnRouteOutput) TargetVpcSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnRoute) pulumi.StringOutput { return v.TargetVpcSubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnRouteInput)(nil)).Elem(), &ClientVpnRoute{})
 	pulumi.RegisterOutputType(ClientVpnRouteOutput{})

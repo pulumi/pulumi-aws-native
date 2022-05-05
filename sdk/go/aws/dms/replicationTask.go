@@ -155,6 +155,58 @@ func (o ReplicationTaskOutput) ToReplicationTaskOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ReplicationTaskOutput) CdcStartPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.CdcStartPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationTaskOutput) CdcStartTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.Float64PtrOutput { return v.CdcStartTime }).(pulumi.Float64PtrOutput)
+}
+
+func (o ReplicationTaskOutput) CdcStopPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.CdcStopPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationTaskOutput) MigrationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.MigrationType }).(pulumi.StringOutput)
+}
+
+func (o ReplicationTaskOutput) ReplicationInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
+}
+
+func (o ReplicationTaskOutput) ReplicationTaskIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.ReplicationTaskIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationTaskOutput) ReplicationTaskSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.ReplicationTaskSettings }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationTaskOutput) ResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationTaskOutput) SourceEndpointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.SourceEndpointArn }).(pulumi.StringOutput)
+}
+
+func (o ReplicationTaskOutput) TableMappings() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.TableMappings }).(pulumi.StringOutput)
+}
+
+func (o ReplicationTaskOutput) Tags() ReplicationTaskTagArrayOutput {
+	return o.ApplyT(func(v *ReplicationTask) ReplicationTaskTagArrayOutput { return v.Tags }).(ReplicationTaskTagArrayOutput)
+}
+
+func (o ReplicationTaskOutput) TargetEndpointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.TargetEndpointArn }).(pulumi.StringOutput)
+}
+
+func (o ReplicationTaskOutput) TaskData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.TaskData }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskInput)(nil)).Elem(), &ReplicationTask{})
 	pulumi.RegisterOutputType(ReplicationTaskOutput{})

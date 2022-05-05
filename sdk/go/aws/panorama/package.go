@@ -108,6 +108,30 @@ func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOu
 	return o
 }
 
+func (o PackageOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PackageOutput) CreatedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *Package) pulumi.IntOutput { return v.CreatedTime }).(pulumi.IntOutput)
+}
+
+func (o PackageOutput) PackageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
+}
+
+func (o PackageOutput) PackageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
+}
+
+func (o PackageOutput) StorageLocation() PackageStorageLocationOutput {
+	return o.ApplyT(func(v *Package) PackageStorageLocationOutput { return v.StorageLocation }).(PackageStorageLocationOutput)
+}
+
+func (o PackageOutput) Tags() PackageTagArrayOutput {
+	return o.ApplyT(func(v *Package) PackageTagArrayOutput { return v.Tags }).(PackageTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackageInput)(nil)).Elem(), &Package{})
 	pulumi.RegisterOutputType(PackageOutput{})

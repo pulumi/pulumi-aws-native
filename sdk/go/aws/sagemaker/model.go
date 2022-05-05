@@ -128,6 +128,38 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
+func (o ModelOutput) Containers() ModelContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v *Model) ModelContainerDefinitionArrayOutput { return v.Containers }).(ModelContainerDefinitionArrayOutput)
+}
+
+func (o ModelOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.BoolPtrOutput { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
+}
+
+func (o ModelOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+func (o ModelOutput) InferenceExecutionConfig() ModelInferenceExecutionConfigPtrOutput {
+	return o.ApplyT(func(v *Model) ModelInferenceExecutionConfigPtrOutput { return v.InferenceExecutionConfig }).(ModelInferenceExecutionConfigPtrOutput)
+}
+
+func (o ModelOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.ModelName }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelOutput) PrimaryContainer() ModelContainerDefinitionPtrOutput {
+	return o.ApplyT(func(v *Model) ModelContainerDefinitionPtrOutput { return v.PrimaryContainer }).(ModelContainerDefinitionPtrOutput)
+}
+
+func (o ModelOutput) Tags() ModelTagArrayOutput {
+	return o.ApplyT(func(v *Model) ModelTagArrayOutput { return v.Tags }).(ModelTagArrayOutput)
+}
+
+func (o ModelOutput) VpcConfig() ModelVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Model) ModelVpcConfigPtrOutput { return v.VpcConfig }).(ModelVpcConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInput)(nil)).Elem(), &Model{})
 	pulumi.RegisterOutputType(ModelOutput{})

@@ -131,6 +131,38 @@ func (o GitHubRepositoryOutput) ToGitHubRepositoryOutputWithContext(ctx context.
 	return o
 }
 
+func (o GitHubRepositoryOutput) Code() GitHubRepositoryCodePtrOutput {
+	return o.ApplyT(func(v *GitHubRepository) GitHubRepositoryCodePtrOutput { return v.Code }).(GitHubRepositoryCodePtrOutput)
+}
+
+func (o GitHubRepositoryOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.StringPtrOutput { return v.ConnectionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GitHubRepositoryOutput) EnableIssues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.BoolPtrOutput { return v.EnableIssues }).(pulumi.BoolPtrOutput)
+}
+
+func (o GitHubRepositoryOutput) IsPrivate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.BoolPtrOutput { return v.IsPrivate }).(pulumi.BoolPtrOutput)
+}
+
+func (o GitHubRepositoryOutput) RepositoryAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.StringPtrOutput { return v.RepositoryAccessToken }).(pulumi.StringPtrOutput)
+}
+
+func (o GitHubRepositoryOutput) RepositoryDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.StringPtrOutput { return v.RepositoryDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o GitHubRepositoryOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+func (o GitHubRepositoryOutput) RepositoryOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.StringOutput { return v.RepositoryOwner }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubRepositoryInput)(nil)).Elem(), &GitHubRepository{})
 	pulumi.RegisterOutputType(GitHubRepositoryOutput{})

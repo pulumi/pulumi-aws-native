@@ -137,6 +137,50 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o JobDefinitionOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionContainerPropertiesPtrOutput { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
+}
+
+func (o JobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionOutput) NodeProperties() JobDefinitionNodePropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionNodePropertiesPtrOutput { return v.NodeProperties }).(JobDefinitionNodePropertiesPtrOutput)
+}
+
+func (o JobDefinitionOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o JobDefinitionOutput) PlatformCapabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringArrayOutput { return v.PlatformCapabilities }).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionOutput) PropagateTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.BoolPtrOutput { return v.PropagateTags }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionRetryStrategyPtrOutput { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
+}
+
+func (o JobDefinitionOutput) SchedulingPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionTimeoutPtrOutput { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
+}
+
+func (o JobDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionInput)(nil)).Elem(), &JobDefinition{})
 	pulumi.RegisterOutputType(JobDefinitionOutput{})

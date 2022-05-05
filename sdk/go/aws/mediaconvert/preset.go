@@ -120,6 +120,30 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 	return o
 }
 
+func (o PresetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PresetOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o PresetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PresetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PresetOutput) SettingsJson() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Preset) pulumi.AnyOutput { return v.SettingsJson }).(pulumi.AnyOutput)
+}
+
+func (o PresetOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Preset) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PresetInput)(nil)).Elem(), &Preset{})
 	pulumi.RegisterOutputType(PresetOutput{})

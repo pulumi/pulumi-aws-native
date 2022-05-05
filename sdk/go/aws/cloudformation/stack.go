@@ -119,6 +119,26 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
+func (o StackOutput) NotificationARNs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.NotificationARNs }).(pulumi.StringArrayOutput)
+}
+
+func (o StackOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o StackOutput) Tags() StackTagArrayOutput {
+	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+}
+
+func (o StackOutput) TemplateURL() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.TemplateURL }).(pulumi.StringOutput)
+}
+
+func (o StackOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.IntPtrOutput { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackInput)(nil)).Elem(), &Stack{})
 	pulumi.RegisterOutputType(StackOutput{})

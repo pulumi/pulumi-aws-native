@@ -169,6 +169,106 @@ func (o UserPoolOutput) ToUserPoolOutputWithContext(ctx context.Context) UserPoo
 	return o
 }
 
+func (o UserPoolOutput) AccountRecoverySetting() UserPoolAccountRecoverySettingPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolAccountRecoverySettingPtrOutput { return v.AccountRecoverySetting }).(UserPoolAccountRecoverySettingPtrOutput)
+}
+
+func (o UserPoolOutput) AdminCreateUserConfig() UserPoolAdminCreateUserConfigPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolAdminCreateUserConfigPtrOutput { return v.AdminCreateUserConfig }).(UserPoolAdminCreateUserConfigPtrOutput)
+}
+
+func (o UserPoolOutput) AliasAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.AliasAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o UserPoolOutput) AutoVerifiedAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.AutoVerifiedAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolDeviceConfigurationPtrOutput { return v.DeviceConfiguration }).(UserPoolDeviceConfigurationPtrOutput)
+}
+
+func (o UserPoolOutput) EmailConfiguration() UserPoolEmailConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolEmailConfigurationPtrOutput { return v.EmailConfiguration }).(UserPoolEmailConfigurationPtrOutput)
+}
+
+func (o UserPoolOutput) EmailVerificationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.EmailVerificationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) EmailVerificationSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.EmailVerificationSubject }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) EnabledMfas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.EnabledMfas }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) LambdaConfig() UserPoolLambdaConfigPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolLambdaConfigPtrOutput { return v.LambdaConfig }).(UserPoolLambdaConfigPtrOutput)
+}
+
+func (o UserPoolOutput) MfaConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.MfaConfiguration }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) Policies() UserPoolPoliciesPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolPoliciesPtrOutput { return v.Policies }).(UserPoolPoliciesPtrOutput)
+}
+
+func (o UserPoolOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o UserPoolOutput) ProviderURL() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.ProviderURL }).(pulumi.StringOutput)
+}
+
+func (o UserPoolOutput) Schema() UserPoolSchemaAttributeArrayOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolSchemaAttributeArrayOutput { return v.Schema }).(UserPoolSchemaAttributeArrayOutput)
+}
+
+func (o UserPoolOutput) SmsAuthenticationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsAuthenticationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) SmsConfiguration() UserPoolSmsConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolSmsConfigurationPtrOutput { return v.SmsConfiguration }).(UserPoolSmsConfigurationPtrOutput)
+}
+
+func (o UserPoolOutput) SmsVerificationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsVerificationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) UserPoolAddOns() UserPoolAddOnsPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolAddOnsPtrOutput { return v.UserPoolAddOns }).(UserPoolAddOnsPtrOutput)
+}
+
+func (o UserPoolOutput) UserPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.UserPoolName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) UserPoolTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.AnyOutput { return v.UserPoolTags }).(pulumi.AnyOutput)
+}
+
+func (o UserPoolOutput) UsernameAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.UsernameAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolUsernameConfigurationPtrOutput { return v.UsernameConfiguration }).(UserPoolUsernameConfigurationPtrOutput)
+}
+
+func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessageTemplatePtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplatePtrOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplatePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInput)(nil)).Elem(), &UserPool{})
 	pulumi.RegisterOutputType(UserPoolOutput{})

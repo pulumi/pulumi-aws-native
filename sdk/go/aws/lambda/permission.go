@@ -134,6 +134,38 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
+func (o PermissionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o PermissionOutput) EventSourceToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.EventSourceToken }).(pulumi.StringPtrOutput)
+}
+
+func (o PermissionOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+func (o PermissionOutput) FunctionUrlAuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.FunctionUrlAuthType }).(pulumi.StringPtrOutput)
+}
+
+func (o PermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+func (o PermissionOutput) PrincipalOrgID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgID }).(pulumi.StringPtrOutput)
+}
+
+func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceAccount }).(pulumi.StringPtrOutput)
+}
+
+func (o PermissionOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionInput)(nil)).Elem(), &Permission{})
 	pulumi.RegisterOutputType(PermissionOutput{})

@@ -125,6 +125,44 @@ func (o KnowledgeBaseOutput) ToKnowledgeBaseOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o KnowledgeBaseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o KnowledgeBaseOutput) KnowledgeBaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseArn }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseOutput) KnowledgeBaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseId }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseOutput) KnowledgeBaseType() KnowledgeBaseTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseTypeOutput { return v.KnowledgeBaseType }).(KnowledgeBaseTypeOutput)
+}
+
+func (o KnowledgeBaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseOutput) RenderingConfiguration() KnowledgeBaseRenderingConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseRenderingConfigurationPtrOutput { return v.RenderingConfiguration }).(KnowledgeBaseRenderingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+		return v.ServerSideEncryptionConfiguration
+	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseOutput) Tags() KnowledgeBaseTagArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseTagArrayOutput { return v.Tags }).(KnowledgeBaseTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInput)(nil)).Elem(), &KnowledgeBase{})
 	pulumi.RegisterOutputType(KnowledgeBaseOutput{})

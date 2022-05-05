@@ -136,6 +136,39 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
+func (o StreamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o StreamOutput) ExclusiveEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.ExclusiveEndTime }).(pulumi.StringPtrOutput)
+}
+
+func (o StreamOutput) InclusiveStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.InclusiveStartTime }).(pulumi.StringOutput)
+}
+
+func (o StreamOutput) KinesisConfiguration() StreamKinesisConfigurationOutput {
+	return o.ApplyT(func(v *Stream) StreamKinesisConfigurationOutput { return v.KinesisConfiguration }).(StreamKinesisConfigurationOutput)
+}
+
+func (o StreamOutput) LedgerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.LedgerName }).(pulumi.StringOutput)
+}
+
+func (o StreamOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o StreamOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.StreamName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o StreamOutput) Tags() StreamTagArrayOutput {
+	return o.ApplyT(func(v *Stream) StreamTagArrayOutput { return v.Tags }).(StreamTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamInput)(nil)).Elem(), &Stream{})
 	pulumi.RegisterOutputType(StreamOutput{})

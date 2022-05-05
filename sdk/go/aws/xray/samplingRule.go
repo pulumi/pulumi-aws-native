@@ -114,6 +114,30 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SamplingRuleOutput) RuleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.RuleARN }).(pulumi.StringOutput)
+}
+
+func (o SamplingRuleOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+func (o SamplingRuleOutput) SamplingRule() SamplingRuleTypePtrOutput {
+	return o.ApplyT(func(v *SamplingRule) SamplingRuleTypePtrOutput { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
+}
+
+func (o SamplingRuleOutput) SamplingRuleRecord() SamplingRuleRecordPtrOutput {
+	return o.ApplyT(func(v *SamplingRule) SamplingRuleRecordPtrOutput { return v.SamplingRuleRecord }).(SamplingRuleRecordPtrOutput)
+}
+
+func (o SamplingRuleOutput) SamplingRuleUpdate() SamplingRuleUpdatePtrOutput {
+	return o.ApplyT(func(v *SamplingRule) SamplingRuleUpdatePtrOutput { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
+}
+
+func (o SamplingRuleOutput) Tags() TagsItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *SamplingRule) TagsItemPropertiesArrayOutput { return v.Tags }).(TagsItemPropertiesArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleInput)(nil)).Elem(), &SamplingRule{})
 	pulumi.RegisterOutputType(SamplingRuleOutput{})

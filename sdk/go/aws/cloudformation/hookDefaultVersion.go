@@ -124,6 +124,28 @@ func (o HookDefaultVersionOutput) ToHookDefaultVersionOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion
+func (o HookDefaultVersionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *HookDefaultVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o HookDefaultVersionOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookDefaultVersion) pulumi.StringPtrOutput { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the type version.
+func (o HookDefaultVersionOutput) TypeVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookDefaultVersion) pulumi.StringPtrOutput { return v.TypeVersionArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an existing version of the hook to set as the default.
+func (o HookDefaultVersionOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookDefaultVersion) pulumi.StringPtrOutput { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HookDefaultVersionInput)(nil)).Elem(), &HookDefaultVersion{})
 	pulumi.RegisterOutputType(HookDefaultVersionOutput{})

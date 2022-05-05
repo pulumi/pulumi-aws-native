@@ -117,6 +117,20 @@ func (o ClusterCapacityProviderAssociationsOutput) ToClusterCapacityProviderAsso
 	return o
 }
 
+func (o ClusterCapacityProviderAssociationsOutput) CapacityProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterCapacityProviderAssociations) pulumi.StringArrayOutput { return v.CapacityProviders }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterCapacityProviderAssociationsOutput) Cluster() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterCapacityProviderAssociations) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
+}
+
+func (o ClusterCapacityProviderAssociationsOutput) DefaultCapacityProviderStrategy() ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
+	return o.ApplyT(func(v *ClusterCapacityProviderAssociations) ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
+		return v.DefaultCapacityProviderStrategy
+	}).(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsInput)(nil)).Elem(), &ClusterCapacityProviderAssociations{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsOutput{})

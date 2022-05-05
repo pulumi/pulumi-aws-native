@@ -122,6 +122,22 @@ func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return o
 }
 
+func (o StepOutput) ActionOnFailure() pulumi.StringOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.ActionOnFailure }).(pulumi.StringOutput)
+}
+
+func (o StepOutput) HadoopJarStep() StepHadoopJarStepConfigOutput {
+	return o.ApplyT(func(v *Step) StepHadoopJarStepConfigOutput { return v.HadoopJarStep }).(StepHadoopJarStepConfigOutput)
+}
+
+func (o StepOutput) JobFlowId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.JobFlowId }).(pulumi.StringOutput)
+}
+
+func (o StepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StepInput)(nil)).Elem(), &Step{})
 	pulumi.RegisterOutputType(StepOutput{})

@@ -152,6 +152,66 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.
 	return o
 }
 
+func (o NotebookInstanceOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringArrayOutput { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o NotebookInstanceOutput) AdditionalCodeRepositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringArrayOutput { return v.AdditionalCodeRepositories }).(pulumi.StringArrayOutput)
+}
+
+func (o NotebookInstanceOutput) DefaultCodeRepository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.DefaultCodeRepository }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) DirectInternetAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.DirectInternetAccess }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o NotebookInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) LifecycleConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.LifecycleConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) NotebookInstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.NotebookInstanceName }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) PlatformIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.PlatformIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o NotebookInstanceOutput) RootAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.RootAccess }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NotebookInstanceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) Tags() NotebookInstanceTagArrayOutput {
+	return o.ApplyT(func(v *NotebookInstance) NotebookInstanceTagArrayOutput { return v.Tags }).(NotebookInstanceTagArrayOutput)
+}
+
+func (o NotebookInstanceOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.IntPtrOutput { return v.VolumeSizeInGB }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInput)(nil)).Elem(), &NotebookInstance{})
 	pulumi.RegisterOutputType(NotebookInstanceOutput{})

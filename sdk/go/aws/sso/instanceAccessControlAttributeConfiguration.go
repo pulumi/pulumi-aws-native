@@ -117,6 +117,24 @@ func (o InstanceAccessControlAttributeConfigurationOutput) ToInstanceAccessContr
 	return o
 }
 
+func (o InstanceAccessControlAttributeConfigurationOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributeConfiguration) InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
+		return v.AccessControlAttributes
+	}).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
+}
+
+// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+func (o InstanceAccessControlAttributeConfigurationOutput) InstanceAccessControlAttributeConfiguration() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributeConfiguration) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+		return v.InstanceAccessControlAttributeConfiguration
+	}).(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput)
+}
+
+// The ARN of the AWS SSO instance under which the operation will be executed.
+func (o InstanceAccessControlAttributeConfigurationOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributeConfiguration) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationInput)(nil)).Elem(), &InstanceAccessControlAttributeConfiguration{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationOutput{})

@@ -117,6 +117,34 @@ func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) B
 	return o
 }
 
+func (o BackupVaultOutput) AccessPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.AnyOutput { return v.AccessPolicy }).(pulumi.AnyOutput)
+}
+
+func (o BackupVaultOutput) BackupVaultArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
+}
+
+func (o BackupVaultOutput) BackupVaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
+}
+
+func (o BackupVaultOutput) BackupVaultTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.AnyOutput { return v.BackupVaultTags }).(pulumi.AnyOutput)
+}
+
+func (o BackupVaultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupVaultOutput) LockConfiguration() BackupVaultLockConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *BackupVault) BackupVaultLockConfigurationTypePtrOutput { return v.LockConfiguration }).(BackupVaultLockConfigurationTypePtrOutput)
+}
+
+func (o BackupVaultOutput) Notifications() BackupVaultNotificationObjectTypePtrOutput {
+	return o.ApplyT(func(v *BackupVault) BackupVaultNotificationObjectTypePtrOutput { return v.Notifications }).(BackupVaultNotificationObjectTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultInput)(nil)).Elem(), &BackupVault{})
 	pulumi.RegisterOutputType(BackupVaultOutput{})

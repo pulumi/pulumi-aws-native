@@ -160,6 +160,94 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TargetGroupOutput) HealthCheckEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.BoolPtrOutput { return v.HealthCheckEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o TargetGroupOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) HealthCheckPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.HealthCheckPort }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) HealthCheckProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.HealthCheckProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.HealthCheckTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.HealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) LoadBalancerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringArrayOutput { return v.LoadBalancerArns }).(pulumi.StringArrayOutput)
+}
+
+func (o TargetGroupOutput) Matcher() TargetGroupMatcherPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupMatcherPtrOutput { return v.Matcher }).(TargetGroupMatcherPtrOutput)
+}
+
+func (o TargetGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) Tags() TargetGroupTagArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupTagArrayOutput { return v.Tags }).(TargetGroupTagArrayOutput)
+}
+
+func (o TargetGroupOutput) TargetGroupAttributes() TargetGroupAttributeArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupAttributeArrayOutput { return v.TargetGroupAttributes }).(TargetGroupAttributeArrayOutput)
+}
+
+func (o TargetGroupOutput) TargetGroupFullName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.TargetGroupFullName }).(pulumi.StringOutput)
+}
+
+func (o TargetGroupOutput) TargetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.TargetGroupName }).(pulumi.StringOutput)
+}
+
+func (o TargetGroupOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupOutput) Targets() TargetGroupTargetDescriptionArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetDescriptionArrayOutput { return v.Targets }).(TargetGroupTargetDescriptionArrayOutput)
+}
+
+func (o TargetGroupOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupInput)(nil)).Elem(), &TargetGroup{})
 	pulumi.RegisterOutputType(TargetGroupOutput{})

@@ -133,6 +133,42 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationOutput) EngineType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.EngineType }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
+}
+
+func (o ConfigurationOutput) Tags() ConfigurationTagsEntryArrayOutput {
+	return o.ApplyT(func(v *Configuration) ConfigurationTagsEntryArrayOutput { return v.Tags }).(ConfigurationTagsEntryArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInput)(nil)).Elem(), &Configuration{})
 	pulumi.RegisterOutputType(ConfigurationOutput{})

@@ -148,6 +148,61 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the image.
+func (o ImageOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
+func (o ImageOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the distribution configuration.
+func (o ImageOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// Collects additional information about the image being created, including the operating system (OS) version and package list.
+func (o ImageOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The AMI ID of the EC2 AMI in current region.
+func (o ImageOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
+func (o ImageOutput) ImageRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// The image tests configuration used when creating this image.
+func (o ImageOutput) ImageTestsConfiguration() ImageTestsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Image) ImageTestsConfigurationPtrOutput { return v.ImageTestsConfiguration }).(ImageTestsConfigurationPtrOutput)
+}
+
+// URI for containers created in current Region with default ECR image tag
+func (o ImageOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the infrastructure configuration.
+func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the image.
+func (o ImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags associated with the image.
+func (o ImageOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Image) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageInput)(nil)).Elem(), &Image{})
 	pulumi.RegisterOutputType(ImageOutput{})

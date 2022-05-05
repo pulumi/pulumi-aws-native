@@ -108,6 +108,11 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithCo
 	return o
 }
 
+// The ID of the VPC for which to create the egress-only internet gateway.
+func (o EgressOnlyInternetGatewayOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EgressOnlyInternetGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EgressOnlyInternetGatewayInput)(nil)).Elem(), &EgressOnlyInternetGateway{})
 	pulumi.RegisterOutputType(EgressOnlyInternetGatewayOutput{})

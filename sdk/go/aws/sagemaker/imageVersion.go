@@ -115,6 +115,30 @@ func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ImageVersionOutput) BaseImage() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.BaseImage }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) ContainerImage() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ContainerImage }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) ImageArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) ImageVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageVersionArn }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionInput)(nil)).Elem(), &ImageVersion{})
 	pulumi.RegisterOutputType(ImageVersionOutput{})

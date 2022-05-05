@@ -140,6 +140,53 @@ func (o StreamingImageOutput) ToStreamingImageOutputWithContext(ctx context.Cont
 	return o
 }
 
+// <p>A human-readable description of the streaming image.</p>
+func (o StreamingImageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+func (o StreamingImageOutput) Ec2ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Ec2ImageId }).(pulumi.StringOutput)
+}
+
+func (o StreamingImageOutput) EncryptionConfiguration() StreamingImageEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StreamingImage) StreamingImageEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(StreamingImageEncryptionConfigurationOutput)
+}
+
+// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+func (o StreamingImageOutput) EulaIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringArrayOutput { return v.EulaIds }).(pulumi.StringArrayOutput)
+}
+
+// <p>A friendly name for a streaming image resource.</p>
+func (o StreamingImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+func (o StreamingImageOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+func (o StreamingImageOutput) Platform() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o StreamingImageOutput) StreamingImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StreamingImageId }).(pulumi.StringOutput)
+}
+
+// <p>The studioId. </p>
+func (o StreamingImageOutput) StudioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
+}
+
+func (o StreamingImageOutput) Tags() StreamingImageTagsPtrOutput {
+	return o.ApplyT(func(v *StreamingImage) StreamingImageTagsPtrOutput { return v.Tags }).(StreamingImageTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageInput)(nil)).Elem(), &StreamingImage{})
 	pulumi.RegisterOutputType(StreamingImageOutput{})

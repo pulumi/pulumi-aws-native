@@ -103,6 +103,15 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return o
 }
 
+// The Detective graph ARN
+func (o GraphOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GraphOutput) Tags() GraphTagArrayOutput {
+	return o.ApplyT(func(v *Graph) GraphTagArrayOutput { return v.Tags }).(GraphTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphInput)(nil)).Elem(), &Graph{})
 	pulumi.RegisterOutputType(GraphOutput{})

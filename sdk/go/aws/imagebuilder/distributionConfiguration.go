@@ -128,6 +128,33 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithCo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the distribution configuration.
+func (o DistributionConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The description of the distribution configuration.
+func (o DistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The distributions of the distribution configuration.
+func (o DistributionConfigurationOutput) Distributions() DistributionConfigurationDistributionArrayOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) DistributionConfigurationDistributionArrayOutput {
+		return v.Distributions
+	}).(DistributionConfigurationDistributionArrayOutput)
+}
+
+// The name of the distribution configuration.
+func (o DistributionConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags associated with the component.
+func (o DistributionConfigurationOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationInput)(nil)).Elem(), &DistributionConfiguration{})
 	pulumi.RegisterOutputType(DistributionConfigurationOutput{})

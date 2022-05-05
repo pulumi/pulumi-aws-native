@@ -115,6 +115,20 @@ func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) H
 	return o
 }
 
+// A complex type that contains information about the health check.
+func (o HealthCheckOutput) HealthCheckConfig() HealthCheckConfigPropertiesOutput {
+	return o.ApplyT(func(v *HealthCheck) HealthCheckConfigPropertiesOutput { return v.HealthCheckConfig }).(HealthCheckConfigPropertiesOutput)
+}
+
+func (o HealthCheckOutput) HealthCheckId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HealthCheck) pulumi.StringOutput { return v.HealthCheckId }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o HealthCheckOutput) HealthCheckTags() HealthCheckTagArrayOutput {
+	return o.ApplyT(func(v *HealthCheck) HealthCheckTagArrayOutput { return v.HealthCheckTags }).(HealthCheckTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckInput)(nil)).Elem(), &HealthCheck{})
 	pulumi.RegisterOutputType(HealthCheckOutput{})

@@ -112,6 +112,22 @@ func (o RecordSetGroupOutput) ToRecordSetGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RecordSetGroupOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroup) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroup) pulumi.StringPtrOutput { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupOutput) HostedZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroup) pulumi.StringPtrOutput { return v.HostedZoneName }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupOutput) RecordSets() RecordSetGroupRecordSetArrayOutput {
+	return o.ApplyT(func(v *RecordSetGroup) RecordSetGroupRecordSetArrayOutput { return v.RecordSets }).(RecordSetGroupRecordSetArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupInput)(nil)).Elem(), &RecordSetGroup{})
 	pulumi.RegisterOutputType(RecordSetGroupOutput{})

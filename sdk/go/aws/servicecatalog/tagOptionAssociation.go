@@ -113,6 +113,14 @@ func (o TagOptionAssociationOutput) ToTagOptionAssociationOutputWithContext(ctx 
 	return o
 }
 
+func (o TagOptionAssociationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOptionAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+func (o TagOptionAssociationOutput) TagOptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOptionAssociation) pulumi.StringOutput { return v.TagOptionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionAssociationInput)(nil)).Elem(), &TagOptionAssociation{})
 	pulumi.RegisterOutputType(TagOptionAssociationOutput{})

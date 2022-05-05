@@ -134,6 +134,36 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the parameter group.
+func (o ParameterGroupOutput) ARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.ARN }).(pulumi.StringOutput)
+}
+
+// A description of the parameter group.
+func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the parameter group family that this parameter group is compatible with.
+func (o ParameterGroupOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
+}
+
+// The name of the parameter group.
+func (o ParameterGroupOutput) ParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
+}
+
+// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+func (o ParameterGroupOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// An array of key-value pairs to apply to this parameter group.
+func (o ParameterGroupOutput) Tags() ParameterGroupTagArrayOutput {
+	return o.ApplyT(func(v *ParameterGroup) ParameterGroupTagArrayOutput { return v.Tags }).(ParameterGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupInput)(nil)).Elem(), &ParameterGroup{})
 	pulumi.RegisterOutputType(ParameterGroupOutput{})

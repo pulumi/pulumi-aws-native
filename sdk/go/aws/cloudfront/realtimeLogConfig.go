@@ -121,6 +121,26 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx contex
 	return o
 }
 
+func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RealtimeLogConfigOutput) EndPoints() RealtimeLogConfigEndPointArrayOutput {
+	return o.ApplyT(func(v *RealtimeLogConfig) RealtimeLogConfigEndPointArrayOutput { return v.EndPoints }).(RealtimeLogConfigEndPointArrayOutput)
+}
+
+func (o RealtimeLogConfigOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringArrayOutput { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+func (o RealtimeLogConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RealtimeLogConfigOutput) SamplingRate() pulumi.Float64Output {
+	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.Float64Output { return v.SamplingRate }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigInput)(nil)).Elem(), &RealtimeLogConfig{})
 	pulumi.RegisterOutputType(RealtimeLogConfigOutput{})

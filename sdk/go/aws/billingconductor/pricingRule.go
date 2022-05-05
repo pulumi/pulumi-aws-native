@@ -157,6 +157,60 @@ func (o PricingRuleOutput) ToPricingRuleOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// Pricing rule ARN
+func (o PricingRuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The number of pricing plans associated with pricing rule
+func (o PricingRuleOutput) AssociatedPricingPlanCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.IntOutput { return v.AssociatedPricingPlanCount }).(pulumi.IntOutput)
+}
+
+// Creation timestamp in UNIX epoch time format
+func (o PricingRuleOutput) CreationTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.IntOutput { return v.CreationTime }).(pulumi.IntOutput)
+}
+
+// Pricing rule description
+func (o PricingRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Latest modified timestamp in UNIX epoch time format
+func (o PricingRuleOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.IntOutput { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+// Pricing rule modifier percentage
+func (o PricingRuleOutput) ModifierPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v *PricingRule) pulumi.Float64Output { return v.ModifierPercentage }).(pulumi.Float64Output)
+}
+
+// Pricing rule name
+func (o PricingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A term used to categorize the granularity of a Pricing Rule.
+func (o PricingRuleOutput) Scope() PricingRuleScopeOutput {
+	return o.ApplyT(func(v *PricingRule) PricingRuleScopeOutput { return v.Scope }).(PricingRuleScopeOutput)
+}
+
+// The service which a pricing rule is applied on
+func (o PricingRuleOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.StringPtrOutput { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+func (o PricingRuleOutput) Tags() PricingRuleTagArrayOutput {
+	return o.ApplyT(func(v *PricingRule) PricingRuleTagArrayOutput { return v.Tags }).(PricingRuleTagArrayOutput)
+}
+
+// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+func (o PricingRuleOutput) Type() PricingRuleTypeOutput {
+	return o.ApplyT(func(v *PricingRule) PricingRuleTypeOutput { return v.Type }).(PricingRuleTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleInput)(nil)).Elem(), &PricingRule{})
 	pulumi.RegisterOutputType(PricingRuleOutput{})

@@ -161,6 +161,76 @@ func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutputWithContext(ctx contex
 	return o
 }
 
+func (o ClientVpnEndpointOutput) AuthenticationOptions() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+		return v.AuthenticationOptions
+	}).(ClientVpnEndpointClientAuthenticationRequestArrayOutput)
+}
+
+func (o ClientVpnEndpointOutput) ClientCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringOutput { return v.ClientCidrBlock }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnEndpointOutput) ClientConnectOptions() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointClientConnectOptionsPtrOutput {
+		return v.ClientConnectOptions
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) ClientLoginBannerOptions() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+		return v.ClientLoginBannerOptions
+	}).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) ConnectionLogOptions() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointConnectionLogOptionsOutput { return v.ConnectionLogOptions }).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+func (o ClientVpnEndpointOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringArrayOutput { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+func (o ClientVpnEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ClientVpnEndpointOutput) SelfServicePortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringPtrOutput { return v.SelfServicePortal }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) ServerCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringOutput { return v.ServerCertificateArn }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnEndpointOutput) SessionTimeoutHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.IntPtrOutput { return v.SessionTimeoutHours }).(pulumi.IntPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) SplitTunnel() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.BoolPtrOutput { return v.SplitTunnel }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) TagSpecifications() ClientVpnEndpointTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointTagSpecificationArrayOutput { return v.TagSpecifications }).(ClientVpnEndpointTagSpecificationArrayOutput)
+}
+
+func (o ClientVpnEndpointOutput) TransportProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringPtrOutput { return v.TransportProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointOutput) VpnPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.IntPtrOutput { return v.VpnPort }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointInput)(nil)).Elem(), &ClientVpnEndpoint{})
 	pulumi.RegisterOutputType(ClientVpnEndpointOutput{})

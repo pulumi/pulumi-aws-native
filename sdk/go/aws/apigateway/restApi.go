@@ -146,6 +146,70 @@ func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOu
 	return o
 }
 
+func (o RestApiOutput) ApiKeySourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.ApiKeySourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiOutput) BinaryMediaTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringArrayOutput { return v.BinaryMediaTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o RestApiOutput) Body() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Body }).(pulumi.AnyOutput)
+}
+
+func (o RestApiOutput) BodyS3Location() RestApiS3LocationPtrOutput {
+	return o.ApplyT(func(v *RestApi) RestApiS3LocationPtrOutput { return v.BodyS3Location }).(RestApiS3LocationPtrOutput)
+}
+
+func (o RestApiOutput) CloneFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.CloneFrom }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+func (o RestApiOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *RestApi) RestApiEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
+}
+
+func (o RestApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
+}
+
+func (o RestApiOutput) MinimumCompressionSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.IntPtrOutput { return v.MinimumCompressionSize }).(pulumi.IntPtrOutput)
+}
+
+func (o RestApiOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o RestApiOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+func (o RestApiOutput) RootResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RootResourceId }).(pulumi.StringOutput)
+}
+
+func (o RestApiOutput) Tags() RestApiTagArrayOutput {
+	return o.ApplyT(func(v *RestApi) RestApiTagArrayOutput { return v.Tags }).(RestApiTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiInput)(nil)).Elem(), &RestApi{})
 	pulumi.RegisterOutputType(RestApiOutput{})

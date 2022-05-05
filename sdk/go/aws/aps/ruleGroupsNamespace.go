@@ -131,6 +131,31 @@ func (o RuleGroupsNamespaceOutput) ToRuleGroupsNamespaceOutputWithContext(ctx co
 	return o
 }
 
+// The RuleGroupsNamespace ARN.
+func (o RuleGroupsNamespaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroupsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The RuleGroupsNamespace data.
+func (o RuleGroupsNamespaceOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroupsNamespace) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
+}
+
+// The RuleGroupsNamespace name.
+func (o RuleGroupsNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroupsNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o RuleGroupsNamespaceOutput) Tags() RuleGroupsNamespaceTagArrayOutput {
+	return o.ApplyT(func(v *RuleGroupsNamespace) RuleGroupsNamespaceTagArrayOutput { return v.Tags }).(RuleGroupsNamespaceTagArrayOutput)
+}
+
+// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
+func (o RuleGroupsNamespaceOutput) Workspace() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroupsNamespace) pulumi.StringOutput { return v.Workspace }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupsNamespaceInput)(nil)).Elem(), &RuleGroupsNamespace{})
 	pulumi.RegisterOutputType(RuleGroupsNamespaceOutput{})

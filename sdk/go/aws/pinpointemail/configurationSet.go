@@ -118,6 +118,30 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsPtrOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsPtrOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) Tags() ConfigurationSetTagsArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTagsArrayOutput { return v.Tags }).(ConfigurationSetTagsArrayOutput)
+}
+
+func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetInput)(nil)).Elem(), &ConfigurationSet{})
 	pulumi.RegisterOutputType(ConfigurationSetOutput{})

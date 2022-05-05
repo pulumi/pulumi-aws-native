@@ -108,6 +108,19 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+func (o FleetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the fleet.
+func (o FleetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) Tags() FleetTagsPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetTagsPtrOutput { return v.Tags }).(FleetTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetInput)(nil)).Elem(), &Fleet{})
 	pulumi.RegisterOutputType(FleetOutput{})

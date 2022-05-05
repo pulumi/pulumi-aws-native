@@ -131,6 +131,31 @@ func (o HostOutput) ToHostOutputWithContext(ctx context.Context) HostOutput {
 	return o
 }
 
+// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+func (o HostOutput) AutoPlacement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.AutoPlacement }).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone in which to allocate the Dedicated Host.
+func (o HostOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Id of the host created.
+func (o HostOutput) HostId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.HostId }).(pulumi.StringOutput)
+}
+
+// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+func (o HostOutput) HostRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.HostRecovery }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+func (o HostOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostInput)(nil)).Elem(), &Host{})
 	pulumi.RegisterOutputType(HostOutput{})

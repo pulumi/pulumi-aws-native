@@ -122,6 +122,26 @@ func (o EventInvokeConfigOutput) ToEventInvokeConfigOutputWithContext(ctx contex
 	return o
 }
 
+func (o EventInvokeConfigOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfig) EventInvokeConfigDestinationConfigPtrOutput { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
+}
+
+func (o EventInvokeConfigOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventInvokeConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+func (o EventInvokeConfigOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfig) pulumi.IntPtrOutput { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o EventInvokeConfigOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfig) pulumi.IntPtrOutput { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
+}
+
+func (o EventInvokeConfigOutput) Qualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventInvokeConfig) pulumi.StringOutput { return v.Qualifier }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventInvokeConfigInput)(nil)).Elem(), &EventInvokeConfig{})
 	pulumi.RegisterOutputType(EventInvokeConfigOutput{})

@@ -151,6 +151,60 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+func (o ClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) BrokerNodeGroupInfo() ClusterBrokerNodeGroupInfoOutput {
+	return o.ApplyT(func(v *Cluster) ClusterBrokerNodeGroupInfoOutput { return v.BrokerNodeGroupInfo }).(ClusterBrokerNodeGroupInfoOutput)
+}
+
+func (o ClusterOutput) ClientAuthentication() ClusterClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterClientAuthenticationPtrOutput { return v.ClientAuthentication }).(ClusterClientAuthenticationPtrOutput)
+}
+
+func (o ClusterOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterConfigurationInfoPtrOutput { return v.ConfigurationInfo }).(ClusterConfigurationInfoPtrOutput)
+}
+
+// The current version of the MSK cluster
+func (o ClusterOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) EncryptionInfo() ClusterEncryptionInfoPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterEncryptionInfoPtrOutput { return v.EncryptionInfo }).(ClusterEncryptionInfoPtrOutput)
+}
+
+func (o ClusterOutput) EnhancedMonitoring() ClusterEnhancedMonitoringPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterEnhancedMonitoringPtrOutput { return v.EnhancedMonitoring }).(ClusterEnhancedMonitoringPtrOutput)
+}
+
+func (o ClusterOutput) KafkaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KafkaVersion }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) LoggingInfo() ClusterLoggingInfoPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterLoggingInfoPtrOutput { return v.LoggingInfo }).(ClusterLoggingInfoPtrOutput)
+}
+
+func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.NumberOfBrokerNodes }).(pulumi.IntOutput)
+}
+
+func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o ClusterOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

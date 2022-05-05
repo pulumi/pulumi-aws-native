@@ -111,6 +111,14 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWi
 	return o
 }
 
+func (o SubnetRouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetRouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+func (o SubnetRouteTableAssociationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetRouteTableAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationInput)(nil)).Elem(), &SubnetRouteTableAssociation{})
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationOutput{})

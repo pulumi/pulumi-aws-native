@@ -153,6 +153,50 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
+func (o ContainerOutput) ContainerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ContainerArn }).(pulumi.StringOutput)
+}
+
+// Describes a container deployment configuration of an Amazon Lightsail container service.
+func (o ContainerOutput) ContainerServiceDeployment() ContainerServiceDeploymentPtrOutput {
+	return o.ApplyT(func(v *Container) ContainerServiceDeploymentPtrOutput { return v.ContainerServiceDeployment }).(ContainerServiceDeploymentPtrOutput)
+}
+
+// A Boolean value to indicate whether the container service is disabled.
+func (o ContainerOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.BoolPtrOutput { return v.IsDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The power specification for the container service.
+func (o ContainerOutput) Power() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Power }).(pulumi.StringOutput)
+}
+
+// The public domain names to use with the container service, such as example.com and www.example.com.
+func (o ContainerOutput) PublicDomainNames() ContainerPublicDomainNameArrayOutput {
+	return o.ApplyT(func(v *Container) ContainerPublicDomainNameArrayOutput { return v.PublicDomainNames }).(ContainerPublicDomainNameArrayOutput)
+}
+
+// The scale specification for the container service.
+func (o ContainerOutput) Scale() pulumi.IntOutput {
+	return o.ApplyT(func(v *Container) pulumi.IntOutput { return v.Scale }).(pulumi.IntOutput)
+}
+
+// The name for the container service.
+func (o ContainerOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ContainerOutput) Tags() ContainerTagArrayOutput {
+	return o.ApplyT(func(v *Container) ContainerTagArrayOutput { return v.Tags }).(ContainerTagArrayOutput)
+}
+
+// The publicly accessible URL of the container service.
+func (o ContainerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerInput)(nil)).Elem(), &Container{})
 	pulumi.RegisterOutputType(ContainerOutput{})

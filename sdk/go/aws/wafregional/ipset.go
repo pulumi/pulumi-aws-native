@@ -106,6 +106,14 @@ func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
 }
 
+func (o IPSetOutput) IPSetDescriptors() IPSetDescriptorArrayOutput {
+	return o.ApplyT(func(v *IPSet) IPSetDescriptorArrayOutput { return v.IPSetDescriptors }).(IPSetDescriptorArrayOutput)
+}
+
+func (o IPSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPSetInput)(nil)).Elem(), &IPSet{})
 	pulumi.RegisterOutputType(IPSetOutput{})

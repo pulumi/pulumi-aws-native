@@ -152,6 +152,78 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
 }
 
+func (o ApiOutput) ApiEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ApiOutput) ApiKeySelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ApiKeySelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) BasePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.BasePath }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) Body() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Api) pulumi.AnyOutput { return v.Body }).(pulumi.AnyOutput)
+}
+
+func (o ApiOutput) BodyS3Location() ApiBodyS3LocationPtrOutput {
+	return o.ApplyT(func(v *Api) ApiBodyS3LocationPtrOutput { return v.BodyS3Location }).(ApiBodyS3LocationPtrOutput)
+}
+
+func (o ApiOutput) CorsConfiguration() ApiCorsPtrOutput {
+	return o.ApplyT(func(v *Api) ApiCorsPtrOutput { return v.CorsConfiguration }).(ApiCorsPtrOutput)
+}
+
+func (o ApiOutput) CredentialsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.CredentialsArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiOutput) DisableSchemaValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.DisableSchemaValidation }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) RouteKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.RouteKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) RouteSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.RouteSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Api) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o ApiOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiInput)(nil)).Elem(), &Api{})
 	pulumi.RegisterOutputType(ApiOutput{})

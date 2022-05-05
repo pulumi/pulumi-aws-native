@@ -140,6 +140,41 @@ func (o PackagingConfigurationOutput) ToPackagingConfigurationOutputWithContext(
 	return o
 }
 
+// The ARN of the PackagingConfiguration.
+func (o PackagingConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A CMAF packaging configuration.
+func (o PackagingConfigurationOutput) CmafPackage() PackagingConfigurationCmafPackagePtrOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) PackagingConfigurationCmafPackagePtrOutput { return v.CmafPackage }).(PackagingConfigurationCmafPackagePtrOutput)
+}
+
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+func (o PackagingConfigurationOutput) DashPackage() PackagingConfigurationDashPackagePtrOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) PackagingConfigurationDashPackagePtrOutput { return v.DashPackage }).(PackagingConfigurationDashPackagePtrOutput)
+}
+
+// An HTTP Live Streaming (HLS) packaging configuration.
+func (o PackagingConfigurationOutput) HlsPackage() PackagingConfigurationHlsPackagePtrOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) PackagingConfigurationHlsPackagePtrOutput { return v.HlsPackage }).(PackagingConfigurationHlsPackagePtrOutput)
+}
+
+// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+func (o PackagingConfigurationOutput) MssPackage() PackagingConfigurationMssPackagePtrOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) PackagingConfigurationMssPackagePtrOutput { return v.MssPackage }).(PackagingConfigurationMssPackagePtrOutput)
+}
+
+// The ID of a PackagingGroup.
+func (o PackagingConfigurationOutput) PackagingGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) pulumi.StringOutput { return v.PackagingGroupId }).(pulumi.StringOutput)
+}
+
+// A collection of tags associated with a resource
+func (o PackagingConfigurationOutput) Tags() PackagingConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) PackagingConfigurationTagArrayOutput { return v.Tags }).(PackagingConfigurationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationInput)(nil)).Elem(), &PackagingConfiguration{})
 	pulumi.RegisterOutputType(PackagingConfigurationOutput{})

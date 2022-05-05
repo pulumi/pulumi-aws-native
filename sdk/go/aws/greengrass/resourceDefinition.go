@@ -111,6 +111,26 @@ func (o ResourceDefinitionOutput) ToResourceDefinitionOutputWithContext(ctx cont
 	return o
 }
 
+func (o ResourceDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResourceDefinitionOutput) InitialVersion() ResourceDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *ResourceDefinition) ResourceDefinitionVersionTypePtrOutput { return v.InitialVersion }).(ResourceDefinitionVersionTypePtrOutput)
+}
+
+func (o ResourceDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o ResourceDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResourceDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ResourceDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDefinitionInput)(nil)).Elem(), &ResourceDefinition{})
 	pulumi.RegisterOutputType(ResourceDefinitionOutput{})

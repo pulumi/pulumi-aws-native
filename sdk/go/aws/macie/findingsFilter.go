@@ -136,6 +136,41 @@ func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Findings filter action.
+func (o FindingsFilterOutput) Action() FindingsFilterFindingFilterActionPtrOutput {
+	return o.ApplyT(func(v *FindingsFilter) FindingsFilterFindingFilterActionPtrOutput { return v.Action }).(FindingsFilterFindingFilterActionPtrOutput)
+}
+
+// Findings filter ARN.
+func (o FindingsFilterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Findings filter description
+func (o FindingsFilterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Findings filter criteria.
+func (o FindingsFilterOutput) FindingCriteria() FindingsFilterFindingCriteriaOutput {
+	return o.ApplyT(func(v *FindingsFilter) FindingsFilterFindingCriteriaOutput { return v.FindingCriteria }).(FindingsFilterFindingCriteriaOutput)
+}
+
+// Findings filters list.
+func (o FindingsFilterOutput) FindingsFilterListItems() FindingsFilterListItemArrayOutput {
+	return o.ApplyT(func(v *FindingsFilter) FindingsFilterListItemArrayOutput { return v.FindingsFilterListItems }).(FindingsFilterListItemArrayOutput)
+}
+
+// Findings filter name
+func (o FindingsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Findings filter position.
+func (o FindingsFilterOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.IntPtrOutput { return v.Position }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterInput)(nil)).Elem(), &FindingsFilter{})
 	pulumi.RegisterOutputType(FindingsFilterOutput{})

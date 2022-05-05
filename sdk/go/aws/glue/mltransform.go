@@ -149,6 +149,58 @@ func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o MLTransformOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MLTransformOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o MLTransformOutput) InputRecordTables() MLTransformInputRecordTablesOutput {
+	return o.ApplyT(func(v *MLTransform) MLTransformInputRecordTablesOutput { return v.InputRecordTables }).(MLTransformInputRecordTablesOutput)
+}
+
+func (o MLTransformOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.Float64PtrOutput { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+func (o MLTransformOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.MaxRetries }).(pulumi.IntPtrOutput)
+}
+
+func (o MLTransformOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MLTransformOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o MLTransformOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o MLTransformOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o MLTransformOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+func (o MLTransformOutput) TransformEncryption() MLTransformTransformEncryptionPtrOutput {
+	return o.ApplyT(func(v *MLTransform) MLTransformTransformEncryptionPtrOutput { return v.TransformEncryption }).(MLTransformTransformEncryptionPtrOutput)
+}
+
+func (o MLTransformOutput) TransformParameters() MLTransformTransformParametersOutput {
+	return o.ApplyT(func(v *MLTransform) MLTransformTransformParametersOutput { return v.TransformParameters }).(MLTransformTransformParametersOutput)
+}
+
+func (o MLTransformOutput) WorkerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInput)(nil)).Elem(), &MLTransform{})
 	pulumi.RegisterOutputType(MLTransformOutput{})

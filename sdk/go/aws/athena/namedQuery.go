@@ -137,6 +137,36 @@ func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
+// The database to which the query belongs.
+func (o NamedQueryOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// The query description.
+func (o NamedQueryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The query name.
+func (o NamedQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The unique ID of the query.
+func (o NamedQueryOutput) NamedQueryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.NamedQueryId }).(pulumi.StringOutput)
+}
+
+// The contents of the query with all query statements.
+func (o NamedQueryOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
+}
+
+// The name of the workgroup that contains the named query.
+func (o NamedQueryOutput) WorkGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.WorkGroup }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryInput)(nil)).Elem(), &NamedQuery{})
 	pulumi.RegisterOutputType(NamedQueryOutput{})

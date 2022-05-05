@@ -128,6 +128,26 @@ func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
 }
 
+func (o IPSetOutput) Activate() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
+}
+
+func (o IPSetOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+func (o IPSetOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
+}
+
+func (o IPSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o IPSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPSetInput)(nil)).Elem(), &IPSet{})
 	pulumi.RegisterOutputType(IPSetOutput{})

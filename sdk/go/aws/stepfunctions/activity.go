@@ -105,6 +105,18 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 	return o
 }
 
+func (o ActivityOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ActivityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ActivityOutput) Tags() ActivityTagsEntryArrayOutput {
+	return o.ApplyT(func(v *Activity) ActivityTagsEntryArrayOutput { return v.Tags }).(ActivityTagsEntryArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityInput)(nil)).Elem(), &Activity{})
 	pulumi.RegisterOutputType(ActivityOutput{})

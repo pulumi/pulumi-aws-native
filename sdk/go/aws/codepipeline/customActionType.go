@@ -140,6 +140,40 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.
 	return o
 }
 
+func (o CustomActionTypeOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+func (o CustomActionTypeOutput) ConfigurationProperties() CustomActionTypeConfigurationPropertiesArrayOutput {
+	return o.ApplyT(func(v *CustomActionType) CustomActionTypeConfigurationPropertiesArrayOutput {
+		return v.ConfigurationProperties
+	}).(CustomActionTypeConfigurationPropertiesArrayOutput)
+}
+
+func (o CustomActionTypeOutput) InputArtifactDetails() CustomActionTypeArtifactDetailsOutput {
+	return o.ApplyT(func(v *CustomActionType) CustomActionTypeArtifactDetailsOutput { return v.InputArtifactDetails }).(CustomActionTypeArtifactDetailsOutput)
+}
+
+func (o CustomActionTypeOutput) OutputArtifactDetails() CustomActionTypeArtifactDetailsOutput {
+	return o.ApplyT(func(v *CustomActionType) CustomActionTypeArtifactDetailsOutput { return v.OutputArtifactDetails }).(CustomActionTypeArtifactDetailsOutput)
+}
+
+func (o CustomActionTypeOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Provider }).(pulumi.StringOutput)
+}
+
+func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {
+	return o.ApplyT(func(v *CustomActionType) CustomActionTypeSettingsPtrOutput { return v.Settings }).(CustomActionTypeSettingsPtrOutput)
+}
+
+func (o CustomActionTypeOutput) Tags() CustomActionTypeTagArrayOutput {
+	return o.ApplyT(func(v *CustomActionType) CustomActionTypeTagArrayOutput { return v.Tags }).(CustomActionTypeTagArrayOutput)
+}
+
+func (o CustomActionTypeOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeInput)(nil)).Elem(), &CustomActionType{})
 	pulumi.RegisterOutputType(CustomActionTypeOutput{})

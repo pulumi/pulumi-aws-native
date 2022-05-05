@@ -141,6 +141,55 @@ func (o WebACLOutput) ToWebACLOutputWithContext(ctx context.Context) WebACLOutpu
 	return o
 }
 
+func (o WebACLOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o WebACLOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
+}
+
+func (o WebACLOutput) CaptchaConfig() WebACLCaptchaConfigPtrOutput {
+	return o.ApplyT(func(v *WebACL) WebACLCaptchaConfigPtrOutput { return v.CaptchaConfig }).(WebACLCaptchaConfigPtrOutput)
+}
+
+func (o WebACLOutput) CustomResponseBodies() WebACLCustomResponseBodiesPtrOutput {
+	return o.ApplyT(func(v *WebACL) WebACLCustomResponseBodiesPtrOutput { return v.CustomResponseBodies }).(WebACLCustomResponseBodiesPtrOutput)
+}
+
+func (o WebACLOutput) DefaultAction() WebACLDefaultActionOutput {
+	return o.ApplyT(func(v *WebACL) WebACLDefaultActionOutput { return v.DefaultAction }).(WebACLDefaultActionOutput)
+}
+
+func (o WebACLOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLOutput) LabelNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringOutput { return v.LabelNamespace }).(pulumi.StringOutput)
+}
+
+func (o WebACLOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Collection of Rules.
+func (o WebACLOutput) Rules() WebACLRuleArrayOutput {
+	return o.ApplyT(func(v *WebACL) WebACLRuleArrayOutput { return v.Rules }).(WebACLRuleArrayOutput)
+}
+
+func (o WebACLOutput) Scope() WebACLScopeOutput {
+	return o.ApplyT(func(v *WebACL) WebACLScopeOutput { return v.Scope }).(WebACLScopeOutput)
+}
+
+func (o WebACLOutput) Tags() WebACLTagArrayOutput {
+	return o.ApplyT(func(v *WebACL) WebACLTagArrayOutput { return v.Tags }).(WebACLTagArrayOutput)
+}
+
+func (o WebACLOutput) VisibilityConfig() WebACLVisibilityConfigOutput {
+	return o.ApplyT(func(v *WebACL) WebACLVisibilityConfigOutput { return v.VisibilityConfig }).(WebACLVisibilityConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLInput)(nil)).Elem(), &WebACL{})
 	pulumi.RegisterOutputType(WebACLOutput{})

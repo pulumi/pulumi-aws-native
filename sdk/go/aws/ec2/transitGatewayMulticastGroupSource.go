@@ -142,6 +142,63 @@ func (o TransitGatewayMulticastGroupSourceOutput) ToTransitGatewayMulticastGroup
 	return o
 }
 
+// The IP address assigned to the transit gateway multicast group.
+func (o TransitGatewayMulticastGroupSourceOutput) GroupIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.GroupIpAddress }).(pulumi.StringOutput)
+}
+
+// Indicates that the resource is a transit gateway multicast group member.
+func (o TransitGatewayMulticastGroupSourceOutput) GroupMember() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.BoolOutput { return v.GroupMember }).(pulumi.BoolOutput)
+}
+
+// Indicates that the resource is a transit gateway multicast group member.
+func (o TransitGatewayMulticastGroupSourceOutput) GroupSource() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.BoolOutput { return v.GroupSource }).(pulumi.BoolOutput)
+}
+
+// The member type (for example, static).
+func (o TransitGatewayMulticastGroupSourceOutput) MemberType() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway attachment.
+func (o TransitGatewayMulticastGroupSourceOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// The ID of the resource.
+func (o TransitGatewayMulticastGroupSourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The type of resource, for example a VPC attachment.
+func (o TransitGatewayMulticastGroupSourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The source type.
+func (o TransitGatewayMulticastGroupSourceOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet.
+func (o TransitGatewayMulticastGroupSourceOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway attachment.
+func (o TransitGatewayMulticastGroupSourceOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway multicast domain.
+func (o TransitGatewayMulticastGroupSourceOutput) TransitGatewayMulticastDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastGroupSource) pulumi.StringOutput {
+		return v.TransitGatewayMulticastDomainId
+	}).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastGroupSourceInput)(nil)).Elem(), &TransitGatewayMulticastGroupSource{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastGroupSourceOutput{})

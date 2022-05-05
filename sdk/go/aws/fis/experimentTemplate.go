@@ -135,6 +135,34 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionMapPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionMapPtrOutput { return v.Actions }).(ExperimentTemplateActionMapPtrOutput)
+}
+
+func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
+}
+
+func (o ExperimentTemplateOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditionArrayOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
+}
+
+func (o ExperimentTemplateOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o ExperimentTemplateOutput) Targets() ExperimentTemplateTargetMapOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateTargetMapOutput { return v.Targets }).(ExperimentTemplateTargetMapOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateInput)(nil)).Elem(), &ExperimentTemplate{})
 	pulumi.RegisterOutputType(ExperimentTemplateOutput{})

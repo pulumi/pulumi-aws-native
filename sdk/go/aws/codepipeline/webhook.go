@@ -144,6 +144,42 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
+func (o WebhookOutput) Authentication() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Authentication }).(pulumi.StringOutput)
+}
+
+func (o WebhookOutput) AuthenticationConfiguration() WebhookAuthConfigurationOutput {
+	return o.ApplyT(func(v *Webhook) WebhookAuthConfigurationOutput { return v.AuthenticationConfiguration }).(WebhookAuthConfigurationOutput)
+}
+
+func (o WebhookOutput) Filters() WebhookFilterRuleArrayOutput {
+	return o.ApplyT(func(v *Webhook) WebhookFilterRuleArrayOutput { return v.Filters }).(WebhookFilterRuleArrayOutput)
+}
+
+func (o WebhookOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o WebhookOutput) RegisterWithThirdParty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.BoolPtrOutput { return v.RegisterWithThirdParty }).(pulumi.BoolPtrOutput)
+}
+
+func (o WebhookOutput) TargetAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.TargetAction }).(pulumi.StringOutput)
+}
+
+func (o WebhookOutput) TargetPipeline() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.TargetPipeline }).(pulumi.StringOutput)
+}
+
+func (o WebhookOutput) TargetPipelineVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.IntOutput { return v.TargetPipelineVersion }).(pulumi.IntOutput)
+}
+
+func (o WebhookOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookInput)(nil)).Elem(), &Webhook{})
 	pulumi.RegisterOutputType(WebhookOutput{})

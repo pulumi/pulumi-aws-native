@@ -166,6 +166,61 @@ func (o LocationObjectStorageOutput) ToLocationObjectStorageOutputWithContext(ct
 	return o
 }
 
+// Optional. The access key is used if credentials are required to access the self-managed object storage server.
+func (o LocationObjectStorageOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the bucket on the self-managed object storage server.
+func (o LocationObjectStorageOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the location that is created.
+func (o LocationObjectStorageOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the object storage location that was described.
+func (o LocationObjectStorageOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
+func (o LocationObjectStorageOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
+func (o LocationObjectStorageOutput) ServerHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
+}
+
+// The port that your self-managed server accepts inbound network traffic on.
+func (o LocationObjectStorageOutput) ServerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.IntPtrOutput { return v.ServerPort }).(pulumi.IntPtrOutput)
+}
+
+// The protocol that the object storage server uses to communicate.
+func (o LocationObjectStorageOutput) ServerProtocol() LocationObjectStorageServerProtocolPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageServerProtocolPtrOutput { return v.ServerProtocol }).(LocationObjectStorageServerProtocolPtrOutput)
+}
+
+// The subdirectory in the self-managed object storage server that is used to read data from.
+func (o LocationObjectStorageOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationObjectStorageOutput) Tags() LocationObjectStorageTagArrayOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageTagArrayOutput { return v.Tags }).(LocationObjectStorageTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageInput)(nil)).Elem(), &LocationObjectStorage{})
 	pulumi.RegisterOutputType(LocationObjectStorageOutput{})

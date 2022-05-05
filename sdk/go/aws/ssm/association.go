@@ -172,6 +172,86 @@ func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o AssociationOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.BoolPtrOutput { return v.ApplyOnlyAtCronInterval }).(pulumi.BoolPtrOutput)
+}
+
+// Unique identifier of the association.
+func (o AssociationOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// The name of the association.
+func (o AssociationOutput) AssociationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AssociationName }).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationOutput) AutomationTargetParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AutomationTargetParameterName }).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationOutput) CalendarNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringArrayOutput { return v.CalendarNames }).(pulumi.StringArrayOutput)
+}
+
+func (o AssociationOutput) ComplianceSeverity() AssociationComplianceSeverityPtrOutput {
+	return o.ApplyT(func(v *Association) AssociationComplianceSeverityPtrOutput { return v.ComplianceSeverity }).(AssociationComplianceSeverityPtrOutput)
+}
+
+// The version of the SSM document to associate with the target.
+func (o AssociationOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.DocumentVersion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the instance that the SSM document is associated with.
+func (o AssociationOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationOutput) MaxConcurrency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.MaxConcurrency }).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationOutput) MaxErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.MaxErrors }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SSM document.
+func (o AssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AssociationOutput) OutputLocation() AssociationInstanceAssociationOutputLocationPtrOutput {
+	return o.ApplyT(func(v *Association) AssociationInstanceAssociationOutputLocationPtrOutput { return v.OutputLocation }).(AssociationInstanceAssociationOutputLocationPtrOutput)
+}
+
+// Parameter values that the SSM document uses at runtime.
+func (o AssociationOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Association) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// A Cron or Rate expression that specifies when the association is applied to the target.
+func (o AssociationOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationOutput) ScheduleOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.IntPtrOutput { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
+}
+
+func (o AssociationOutput) SyncCompliance() AssociationSyncCompliancePtrOutput {
+	return o.ApplyT(func(v *Association) AssociationSyncCompliancePtrOutput { return v.SyncCompliance }).(AssociationSyncCompliancePtrOutput)
+}
+
+// The targets that the SSM document sends commands to.
+func (o AssociationOutput) Targets() AssociationTargetArrayOutput {
+	return o.ApplyT(func(v *Association) AssociationTargetArrayOutput { return v.Targets }).(AssociationTargetArrayOutput)
+}
+
+func (o AssociationOutput) WaitForSuccessTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.IntPtrOutput { return v.WaitForSuccessTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationInput)(nil)).Elem(), &Association{})
 	pulumi.RegisterOutputType(AssociationOutput{})

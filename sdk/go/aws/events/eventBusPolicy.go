@@ -122,6 +122,30 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EventBusPolicyOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o EventBusPolicyOutput) Condition() EventBusPolicyConditionPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicy) EventBusPolicyConditionPtrOutput { return v.Condition }).(EventBusPolicyConditionPtrOutput)
+}
+
+func (o EventBusPolicyOutput) EventBusName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
+}
+
+func (o EventBusPolicyOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.Principal }).(pulumi.StringPtrOutput)
+}
+
+func (o EventBusPolicyOutput) Statement() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.AnyOutput { return v.Statement }).(pulumi.AnyOutput)
+}
+
+func (o EventBusPolicyOutput) StatementId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyInput)(nil)).Elem(), &EventBusPolicy{})
 	pulumi.RegisterOutputType(EventBusPolicyOutput{})

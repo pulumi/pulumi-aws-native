@@ -110,6 +110,14 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o SecurityGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupOutput) Tags() SecurityGroupTagArrayOutput {
+	return o.ApplyT(func(v *SecurityGroup) SecurityGroupTagArrayOutput { return v.Tags }).(SecurityGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupInput)(nil)).Elem(), &SecurityGroup{})
 	pulumi.RegisterOutputType(SecurityGroupOutput{})

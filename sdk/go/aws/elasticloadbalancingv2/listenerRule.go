@@ -125,6 +125,30 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ListenerRuleOutput) Actions() ListenerRuleActionArrayOutput {
+	return o.ApplyT(func(v *ListenerRule) ListenerRuleActionArrayOutput { return v.Actions }).(ListenerRuleActionArrayOutput)
+}
+
+func (o ListenerRuleOutput) Conditions() ListenerRuleRuleConditionArrayOutput {
+	return o.ApplyT(func(v *ListenerRule) ListenerRuleRuleConditionArrayOutput { return v.Conditions }).(ListenerRuleRuleConditionArrayOutput)
+}
+
+func (o ListenerRuleOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o ListenerRuleOutput) ListenerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o ListenerRuleOutput) RuleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleInput)(nil)).Elem(), &ListenerRule{})
 	pulumi.RegisterOutputType(ListenerRuleOutput{})

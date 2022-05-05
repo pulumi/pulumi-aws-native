@@ -121,6 +121,34 @@ func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutputWithContext(ctx co
 	return o
 }
 
+func (o PrivateDnsNamespaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PrivateDnsNamespaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateDnsNamespaceOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+func (o PrivateDnsNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PrivateDnsNamespaceOutput) Properties() PrivateDnsNamespacePropertiesPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) PrivateDnsNamespacePropertiesPtrOutput { return v.Properties }).(PrivateDnsNamespacePropertiesPtrOutput)
+}
+
+func (o PrivateDnsNamespaceOutput) Tags() PrivateDnsNamespaceTagArrayOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) PrivateDnsNamespaceTagArrayOutput { return v.Tags }).(PrivateDnsNamespaceTagArrayOutput)
+}
+
+func (o PrivateDnsNamespaceOutput) Vpc() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Vpc }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceInput)(nil)).Elem(), &PrivateDnsNamespace{})
 	pulumi.RegisterOutputType(PrivateDnsNamespaceOutput{})

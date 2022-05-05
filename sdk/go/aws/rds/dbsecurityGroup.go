@@ -119,6 +119,22 @@ func (o DBSecurityGroupOutput) ToDBSecurityGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DBSecurityGroupOutput) DBSecurityGroupIngress() DBSecurityGroupIngressTypeArrayOutput {
+	return o.ApplyT(func(v *DBSecurityGroup) DBSecurityGroupIngressTypeArrayOutput { return v.DBSecurityGroupIngress }).(DBSecurityGroupIngressTypeArrayOutput)
+}
+
+func (o DBSecurityGroupOutput) EC2VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroup) pulumi.StringPtrOutput { return v.EC2VpcId }).(pulumi.StringPtrOutput)
+}
+
+func (o DBSecurityGroupOutput) GroupDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBSecurityGroup) pulumi.StringOutput { return v.GroupDescription }).(pulumi.StringOutput)
+}
+
+func (o DBSecurityGroupOutput) Tags() DBSecurityGroupTagArrayOutput {
+	return o.ApplyT(func(v *DBSecurityGroup) DBSecurityGroupTagArrayOutput { return v.Tags }).(DBSecurityGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupInput)(nil)).Elem(), &DBSecurityGroup{})
 	pulumi.RegisterOutputType(DBSecurityGroupOutput{})

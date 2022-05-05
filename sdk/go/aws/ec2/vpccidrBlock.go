@@ -131,6 +131,42 @@ func (o VPCCidrBlockOutput) ToVPCCidrBlockOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o VPCCidrBlockOutput) AmazonProvidedIpv6CidrBlock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.BoolPtrOutput { return v.AmazonProvidedIpv6CidrBlock }).(pulumi.BoolPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.StringPtrOutput { return v.Ipv6IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) Ipv6Pool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.StringPtrOutput { return v.Ipv6Pool }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCCidrBlockOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCCidrBlock) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCCidrBlockInput)(nil)).Elem(), &VPCCidrBlock{})
 	pulumi.RegisterOutputType(VPCCidrBlockOutput{})

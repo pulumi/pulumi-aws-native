@@ -123,6 +123,31 @@ func (o EnclaveCertificateIamRoleAssociationOutput) ToEnclaveCertificateIamRoleA
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
+func (o EnclaveCertificateIamRoleAssociationOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnclaveCertificateIamRoleAssociation) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+// The name of the Amazon S3 bucket to which the certificate was uploaded.
+func (o EnclaveCertificateIamRoleAssociationOutput) CertificateS3BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnclaveCertificateIamRoleAssociation) pulumi.StringOutput { return v.CertificateS3BucketName }).(pulumi.StringOutput)
+}
+
+// The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.
+func (o EnclaveCertificateIamRoleAssociationOutput) CertificateS3ObjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnclaveCertificateIamRoleAssociation) pulumi.StringOutput { return v.CertificateS3ObjectKey }).(pulumi.StringOutput)
+}
+
+// The ID of the AWS KMS CMK used to encrypt the private key of the certificate.
+func (o EnclaveCertificateIamRoleAssociationOutput) EncryptionKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnclaveCertificateIamRoleAssociation) pulumi.StringOutput { return v.EncryptionKmsKeyId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
+func (o EnclaveCertificateIamRoleAssociationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnclaveCertificateIamRoleAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveCertificateIamRoleAssociationInput)(nil)).Elem(), &EnclaveCertificateIamRoleAssociation{})
 	pulumi.RegisterOutputType(EnclaveCertificateIamRoleAssociationOutput{})

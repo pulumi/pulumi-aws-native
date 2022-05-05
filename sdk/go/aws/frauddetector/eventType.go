@@ -141,6 +141,48 @@ func (o EventTypeOutput) ToEventTypeOutputWithContext(ctx context.Context) Event
 	return o
 }
 
+// The ARN of the event type.
+func (o EventTypeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The time when the event type was created.
+func (o EventTypeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventType) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The description of the event type.
+func (o EventTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EventTypeOutput) EntityTypes() EventTypeEntityTypeArrayOutput {
+	return o.ApplyT(func(v *EventType) EventTypeEntityTypeArrayOutput { return v.EntityTypes }).(EventTypeEntityTypeArrayOutput)
+}
+
+func (o EventTypeOutput) EventVariables() EventTypeEventVariableArrayOutput {
+	return o.ApplyT(func(v *EventType) EventTypeEventVariableArrayOutput { return v.EventVariables }).(EventTypeEventVariableArrayOutput)
+}
+
+func (o EventTypeOutput) Labels() EventTypeLabelArrayOutput {
+	return o.ApplyT(func(v *EventType) EventTypeLabelArrayOutput { return v.Labels }).(EventTypeLabelArrayOutput)
+}
+
+// The time when the event type was last updated.
+func (o EventTypeOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventType) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The name for the event type
+func (o EventTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags associated with this event type.
+func (o EventTypeOutput) Tags() EventTypeTagArrayOutput {
+	return o.ApplyT(func(v *EventType) EventTypeTagArrayOutput { return v.Tags }).(EventTypeTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTypeInput)(nil)).Elem(), &EventType{})
 	pulumi.RegisterOutputType(EventTypeOutput{})

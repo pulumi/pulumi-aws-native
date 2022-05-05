@@ -219,6 +219,103 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+func (o LaunchConfigurationOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.BoolPtrOutput { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+func (o LaunchConfigurationOutput) BlockDeviceMappings() LaunchConfigurationBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationBlockDeviceMappingArrayOutput {
+		return v.BlockDeviceMappings
+	}).(LaunchConfigurationBlockDeviceMappingArrayOutput)
+}
+
+// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+func (o LaunchConfigurationOutput) ClassicLinkVPCId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.ClassicLinkVPCId }).(pulumi.StringPtrOutput)
+}
+
+// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+func (o LaunchConfigurationOutput) ClassicLinkVPCSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.ClassicLinkVPCSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+func (o LaunchConfigurationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+func (o LaunchConfigurationOutput) IamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
+}
+
+// Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+func (o LaunchConfigurationOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
+}
+
+// The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+func (o LaunchConfigurationOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+// Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+func (o LaunchConfigurationOutput) InstanceMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.BoolPtrOutput { return v.InstanceMonitoring }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the instance type of the EC2 instance.
+func (o LaunchConfigurationOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// Provides the ID of the kernel associated with the EC2 AMI.
+func (o LaunchConfigurationOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+// Provides the name of the EC2 key pair.
+func (o LaunchConfigurationOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch configuration. This name must be unique per Region per account.
+func (o LaunchConfigurationOutput) LaunchConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.LaunchConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+// The metadata options for the instances.
+func (o LaunchConfigurationOutput) MetadataOptions() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationMetadataOptionsPtrOutput { return v.MetadataOptions }).(LaunchConfigurationMetadataOptionsPtrOutput)
+}
+
+// The tenancy of the instance, either default or dedicated.
+func (o LaunchConfigurationOutput) PlacementTenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.PlacementTenancy }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the RAM disk to select.
+func (o LaunchConfigurationOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.RamDiskId }).(pulumi.StringPtrOutput)
+}
+
+// A list that contains the security groups to assign to the instances in the Auto Scaling group.
+func (o LaunchConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+func (o LaunchConfigurationOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.SpotPrice }).(pulumi.StringPtrOutput)
+}
+
+// The Base64-encoded user data to make available to the launched EC2 instances.
+func (o LaunchConfigurationOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationInput)(nil)).Elem(), &LaunchConfiguration{})
 	pulumi.RegisterOutputType(LaunchConfigurationOutput{})

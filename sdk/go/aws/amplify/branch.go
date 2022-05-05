@@ -139,6 +139,58 @@ func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutpu
 	return o
 }
 
+func (o BranchOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o BranchOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BranchOutput) BasicAuthConfig() BranchBasicAuthConfigPtrOutput {
+	return o.ApplyT(func(v *Branch) BranchBasicAuthConfigPtrOutput { return v.BasicAuthConfig }).(BranchBasicAuthConfigPtrOutput)
+}
+
+func (o BranchOutput) BranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.BranchName }).(pulumi.StringOutput)
+}
+
+func (o BranchOutput) BuildSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.BuildSpec }).(pulumi.StringPtrOutput)
+}
+
+func (o BranchOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o BranchOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnableAutoBuild }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePerformanceMode }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchOutput) EnvironmentVariables() BranchEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v *Branch) BranchEnvironmentVariableArrayOutput { return v.EnvironmentVariables }).(BranchEnvironmentVariableArrayOutput)
+}
+
+func (o BranchOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+func (o BranchOutput) Stage() BranchStagePtrOutput {
+	return o.ApplyT(func(v *Branch) BranchStagePtrOutput { return v.Stage }).(BranchStagePtrOutput)
+}
+
+func (o BranchOutput) Tags() BranchTagArrayOutput {
+	return o.ApplyT(func(v *Branch) BranchTagArrayOutput { return v.Tags }).(BranchTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchInput)(nil)).Elem(), &Branch{})
 	pulumi.RegisterOutputType(BranchOutput{})

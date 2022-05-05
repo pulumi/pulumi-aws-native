@@ -123,6 +123,34 @@ func (o AssistantAssociationOutput) ToAssistantAssociationOutputWithContext(ctx 
 	return o
 }
 
+func (o AssistantAssociationOutput) AssistantArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssistantAssociation) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
+}
+
+func (o AssistantAssociationOutput) AssistantAssociationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssistantAssociation) pulumi.StringOutput { return v.AssistantAssociationArn }).(pulumi.StringOutput)
+}
+
+func (o AssistantAssociationOutput) AssistantAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssistantAssociation) pulumi.StringOutput { return v.AssistantAssociationId }).(pulumi.StringOutput)
+}
+
+func (o AssistantAssociationOutput) AssistantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssistantAssociation) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
+}
+
+func (o AssistantAssociationOutput) Association() AssistantAssociationAssociationDataOutput {
+	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationAssociationDataOutput { return v.Association }).(AssistantAssociationAssociationDataOutput)
+}
+
+func (o AssistantAssociationOutput) AssociationType() AssistantAssociationAssociationTypeOutput {
+	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationAssociationTypeOutput { return v.AssociationType }).(AssistantAssociationAssociationTypeOutput)
+}
+
+func (o AssistantAssociationOutput) Tags() AssistantAssociationTagArrayOutput {
+	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationTagArrayOutput { return v.Tags }).(AssistantAssociationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationInput)(nil)).Elem(), &AssistantAssociation{})
 	pulumi.RegisterOutputType(AssistantAssociationOutput{})

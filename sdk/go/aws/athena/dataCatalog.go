@@ -132,6 +132,31 @@ func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// A description of the data catalog to be created.
+func (o DataCatalogOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+func (o DataCatalogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
+func (o DataCatalogOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// A list of comma separated tags to add to the data catalog that is created.
+func (o DataCatalogOutput) Tags() DataCatalogTagArrayOutput {
+	return o.ApplyT(func(v *DataCatalog) DataCatalogTagArrayOutput { return v.Tags }).(DataCatalogTagArrayOutput)
+}
+
+// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
+func (o DataCatalogOutput) Type() DataCatalogTypeOutput {
+	return o.ApplyT(func(v *DataCatalog) DataCatalogTypeOutput { return v.Type }).(DataCatalogTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogInput)(nil)).Elem(), &DataCatalog{})
 	pulumi.RegisterOutputType(DataCatalogOutput{})

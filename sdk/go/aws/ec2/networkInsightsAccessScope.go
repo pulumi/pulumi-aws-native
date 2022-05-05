@@ -111,6 +111,38 @@ func (o NetworkInsightsAccessScopeOutput) ToNetworkInsightsAccessScopeOutputWith
 	return o
 }
 
+func (o NetworkInsightsAccessScopeOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeOutput) ExcludePaths() NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+		return v.ExcludePaths
+	}).(NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopeOutput) MatchPaths() NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+		return v.MatchPaths
+	}).(NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopeOutput) NetworkInsightsAccessScopeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) pulumi.StringOutput { return v.NetworkInsightsAccessScopeArn }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeOutput) NetworkInsightsAccessScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) pulumi.StringOutput { return v.NetworkInsightsAccessScopeId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeOutput) Tags() NetworkInsightsAccessScopeTagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) NetworkInsightsAccessScopeTagArrayOutput { return v.Tags }).(NetworkInsightsAccessScopeTagArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopeOutput) UpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) pulumi.StringOutput { return v.UpdatedDate }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeInput)(nil)).Elem(), &NetworkInsightsAccessScope{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeOutput{})

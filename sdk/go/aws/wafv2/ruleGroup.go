@@ -141,6 +141,57 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
+func (o RuleGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Collection of Available Labels.
+func (o RuleGroupOutput) AvailableLabels() RuleGroupLabelSummaryArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupLabelSummaryArrayOutput { return v.AvailableLabels }).(RuleGroupLabelSummaryArrayOutput)
+}
+
+func (o RuleGroupOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// Collection of Consumed Labels.
+func (o RuleGroupOutput) ConsumedLabels() RuleGroupLabelSummaryArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupLabelSummaryArrayOutput { return v.ConsumedLabels }).(RuleGroupLabelSummaryArrayOutput)
+}
+
+func (o RuleGroupOutput) CustomResponseBodies() RuleGroupCustomResponseBodiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupCustomResponseBodiesPtrOutput { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodiesPtrOutput)
+}
+
+func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupOutput) LabelNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LabelNamespace }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Collection of Rules.
+func (o RuleGroupOutput) Rules() RuleGroupRuleArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleArrayOutput { return v.Rules }).(RuleGroupRuleArrayOutput)
+}
+
+func (o RuleGroupOutput) Scope() RuleGroupScopeOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupScopeOutput { return v.Scope }).(RuleGroupScopeOutput)
+}
+
+func (o RuleGroupOutput) Tags() RuleGroupTagArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupTagArrayOutput { return v.Tags }).(RuleGroupTagArrayOutput)
+}
+
+func (o RuleGroupOutput) VisibilityConfig() RuleGroupVisibilityConfigOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupVisibilityConfigOutput { return v.VisibilityConfig }).(RuleGroupVisibilityConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupInput)(nil)).Elem(), &RuleGroup{})
 	pulumi.RegisterOutputType(RuleGroupOutput{})

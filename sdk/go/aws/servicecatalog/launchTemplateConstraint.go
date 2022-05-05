@@ -125,6 +125,26 @@ func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutputWithCont
 	return o
 }
 
+func (o LaunchTemplateConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateConstraintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateConstraintOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateConstraintOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateConstraintOutput) Rules() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringOutput { return v.Rules }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateConstraintInput)(nil)).Elem(), &LaunchTemplateConstraint{})
 	pulumi.RegisterOutputType(LaunchTemplateConstraintOutput{})

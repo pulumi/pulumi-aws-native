@@ -113,6 +113,18 @@ func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServiceLinkedRoleOutput) AWSServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.AWSServiceName }).(pulumi.StringOutput)
+}
+
+func (o ServiceLinkedRoleOutput) CustomSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.CustomSuffix }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLinkedRoleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinkedRoleInput)(nil)).Elem(), &ServiceLinkedRole{})
 	pulumi.RegisterOutputType(ServiceLinkedRoleOutput{})

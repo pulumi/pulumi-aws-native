@@ -128,6 +128,26 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
+// The parent resource's identifier.
+func (o ResourceOutput) ParentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
+}
+
+// The last path segment for this resource.
+func (o ResourceOutput) PathPart() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.PathPart }).(pulumi.StringOutput)
+}
+
+// A unique primary identifier for a Resource
+func (o ResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The ID of the RestApi resource in which you want to create this resource..
+func (o ResourceOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceInput)(nil)).Elem(), &Resource{})
 	pulumi.RegisterOutputType(ResourceOutput{})

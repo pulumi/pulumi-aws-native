@@ -130,6 +130,35 @@ func (o UrlOutput) ToUrlOutputWithContext(ctx context.Context) UrlOutput {
 	return o
 }
 
+// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+func (o UrlOutput) AuthType() UrlAuthTypeOutput {
+	return o.ApplyT(func(v *Url) UrlAuthTypeOutput { return v.AuthType }).(UrlAuthTypeOutput)
+}
+
+func (o UrlOutput) Cors() UrlCorsPtrOutput {
+	return o.ApplyT(func(v *Url) UrlCorsPtrOutput { return v.Cors }).(UrlCorsPtrOutput)
+}
+
+// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
+func (o UrlOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Url) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+// The generated url for this resource.
+func (o UrlOutput) FunctionUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Url) pulumi.StringOutput { return v.FunctionUrl }).(pulumi.StringOutput)
+}
+
+// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
+func (o UrlOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Url) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the function associated with the Function URL.
+func (o UrlOutput) TargetFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Url) pulumi.StringOutput { return v.TargetFunctionArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlInput)(nil)).Elem(), &Url{})
 	pulumi.RegisterOutputType(UrlOutput{})

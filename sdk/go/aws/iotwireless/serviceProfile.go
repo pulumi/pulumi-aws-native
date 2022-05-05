@@ -118,6 +118,26 @@ func (o ServiceProfileOutput) ToServiceProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Service profile Arn. Returned after successful create.
+func (o ServiceProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+func (o ServiceProfileOutput) LoRaWAN() ServiceProfileLoRaWANServiceProfilePtrOutput {
+	return o.ApplyT(func(v *ServiceProfile) ServiceProfileLoRaWANServiceProfilePtrOutput { return v.LoRaWAN }).(ServiceProfileLoRaWANServiceProfilePtrOutput)
+}
+
+// Name of service profile
+func (o ServiceProfileOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProfile) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the service profile.
+func (o ServiceProfileOutput) Tags() ServiceProfileTagArrayOutput {
+	return o.ApplyT(func(v *ServiceProfile) ServiceProfileTagArrayOutput { return v.Tags }).(ServiceProfileTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileInput)(nil)).Elem(), &ServiceProfile{})
 	pulumi.RegisterOutputType(ServiceProfileOutput{})

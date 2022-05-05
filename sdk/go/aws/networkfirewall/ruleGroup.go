@@ -125,6 +125,38 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
+func (o RuleGroupOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
+}
+
+func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupOutput) RuleGroup() RuleGroupTypePtrOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupTypePtrOutput { return v.RuleGroup }).(RuleGroupTypePtrOutput)
+}
+
+func (o RuleGroupOutput) RuleGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupArn }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOutput) RuleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupId }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOutput) Tags() RuleGroupTagArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupTagArrayOutput { return v.Tags }).(RuleGroupTagArrayOutput)
+}
+
+func (o RuleGroupOutput) Type() RuleGroupTypeEnumOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupTypeEnumOutput { return v.Type }).(RuleGroupTypeEnumOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupInput)(nil)).Elem(), &RuleGroup{})
 	pulumi.RegisterOutputType(RuleGroupOutput{})

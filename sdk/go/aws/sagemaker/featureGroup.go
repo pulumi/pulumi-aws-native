@@ -156,6 +156,49 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Description about the FeatureGroup.
+func (o FeatureGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Event Time Feature Name.
+func (o FeatureGroupOutput) EventTimeFeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.EventTimeFeatureName }).(pulumi.StringOutput)
+}
+
+// An Array of Feature Definition
+func (o FeatureGroupOutput) FeatureDefinitions() FeatureGroupFeatureDefinitionArrayOutput {
+	return o.ApplyT(func(v *FeatureGroup) FeatureGroupFeatureDefinitionArrayOutput { return v.FeatureDefinitions }).(FeatureGroupFeatureDefinitionArrayOutput)
+}
+
+// The Name of the FeatureGroup.
+func (o FeatureGroupOutput) FeatureGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.FeatureGroupName }).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupOutput) OfflineStoreConfig() OfflineStoreConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *FeatureGroup) OfflineStoreConfigPropertiesPtrOutput { return v.OfflineStoreConfig }).(OfflineStoreConfigPropertiesPtrOutput)
+}
+
+func (o FeatureGroupOutput) OnlineStoreConfig() OnlineStoreConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *FeatureGroup) OnlineStoreConfigPropertiesPtrOutput { return v.OnlineStoreConfig }).(OnlineStoreConfigPropertiesPtrOutput)
+}
+
+// The Record Identifier Feature Name.
+func (o FeatureGroupOutput) RecordIdentifierFeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RecordIdentifierFeatureName }).(pulumi.StringOutput)
+}
+
+// Role Arn
+func (o FeatureGroupOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pair to apply to this resource.
+func (o FeatureGroupOutput) Tags() FeatureGroupTagArrayOutput {
+	return o.ApplyT(func(v *FeatureGroup) FeatureGroupTagArrayOutput { return v.Tags }).(FeatureGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupInput)(nil)).Elem(), &FeatureGroup{})
 	pulumi.RegisterOutputType(FeatureGroupOutput{})

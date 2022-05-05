@@ -116,6 +116,18 @@ func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOp
 	return o
 }
 
+func (o TagOptionOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+func (o TagOptionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TagOptionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionInput)(nil)).Elem(), &TagOption{})
 	pulumi.RegisterOutputType(TagOptionOutput{})

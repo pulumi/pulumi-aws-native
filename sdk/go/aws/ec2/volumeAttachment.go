@@ -119,6 +119,18 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.
 	return o
 }
 
+func (o VolumeAttachmentOutput) Device() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringOutput { return v.Device }).(pulumi.StringOutput)
+}
+
+func (o VolumeAttachmentOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o VolumeAttachmentOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAttachmentInput)(nil)).Elem(), &VolumeAttachment{})
 	pulumi.RegisterOutputType(VolumeAttachmentOutput{})

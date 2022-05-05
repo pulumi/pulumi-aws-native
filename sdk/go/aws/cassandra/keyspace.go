@@ -107,6 +107,15 @@ func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) Keyspac
 	return o
 }
 
+// Name for Cassandra keyspace
+func (o KeyspaceOutput) KeyspaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Keyspace) pulumi.StringPtrOutput { return v.KeyspaceName }).(pulumi.StringPtrOutput)
+}
+
+func (o KeyspaceOutput) Tags() KeyspaceTagArrayOutput {
+	return o.ApplyT(func(v *Keyspace) KeyspaceTagArrayOutput { return v.Tags }).(KeyspaceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceInput)(nil)).Elem(), &Keyspace{})
 	pulumi.RegisterOutputType(KeyspaceOutput{})

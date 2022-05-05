@@ -110,6 +110,22 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o HttpNamespaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o HttpNamespaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o HttpNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HttpNamespaceOutput) Tags() HttpNamespaceTagArrayOutput {
+	return o.ApplyT(func(v *HttpNamespace) HttpNamespaceTagArrayOutput { return v.Tags }).(HttpNamespaceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceInput)(nil)).Elem(), &HttpNamespace{})
 	pulumi.RegisterOutputType(HttpNamespaceOutput{})

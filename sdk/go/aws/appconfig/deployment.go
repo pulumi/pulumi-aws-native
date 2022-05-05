@@ -137,6 +137,34 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+func (o DeploymentOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) ConfigurationProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) ConfigurationVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ConfigurationVersion }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) DeploymentStrategyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentStrategyId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) Tags() DeploymentTagsArrayOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentTagsArrayOutput { return v.Tags }).(DeploymentTagsArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentInput)(nil)).Elem(), &Deployment{})
 	pulumi.RegisterOutputType(DeploymentOutput{})

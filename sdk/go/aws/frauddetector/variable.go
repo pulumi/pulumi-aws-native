@@ -156,6 +156,56 @@ func (o VariableOutput) ToVariableOutputWithContext(ctx context.Context) Variabl
 	return o
 }
 
+// The ARN of the variable.
+func (o VariableOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The time when the variable was created.
+func (o VariableOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The source of the data.
+func (o VariableOutput) DataSource() VariableDataSourceOutput {
+	return o.ApplyT(func(v *Variable) VariableDataSourceOutput { return v.DataSource }).(VariableDataSourceOutput)
+}
+
+// The data type.
+func (o VariableOutput) DataType() VariableDataTypeOutput {
+	return o.ApplyT(func(v *Variable) VariableDataTypeOutput { return v.DataType }).(VariableDataTypeOutput)
+}
+
+// The default value for the variable when no value is received.
+func (o VariableOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+// The description.
+func (o VariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The time when the variable was last updated.
+func (o VariableOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The name of the variable.
+func (o VariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags associated with this variable.
+func (o VariableOutput) Tags() VariableTagArrayOutput {
+	return o.ApplyT(func(v *Variable) VariableTagArrayOutput { return v.Tags }).(VariableTagArrayOutput)
+}
+
+// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
+func (o VariableOutput) VariableType() VariableTypePtrOutput {
+	return o.ApplyT(func(v *Variable) VariableTypePtrOutput { return v.VariableType }).(VariableTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableInput)(nil)).Elem(), &Variable{})
 	pulumi.RegisterOutputType(VariableOutput{})

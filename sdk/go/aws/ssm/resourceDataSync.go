@@ -129,6 +129,42 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.
 	return o
 }
 
+func (o ResourceDataSyncOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceDataSyncOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceDataSyncOutput) BucketRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceDataSyncOutput) KMSKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.KMSKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceDataSyncOutput) S3Destination() ResourceDataSyncS3DestinationPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) ResourceDataSyncS3DestinationPtrOutput { return v.S3Destination }).(ResourceDataSyncS3DestinationPtrOutput)
+}
+
+func (o ResourceDataSyncOutput) SyncFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.SyncFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceDataSyncOutput) SyncName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.SyncName }).(pulumi.StringOutput)
+}
+
+func (o ResourceDataSyncOutput) SyncSource() ResourceDataSyncSyncSourcePtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) ResourceDataSyncSyncSourcePtrOutput { return v.SyncSource }).(ResourceDataSyncSyncSourcePtrOutput)
+}
+
+func (o ResourceDataSyncOutput) SyncType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.SyncType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncInput)(nil)).Elem(), &ResourceDataSync{})
 	pulumi.RegisterOutputType(ResourceDataSyncOutput{})

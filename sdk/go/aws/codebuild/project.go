@@ -186,6 +186,106 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+func (o ProjectOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) Artifacts() ProjectArtifactsOutput {
+	return o.ApplyT(func(v *Project) ProjectArtifactsOutput { return v.Artifacts }).(ProjectArtifactsOutput)
+}
+
+func (o ProjectOutput) BadgeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.BoolPtrOutput { return v.BadgeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectOutput) BuildBatchConfig() ProjectBuildBatchConfigPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectBuildBatchConfigPtrOutput { return v.BuildBatchConfig }).(ProjectBuildBatchConfigPtrOutput)
+}
+
+func (o ProjectOutput) Cache() ProjectCachePtrOutput {
+	return o.ApplyT(func(v *Project) ProjectCachePtrOutput { return v.Cache }).(ProjectCachePtrOutput)
+}
+
+func (o ProjectOutput) ConcurrentBuildLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.ConcurrentBuildLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o ProjectOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) Environment() ProjectEnvironmentOutput {
+	return o.ApplyT(func(v *Project) ProjectEnvironmentOutput { return v.Environment }).(ProjectEnvironmentOutput)
+}
+
+func (o ProjectOutput) FileSystemLocations() ProjectFileSystemLocationArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectFileSystemLocationArrayOutput { return v.FileSystemLocations }).(ProjectFileSystemLocationArrayOutput)
+}
+
+func (o ProjectOutput) LogsConfig() ProjectLogsConfigPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectLogsConfigPtrOutput { return v.LogsConfig }).(ProjectLogsConfigPtrOutput)
+}
+
+func (o ProjectOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) QueuedTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.QueuedTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o ProjectOutput) ResourceAccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ResourceAccessRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) SecondaryArtifacts() ProjectArtifactsArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectArtifactsArrayOutput { return v.SecondaryArtifacts }).(ProjectArtifactsArrayOutput)
+}
+
+func (o ProjectOutput) SecondarySourceVersions() ProjectSourceVersionArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectSourceVersionArrayOutput { return v.SecondarySourceVersions }).(ProjectSourceVersionArrayOutput)
+}
+
+func (o ProjectOutput) SecondarySources() ProjectSourceArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectSourceArrayOutput { return v.SecondarySources }).(ProjectSourceArrayOutput)
+}
+
+func (o ProjectOutput) ServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) Source() ProjectSourceOutput {
+	return o.ApplyT(func(v *Project) ProjectSourceOutput { return v.Source }).(ProjectSourceOutput)
+}
+
+func (o ProjectOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.SourceVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) Tags() ProjectTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
+func (o ProjectOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o ProjectOutput) Triggers() ProjectTriggersPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectTriggersPtrOutput { return v.Triggers }).(ProjectTriggersPtrOutput)
+}
+
+func (o ProjectOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) VpcConfig() ProjectVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectVpcConfigPtrOutput { return v.VpcConfig }).(ProjectVpcConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})

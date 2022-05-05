@@ -116,6 +116,22 @@ func (o PlacementOutput) ToPlacementOutputWithContext(ctx context.Context) Place
 	return o
 }
 
+func (o PlacementOutput) AssociatedDevices() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Placement) pulumi.AnyOutput { return v.AssociatedDevices }).(pulumi.AnyOutput)
+}
+
+func (o PlacementOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Placement) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o PlacementOutput) PlacementName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Placement) pulumi.StringPtrOutput { return v.PlacementName }).(pulumi.StringPtrOutput)
+}
+
+func (o PlacementOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Placement) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlacementInput)(nil)).Elem(), &Placement{})
 	pulumi.RegisterOutputType(PlacementOutput{})

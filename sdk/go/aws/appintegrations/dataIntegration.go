@@ -146,6 +146,41 @@ func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the data integration.
+func (o DataIntegrationOutput) DataIntegrationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.DataIntegrationArn }).(pulumi.StringOutput)
+}
+
+// The data integration description.
+func (o DataIntegrationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The KMS key of the data integration.
+func (o DataIntegrationOutput) KmsKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.KmsKey }).(pulumi.StringOutput)
+}
+
+// The name of the data integration.
+func (o DataIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the data and how often it should be pulled from the source.
+func (o DataIntegrationOutput) ScheduleConfig() DataIntegrationScheduleConfigOutput {
+	return o.ApplyT(func(v *DataIntegration) DataIntegrationScheduleConfigOutput { return v.ScheduleConfig }).(DataIntegrationScheduleConfigOutput)
+}
+
+// The URI of the data source.
+func (o DataIntegrationOutput) SourceURI() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.SourceURI }).(pulumi.StringOutput)
+}
+
+// The tags (keys and values) associated with the data integration.
+func (o DataIntegrationOutput) Tags() DataIntegrationTagArrayOutput {
+	return o.ApplyT(func(v *DataIntegration) DataIntegrationTagArrayOutput { return v.Tags }).(DataIntegrationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationInput)(nil)).Elem(), &DataIntegration{})
 	pulumi.RegisterOutputType(DataIntegrationOutput{})

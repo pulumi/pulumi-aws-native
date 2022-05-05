@@ -135,6 +135,76 @@ func (o DeliveryStreamOutput) ToDeliveryStreamOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o DeliveryStreamOutput) AmazonopensearchserviceDestinationConfiguration() DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput {
+		return v.AmazonopensearchserviceDestinationConfiguration
+	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeliveryStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamOutput) DeliveryStreamEncryptionConfigurationInput() DeliveryStreamEncryptionConfigurationInputTypePtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamEncryptionConfigurationInputTypePtrOutput {
+		return v.DeliveryStreamEncryptionConfigurationInput
+	}).(DeliveryStreamEncryptionConfigurationInputTypePtrOutput)
+}
+
+func (o DeliveryStreamOutput) DeliveryStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) pulumi.StringPtrOutput { return v.DeliveryStreamName }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamOutput) DeliveryStreamType() DeliveryStreamTypePtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamTypePtrOutput { return v.DeliveryStreamType }).(DeliveryStreamTypePtrOutput)
+}
+
+func (o DeliveryStreamOutput) ElasticsearchDestinationConfiguration() DeliveryStreamElasticsearchDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamElasticsearchDestinationConfigurationPtrOutput {
+		return v.ElasticsearchDestinationConfiguration
+	}).(DeliveryStreamElasticsearchDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) ExtendedS3DestinationConfiguration() DeliveryStreamExtendedS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamExtendedS3DestinationConfigurationPtrOutput {
+		return v.ExtendedS3DestinationConfiguration
+	}).(DeliveryStreamExtendedS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) HttpEndpointDestinationConfiguration() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+		return v.HttpEndpointDestinationConfiguration
+	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) KinesisStreamSourceConfiguration() DeliveryStreamKinesisStreamSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamKinesisStreamSourceConfigurationPtrOutput {
+		return v.KinesisStreamSourceConfiguration
+	}).(DeliveryStreamKinesisStreamSourceConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) RedshiftDestinationConfiguration() DeliveryStreamRedshiftDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamRedshiftDestinationConfigurationPtrOutput {
+		return v.RedshiftDestinationConfiguration
+	}).(DeliveryStreamRedshiftDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) S3DestinationConfiguration() DeliveryStreamS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamS3DestinationConfigurationPtrOutput {
+		return v.S3DestinationConfiguration
+	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) SplunkDestinationConfiguration() DeliveryStreamSplunkDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamSplunkDestinationConfigurationPtrOutput {
+		return v.SplunkDestinationConfiguration
+	}).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) Tags() DeliveryStreamTagArrayOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamTagArrayOutput { return v.Tags }).(DeliveryStreamTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamInput)(nil)).Elem(), &DeliveryStream{})
 	pulumi.RegisterOutputType(DeliveryStreamOutput{})

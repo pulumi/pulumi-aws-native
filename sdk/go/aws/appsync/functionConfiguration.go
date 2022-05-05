@@ -145,6 +145,58 @@ func (o FunctionConfigurationOutput) ToFunctionConfigurationOutputWithContext(ct
 	return o
 }
 
+func (o FunctionConfigurationOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationOutput) DataSourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.DataSourceName }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationOutput) FunctionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.FunctionId }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationOutput) FunctionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationOutput) MaxBatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationOutput) RequestMappingTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) RequestMappingTemplateS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.RequestMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) SyncConfig() FunctionConfigurationSyncConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) FunctionConfigurationSyncConfigPtrOutput { return v.SyncConfig }).(FunctionConfigurationSyncConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationInput)(nil)).Elem(), &FunctionConfiguration{})
 	pulumi.RegisterOutputType(FunctionConfigurationOutput{})

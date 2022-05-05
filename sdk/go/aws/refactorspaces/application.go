@@ -127,6 +127,63 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApplicationOutput) ApiGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApiGatewayId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) ApiGatewayProxy() ApplicationApiGatewayProxyInputPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationApiGatewayProxyInputPtrOutput { return v.ApiGatewayProxy }).(ApplicationApiGatewayProxyInputPtrOutput)
+}
+
+func (o ApplicationOutput) ApplicationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) EnvironmentIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.EnvironmentIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) NlbArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.NlbArn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) NlbName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.NlbName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) ProxyType() ApplicationProxyTypePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationProxyTypePtrOutput { return v.ProxyType }).(ApplicationProxyTypePtrOutput)
+}
+
+func (o ApplicationOutput) ProxyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProxyUrl }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) StageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
+}
+
+// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+}
+
+func (o ApplicationOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) VpcLinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.VpcLinkId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

@@ -125,6 +125,34 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+func (o PipelineOutput) Activate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
+}
+
+func (o PipelineOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PipelineOutput) ParameterObjects() PipelineParameterObjectArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineParameterObjectArrayOutput { return v.ParameterObjects }).(PipelineParameterObjectArrayOutput)
+}
+
+func (o PipelineOutput) ParameterValues() PipelineParameterValueArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineParameterValueArrayOutput { return v.ParameterValues }).(PipelineParameterValueArrayOutput)
+}
+
+func (o PipelineOutput) PipelineObjects() PipelineObjectArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineObjectArrayOutput { return v.PipelineObjects }).(PipelineObjectArrayOutput)
+}
+
+func (o PipelineOutput) PipelineTags() PipelineTagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.PipelineTags }).(PipelineTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInput)(nil)).Elem(), &Pipeline{})
 	pulumi.RegisterOutputType(PipelineOutput{})

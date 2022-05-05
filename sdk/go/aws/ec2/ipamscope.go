@@ -129,6 +129,50 @@ func (o IPAMScopeOutput) ToIPAMScopeOutputWithContext(ctx context.Context) IPAMS
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the IPAM scope.
+func (o IPAMScopeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o IPAMScopeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
+func (o IPAMScopeOutput) IpamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.StringOutput { return v.IpamArn }).(pulumi.StringOutput)
+}
+
+// The Id of the IPAM this scope is a part of.
+func (o IPAMScopeOutput) IpamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
+}
+
+// Id of the IPAM scope.
+func (o IPAMScopeOutput) IpamScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.StringOutput { return v.IpamScopeId }).(pulumi.StringOutput)
+}
+
+// Determines whether this scope contains publicly routable space or space for a private network
+func (o IPAMScopeOutput) IpamScopeType() IPAMScopeIpamScopeTypeOutput {
+	return o.ApplyT(func(v *IPAMScope) IPAMScopeIpamScopeTypeOutput { return v.IpamScopeType }).(IPAMScopeIpamScopeTypeOutput)
+}
+
+// Is this one of the default scopes created with the IPAM.
+func (o IPAMScopeOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+// The number of pools that currently exist in this scope.
+func (o IPAMScopeOutput) PoolCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *IPAMScope) pulumi.IntOutput { return v.PoolCount }).(pulumi.IntOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o IPAMScopeOutput) Tags() IPAMScopeTagArrayOutput {
+	return o.ApplyT(func(v *IPAMScope) IPAMScopeTagArrayOutput { return v.Tags }).(IPAMScopeTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeInput)(nil)).Elem(), &IPAMScope{})
 	pulumi.RegisterOutputType(IPAMScopeOutput{})

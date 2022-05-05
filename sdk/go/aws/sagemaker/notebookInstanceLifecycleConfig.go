@@ -109,6 +109,24 @@ func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfig
 	return o
 }
 
+func (o NotebookInstanceLifecycleConfigOutput) NotebookInstanceLifecycleConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfig) pulumi.StringPtrOutput {
+		return v.NotebookInstanceLifecycleConfigName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceLifecycleConfigOutput) OnCreate() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfig) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+		return v.OnCreate
+	}).(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput)
+}
+
+func (o NotebookInstanceLifecycleConfigOutput) OnStart() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfig) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+		return v.OnStart
+	}).(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigInput)(nil)).Elem(), &NotebookInstanceLifecycleConfig{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigOutput{})

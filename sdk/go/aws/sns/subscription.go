@@ -134,6 +134,42 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SubscriptionOutput) DeliveryPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.AnyOutput { return v.DeliveryPolicy }).(pulumi.AnyOutput)
+}
+
+func (o SubscriptionOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionOutput) FilterPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.AnyOutput { return v.FilterPolicy }).(pulumi.AnyOutput)
+}
+
+func (o SubscriptionOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionOutput) RawMessageDelivery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.RawMessageDelivery }).(pulumi.BoolPtrOutput)
+}
+
+func (o SubscriptionOutput) RedrivePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.AnyOutput { return v.RedrivePolicy }).(pulumi.AnyOutput)
+}
+
+func (o SubscriptionOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionOutput) SubscriptionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.SubscriptionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.TopicArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionInput)(nil)).Elem(), &Subscription{})
 	pulumi.RegisterOutputType(SubscriptionOutput{})

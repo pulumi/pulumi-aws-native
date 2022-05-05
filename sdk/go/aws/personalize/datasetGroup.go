@@ -124,6 +124,31 @@ func (o DatasetGroupOutput) ToDatasetGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the dataset group.
+func (o DatasetGroupOutput) DatasetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringOutput { return v.DatasetGroupArn }).(pulumi.StringOutput)
+}
+
+// The domain of a Domain dataset group.
+func (o DatasetGroupOutput) Domain() DatasetGroupDomainPtrOutput {
+	return o.ApplyT(func(v *DatasetGroup) DatasetGroupDomainPtrOutput { return v.Domain }).(DatasetGroupDomainPtrOutput)
+}
+
+// The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.
+func (o DatasetGroupOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The name for the new dataset group.
+func (o DatasetGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
+func (o DatasetGroupOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetGroupInput)(nil)).Elem(), &DatasetGroup{})
 	pulumi.RegisterOutputType(DatasetGroupOutput{})

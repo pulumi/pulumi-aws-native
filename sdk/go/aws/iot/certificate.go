@@ -118,6 +118,30 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CertificateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) CACertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CACertificatePem }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) CertificateMode() CertificateModePtrOutput {
+	return o.ApplyT(func(v *Certificate) CertificateModePtrOutput { return v.CertificateMode }).(CertificateModePtrOutput)
+}
+
+func (o CertificateOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificatePem }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateSigningRequest }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) Status() CertificateStatusOutput {
+	return o.ApplyT(func(v *Certificate) CertificateStatusOutput { return v.Status }).(CertificateStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateInput)(nil)).Elem(), &Certificate{})
 	pulumi.RegisterOutputType(CertificateOutput{})

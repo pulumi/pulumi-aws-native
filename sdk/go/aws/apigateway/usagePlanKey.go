@@ -126,6 +126,21 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The ID of the usage plan key.
+func (o UsagePlanKeyOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// The type of usage plan key. Currently, the only valid key type is API_KEY.
+func (o UsagePlanKeyOutput) KeyType() UsagePlanKeyKeyTypeOutput {
+	return o.ApplyT(func(v *UsagePlanKey) UsagePlanKeyKeyTypeOutput { return v.KeyType }).(UsagePlanKeyKeyTypeOutput)
+}
+
+// The ID of the usage plan.
+func (o UsagePlanKeyOutput) UsagePlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.UsagePlanId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyInput)(nil)).Elem(), &UsagePlanKey{})
 	pulumi.RegisterOutputType(UsagePlanKeyOutput{})

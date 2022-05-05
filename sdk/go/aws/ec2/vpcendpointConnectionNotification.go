@@ -119,6 +119,22 @@ func (o VPCEndpointConnectionNotificationOutput) ToVPCEndpointConnectionNotifica
 	return o
 }
 
+func (o VPCEndpointConnectionNotificationOutput) ConnectionEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringArrayOutput { return v.ConnectionEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointConnectionNotificationOutput) ConnectionNotificationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringOutput { return v.ConnectionNotificationArn }).(pulumi.StringOutput)
+}
+
+func (o VPCEndpointConnectionNotificationOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringPtrOutput { return v.ServiceId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCEndpointConnectionNotificationOutput) VPCEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringPtrOutput { return v.VPCEndpointId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointConnectionNotificationInput)(nil)).Elem(), &VPCEndpointConnectionNotification{})
 	pulumi.RegisterOutputType(VPCEndpointConnectionNotificationOutput{})

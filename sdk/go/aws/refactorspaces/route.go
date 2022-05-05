@@ -132,6 +132,43 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+func (o RouteOutput) ApplicationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) EnvironmentIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) PathResourceToId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.PathResourceToId }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) RouteIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteIdentifier }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) RouteType() RouteTypePtrOutput {
+	return o.ApplyT(func(v *Route) RouteTypePtrOutput { return v.RouteType }).(RouteTypePtrOutput)
+}
+
+func (o RouteOutput) ServiceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
+}
+
+// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+func (o RouteOutput) Tags() RouteTagArrayOutput {
+	return o.ApplyT(func(v *Route) RouteTagArrayOutput { return v.Tags }).(RouteTagArrayOutput)
+}
+
+func (o RouteOutput) UriPathRoute() RouteUriPathRouteInputPtrOutput {
+	return o.ApplyT(func(v *Route) RouteUriPathRouteInputPtrOutput { return v.UriPathRoute }).(RouteUriPathRouteInputPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteInput)(nil)).Elem(), &Route{})
 	pulumi.RegisterOutputType(RouteOutput{})

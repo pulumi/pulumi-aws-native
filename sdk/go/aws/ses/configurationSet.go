@@ -104,6 +104,11 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+// The name of the configuration set.
+func (o ConfigurationSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetInput)(nil)).Elem(), &ConfigurationSet{})
 	pulumi.RegisterOutputType(ConfigurationSetOutput{})

@@ -107,6 +107,20 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx cont
 	return o
 }
 
+func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InputSecurityGroupOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *InputSecurityGroup) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o InputSecurityGroupOutput) WhitelistRules() InputSecurityGroupInputWhitelistRuleCidrArrayOutput {
+	return o.ApplyT(func(v *InputSecurityGroup) InputSecurityGroupInputWhitelistRuleCidrArrayOutput {
+		return v.WhitelistRules
+	}).(InputSecurityGroupInputWhitelistRuleCidrArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputSecurityGroupInput)(nil)).Elem(), &InputSecurityGroup{})
 	pulumi.RegisterOutputType(InputSecurityGroupOutput{})

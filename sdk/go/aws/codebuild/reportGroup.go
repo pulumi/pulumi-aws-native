@@ -123,6 +123,30 @@ func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o ReportGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ReportGroupOutput) DeleteReports() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.BoolPtrOutput { return v.DeleteReports }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReportGroupOutput) ExportConfig() ReportGroupReportExportConfigOutput {
+	return o.ApplyT(func(v *ReportGroup) ReportGroupReportExportConfigOutput { return v.ExportConfig }).(ReportGroupReportExportConfigOutput)
+}
+
+func (o ReportGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ReportGroupOutput) Tags() ReportGroupTagArrayOutput {
+	return o.ApplyT(func(v *ReportGroup) ReportGroupTagArrayOutput { return v.Tags }).(ReportGroupTagArrayOutput)
+}
+
+func (o ReportGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupInput)(nil)).Elem(), &ReportGroup{})
 	pulumi.RegisterOutputType(ReportGroupOutput{})

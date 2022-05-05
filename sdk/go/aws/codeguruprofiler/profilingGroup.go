@@ -130,6 +130,38 @@ func (o ProfilingGroupOutput) ToProfilingGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The agent permissions attached to this profiling group.
+func (o ProfilingGroupOutput) AgentPermissions() AgentPermissionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *ProfilingGroup) AgentPermissionsPropertiesPtrOutput { return v.AgentPermissions }).(AgentPermissionsPropertiesPtrOutput)
+}
+
+// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
+func (o ProfilingGroupOutput) AnomalyDetectionNotificationConfiguration() ProfilingGroupChannelArrayOutput {
+	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupChannelArrayOutput {
+		return v.AnomalyDetectionNotificationConfiguration
+	}).(ProfilingGroupChannelArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the specified profiling group.
+func (o ProfilingGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The compute platform of the profiling group.
+func (o ProfilingGroupOutput) ComputePlatform() ProfilingGroupComputePlatformPtrOutput {
+	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupComputePlatformPtrOutput { return v.ComputePlatform }).(ProfilingGroupComputePlatformPtrOutput)
+}
+
+// The name of the profiling group.
+func (o ProfilingGroupOutput) ProfilingGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.ProfilingGroupName }).(pulumi.StringOutput)
+}
+
+// The tags associated with a profiling group.
+func (o ProfilingGroupOutput) Tags() ProfilingGroupTagArrayOutput {
+	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupTagArrayOutput { return v.Tags }).(ProfilingGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupInput)(nil)).Elem(), &ProfilingGroup{})
 	pulumi.RegisterOutputType(ProfilingGroupOutput{})

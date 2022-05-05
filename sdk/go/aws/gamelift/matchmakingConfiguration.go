@@ -156,6 +156,72 @@ func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithCont
 	return o
 }
 
+func (o MatchmakingConfigurationOutput) AcceptanceRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.BoolOutput { return v.AcceptanceRequired }).(pulumi.BoolOutput)
+}
+
+func (o MatchmakingConfigurationOutput) AcceptanceTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntPtrOutput { return v.AcceptanceTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) AdditionalPlayerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntPtrOutput { return v.AdditionalPlayerCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationOutput) BackfillMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.BackfillMode }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) CustomEventData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.CustomEventData }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) FlexMatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.FlexMatchMode }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) GameProperties() MatchmakingConfigurationGamePropertyArrayOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationGamePropertyArrayOutput {
+		return v.GameProperties
+	}).(MatchmakingConfigurationGamePropertyArrayOutput)
+}
+
+func (o MatchmakingConfigurationOutput) GameSessionData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.GameSessionData }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) GameSessionQueueArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringArrayOutput { return v.GameSessionQueueArns }).(pulumi.StringArrayOutput)
+}
+
+func (o MatchmakingConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationOutput) NotificationTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchmakingConfigurationOutput) RequestTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntOutput { return v.RequestTimeoutSeconds }).(pulumi.IntOutput)
+}
+
+func (o MatchmakingConfigurationOutput) RuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationOutput) Tags() MatchmakingConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationTagArrayOutput { return v.Tags }).(MatchmakingConfigurationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationInput)(nil)).Elem(), &MatchmakingConfiguration{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationOutput{})

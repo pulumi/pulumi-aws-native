@@ -128,6 +128,31 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the subnet group.
+func (o SubnetGroupOutput) ARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.ARN }).(pulumi.StringOutput)
+}
+
+// An optional description of the subnet group.
+func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
+func (o SubnetGroupOutput) SubnetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
+}
+
+// A list of VPC subnet IDs for the subnet group.
+func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to apply to this subnet group.
+func (o SubnetGroupOutput) Tags() SubnetGroupTagArrayOutput {
+	return o.ApplyT(func(v *SubnetGroup) SubnetGroupTagArrayOutput { return v.Tags }).(SubnetGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupInput)(nil)).Elem(), &SubnetGroup{})
 	pulumi.RegisterOutputType(SubnetGroupOutput{})

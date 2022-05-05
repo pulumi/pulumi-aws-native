@@ -117,6 +117,18 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 	return o
 }
 
+// The name of the configuration set that contains the event destination.
+func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
+}
+
+// The event destination object.
+func (o ConfigurationSetEventDestinationOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) ConfigurationSetEventDestinationEventDestinationOutput {
+		return v.EventDestination
+	}).(ConfigurationSetEventDestinationEventDestinationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationInput)(nil)).Elem(), &ConfigurationSetEventDestination{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationOutput{})

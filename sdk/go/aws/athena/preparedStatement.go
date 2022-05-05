@@ -132,6 +132,26 @@ func (o PreparedStatementOutput) ToPreparedStatementOutputWithContext(ctx contex
 	return o
 }
 
+// The description of the prepared statement.
+func (o PreparedStatementOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreparedStatement) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The query string for the prepared statement.
+func (o PreparedStatementOutput) QueryStatement() pulumi.StringOutput {
+	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.QueryStatement }).(pulumi.StringOutput)
+}
+
+// The name of the prepared statement.
+func (o PreparedStatementOutput) StatementName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.StatementName }).(pulumi.StringOutput)
+}
+
+// The name of the workgroup to which the prepared statement belongs.
+func (o PreparedStatementOutput) WorkGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.WorkGroup }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PreparedStatementInput)(nil)).Elem(), &PreparedStatement{})
 	pulumi.RegisterOutputType(PreparedStatementOutput{})

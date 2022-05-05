@@ -123,6 +123,30 @@ func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) Portf
 	return o
 }
 
+func (o PortfolioOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o PortfolioOutput) PortfolioName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.PortfolioName }).(pulumi.StringOutput)
+}
+
+func (o PortfolioOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o PortfolioOutput) Tags() PortfolioTagArrayOutput {
+	return o.ApplyT(func(v *Portfolio) PortfolioTagArrayOutput { return v.Tags }).(PortfolioTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioInput)(nil)).Elem(), &Portfolio{})
 	pulumi.RegisterOutputType(PortfolioOutput{})

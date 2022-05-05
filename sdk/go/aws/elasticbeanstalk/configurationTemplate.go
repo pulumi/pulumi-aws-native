@@ -125,6 +125,38 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ct
 	return o
 }
 
+func (o ConfigurationTemplateOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationTemplateOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.EnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationTemplateOutput) OptionSettings() ConfigurationTemplateConfigurationOptionSettingArrayOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) ConfigurationTemplateConfigurationOptionSettingArrayOutput {
+		return v.OptionSettings
+	}).(ConfigurationTemplateConfigurationOptionSettingArrayOutput)
+}
+
+func (o ConfigurationTemplateOutput) PlatformArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.PlatformArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationTemplateOutput) SolutionStackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.SolutionStackName }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationTemplateOutput) SourceConfiguration() ConfigurationTemplateSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) ConfigurationTemplateSourceConfigurationPtrOutput {
+		return v.SourceConfiguration
+	}).(ConfigurationTemplateSourceConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateInput)(nil)).Elem(), &ConfigurationTemplate{})
 	pulumi.RegisterOutputType(ConfigurationTemplateOutput{})

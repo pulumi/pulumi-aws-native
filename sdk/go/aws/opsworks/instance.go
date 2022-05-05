@@ -177,6 +177,106 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+func (o InstanceOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) AmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AmiId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) AutoScalingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AutoScalingType }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) BlockDeviceMappings() InstanceBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceBlockDeviceMappingArrayOutput { return v.BlockDeviceMappings }).(InstanceBlockDeviceMappingArrayOutput)
+}
+
+func (o InstanceOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) ElasticIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.ElasticIps }).(pulumi.StringArrayOutput)
+}
+
+func (o InstanceOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.InstallUpdatesOnBoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) LayerIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.LayerIds }).(pulumi.StringArrayOutput)
+}
+
+func (o InstanceOutput) Os() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Os }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) PrivateDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateDnsName }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) PrivateIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) PublicDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicDnsName }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) PublicIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) RootDeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.RootDeviceType }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) SshKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.SshKeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) StackId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
+}
+
+func (o InstanceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Tenancy }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) TimeBasedAutoScaling() InstanceTimeBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceTimeBasedAutoScalingPtrOutput { return v.TimeBasedAutoScaling }).(InstanceTimeBasedAutoScalingPtrOutput)
+}
+
+func (o InstanceOutput) VirtualizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.VirtualizationType }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) Volumes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.Volumes }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInput)(nil)).Elem(), &Instance{})
 	pulumi.RegisterOutputType(InstanceOutput{})

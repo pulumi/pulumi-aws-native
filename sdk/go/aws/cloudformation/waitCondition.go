@@ -110,6 +110,22 @@ func (o WaitConditionOutput) ToWaitConditionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o WaitConditionOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WaitCondition) pulumi.IntPtrOutput { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o WaitConditionOutput) Data() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WaitCondition) pulumi.AnyOutput { return v.Data }).(pulumi.AnyOutput)
+}
+
+func (o WaitConditionOutput) Handle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WaitCondition) pulumi.StringPtrOutput { return v.Handle }).(pulumi.StringPtrOutput)
+}
+
+func (o WaitConditionOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WaitCondition) pulumi.StringPtrOutput { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WaitConditionInput)(nil)).Elem(), &WaitCondition{})
 	pulumi.RegisterOutputType(WaitConditionOutput{})

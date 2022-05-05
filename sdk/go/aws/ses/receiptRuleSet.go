@@ -103,6 +103,10 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ReceiptRuleSetOutput) RuleSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringPtrOutput { return v.RuleSetName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSetInput)(nil)).Elem(), &ReceiptRuleSet{})
 	pulumi.RegisterOutputType(ReceiptRuleSetOutput{})

@@ -140,6 +140,36 @@ func (o AlertOutput) ToAlertOutputWithContext(ctx context.Context) AlertOutput {
 	return o
 }
 
+// The action to be taken by the alert when an anomaly is detected.
+func (o AlertOutput) Action() AlertActionOutput {
+	return o.ApplyT(func(v *Alert) AlertActionOutput { return v.Action }).(AlertActionOutput)
+}
+
+// A description for the alert.
+func (o AlertOutput) AlertDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alert) pulumi.StringPtrOutput { return v.AlertDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the alert. If not provided, a name is generated automatically.
+func (o AlertOutput) AlertName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alert) pulumi.StringPtrOutput { return v.AlertName }).(pulumi.StringPtrOutput)
+}
+
+// A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
+func (o AlertOutput) AlertSensitivityThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v *Alert) pulumi.IntOutput { return v.AlertSensitivityThreshold }).(pulumi.IntOutput)
+}
+
+// The Amazon resource name (ARN) of the Anomaly Detector to alert.
+func (o AlertOutput) AnomalyDetectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.AnomalyDetectorArn }).(pulumi.StringOutput)
+}
+
+// ARN assigned to the alert.
+func (o AlertOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertInput)(nil)).Elem(), &Alert{})
 	pulumi.RegisterOutputType(AlertOutput{})

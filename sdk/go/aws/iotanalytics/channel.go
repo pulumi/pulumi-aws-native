@@ -110,6 +110,22 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+func (o ChannelOutput) ChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelOutput) ChannelStorage() ChannelStoragePtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelStoragePtrOutput { return v.ChannelStorage }).(ChannelStoragePtrOutput)
+}
+
+func (o ChannelOutput) RetentionPeriod() ChannelRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelRetentionPeriodPtrOutput { return v.RetentionPeriod }).(ChannelRetentionPeriodPtrOutput)
+}
+
+func (o ChannelOutput) Tags() ChannelTagArrayOutput {
+	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
 	pulumi.RegisterOutputType(ChannelOutput{})

@@ -127,6 +127,42 @@ func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+func (o ConfigRuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConfigRuleOutput) ComplianceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.ComplianceType }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleOutput) ConfigRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.ConfigRuleId }).(pulumi.StringOutput)
+}
+
+func (o ConfigRuleOutput) ConfigRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.ConfigRuleName }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleOutput) InputParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.AnyOutput { return v.InputParameters }).(pulumi.AnyOutput)
+}
+
+func (o ConfigRuleOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleOutput) Scope() ConfigRuleScopePtrOutput {
+	return o.ApplyT(func(v *ConfigRule) ConfigRuleScopePtrOutput { return v.Scope }).(ConfigRuleScopePtrOutput)
+}
+
+func (o ConfigRuleOutput) Source() ConfigRuleSourceOutput {
+	return o.ApplyT(func(v *ConfigRule) ConfigRuleSourceOutput { return v.Source }).(ConfigRuleSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleInput)(nil)).Elem(), &ConfigRule{})
 	pulumi.RegisterOutputType(ConfigRuleOutput{})

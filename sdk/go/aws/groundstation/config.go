@@ -113,6 +113,26 @@ func (o ConfigOutput) ToConfigOutputWithContext(ctx context.Context) ConfigOutpu
 	return o
 }
 
+func (o ConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConfigOutput) ConfigData() ConfigDataOutput {
+	return o.ApplyT(func(v *Config) ConfigDataOutput { return v.ConfigData }).(ConfigDataOutput)
+}
+
+func (o ConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConfigOutput) Tags() ConfigTagArrayOutput {
+	return o.ApplyT(func(v *Config) ConfigTagArrayOutput { return v.Tags }).(ConfigTagArrayOutput)
+}
+
+func (o ConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigInput)(nil)).Elem(), &Config{})
 	pulumi.RegisterOutputType(ConfigOutput{})

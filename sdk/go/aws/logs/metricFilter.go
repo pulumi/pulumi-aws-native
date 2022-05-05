@@ -119,6 +119,18 @@ func (o MetricFilterOutput) ToMetricFilterOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o MetricFilterOutput) FilterPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricFilter) pulumi.StringOutput { return v.FilterPattern }).(pulumi.StringOutput)
+}
+
+func (o MetricFilterOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricFilter) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o MetricFilterOutput) MetricTransformations() MetricFilterMetricTransformationArrayOutput {
+	return o.ApplyT(func(v *MetricFilter) MetricFilterMetricTransformationArrayOutput { return v.MetricTransformations }).(MetricFilterMetricTransformationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterInput)(nil)).Elem(), &MetricFilter{})
 	pulumi.RegisterOutputType(MetricFilterOutput{})

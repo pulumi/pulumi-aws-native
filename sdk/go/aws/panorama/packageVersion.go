@@ -132,6 +132,54 @@ func (o PackageVersionOutput) ToPackageVersionOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PackageVersionOutput) IsLatestPatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.BoolOutput { return v.IsLatestPatch }).(pulumi.BoolOutput)
+}
+
+func (o PackageVersionOutput) MarkLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.BoolPtrOutput { return v.MarkLatest }).(pulumi.BoolPtrOutput)
+}
+
+func (o PackageVersionOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
+}
+
+func (o PackageVersionOutput) PackageArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageArn }).(pulumi.StringOutput)
+}
+
+func (o PackageVersionOutput) PackageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
+}
+
+func (o PackageVersionOutput) PackageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
+}
+
+func (o PackageVersionOutput) PackageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PackageVersion }).(pulumi.StringOutput)
+}
+
+func (o PackageVersionOutput) PatchVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.PatchVersion }).(pulumi.StringOutput)
+}
+
+func (o PackageVersionOutput) RegisteredTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.IntOutput { return v.RegisteredTime }).(pulumi.IntOutput)
+}
+
+func (o PackageVersionOutput) Status() PackageVersionStatusOutput {
+	return o.ApplyT(func(v *PackageVersion) PackageVersionStatusOutput { return v.Status }).(PackageVersionStatusOutput)
+}
+
+func (o PackageVersionOutput) StatusDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringOutput { return v.StatusDescription }).(pulumi.StringOutput)
+}
+
+func (o PackageVersionOutput) UpdatedLatestPatchVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageVersion) pulumi.StringPtrOutput { return v.UpdatedLatestPatchVersion }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackageVersionInput)(nil)).Elem(), &PackageVersion{})
 	pulumi.RegisterOutputType(PackageVersionOutput{})

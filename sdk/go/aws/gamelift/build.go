@@ -112,6 +112,22 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
 }
 
+func (o BuildOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o BuildOutput) OperatingSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
+}
+
+func (o BuildOutput) StorageLocation() BuildS3LocationPtrOutput {
+	return o.ApplyT(func(v *Build) BuildS3LocationPtrOutput { return v.StorageLocation }).(BuildS3LocationPtrOutput)
+}
+
+func (o BuildOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildInput)(nil)).Elem(), &Build{})
 	pulumi.RegisterOutputType(BuildOutput{})

@@ -116,6 +116,20 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 	return o
 }
 
+func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationSetEventDestinationOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+		return v.EventDestination
+	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationInput)(nil)).Elem(), &ConfigurationSetEventDestination{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationOutput{})

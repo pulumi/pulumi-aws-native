@@ -120,6 +120,24 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
+// Schedule cron
+func (o ScheduleOutput) CronExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.CronExpression }).(pulumi.StringOutput)
+}
+
+func (o ScheduleOutput) JobNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringArrayOutput { return v.JobNames }).(pulumi.StringArrayOutput)
+}
+
+// Schedule Name
+func (o ScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ScheduleOutput) Tags() ScheduleTagArrayOutput {
+	return o.ApplyT(func(v *Schedule) ScheduleTagArrayOutput { return v.Tags }).(ScheduleTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleInput)(nil)).Elem(), &Schedule{})
 	pulumi.RegisterOutputType(ScheduleOutput{})

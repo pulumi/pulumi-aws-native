@@ -143,6 +143,54 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
+func (o AppOutput) AppSource() AppSourcePtrOutput {
+	return o.ApplyT(func(v *App) AppSourcePtrOutput { return v.AppSource }).(AppSourcePtrOutput)
+}
+
+func (o AppOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *App) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o AppOutput) DataSources() AppDataSourceArrayOutput {
+	return o.ApplyT(func(v *App) AppDataSourceArrayOutput { return v.DataSources }).(AppDataSourceArrayOutput)
+}
+
+func (o AppOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *App) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+func (o AppOutput) EnableSsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.BoolPtrOutput { return v.EnableSsl }).(pulumi.BoolPtrOutput)
+}
+
+func (o AppOutput) Environment() AppEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v *App) AppEnvironmentVariableArrayOutput { return v.Environment }).(AppEnvironmentVariableArrayOutput)
+}
+
+func (o AppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) Shortname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Shortname }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) SslConfiguration() AppSslConfigurationPtrOutput {
+	return o.ApplyT(func(v *App) AppSslConfigurationPtrOutput { return v.SslConfiguration }).(AppSslConfigurationPtrOutput)
+}
+
+func (o AppOutput) StackId() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppInput)(nil)).Elem(), &App{})
 	pulumi.RegisterOutputType(AppOutput{})

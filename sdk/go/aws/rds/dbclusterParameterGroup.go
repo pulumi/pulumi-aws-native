@@ -122,6 +122,22 @@ func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutputWithContex
 	return o
 }
 
+func (o DBClusterParameterGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o DBClusterParameterGroupOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
+}
+
+func (o DBClusterParameterGroupOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o DBClusterParameterGroupOutput) Tags() DBClusterParameterGroupTagArrayOutput {
+	return o.ApplyT(func(v *DBClusterParameterGroup) DBClusterParameterGroupTagArrayOutput { return v.Tags }).(DBClusterParameterGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupInput)(nil)).Elem(), &DBClusterParameterGroup{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupOutput{})

@@ -119,6 +119,18 @@ func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutp
 	return o
 }
 
+func (o UserPoolUserToGroupAttachmentOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+}
+
+func (o UserPoolUserToGroupAttachmentOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolUserToGroupAttachmentOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserToGroupAttachmentInput)(nil)).Elem(), &UserPoolUserToGroupAttachment{})
 	pulumi.RegisterOutputType(UserPoolUserToGroupAttachmentOutput{})

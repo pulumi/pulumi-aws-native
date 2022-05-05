@@ -166,6 +166,60 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
+func (o AuthorizerOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
+func (o AuthorizerOutput) AuthorizerCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerCredentials }).(pulumi.StringPtrOutput)
+}
+
+func (o AuthorizerOutput) AuthorizerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerId }).(pulumi.StringOutput)
+}
+
+// The TTL in seconds of cached authorizer results.
+func (o AuthorizerOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.IntPtrOutput { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the authorizer's Uniform Resource Identifier (URI).
+func (o AuthorizerOutput) AuthorizerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerUri }).(pulumi.StringPtrOutput)
+}
+
+// The identity source for which authorization is requested.
+func (o AuthorizerOutput) IdentitySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.IdentitySource }).(pulumi.StringPtrOutput)
+}
+
+// A validation expression for the incoming identity token.
+func (o AuthorizerOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
+}
+
+// The name of the authorizer.
+func (o AuthorizerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
+func (o AuthorizerOutput) ProviderARNs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringArrayOutput { return v.ProviderARNs }).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the API.
+func (o AuthorizerOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// The authorizer type.
+func (o AuthorizerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerInput)(nil)).Elem(), &Authorizer{})
 	pulumi.RegisterOutputType(AuthorizerOutput{})

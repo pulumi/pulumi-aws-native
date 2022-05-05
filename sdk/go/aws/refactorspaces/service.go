@@ -137,6 +137,51 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+func (o ServiceOutput) ApplicationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) EndpointType() ServiceEndpointTypePtrOutput {
+	return o.ApplyT(func(v *Service) ServiceEndpointTypePtrOutput { return v.EndpointType }).(ServiceEndpointTypePtrOutput)
+}
+
+func (o ServiceOutput) EnvironmentIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) LambdaEndpoint() ServiceLambdaEndpointInputPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceLambdaEndpointInputPtrOutput { return v.LambdaEndpoint }).(ServiceLambdaEndpointInputPtrOutput)
+}
+
+func (o ServiceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) ServiceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
+}
+
+// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+func (o ServiceOutput) Tags() ServiceTagArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+}
+
+func (o ServiceOutput) UrlEndpoint() ServiceUrlEndpointInputPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceUrlEndpointInputPtrOutput { return v.UrlEndpoint }).(ServiceUrlEndpointInputPtrOutput)
+}
+
+func (o ServiceOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInput)(nil)).Elem(), &Service{})
 	pulumi.RegisterOutputType(ServiceOutput{})

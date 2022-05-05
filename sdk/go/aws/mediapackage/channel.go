@@ -126,6 +126,36 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) assigned to the Channel.
+func (o ChannelOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A short text description of the Channel.
+func (o ChannelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The configuration parameters for egress access logging.
+func (o ChannelOutput) EgressAccessLogs() ChannelLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelLogConfigurationPtrOutput { return v.EgressAccessLogs }).(ChannelLogConfigurationPtrOutput)
+}
+
+// A short text description of the Channel.
+func (o ChannelOutput) HlsIngest() ChannelHlsIngestOutput {
+	return o.ApplyT(func(v *Channel) ChannelHlsIngestOutput { return v.HlsIngest }).(ChannelHlsIngestOutput)
+}
+
+// The configuration parameters for egress access logging.
+func (o ChannelOutput) IngressAccessLogs() ChannelLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelLogConfigurationPtrOutput { return v.IngressAccessLogs }).(ChannelLogConfigurationPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o ChannelOutput) Tags() ChannelTagArrayOutput {
+	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
 	pulumi.RegisterOutputType(ChannelOutput{})

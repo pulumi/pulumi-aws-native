@@ -113,6 +113,14 @@ func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssocia
 	return o
 }
 
+func (o ClientVpnTargetNetworkAssociationOutput) ClientVpnEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnTargetNetworkAssociation) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnTargetNetworkAssociationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnTargetNetworkAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnTargetNetworkAssociationInput)(nil)).Elem(), &ClientVpnTargetNetworkAssociation{})
 	pulumi.RegisterOutputType(ClientVpnTargetNetworkAssociationOutput{})

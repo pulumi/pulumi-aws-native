@@ -128,6 +128,31 @@ func (o CustomMetricOutput) ToCustomMetricOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
+func (o CustomMetricOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomMetric) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Number (ARN) of the custom metric.
+func (o CustomMetricOutput) MetricArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomMetric) pulumi.StringOutput { return v.MetricArn }).(pulumi.StringOutput)
+}
+
+// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
+func (o CustomMetricOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomMetric) pulumi.StringPtrOutput { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
+func (o CustomMetricOutput) MetricType() CustomMetricMetricTypeOutput {
+	return o.ApplyT(func(v *CustomMetric) CustomMetricMetricTypeOutput { return v.MetricType }).(CustomMetricMetricTypeOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o CustomMetricOutput) Tags() CustomMetricTagArrayOutput {
+	return o.ApplyT(func(v *CustomMetric) CustomMetricTagArrayOutput { return v.Tags }).(CustomMetricTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricInput)(nil)).Elem(), &CustomMetric{})
 	pulumi.RegisterOutputType(CustomMetricOutput{})

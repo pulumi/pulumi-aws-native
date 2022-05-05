@@ -106,6 +106,14 @@ func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CachePolicyOutput) CachePolicyConfig() CachePolicyConfigOutput {
+	return o.ApplyT(func(v *CachePolicy) CachePolicyConfigOutput { return v.CachePolicyConfig }).(CachePolicyConfigOutput)
+}
+
+func (o CachePolicyOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyInput)(nil)).Elem(), &CachePolicy{})
 	pulumi.RegisterOutputType(CachePolicyOutput{})

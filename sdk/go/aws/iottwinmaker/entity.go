@@ -154,6 +154,66 @@ func (o EntityOutput) ToEntityOutputWithContext(ctx context.Context) EntityOutpu
 	return o
 }
 
+// The ARN of the entity.
+func (o EntityOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A map that sets information about a component type.
+func (o EntityOutput) Components() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.Components }).(pulumi.AnyOutput)
+}
+
+// The date and time when the entity was created.
+func (o EntityOutput) CreationDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringOutput { return v.CreationDateTime }).(pulumi.StringOutput)
+}
+
+// The description of the entity.
+func (o EntityOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the entity.
+func (o EntityOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringPtrOutput { return v.EntityId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the entity.
+func (o EntityOutput) EntityName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
+}
+
+// A Boolean value that specifies whether the entity has child entities or not.
+func (o EntityOutput) HasChildEntities() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Entity) pulumi.BoolOutput { return v.HasChildEntities }).(pulumi.BoolOutput)
+}
+
+// The ID of the parent entity.
+func (o EntityOutput) ParentEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringPtrOutput { return v.ParentEntityId }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the entity.
+func (o EntityOutput) Status() EntityStatusOutput {
+	return o.ApplyT(func(v *Entity) EntityStatusOutput { return v.Status }).(EntityStatusOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o EntityOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The last date and time when the entity was updated.
+func (o EntityOutput) UpdateDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringOutput { return v.UpdateDateTime }).(pulumi.StringOutput)
+}
+
+// The ID of the workspace.
+func (o EntityOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityInput)(nil)).Elem(), &Entity{})
 	pulumi.RegisterOutputType(EntityOutput{})

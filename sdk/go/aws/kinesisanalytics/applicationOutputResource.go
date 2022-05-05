@@ -113,6 +113,14 @@ func (o ApplicationOutputResourceOutput) ToApplicationOutputResourceOutputWithCo
 	return o
 }
 
+func (o ApplicationOutputResourceOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationOutputResource) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutputResourceOutput) Output() ApplicationOutputResourceOutputTypeOutput {
+	return o.ApplyT(func(v *ApplicationOutputResource) ApplicationOutputResourceOutputTypeOutput { return v.Output }).(ApplicationOutputResourceOutputTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceInput)(nil)).Elem(), &ApplicationOutputResource{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceOutput{})

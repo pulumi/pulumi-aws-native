@@ -115,6 +115,11 @@ func (o ExtensionResourceOutput) ToExtensionResourceOutputWithContext(ctx contex
 	return o
 }
 
+// Dictionary of the extension resource attributes.
+func (o ExtensionResourceOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *ExtensionResource) pulumi.MapOutput { return v.Outputs }).(pulumi.MapOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionResourceInput)(nil)).Elem(), &ExtensionResource{})
 	pulumi.RegisterOutputType(ExtensionResourceOutput{})

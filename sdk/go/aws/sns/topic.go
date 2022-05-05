@@ -121,6 +121,34 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
+func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) FifoTopic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.FifoTopic }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) Subscription() TopicSubscriptionArrayOutput {
+	return o.ApplyT(func(v *Topic) TopicSubscriptionArrayOutput { return v.Subscription }).(TopicSubscriptionArrayOutput)
+}
+
+func (o TopicOutput) Tags() TopicTagArrayOutput {
+	return o.ApplyT(func(v *Topic) TopicTagArrayOutput { return v.Tags }).(TopicTagArrayOutput)
+}
+
+func (o TopicOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TopicName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicInput)(nil)).Elem(), &Topic{})
 	pulumi.RegisterOutputType(TopicOutput{})

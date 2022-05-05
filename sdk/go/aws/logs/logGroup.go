@@ -124,6 +124,31 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 	return o
 }
 
+// The CloudWatch log group ARN.
+func (o LogGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
+func (o LogGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
+func (o LogGroupOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+func (o LogGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LogGroupOutput) Tags() LogGroupTagArrayOutput {
+	return o.ApplyT(func(v *LogGroup) LogGroupTagArrayOutput { return v.Tags }).(LogGroupTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupInput)(nil)).Elem(), &LogGroup{})
 	pulumi.RegisterOutputType(LogGroupOutput{})

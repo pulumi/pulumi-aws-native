@@ -138,6 +138,50 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+func (o UserOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) HomeDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.HomeDirectory }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) HomeDirectoryMappings() UserHomeDirectoryMapEntryArrayOutput {
+	return o.ApplyT(func(v *User) UserHomeDirectoryMapEntryArrayOutput { return v.HomeDirectoryMappings }).(UserHomeDirectoryMapEntryArrayOutput)
+}
+
+func (o UserOutput) HomeDirectoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.HomeDirectoryType }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) PosixProfile() UserPosixProfilePtrOutput {
+	return o.ApplyT(func(v *User) UserPosixProfilePtrOutput { return v.PosixProfile }).(UserPosixProfilePtrOutput)
+}
+
+func (o UserOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) ServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) SshPublicKeys() UserSshPublicKeyArrayOutput {
+	return o.ApplyT(func(v *User) UserSshPublicKeyArrayOutput { return v.SshPublicKeys }).(UserSshPublicKeyArrayOutput)
+}
+
+func (o UserOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+}
+
+func (o UserOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
 	pulumi.RegisterOutputType(UserOutput{})

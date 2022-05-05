@@ -140,6 +140,43 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// TaskDefinition arn. Returned after successful create.
+func (o TaskDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
+func (o TaskDefinitionOutput) AutoCreateTasks() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolOutput { return v.AutoCreateTasks }).(pulumi.BoolOutput)
+}
+
+// The list of task definitions.
+func (o TaskDefinitionOutput) LoRaWANUpdateGatewayTaskEntry() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
+		return v.LoRaWANUpdateGatewayTaskEntry
+	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
+}
+
+// The name of the new resource.
+func (o TaskDefinitionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the destination.
+func (o TaskDefinitionOutput) Tags() TaskDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionTagArrayOutput { return v.Tags }).(TaskDefinitionTagArrayOutput)
+}
+
+// A filter to list only the wireless gateway task definitions that use this task definition type
+func (o TaskDefinitionOutput) TaskDefinitionType() TaskDefinitionTypePtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionTypePtrOutput { return v.TaskDefinitionType }).(TaskDefinitionTypePtrOutput)
+}
+
+// Information about the gateways to update.
+func (o TaskDefinitionOutput) Update() TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput { return v.Update }).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInput)(nil)).Elem(), &TaskDefinition{})
 	pulumi.RegisterOutputType(TaskDefinitionOutput{})

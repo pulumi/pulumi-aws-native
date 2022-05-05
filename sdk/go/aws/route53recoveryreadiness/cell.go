@@ -120,6 +120,31 @@ func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the cell.
+func (o CellOutput) CellArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.CellArn }).(pulumi.StringOutput)
+}
+
+// The name of the cell to create.
+func (o CellOutput) CellName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.CellName }).(pulumi.StringOutput)
+}
+
+// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
+func (o CellOutput) Cells() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cell) pulumi.StringArrayOutput { return v.Cells }).(pulumi.StringArrayOutput)
+}
+
+// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+func (o CellOutput) ParentReadinessScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cell) pulumi.StringArrayOutput { return v.ParentReadinessScopes }).(pulumi.StringArrayOutput)
+}
+
+// A collection of tags associated with a resource
+func (o CellOutput) Tags() CellTagArrayOutput {
+	return o.ApplyT(func(v *Cell) CellTagArrayOutput { return v.Tags }).(CellTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CellInput)(nil)).Elem(), &Cell{})
 	pulumi.RegisterOutputType(CellOutput{})

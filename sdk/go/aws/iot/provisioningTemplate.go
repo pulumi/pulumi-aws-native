@@ -127,6 +127,40 @@ func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx 
 	return o
 }
 
+func (o ProvisioningTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ProvisioningTemplateOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProvisioningTemplateOutput) PreProvisioningHook() ProvisioningTemplateProvisioningHookPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) ProvisioningTemplateProvisioningHookPtrOutput {
+		return v.PreProvisioningHook
+	}).(ProvisioningTemplateProvisioningHookPtrOutput)
+}
+
+func (o ProvisioningTemplateOutput) ProvisioningRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.ProvisioningRoleArn }).(pulumi.StringOutput)
+}
+
+func (o ProvisioningTemplateOutput) Tags() ProvisioningTemplateTagArrayOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) ProvisioningTemplateTagArrayOutput { return v.Tags }).(ProvisioningTemplateTagArrayOutput)
+}
+
+func (o ProvisioningTemplateOutput) TemplateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.TemplateArn }).(pulumi.StringOutput)
+}
+
+func (o ProvisioningTemplateOutput) TemplateBody() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.TemplateBody }).(pulumi.StringOutput)
+}
+
+func (o ProvisioningTemplateOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringPtrOutput { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateInput)(nil)).Elem(), &ProvisioningTemplate{})
 	pulumi.RegisterOutputType(ProvisioningTemplateOutput{})

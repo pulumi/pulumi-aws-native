@@ -117,6 +117,18 @@ func (o ApplicationEntitlementAssociationOutput) ToApplicationEntitlementAssocia
 	return o
 }
 
+func (o ApplicationEntitlementAssociationOutput) ApplicationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationEntitlementAssociation) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ApplicationEntitlementAssociationOutput) EntitlementName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationEntitlementAssociation) pulumi.StringOutput { return v.EntitlementName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationEntitlementAssociationOutput) StackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationEntitlementAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEntitlementAssociationInput)(nil)).Elem(), &ApplicationEntitlementAssociation{})
 	pulumi.RegisterOutputType(ApplicationEntitlementAssociationOutput{})

@@ -132,6 +132,35 @@ func (o TransitGatewayVpcAttachmentOutput) ToTransitGatewayVpcAttachmentOutputWi
 	return o
 }
 
+func (o TransitGatewayVpcAttachmentOutput) AddSubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.AddSubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The options for the transit gateway vpc attachment.
+func (o TransitGatewayVpcAttachmentOutput) Options() OptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) OptionsPropertiesPtrOutput { return v.Options }).(OptionsPropertiesPtrOutput)
+}
+
+func (o TransitGatewayVpcAttachmentOutput) RemoveSubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.RemoveSubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o TransitGatewayVpcAttachmentOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o TransitGatewayVpcAttachmentOutput) Tags() TransitGatewayVpcAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) TransitGatewayVpcAttachmentTagArrayOutput { return v.Tags }).(TransitGatewayVpcAttachmentTagArrayOutput)
+}
+
+func (o TransitGatewayVpcAttachmentOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayVpcAttachmentOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayVpcAttachmentInput)(nil)).Elem(), &TransitGatewayVpcAttachment{})
 	pulumi.RegisterOutputType(TransitGatewayVpcAttachmentOutput{})

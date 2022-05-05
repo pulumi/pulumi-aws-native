@@ -139,6 +139,58 @@ func (o DBInstanceOutput) ToDBInstanceOutputWithContext(ctx context.Context) DBI
 	return o
 }
 
+func (o DBInstanceOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.AllowMajorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o DBInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o DBInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) DBInstanceClass() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBInstanceClass }).(pulumi.StringOutput)
+}
+
+func (o DBInstanceOutput) DBInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBInstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) DBParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) DBSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSnapshotIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o DBInstanceOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.Port }).(pulumi.StringOutput)
+}
+
+func (o DBInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o DBInstanceOutput) Tags() DBInstanceTagArrayOutput {
+	return o.ApplyT(func(v *DBInstance) DBInstanceTagArrayOutput { return v.Tags }).(DBInstanceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceInput)(nil)).Elem(), &DBInstance{})
 	pulumi.RegisterOutputType(DBInstanceOutput{})

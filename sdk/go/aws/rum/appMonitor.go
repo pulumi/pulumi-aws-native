@@ -126,6 +126,29 @@ func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) App
 	return o
 }
 
+func (o AppMonitorOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorConfigurationPtrOutput { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
+}
+
+// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
+func (o AppMonitorOutput) CwLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.BoolPtrOutput { return v.CwLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The top-level internet domain name for which your application has administrative authority.
+func (o AppMonitorOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+// A name for the app monitor
+func (o AppMonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppMonitorOutput) Tags() AppMonitorTagArrayOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorTagArrayOutput { return v.Tags }).(AppMonitorTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorInput)(nil)).Elem(), &AppMonitor{})
 	pulumi.RegisterOutputType(AppMonitorOutput{})

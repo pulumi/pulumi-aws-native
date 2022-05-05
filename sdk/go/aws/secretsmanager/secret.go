@@ -121,6 +121,34 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
+func (o SecretOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecretOutput) GenerateSecretString() SecretGenerateSecretStringPtrOutput {
+	return o.ApplyT(func(v *Secret) SecretGenerateSecretStringPtrOutput { return v.GenerateSecretString }).(SecretGenerateSecretStringPtrOutput)
+}
+
+func (o SecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecretOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SecretOutput) ReplicaRegions() SecretReplicaRegionArrayOutput {
+	return o.ApplyT(func(v *Secret) SecretReplicaRegionArrayOutput { return v.ReplicaRegions }).(SecretReplicaRegionArrayOutput)
+}
+
+func (o SecretOutput) SecretString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.SecretString }).(pulumi.StringPtrOutput)
+}
+
+func (o SecretOutput) Tags() SecretTagArrayOutput {
+	return o.ApplyT(func(v *Secret) SecretTagArrayOutput { return v.Tags }).(SecretTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretInput)(nil)).Elem(), &Secret{})
 	pulumi.RegisterOutputType(SecretOutput{})

@@ -135,6 +135,58 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+func (o ChannelOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ChannelOutput) CdiInputSpecification() ChannelCdiInputSpecificationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelCdiInputSpecificationPtrOutput { return v.CdiInputSpecification }).(ChannelCdiInputSpecificationPtrOutput)
+}
+
+func (o ChannelOutput) ChannelClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelClass }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelOutput) Destinations() ChannelOutputDestinationArrayOutput {
+	return o.ApplyT(func(v *Channel) ChannelOutputDestinationArrayOutput { return v.Destinations }).(ChannelOutputDestinationArrayOutput)
+}
+
+func (o ChannelOutput) EncoderSettings() ChannelEncoderSettingsPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelEncoderSettingsPtrOutput { return v.EncoderSettings }).(ChannelEncoderSettingsPtrOutput)
+}
+
+func (o ChannelOutput) InputAttachments() ChannelInputAttachmentArrayOutput {
+	return o.ApplyT(func(v *Channel) ChannelInputAttachmentArrayOutput { return v.InputAttachments }).(ChannelInputAttachmentArrayOutput)
+}
+
+func (o ChannelOutput) InputSpecification() ChannelInputSpecificationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelInputSpecificationPtrOutput { return v.InputSpecification }).(ChannelInputSpecificationPtrOutput)
+}
+
+func (o ChannelOutput) Inputs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.Inputs }).(pulumi.StringArrayOutput)
+}
+
+func (o ChannelOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Channel) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o ChannelOutput) Vpc() ChannelVpcOutputSettingsPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelVpcOutputSettingsPtrOutput { return v.Vpc }).(ChannelVpcOutputSettingsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
 	pulumi.RegisterOutputType(ChannelOutput{})

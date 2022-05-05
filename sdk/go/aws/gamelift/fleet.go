@@ -241,6 +241,124 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+func (o FleetOutput) BuildId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.BuildId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
+func (o FleetOutput) CertificateConfiguration() FleetCertificateConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetCertificateConfigurationPtrOutput { return v.CertificateConfiguration }).(FleetCertificateConfigurationPtrOutput)
+}
+
+// A human-readable description of a fleet.
+func (o FleetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
+func (o FleetOutput) DesiredEC2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.DesiredEC2Instances }).(pulumi.IntPtrOutput)
+}
+
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+func (o FleetOutput) EC2InboundPermissions() FleetIpPermissionArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetIpPermissionArrayOutput { return v.EC2InboundPermissions }).(FleetIpPermissionArrayOutput)
+}
+
+// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+func (o FleetOutput) EC2InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.EC2InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Unique fleet ID
+func (o FleetOutput) FleetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
+}
+
+// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+func (o FleetOutput) FleetType() FleetTypePtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetTypePtrOutput { return v.FleetType }).(FleetTypePtrOutput)
+}
+
+// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
+func (o FleetOutput) InstanceRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.InstanceRoleARN }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetOutput) Locations() FleetLocationConfigurationArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetLocationConfigurationArrayOutput { return v.Locations }).(FleetLocationConfigurationArrayOutput)
+}
+
+// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
+func (o FleetOutput) LogPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringArrayOutput { return v.LogPaths }).(pulumi.StringArrayOutput)
+}
+
+// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+func (o FleetOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
+func (o FleetOutput) MetricGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringArrayOutput { return v.MetricGroups }).(pulumi.StringArrayOutput)
+}
+
+// [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+func (o FleetOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
+}
+
+// A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+func (o FleetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+func (o FleetOutput) NewGameSessionProtectionPolicy() FleetNewGameSessionProtectionPolicyPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetNewGameSessionProtectionPolicyPtrOutput { return v.NewGameSessionProtectionPolicy }).(FleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
+func (o FleetOutput) PeerVpcAwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.PeerVpcAwsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
+func (o FleetOutput) PeerVpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.PeerVpcId }).(pulumi.StringPtrOutput)
+}
+
+// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+func (o FleetOutput) ResourceCreationLimitPolicy() FleetResourceCreationLimitPolicyPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetResourceCreationLimitPolicyPtrOutput { return v.ResourceCreationLimitPolicy }).(FleetResourceCreationLimitPolicyPtrOutput)
+}
+
+// Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
+//
+// This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
+func (o FleetOutput) RuntimeConfiguration() FleetRuntimeConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetRuntimeConfigurationPtrOutput { return v.RuntimeConfiguration }).(FleetRuntimeConfigurationPtrOutput)
+}
+
+// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
+//
+// Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
+func (o FleetOutput) ScriptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ScriptId }).(pulumi.StringPtrOutput)
+}
+
+// This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
+func (o FleetOutput) ServerLaunchParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ServerLaunchParameters }).(pulumi.StringPtrOutput)
+}
+
+// This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+func (o FleetOutput) ServerLaunchPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ServerLaunchPath }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetInput)(nil)).Elem(), &Fleet{})
 	pulumi.RegisterOutputType(FleetOutput{})

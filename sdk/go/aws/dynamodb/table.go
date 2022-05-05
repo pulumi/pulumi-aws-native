@@ -151,6 +151,78 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+func (o TableOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o TableOutput) AttributeDefinitions() TableAttributeDefinitionArrayOutput {
+	return o.ApplyT(func(v *Table) TableAttributeDefinitionArrayOutput { return v.AttributeDefinitions }).(TableAttributeDefinitionArrayOutput)
+}
+
+func (o TableOutput) BillingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
+}
+
+func (o TableOutput) ContributorInsightsSpecification() TableContributorInsightsSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableContributorInsightsSpecificationPtrOutput {
+		return v.ContributorInsightsSpecification
+	}).(TableContributorInsightsSpecificationPtrOutput)
+}
+
+func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
+}
+
+func (o TableOutput) KeySchema() TableKeySchemaArrayOutput {
+	return o.ApplyT(func(v *Table) TableKeySchemaArrayOutput { return v.KeySchema }).(TableKeySchemaArrayOutput)
+}
+
+func (o TableOutput) KinesisStreamSpecification() TableKinesisStreamSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableKinesisStreamSpecificationPtrOutput { return v.KinesisStreamSpecification }).(TableKinesisStreamSpecificationPtrOutput)
+}
+
+func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v *Table) TableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(TableLocalSecondaryIndexArrayOutput)
+}
+
+func (o TableOutput) PointInTimeRecoverySpecification() TablePointInTimeRecoverySpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TablePointInTimeRecoverySpecificationPtrOutput {
+		return v.PointInTimeRecoverySpecification
+	}).(TablePointInTimeRecoverySpecificationPtrOutput)
+}
+
+func (o TableOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v *Table) TableProvisionedThroughputPtrOutput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
+}
+
+func (o TableOutput) SSESpecification() TableSSESpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableSSESpecificationPtrOutput { return v.SSESpecification }).(TableSSESpecificationPtrOutput)
+}
+
+func (o TableOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+func (o TableOutput) StreamSpecification() TableStreamSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableStreamSpecificationPtrOutput { return v.StreamSpecification }).(TableStreamSpecificationPtrOutput)
+}
+
+func (o TableOutput) TableClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.TableClass }).(pulumi.StringPtrOutput)
+}
+
+func (o TableOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+func (o TableOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
+}
+
+func (o TableOutput) TimeToLiveSpecification() TableTimeToLiveSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(TableTimeToLiveSpecificationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableInput)(nil)).Elem(), &Table{})
 	pulumi.RegisterOutputType(TableOutput{})

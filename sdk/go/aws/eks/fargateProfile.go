@@ -139,6 +139,38 @@ func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o FargateProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Name of the Cluster
+func (o FargateProfileOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Name of FargateProfile
+func (o FargateProfileOutput) FargateProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringPtrOutput { return v.FargateProfileName }).(pulumi.StringPtrOutput)
+}
+
+// The IAM policy arn for pods
+func (o FargateProfileOutput) PodExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+func (o FargateProfileOutput) Selectors() FargateProfileSelectorArrayOutput {
+	return o.ApplyT(func(v *FargateProfile) FargateProfileSelectorArrayOutput { return v.Selectors }).(FargateProfileSelectorArrayOutput)
+}
+
+func (o FargateProfileOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FargateProfile) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o FargateProfileOutput) Tags() FargateProfileTagArrayOutput {
+	return o.ApplyT(func(v *FargateProfile) FargateProfileTagArrayOutput { return v.Tags }).(FargateProfileTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileInput)(nil)).Elem(), &FargateProfile{})
 	pulumi.RegisterOutputType(FargateProfileOutput{})

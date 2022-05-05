@@ -120,6 +120,42 @@ func (o PricingPlanOutput) ToPricingPlanOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// Pricing Plan ARN
+func (o PricingPlanOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Creation timestamp in UNIX epoch time format
+func (o PricingPlanOutput) CreationTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.IntOutput { return v.CreationTime }).(pulumi.IntOutput)
+}
+
+func (o PricingPlanOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Latest modified timestamp in UNIX epoch time format
+func (o PricingPlanOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.IntOutput { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+func (o PricingPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PricingPlanOutput) PricingRuleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.StringArrayOutput { return v.PricingRuleArns }).(pulumi.StringArrayOutput)
+}
+
+// Number of associated pricing rules
+func (o PricingPlanOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v *PricingPlan) pulumi.IntOutput { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o PricingPlanOutput) Tags() PricingPlanTagArrayOutput {
+	return o.ApplyT(func(v *PricingPlan) PricingPlanTagArrayOutput { return v.Tags }).(PricingPlanTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingPlanInput)(nil)).Elem(), &PricingPlan{})
 	pulumi.RegisterOutputType(PricingPlanOutput{})

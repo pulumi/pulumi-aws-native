@@ -168,6 +168,72 @@ func (o VPCOutput) ToVPCOutputWithContext(ctx context.Context) VPCOutput {
 	return o
 }
 
+// The primary IPv4 CIDR block for the VPC.
+func (o VPCOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// A list of IPv4 CIDR block association IDs for the VPC.
+func (o VPCOutput) CidrBlockAssociations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringArrayOutput { return v.CidrBlockAssociations }).(pulumi.StringArrayOutput)
+}
+
+// The default network ACL ID that is associated with the VPC.
+func (o VPCOutput) DefaultNetworkAcl() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringOutput { return v.DefaultNetworkAcl }).(pulumi.StringOutput)
+}
+
+// The default security group ID that is associated with the VPC.
+func (o VPCOutput) DefaultSecurityGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringOutput { return v.DefaultSecurityGroup }).(pulumi.StringOutput)
+}
+
+// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+func (o VPCOutput) EnableDnsHostnames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPC) pulumi.BoolPtrOutput { return v.EnableDnsHostnames }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+func (o VPCOutput) EnableDnsSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPC) pulumi.BoolPtrOutput { return v.EnableDnsSupport }).(pulumi.BoolPtrOutput)
+}
+
+// The allowed tenancy of instances launched into the VPC.
+//
+// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+//
+// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+//
+// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+func (o VPCOutput) InstanceTenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringPtrOutput { return v.InstanceTenancy }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+func (o VPCOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+func (o VPCOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VPC) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// A list of IPv6 CIDR blocks that are associated with the VPC.
+func (o VPCOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringArrayOutput { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// The tags for the VPC.
+func (o VPCOutput) Tags() VPCTagArrayOutput {
+	return o.ApplyT(func(v *VPC) VPCTagArrayOutput { return v.Tags }).(VPCTagArrayOutput)
+}
+
+// The Id for the model.
+func (o VPCOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPC) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCInput)(nil)).Elem(), &VPC{})
 	pulumi.RegisterOutputType(VPCOutput{})

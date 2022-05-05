@@ -106,6 +106,14 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ByteMatchSetOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOutput {
+	return o.ApplyT(func(v *ByteMatchSet) ByteMatchSetByteMatchTupleArrayOutput { return v.ByteMatchTuples }).(ByteMatchSetByteMatchTupleArrayOutput)
+}
+
+func (o ByteMatchSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetInput)(nil)).Elem(), &ByteMatchSet{})
 	pulumi.RegisterOutputType(ByteMatchSetOutput{})

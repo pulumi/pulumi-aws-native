@@ -140,6 +140,41 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
+// The ID of the associated Domain.
+func (o UserProfileOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+// A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+func (o UserProfileOutput) SingleSignOnUserIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SingleSignOnUserIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+func (o UserProfileOutput) SingleSignOnUserValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SingleSignOnUserValue }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to apply to the user profile.
+func (o UserProfileOutput) Tags() UserProfileTagArrayOutput {
+	return o.ApplyT(func(v *UserProfile) UserProfileTagArrayOutput { return v.Tags }).(UserProfileTagArrayOutput)
+}
+
+// The user profile Amazon Resource Name (ARN).
+func (o UserProfileOutput) UserProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserProfileArn }).(pulumi.StringOutput)
+}
+
+// A name for the UserProfile.
+func (o UserProfileOutput) UserProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserProfileName }).(pulumi.StringOutput)
+}
+
+// A collection of settings.
+func (o UserProfileOutput) UserSettings() UserProfileUserSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfile) UserProfileUserSettingsPtrOutput { return v.UserSettings }).(UserProfileUserSettingsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileInput)(nil)).Elem(), &UserProfile{})
 	pulumi.RegisterOutputType(UserProfileOutput{})

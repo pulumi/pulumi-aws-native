@@ -191,6 +191,81 @@ func (o FlowOutputResourceOutput) ToFlowOutputResourceOutputWithContext(ctx cont
 	return o
 }
 
+// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+func (o FlowOutputResourceOutput) CidrAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringArrayOutput { return v.CidrAllowList }).(pulumi.StringArrayOutput)
+}
+
+// A description of the output.
+func (o FlowOutputResourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The address where you want to send the output.
+func (o FlowOutputResourceOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+func (o FlowOutputResourceOutput) Encryption() FlowOutputEncryptionPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputEncryptionPtrOutput { return v.Encryption }).(FlowOutputEncryptionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+func (o FlowOutputResourceOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+func (o FlowOutputResourceOutput) MaxLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.MaxLatency }).(pulumi.IntPtrOutput)
+}
+
+// The minimum latency in milliseconds.
+func (o FlowOutputResourceOutput) MinLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.MinLatency }).(pulumi.IntPtrOutput)
+}
+
+// The name of the output. This value must be unique within the current flow.
+func (o FlowOutputResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the output.
+func (o FlowOutputResourceOutput) OutputArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringOutput { return v.OutputArn }).(pulumi.StringOutput)
+}
+
+// The port to use when content is distributed to this output.
+func (o FlowOutputResourceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The protocol that is used by the source or output.
+func (o FlowOutputResourceOutput) Protocol() FlowOutputProtocolOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputProtocolOutput { return v.Protocol }).(FlowOutputProtocolOutput)
+}
+
+// The remote ID for the Zixi-pull stream.
+func (o FlowOutputResourceOutput) RemoteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.RemoteId }).(pulumi.StringPtrOutput)
+}
+
+// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+func (o FlowOutputResourceOutput) SmoothingLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.SmoothingLatency }).(pulumi.IntPtrOutput)
+}
+
+// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+func (o FlowOutputResourceOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the VPC interface attachment to use for this output.
+func (o FlowOutputResourceOutput) VpcInterfaceAttachment() FlowOutputVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputVpcInterfaceAttachmentPtrOutput { return v.VpcInterfaceAttachment }).(FlowOutputVpcInterfaceAttachmentPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputResourceInput)(nil)).Elem(), &FlowOutputResource{})
 	pulumi.RegisterOutputType(FlowOutputResourceOutput{})

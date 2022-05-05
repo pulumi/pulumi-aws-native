@@ -122,6 +122,22 @@ func (o StackUserAssociationOutput) ToStackUserAssociationOutputWithContext(ctx 
 	return o
 }
 
+func (o StackUserAssociationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackUserAssociation) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o StackUserAssociationOutput) SendEmailNotification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackUserAssociation) pulumi.BoolPtrOutput { return v.SendEmailNotification }).(pulumi.BoolPtrOutput)
+}
+
+func (o StackUserAssociationOutput) StackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackUserAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
+}
+
+func (o StackUserAssociationOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackUserAssociation) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserAssociationInput)(nil)).Elem(), &StackUserAssociation{})
 	pulumi.RegisterOutputType(StackUserAssociationOutput{})

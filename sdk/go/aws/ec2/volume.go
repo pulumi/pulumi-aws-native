@@ -140,6 +140,54 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+func (o VolumeOutput) AutoEnableIO() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AutoEnableIO }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOutput) MultiAttachEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.MultiAttachEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOutput) Tags() VolumeTagArrayOutput {
+	return o.ApplyT(func(v *Volume) VolumeTagArrayOutput { return v.Tags }).(VolumeTagArrayOutput)
+}
+
+func (o VolumeOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+func (o VolumeOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeInput)(nil)).Elem(), &Volume{})
 	pulumi.RegisterOutputType(VolumeOutput{})

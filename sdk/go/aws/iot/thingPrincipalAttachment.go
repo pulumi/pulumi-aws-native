@@ -113,6 +113,14 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithCont
 	return o
 }
 
+func (o ThingPrincipalAttachmentOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+func (o ThingPrincipalAttachmentOutput) ThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.ThingName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentInput)(nil)).Elem(), &ThingPrincipalAttachment{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentOutput{})

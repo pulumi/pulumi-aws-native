@@ -118,6 +118,26 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the readiness check.
+func (o ReadinessCheckOutput) ReadinessCheckArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.ReadinessCheckArn }).(pulumi.StringOutput)
+}
+
+// Name of the ReadinessCheck to create.
+func (o ReadinessCheckOutput) ReadinessCheckName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.ReadinessCheckName }).(pulumi.StringOutput)
+}
+
+// The name of the resource set to check.
+func (o ReadinessCheckOutput) ResourceSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringPtrOutput { return v.ResourceSetName }).(pulumi.StringPtrOutput)
+}
+
+// A collection of tags associated with a resource.
+func (o ReadinessCheckOutput) Tags() ReadinessCheckTagArrayOutput {
+	return o.ApplyT(func(v *ReadinessCheck) ReadinessCheckTagArrayOutput { return v.Tags }).(ReadinessCheckTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckInput)(nil)).Elem(), &ReadinessCheck{})
 	pulumi.RegisterOutputType(ReadinessCheckOutput{})

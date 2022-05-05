@@ -106,6 +106,14 @@ func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return o
 }
 
+func (o ThingOutput) AttributePayload() ThingAttributePayloadPtrOutput {
+	return o.ApplyT(func(v *Thing) ThingAttributePayloadPtrOutput { return v.AttributePayload }).(ThingAttributePayloadPtrOutput)
+}
+
+func (o ThingOutput) ThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Thing) pulumi.StringPtrOutput { return v.ThingName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingInput)(nil)).Elem(), &Thing{})
 	pulumi.RegisterOutputType(ThingOutput{})

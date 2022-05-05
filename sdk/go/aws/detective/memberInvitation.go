@@ -138,6 +138,31 @@ func (o MemberInvitationOutput) ToMemberInvitationOutputWithContext(ctx context.
 	return o
 }
 
+// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
+func (o MemberInvitationOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MemberInvitation) pulumi.BoolPtrOutput { return v.DisableEmailNotification }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the graph to which the member account will be invited
+func (o MemberInvitationOutput) GraphArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberInvitation) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
+}
+
+// The root email address for the account to be invited, for validation. Updating this field has no effect.
+func (o MemberInvitationOutput) MemberEmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberInvitation) pulumi.StringOutput { return v.MemberEmailAddress }).(pulumi.StringOutput)
+}
+
+// The AWS account ID to be invited to join the graph as a member
+func (o MemberInvitationOutput) MemberId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberInvitation) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
+}
+
+// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
+func (o MemberInvitationOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberInvitation) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberInvitationInput)(nil)).Elem(), &MemberInvitation{})
 	pulumi.RegisterOutputType(MemberInvitationOutput{})

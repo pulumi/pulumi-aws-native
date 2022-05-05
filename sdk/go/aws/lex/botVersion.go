@@ -115,6 +115,22 @@ func (o BotVersionOutput) ToBotVersionOutputWithContext(ctx context.Context) Bot
 	return o
 }
 
+func (o BotVersionOutput) BotId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotVersion) pulumi.StringOutput { return v.BotId }).(pulumi.StringOutput)
+}
+
+func (o BotVersionOutput) BotVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotVersion) pulumi.StringOutput { return v.BotVersion }).(pulumi.StringOutput)
+}
+
+func (o BotVersionOutput) BotVersionLocaleSpecification() BotVersionLocaleSpecificationArrayOutput {
+	return o.ApplyT(func(v *BotVersion) BotVersionLocaleSpecificationArrayOutput { return v.BotVersionLocaleSpecification }).(BotVersionLocaleSpecificationArrayOutput)
+}
+
+func (o BotVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionInput)(nil)).Elem(), &BotVersion{})
 	pulumi.RegisterOutputType(BotVersionOutput{})

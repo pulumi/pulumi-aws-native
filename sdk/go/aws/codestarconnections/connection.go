@@ -128,6 +128,41 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
+func (o ConnectionOutput) ConnectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionArn }).(pulumi.StringOutput)
+}
+
+// The name of the connection. Connection names must be unique in an AWS user account.
+func (o ConnectionOutput) ConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionName }).(pulumi.StringOutput)
+}
+
+// The current status of the connection.
+func (o ConnectionOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
+func (o ConnectionOutput) HostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.HostArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.
+func (o ConnectionOutput) OwnerAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
+func (o ConnectionOutput) ProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ProviderType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the tags applied to a connection.
+func (o ConnectionOutput) Tags() ConnectionTagArrayOutput {
+	return o.ApplyT(func(v *Connection) ConnectionTagArrayOutput { return v.Tags }).(ConnectionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionInput)(nil)).Elem(), &Connection{})
 	pulumi.RegisterOutputType(ConnectionOutput{})

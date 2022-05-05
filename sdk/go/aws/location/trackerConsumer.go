@@ -111,6 +111,14 @@ func (o TrackerConsumerOutput) ToTrackerConsumerOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o TrackerConsumerOutput) ConsumerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrackerConsumer) pulumi.StringOutput { return v.ConsumerArn }).(pulumi.StringOutput)
+}
+
+func (o TrackerConsumerOutput) TrackerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrackerConsumer) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrackerConsumerInput)(nil)).Elem(), &TrackerConsumer{})
 	pulumi.RegisterOutputType(TrackerConsumerOutput{})

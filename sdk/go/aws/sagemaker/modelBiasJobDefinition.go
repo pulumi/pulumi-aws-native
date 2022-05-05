@@ -154,6 +154,68 @@ func (o ModelBiasJobDefinitionOutput) ToModelBiasJobDefinitionOutputWithContext(
 	return o
 }
 
+// The time at which the job definition was created.
+func (o ModelBiasJobDefinitionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of job definition.
+func (o ModelBiasJobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) JobResources() ModelBiasJobDefinitionMonitoringResourcesOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionMonitoringResourcesOutput { return v.JobResources }).(ModelBiasJobDefinitionMonitoringResourcesOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) ModelBiasAppSpecification() ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
+		return v.ModelBiasAppSpecification
+	}).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) ModelBiasBaselineConfig() ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput {
+		return v.ModelBiasBaselineConfig
+	}).(ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) ModelBiasJobInput() ModelBiasJobDefinitionModelBiasJobInputOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasJobInputOutput {
+		return v.ModelBiasJobInput
+	}).(ModelBiasJobDefinitionModelBiasJobInputOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) ModelBiasJobOutputConfig() ModelBiasJobDefinitionMonitoringOutputConfigOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionMonitoringOutputConfigOutput {
+		return v.ModelBiasJobOutputConfig
+	}).(ModelBiasJobDefinitionMonitoringOutputConfigOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) NetworkConfig() ModelBiasJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionNetworkConfigPtrOutput { return v.NetworkConfig }).(ModelBiasJobDefinitionNetworkConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+func (o ModelBiasJobDefinitionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) StoppingCondition() ModelBiasJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionStoppingConditionPtrOutput {
+		return v.StoppingCondition
+	}).(ModelBiasJobDefinitionStoppingConditionPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ModelBiasJobDefinitionOutput) Tags() ModelBiasJobDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionTagArrayOutput { return v.Tags }).(ModelBiasJobDefinitionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionInput)(nil)).Elem(), &ModelBiasJobDefinition{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionOutput{})

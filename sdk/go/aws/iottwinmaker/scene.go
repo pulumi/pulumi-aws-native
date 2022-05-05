@@ -150,6 +150,51 @@ func (o SceneOutput) ToSceneOutputWithContext(ctx context.Context) SceneOutput {
 	return o
 }
 
+// The ARN of the scene.
+func (o SceneOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A list of capabilities that the scene uses to render.
+func (o SceneOutput) Capabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringArrayOutput { return v.Capabilities }).(pulumi.StringArrayOutput)
+}
+
+// The relative path that specifies the location of the content definition file.
+func (o SceneOutput) ContentLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.ContentLocation }).(pulumi.StringOutput)
+}
+
+// The date and time when the scene was created.
+func (o SceneOutput) CreationDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.CreationDateTime }).(pulumi.StringOutput)
+}
+
+// The description of the scene.
+func (o SceneOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the scene.
+func (o SceneOutput) SceneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.SceneId }).(pulumi.StringOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o SceneOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Scene) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The date and time of the current update.
+func (o SceneOutput) UpdateDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.UpdateDateTime }).(pulumi.StringOutput)
+}
+
+// The ID of the scene.
+func (o SceneOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SceneInput)(nil)).Elem(), &Scene{})
 	pulumi.RegisterOutputType(SceneOutput{})

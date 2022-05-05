@@ -117,6 +117,16 @@ func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutputWithCo
 	return o
 }
 
+// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+func (o VPCDHCPOptionsAssociationOutput) DhcpOptionsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCDHCPOptionsAssociation) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
+}
+
+// The ID of the VPC.
+func (o VPCDHCPOptionsAssociationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCDHCPOptionsAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCDHCPOptionsAssociationInput)(nil)).Elem(), &VPCDHCPOptionsAssociation{})
 	pulumi.RegisterOutputType(VPCDHCPOptionsAssociationOutput{})

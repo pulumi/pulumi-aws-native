@@ -143,6 +143,36 @@ func (o FlowVpcInterfaceOutput) ToFlowVpcInterfaceOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+func (o FlowVpcInterfaceOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// Immutable and has to be a unique against other VpcInterfaces in this Flow.
+func (o FlowVpcInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// IDs of the network interfaces created in customer's account by MediaConnect.
+func (o FlowVpcInterfaceOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+func (o FlowVpcInterfaceOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Security Group IDs to be used on ENI.
+func (o FlowVpcInterfaceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Subnet must be in the AZ of the Flow
+func (o FlowVpcInterfaceOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceInput)(nil)).Elem(), &FlowVpcInterface{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceOutput{})

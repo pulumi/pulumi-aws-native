@@ -128,6 +128,50 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+func (o EndpointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) EndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointId }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) EndpointUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) EventBuses() EndpointEventBusArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointEventBusArrayOutput { return v.EventBuses }).(EndpointEventBusArrayOutput)
+}
+
+func (o EndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EndpointOutput) ReplicationConfig() EndpointReplicationConfigPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointReplicationConfigPtrOutput { return v.ReplicationConfig }).(EndpointReplicationConfigPtrOutput)
+}
+
+func (o EndpointOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) RoutingConfig() EndpointRoutingConfigOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointRoutingConfigOutput { return v.RoutingConfig }).(EndpointRoutingConfigOutput)
+}
+
+func (o EndpointOutput) State() EndpointStateEnumOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointStateEnumOutput { return v.State }).(EndpointStateEnumOutput)
+}
+
+func (o EndpointOutput) StateReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointInput)(nil)).Elem(), &Endpoint{})
 	pulumi.RegisterOutputType(EndpointOutput{})

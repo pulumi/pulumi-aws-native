@@ -118,6 +118,30 @@ func (o ArchiveOutput) ToArchiveOutputWithContext(ctx context.Context) ArchiveOu
 	return o
 }
 
+func (o ArchiveOutput) ArchiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.ArchiveName }).(pulumi.StringOutput)
+}
+
+func (o ArchiveOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ArchiveOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ArchiveOutput) EventPattern() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Archive) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
+}
+
+func (o ArchiveOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Archive) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+func (o ArchiveOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveInput)(nil)).Elem(), &Archive{})
 	pulumi.RegisterOutputType(ArchiveOutput{})

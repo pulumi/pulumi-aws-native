@@ -110,6 +110,14 @@ func (o VoiceChannelOutput) ToVoiceChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o VoiceChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VoiceChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o VoiceChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VoiceChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceChannelInput)(nil)).Elem(), &VoiceChannel{})
 	pulumi.RegisterOutputType(VoiceChannelOutput{})

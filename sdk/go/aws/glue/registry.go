@@ -118,6 +118,26 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
+// Amazon Resource Name for the created Registry.
+func (o RegistryOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A description of the registry. If description is not provided, there will not be any default value for this.
+func (o RegistryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
+func (o RegistryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of tags to tag the Registry
+func (o RegistryOutput) Tags() RegistryTagArrayOutput {
+	return o.ApplyT(func(v *Registry) RegistryTagArrayOutput { return v.Tags }).(RegistryTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryInput)(nil)).Elem(), &Registry{})
 	pulumi.RegisterOutputType(RegistryOutput{})

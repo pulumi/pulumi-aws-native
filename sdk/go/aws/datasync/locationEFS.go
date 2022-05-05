@@ -130,6 +130,35 @@ func (o LocationEFSOutput) ToLocationEFSOutputWithContext(ctx context.Context) L
 	return o
 }
 
+func (o LocationEFSOutput) Ec2Config() LocationEFSEc2ConfigOutput {
+	return o.ApplyT(func(v *LocationEFS) LocationEFSEc2ConfigOutput { return v.Ec2Config }).(LocationEFSEc2ConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) for the Amazon EFS file system.
+func (o LocationEFSOutput) EfsFilesystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationEFS) pulumi.StringOutput { return v.EfsFilesystemArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
+func (o LocationEFSOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationEFS) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the EFS location that was described.
+func (o LocationEFSOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationEFS) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
+func (o LocationEFSOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationEFS) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationEFSOutput) Tags() LocationEFSTagArrayOutput {
+	return o.ApplyT(func(v *LocationEFS) LocationEFSTagArrayOutput { return v.Tags }).(LocationEFSTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSInput)(nil)).Elem(), &LocationEFS{})
 	pulumi.RegisterOutputType(LocationEFSOutput{})

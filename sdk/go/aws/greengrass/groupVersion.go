@@ -128,6 +128,38 @@ func (o GroupVersionOutput) ToGroupVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GroupVersionOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.ConnectorDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupVersionOutput) CoreDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.CoreDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupVersionOutput) DeviceDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.DeviceDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupVersionOutput) FunctionDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.FunctionDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupVersionOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o GroupVersionOutput) LoggerDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.LoggerDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupVersionOutput) ResourceDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.ResourceDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupVersionOutput) SubscriptionDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringPtrOutput { return v.SubscriptionDefinitionVersionArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupVersionInput)(nil)).Elem(), &GroupVersion{})
 	pulumi.RegisterOutputType(GroupVersionOutput{})

@@ -113,6 +113,14 @@ func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx co
 	return o
 }
 
+func (o ListenerCertificateOutput) Certificates() ListenerCertificateCertificateArrayOutput {
+	return o.ApplyT(func(v *ListenerCertificate) ListenerCertificateCertificateArrayOutput { return v.Certificates }).(ListenerCertificateCertificateArrayOutput)
+}
+
+func (o ListenerCertificateOutput) ListenerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ListenerCertificate) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateInput)(nil)).Elem(), &ListenerCertificate{})
 	pulumi.RegisterOutputType(ListenerCertificateOutput{})

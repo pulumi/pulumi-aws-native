@@ -116,6 +116,26 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o StreamConsumerOutput) ConsumerARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerARN }).(pulumi.StringOutput)
+}
+
+func (o StreamConsumerOutput) ConsumerCreationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerCreationTimestamp }).(pulumi.StringOutput)
+}
+
+func (o StreamConsumerOutput) ConsumerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerName }).(pulumi.StringOutput)
+}
+
+func (o StreamConsumerOutput) ConsumerStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerStatus }).(pulumi.StringOutput)
+}
+
+func (o StreamConsumerOutput) StreamARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.StreamARN }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerInput)(nil)).Elem(), &StreamConsumer{})
 	pulumi.RegisterOutputType(StreamConsumerOutput{})

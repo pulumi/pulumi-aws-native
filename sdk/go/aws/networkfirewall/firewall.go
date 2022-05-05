@@ -138,6 +138,54 @@ func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) Firewal
 	return o
 }
 
+func (o FirewallOutput) DeleteProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
+}
+
+func (o FirewallOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallOutput) EndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringArrayOutput { return v.EndpointIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallOutput) FirewallArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
+}
+
+func (o FirewallOutput) FirewallId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallId }).(pulumi.StringOutput)
+}
+
+func (o FirewallOutput) FirewallName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallName }).(pulumi.StringOutput)
+}
+
+func (o FirewallOutput) FirewallPolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
+}
+
+func (o FirewallOutput) FirewallPolicyChangeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.FirewallPolicyChangeProtection }).(pulumi.BoolPtrOutput)
+}
+
+func (o FirewallOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
+}
+
+func (o FirewallOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
+	return o.ApplyT(func(v *Firewall) FirewallSubnetMappingArrayOutput { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
+}
+
+func (o FirewallOutput) Tags() FirewallTagArrayOutput {
+	return o.ApplyT(func(v *Firewall) FirewallTagArrayOutput { return v.Tags }).(FirewallTagArrayOutput)
+}
+
+func (o FirewallOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallInput)(nil)).Elem(), &Firewall{})
 	pulumi.RegisterOutputType(FirewallOutput{})

@@ -119,6 +119,26 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+func (o PolicyOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o PolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o PolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+func (o PolicyOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyInput)(nil)).Elem(), &Policy{})
 	pulumi.RegisterOutputType(PolicyOutput{})

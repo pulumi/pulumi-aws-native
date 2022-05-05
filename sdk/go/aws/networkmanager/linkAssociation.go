@@ -126,6 +126,21 @@ func (o LinkAssociationOutput) ToLinkAssociationOutputWithContext(ctx context.Co
 	return o
 }
 
+// The ID of the device
+func (o LinkAssociationOutput) DeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkAssociation) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
+}
+
+// The ID of the global network.
+func (o LinkAssociationOutput) GlobalNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkAssociation) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
+}
+
+// The ID of the link
+func (o LinkAssociationOutput) LinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkAssociation) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkAssociationInput)(nil)).Elem(), &LinkAssociation{})
 	pulumi.RegisterOutputType(LinkAssociationOutput{})

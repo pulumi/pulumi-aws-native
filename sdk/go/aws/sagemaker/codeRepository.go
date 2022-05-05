@@ -113,6 +113,18 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CodeRepositoryOutput) CodeRepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepository) pulumi.StringPtrOutput { return v.CodeRepositoryName }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeRepositoryOutput) GitConfig() CodeRepositoryGitConfigOutput {
+	return o.ApplyT(func(v *CodeRepository) CodeRepositoryGitConfigOutput { return v.GitConfig }).(CodeRepositoryGitConfigOutput)
+}
+
+func (o CodeRepositoryOutput) Tags() CodeRepositoryTagArrayOutput {
+	return o.ApplyT(func(v *CodeRepository) CodeRepositoryTagArrayOutput { return v.Tags }).(CodeRepositoryTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryInput)(nil)).Elem(), &CodeRepository{})
 	pulumi.RegisterOutputType(CodeRepositoryOutput{})

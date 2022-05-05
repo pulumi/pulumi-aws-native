@@ -125,6 +125,26 @@ func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContex
 	return o
 }
 
+// The name of an association between a Resolver rule and a VPC.
+func (o ResolverRuleAssociationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Primary Identifier for Resolver Rule Association
+func (o ResolverRuleAssociationOutput) ResolverRuleAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.ResolverRuleAssociationId }).(pulumi.StringOutput)
+}
+
+// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+func (o ResolverRuleAssociationOutput) ResolverRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.ResolverRuleId }).(pulumi.StringOutput)
+}
+
+// The ID of the VPC that you associated the Resolver rule with.
+func (o ResolverRuleAssociationOutput) VPCId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.VPCId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationInput)(nil)).Elem(), &ResolverRuleAssociation{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationOutput{})

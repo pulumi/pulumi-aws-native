@@ -142,6 +142,46 @@ func (o WirelessGatewayOutput) ToWirelessGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+// Arn for Wireless Gateway. Returned upon successful create.
+func (o WirelessGatewayOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Description of Wireless Gateway.
+func (o WirelessGatewayOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The date and time when the most recent uplink was received.
+func (o WirelessGatewayOutput) LastUplinkReceivedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringPtrOutput { return v.LastUplinkReceivedAt }).(pulumi.StringPtrOutput)
+}
+
+// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
+func (o WirelessGatewayOutput) LoRaWAN() WirelessGatewayLoRaWANGatewayOutput {
+	return o.ApplyT(func(v *WirelessGateway) WirelessGatewayLoRaWANGatewayOutput { return v.LoRaWAN }).(WirelessGatewayLoRaWANGatewayOutput)
+}
+
+// Name of Wireless Gateway.
+func (o WirelessGatewayOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the gateway.
+func (o WirelessGatewayOutput) Tags() WirelessGatewayTagArrayOutput {
+	return o.ApplyT(func(v *WirelessGateway) WirelessGatewayTagArrayOutput { return v.Tags }).(WirelessGatewayTagArrayOutput)
+}
+
+// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
+func (o WirelessGatewayOutput) ThingArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringPtrOutput { return v.ThingArn }).(pulumi.StringPtrOutput)
+}
+
+// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+func (o WirelessGatewayOutput) ThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringOutput { return v.ThingName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayInput)(nil)).Elem(), &WirelessGateway{})
 	pulumi.RegisterOutputType(WirelessGatewayOutput{})

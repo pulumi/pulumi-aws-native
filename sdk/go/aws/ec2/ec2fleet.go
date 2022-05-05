@@ -142,6 +142,62 @@ func (o EC2FleetOutput) ToEC2FleetOutputWithContext(ctx context.Context) EC2Flee
 	return o
 }
 
+func (o EC2FleetOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+func (o EC2FleetOutput) ExcessCapacityTerminationPolicy() EC2FleetExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetExcessCapacityTerminationPolicyPtrOutput {
+		return v.ExcessCapacityTerminationPolicy
+	}).(EC2FleetExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (o EC2FleetOutput) FleetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EC2Fleet) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
+}
+
+func (o EC2FleetOutput) LaunchTemplateConfigs() EC2FleetFleetLaunchTemplateConfigRequestArrayOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetFleetLaunchTemplateConfigRequestArrayOutput { return v.LaunchTemplateConfigs }).(EC2FleetFleetLaunchTemplateConfigRequestArrayOutput)
+}
+
+func (o EC2FleetOutput) OnDemandOptions() EC2FleetOnDemandOptionsRequestPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetOnDemandOptionsRequestPtrOutput { return v.OnDemandOptions }).(EC2FleetOnDemandOptionsRequestPtrOutput)
+}
+
+func (o EC2FleetOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) pulumi.BoolPtrOutput { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
+}
+
+func (o EC2FleetOutput) SpotOptions() EC2FleetSpotOptionsRequestPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetSpotOptionsRequestPtrOutput { return v.SpotOptions }).(EC2FleetSpotOptionsRequestPtrOutput)
+}
+
+func (o EC2FleetOutput) TagSpecifications() EC2FleetTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetTagSpecificationArrayOutput { return v.TagSpecifications }).(EC2FleetTagSpecificationArrayOutput)
+}
+
+func (o EC2FleetOutput) TargetCapacitySpecification() EC2FleetTargetCapacitySpecificationRequestOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetTargetCapacitySpecificationRequestOutput {
+		return v.TargetCapacitySpecification
+	}).(EC2FleetTargetCapacitySpecificationRequestOutput)
+}
+
+func (o EC2FleetOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) pulumi.BoolPtrOutput { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
+}
+
+func (o EC2FleetOutput) Type() EC2FleetTypePtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) EC2FleetTypePtrOutput { return v.Type }).(EC2FleetTypePtrOutput)
+}
+
+func (o EC2FleetOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) pulumi.StringPtrOutput { return v.ValidFrom }).(pulumi.StringPtrOutput)
+}
+
+func (o EC2FleetOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EC2Fleet) pulumi.StringPtrOutput { return v.ValidUntil }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInput)(nil)).Elem(), &EC2Fleet{})
 	pulumi.RegisterOutputType(EC2FleetOutput{})

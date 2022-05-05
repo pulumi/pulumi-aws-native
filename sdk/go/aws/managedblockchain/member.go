@@ -117,6 +117,26 @@ func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutpu
 	return o
 }
 
+func (o MemberOutput) InvitationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
+}
+
+func (o MemberOutput) MemberConfiguration() MemberConfigurationOutput {
+	return o.ApplyT(func(v *Member) MemberConfigurationOutput { return v.MemberConfiguration }).(MemberConfigurationOutput)
+}
+
+func (o MemberOutput) MemberId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
+}
+
+func (o MemberOutput) NetworkConfiguration() MemberNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Member) MemberNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(MemberNetworkConfigurationPtrOutput)
+}
+
+func (o MemberOutput) NetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.NetworkId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberInput)(nil)).Elem(), &Member{})
 	pulumi.RegisterOutputType(MemberOutput{})

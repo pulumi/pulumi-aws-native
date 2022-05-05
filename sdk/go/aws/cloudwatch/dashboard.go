@@ -110,6 +110,14 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+func (o DashboardOutput) DashboardBody() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardBody }).(pulumi.StringOutput)
+}
+
+func (o DashboardOutput) DashboardName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.DashboardName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
 	pulumi.RegisterOutputType(DashboardOutput{})

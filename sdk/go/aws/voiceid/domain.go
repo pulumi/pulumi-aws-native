@@ -115,6 +115,28 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+func (o DomainOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) ServerSideEncryptionConfiguration() DomainServerSideEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *Domain) DomainServerSideEncryptionConfigurationOutput {
+		return v.ServerSideEncryptionConfiguration
+	}).(DomainServerSideEncryptionConfigurationOutput)
+}
+
+func (o DomainOutput) Tags() DomainTagArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainInput)(nil)).Elem(), &Domain{})
 	pulumi.RegisterOutputType(DomainOutput{})

@@ -176,6 +176,61 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The identifier of the user account in the directory used for identity management.
+func (o UserOutput) DirectoryUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.DirectoryUserId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the hierarchy group for the user.
+func (o UserOutput) HierarchyGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.HierarchyGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// The information about the identity of the user.
+func (o UserOutput) IdentityInfo() UserIdentityInfoPtrOutput {
+	return o.ApplyT(func(v *User) UserIdentityInfoPtrOutput { return v.IdentityInfo }).(UserIdentityInfoPtrOutput)
+}
+
+// The identifier of the Amazon Connect instance.
+func (o UserOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
+func (o UserOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The phone settings for the user.
+func (o UserOutput) PhoneConfig() UserPhoneConfigOutput {
+	return o.ApplyT(func(v *User) UserPhoneConfigOutput { return v.PhoneConfig }).(UserPhoneConfigOutput)
+}
+
+// The identifier of the routing profile for the user.
+func (o UserOutput) RoutingProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RoutingProfileArn }).(pulumi.StringOutput)
+}
+
+// One or more security profile arns for the user
+func (o UserOutput) SecurityProfileArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.SecurityProfileArns }).(pulumi.StringArrayOutput)
+}
+
+// One or more tags.
+func (o UserOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) for the user.
+func (o UserOutput) UserArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
+}
+
+// The user name for the account.
+func (o UserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
 	pulumi.RegisterOutputType(UserOutput{})

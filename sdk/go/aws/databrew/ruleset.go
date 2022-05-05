@@ -132,6 +132,30 @@ func (o RulesetOutput) ToRulesetOutputWithContext(ctx context.Context) RulesetOu
 	return o
 }
 
+// Description of the Ruleset
+func (o RulesetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ruleset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Ruleset
+func (o RulesetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ruleset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of the data quality rules in the ruleset
+func (o RulesetOutput) Rules() RulesetRuleArrayOutput {
+	return o.ApplyT(func(v *Ruleset) RulesetRuleArrayOutput { return v.Rules }).(RulesetRuleArrayOutput)
+}
+
+func (o RulesetOutput) Tags() RulesetTagArrayOutput {
+	return o.ApplyT(func(v *Ruleset) RulesetTagArrayOutput { return v.Tags }).(RulesetTagArrayOutput)
+}
+
+// Arn of the target resource (dataset) to apply the ruleset to
+func (o RulesetOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ruleset) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetInput)(nil)).Elem(), &Ruleset{})
 	pulumi.RegisterOutputType(RulesetOutput{})

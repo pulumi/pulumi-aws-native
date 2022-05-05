@@ -122,6 +122,36 @@ func (o OutcomeOutput) ToOutcomeOutputWithContext(ctx context.Context) OutcomeOu
 	return o
 }
 
+// The outcome ARN.
+func (o OutcomeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Outcome) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The timestamp when the outcome was created.
+func (o OutcomeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Outcome) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The outcome description.
+func (o OutcomeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Outcome) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the outcome was last updated.
+func (o OutcomeOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Outcome) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The name of the outcome.
+func (o OutcomeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Outcome) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags associated with this outcome.
+func (o OutcomeOutput) Tags() OutcomeTagArrayOutput {
+	return o.ApplyT(func(v *Outcome) OutcomeTagArrayOutput { return v.Tags }).(OutcomeTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutcomeInput)(nil)).Elem(), &Outcome{})
 	pulumi.RegisterOutputType(OutcomeOutput{})

@@ -137,6 +137,31 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
+// Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
+func (o ContactOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the contact.
+func (o ContactOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
+func (o ContactOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+func (o ContactOutput) Plan() ContactStageArrayOutput {
+	return o.ApplyT(func(v *Contact) ContactStageArrayOutput { return v.Plan }).(ContactStageArrayOutput)
+}
+
+// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+func (o ContactOutput) Type() ContactTypeOutput {
+	return o.ApplyT(func(v *Contact) ContactTypeOutput { return v.Type }).(ContactTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactInput)(nil)).Elem(), &Contact{})
 	pulumi.RegisterOutputType(ContactOutput{})

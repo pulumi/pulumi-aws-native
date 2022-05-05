@@ -130,6 +130,31 @@ func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx contex
 	return o
 }
 
+// The CIDR block used for destination matches.
+func (o LocalGatewayRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+// The ID of the local gateway route table.
+func (o LocalGatewayRouteOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
+}
+
+// The ID of the virtual interface group.
+func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
+}
+
+// The state of the route.
+func (o LocalGatewayRouteOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The route type.
+func (o LocalGatewayRouteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteInput)(nil)).Elem(), &LocalGatewayRoute{})
 	pulumi.RegisterOutputType(LocalGatewayRouteOutput{})

@@ -131,6 +131,31 @@ func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOu
 	return o
 }
 
+// Certificate Authority certificate that will be installed in the Certificate Authority.
+func (o CertificateAuthorityActivationOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthorityActivation) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// Arn of the Certificate Authority.
+func (o CertificateAuthorityActivationOutput) CertificateAuthorityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthorityActivation) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
+}
+
+// Certificate chain for the Certificate Authority certificate.
+func (o CertificateAuthorityActivationOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityActivation) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
+}
+
+// The complete certificate chain, including the Certificate Authority certificate.
+func (o CertificateAuthorityActivationOutput) CompleteCertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthorityActivation) pulumi.StringOutput { return v.CompleteCertificateChain }).(pulumi.StringOutput)
+}
+
+// The status of the Certificate Authority.
+func (o CertificateAuthorityActivationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityActivation) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityActivationInput)(nil)).Elem(), &CertificateAuthorityActivation{})
 	pulumi.RegisterOutputType(CertificateAuthorityActivationOutput{})

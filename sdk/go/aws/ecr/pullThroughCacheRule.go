@@ -110,6 +110,16 @@ func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutputWithContext(ctx 
 	return o
 }
 
+// The ECRRepositoryPrefix is a custom alias for upstream registry url.
+func (o PullThroughCacheRuleOutput) EcrRepositoryPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.EcrRepositoryPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
+func (o PullThroughCacheRuleOutput) UpstreamRegistryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.UpstreamRegistryUrl }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PullThroughCacheRuleInput)(nil)).Elem(), &PullThroughCacheRule{})
 	pulumi.RegisterOutputType(PullThroughCacheRuleOutput{})

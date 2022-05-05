@@ -119,6 +119,26 @@ func (o RotationScheduleOutput) ToRotationScheduleOutputWithContext(ctx context.
 	return o
 }
 
+func (o RotationScheduleOutput) HostedRotationLambda() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ApplyT(func(v *RotationSchedule) RotationScheduleHostedRotationLambdaPtrOutput { return v.HostedRotationLambda }).(RotationScheduleHostedRotationLambdaPtrOutput)
+}
+
+func (o RotationScheduleOutput) RotateImmediatelyOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RotationSchedule) pulumi.BoolPtrOutput { return v.RotateImmediatelyOnUpdate }).(pulumi.BoolPtrOutput)
+}
+
+func (o RotationScheduleOutput) RotationLambdaARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationSchedule) pulumi.StringPtrOutput { return v.RotationLambdaARN }).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleOutput) RotationRules() RotationScheduleRotationRulesPtrOutput {
+	return o.ApplyT(func(v *RotationSchedule) RotationScheduleRotationRulesPtrOutput { return v.RotationRules }).(RotationScheduleRotationRulesPtrOutput)
+}
+
+func (o RotationScheduleOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RotationSchedule) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleInput)(nil)).Elem(), &RotationSchedule{})
 	pulumi.RegisterOutputType(RotationScheduleOutput{})

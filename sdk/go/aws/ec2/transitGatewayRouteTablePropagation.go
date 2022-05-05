@@ -113,6 +113,14 @@ func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePro
 	return o
 }
 
+func (o TransitGatewayRouteTablePropagationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTablePropagation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayRouteTablePropagationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTablePropagation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTablePropagationInput)(nil)).Elem(), &TransitGatewayRouteTablePropagation{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTablePropagationOutput{})

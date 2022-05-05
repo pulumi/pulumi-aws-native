@@ -111,6 +111,26 @@ func (o FunctionDefinitionOutput) ToFunctionDefinitionOutputWithContext(ctx cont
 	return o
 }
 
+func (o FunctionDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FunctionDefinitionOutput) InitialVersion() FunctionDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *FunctionDefinition) FunctionDefinitionVersionTypePtrOutput { return v.InitialVersion }).(FunctionDefinitionVersionTypePtrOutput)
+}
+
+func (o FunctionDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o FunctionDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FunctionDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FunctionDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDefinitionInput)(nil)).Elem(), &FunctionDefinition{})
 	pulumi.RegisterOutputType(FunctionDefinitionOutput{})

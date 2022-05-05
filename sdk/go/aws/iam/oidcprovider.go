@@ -116,6 +116,27 @@ func (o OIDCProviderOutput) ToOIDCProviderOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Amazon Resource Name (ARN) of the OIDC provider
+func (o OIDCProviderOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OIDCProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o OIDCProviderOutput) ClientIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OIDCProvider) pulumi.StringArrayOutput { return v.ClientIdList }).(pulumi.StringArrayOutput)
+}
+
+func (o OIDCProviderOutput) Tags() OIDCProviderTagArrayOutput {
+	return o.ApplyT(func(v *OIDCProvider) OIDCProviderTagArrayOutput { return v.Tags }).(OIDCProviderTagArrayOutput)
+}
+
+func (o OIDCProviderOutput) ThumbprintList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OIDCProvider) pulumi.StringArrayOutput { return v.ThumbprintList }).(pulumi.StringArrayOutput)
+}
+
+func (o OIDCProviderOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OIDCProvider) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OIDCProviderInput)(nil)).Elem(), &OIDCProvider{})
 	pulumi.RegisterOutputType(OIDCProviderOutput{})

@@ -141,6 +141,54 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+func (o DataSourceOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOutput) DynamoDBConfig() DataSourceDynamoDBConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceDynamoDBConfigPtrOutput { return v.DynamoDBConfig }).(DataSourceDynamoDBConfigPtrOutput)
+}
+
+func (o DataSourceOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceElasticsearchConfigPtrOutput { return v.ElasticsearchConfig }).(DataSourceElasticsearchConfigPtrOutput)
+}
+
+func (o DataSourceOutput) HttpConfig() DataSourceHttpConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceHttpConfigPtrOutput { return v.HttpConfig }).(DataSourceHttpConfigPtrOutput)
+}
+
+func (o DataSourceOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceLambdaConfigPtrOutput { return v.LambdaConfig }).(DataSourceLambdaConfigPtrOutput)
+}
+
+func (o DataSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) OpenSearchServiceConfig() DataSourceOpenSearchServiceConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceOpenSearchServiceConfigPtrOutput { return v.OpenSearchServiceConfig }).(DataSourceOpenSearchServiceConfigPtrOutput)
+}
+
+func (o DataSourceOutput) RelationalDatabaseConfig() DataSourceRelationalDatabaseConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceRelationalDatabaseConfigPtrOutput { return v.RelationalDatabaseConfig }).(DataSourceRelationalDatabaseConfigPtrOutput)
+}
+
+func (o DataSourceOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), &DataSource{})
 	pulumi.RegisterOutputType(DataSourceOutput{})

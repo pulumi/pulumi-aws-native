@@ -117,6 +117,26 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 	return o
 }
 
+func (o ScriptOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ScriptOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptOutput) StorageLocation() ScriptS3LocationOutput {
+	return o.ApplyT(func(v *Script) ScriptS3LocationOutput { return v.StorageLocation }).(ScriptS3LocationOutput)
+}
+
+func (o ScriptOutput) Tags() ScriptTagArrayOutput {
+	return o.ApplyT(func(v *Script) ScriptTagArrayOutput { return v.Tags }).(ScriptTagArrayOutput)
+}
+
+func (o ScriptOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptInput)(nil)).Elem(), &Script{})
 	pulumi.RegisterOutputType(ScriptOutput{})

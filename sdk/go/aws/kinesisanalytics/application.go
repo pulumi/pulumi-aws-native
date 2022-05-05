@@ -116,6 +116,22 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApplicationOutput) ApplicationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationCode }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) ApplicationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) Inputs() ApplicationInputTypeArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationInputTypeArrayOutput { return v.Inputs }).(ApplicationInputTypeArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterOutputType(ApplicationOutput{})

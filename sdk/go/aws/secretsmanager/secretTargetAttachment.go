@@ -119,6 +119,18 @@ func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutputWithContext(
 	return o
 }
 
+func (o SecretTargetAttachmentOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecretTargetAttachment) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
+}
+
+func (o SecretTargetAttachmentOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecretTargetAttachment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
+}
+
+func (o SecretTargetAttachmentOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecretTargetAttachment) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretTargetAttachmentInput)(nil)).Elem(), &SecretTargetAttachment{})
 	pulumi.RegisterOutputType(SecretTargetAttachmentOutput{})

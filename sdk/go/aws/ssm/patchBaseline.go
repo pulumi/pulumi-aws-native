@@ -139,6 +139,58 @@ func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PatchBaselineOutput) ApprovalRules() PatchBaselineRuleGroupPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselineRuleGroupPtrOutput { return v.ApprovalRules }).(PatchBaselineRuleGroupPtrOutput)
+}
+
+func (o PatchBaselineOutput) ApprovedPatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringArrayOutput { return v.ApprovedPatches }).(pulumi.StringArrayOutput)
+}
+
+func (o PatchBaselineOutput) ApprovedPatchesComplianceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.ApprovedPatchesComplianceLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselineOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.BoolPtrOutput { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolPtrOutput)
+}
+
+func (o PatchBaselineOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselineOutput) GlobalFilters() PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselinePatchFilterGroupPtrOutput { return v.GlobalFilters }).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+func (o PatchBaselineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineOutput) OperatingSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselineOutput) PatchGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringArrayOutput { return v.PatchGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o PatchBaselineOutput) RejectedPatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringArrayOutput { return v.RejectedPatches }).(pulumi.StringArrayOutput)
+}
+
+func (o PatchBaselineOutput) RejectedPatchesAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.RejectedPatchesAction }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselineOutput) Sources() PatchBaselinePatchSourceArrayOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselinePatchSourceArrayOutput { return v.Sources }).(PatchBaselinePatchSourceArrayOutput)
+}
+
+func (o PatchBaselineOutput) Tags() PatchBaselineTagArrayOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselineTagArrayOutput { return v.Tags }).(PatchBaselineTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineInput)(nil)).Elem(), &PatchBaseline{})
 	pulumi.RegisterOutputType(PatchBaselineOutput{})

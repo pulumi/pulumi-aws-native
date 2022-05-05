@@ -164,6 +164,52 @@ func (o AlarmModelOutput) ToAlarmModelOutputWithContext(ctx context.Context) Ala
 	return o
 }
 
+func (o AlarmModelOutput) AlarmCapabilities() AlarmModelAlarmCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *AlarmModel) AlarmModelAlarmCapabilitiesPtrOutput { return v.AlarmCapabilities }).(AlarmModelAlarmCapabilitiesPtrOutput)
+}
+
+func (o AlarmModelOutput) AlarmEventActions() AlarmModelAlarmEventActionsPtrOutput {
+	return o.ApplyT(func(v *AlarmModel) AlarmModelAlarmEventActionsPtrOutput { return v.AlarmEventActions }).(AlarmModelAlarmEventActionsPtrOutput)
+}
+
+// A brief description of the alarm model.
+func (o AlarmModelOutput) AlarmModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModel) pulumi.StringPtrOutput { return v.AlarmModelDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the alarm model.
+func (o AlarmModelOutput) AlarmModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModel) pulumi.StringPtrOutput { return v.AlarmModelName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmModelOutput) AlarmRule() AlarmModelAlarmRuleOutput {
+	return o.ApplyT(func(v *AlarmModel) AlarmModelAlarmRuleOutput { return v.AlarmRule }).(AlarmModelAlarmRuleOutput)
+}
+
+// The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
+//
+// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
+func (o AlarmModelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmModel) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+func (o AlarmModelOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlarmModel) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A non-negative integer that reflects the severity level of the alarm.
+func (o AlarmModelOutput) Severity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlarmModel) pulumi.IntPtrOutput { return v.Severity }).(pulumi.IntPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+func (o AlarmModelOutput) Tags() AlarmModelTagArrayOutput {
+	return o.ApplyT(func(v *AlarmModel) AlarmModelTagArrayOutput { return v.Tags }).(AlarmModelTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelInput)(nil)).Elem(), &AlarmModel{})
 	pulumi.RegisterOutputType(AlarmModelOutput{})

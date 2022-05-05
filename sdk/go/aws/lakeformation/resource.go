@@ -116,6 +116,18 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
+func (o ResourceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+func (o ResourceOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceOutput) UseServiceLinkedRole() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Resource) pulumi.BoolOutput { return v.UseServiceLinkedRole }).(pulumi.BoolOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceInput)(nil)).Elem(), &Resource{})
 	pulumi.RegisterOutputType(ResourceOutput{})

@@ -109,6 +109,15 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+func (o RegistryPolicyOutput) PolicyText() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.AnyOutput { return v.PolicyText }).(pulumi.AnyOutput)
+}
+
+func (o RegistryPolicyOutput) RegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyInput)(nil)).Elem(), &RegistryPolicy{})
 	pulumi.RegisterOutputType(RegistryPolicyOutput{})

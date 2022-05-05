@@ -135,6 +135,50 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EnvironmentEC2Output) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentEC2Output) AutomaticStopTimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.IntPtrOutput { return v.AutomaticStopTimeMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o EnvironmentEC2Output) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentEC2Output) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentEC2Output) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentEC2Output) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentEC2Output) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentEC2Output) OwnerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.OwnerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentEC2Output) Repositories() EnvironmentEC2RepositoryArrayOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) EnvironmentEC2RepositoryArrayOutput { return v.Repositories }).(EnvironmentEC2RepositoryArrayOutput)
+}
+
+func (o EnvironmentEC2Output) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentEC2Output) Tags() EnvironmentEC2TagArrayOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) EnvironmentEC2TagArrayOutput { return v.Tags }).(EnvironmentEC2TagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2Input)(nil)).Elem(), &EnvironmentEC2{})
 	pulumi.RegisterOutputType(EnvironmentEC2Output{})

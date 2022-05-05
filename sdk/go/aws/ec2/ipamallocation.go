@@ -122,6 +122,29 @@ func (o IPAMAllocationOutput) ToIPAMAllocationOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o IPAMAllocationOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAMAllocation) pulumi.StringPtrOutput { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+func (o IPAMAllocationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAMAllocation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Id of the allocation.
+func (o IPAMAllocationOutput) IpamPoolAllocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMAllocation) pulumi.StringOutput { return v.IpamPoolAllocationId }).(pulumi.StringOutput)
+}
+
+// Id of the IPAM Pool.
+func (o IPAMAllocationOutput) IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPAMAllocation) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
+}
+
+// The desired netmask length of the allocation. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
+func (o IPAMAllocationOutput) NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPAMAllocation) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMAllocationInput)(nil)).Elem(), &IPAMAllocation{})
 	pulumi.RegisterOutputType(IPAMAllocationOutput{})

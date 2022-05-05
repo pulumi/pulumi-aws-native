@@ -121,6 +121,38 @@ func (o RouteCalculatorOutput) ToRouteCalculatorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RouteCalculatorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RouteCalculatorOutput) CalculatorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringOutput { return v.CalculatorArn }).(pulumi.StringOutput)
+}
+
+func (o RouteCalculatorOutput) CalculatorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringOutput { return v.CalculatorName }).(pulumi.StringOutput)
+}
+
+func (o RouteCalculatorOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+func (o RouteCalculatorOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
+}
+
+func (o RouteCalculatorOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteCalculatorOutput) PricingPlan() RouteCalculatorPricingPlanPtrOutput {
+	return o.ApplyT(func(v *RouteCalculator) RouteCalculatorPricingPlanPtrOutput { return v.PricingPlan }).(RouteCalculatorPricingPlanPtrOutput)
+}
+
+func (o RouteCalculatorOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculator) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteCalculatorInput)(nil)).Elem(), &RouteCalculator{})
 	pulumi.RegisterOutputType(RouteCalculatorOutput{})

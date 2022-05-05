@@ -121,6 +121,34 @@ func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOu
 	return o
 }
 
+func (o SegmentOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o SegmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SegmentOutput) Dimensions() SegmentDimensionsPtrOutput {
+	return o.ApplyT(func(v *Segment) SegmentDimensionsPtrOutput { return v.Dimensions }).(SegmentDimensionsPtrOutput)
+}
+
+func (o SegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SegmentOutput) SegmentGroups() SegmentGroupsPtrOutput {
+	return o.ApplyT(func(v *Segment) SegmentGroupsPtrOutput { return v.SegmentGroups }).(SegmentGroupsPtrOutput)
+}
+
+func (o SegmentOutput) SegmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.SegmentId }).(pulumi.StringOutput)
+}
+
+func (o SegmentOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Segment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentInput)(nil)).Elem(), &Segment{})
 	pulumi.RegisterOutputType(SegmentOutput{})

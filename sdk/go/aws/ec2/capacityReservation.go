@@ -154,6 +154,68 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 	return o
 }
 
+func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) AvailableInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.AvailableInstanceCount }).(pulumi.IntOutput)
+}
+
+func (o CapacityReservationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o CapacityReservationOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) EndDateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.EndDateType }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) EphemeralStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.BoolPtrOutput { return v.EphemeralStorage }).(pulumi.BoolPtrOutput)
+}
+
+func (o CapacityReservationOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+func (o CapacityReservationOutput) InstanceMatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.InstanceMatchCriteria }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) InstancePlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.InstancePlatform }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) OutPostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.OutPostArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) TagSpecifications() CapacityReservationTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *CapacityReservation) CapacityReservationTagSpecificationArrayOutput {
+		return v.TagSpecifications
+	}).(CapacityReservationTagSpecificationArrayOutput)
+}
+
+func (o CapacityReservationOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.Tenancy }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) TotalInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.TotalInstanceCount }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationInput)(nil)).Elem(), &CapacityReservation{})
 	pulumi.RegisterOutputType(CapacityReservationOutput{})

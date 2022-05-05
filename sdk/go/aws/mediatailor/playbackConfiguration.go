@@ -195,6 +195,93 @@ func (o PlaybackConfigurationOutput) ToPlaybackConfigurationOutputWithContext(ct
 	return o
 }
 
+// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+func (o PlaybackConfigurationOutput) AdDecisionServerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.AdDecisionServerUrl }).(pulumi.StringOutput)
+}
+
+// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+func (o PlaybackConfigurationOutput) AvailSuppression() PlaybackConfigurationAvailSuppressionPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationAvailSuppressionPtrOutput {
+		return v.AvailSuppression
+	}).(PlaybackConfigurationAvailSuppressionPtrOutput)
+}
+
+// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+func (o PlaybackConfigurationOutput) Bumper() PlaybackConfigurationBumperPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationBumperPtrOutput { return v.Bumper }).(PlaybackConfigurationBumperPtrOutput)
+}
+
+// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+func (o PlaybackConfigurationOutput) CdnConfiguration() PlaybackConfigurationCdnConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationCdnConfigurationPtrOutput {
+		return v.CdnConfiguration
+	}).(PlaybackConfigurationCdnConfigurationPtrOutput)
+}
+
+// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
+func (o PlaybackConfigurationOutput) ConfigurationAliases() PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationConfigurationAliasesPtrOutput {
+		return v.ConfigurationAliases
+	}).(PlaybackConfigurationConfigurationAliasesPtrOutput)
+}
+
+// The configuration for DASH content.
+func (o PlaybackConfigurationOutput) DashConfiguration() PlaybackConfigurationDashConfigurationForPutPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationDashConfigurationForPutPtrOutput {
+		return v.DashConfiguration
+	}).(PlaybackConfigurationDashConfigurationForPutPtrOutput)
+}
+
+// The configuration for pre-roll ad insertion.
+func (o PlaybackConfigurationOutput) LivePreRollConfiguration() PlaybackConfigurationLivePreRollConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationLivePreRollConfigurationPtrOutput {
+		return v.LivePreRollConfiguration
+	}).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
+}
+
+// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+func (o PlaybackConfigurationOutput) ManifestProcessingRules() PlaybackConfigurationManifestProcessingRulesPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationManifestProcessingRulesPtrOutput {
+		return v.ManifestProcessingRules
+	}).(PlaybackConfigurationManifestProcessingRulesPtrOutput)
+}
+
+// The identifier for the playback configuration.
+func (o PlaybackConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+func (o PlaybackConfigurationOutput) PersonalizationThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.IntPtrOutput { return v.PersonalizationThresholdSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The URL that the player uses to initialize a session that uses client-side reporting.
+func (o PlaybackConfigurationOutput) SessionInitializationEndpointPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringPtrOutput { return v.SessionInitializationEndpointPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
+func (o PlaybackConfigurationOutput) SlateAdUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringPtrOutput { return v.SlateAdUrl }).(pulumi.StringPtrOutput)
+}
+
+// The tags to assign to the playback configuration.
+func (o PlaybackConfigurationOutput) Tags() PlaybackConfigurationTagArrayOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationTagArrayOutput { return v.Tags }).(PlaybackConfigurationTagArrayOutput)
+}
+
+// The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+func (o PlaybackConfigurationOutput) TranscodeProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringPtrOutput { return v.TranscodeProfileName }).(pulumi.StringPtrOutput)
+}
+
+// The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
+func (o PlaybackConfigurationOutput) VideoContentSourceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.VideoContentSourceUrl }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInput)(nil)).Elem(), &PlaybackConfiguration{})
 	pulumi.RegisterOutputType(PlaybackConfigurationOutput{})

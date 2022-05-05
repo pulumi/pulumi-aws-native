@@ -113,6 +113,14 @@ func (o CoreDefinitionVersionOutput) ToCoreDefinitionVersionOutputWithContext(ct
 	return o
 }
 
+func (o CoreDefinitionVersionOutput) CoreDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CoreDefinitionVersion) pulumi.StringOutput { return v.CoreDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o CoreDefinitionVersionOutput) Cores() CoreDefinitionVersionCoreArrayOutput {
+	return o.ApplyT(func(v *CoreDefinitionVersion) CoreDefinitionVersionCoreArrayOutput { return v.Cores }).(CoreDefinitionVersionCoreArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreDefinitionVersionInput)(nil)).Elem(), &CoreDefinitionVersion{})
 	pulumi.RegisterOutputType(CoreDefinitionVersionOutput{})

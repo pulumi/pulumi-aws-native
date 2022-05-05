@@ -125,6 +125,32 @@ func (o MitigationActionOutput) ToMitigationActionOutputWithContext(ctx context.
 	return o
 }
 
+// A unique identifier for the mitigation action.
+func (o MitigationActionOutput) ActionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MitigationAction) pulumi.StringPtrOutput { return v.ActionName }).(pulumi.StringPtrOutput)
+}
+
+func (o MitigationActionOutput) ActionParams() MitigationActionActionParamsOutput {
+	return o.ApplyT(func(v *MitigationAction) MitigationActionActionParamsOutput { return v.ActionParams }).(MitigationActionActionParamsOutput)
+}
+
+func (o MitigationActionOutput) MitigationActionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MitigationAction) pulumi.StringOutput { return v.MitigationActionArn }).(pulumi.StringOutput)
+}
+
+func (o MitigationActionOutput) MitigationActionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MitigationAction) pulumi.StringOutput { return v.MitigationActionId }).(pulumi.StringOutput)
+}
+
+func (o MitigationActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MitigationAction) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o MitigationActionOutput) Tags() MitigationActionTagArrayOutput {
+	return o.ApplyT(func(v *MitigationAction) MitigationActionTagArrayOutput { return v.Tags }).(MitigationActionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionInput)(nil)).Elem(), &MitigationAction{})
 	pulumi.RegisterOutputType(MitigationActionOutput{})

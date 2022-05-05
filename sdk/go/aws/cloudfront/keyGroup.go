@@ -106,6 +106,14 @@ func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGrou
 	return o
 }
 
+func (o KeyGroupOutput) KeyGroupConfig() KeyGroupConfigOutput {
+	return o.ApplyT(func(v *KeyGroup) KeyGroupConfigOutput { return v.KeyGroupConfig }).(KeyGroupConfigOutput)
+}
+
+func (o KeyGroupOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupInput)(nil)).Elem(), &KeyGroup{})
 	pulumi.RegisterOutputType(KeyGroupOutput{})

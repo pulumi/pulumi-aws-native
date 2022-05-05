@@ -106,6 +106,14 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx contex
 	return o
 }
 
+func (o SizeConstraintSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SizeConstraintSetOutput) SizeConstraints() SizeConstraintSetSizeConstraintArrayOutput {
+	return o.ApplyT(func(v *SizeConstraintSet) SizeConstraintSetSizeConstraintArrayOutput { return v.SizeConstraints }).(SizeConstraintSetSizeConstraintArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetInput)(nil)).Elem(), &SizeConstraintSet{})
 	pulumi.RegisterOutputType(SizeConstraintSetOutput{})

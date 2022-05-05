@@ -135,6 +135,40 @@ func (o DHCPOptionsOutput) ToDHCPOptionsOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DHCPOptionsOutput) DhcpOptionsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DHCPOptions) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
+}
+
+// This value is used to complete unqualified DNS hostnames.
+func (o DHCPOptionsOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DHCPOptions) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
+func (o DHCPOptionsOutput) DomainNameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DHCPOptions) pulumi.StringArrayOutput { return v.DomainNameServers }).(pulumi.StringArrayOutput)
+}
+
+// The IPv4 addresses of up to four NetBIOS name servers.
+func (o DHCPOptionsOutput) NetbiosNameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DHCPOptions) pulumi.StringArrayOutput { return v.NetbiosNameServers }).(pulumi.StringArrayOutput)
+}
+
+// The NetBIOS node type (1, 2, 4, or 8).
+func (o DHCPOptionsOutput) NetbiosNodeType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DHCPOptions) pulumi.IntPtrOutput { return v.NetbiosNodeType }).(pulumi.IntPtrOutput)
+}
+
+// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
+func (o DHCPOptionsOutput) NtpServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DHCPOptions) pulumi.StringArrayOutput { return v.NtpServers }).(pulumi.StringArrayOutput)
+}
+
+// Any tags assigned to the DHCP options set.
+func (o DHCPOptionsOutput) Tags() DHCPOptionsTagArrayOutput {
+	return o.ApplyT(func(v *DHCPOptions) DHCPOptionsTagArrayOutput { return v.Tags }).(DHCPOptionsTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DHCPOptionsInput)(nil)).Elem(), &DHCPOptions{})
 	pulumi.RegisterOutputType(DHCPOptionsOutput{})

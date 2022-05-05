@@ -128,6 +128,38 @@ func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutputWithContext(ctx co
 	return o
 }
 
+func (o InstanceFleetConfigOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+func (o InstanceFleetConfigOutput) InstanceFleetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) pulumi.StringOutput { return v.InstanceFleetType }).(pulumi.StringOutput)
+}
+
+func (o InstanceFleetConfigOutput) InstanceTypeConfigs() InstanceFleetConfigInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) InstanceFleetConfigInstanceTypeConfigArrayOutput {
+		return v.InstanceTypeConfigs
+	}).(InstanceFleetConfigInstanceTypeConfigArrayOutput)
+}
+
+func (o InstanceFleetConfigOutput) LaunchSpecifications() InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+		return v.LaunchSpecifications
+	}).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+func (o InstanceFleetConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceFleetConfigOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) pulumi.IntPtrOutput { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceFleetConfigOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) pulumi.IntPtrOutput { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInput)(nil)).Elem(), &InstanceFleetConfig{})
 	pulumi.RegisterOutputType(InstanceFleetConfigOutput{})

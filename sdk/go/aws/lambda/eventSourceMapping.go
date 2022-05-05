@@ -216,6 +216,107 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx cont
 	return o
 }
 
+// The maximum number of items to retrieve in a single batch.
+func (o EventSourceMappingOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// (Streams) If the function returns an error, split the batch in two and retry.
+func (o EventSourceMappingOutput) BisectBatchOnFunctionError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.BisectBatchOnFunctionError }).(pulumi.BoolPtrOutput)
+}
+
+// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinationConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDestinationConfigPtrOutput { return v.DestinationConfig }).(EventSourceMappingDestinationConfigPtrOutput)
+}
+
+// Disables the event source mapping to pause polling and invocation.
+func (o EventSourceMappingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the event source.
+func (o EventSourceMappingOutput) EventSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.EventSourceArn }).(pulumi.StringPtrOutput)
+}
+
+// The filter criteria to control event filtering.
+func (o EventSourceMappingOutput) FilterCriteria() EventSourceMappingFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingFilterCriteriaPtrOutput { return v.FilterCriteria }).(EventSourceMappingFilterCriteriaPtrOutput)
+}
+
+// The name of the Lambda function.
+func (o EventSourceMappingOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+// (Streams) A list of response types supported by the function.
+func (o EventSourceMappingOutput) FunctionResponseTypes() EventSourceMappingFunctionResponseTypesItemArrayOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingFunctionResponseTypesItemArrayOutput {
+		return v.FunctionResponseTypes
+	}).(EventSourceMappingFunctionResponseTypesItemArrayOutput)
+}
+
+// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+func (o EventSourceMappingOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// (Streams) The maximum age of a record that Lambda sends to a function for processing.
+func (o EventSourceMappingOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// (Streams) The maximum number of times to retry when the function returns an error.
+func (o EventSourceMappingOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
+}
+
+// (Streams) The number of batches to process from each shard concurrently.
+func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
+}
+
+// (ActiveMQ) A list of ActiveMQ queues.
+func (o EventSourceMappingOutput) Queues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
+}
+
+// Self-managed event source endpoints.
+func (o EventSourceMappingOutput) SelfManagedEventSource() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSelfManagedEventSourcePtrOutput {
+		return v.SelfManagedEventSource
+	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// A list of SourceAccessConfiguration.
+func (o EventSourceMappingOutput) SourceAccessConfigurations() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSourceAccessConfigurationArrayOutput {
+		return v.SourceAccessConfigurations
+	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
+}
+
+// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
+func (o EventSourceMappingOutput) StartingPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.StartingPosition }).(pulumi.StringPtrOutput)
+}
+
+// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
+func (o EventSourceMappingOutput) StartingPositionTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.Float64PtrOutput { return v.StartingPositionTimestamp }).(pulumi.Float64PtrOutput)
+}
+
+// (Kafka) A list of Kafka topics.
+func (o EventSourceMappingOutput) Topics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.Topics }).(pulumi.StringArrayOutput)
+}
+
+// (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
+func (o EventSourceMappingOutput) TumblingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.TumblingWindowInSeconds }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingInput)(nil)).Elem(), &EventSourceMapping{})
 	pulumi.RegisterOutputType(EventSourceMappingOutput{})

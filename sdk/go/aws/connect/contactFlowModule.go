@@ -145,6 +145,46 @@ func (o ContactFlowModuleOutput) ToContactFlowModuleOutputWithContext(ctx contex
 	return o
 }
 
+// The identifier of the contact flow module (ARN).
+func (o ContactFlowModuleOutput) ContactFlowModuleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.ContactFlowModuleArn }).(pulumi.StringOutput)
+}
+
+// The content of the contact flow module in JSON format.
+func (o ContactFlowModuleOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// The description of the contact flow module.
+func (o ContactFlowModuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Amazon Connect instance (ARN).
+func (o ContactFlowModuleOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The name of the contact flow module.
+func (o ContactFlowModuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the contact flow module.
+func (o ContactFlowModuleOutput) State() ContactFlowModuleStateEnumPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) ContactFlowModuleStateEnumPtrOutput { return v.State }).(ContactFlowModuleStateEnumPtrOutput)
+}
+
+// The status of the contact flow module.
+func (o ContactFlowModuleOutput) Status() ContactFlowModuleStatusOutput {
+	return o.ApplyT(func(v *ContactFlowModule) ContactFlowModuleStatusOutput { return v.Status }).(ContactFlowModuleStatusOutput)
+}
+
+// One or more tags.
+func (o ContactFlowModuleOutput) Tags() ContactFlowModuleTagArrayOutput {
+	return o.ApplyT(func(v *ContactFlowModule) ContactFlowModuleTagArrayOutput { return v.Tags }).(ContactFlowModuleTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleInput)(nil)).Elem(), &ContactFlowModule{})
 	pulumi.RegisterOutputType(ContactFlowModuleOutput{})

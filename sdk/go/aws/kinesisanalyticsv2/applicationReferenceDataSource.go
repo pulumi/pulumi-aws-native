@@ -113,6 +113,16 @@ func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOu
 	return o
 }
 
+func (o ApplicationReferenceDataSourceOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSource) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationReferenceDataSourceOutput) ReferenceDataSource() ApplicationReferenceDataSourceReferenceDataSourceOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSource) ApplicationReferenceDataSourceReferenceDataSourceOutput {
+		return v.ReferenceDataSource
+	}).(ApplicationReferenceDataSourceReferenceDataSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceInput)(nil)).Elem(), &ApplicationReferenceDataSource{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceOutput{})

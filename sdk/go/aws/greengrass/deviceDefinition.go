@@ -111,6 +111,26 @@ func (o DeviceDefinitionOutput) ToDeviceDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+func (o DeviceDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DeviceDefinitionOutput) InitialVersion() DeviceDefinitionVersionTypePtrOutput {
+	return o.ApplyT(func(v *DeviceDefinition) DeviceDefinitionVersionTypePtrOutput { return v.InitialVersion }).(DeviceDefinitionVersionTypePtrOutput)
+}
+
+func (o DeviceDefinitionOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceDefinition) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
+}
+
+func (o DeviceDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DeviceDefinitionOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeviceDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDefinitionInput)(nil)).Elem(), &DeviceDefinition{})
 	pulumi.RegisterOutputType(DeviceDefinitionOutput{})

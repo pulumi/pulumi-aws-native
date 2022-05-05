@@ -132,6 +132,26 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
+// The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.
+func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
+func (o PermissionOutput) CertificateAuthorityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
+}
+
+// The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
+func (o PermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+// The ID of the calling account.
+func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceAccount }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionInput)(nil)).Elem(), &Permission{})
 	pulumi.RegisterOutputType(PermissionOutput{})

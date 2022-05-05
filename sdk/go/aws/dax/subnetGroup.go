@@ -113,6 +113,18 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetGroupOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupInput)(nil)).Elem(), &SubnetGroup{})
 	pulumi.RegisterOutputType(SubnetGroupOutput{})

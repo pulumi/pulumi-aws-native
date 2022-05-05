@@ -115,6 +115,30 @@ func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticI
 	return o
 }
 
+// The instance where the static IP is attached.
+func (o StaticIpOutput) AttachedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringPtrOutput { return v.AttachedTo }).(pulumi.StringPtrOutput)
+}
+
+// The static IP address.
+func (o StaticIpOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// A Boolean value indicating whether the static IP is attached.
+func (o StaticIpOutput) IsAttached() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.BoolOutput { return v.IsAttached }).(pulumi.BoolOutput)
+}
+
+func (o StaticIpOutput) StaticIpArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.StaticIpArn }).(pulumi.StringOutput)
+}
+
+// The name of the static IP address.
+func (o StaticIpOutput) StaticIpName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.StaticIpName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpInput)(nil)).Elem(), &StaticIp{})
 	pulumi.RegisterOutputType(StaticIpOutput{})

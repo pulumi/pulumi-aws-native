@@ -137,6 +137,36 @@ func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The description of the quick connect.
+func (o QuickConnectOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuickConnect) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Amazon Connect instance.
+func (o QuickConnectOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The name of the quick connect.
+func (o QuickConnectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) for the quick connect.
+func (o QuickConnectOutput) QuickConnectArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.QuickConnectArn }).(pulumi.StringOutput)
+}
+
+// Configuration settings for the quick connect.
+func (o QuickConnectOutput) QuickConnectConfig() QuickConnectConfigOutput {
+	return o.ApplyT(func(v *QuickConnect) QuickConnectConfigOutput { return v.QuickConnectConfig }).(QuickConnectConfigOutput)
+}
+
+// One or more tags.
+func (o QuickConnectOutput) Tags() QuickConnectTagArrayOutput {
+	return o.ApplyT(func(v *QuickConnect) QuickConnectTagArrayOutput { return v.Tags }).(QuickConnectTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectInput)(nil)).Elem(), &QuickConnect{})
 	pulumi.RegisterOutputType(QuickConnectOutput{})

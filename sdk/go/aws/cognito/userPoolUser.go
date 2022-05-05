@@ -128,6 +128,38 @@ func (o UserPoolUserOutput) ToUserPoolUserOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o UserPoolUserOutput) ClientMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.AnyOutput { return v.ClientMetadata }).(pulumi.AnyOutput)
+}
+
+func (o UserPoolUserOutput) DesiredDeliveryMediums() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.StringArrayOutput { return v.DesiredDeliveryMediums }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolUserOutput) ForceAliasCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.BoolPtrOutput { return v.ForceAliasCreation }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPoolUserOutput) MessageAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.StringPtrOutput { return v.MessageAction }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolUserOutput) UserAttributes() UserPoolUserAttributeTypeArrayOutput {
+	return o.ApplyT(func(v *UserPoolUser) UserPoolUserAttributeTypeArrayOutput { return v.UserAttributes }).(UserPoolUserAttributeTypeArrayOutput)
+}
+
+func (o UserPoolUserOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolUserOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolUserOutput) ValidationData() UserPoolUserAttributeTypeArrayOutput {
+	return o.ApplyT(func(v *UserPoolUser) UserPoolUserAttributeTypeArrayOutput { return v.ValidationData }).(UserPoolUserAttributeTypeArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserInput)(nil)).Elem(), &UserPoolUser{})
 	pulumi.RegisterOutputType(UserPoolUserOutput{})

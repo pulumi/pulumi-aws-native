@@ -129,6 +129,27 @@ func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return o
 }
 
+func (o InputOutput) InputDefinition() InputDefinitionOutput {
+	return o.ApplyT(func(v *Input) InputDefinitionOutput { return v.InputDefinition }).(InputDefinitionOutput)
+}
+
+// A brief description of the input.
+func (o InputOutput) InputDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.InputDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the input.
+func (o InputOutput) InputName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.InputName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+func (o InputOutput) Tags() InputTagArrayOutput {
+	return o.ApplyT(func(v *Input) InputTagArrayOutput { return v.Tags }).(InputTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputInput)(nil)).Elem(), &Input{})
 	pulumi.RegisterOutputType(InputOutput{})

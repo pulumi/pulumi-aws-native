@@ -119,6 +119,34 @@ func (o ResourceShareOutput) ToResourceShareOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResourceShareOutput) AllowExternalPrincipals() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.BoolPtrOutput { return v.AllowExternalPrincipals }).(pulumi.BoolPtrOutput)
+}
+
+func (o ResourceShareOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResourceShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResourceShareOutput) PermissionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.PermissionArns }).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceShareOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceShareOutput) ResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceShareOutput) Tags() ResourceShareTagArrayOutput {
+	return o.ApplyT(func(v *ResourceShare) ResourceShareTagArrayOutput { return v.Tags }).(ResourceShareTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareInput)(nil)).Elem(), &ResourceShare{})
 	pulumi.RegisterOutputType(ResourceShareOutput{})

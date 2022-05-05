@@ -121,6 +121,38 @@ func (o AnomalyDetectorOutput) ToAnomalyDetectorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AnomalyDetectorOutput) Configuration() AnomalyDetectorConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) AnomalyDetectorConfigurationPtrOutput { return v.Configuration }).(AnomalyDetectorConfigurationPtrOutput)
+}
+
+func (o AnomalyDetectorOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
+	return o.ApplyT(func(v *AnomalyDetector) AnomalyDetectorDimensionArrayOutput { return v.Dimensions }).(AnomalyDetectorDimensionArrayOutput)
+}
+
+func (o AnomalyDetectorOutput) MetricMathAnomalyDetector() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+		return v.MetricMathAnomalyDetector
+	}).(AnomalyDetectorMetricMathAnomalyDetectorPtrOutput)
+}
+
+func (o AnomalyDetectorOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringPtrOutput { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorOutput) SingleMetricAnomalyDetector() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+		return v.SingleMetricAnomalyDetector
+	}).(AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput)
+}
+
+func (o AnomalyDetectorOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringPtrOutput { return v.Stat }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorInput)(nil)).Elem(), &AnomalyDetector{})
 	pulumi.RegisterOutputType(AnomalyDetectorOutput{})

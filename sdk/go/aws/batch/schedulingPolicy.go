@@ -114,6 +114,24 @@ func (o SchedulingPolicyOutput) ToSchedulingPolicyOutputWithContext(ctx context.
 	return o
 }
 
+func (o SchedulingPolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SchedulingPolicyOutput) FairsharePolicy() SchedulingPolicyFairsharePolicyPtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) SchedulingPolicyFairsharePolicyPtrOutput { return v.FairsharePolicy }).(SchedulingPolicyFairsharePolicyPtrOutput)
+}
+
+// Name of Scheduling Policy.
+func (o SchedulingPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o SchedulingPolicyOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyInput)(nil)).Elem(), &SchedulingPolicy{})
 	pulumi.RegisterOutputType(SchedulingPolicyOutput{})

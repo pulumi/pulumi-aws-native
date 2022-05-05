@@ -119,6 +119,21 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 	return o
 }
 
+// The name of the Multi Region Access Point to apply policy
+func (o MultiRegionAccessPointPolicyOutput) MrapName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.MrapName }).(pulumi.StringOutput)
+}
+
+// Policy document to apply to a Multi Region Access Point
+func (o MultiRegionAccessPointPolicyOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+// The Policy Status associated with this Multi Region Access Point
+func (o MultiRegionAccessPointPolicyOutput) PolicyStatus() PolicyStatusPropertiesOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) PolicyStatusPropertiesOutput { return v.PolicyStatus }).(PolicyStatusPropertiesOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyInput)(nil)).Elem(), &MultiRegionAccessPointPolicy{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointPolicyOutput{})

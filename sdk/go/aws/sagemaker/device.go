@@ -120,6 +120,21 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 	return o
 }
 
+// The Edge Device you want to register against a device fleet
+func (o DeviceOutput) Device() DeviceTypePtrOutput {
+	return o.ApplyT(func(v *Device) DeviceTypePtrOutput { return v.Device }).(DeviceTypePtrOutput)
+}
+
+// The name of the edge device fleet
+func (o DeviceOutput) DeviceFleetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceFleetName }).(pulumi.StringOutput)
+}
+
+// Associate tags with the resource
+func (o DeviceOutput) Tags() DeviceTagArrayOutput {
+	return o.ApplyT(func(v *Device) DeviceTagArrayOutput { return v.Tags }).(DeviceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceInput)(nil)).Elem(), &Device{})
 	pulumi.RegisterOutputType(DeviceOutput{})

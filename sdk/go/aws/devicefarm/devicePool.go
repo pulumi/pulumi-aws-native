@@ -124,6 +124,34 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 	return o
 }
 
+func (o DevicePoolOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DevicePoolOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DevicePoolOutput) MaxDevices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.IntPtrOutput { return v.MaxDevices }).(pulumi.IntPtrOutput)
+}
+
+func (o DevicePoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DevicePoolOutput) ProjectArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+func (o DevicePoolOutput) Rules() DevicePoolRuleArrayOutput {
+	return o.ApplyT(func(v *DevicePool) DevicePoolRuleArrayOutput { return v.Rules }).(DevicePoolRuleArrayOutput)
+}
+
+func (o DevicePoolOutput) Tags() DevicePoolTagArrayOutput {
+	return o.ApplyT(func(v *DevicePool) DevicePoolTagArrayOutput { return v.Tags }).(DevicePoolTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolInput)(nil)).Elem(), &DevicePool{})
 	pulumi.RegisterOutputType(DevicePoolOutput{})

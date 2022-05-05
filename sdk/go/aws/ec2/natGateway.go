@@ -116,6 +116,22 @@ func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) Nat
 	return o
 }
 
+func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
+}
+
+func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+func (o NatGatewayOutput) Tags() NatGatewayTagArrayOutput {
+	return o.ApplyT(func(v *NatGateway) NatGatewayTagArrayOutput { return v.Tags }).(NatGatewayTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayInput)(nil)).Elem(), &NatGateway{})
 	pulumi.RegisterOutputType(NatGatewayOutput{})

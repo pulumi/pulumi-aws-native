@@ -143,6 +143,51 @@ func (o PrefixListOutput) ToPrefixListOutputWithContext(ctx context.Context) Pre
 	return o
 }
 
+// Ip Version of Prefix List.
+func (o PrefixListOutput) AddressFamily() PrefixListAddressFamilyOutput {
+	return o.ApplyT(func(v *PrefixList) PrefixListAddressFamilyOutput { return v.AddressFamily }).(PrefixListAddressFamilyOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Prefix List.
+func (o PrefixListOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Entries of Prefix List.
+func (o PrefixListOutput) Entries() PrefixListEntryArrayOutput {
+	return o.ApplyT(func(v *PrefixList) PrefixListEntryArrayOutput { return v.Entries }).(PrefixListEntryArrayOutput)
+}
+
+// Max Entries of Prefix List.
+func (o PrefixListOutput) MaxEntries() pulumi.IntOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.IntOutput { return v.MaxEntries }).(pulumi.IntOutput)
+}
+
+// Owner Id of Prefix List.
+func (o PrefixListOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Id of Prefix List.
+func (o PrefixListOutput) PrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// Name of Prefix List.
+func (o PrefixListOutput) PrefixListName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.StringOutput { return v.PrefixListName }).(pulumi.StringOutput)
+}
+
+// Tags for Prefix List
+func (o PrefixListOutput) Tags() PrefixListTagArrayOutput {
+	return o.ApplyT(func(v *PrefixList) PrefixListTagArrayOutput { return v.Tags }).(PrefixListTagArrayOutput)
+}
+
+// Version of Prefix List.
+func (o PrefixListOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListInput)(nil)).Elem(), &PrefixList{})
 	pulumi.RegisterOutputType(PrefixListOutput{})

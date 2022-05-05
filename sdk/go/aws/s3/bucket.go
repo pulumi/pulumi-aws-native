@@ -216,6 +216,129 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
+// Configuration for the transfer acceleration state.
+func (o BucketOutput) AccelerateConfiguration() BucketAccelerateConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketAccelerateConfigurationPtrOutput { return v.AccelerateConfiguration }).(BucketAccelerateConfigurationPtrOutput)
+}
+
+// A canned access control list (ACL) that grants predefined permissions to the bucket.
+func (o BucketOutput) AccessControl() BucketAccessControlPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketAccessControlPtrOutput { return v.AccessControl }).(BucketAccessControlPtrOutput)
+}
+
+// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+func (o BucketOutput) AnalyticsConfigurations() BucketAnalyticsConfigurationArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketAnalyticsConfigurationArrayOutput { return v.AnalyticsConfigurations }).(BucketAnalyticsConfigurationArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the specified bucket.
+func (o BucketOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BucketOutput) BucketEncryption() BucketEncryptionPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketEncryptionPtrOutput { return v.BucketEncryption }).(BucketEncryptionPtrOutput)
+}
+
+// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+func (o BucketOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Rules that define cross-origin resource sharing of objects in this bucket.
+func (o BucketOutput) CorsConfiguration() BucketCorsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketCorsConfigurationPtrOutput { return v.CorsConfiguration }).(BucketCorsConfigurationPtrOutput)
+}
+
+// The IPv4 DNS name of the specified bucket.
+func (o BucketOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
+func (o BucketOutput) DualStackDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.DualStackDomainName }).(pulumi.StringOutput)
+}
+
+// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+func (o BucketOutput) IntelligentTieringConfigurations() BucketIntelligentTieringConfigurationArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketIntelligentTieringConfigurationArrayOutput {
+		return v.IntelligentTieringConfigurations
+	}).(BucketIntelligentTieringConfigurationArrayOutput)
+}
+
+// The inventory configuration for an Amazon S3 bucket.
+func (o BucketOutput) InventoryConfigurations() BucketInventoryConfigurationArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketInventoryConfigurationArrayOutput { return v.InventoryConfigurations }).(BucketInventoryConfigurationArrayOutput)
+}
+
+// Rules that define how Amazon S3 manages objects during their lifetime.
+func (o BucketOutput) LifecycleConfiguration() BucketLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketLifecycleConfigurationPtrOutput { return v.LifecycleConfiguration }).(BucketLifecycleConfigurationPtrOutput)
+}
+
+// Settings that define where logs are stored.
+func (o BucketOutput) LoggingConfiguration() BucketLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
+}
+
+// Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+func (o BucketOutput) MetricsConfigurations() BucketMetricsConfigurationArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketMetricsConfigurationArrayOutput { return v.MetricsConfigurations }).(BucketMetricsConfigurationArrayOutput)
+}
+
+// Configuration that defines how Amazon S3 handles bucket notifications.
+func (o BucketOutput) NotificationConfiguration() BucketNotificationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(BucketNotificationConfigurationPtrOutput)
+}
+
+// Places an Object Lock configuration on the specified bucket.
+func (o BucketOutput) ObjectLockConfiguration() BucketObjectLockConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketObjectLockConfigurationPtrOutput { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationPtrOutput)
+}
+
+// Indicates whether this bucket has an Object Lock configuration enabled.
+func (o BucketOutput) ObjectLockEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.BoolPtrOutput { return v.ObjectLockEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the container element for object ownership rules.
+func (o BucketOutput) OwnershipControls() BucketOwnershipControlsPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketOwnershipControlsPtrOutput { return v.OwnershipControls }).(BucketOwnershipControlsPtrOutput)
+}
+
+func (o BucketOutput) PublicAccessBlockConfiguration() BucketPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketPublicAccessBlockConfigurationPtrOutput { return v.PublicAccessBlockConfiguration }).(BucketPublicAccessBlockConfigurationPtrOutput)
+}
+
+// Returns the regional domain name of the specified bucket.
+func (o BucketOutput) RegionalDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
+}
+
+// Configuration for replicating objects in an S3 bucket.
+func (o BucketOutput) ReplicationConfiguration() BucketReplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketReplicationConfigurationPtrOutput { return v.ReplicationConfiguration }).(BucketReplicationConfigurationPtrOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this S3 bucket.
+func (o BucketOutput) Tags() BucketTagArrayOutput {
+	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
+}
+
+func (o BucketOutput) VersioningConfiguration() BucketVersioningConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketVersioningConfigurationPtrOutput { return v.VersioningConfiguration }).(BucketVersioningConfigurationPtrOutput)
+}
+
+func (o BucketOutput) WebsiteConfiguration() BucketWebsiteConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketWebsiteConfigurationPtrOutput { return v.WebsiteConfiguration }).(BucketWebsiteConfigurationPtrOutput)
+}
+
+// The Amazon S3 website endpoint for the specified bucket.
+func (o BucketOutput) WebsiteURL() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteURL }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInput)(nil)).Elem(), &Bucket{})
 	pulumi.RegisterOutputType(BucketOutput{})

@@ -172,6 +172,73 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 	return o
 }
 
+// A description for the network interface.
+func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of security group IDs associated with this network interface.
+func (o NetworkInterfaceOutput) GroupSet() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringArrayOutput { return v.GroupSet }).(pulumi.StringArrayOutput)
+}
+
+// Indicates the type of network interface.
+func (o NetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.InterfaceType }).(pulumi.StringPtrOutput)
+}
+
+// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
+func (o NetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.IntPtrOutput { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
+func (o NetworkInterfaceOutput) Ipv6Addresses() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceInstanceIpv6AddressArrayOutput { return v.Ipv6Addresses }).(NetworkInterfaceInstanceIpv6AddressArrayOutput)
+}
+
+// Returns the primary private IP address of the network interface.
+func (o NetworkInterfaceOutput) PrimaryPrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrimaryPrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property.
+func (o NetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
+func (o NetworkInterfaceOutput) PrivateIpAddresses() NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+		return v.PrivateIpAddresses
+	}).(NetworkInterfacePrivateIpAddressSpecificationArrayOutput)
+}
+
+// The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
+func (o NetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.IntPtrOutput { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// Returns the secondary private IP addresses of the network interface.
+func (o NetworkInterfaceOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringArrayOutput { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether traffic to or from the instance is validated.
+func (o NetworkInterfaceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.SourceDestCheck }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the subnet to associate with the network interface.
+func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this network interface.
+func (o NetworkInterfaceOutput) Tags() NetworkInterfaceTagArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceTagArrayOutput { return v.Tags }).(NetworkInterfaceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInput)(nil)).Elem(), &NetworkInterface{})
 	pulumi.RegisterOutputType(NetworkInterfaceOutput{})

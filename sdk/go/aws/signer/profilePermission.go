@@ -126,6 +126,26 @@ func (o ProfilePermissionOutput) ToProfilePermissionOutputWithContext(ctx contex
 	return o
 }
 
+func (o ProfilePermissionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o ProfilePermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+func (o ProfilePermissionOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
+}
+
+func (o ProfilePermissionOutput) ProfileVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilePermission) pulumi.StringPtrOutput { return v.ProfileVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ProfilePermissionOutput) StatementId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilePermission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfilePermissionInput)(nil)).Elem(), &ProfilePermission{})
 	pulumi.RegisterOutputType(ProfilePermissionOutput{})

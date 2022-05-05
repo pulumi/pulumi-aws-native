@@ -166,6 +166,94 @@ func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o UserPoolClientOutput) AccessTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AccessTokenValidity }).(pulumi.IntPtrOutput)
+}
+
+func (o UserPoolClientOutput) AllowedOAuthFlows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.AllowedOAuthFlows }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) AllowedOAuthFlowsUserPoolClient() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.AllowedOAuthFlowsUserPoolClient }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPoolClientOutput) AllowedOAuthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.AllowedOAuthScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) AnalyticsConfiguration() UserPoolClientAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) UserPoolClientAnalyticsConfigurationPtrOutput { return v.AnalyticsConfiguration }).(UserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+func (o UserPoolClientOutput) CallbackURLs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.CallbackURLs }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) ClientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.ClientName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolClientOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+func (o UserPoolClientOutput) DefaultRedirectURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.DefaultRedirectURI }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolClientOutput) EnableTokenRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.EnableTokenRevocation }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPoolClientOutput) ExplicitAuthFlows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.ExplicitAuthFlows }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) GenerateSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.GenerateSecret }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPoolClientOutput) IdTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
+}
+
+func (o UserPoolClientOutput) LogoutURLs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.LogoutURLs }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o UserPoolClientOutput) PreventUserExistenceErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.PreventUserExistenceErrors }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolClientOutput) ReadAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.ReadAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) RefreshTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.RefreshTokenValidity }).(pulumi.IntPtrOutput)
+}
+
+func (o UserPoolClientOutput) SupportedIdentityProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.SupportedIdentityProviders }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) TokenValidityUnits() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) UserPoolClientTokenValidityUnitsPtrOutput { return v.TokenValidityUnits }).(UserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+func (o UserPoolClientOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolClientOutput) WriteAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.WriteAttributes }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientInput)(nil)).Elem(), &UserPoolClient{})
 	pulumi.RegisterOutputType(UserPoolClientOutput{})

@@ -155,6 +155,64 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ct
 	return o
 }
 
+func (o MaintenanceWindowTaskOutput) CutoffBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.CutoffBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) LoggingInfo() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTaskLoggingInfoPtrOutput { return v.LoggingInfo }).(MaintenanceWindowTaskLoggingInfoPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) MaxConcurrency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.MaxConcurrency }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) MaxErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.MaxErrors }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) Targets() MaintenanceWindowTaskTargetArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTaskTargetArrayOutput { return v.Targets }).(MaintenanceWindowTaskTargetArrayOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) TaskArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.TaskArn }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) TaskInvocationParameters() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+		return v.TaskInvocationParameters
+	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) TaskParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.AnyOutput { return v.TaskParameters }).(pulumi.AnyOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) TaskType() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.TaskType }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskOutput) WindowId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.WindowId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskInput)(nil)).Elem(), &MaintenanceWindowTask{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskOutput{})

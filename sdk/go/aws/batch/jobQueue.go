@@ -127,6 +127,35 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 	return o
 }
 
+func (o JobQueueOutput) ComputeEnvironmentOrder() JobQueueComputeEnvironmentOrderArrayOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueComputeEnvironmentOrderArrayOutput { return v.ComputeEnvironmentOrder }).(JobQueueComputeEnvironmentOrderArrayOutput)
+}
+
+func (o JobQueueOutput) JobQueueArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.JobQueueArn }).(pulumi.StringOutput)
+}
+
+func (o JobQueueOutput) JobQueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.JobQueueName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o JobQueueOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueOutput) State() JobQueueStateEnumPtrOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueStateEnumPtrOutput { return v.State }).(JobQueueStateEnumPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o JobQueueOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueInput)(nil)).Elem(), &JobQueue{})
 	pulumi.RegisterOutputType(JobQueueOutput{})

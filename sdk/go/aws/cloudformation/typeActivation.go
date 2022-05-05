@@ -166,6 +166,63 @@ func (o TypeActivationOutput) ToTypeActivationOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the extension.
+func (o TypeActivationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+func (o TypeActivationOutput) AutoUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.BoolPtrOutput { return v.AutoUpdate }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+func (o TypeActivationOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies logging configuration information for a type.
+func (o TypeActivationOutput) LoggingConfig() TypeActivationLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) TypeActivationLoggingConfigPtrOutput { return v.LoggingConfig }).(TypeActivationLoggingConfigPtrOutput)
+}
+
+// The Major Version of the type you want to enable
+func (o TypeActivationOutput) MajorVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.MajorVersion }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+func (o TypeActivationOutput) PublicTypeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.PublicTypeArn }).(pulumi.StringPtrOutput)
+}
+
+// The publisher id assigned by CloudFormation for publishing in this region.
+func (o TypeActivationOutput) PublisherId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.PublisherId }).(pulumi.StringPtrOutput)
+}
+
+// The kind of extension
+func (o TypeActivationOutput) Type() TypeActivationTypePtrOutput {
+	return o.ApplyT(func(v *TypeActivation) TypeActivationTypePtrOutput { return v.Type }).(TypeActivationTypePtrOutput)
+}
+
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o TypeActivationOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+func (o TypeActivationOutput) TypeNameAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.TypeNameAlias }).(pulumi.StringPtrOutput)
+}
+
+// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
+func (o TypeActivationOutput) VersionBump() TypeActivationVersionBumpPtrOutput {
+	return o.ApplyT(func(v *TypeActivation) TypeActivationVersionBumpPtrOutput { return v.VersionBump }).(TypeActivationVersionBumpPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationInput)(nil)).Elem(), &TypeActivation{})
 	pulumi.RegisterOutputType(TypeActivationOutput{})

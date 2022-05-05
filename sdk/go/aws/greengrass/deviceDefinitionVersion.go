@@ -113,6 +113,14 @@ func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutputWithContex
 	return o
 }
 
+func (o DeviceDefinitionVersionOutput) DeviceDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceDefinitionVersion) pulumi.StringOutput { return v.DeviceDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o DeviceDefinitionVersionOutput) Devices() DeviceDefinitionVersionDeviceArrayOutput {
+	return o.ApplyT(func(v *DeviceDefinitionVersion) DeviceDefinitionVersionDeviceArrayOutput { return v.Devices }).(DeviceDefinitionVersionDeviceArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDefinitionVersionInput)(nil)).Elem(), &DeviceDefinitionVersion{})
 	pulumi.RegisterOutputType(DeviceDefinitionVersionOutput{})

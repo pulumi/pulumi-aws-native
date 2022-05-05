@@ -161,6 +161,51 @@ func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return o
 }
 
+// Description of the flow.
+func (o FlowOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of Destination connectors of the flow.
+func (o FlowOutput) DestinationFlowConfigList() FlowDestinationFlowConfigArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowDestinationFlowConfigArrayOutput { return v.DestinationFlowConfigList }).(FlowDestinationFlowConfigArrayOutput)
+}
+
+// ARN identifier of the flow.
+func (o FlowOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// Name of the flow.
+func (o FlowOutput) FlowName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowName }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+func (o FlowOutput) KMSArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.KMSArn }).(pulumi.StringPtrOutput)
+}
+
+// Configurations of Source connector of the flow.
+func (o FlowOutput) SourceFlowConfig() FlowSourceFlowConfigOutput {
+	return o.ApplyT(func(v *Flow) FlowSourceFlowConfigOutput { return v.SourceFlowConfig }).(FlowSourceFlowConfigOutput)
+}
+
+// List of Tags.
+func (o FlowOutput) Tags() FlowTagArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowTagArrayOutput { return v.Tags }).(FlowTagArrayOutput)
+}
+
+// List of tasks for the flow.
+func (o FlowOutput) Tasks() FlowTaskArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowTaskArrayOutput { return v.Tasks }).(FlowTaskArrayOutput)
+}
+
+// Trigger settings of the flow.
+func (o FlowOutput) TriggerConfig() FlowTriggerConfigOutput {
+	return o.ApplyT(func(v *Flow) FlowTriggerConfigOutput { return v.TriggerConfig }).(FlowTriggerConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInput)(nil)).Elem(), &Flow{})
 	pulumi.RegisterOutputType(FlowOutput{})

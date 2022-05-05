@@ -111,6 +111,14 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
+func (o NotificationChannelOutput) SnsRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.SnsRoleName }).(pulumi.StringOutput)
+}
+
+func (o NotificationChannelOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelInput)(nil)).Elem(), &NotificationChannel{})
 	pulumi.RegisterOutputType(NotificationChannelOutput{})

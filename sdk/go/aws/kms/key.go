@@ -158,6 +158,59 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+func (o KeyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
+func (o KeyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
+func (o KeyOutput) EnableKeyRotation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.EnableKeyRotation }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
+func (o KeyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o KeyOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+func (o KeyOutput) KeyPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Key) pulumi.AnyOutput { return v.KeyPolicy }).(pulumi.AnyOutput)
+}
+
+// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
+func (o KeyOutput) KeySpec() KeySpecPtrOutput {
+	return o.ApplyT(func(v *Key) KeySpecPtrOutput { return v.KeySpec }).(KeySpecPtrOutput)
+}
+
+// Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
+func (o KeyOutput) KeyUsage() KeyUsagePtrOutput {
+	return o.ApplyT(func(v *Key) KeyUsagePtrOutput { return v.KeyUsage }).(KeyUsagePtrOutput)
+}
+
+// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
+func (o KeyOutput) MultiRegion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.MultiRegion }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+func (o KeyOutput) PendingWindowInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.IntPtrOutput { return v.PendingWindowInDays }).(pulumi.IntPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o KeyOutput) Tags() KeyTagArrayOutput {
+	return o.ApplyT(func(v *Key) KeyTagArrayOutput { return v.Tags }).(KeyTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyInput)(nil)).Elem(), &Key{})
 	pulumi.RegisterOutputType(KeyOutput{})

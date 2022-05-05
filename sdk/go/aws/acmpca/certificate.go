@@ -157,6 +157,51 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+func (o CertificateOutput) ApiPassthrough() CertificateApiPassthroughPtrOutput {
+	return o.ApplyT(func(v *Certificate) CertificateApiPassthroughPtrOutput { return v.ApiPassthrough }).(CertificateApiPassthroughPtrOutput)
+}
+
+// The ARN of the issued certificate.
+func (o CertificateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The issued certificate in base 64 PEM-encoded format.
+func (o CertificateOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+func (o CertificateOutput) CertificateAuthorityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
+}
+
+// The certificate signing request (CSR) for the Certificate.
+func (o CertificateOutput) CertificateSigningRequest() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateSigningRequest }).(pulumi.StringOutput)
+}
+
+// The name of the algorithm that will be used to sign the Certificate.
+func (o CertificateOutput) SigningAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SigningAlgorithm }).(pulumi.StringOutput)
+}
+
+// Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+func (o CertificateOutput) TemplateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.TemplateArn }).(pulumi.StringPtrOutput)
+}
+
+// The time before which the Certificate will be valid.
+func (o CertificateOutput) Validity() CertificateValidityOutput {
+	return o.ApplyT(func(v *Certificate) CertificateValidityOutput { return v.Validity }).(CertificateValidityOutput)
+}
+
+// The time after which the Certificate will be valid.
+func (o CertificateOutput) ValidityNotBefore() CertificateValidityPtrOutput {
+	return o.ApplyT(func(v *Certificate) CertificateValidityPtrOutput { return v.ValidityNotBefore }).(CertificateValidityPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateInput)(nil)).Elem(), &Certificate{})
 	pulumi.RegisterOutputType(CertificateOutput{})

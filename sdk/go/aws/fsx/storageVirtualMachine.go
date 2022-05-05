@@ -125,6 +125,44 @@ func (o StorageVirtualMachineOutput) ToStorageVirtualMachineOutputWithContext(ct
 	return o
 }
 
+func (o StorageVirtualMachineOutput) ActiveDirectoryConfiguration() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+		return v.ActiveDirectoryConfiguration
+	}).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+func (o StorageVirtualMachineOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachineOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachineOutput) RootVolumeSecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringPtrOutput { return v.RootVolumeSecurityStyle }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineOutput) StorageVirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.StorageVirtualMachineId }).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachineOutput) SvmAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringPtrOutput { return v.SvmAdminPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageVirtualMachineOutput) Tags() StorageVirtualMachineTagArrayOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) StorageVirtualMachineTagArrayOutput { return v.Tags }).(StorageVirtualMachineTagArrayOutput)
+}
+
+func (o StorageVirtualMachineOutput) UUID() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.UUID }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineInput)(nil)).Elem(), &StorageVirtualMachine{})
 	pulumi.RegisterOutputType(StorageVirtualMachineOutput{})

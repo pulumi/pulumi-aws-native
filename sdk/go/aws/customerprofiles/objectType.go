@@ -166,6 +166,66 @@ func (o ObjectTypeOutput) ToObjectTypeOutputWithContext(ctx context.Context) Obj
 	return o
 }
 
+// Indicates whether a profile should be created when data is received.
+func (o ObjectTypeOutput) AllowProfileCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.BoolPtrOutput { return v.AllowProfileCreation }).(pulumi.BoolPtrOutput)
+}
+
+// The time of this integration got created.
+func (o ObjectTypeOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Description of the profile object type.
+func (o ObjectTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The unique name of the domain.
+func (o ObjectTypeOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The default encryption key
+func (o ObjectTypeOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// The default number of days until the data within the domain expires.
+func (o ObjectTypeOutput) ExpirationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.IntPtrOutput { return v.ExpirationDays }).(pulumi.IntPtrOutput)
+}
+
+// A list of the name and ObjectType field.
+func (o ObjectTypeOutput) Fields() ObjectTypeFieldMapArrayOutput {
+	return o.ApplyT(func(v *ObjectType) ObjectTypeFieldMapArrayOutput { return v.Fields }).(ObjectTypeFieldMapArrayOutput)
+}
+
+// A list of unique keys that can be used to map data to the profile.
+func (o ObjectTypeOutput) Keys() ObjectTypeKeyMapArrayOutput {
+	return o.ApplyT(func(v *ObjectType) ObjectTypeKeyMapArrayOutput { return v.Keys }).(ObjectTypeKeyMapArrayOutput)
+}
+
+// The time of this integration got last updated at.
+func (o ObjectTypeOutput) LastUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
+}
+
+// The name of the profile object type.
+func (o ObjectTypeOutput) ObjectTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.ObjectTypeName }).(pulumi.StringPtrOutput)
+}
+
+// The tags (keys and values) associated with the integration.
+func (o ObjectTypeOutput) Tags() ObjectTypeTagArrayOutput {
+	return o.ApplyT(func(v *ObjectType) ObjectTypeTagArrayOutput { return v.Tags }).(ObjectTypeTagArrayOutput)
+}
+
+// A unique identifier for the object template.
+func (o ObjectTypeOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeInput)(nil)).Elem(), &ObjectType{})
 	pulumi.RegisterOutputType(ObjectTypeOutput{})

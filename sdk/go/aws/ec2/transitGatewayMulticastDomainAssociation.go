@@ -132,6 +132,40 @@ func (o TransitGatewayMulticastDomainAssociationOutput) ToTransitGatewayMulticas
 	return o
 }
 
+// The ID of the resource.
+func (o TransitGatewayMulticastDomainAssociationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomainAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The type of resource, for example a VPC attachment.
+func (o TransitGatewayMulticastDomainAssociationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomainAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The state of the subnet association.
+func (o TransitGatewayMulticastDomainAssociationOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomainAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The IDs of the subnets to associate with the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainAssociationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomainAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway attachment.
+func (o TransitGatewayMulticastDomainAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomainAssociation) pulumi.StringOutput {
+		return v.TransitGatewayAttachmentId
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway multicast domain.
+func (o TransitGatewayMulticastDomainAssociationOutput) TransitGatewayMulticastDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomainAssociation) pulumi.StringOutput {
+		return v.TransitGatewayMulticastDomainId
+	}).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastDomainAssociationInput)(nil)).Elem(), &TransitGatewayMulticastDomainAssociation{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainAssociationOutput{})

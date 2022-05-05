@@ -161,6 +161,59 @@ func (o EndpointGroupOutput) ToEndpointGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The list of endpoint objects.
+func (o EndpointGroupOutput) EndpointConfigurations() EndpointGroupEndpointConfigurationArrayOutput {
+	return o.ApplyT(func(v *EndpointGroup) EndpointGroupEndpointConfigurationArrayOutput { return v.EndpointConfigurations }).(EndpointGroupEndpointConfigurationArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the endpoint group
+func (o EndpointGroupOutput) EndpointGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.EndpointGroupArn }).(pulumi.StringOutput)
+}
+
+// The name of the AWS Region where the endpoint group is located
+func (o EndpointGroupOutput) EndpointGroupRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.EndpointGroupRegion }).(pulumi.StringOutput)
+}
+
+// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
+func (o EndpointGroupOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.IntPtrOutput { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGroupOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.StringPtrOutput { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+func (o EndpointGroupOutput) HealthCheckPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.IntPtrOutput { return v.HealthCheckPort }).(pulumi.IntPtrOutput)
+}
+
+// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+func (o EndpointGroupOutput) HealthCheckProtocol() EndpointGroupHealthCheckProtocolPtrOutput {
+	return o.ApplyT(func(v *EndpointGroup) EndpointGroupHealthCheckProtocolPtrOutput { return v.HealthCheckProtocol }).(EndpointGroupHealthCheckProtocolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the listener
+func (o EndpointGroupOutput) ListenerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
+func (o EndpointGroupOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
+	return o.ApplyT(func(v *EndpointGroup) EndpointGroupPortOverrideArrayOutput { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
+}
+
+// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
+func (o EndpointGroupOutput) ThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.IntPtrOutput { return v.ThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+// The percentage of traffic to sent to an AWS Region
+func (o EndpointGroupOutput) TrafficDialPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EndpointGroup) pulumi.Float64PtrOutput { return v.TrafficDialPercentage }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupInput)(nil)).Elem(), &EndpointGroup{})
 	pulumi.RegisterOutputType(EndpointGroupOutput{})

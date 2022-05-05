@@ -116,6 +116,31 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the cluster.
+func (o ClusterOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+// Endpoints for the cluster.
+func (o ClusterOutput) ClusterEndpoints() ClusterEndpointArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterEndpointArrayOutput { return v.ClusterEndpoints }).(ClusterEndpointArrayOutput)
+}
+
+// Name of a Cluster. You can use any non-white space character in the name
+func (o ClusterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+func (o ClusterOutput) Status() ClusterStatusOutput {
+	return o.ApplyT(func(v *Cluster) ClusterStatusOutput { return v.Status }).(ClusterStatusOutput)
+}
+
+// A collection of tags associated with a resource
+func (o ClusterOutput) Tags() ClusterTagArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

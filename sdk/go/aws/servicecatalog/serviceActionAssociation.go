@@ -117,6 +117,18 @@ func (o ServiceActionAssociationOutput) ToServiceActionAssociationOutputWithCont
 	return o
 }
 
+func (o ServiceActionAssociationOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceActionAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o ServiceActionAssociationOutput) ProvisioningArtifactId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceActionAssociation) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
+}
+
+func (o ServiceActionAssociationOutput) ServiceActionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceActionAssociation) pulumi.StringOutput { return v.ServiceActionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionAssociationInput)(nil)).Elem(), &ServiceActionAssociation{})
 	pulumi.RegisterOutputType(ServiceActionAssociationOutput{})

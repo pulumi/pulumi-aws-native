@@ -106,6 +106,16 @@ func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOu
 	return o
 }
 
+func (o CloudFrontOriginAccessIdentityOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentity) CloudFrontOriginAccessIdentityConfigOutput {
+		return v.CloudFrontOriginAccessIdentityConfig
+	}).(CloudFrontOriginAccessIdentityConfigOutput)
+}
+
+func (o CloudFrontOriginAccessIdentityOutput) S3CanonicalUserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentity) pulumi.StringOutput { return v.S3CanonicalUserId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFrontOriginAccessIdentityInput)(nil)).Elem(), &CloudFrontOriginAccessIdentity{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityOutput{})

@@ -118,6 +118,38 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
+func (o ThemeOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) EnvironmentName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) Overrides() ThemeValuesArrayOutput {
+	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Overrides }).(ThemeValuesArrayOutput)
+}
+
+func (o ThemeOutput) Tags() ThemeTagsPtrOutput {
+	return o.ApplyT(func(v *Theme) ThemeTagsPtrOutput { return v.Tags }).(ThemeTagsPtrOutput)
+}
+
+func (o ThemeOutput) Values() ThemeValuesArrayOutput {
+	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Values }).(ThemeValuesArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeInput)(nil)).Elem(), &Theme{})
 	pulumi.RegisterOutputType(ThemeOutput{})

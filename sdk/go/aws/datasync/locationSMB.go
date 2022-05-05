@@ -163,6 +163,55 @@ func (o LocationSMBOutput) ToLocationSMBOutputWithContext(ctx context.Context) L
 	return o
 }
 
+// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
+func (o LocationSMBOutput) AgentArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Windows domain that the SMB server belongs to.
+func (o LocationSMBOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SMB location that is created.
+func (o LocationSMBOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the SMB location that was described.
+func (o LocationSMBOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationSMBOutput) MountOptions() LocationSMBMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationSMB) LocationSMBMountOptionsPtrOutput { return v.MountOptions }).(LocationSMBMountOptionsPtrOutput)
+}
+
+// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+func (o LocationSMBOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
+func (o LocationSMBOutput) ServerHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
+}
+
+// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
+func (o LocationSMBOutput) Subdirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationSMBOutput) Tags() LocationSMBTagArrayOutput {
+	return o.ApplyT(func(v *LocationSMB) LocationSMBTagArrayOutput { return v.Tags }).(LocationSMBTagArrayOutput)
+}
+
+// The user who can mount the share, has the permissions to access files and folders in the SMB share.
+func (o LocationSMBOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.User }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBInput)(nil)).Elem(), &LocationSMB{})
 	pulumi.RegisterOutputType(LocationSMBOutput{})

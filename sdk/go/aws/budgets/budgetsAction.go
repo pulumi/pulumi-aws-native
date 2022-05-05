@@ -145,6 +145,42 @@ func (o BudgetsActionOutput) ToBudgetsActionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o BudgetsActionOutput) ActionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.ActionId }).(pulumi.StringOutput)
+}
+
+func (o BudgetsActionOutput) ActionThreshold() BudgetsActionActionThresholdOutput {
+	return o.ApplyT(func(v *BudgetsAction) BudgetsActionActionThresholdOutput { return v.ActionThreshold }).(BudgetsActionActionThresholdOutput)
+}
+
+func (o BudgetsActionOutput) ActionType() BudgetsActionActionTypeOutput {
+	return o.ApplyT(func(v *BudgetsAction) BudgetsActionActionTypeOutput { return v.ActionType }).(BudgetsActionActionTypeOutput)
+}
+
+func (o BudgetsActionOutput) ApprovalModel() BudgetsActionApprovalModelPtrOutput {
+	return o.ApplyT(func(v *BudgetsAction) BudgetsActionApprovalModelPtrOutput { return v.ApprovalModel }).(BudgetsActionApprovalModelPtrOutput)
+}
+
+func (o BudgetsActionOutput) BudgetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.BudgetName }).(pulumi.StringOutput)
+}
+
+func (o BudgetsActionOutput) Definition() BudgetsActionDefinitionOutput {
+	return o.ApplyT(func(v *BudgetsAction) BudgetsActionDefinitionOutput { return v.Definition }).(BudgetsActionDefinitionOutput)
+}
+
+func (o BudgetsActionOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+func (o BudgetsActionOutput) NotificationType() BudgetsActionNotificationTypeOutput {
+	return o.ApplyT(func(v *BudgetsAction) BudgetsActionNotificationTypeOutput { return v.NotificationType }).(BudgetsActionNotificationTypeOutput)
+}
+
+func (o BudgetsActionOutput) Subscribers() BudgetsActionSubscriberArrayOutput {
+	return o.ApplyT(func(v *BudgetsAction) BudgetsActionSubscriberArrayOutput { return v.Subscribers }).(BudgetsActionSubscriberArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionInput)(nil)).Elem(), &BudgetsAction{})
 	pulumi.RegisterOutputType(BudgetsActionOutput{})

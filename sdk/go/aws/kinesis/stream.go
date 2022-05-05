@@ -136,6 +136,41 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
+// The Amazon resource name (ARN) of the Kinesis stream
+func (o StreamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the Kinesis stream.
+func (o StreamOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The number of hours for the data records that are stored in shards to remain accessible.
+func (o StreamOutput) RetentionPeriodHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.RetentionPeriodHours }).(pulumi.IntPtrOutput)
+}
+
+// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
+func (o StreamOutput) ShardCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.ShardCount }).(pulumi.IntPtrOutput)
+}
+
+// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+func (o StreamOutput) StreamEncryption() StreamEncryptionPtrOutput {
+	return o.ApplyT(func(v *Stream) StreamEncryptionPtrOutput { return v.StreamEncryption }).(StreamEncryptionPtrOutput)
+}
+
+// The mode in which the stream is running.
+func (o StreamOutput) StreamModeDetails() StreamModeDetailsPtrOutput {
+	return o.ApplyT(func(v *Stream) StreamModeDetailsPtrOutput { return v.StreamModeDetails }).(StreamModeDetailsPtrOutput)
+}
+
+// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+func (o StreamOutput) Tags() StreamTagArrayOutput {
+	return o.ApplyT(func(v *Stream) StreamTagArrayOutput { return v.Tags }).(StreamTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamInput)(nil)).Elem(), &Stream{})
 	pulumi.RegisterOutputType(StreamOutput{})

@@ -166,6 +166,66 @@ func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the image pipeline.
+func (o ImagePipelineOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
+func (o ImagePipelineOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// The description of the image pipeline.
+func (o ImagePipelineOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
+func (o ImagePipelineOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// Collects additional information about the image being created, including the operating system (OS) version and package list.
+func (o ImagePipelineOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
+func (o ImagePipelineOutput) ImageRecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// The image tests configuration of the image pipeline.
+func (o ImagePipelineOutput) ImageTestsConfiguration() ImagePipelineImageTestsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageTestsConfigurationPtrOutput { return v.ImageTestsConfiguration }).(ImagePipelineImageTestsConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+func (o ImagePipelineOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the image pipeline.
+func (o ImagePipelineOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The schedule of the image pipeline.
+func (o ImagePipelineOutput) Schedule() ImagePipelineSchedulePtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineSchedulePtrOutput { return v.Schedule }).(ImagePipelineSchedulePtrOutput)
+}
+
+// The status of the image pipeline.
+func (o ImagePipelineOutput) Status() ImagePipelineStatusPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineStatusPtrOutput { return v.Status }).(ImagePipelineStatusPtrOutput)
+}
+
+// The tags of this image pipeline.
+func (o ImagePipelineOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineInput)(nil)).Elem(), &ImagePipeline{})
 	pulumi.RegisterOutputType(ImagePipelineOutput{})

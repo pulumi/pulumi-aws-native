@@ -151,6 +151,53 @@ func (o SimulationApplicationOutput) ToSimulationApplicationOutputWithContext(ct
 	return o
 }
 
+func (o SimulationApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimulationApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The current revision id.
+func (o SimulationApplicationOutput) CurrentRevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimulationApplication) pulumi.StringPtrOutput { return v.CurrentRevisionId }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the Docker image for the robot application.
+func (o SimulationApplicationOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimulationApplication) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
+// The name of the simulation application.
+func (o SimulationApplicationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimulationApplication) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The rendering engine for the simulation application.
+func (o SimulationApplicationOutput) RenderingEngine() SimulationApplicationRenderingEnginePtrOutput {
+	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationRenderingEnginePtrOutput { return v.RenderingEngine }).(SimulationApplicationRenderingEnginePtrOutput)
+}
+
+// The robot software suite used by the simulation application.
+func (o SimulationApplicationOutput) RobotSoftwareSuite() SimulationApplicationRobotSoftwareSuiteOutput {
+	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationRobotSoftwareSuiteOutput {
+		return v.RobotSoftwareSuite
+	}).(SimulationApplicationRobotSoftwareSuiteOutput)
+}
+
+// The simulation software suite used by the simulation application.
+func (o SimulationApplicationOutput) SimulationSoftwareSuite() SimulationApplicationSimulationSoftwareSuiteOutput {
+	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationSimulationSoftwareSuiteOutput {
+		return v.SimulationSoftwareSuite
+	}).(SimulationApplicationSimulationSoftwareSuiteOutput)
+}
+
+// The sources of the simulation application.
+func (o SimulationApplicationOutput) Sources() SimulationApplicationSourceConfigArrayOutput {
+	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationSourceConfigArrayOutput { return v.Sources }).(SimulationApplicationSourceConfigArrayOutput)
+}
+
+func (o SimulationApplicationOutput) Tags() SimulationApplicationTagsPtrOutput {
+	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationTagsPtrOutput { return v.Tags }).(SimulationApplicationTagsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationInput)(nil)).Elem(), &SimulationApplication{})
 	pulumi.RegisterOutputType(SimulationApplicationOutput{})

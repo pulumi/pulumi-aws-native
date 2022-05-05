@@ -124,6 +124,30 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+func (o AssessmentTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AssessmentTemplateOutput) AssessmentTargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.AssessmentTargetArn }).(pulumi.StringOutput)
+}
+
+func (o AssessmentTemplateOutput) AssessmentTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringPtrOutput { return v.AssessmentTemplateName }).(pulumi.StringPtrOutput)
+}
+
+func (o AssessmentTemplateOutput) DurationInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.IntOutput { return v.DurationInSeconds }).(pulumi.IntOutput)
+}
+
+func (o AssessmentTemplateOutput) RulesPackageArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringArrayOutput { return v.RulesPackageArns }).(pulumi.StringArrayOutput)
+}
+
+func (o AssessmentTemplateOutput) UserAttributesForFindings() AssessmentTemplateTagArrayOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) AssessmentTemplateTagArrayOutput { return v.UserAttributesForFindings }).(AssessmentTemplateTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateInput)(nil)).Elem(), &AssessmentTemplate{})
 	pulumi.RegisterOutputType(AssessmentTemplateOutput{})

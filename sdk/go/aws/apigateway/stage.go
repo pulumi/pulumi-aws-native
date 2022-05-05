@@ -186,6 +186,76 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
 }
 
+// Specifies settings for logging access in this stage.
+func (o StageOutput) AccessLogSetting() StageAccessLogSettingPtrOutput {
+	return o.ApplyT(func(v *Stage) StageAccessLogSettingPtrOutput { return v.AccessLogSetting }).(StageAccessLogSettingPtrOutput)
+}
+
+// Indicates whether cache clustering is enabled for the stage.
+func (o StageOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The stage's cache cluster size.
+func (o StageOutput) CacheClusterSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
+}
+
+// Specifies settings for the canary deployment in this stage.
+func (o StageOutput) CanarySetting() StageCanarySettingPtrOutput {
+	return o.ApplyT(func(v *Stage) StageCanarySettingPtrOutput { return v.CanarySetting }).(StageCanarySettingPtrOutput)
+}
+
+// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+func (o StageOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the deployment that the stage is associated with. This parameter is required to create a stage.
+func (o StageOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DeploymentId }).(pulumi.StringPtrOutput)
+}
+
+// A description of the stage.
+func (o StageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The version ID of the API documentation snapshot.
+func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
+}
+
+// Settings for all methods in the stage.
+func (o StageOutput) MethodSettings() StageMethodSettingArrayOutput {
+	return o.ApplyT(func(v *Stage) StageMethodSettingArrayOutput { return v.MethodSettings }).(StageMethodSettingArrayOutput)
+}
+
+// The ID of the RestApi resource that you're deploying with this stage.
+func (o StageOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+func (o StageOutput) StageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
+}
+
+// An array of arbitrary tags (key-value pairs) to associate with the stage.
+func (o StageOutput) Tags() StageTagArrayOutput {
+	return o.ApplyT(func(v *Stage) StageTagArrayOutput { return v.Tags }).(StageTagArrayOutput)
+}
+
+// Specifies whether active X-Ray tracing is enabled for this stage.
+func (o StageOutput) TracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.TracingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+func (o StageOutput) Variables() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.Variables }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageInput)(nil)).Elem(), &Stage{})
 	pulumi.RegisterOutputType(StageOutput{})

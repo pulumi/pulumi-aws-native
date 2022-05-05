@@ -160,6 +160,60 @@ func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
 }
 
+func (o BotOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Specifies whether to build the bot locales after bot creation completes.
+func (o BotOutput) AutoBuildBotLocales() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.BoolPtrOutput { return v.AutoBuildBotLocales }).(pulumi.BoolPtrOutput)
+}
+
+func (o BotOutput) BotFileS3Location() BotS3LocationPtrOutput {
+	return o.ApplyT(func(v *Bot) BotS3LocationPtrOutput { return v.BotFileS3Location }).(BotS3LocationPtrOutput)
+}
+
+// List of bot locales
+func (o BotOutput) BotLocales() BotLocaleArrayOutput {
+	return o.ApplyT(func(v *Bot) BotLocaleArrayOutput { return v.BotLocales }).(BotLocaleArrayOutput)
+}
+
+// A list of tags to add to the bot, which can only be added at bot creation.
+func (o BotOutput) BotTags() BotTagArrayOutput {
+	return o.ApplyT(func(v *Bot) BotTagArrayOutput { return v.BotTags }).(BotTagArrayOutput)
+}
+
+// Data privacy setting of the Bot.
+func (o BotOutput) DataPrivacy() DataPrivacyPropertiesOutput {
+	return o.ApplyT(func(v *Bot) DataPrivacyPropertiesOutput { return v.DataPrivacy }).(DataPrivacyPropertiesOutput)
+}
+
+func (o BotOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// IdleSessionTTLInSeconds of the resource
+func (o BotOutput) IdleSessionTTLInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *Bot) pulumi.IntOutput { return v.IdleSessionTTLInSeconds }).(pulumi.IntOutput)
+}
+
+func (o BotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o BotOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o BotOutput) TestBotAliasSettings() BotTestBotAliasSettingsPtrOutput {
+	return o.ApplyT(func(v *Bot) BotTestBotAliasSettingsPtrOutput { return v.TestBotAliasSettings }).(BotTestBotAliasSettingsPtrOutput)
+}
+
+// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+func (o BotOutput) TestBotAliasTags() BotTagArrayOutput {
+	return o.ApplyT(func(v *Bot) BotTagArrayOutput { return v.TestBotAliasTags }).(BotTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotInput)(nil)).Elem(), &Bot{})
 	pulumi.RegisterOutputType(BotOutput{})

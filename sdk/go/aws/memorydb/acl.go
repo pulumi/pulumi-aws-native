@@ -120,6 +120,31 @@ func (o ACLOutput) ToACLOutputWithContext(ctx context.Context) ACLOutput {
 	return o
 }
 
+// The name of the acl.
+func (o ACLOutput) ACLName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.ACLName }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the acl.
+func (o ACLOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Indicates acl status. Can be "creating", "active", "modifying", "deleting".
+func (o ACLOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this cluster.
+func (o ACLOutput) Tags() ACLTagArrayOutput {
+	return o.ApplyT(func(v *ACL) ACLTagArrayOutput { return v.Tags }).(ACLTagArrayOutput)
+}
+
+// List of users associated to this acl.
+func (o ACLOutput) UserNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ACL) pulumi.StringArrayOutput { return v.UserNames }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ACLInput)(nil)).Elem(), &ACL{})
 	pulumi.RegisterOutputType(ACLOutput{})

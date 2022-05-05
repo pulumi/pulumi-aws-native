@@ -116,6 +116,30 @@ func (o DatastoreOutput) ToDatastoreOutputWithContext(ctx context.Context) Datas
 	return o
 }
 
+func (o DatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringPtrOutput { return v.DatastoreName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatastoreOutput) DatastorePartitions() DatastorePartitionsPtrOutput {
+	return o.ApplyT(func(v *Datastore) DatastorePartitionsPtrOutput { return v.DatastorePartitions }).(DatastorePartitionsPtrOutput)
+}
+
+func (o DatastoreOutput) DatastoreStorage() DatastoreStoragePtrOutput {
+	return o.ApplyT(func(v *Datastore) DatastoreStoragePtrOutput { return v.DatastoreStorage }).(DatastoreStoragePtrOutput)
+}
+
+func (o DatastoreOutput) FileFormatConfiguration() DatastoreFileFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *Datastore) DatastoreFileFormatConfigurationPtrOutput { return v.FileFormatConfiguration }).(DatastoreFileFormatConfigurationPtrOutput)
+}
+
+func (o DatastoreOutput) RetentionPeriod() DatastoreRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *Datastore) DatastoreRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatastoreRetentionPeriodPtrOutput)
+}
+
+func (o DatastoreOutput) Tags() DatastoreTagArrayOutput {
+	return o.ApplyT(func(v *Datastore) DatastoreTagArrayOutput { return v.Tags }).(DatastoreTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreInput)(nil)).Elem(), &Datastore{})
 	pulumi.RegisterOutputType(DatastoreOutput{})

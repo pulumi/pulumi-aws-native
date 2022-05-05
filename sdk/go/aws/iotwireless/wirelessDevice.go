@@ -157,6 +157,56 @@ func (o WirelessDeviceOutput) ToWirelessDeviceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Wireless device arn. Returned after successful create.
+func (o WirelessDeviceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Wireless device description
+func (o WirelessDeviceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Wireless device destination name
+func (o WirelessDeviceOutput) DestinationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringOutput { return v.DestinationName }).(pulumi.StringOutput)
+}
+
+// The date and time when the most recent uplink was received.
+func (o WirelessDeviceOutput) LastUplinkReceivedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringPtrOutput { return v.LastUplinkReceivedAt }).(pulumi.StringPtrOutput)
+}
+
+// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
+func (o WirelessDeviceOutput) LoRaWAN() WirelessDeviceLoRaWANDevicePtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) WirelessDeviceLoRaWANDevicePtrOutput { return v.LoRaWAN }).(WirelessDeviceLoRaWANDevicePtrOutput)
+}
+
+// Wireless device name
+func (o WirelessDeviceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
+func (o WirelessDeviceOutput) Tags() WirelessDeviceTagArrayOutput {
+	return o.ApplyT(func(v *WirelessDevice) WirelessDeviceTagArrayOutput { return v.Tags }).(WirelessDeviceTagArrayOutput)
+}
+
+// Thing arn. Passed into update to associate Thing with Wireless device.
+func (o WirelessDeviceOutput) ThingArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringPtrOutput { return v.ThingArn }).(pulumi.StringPtrOutput)
+}
+
+// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+func (o WirelessDeviceOutput) ThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringOutput { return v.ThingName }).(pulumi.StringOutput)
+}
+
+// Wireless device type, currently only Sidewalk and LoRa
+func (o WirelessDeviceOutput) Type() WirelessDeviceTypeOutput {
+	return o.ApplyT(func(v *WirelessDevice) WirelessDeviceTypeOutput { return v.Type }).(WirelessDeviceTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceInput)(nil)).Elem(), &WirelessDevice{})
 	pulumi.RegisterOutputType(WirelessDeviceOutput{})

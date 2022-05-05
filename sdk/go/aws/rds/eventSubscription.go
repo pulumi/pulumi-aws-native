@@ -119,6 +119,26 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
+func (o EventSubscriptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o EventSubscriptionOutput) EventCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.EventCategories }).(pulumi.StringArrayOutput)
+}
+
+func (o EventSubscriptionOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
+}
+
+func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
+}
+
+func (o EventSubscriptionOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionInput)(nil)).Elem(), &EventSubscription{})
 	pulumi.RegisterOutputType(EventSubscriptionOutput{})

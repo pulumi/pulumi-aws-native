@@ -119,6 +119,26 @@ func (o MacroOutput) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
 	return o
 }
 
+func (o MacroOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MacroOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+func (o MacroOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringPtrOutput { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o MacroOutput) LogRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringPtrOutput { return v.LogRoleARN }).(pulumi.StringPtrOutput)
+}
+
+func (o MacroOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MacroInput)(nil)).Elem(), &Macro{})
 	pulumi.RegisterOutputType(MacroOutput{})

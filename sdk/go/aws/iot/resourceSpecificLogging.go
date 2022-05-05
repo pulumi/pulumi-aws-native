@@ -128,6 +128,26 @@ func (o ResourceSpecificLoggingOutput) ToResourceSpecificLoggingOutputWithContex
 	return o
 }
 
+// The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+func (o ResourceSpecificLoggingOutput) LogLevel() ResourceSpecificLoggingLogLevelOutput {
+	return o.ApplyT(func(v *ResourceSpecificLogging) ResourceSpecificLoggingLogLevelOutput { return v.LogLevel }).(ResourceSpecificLoggingLogLevelOutput)
+}
+
+// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
+func (o ResourceSpecificLoggingOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSpecificLogging) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
+}
+
+// The target name.
+func (o ResourceSpecificLoggingOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSpecificLogging) pulumi.StringOutput { return v.TargetName }).(pulumi.StringOutput)
+}
+
+// The target type. Value must be THING_GROUP.
+func (o ResourceSpecificLoggingOutput) TargetType() ResourceSpecificLoggingTargetTypeOutput {
+	return o.ApplyT(func(v *ResourceSpecificLogging) ResourceSpecificLoggingTargetTypeOutput { return v.TargetType }).(ResourceSpecificLoggingTargetTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSpecificLoggingInput)(nil)).Elem(), &ResourceSpecificLogging{})
 	pulumi.RegisterOutputType(ResourceSpecificLoggingOutput{})

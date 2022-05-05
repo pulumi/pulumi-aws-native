@@ -126,6 +126,38 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+func (o DatasetOutput) Actions() DatasetActionArrayOutput {
+	return o.ApplyT(func(v *Dataset) DatasetActionArrayOutput { return v.Actions }).(DatasetActionArrayOutput)
+}
+
+func (o DatasetOutput) ContentDeliveryRules() DatasetContentDeliveryRuleArrayOutput {
+	return o.ApplyT(func(v *Dataset) DatasetContentDeliveryRuleArrayOutput { return v.ContentDeliveryRules }).(DatasetContentDeliveryRuleArrayOutput)
+}
+
+func (o DatasetOutput) DatasetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringPtrOutput { return v.DatasetName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetOutput) LateDataRules() DatasetLateDataRuleArrayOutput {
+	return o.ApplyT(func(v *Dataset) DatasetLateDataRuleArrayOutput { return v.LateDataRules }).(DatasetLateDataRuleArrayOutput)
+}
+
+func (o DatasetOutput) RetentionPeriod() DatasetRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatasetRetentionPeriodPtrOutput)
+}
+
+func (o DatasetOutput) Tags() DatasetTagArrayOutput {
+	return o.ApplyT(func(v *Dataset) DatasetTagArrayOutput { return v.Tags }).(DatasetTagArrayOutput)
+}
+
+func (o DatasetOutput) Triggers() DatasetTriggerArrayOutput {
+	return o.ApplyT(func(v *Dataset) DatasetTriggerArrayOutput { return v.Triggers }).(DatasetTriggerArrayOutput)
+}
+
+func (o DatasetOutput) VersioningConfiguration() DatasetVersioningConfigurationPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetVersioningConfigurationPtrOutput { return v.VersioningConfiguration }).(DatasetVersioningConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInput)(nil)).Elem(), &Dataset{})
 	pulumi.RegisterOutputType(DatasetOutput{})

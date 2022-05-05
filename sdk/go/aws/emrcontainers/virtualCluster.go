@@ -121,6 +121,25 @@ func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o VirtualClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Container provider of the virtual cluster.
+func (o VirtualClusterOutput) ContainerProvider() VirtualClusterContainerProviderOutput {
+	return o.ApplyT(func(v *VirtualCluster) VirtualClusterContainerProviderOutput { return v.ContainerProvider }).(VirtualClusterContainerProviderOutput)
+}
+
+// Name of the virtual cluster.
+func (o VirtualClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this virtual cluster.
+func (o VirtualClusterOutput) Tags() VirtualClusterTagArrayOutput {
+	return o.ApplyT(func(v *VirtualCluster) VirtualClusterTagArrayOutput { return v.Tags }).(VirtualClusterTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterInput)(nil)).Elem(), &VirtualCluster{})
 	pulumi.RegisterOutputType(VirtualClusterOutput{})

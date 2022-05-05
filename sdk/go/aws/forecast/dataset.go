@@ -142,6 +142,42 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+func (o DatasetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
+func (o DatasetOutput) DataFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringPtrOutput { return v.DataFrequency }).(pulumi.StringPtrOutput)
+}
+
+// A name for the dataset
+func (o DatasetOutput) DatasetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.DatasetName }).(pulumi.StringOutput)
+}
+
+// The dataset type
+func (o DatasetOutput) DatasetType() DatasetTypeOutput {
+	return o.ApplyT(func(v *Dataset) DatasetTypeOutput { return v.DatasetType }).(DatasetTypeOutput)
+}
+
+// The domain associated with the dataset
+func (o DatasetOutput) Domain() DatasetDomainOutput {
+	return o.ApplyT(func(v *Dataset) DatasetDomainOutput { return v.Domain }).(DatasetDomainOutput)
+}
+
+func (o DatasetOutput) EncryptionConfig() EncryptionConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *Dataset) EncryptionConfigPropertiesPtrOutput { return v.EncryptionConfig }).(EncryptionConfigPropertiesPtrOutput)
+}
+
+func (o DatasetOutput) Schema() SchemaPropertiesOutput {
+	return o.ApplyT(func(v *Dataset) SchemaPropertiesOutput { return v.Schema }).(SchemaPropertiesOutput)
+}
+
+func (o DatasetOutput) Tags() TagsItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *Dataset) TagsItemPropertiesArrayOutput { return v.Tags }).(TagsItemPropertiesArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInput)(nil)).Elem(), &Dataset{})
 	pulumi.RegisterOutputType(DatasetOutput{})

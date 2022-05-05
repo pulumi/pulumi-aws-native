@@ -139,6 +139,41 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+// The ARN of the dashboard.
+func (o DashboardOutput) DashboardArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardArn }).(pulumi.StringOutput)
+}
+
+// The dashboard definition specified in a JSON literal.
+func (o DashboardOutput) DashboardDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardDefinition }).(pulumi.StringOutput)
+}
+
+// A description for the dashboard.
+func (o DashboardOutput) DashboardDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardDescription }).(pulumi.StringOutput)
+}
+
+// The ID of the dashboard.
+func (o DashboardOutput) DashboardId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardId }).(pulumi.StringOutput)
+}
+
+// A friendly name for the dashboard.
+func (o DashboardOutput) DashboardName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardName }).(pulumi.StringOutput)
+}
+
+// The ID of the project in which to create the dashboard.
+func (o DashboardOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the dashboard.
+func (o DashboardOutput) Tags() DashboardTagArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardTagArrayOutput { return v.Tags }).(DashboardTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
 	pulumi.RegisterOutputType(DashboardOutput{})

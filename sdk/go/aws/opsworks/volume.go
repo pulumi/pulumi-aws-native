@@ -119,6 +119,22 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+func (o VolumeOutput) Ec2VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Ec2VolumeId }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) MountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.MountPoint }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOutput) StackId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeInput)(nil)).Elem(), &Volume{})
 	pulumi.RegisterOutputType(VolumeOutput{})

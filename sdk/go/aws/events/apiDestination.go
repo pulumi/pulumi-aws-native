@@ -137,6 +137,38 @@ func (o ApiDestinationOutput) ToApiDestinationOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The arn of the api destination.
+func (o ApiDestinationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The arn of the connection.
+func (o ApiDestinationOutput) ConnectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.ConnectionArn }).(pulumi.StringOutput)
+}
+
+func (o ApiDestinationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiDestinationOutput) HttpMethod() ApiDestinationHttpMethodOutput {
+	return o.ApplyT(func(v *ApiDestination) ApiDestinationHttpMethodOutput { return v.HttpMethod }).(ApiDestinationHttpMethodOutput)
+}
+
+// Url endpoint to invoke.
+func (o ApiDestinationOutput) InvocationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.InvocationEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ApiDestinationOutput) InvocationRateLimitPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.IntPtrOutput { return v.InvocationRateLimitPerSecond }).(pulumi.IntPtrOutput)
+}
+
+// Name of the apiDestination.
+func (o ApiDestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiDestinationInput)(nil)).Elem(), &ApiDestination{})
 	pulumi.RegisterOutputType(ApiDestinationOutput{})

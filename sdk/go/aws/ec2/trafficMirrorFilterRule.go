@@ -149,6 +149,50 @@ func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutputWithContex
 	return o
 }
 
+func (o TrafficMirrorFilterRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) DestinationPortRange() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+		return v.DestinationPortRange
+	}).(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) Protocol() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.IntPtrOutput { return v.Protocol }).(pulumi.IntPtrOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) RuleAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.RuleAction }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.IntOutput { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) SourceCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.SourceCidrBlock }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) SourcePortRange() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+		return v.SourcePortRange
+	}).(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) TrafficDirection() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.TrafficDirection }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorFilterRuleOutput) TrafficMirrorFilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.TrafficMirrorFilterId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleInput)(nil)).Elem(), &TrafficMirrorFilterRule{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleOutput{})

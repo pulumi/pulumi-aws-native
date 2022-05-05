@@ -105,6 +105,10 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
+func (o NotificationChannelOutput) Config() NotificationChannelConfigOutput {
+	return o.ApplyT(func(v *NotificationChannel) NotificationChannelConfigOutput { return v.Config }).(NotificationChannelConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelInput)(nil)).Elem(), &NotificationChannel{})
 	pulumi.RegisterOutputType(NotificationChannelOutput{})

@@ -122,6 +122,22 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CustomerGatewayOutput) BgpAsn() pulumi.IntOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
+}
+
+func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+func (o CustomerGatewayOutput) Tags() CustomerGatewayTagArrayOutput {
+	return o.ApplyT(func(v *CustomerGateway) CustomerGatewayTagArrayOutput { return v.Tags }).(CustomerGatewayTagArrayOutput)
+}
+
+func (o CustomerGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayInput)(nil)).Elem(), &CustomerGateway{})
 	pulumi.RegisterOutputType(CustomerGatewayOutput{})

@@ -116,6 +116,18 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx 
 	return o
 }
 
+func (o SecurityGroupIngressOutput) CacheSecurityGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.CacheSecurityGroupName }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressOutput) EC2SecurityGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.EC2SecurityGroupName }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), &SecurityGroupIngress{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})

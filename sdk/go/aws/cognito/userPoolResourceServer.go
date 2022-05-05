@@ -119,6 +119,24 @@ func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutputWithContext(
 	return o
 }
 
+func (o UserPoolResourceServerOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o UserPoolResourceServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o UserPoolResourceServerOutput) Scopes() UserPoolResourceServerResourceServerScopeTypeArrayOutput {
+	return o.ApplyT(func(v *UserPoolResourceServer) UserPoolResourceServerResourceServerScopeTypeArrayOutput {
+		return v.Scopes
+	}).(UserPoolResourceServerResourceServerScopeTypeArrayOutput)
+}
+
+func (o UserPoolResourceServerOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolResourceServerInput)(nil)).Elem(), &UserPoolResourceServer{})
 	pulumi.RegisterOutputType(UserPoolResourceServerOutput{})

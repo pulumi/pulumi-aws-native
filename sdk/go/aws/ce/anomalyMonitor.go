@@ -140,6 +140,53 @@ func (o AnomalyMonitorOutput) ToAnomalyMonitorOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The date when the monitor was created.
+func (o AnomalyMonitorOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The value for evaluated dimensions.
+func (o AnomalyMonitorOutput) DimensionalValueCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.IntOutput { return v.DimensionalValueCount }).(pulumi.IntOutput)
+}
+
+// The date when the monitor last evaluated for anomalies.
+func (o AnomalyMonitorOutput) LastEvaluatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.LastEvaluatedDate }).(pulumi.StringOutput)
+}
+
+// The date when the monitor was last updated.
+func (o AnomalyMonitorOutput) LastUpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+func (o AnomalyMonitorOutput) MonitorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.MonitorArn }).(pulumi.StringOutput)
+}
+
+// The dimensions to evaluate
+func (o AnomalyMonitorOutput) MonitorDimension() AnomalyMonitorMonitorDimensionPtrOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) AnomalyMonitorMonitorDimensionPtrOutput { return v.MonitorDimension }).(AnomalyMonitorMonitorDimensionPtrOutput)
+}
+
+// The name of the monitor.
+func (o AnomalyMonitorOutput) MonitorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
+}
+
+func (o AnomalyMonitorOutput) MonitorSpecification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringPtrOutput { return v.MonitorSpecification }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyMonitorOutput) MonitorType() AnomalyMonitorMonitorTypeOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) AnomalyMonitorMonitorTypeOutput { return v.MonitorType }).(AnomalyMonitorMonitorTypeOutput)
+}
+
+// Tags to assign to monitor.
+func (o AnomalyMonitorOutput) ResourceTags() AnomalyMonitorResourceTagArrayOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) AnomalyMonitorResourceTagArrayOutput { return v.ResourceTags }).(AnomalyMonitorResourceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorInput)(nil)).Elem(), &AnomalyMonitor{})
 	pulumi.RegisterOutputType(AnomalyMonitorOutput{})

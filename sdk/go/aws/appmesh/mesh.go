@@ -113,6 +113,34 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return o
 }
 
+func (o MeshOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MeshOutput) MeshName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringPtrOutput { return v.MeshName }).(pulumi.StringPtrOutput)
+}
+
+func (o MeshOutput) MeshOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
+}
+
+func (o MeshOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o MeshOutput) Spec() MeshSpecPtrOutput {
+	return o.ApplyT(func(v *Mesh) MeshSpecPtrOutput { return v.Spec }).(MeshSpecPtrOutput)
+}
+
+func (o MeshOutput) Tags() MeshTagArrayOutput {
+	return o.ApplyT(func(v *Mesh) MeshTagArrayOutput { return v.Tags }).(MeshTagArrayOutput)
+}
+
+func (o MeshOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshInput)(nil)).Elem(), &Mesh{})
 	pulumi.RegisterOutputType(MeshOutput{})

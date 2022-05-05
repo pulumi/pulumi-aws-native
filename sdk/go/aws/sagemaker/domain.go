@@ -180,6 +180,85 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+func (o DomainOutput) AppNetworkAccessType() DomainAppNetworkAccessTypePtrOutput {
+	return o.ApplyT(func(v *Domain) DomainAppNetworkAccessTypePtrOutput { return v.AppNetworkAccessType }).(DomainAppNetworkAccessTypePtrOutput)
+}
+
+// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+func (o DomainOutput) AppSecurityGroupManagement() DomainAppSecurityGroupManagementPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainAppSecurityGroupManagementPtrOutput { return v.AppSecurityGroupManagement }).(DomainAppSecurityGroupManagementPtrOutput)
+}
+
+// The mode of authentication that members use to access the domain.
+func (o DomainOutput) AuthMode() DomainAuthModeOutput {
+	return o.ApplyT(func(v *Domain) DomainAuthModeOutput { return v.AuthMode }).(DomainAuthModeOutput)
+}
+
+// The default user settings.
+func (o DomainOutput) DefaultUserSettings() DomainUserSettingsOutput {
+	return o.ApplyT(func(v *Domain) DomainUserSettingsOutput { return v.DefaultUserSettings }).(DomainUserSettingsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the created domain.
+func (o DomainOutput) DomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainArn }).(pulumi.StringOutput)
+}
+
+// The domain name.
+func (o DomainOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+// A name for the domain.
+func (o DomainOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) DomainSettings() DomainSettingsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainSettingsPtrOutput { return v.DomainSettings }).(DomainSettingsPtrOutput)
+}
+
+// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+func (o DomainOutput) HomeEfsFileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.HomeEfsFileSystemId }).(pulumi.StringOutput)
+}
+
+// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
+func (o DomainOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
+}
+
+// The SSO managed application instance ID.
+func (o DomainOutput) SingleSignOnManagedApplicationInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnManagedApplicationInstanceId }).(pulumi.StringOutput)
+}
+
+// The VPC subnets that Studio uses for communication.
+func (o DomainOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of tags to apply to the user profile.
+func (o DomainOutput) Tags() DomainTagArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+}
+
+// The URL to the created domain.
+func (o DomainOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+func (o DomainOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainInput)(nil)).Elem(), &Domain{})
 	pulumi.RegisterOutputType(DomainOutput{})

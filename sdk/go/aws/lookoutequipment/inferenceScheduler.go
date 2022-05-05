@@ -172,6 +172,56 @@ func (o InferenceSchedulerOutput) ToInferenceSchedulerOutputWithContext(ctx cont
 	return o
 }
 
+// A period of time (in minutes) by which inference on the data is delayed after the data starts.
+func (o InferenceSchedulerOutput) DataDelayOffsetInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceScheduler) pulumi.IntPtrOutput { return v.DataDelayOffsetInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
+func (o InferenceSchedulerOutput) DataInputConfiguration() DataInputConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *InferenceScheduler) DataInputConfigurationPropertiesOutput { return v.DataInputConfiguration }).(DataInputConfigurationPropertiesOutput)
+}
+
+// Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
+func (o InferenceSchedulerOutput) DataOutputConfiguration() DataOutputConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *InferenceScheduler) DataOutputConfigurationPropertiesOutput { return v.DataOutputConfiguration }).(DataOutputConfigurationPropertiesOutput)
+}
+
+// How often data is uploaded to the source S3 bucket for the input data.
+func (o InferenceSchedulerOutput) DataUploadFrequency() InferenceSchedulerDataUploadFrequencyOutput {
+	return o.ApplyT(func(v *InferenceScheduler) InferenceSchedulerDataUploadFrequencyOutput { return v.DataUploadFrequency }).(InferenceSchedulerDataUploadFrequencyOutput)
+}
+
+// The Amazon Resource Name (ARN) of the inference scheduler being created.
+func (o InferenceSchedulerOutput) InferenceSchedulerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InferenceScheduler) pulumi.StringOutput { return v.InferenceSchedulerArn }).(pulumi.StringOutput)
+}
+
+// The name of the inference scheduler being created.
+func (o InferenceSchedulerOutput) InferenceSchedulerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceScheduler) pulumi.StringPtrOutput { return v.InferenceSchedulerName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the previously trained ML model being used to create the inference scheduler.
+func (o InferenceSchedulerOutput) ModelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *InferenceScheduler) pulumi.StringOutput { return v.ModelName }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.
+func (o InferenceSchedulerOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InferenceScheduler) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
+func (o InferenceSchedulerOutput) ServerSideKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceScheduler) pulumi.StringPtrOutput { return v.ServerSideKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Any tags associated with the inference scheduler.
+func (o InferenceSchedulerOutput) Tags() InferenceSchedulerTagArrayOutput {
+	return o.ApplyT(func(v *InferenceScheduler) InferenceSchedulerTagArrayOutput { return v.Tags }).(InferenceSchedulerTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerInput)(nil)).Elem(), &InferenceScheduler{})
 	pulumi.RegisterOutputType(InferenceSchedulerOutput{})

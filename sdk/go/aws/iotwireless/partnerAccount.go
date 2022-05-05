@@ -146,6 +146,53 @@ func (o PartnerAccountOutput) ToPartnerAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Whether the partner account is linked to the AWS account.
+func (o PartnerAccountOutput) AccountLinked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) pulumi.BoolPtrOutput { return v.AccountLinked }).(pulumi.BoolPtrOutput)
+}
+
+// PartnerAccount arn. Returned after successful create.
+func (o PartnerAccountOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerAccount) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The fingerprint of the Sidewalk application server private key.
+func (o PartnerAccountOutput) Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) pulumi.StringPtrOutput { return v.Fingerprint }).(pulumi.StringPtrOutput)
+}
+
+// The partner account ID to disassociate from the AWS account
+func (o PartnerAccountOutput) PartnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) pulumi.StringPtrOutput { return v.PartnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The partner type
+func (o PartnerAccountOutput) PartnerType() PartnerAccountPartnerTypePtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) PartnerAccountPartnerTypePtrOutput { return v.PartnerType }).(PartnerAccountPartnerTypePtrOutput)
+}
+
+// The Sidewalk account credentials.
+func (o PartnerAccountOutput) Sidewalk() PartnerAccountSidewalkAccountInfoPtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) PartnerAccountSidewalkAccountInfoPtrOutput { return v.Sidewalk }).(PartnerAccountSidewalkAccountInfoPtrOutput)
+}
+
+// The Sidewalk account credentials.
+func (o PartnerAccountOutput) SidewalkResponse() PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
+	return o.ApplyT(func(v *PartnerAccount) PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
+		return v.SidewalkResponse
+	}).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput)
+}
+
+// The Sidewalk account credentials.
+func (o PartnerAccountOutput) SidewalkUpdate() PartnerAccountSidewalkUpdateAccountPtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) PartnerAccountSidewalkUpdateAccountPtrOutput { return v.SidewalkUpdate }).(PartnerAccountSidewalkUpdateAccountPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the destination.
+func (o PartnerAccountOutput) Tags() PartnerAccountTagArrayOutput {
+	return o.ApplyT(func(v *PartnerAccount) PartnerAccountTagArrayOutput { return v.Tags }).(PartnerAccountTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountInput)(nil)).Elem(), &PartnerAccount{})
 	pulumi.RegisterOutputType(PartnerAccountOutput{})

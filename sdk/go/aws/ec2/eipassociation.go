@@ -115,6 +115,26 @@ func (o EIPAssociationOutput) ToEIPAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EIPAssociationOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPAssociationOutput) EIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.EIP }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPAssociationOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPAssociationOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPAssociationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EIPAssociationInput)(nil)).Elem(), &EIPAssociation{})
 	pulumi.RegisterOutputType(EIPAssociationOutput{})

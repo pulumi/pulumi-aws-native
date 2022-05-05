@@ -119,6 +119,26 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EnvironmentOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) Monitors() EnvironmentMonitorsArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentMonitorsArrayOutput { return v.Monitors }).(EnvironmentMonitorsArrayOutput)
+}
+
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) Tags() EnvironmentTagsArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTagsArrayOutput { return v.Tags }).(EnvironmentTagsArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentInput)(nil)).Elem(), &Environment{})
 	pulumi.RegisterOutputType(EnvironmentOutput{})

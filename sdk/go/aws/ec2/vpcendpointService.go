@@ -112,6 +112,22 @@ func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutputWithContext(ctx cont
 	return o
 }
 
+func (o VPCEndpointServiceOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPCEndpointService) pulumi.BoolPtrOutput { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
+}
+
+func (o VPCEndpointServiceOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpointService) pulumi.StringArrayOutput { return v.GatewayLoadBalancerArns }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointServiceOutput) NetworkLoadBalancerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpointService) pulumi.StringArrayOutput { return v.NetworkLoadBalancerArns }).(pulumi.StringArrayOutput)
+}
+
+func (o VPCEndpointServiceOutput) PayerResponsibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEndpointService) pulumi.StringPtrOutput { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointServiceInput)(nil)).Elem(), &VPCEndpointService{})
 	pulumi.RegisterOutputType(VPCEndpointServiceOutput{})

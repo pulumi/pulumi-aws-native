@@ -134,6 +134,38 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+func (o WorkspaceOutput) BundleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
+}
+
+func (o WorkspaceOutput) DirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+func (o WorkspaceOutput) RootVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkspaceOutput) Tags() WorkspaceTagArrayOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceTagArrayOutput { return v.Tags }).(WorkspaceTagArrayOutput)
+}
+
+func (o WorkspaceOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
+func (o WorkspaceOutput) UserVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.UserVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkspaceOutput) VolumeEncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.VolumeEncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceOutput) WorkspaceProperties() WorkspacePropertiesPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspacePropertiesPtrOutput { return v.WorkspaceProperties }).(WorkspacePropertiesPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInput)(nil)).Elem(), &Workspace{})
 	pulumi.RegisterOutputType(WorkspaceOutput{})

@@ -140,6 +140,41 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
+// Name of Addon
+func (o AddonOutput) AddonName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.AddonName }).(pulumi.StringOutput)
+}
+
+// Version of Addon
+func (o AddonOutput) AddonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.AddonVersion }).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the add-on
+func (o AddonOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Name of Cluster
+func (o AddonOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Resolve parameter value conflicts
+func (o AddonOutput) ResolveConflicts() AddonResolveConflictsPtrOutput {
+	return o.ApplyT(func(v *Addon) AddonResolveConflictsPtrOutput { return v.ResolveConflicts }).(AddonResolveConflictsPtrOutput)
+}
+
+// IAM role to bind to the add-on's service account
+func (o AddonOutput) ServiceAccountRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ServiceAccountRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o AddonOutput) Tags() AddonTagArrayOutput {
+	return o.ApplyT(func(v *Addon) AddonTagArrayOutput { return v.Tags }).(AddonTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonInput)(nil)).Elem(), &Addon{})
 	pulumi.RegisterOutputType(AddonOutput{})

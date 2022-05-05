@@ -125,6 +125,38 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o VirtualGatewayOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayOutput) Spec() VirtualGatewaySpecOutput {
+	return o.ApplyT(func(v *VirtualGateway) VirtualGatewaySpecOutput { return v.Spec }).(VirtualGatewaySpecOutput)
+}
+
+func (o VirtualGatewayOutput) Tags() VirtualGatewayTagArrayOutput {
+	return o.ApplyT(func(v *VirtualGateway) VirtualGatewayTagArrayOutput { return v.Tags }).(VirtualGatewayTagArrayOutput)
+}
+
+func (o VirtualGatewayOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayOutput) VirtualGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringPtrOutput { return v.VirtualGatewayName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayInput)(nil)).Elem(), &VirtualGateway{})
 	pulumi.RegisterOutputType(VirtualGatewayOutput{})

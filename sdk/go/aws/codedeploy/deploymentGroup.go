@@ -164,6 +164,86 @@ func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DeploymentGroupOutput) AlarmConfiguration() DeploymentGroupAlarmConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupAlarmConfigurationPtrOutput { return v.AlarmConfiguration }).(DeploymentGroupAlarmConfigurationPtrOutput)
+}
+
+func (o DeploymentGroupOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o DeploymentGroupOutput) AutoRollbackConfiguration() DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupAutoRollbackConfigurationPtrOutput {
+		return v.AutoRollbackConfiguration
+	}).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
+}
+
+func (o DeploymentGroupOutput) AutoScalingGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringArrayOutput { return v.AutoScalingGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o DeploymentGroupOutput) BlueGreenDeploymentConfiguration() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+		return v.BlueGreenDeploymentConfiguration
+	}).(DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput)
+}
+
+func (o DeploymentGroupOutput) Deployment() DeploymentGroupDeploymentPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupDeploymentPtrOutput { return v.Deployment }).(DeploymentGroupDeploymentPtrOutput)
+}
+
+func (o DeploymentGroupOutput) DeploymentConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.DeploymentConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentGroupOutput) DeploymentGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.DeploymentGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentGroupOutput) DeploymentStyle() DeploymentGroupDeploymentStylePtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupDeploymentStylePtrOutput { return v.DeploymentStyle }).(DeploymentGroupDeploymentStylePtrOutput)
+}
+
+func (o DeploymentGroupOutput) ECSServices() DeploymentGroupECSServiceArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupECSServiceArrayOutput { return v.ECSServices }).(DeploymentGroupECSServiceArrayOutput)
+}
+
+func (o DeploymentGroupOutput) Ec2TagFilters() DeploymentGroupEC2TagFilterArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEC2TagFilterArrayOutput { return v.Ec2TagFilters }).(DeploymentGroupEC2TagFilterArrayOutput)
+}
+
+func (o DeploymentGroupOutput) Ec2TagSet() DeploymentGroupEC2TagSetPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEC2TagSetPtrOutput { return v.Ec2TagSet }).(DeploymentGroupEC2TagSetPtrOutput)
+}
+
+func (o DeploymentGroupOutput) LoadBalancerInfo() DeploymentGroupLoadBalancerInfoPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupLoadBalancerInfoPtrOutput { return v.LoadBalancerInfo }).(DeploymentGroupLoadBalancerInfoPtrOutput)
+}
+
+func (o DeploymentGroupOutput) OnPremisesInstanceTagFilters() DeploymentGroupTagFilterArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupTagFilterArrayOutput { return v.OnPremisesInstanceTagFilters }).(DeploymentGroupTagFilterArrayOutput)
+}
+
+func (o DeploymentGroupOutput) OnPremisesTagSet() DeploymentGroupOnPremisesTagSetPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupOnPremisesTagSetPtrOutput { return v.OnPremisesTagSet }).(DeploymentGroupOnPremisesTagSetPtrOutput)
+}
+
+func (o DeploymentGroupOutput) OutdatedInstancesStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.OutdatedInstancesStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentGroupOutput) ServiceRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
+}
+
+func (o DeploymentGroupOutput) Tags() DeploymentGroupTagArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupTagArrayOutput { return v.Tags }).(DeploymentGroupTagArrayOutput)
+}
+
+func (o DeploymentGroupOutput) TriggerConfigurations() DeploymentGroupTriggerConfigArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupTriggerConfigArrayOutput { return v.TriggerConfigurations }).(DeploymentGroupTriggerConfigArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupInput)(nil)).Elem(), &DeploymentGroup{})
 	pulumi.RegisterOutputType(DeploymentGroupOutput{})

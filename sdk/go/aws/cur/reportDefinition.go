@@ -200,6 +200,70 @@ func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+// A list of manifests that you want Amazon Web Services to create for this report.
+func (o ReportDefinitionOutput) AdditionalArtifacts() ReportDefinitionAdditionalArtifactsItemArrayOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinitionAdditionalArtifactsItemArrayOutput {
+		return v.AdditionalArtifacts
+	}).(ReportDefinitionAdditionalArtifactsItemArrayOutput)
+}
+
+// A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
+func (o ReportDefinitionOutput) AdditionalSchemaElements() ReportDefinitionAdditionalSchemaElementsItemArrayOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinitionAdditionalSchemaElementsItemArrayOutput {
+		return v.AdditionalSchemaElements
+	}).(ReportDefinitionAdditionalSchemaElementsItemArrayOutput)
+}
+
+// The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.
+func (o ReportDefinitionOutput) BillingViewArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.StringPtrOutput { return v.BillingViewArn }).(pulumi.StringPtrOutput)
+}
+
+// The compression format that AWS uses for the report.
+func (o ReportDefinitionOutput) Compression() ReportDefinitionCompressionOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinitionCompressionOutput { return v.Compression }).(ReportDefinitionCompressionOutput)
+}
+
+// The format that AWS saves the report in.
+func (o ReportDefinitionOutput) Format() ReportDefinitionFormatOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinitionFormatOutput { return v.Format }).(ReportDefinitionFormatOutput)
+}
+
+// Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
+func (o ReportDefinitionOutput) RefreshClosedReports() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.BoolOutput { return v.RefreshClosedReports }).(pulumi.BoolOutput)
+}
+
+// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
+func (o ReportDefinitionOutput) ReportName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.ReportName }).(pulumi.StringOutput)
+}
+
+// Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+func (o ReportDefinitionOutput) ReportVersioning() ReportDefinitionReportVersioningOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinitionReportVersioningOutput { return v.ReportVersioning }).(ReportDefinitionReportVersioningOutput)
+}
+
+// The S3 bucket where AWS delivers the report.
+func (o ReportDefinitionOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// The prefix that AWS adds to the report name when AWS delivers the report. Your prefix can't include spaces.
+func (o ReportDefinitionOutput) S3Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Prefix }).(pulumi.StringOutput)
+}
+
+// The region of the S3 bucket that AWS delivers the report into.
+func (o ReportDefinitionOutput) S3Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Region }).(pulumi.StringOutput)
+}
+
+// The granularity of the line items in the report.
+func (o ReportDefinitionOutput) TimeUnit() ReportDefinitionTimeUnitOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinitionTimeUnitOutput { return v.TimeUnit }).(ReportDefinitionTimeUnitOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionInput)(nil)).Elem(), &ReportDefinition{})
 	pulumi.RegisterOutputType(ReportDefinitionOutput{})

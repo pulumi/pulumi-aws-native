@@ -155,6 +155,45 @@ func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutputWithContext(ctx co
 	return o
 }
 
+// The accountId
+func (o AnomalySubscriptionOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The frequency at which anomaly reports are sent over email.
+func (o AnomalySubscriptionOutput) Frequency() AnomalySubscriptionFrequencyOutput {
+	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionFrequencyOutput { return v.Frequency }).(AnomalySubscriptionFrequencyOutput)
+}
+
+// A list of cost anomaly monitors.
+func (o AnomalySubscriptionOutput) MonitorArnList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringArrayOutput { return v.MonitorArnList }).(pulumi.StringArrayOutput)
+}
+
+// Tags to assign to subscription.
+func (o AnomalySubscriptionOutput) ResourceTags() AnomalySubscriptionResourceTagArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionResourceTagArrayOutput { return v.ResourceTags }).(AnomalySubscriptionResourceTagArrayOutput)
+}
+
+// A list of subscriber
+func (o AnomalySubscriptionOutput) Subscribers() AnomalySubscriptionSubscriberArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionSubscriberArrayOutput { return v.Subscribers }).(AnomalySubscriptionSubscriberArrayOutput)
+}
+
+func (o AnomalySubscriptionOutput) SubscriptionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.SubscriptionArn }).(pulumi.StringOutput)
+}
+
+// The name of the subscription.
+func (o AnomalySubscriptionOutput) SubscriptionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.SubscriptionName }).(pulumi.StringOutput)
+}
+
+// The dollar value that triggers a notification if the threshold is exceeded.
+func (o AnomalySubscriptionOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.Float64Output { return v.Threshold }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionInput)(nil)).Elem(), &AnomalySubscription{})
 	pulumi.RegisterOutputType(AnomalySubscriptionOutput{})

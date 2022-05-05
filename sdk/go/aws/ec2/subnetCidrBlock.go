@@ -113,6 +113,14 @@ func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o SubnetCidrBlockOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+func (o SubnetCidrBlockOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrBlockInput)(nil)).Elem(), &SubnetCidrBlock{})
 	pulumi.RegisterOutputType(SubnetCidrBlockOutput{})

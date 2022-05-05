@@ -120,6 +120,31 @@ func (o RoutingControlOutput) ToRoutingControlOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Arn associated with Control Panel
+func (o RoutingControlOutput) ClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringPtrOutput { return v.ClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the control panel.
+func (o RoutingControlOutput) ControlPanelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringPtrOutput { return v.ControlPanelArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the routing control. You can use any non-white space character in the name.
+func (o RoutingControlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the routing control.
+func (o RoutingControlOutput) RoutingControlArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.RoutingControlArn }).(pulumi.StringOutput)
+}
+
+// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+func (o RoutingControlOutput) Status() RoutingControlStatusOutput {
+	return o.ApplyT(func(v *RoutingControl) RoutingControlStatusOutput { return v.Status }).(RoutingControlStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlInput)(nil)).Elem(), &RoutingControl{})
 	pulumi.RegisterOutputType(RoutingControlOutput{})

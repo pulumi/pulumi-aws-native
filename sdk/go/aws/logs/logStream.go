@@ -110,6 +110,14 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 	return o
 }
 
+func (o LogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o LogStreamOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStream) pulumi.StringPtrOutput { return v.LogStreamName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamInput)(nil)).Elem(), &LogStream{})
 	pulumi.RegisterOutputType(LogStreamOutput{})

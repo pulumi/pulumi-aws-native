@@ -161,6 +161,78 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
+func (o IntegrationOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o IntegrationOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ConnectionId }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) ContentHandlingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ContentHandlingStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) CredentialsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.CredentialsArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) IntegrationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) IntegrationSubtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationSubtype }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) IntegrationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.IntegrationType }).(pulumi.StringOutput)
+}
+
+func (o IntegrationOutput) IntegrationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) PassthroughBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.PassthroughBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) PayloadFormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.PayloadFormatVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) RequestParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Integration) pulumi.AnyOutput { return v.RequestParameters }).(pulumi.AnyOutput)
+}
+
+func (o IntegrationOutput) RequestTemplates() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Integration) pulumi.AnyOutput { return v.RequestTemplates }).(pulumi.AnyOutput)
+}
+
+func (o IntegrationOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Integration) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+func (o IntegrationOutput) TemplateSelectionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.TemplateSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.IntPtrOutput { return v.TimeoutInMillis }).(pulumi.IntPtrOutput)
+}
+
+func (o IntegrationOutput) TlsConfig() IntegrationTlsConfigPtrOutput {
+	return o.ApplyT(func(v *Integration) IntegrationTlsConfigPtrOutput { return v.TlsConfig }).(IntegrationTlsConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationInput)(nil)).Elem(), &Integration{})
 	pulumi.RegisterOutputType(IntegrationOutput{})

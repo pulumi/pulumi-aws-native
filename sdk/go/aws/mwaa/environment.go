@@ -190,6 +190,104 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// Key/value pairs representing Airflow configuration variables.
+//     Keys are prefixed by their section:
+//
+//     [core]
+//     dags_folder={AIRFLOW_HOME}/dags
+//
+//     Would be represented as
+//
+//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+func (o EnvironmentOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Environment) pulumi.AnyOutput { return v.AirflowConfigurationOptions }).(pulumi.AnyOutput)
+}
+
+func (o EnvironmentOutput) AirflowVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.AirflowVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) DagS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.DagS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) EnvironmentClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentClass }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationPtrOutput)
+}
+
+func (o EnvironmentOutput) MaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MaxWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o EnvironmentOutput) MinWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.MinWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) NetworkConfiguration() EnvironmentNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(EnvironmentNetworkConfigurationPtrOutput)
+}
+
+func (o EnvironmentOutput) PluginsS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.PluginsS3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) PluginsS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.PluginsS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) RequirementsS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.RequirementsS3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) RequirementsS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.RequirementsS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) Schedulers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.Schedulers }).(pulumi.IntPtrOutput)
+}
+
+func (o EnvironmentOutput) SourceBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.SourceBucketArn }).(pulumi.StringPtrOutput)
+}
+
+// A map of tags for the environment.
+func (o EnvironmentOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Environment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o EnvironmentOutput) WebserverAccessMode() EnvironmentWebserverAccessModePtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentWebserverAccessModePtrOutput { return v.WebserverAccessMode }).(EnvironmentWebserverAccessModePtrOutput)
+}
+
+func (o EnvironmentOutput) WebserverUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WebserverUrl }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) WeeklyMaintenanceWindowStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.WeeklyMaintenanceWindowStart }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentInput)(nil)).Elem(), &Environment{})
 	pulumi.RegisterOutputType(EnvironmentOutput{})

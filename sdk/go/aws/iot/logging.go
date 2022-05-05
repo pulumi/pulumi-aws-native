@@ -126,6 +126,21 @@ func (o LoggingOutput) ToLoggingOutputWithContext(ctx context.Context) LoggingOu
 	return o
 }
 
+// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+func (o LoggingOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Logging) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+func (o LoggingOutput) DefaultLogLevel() LoggingDefaultLogLevelOutput {
+	return o.ApplyT(func(v *Logging) LoggingDefaultLogLevelOutput { return v.DefaultLogLevel }).(LoggingDefaultLogLevelOutput)
+}
+
+// The ARN of the role that allows IoT to write to Cloudwatch logs.
+func (o LoggingOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Logging) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingInput)(nil)).Elem(), &Logging{})
 	pulumi.RegisterOutputType(LoggingOutput{})

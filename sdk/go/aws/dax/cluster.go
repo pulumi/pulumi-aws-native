@@ -155,6 +155,74 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+func (o ClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterOutput) ClusterDiscoveryEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDiscoveryEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) ClusterDiscoveryEndpointURL() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDiscoveryEndpointURL }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) ClusterEndpointEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterEndpointEncryptionType }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) IAMRoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.IAMRoleARN }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) NotificationTopicARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NotificationTopicARN }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ReplicationFactor() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ReplicationFactor }).(pulumi.IntOutput)
+}
+
+func (o ClusterOutput) SSESpecification() ClusterSSESpecificationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSSESpecificationPtrOutput { return v.SSESpecification }).(ClusterSSESpecificationPtrOutput)
+}
+
+func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

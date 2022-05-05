@@ -140,6 +140,41 @@ func (o RepositoryAssociationOutput) ToRepositoryAssociationOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the repository association.
+func (o RepositoryAssociationOutput) AssociationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.AssociationArn }).(pulumi.StringOutput)
+}
+
+// The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
+func (o RepositoryAssociationOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+func (o RepositoryAssociationOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.ConnectionArn }).(pulumi.StringPtrOutput)
+}
+
+// Name of the repository to be associated.
+func (o RepositoryAssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
+func (o RepositoryAssociationOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The tags associated with a repository association.
+func (o RepositoryAssociationOutput) Tags() RepositoryAssociationTagArrayOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationTagArrayOutput { return v.Tags }).(RepositoryAssociationTagArrayOutput)
+}
+
+// The type of repository to be associated.
+func (o RepositoryAssociationOutput) Type() RepositoryAssociationTypeOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationTypeOutput { return v.Type }).(RepositoryAssociationTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAssociationInput)(nil)).Elem(), &RepositoryAssociation{})
 	pulumi.RegisterOutputType(RepositoryAssociationOutput{})

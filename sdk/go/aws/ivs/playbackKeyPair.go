@@ -124,6 +124,31 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Co
 	return o
 }
 
+// Key-pair identifier.
+func (o PlaybackKeyPairOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Key-pair identifier.
+func (o PlaybackKeyPairOutput) Fingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
+}
+
+// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
+func (o PlaybackKeyPairOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The public portion of a customer-generated key pair.
+func (o PlaybackKeyPairOutput) PublicKeyMaterial() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.PublicKeyMaterial }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the asset model.
+func (o PlaybackKeyPairOutput) Tags() PlaybackKeyPairTagArrayOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) PlaybackKeyPairTagArrayOutput { return v.Tags }).(PlaybackKeyPairTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairInput)(nil)).Elem(), &PlaybackKeyPair{})
 	pulumi.RegisterOutputType(PlaybackKeyPairOutput{})

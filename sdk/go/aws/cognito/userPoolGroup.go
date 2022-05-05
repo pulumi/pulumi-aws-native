@@ -119,6 +119,26 @@ func (o UserPoolGroupOutput) ToUserPoolGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o UserPoolGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolGroupOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolGroupOutput) Precedence() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *UserPoolGroup) pulumi.Float64PtrOutput { return v.Precedence }).(pulumi.Float64PtrOutput)
+}
+
+func (o UserPoolGroupOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolGroupOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolGroupInput)(nil)).Elem(), &UserPoolGroup{})
 	pulumi.RegisterOutputType(UserPoolGroupOutput{})

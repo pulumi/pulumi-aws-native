@@ -119,6 +119,42 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+func (o RepositoryOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) CloneUrlHttp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlHttp }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) CloneUrlSsh() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlSsh }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) Code() RepositoryCodePtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryCodePtrOutput { return v.Code }).(RepositoryCodePtrOutput)
+}
+
+func (o RepositoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) RepositoryDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.RepositoryDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) Tags() RepositoryTagArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryTagArrayOutput { return v.Tags }).(RepositoryTagArrayOutput)
+}
+
+func (o RepositoryOutput) Triggers() RepositoryTriggerArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryTriggerArrayOutput { return v.Triggers }).(RepositoryTriggerArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryInput)(nil)).Elem(), &Repository{})
 	pulumi.RegisterOutputType(RepositoryOutput{})

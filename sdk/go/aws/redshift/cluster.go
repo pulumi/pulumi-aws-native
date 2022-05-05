@@ -437,6 +437,262 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
+func (o ClusterOutput) AllowVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AllowVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
+//
+// enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.
+// disabled - Don't use AQUA.
+// auto - Amazon Redshift determines whether to use AQUA.
+func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AquaConfigurationStatus }).(pulumi.StringPtrOutput)
+}
+
+// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
+func (o ClusterOutput) AutomatedSnapshotRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.AutomatedSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint
+func (o ClusterOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.
+func (o ClusterOutput) AvailabilityZoneRelocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AvailabilityZoneRelocation }).(pulumi.BoolPtrOutput)
+}
+
+// The availability zone relocation status of the cluster
+func (o ClusterOutput) AvailabilityZoneRelocationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AvailabilityZoneRelocationStatus }).(pulumi.StringPtrOutput)
+}
+
+// A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
+func (o ClusterOutput) Classic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Classic }).(pulumi.BoolPtrOutput)
+}
+
+// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
+func (o ClusterOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The name of the parameter group to be associated with this cluster.
+func (o ClusterOutput) ClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// A list of security groups to be associated with this cluster.
+func (o ClusterOutput) ClusterSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ClusterSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The name of a cluster subnet group to be associated with this cluster.
+func (o ClusterOutput) ClusterSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
+func (o ClusterOutput) ClusterType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterType }).(pulumi.StringOutput)
+}
+
+// The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
+func (o ClusterOutput) ClusterVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
+func (o ClusterOutput) DBName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DBName }).(pulumi.StringOutput)
+}
+
+// A boolean indicating whether to enable the deferred maintenance window.
+func (o ClusterOutput) DeferMaintenance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeferMaintenance }).(pulumi.BoolPtrOutput)
+}
+
+// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+func (o ClusterOutput) DeferMaintenanceDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.DeferMaintenanceDuration }).(pulumi.IntPtrOutput)
+}
+
+// A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
+func (o ClusterOutput) DeferMaintenanceEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DeferMaintenanceEndTime }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the deferred maintenance window.
+func (o ClusterOutput) DeferMaintenanceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DeferMaintenanceIdentifier }).(pulumi.StringOutput)
+}
+
+// A timestamp indicating the start time for the deferred maintenance window.
+func (o ClusterOutput) DeferMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DeferMaintenanceStartTime }).(pulumi.StringPtrOutput)
+}
+
+// The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
+func (o ClusterOutput) DestinationRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DestinationRegion }).(pulumi.StringPtrOutput)
+}
+
+// The Elastic IP (EIP) address for the cluster.
+func (o ClusterOutput) ElasticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ElasticIp }).(pulumi.StringPtrOutput)
+}
+
+// If true, the data in the cluster is encrypted at rest.
+func (o ClusterOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterOutput) Endpoint() ClusterEndpointPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterEndpointPtrOutput { return v.Endpoint }).(ClusterEndpointPtrOutput)
+}
+
+// An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
+//
+// If this option is true , enhanced VPC routing is enabled.
+//
+// Default: false
+func (o ClusterOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM
+func (o ClusterOutput) HsmClientCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.HsmClientCertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+func (o ClusterOutput) HsmConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.HsmConfigurationIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+func (o ClusterOutput) IamRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.IamRoles }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+func (o ClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) LoggingProperties() ClusterLoggingPropertiesPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterLoggingPropertiesPtrOutput { return v.LoggingProperties }).(ClusterLoggingPropertiesPtrOutput)
+}
+
+// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+func (o ClusterOutput) MaintenanceTrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceTrackName }).(pulumi.StringPtrOutput)
+}
+
+// The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+//
+// The value must be either -1 or an integer between 1 and 3,653.
+func (o ClusterOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+func (o ClusterOutput) MasterUserPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUserPassword }).(pulumi.StringOutput)
+}
+
+// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
+func (o ClusterOutput) MasterUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+func (o ClusterOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
+}
+
+// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
+func (o ClusterOutput) NumberOfNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
+}
+
+// The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
+func (o ClusterOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The weekly time range (in UTC) during which automated cluster maintenance can occur.
+func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+// If true, the cluster can be accessed from a public network.
+func (o ClusterOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+func (o ClusterOutput) ResourceAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ResourceAction }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
+func (o ClusterOutput) RevisionTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.RevisionTarget }).(pulumi.StringPtrOutput)
+}
+
+// A boolean indicating if we want to rotate Encryption Keys.
+func (o ClusterOutput) RotateEncryptionKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.RotateEncryptionKey }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+func (o ClusterOutput) SnapshotClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+func (o ClusterOutput) SnapshotCopyGrantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotCopyGrantName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
+func (o ClusterOutput) SnapshotCopyManual() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.SnapshotCopyManual }).(pulumi.BoolPtrOutput)
+}
+
+// The number of days to retain automated snapshots in the destination region after they are copied from the source region.
+//
+//  Default is 7.
+//
+//  Constraints: Must be at least 1 and no more than 35.
+func (o ClusterOutput) SnapshotCopyRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.SnapshotCopyRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The list of tags for the cluster parameter group.
+func (o ClusterOutput) Tags() ClusterTagArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+}
+
+// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})

@@ -119,6 +119,22 @@ func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutputWi
 	return o
 }
 
+func (o PortfolioProductAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortfolioProductAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioProductAssociationOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioProductAssociation) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+func (o PortfolioProductAssociationOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioProductAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o PortfolioProductAssociationOutput) SourcePortfolioId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PortfolioProductAssociation) pulumi.StringPtrOutput { return v.SourcePortfolioId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioProductAssociationInput)(nil)).Elem(), &PortfolioProductAssociation{})
 	pulumi.RegisterOutputType(PortfolioProductAssociationOutput{})

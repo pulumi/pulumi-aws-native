@@ -127,6 +127,34 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// The arn of the connection resource.
+func (o ConnectionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConnectionOutput) AuthParameters() ConnectionAuthParametersOutput {
+	return o.ApplyT(func(v *Connection) ConnectionAuthParametersOutput { return v.AuthParameters }).(ConnectionAuthParametersOutput)
+}
+
+func (o ConnectionOutput) AuthorizationType() ConnectionAuthorizationTypeOutput {
+	return o.ApplyT(func(v *Connection) ConnectionAuthorizationTypeOutput { return v.AuthorizationType }).(ConnectionAuthorizationTypeOutput)
+}
+
+// Description of the connection.
+func (o ConnectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the connection.
+func (o ConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The arn of the secrets manager secret created in the customer account.
+func (o ConnectionOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionInput)(nil)).Elem(), &Connection{})
 	pulumi.RegisterOutputType(ConnectionOutput{})

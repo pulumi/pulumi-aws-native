@@ -118,6 +118,26 @@ func (o StreamKeyOutput) ToStreamKeyOutputWithContext(ctx context.Context) Strea
 	return o
 }
 
+// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
+func (o StreamKeyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Channel ARN for the stream.
+func (o StreamKeyOutput) ChannelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamKey) pulumi.StringOutput { return v.ChannelArn }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the asset model.
+func (o StreamKeyOutput) Tags() StreamKeyTagArrayOutput {
+	return o.ApplyT(func(v *StreamKey) StreamKeyTagArrayOutput { return v.Tags }).(StreamKeyTagArrayOutput)
+}
+
+// Stream-key value.
+func (o StreamKeyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamKey) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyInput)(nil)).Elem(), &StreamKey{})
 	pulumi.RegisterOutputType(StreamKeyOutput{})

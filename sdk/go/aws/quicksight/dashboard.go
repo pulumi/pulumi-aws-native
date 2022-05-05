@@ -186,6 +186,83 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DashboardOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// <p>The time that this dataset was created.</p>
+func (o DashboardOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o DashboardOutput) DashboardId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardId }).(pulumi.StringOutput)
+}
+
+func (o DashboardOutput) DashboardPublishOptions() DashboardPublishOptionsPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardPublishOptionsPtrOutput { return v.DashboardPublishOptions }).(DashboardPublishOptionsPtrOutput)
+}
+
+// <p>The last time that this dataset was published.</p>
+func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastPublishedTime }).(pulumi.StringOutput)
+}
+
+// <p>The last time that this dataset was updated.</p>
+func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// <p>The display name of the dashboard.</p>
+func (o DashboardOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardOutput) Parameters() DashboardParametersPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardParametersPtrOutput { return v.Parameters }).(DashboardParametersPtrOutput)
+}
+
+// <p>A structure that contains the permissions of the dashboard. You can use this structure
+//             for granting permissions by providing a list of IAM action information for each
+//             principal ARN. </p>
+//
+//         <p>To specify no permissions, omit the permissions list.</p>
+func (o DashboardOutput) Permissions() DashboardResourcePermissionArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardResourcePermissionArrayOutput { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
+}
+
+func (o DashboardOutput) SourceEntity() DashboardSourceEntityOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityOutput { return v.SourceEntity }).(DashboardSourceEntityOutput)
+}
+
+// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+//             dashboard.</p>
+func (o DashboardOutput) Tags() DashboardTagArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardTagArrayOutput { return v.Tags }).(DashboardTagArrayOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+//             you add a value for this field, it overrides the value that is used in the source
+//             entity. The theme ARN must exist in the same AWS account where you create the
+//             dashboard.</p>
+func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardOutput) Version() DashboardVersionOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardVersionOutput { return v.Version }).(DashboardVersionOutput)
+}
+
+// <p>A description for the first version of the dashboard being created.</p>
+func (o DashboardOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
 	pulumi.RegisterOutputType(DashboardOutput{})

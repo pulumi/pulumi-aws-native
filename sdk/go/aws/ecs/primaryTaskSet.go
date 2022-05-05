@@ -126,6 +126,21 @@ func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+func (o PrimaryTaskSetOutput) Cluster() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrimaryTaskSet) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
+}
+
+// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+func (o PrimaryTaskSetOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrimaryTaskSet) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
+}
+
+// The ID or full Amazon Resource Name (ARN) of the task set.
+func (o PrimaryTaskSetOutput) TaskSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrimaryTaskSet) pulumi.StringOutput { return v.TaskSetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrimaryTaskSetInput)(nil)).Elem(), &PrimaryTaskSet{})
 	pulumi.RegisterOutputType(PrimaryTaskSetOutput{})

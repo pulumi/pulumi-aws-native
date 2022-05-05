@@ -120,6 +120,24 @@ func (o RecipeOutput) ToRecipeOutputWithContext(ctx context.Context) RecipeOutpu
 	return o
 }
 
+// Description of the recipe
+func (o RecipeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Recipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Recipe name
+func (o RecipeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Recipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RecipeOutput) Steps() RecipeStepArrayOutput {
+	return o.ApplyT(func(v *Recipe) RecipeStepArrayOutput { return v.Steps }).(RecipeStepArrayOutput)
+}
+
+func (o RecipeOutput) Tags() RecipeTagArrayOutput {
+	return o.ApplyT(func(v *Recipe) RecipeTagArrayOutput { return v.Tags }).(RecipeTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeInput)(nil)).Elem(), &Recipe{})
 	pulumi.RegisterOutputType(RecipeOutput{})

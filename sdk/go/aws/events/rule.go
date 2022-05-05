@@ -125,6 +125,42 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
+func (o RuleOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleOutput) EventBusName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleOutput) EventPattern() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Rule) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
+}
+
+func (o RuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleOutput) Targets() RuleTargetArrayOutput {
+	return o.ApplyT(func(v *Rule) RuleTargetArrayOutput { return v.Targets }).(RuleTargetArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleInput)(nil)).Elem(), &Rule{})
 	pulumi.RegisterOutputType(RuleOutput{})

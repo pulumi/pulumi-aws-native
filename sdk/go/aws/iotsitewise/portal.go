@@ -161,6 +161,66 @@ func (o PortalOutput) ToPortalOutputWithContext(ctx context.Context) PortalOutpu
 	return o
 }
 
+// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+func (o PortalOutput) Alarms() AlarmsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Portal) AlarmsPropertiesPtrOutput { return v.Alarms }).(AlarmsPropertiesPtrOutput)
+}
+
+// The email address that sends alarm notifications.
+func (o PortalOutput) NotificationSenderEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.NotificationSenderEmail }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the portal, which has the following format.
+func (o PortalOutput) PortalArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
+}
+
+// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
+func (o PortalOutput) PortalAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.PortalAuthMode }).(pulumi.StringPtrOutput)
+}
+
+// The AWS SSO application generated client ID (used with AWS SSO APIs).
+func (o PortalOutput) PortalClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalClientId }).(pulumi.StringOutput)
+}
+
+// The AWS administrator's contact email address.
+func (o PortalOutput) PortalContactEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalContactEmail }).(pulumi.StringOutput)
+}
+
+// A description for the portal.
+func (o PortalOutput) PortalDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.PortalDescription }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the portal.
+func (o PortalOutput) PortalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalId }).(pulumi.StringOutput)
+}
+
+// A friendly name for the portal.
+func (o PortalOutput) PortalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalName }).(pulumi.StringOutput)
+}
+
+// The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
+func (o PortalOutput) PortalStartUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalStartUrl }).(pulumi.StringOutput)
+}
+
+// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
+func (o PortalOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs that contain metadata for the portal.
+func (o PortalOutput) Tags() PortalTagArrayOutput {
+	return o.ApplyT(func(v *Portal) PortalTagArrayOutput { return v.Tags }).(PortalTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalInput)(nil)).Elem(), &Portal{})
 	pulumi.RegisterOutputType(PortalOutput{})

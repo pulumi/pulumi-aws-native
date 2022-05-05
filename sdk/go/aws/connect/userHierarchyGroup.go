@@ -122,6 +122,26 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx cont
 	return o
 }
 
+// The identifier of the Amazon Connect instance.
+func (o UserHierarchyGroupOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The name of the user hierarchy group.
+func (o UserHierarchyGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) for the parent user hierarchy group.
+func (o UserHierarchyGroupOutput) ParentGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.ParentGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the user hierarchy group.
+func (o UserHierarchyGroupOutput) UserHierarchyGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.UserHierarchyGroupArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupInput)(nil)).Elem(), &UserHierarchyGroup{})
 	pulumi.RegisterOutputType(UserHierarchyGroupOutput{})

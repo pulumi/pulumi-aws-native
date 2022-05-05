@@ -142,6 +142,54 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 	return o
 }
 
+// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC). The value of `CreationTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+func (o FrameworkOutput) CreationTime() pulumi.Float64Output {
+	return o.ApplyT(func(v *Framework) pulumi.Float64Output { return v.CreationTime }).(pulumi.Float64Output)
+}
+
+// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED`
+func (o FrameworkOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
+func (o FrameworkOutput) FrameworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.FrameworkArn }).(pulumi.StringOutput)
+}
+
+// Contains detailed information about all of the controls of a framework. Each framework must contain at least one control.
+func (o FrameworkOutput) FrameworkControls() FrameworkControlArrayOutput {
+	return o.ApplyT(func(v *Framework) FrameworkControlArrayOutput { return v.FrameworkControls }).(FrameworkControlArrayOutput)
+}
+
+// An optional description of the framework with a maximum 1,024 characters.
+func (o FrameworkOutput) FrameworkDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.FrameworkDescription }).(pulumi.StringPtrOutput)
+}
+
+// The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
+func (o FrameworkOutput) FrameworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.FrameworkName }).(pulumi.StringPtrOutput)
+}
+
+// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are:
+//
+// `ACTIVE` when recording is turned on for all resources governed by the framework.
+//
+// `PARTIALLY_ACTIVE` when recording is turned off for at least one resource governed by the framework.
+//
+// `INACTIVE` when recording is turned off for all resources governed by the framework.
+//
+// `UNAVAILABLE` when AWS Backup is unable to validate recording status at this time.
+func (o FrameworkOutput) FrameworkStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.FrameworkStatus }).(pulumi.StringOutput)
+}
+
+// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+func (o FrameworkOutput) FrameworkTags() FrameworkTagArrayOutput {
+	return o.ApplyT(func(v *Framework) FrameworkTagArrayOutput { return v.FrameworkTags }).(FrameworkTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkInput)(nil)).Elem(), &Framework{})
 	pulumi.RegisterOutputType(FrameworkOutput{})

@@ -151,6 +151,79 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TaskDefinitionOutput) ContainerDefinitions() TaskDefinitionContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionContainerDefinitionArrayOutput { return v.ContainerDefinitions }).(TaskDefinitionContainerDefinitionArrayOutput)
+}
+
+func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) EphemeralStorage() TaskDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionEphemeralStoragePtrOutput { return v.EphemeralStorage }).(TaskDefinitionEphemeralStoragePtrOutput)
+}
+
+func (o TaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) InferenceAccelerators() TaskDefinitionInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionInferenceAcceleratorArrayOutput { return v.InferenceAccelerators }).(TaskDefinitionInferenceAcceleratorArrayOutput)
+}
+
+func (o TaskDefinitionOutput) IpcMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.IpcMode }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.NetworkMode }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) PidMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.PidMode }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) PlacementConstraints() TaskDefinitionPlacementConstraintArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionPlacementConstraintArrayOutput { return v.PlacementConstraints }).(TaskDefinitionPlacementConstraintArrayOutput)
+}
+
+func (o TaskDefinitionOutput) ProxyConfiguration() TaskDefinitionProxyConfigurationPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionProxyConfigurationPtrOutput { return v.ProxyConfiguration }).(TaskDefinitionProxyConfigurationPtrOutput)
+}
+
+func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringArrayOutput { return v.RequiresCompatibilities }).(pulumi.StringArrayOutput)
+}
+
+func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
+}
+
+func (o TaskDefinitionOutput) Tags() TaskDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionTagArrayOutput { return v.Tags }).(TaskDefinitionTagArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon ECS task definition
+func (o TaskDefinitionOutput) TaskDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.TaskDefinitionArn }).(pulumi.StringOutput)
+}
+
+func (o TaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) Volumes() TaskDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionVolumeArrayOutput { return v.Volumes }).(TaskDefinitionVolumeArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInput)(nil)).Elem(), &TaskDefinition{})
 	pulumi.RegisterOutputType(TaskDefinitionOutput{})

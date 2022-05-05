@@ -113,6 +113,16 @@ func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLogging
 	return o
 }
 
+func (o ApplicationCloudWatchLoggingOptionOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOption) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationCloudWatchLoggingOptionOutput) CloudWatchLoggingOption() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOption) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput {
+		return v.CloudWatchLoggingOption
+	}).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingOptionInput)(nil)).Elem(), &ApplicationCloudWatchLoggingOption{})
 	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionOutput{})

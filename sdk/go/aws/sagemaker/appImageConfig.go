@@ -118,6 +118,28 @@ func (o AppImageConfigOutput) ToAppImageConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AppImageConfig.
+func (o AppImageConfigOutput) AppImageConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.AppImageConfigArn }).(pulumi.StringOutput)
+}
+
+// The Name of the AppImageConfig.
+func (o AppImageConfigOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The KernelGatewayImageConfig.
+func (o AppImageConfigOutput) KernelGatewayImageConfig() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfig) AppImageConfigKernelGatewayImageConfigPtrOutput {
+		return v.KernelGatewayImageConfig
+	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
+}
+
+// A list of tags to apply to the AppImageConfig.
+func (o AppImageConfigOutput) Tags() AppImageConfigTagArrayOutput {
+	return o.ApplyT(func(v *AppImageConfig) AppImageConfigTagArrayOutput { return v.Tags }).(AppImageConfigTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigInput)(nil)).Elem(), &AppImageConfig{})
 	pulumi.RegisterOutputType(AppImageConfigOutput{})

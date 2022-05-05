@@ -176,6 +176,82 @@ func (o LayerOutput) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 	return o
 }
 
+func (o LayerOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Layer) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o LayerOutput) AutoAssignElasticIps() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Layer) pulumi.BoolOutput { return v.AutoAssignElasticIps }).(pulumi.BoolOutput)
+}
+
+func (o LayerOutput) AutoAssignPublicIps() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Layer) pulumi.BoolOutput { return v.AutoAssignPublicIps }).(pulumi.BoolOutput)
+}
+
+func (o LayerOutput) CustomInstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringPtrOutput { return v.CustomInstanceProfileArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LayerOutput) CustomJson() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Layer) pulumi.AnyOutput { return v.CustomJson }).(pulumi.AnyOutput)
+}
+
+func (o LayerOutput) CustomRecipes() LayerRecipesPtrOutput {
+	return o.ApplyT(func(v *Layer) LayerRecipesPtrOutput { return v.CustomRecipes }).(LayerRecipesPtrOutput)
+}
+
+func (o LayerOutput) CustomSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringArrayOutput { return v.CustomSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LayerOutput) EnableAutoHealing() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Layer) pulumi.BoolOutput { return v.EnableAutoHealing }).(pulumi.BoolOutput)
+}
+
+func (o LayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Layer) pulumi.BoolPtrOutput { return v.InstallUpdatesOnBoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o LayerOutput) LifecycleEventConfiguration() LayerLifecycleEventConfigurationPtrOutput {
+	return o.ApplyT(func(v *Layer) LayerLifecycleEventConfigurationPtrOutput { return v.LifecycleEventConfiguration }).(LayerLifecycleEventConfigurationPtrOutput)
+}
+
+func (o LayerOutput) LoadBasedAutoScaling() LayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *Layer) LayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(LayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o LayerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LayerOutput) Packages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringArrayOutput { return v.Packages }).(pulumi.StringArrayOutput)
+}
+
+func (o LayerOutput) Shortname() pulumi.StringOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.Shortname }).(pulumi.StringOutput)
+}
+
+func (o LayerOutput) StackId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
+}
+
+func (o LayerOutput) Tags() LayerTagArrayOutput {
+	return o.ApplyT(func(v *Layer) LayerTagArrayOutput { return v.Tags }).(LayerTagArrayOutput)
+}
+
+func (o LayerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LayerOutput) UseEbsOptimizedInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Layer) pulumi.BoolPtrOutput { return v.UseEbsOptimizedInstances }).(pulumi.BoolPtrOutput)
+}
+
+func (o LayerOutput) VolumeConfigurations() LayerVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v *Layer) LayerVolumeConfigurationArrayOutput { return v.VolumeConfigurations }).(LayerVolumeConfigurationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerInput)(nil)).Elem(), &Layer{})
 	pulumi.RegisterOutputType(LayerOutput{})

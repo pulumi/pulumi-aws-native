@@ -138,6 +138,38 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+func (o PipelineOutput) ParallelismConfiguration() ParallelismConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *Pipeline) ParallelismConfigurationPropertiesPtrOutput { return v.ParallelismConfiguration }).(ParallelismConfigurationPropertiesPtrOutput)
+}
+
+func (o PipelineOutput) PipelineDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.AnyOutput { return v.PipelineDefinition }).(pulumi.AnyOutput)
+}
+
+// The description of the Pipeline.
+func (o PipelineOutput) PipelineDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineDescription }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the Pipeline.
+func (o PipelineOutput) PipelineDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Pipeline.
+func (o PipelineOutput) PipelineName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineName }).(pulumi.StringOutput)
+}
+
+// Role Arn
+func (o PipelineOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o PipelineOutput) Tags() PipelineTagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInput)(nil)).Elem(), &Pipeline{})
 	pulumi.RegisterOutputType(PipelineOutput{})

@@ -119,6 +119,24 @@ func (o AttributeGroupAssociationOutput) ToAttributeGroupAssociationOutputWithCo
 	return o
 }
 
+// The name or the Id of the Application.
+func (o AttributeGroupAssociationOutput) Application() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
+}
+
+func (o AttributeGroupAssociationOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// The name or the Id of the AttributeGroup.
+func (o AttributeGroupAssociationOutput) AttributeGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroup }).(pulumi.StringOutput)
+}
+
+func (o AttributeGroupAssociationOutput) AttributeGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroupArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AttributeGroupAssociationInput)(nil)).Elem(), &AttributeGroupAssociation{})
 	pulumi.RegisterOutputType(AttributeGroupAssociationOutput{})

@@ -135,6 +135,65 @@ func (o FirewallDomainListOutput) ToFirewallDomainListOutputWithContext(ctx cont
 	return o
 }
 
+// Arn
+func (o FirewallDomainListOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Rfc3339TimeString
+func (o FirewallDomainListOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The id of the creator request.
+func (o FirewallDomainListOutput) CreatorRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.CreatorRequestId }).(pulumi.StringOutput)
+}
+
+// Count
+func (o FirewallDomainListOutput) DomainCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.IntOutput { return v.DomainCount }).(pulumi.IntOutput)
+}
+
+// S3 URL to import domains from.
+func (o FirewallDomainListOutput) DomainFileUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringPtrOutput { return v.DomainFileUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallDomainListOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+// ServicePrincipal
+func (o FirewallDomainListOutput) ManagedOwnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.ManagedOwnerName }).(pulumi.StringOutput)
+}
+
+// Rfc3339TimeString
+func (o FirewallDomainListOutput) ModificationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.ModificationTime }).(pulumi.StringOutput)
+}
+
+// FirewallDomainListName
+func (o FirewallDomainListOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+func (o FirewallDomainListOutput) Status() FirewallDomainListStatusOutput {
+	return o.ApplyT(func(v *FirewallDomainList) FirewallDomainListStatusOutput { return v.Status }).(FirewallDomainListStatusOutput)
+}
+
+// FirewallDomainListAssociationStatus
+func (o FirewallDomainListOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Tags
+func (o FirewallDomainListOutput) Tags() FirewallDomainListTagArrayOutput {
+	return o.ApplyT(func(v *FirewallDomainList) FirewallDomainListTagArrayOutput { return v.Tags }).(FirewallDomainListTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListInput)(nil)).Elem(), &FirewallDomainList{})
 	pulumi.RegisterOutputType(FirewallDomainListOutput{})

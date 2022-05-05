@@ -108,6 +108,21 @@ func (o ResolverDNSSECConfigOutput) ToResolverDNSSECConfigOutputWithContext(ctx 
 	return o
 }
 
+// AccountId
+func (o ResolverDNSSECConfigOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverDNSSECConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// ResourceId
+func (o ResolverDNSSECConfigOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverDNSSECConfig) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+func (o ResolverDNSSECConfigOutput) ValidationStatus() ResolverDNSSECConfigValidationStatusOutput {
+	return o.ApplyT(func(v *ResolverDNSSECConfig) ResolverDNSSECConfigValidationStatusOutput { return v.ValidationStatus }).(ResolverDNSSECConfigValidationStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDNSSECConfigInput)(nil)).Elem(), &ResolverDNSSECConfig{})
 	pulumi.RegisterOutputType(ResolverDNSSECConfigOutput{})

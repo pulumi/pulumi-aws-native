@@ -116,6 +116,30 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
+func (o ApiKeyOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ApiKeyOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+func (o ApiKeyOutput) ApiKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKeyId }).(pulumi.StringOutput)
+}
+
+func (o ApiKeyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ApiKeyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiKeyOutput) Expires() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.Float64PtrOutput { return v.Expires }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyInput)(nil)).Elem(), &ApiKey{})
 	pulumi.RegisterOutputType(ApiKeyOutput{})

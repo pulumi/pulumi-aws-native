@@ -136,6 +136,41 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Kinesis Video stream.
+func (o StreamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The number of hours till which Kinesis Video will retain the data in the stream
+func (o StreamOutput) DataRetentionInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.DataRetentionInHours }).(pulumi.IntPtrOutput)
+}
+
+// The name of the device that is writing to the stream.
+func (o StreamOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
+func (o StreamOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The media type of the stream. Consumers of the stream can use this information when processing the stream.
+func (o StreamOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.MediaType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Kinesis Video stream.
+func (o StreamOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs associated with the Kinesis Video Stream.
+func (o StreamOutput) Tags() StreamTagArrayOutput {
+	return o.ApplyT(func(v *Stream) StreamTagArrayOutput { return v.Tags }).(StreamTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamInput)(nil)).Elem(), &Stream{})
 	pulumi.RegisterOutputType(StreamOutput{})

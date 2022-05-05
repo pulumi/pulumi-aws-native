@@ -140,6 +140,48 @@ func (o PublicTypeVersionOutput) ToPublicTypeVersionOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Number (ARN) of the extension.
+func (o PublicTypeVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// A url to the S3 bucket where logs for the testType run will be available
+func (o PublicTypeVersionOutput) LogDeliveryBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringPtrOutput { return v.LogDeliveryBucket }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+func (o PublicTypeVersionOutput) PublicTypeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringOutput { return v.PublicTypeArn }).(pulumi.StringOutput)
+}
+
+// The version number of a public third-party extension
+func (o PublicTypeVersionOutput) PublicVersionNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringPtrOutput { return v.PublicVersionNumber }).(pulumi.StringPtrOutput)
+}
+
+// The publisher id assigned by CloudFormation for publishing in this region.
+func (o PublicTypeVersionOutput) PublisherId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringOutput { return v.PublisherId }).(pulumi.StringOutput)
+}
+
+// The kind of extension
+func (o PublicTypeVersionOutput) Type() PublicTypeVersionTypePtrOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) PublicTypeVersionTypePtrOutput { return v.Type }).(PublicTypeVersionTypePtrOutput)
+}
+
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o PublicTypeVersionOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringPtrOutput { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Number (ARN) of the extension with the versionId.
+func (o PublicTypeVersionOutput) TypeVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringOutput { return v.TypeVersionArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionInput)(nil)).Elem(), &PublicTypeVersion{})
 	pulumi.RegisterOutputType(PublicTypeVersionOutput{})

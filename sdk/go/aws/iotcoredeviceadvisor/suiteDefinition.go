@@ -117,6 +117,32 @@ func (o SuiteDefinitionOutput) ToSuiteDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource name for the suite definition.
+func (o SuiteDefinitionOutput) SuiteDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SuiteDefinition) pulumi.StringOutput { return v.SuiteDefinitionArn }).(pulumi.StringOutput)
+}
+
+func (o SuiteDefinitionOutput) SuiteDefinitionConfiguration() SuiteDefinitionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *SuiteDefinition) SuiteDefinitionConfigurationPropertiesOutput {
+		return v.SuiteDefinitionConfiguration
+	}).(SuiteDefinitionConfigurationPropertiesOutput)
+}
+
+// The unique identifier for the suite definition.
+func (o SuiteDefinitionOutput) SuiteDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SuiteDefinition) pulumi.StringOutput { return v.SuiteDefinitionId }).(pulumi.StringOutput)
+}
+
+// The suite definition version of a test suite.
+func (o SuiteDefinitionOutput) SuiteDefinitionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *SuiteDefinition) pulumi.StringOutput { return v.SuiteDefinitionVersion }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o SuiteDefinitionOutput) Tags() SuiteDefinitionTagArrayOutput {
+	return o.ApplyT(func(v *SuiteDefinition) SuiteDefinitionTagArrayOutput { return v.Tags }).(SuiteDefinitionTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionInput)(nil)).Elem(), &SuiteDefinition{})
 	pulumi.RegisterOutputType(SuiteDefinitionOutput{})

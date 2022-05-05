@@ -131,6 +131,42 @@ func (o APNSVoipChannelOutput) ToAPNSVoipChannelOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o APNSVoipChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o APNSVoipChannelOutput) BundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.BundleId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) TokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.TokenKey }).(pulumi.StringPtrOutput)
+}
+
+func (o APNSVoipChannelOutput) TokenKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APNSVoipChannel) pulumi.StringPtrOutput { return v.TokenKeyId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APNSVoipChannelInput)(nil)).Elem(), &APNSVoipChannel{})
 	pulumi.RegisterOutputType(APNSVoipChannelOutput{})

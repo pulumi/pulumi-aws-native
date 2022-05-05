@@ -112,6 +112,18 @@ func (o DomainNameApiAssociationOutput) ToDomainNameApiAssociationOutputWithCont
 	return o
 }
 
+func (o DomainNameApiAssociationOutput) ApiAssociationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiAssociationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o DomainNameApiAssociationOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameApiAssociationInput)(nil)).Elem(), &DomainNameApiAssociation{})
 	pulumi.RegisterOutputType(DomainNameApiAssociationOutput{})

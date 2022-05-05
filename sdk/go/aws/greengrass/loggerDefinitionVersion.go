@@ -113,6 +113,14 @@ func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutputWithContex
 	return o
 }
 
+func (o LoggerDefinitionVersionOutput) LoggerDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggerDefinitionVersion) pulumi.StringOutput { return v.LoggerDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o LoggerDefinitionVersionOutput) Loggers() LoggerDefinitionVersionLoggerArrayOutput {
+	return o.ApplyT(func(v *LoggerDefinitionVersion) LoggerDefinitionVersionLoggerArrayOutput { return v.Loggers }).(LoggerDefinitionVersionLoggerArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerDefinitionVersionInput)(nil)).Elem(), &LoggerDefinitionVersion{})
 	pulumi.RegisterOutputType(LoggerDefinitionVersionOutput{})

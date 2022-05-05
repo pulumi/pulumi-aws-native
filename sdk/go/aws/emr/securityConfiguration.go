@@ -110,6 +110,14 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ct
 	return o
 }
 
+func (o SecurityConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigurationOutput) SecurityConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) pulumi.AnyOutput { return v.SecurityConfiguration }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationInput)(nil)).Elem(), &SecurityConfiguration{})
 	pulumi.RegisterOutputType(SecurityConfigurationOutput{})

@@ -119,6 +119,18 @@ func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EventStreamOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o EventStreamOutput) DestinationStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.DestinationStreamArn }).(pulumi.StringOutput)
+}
+
+func (o EventStreamOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamInput)(nil)).Elem(), &EventStream{})
 	pulumi.RegisterOutputType(EventStreamOutput{})

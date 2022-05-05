@@ -111,6 +111,26 @@ func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LaunchTemplateOutput) DefaultVersionNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.DefaultVersionNumber }).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateOutput) LatestVersionNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.LatestVersionNumber }).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateOutput) LaunchTemplateData() LaunchTemplateDataPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateDataPtrOutput { return v.LaunchTemplateData }).(LaunchTemplateDataPtrOutput)
+}
+
+func (o LaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateTagSpecificationArrayOutput { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInput)(nil)).Elem(), &LaunchTemplate{})
 	pulumi.RegisterOutputType(LaunchTemplateOutput{})

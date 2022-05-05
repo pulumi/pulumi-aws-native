@@ -144,6 +144,46 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return o
 }
 
+// The ARN of the Asset.
+func (o AssetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The time the Asset was initially submitted for Ingest.
+func (o AssetOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The list of egress endpoints available for the Asset.
+func (o AssetOutput) EgressEndpoints() AssetEgressEndpointArrayOutput {
+	return o.ApplyT(func(v *Asset) AssetEgressEndpointArrayOutput { return v.EgressEndpoints }).(AssetEgressEndpointArrayOutput)
+}
+
+// The ID of the PackagingGroup for the Asset.
+func (o AssetOutput) PackagingGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.PackagingGroupId }).(pulumi.StringOutput)
+}
+
+// The resource ID to include in SPEKE key requests.
+func (o AssetOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the source object in S3.
+func (o AssetOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+// The IAM role_arn used to access the source S3 bucket.
+func (o AssetOutput) SourceRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.SourceRoleArn }).(pulumi.StringOutput)
+}
+
+// A collection of tags associated with a resource
+func (o AssetOutput) Tags() AssetTagArrayOutput {
+	return o.ApplyT(func(v *Asset) AssetTagArrayOutput { return v.Tags }).(AssetTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetInput)(nil)).Elem(), &Asset{})
 	pulumi.RegisterOutputType(AssetOutput{})

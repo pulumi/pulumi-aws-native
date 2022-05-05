@@ -110,6 +110,14 @@ func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutpu
 	return o
 }
 
+func (o BudgetOutput) Budget() BudgetDataOutput {
+	return o.ApplyT(func(v *Budget) BudgetDataOutput { return v.Budget }).(BudgetDataOutput)
+}
+
+func (o BudgetOutput) NotificationsWithSubscribers() BudgetNotificationWithSubscribersArrayOutput {
+	return o.ApplyT(func(v *Budget) BudgetNotificationWithSubscribersArrayOutput { return v.NotificationsWithSubscribers }).(BudgetNotificationWithSubscribersArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetInput)(nil)).Elem(), &Budget{})
 	pulumi.RegisterOutputType(BudgetOutput{})

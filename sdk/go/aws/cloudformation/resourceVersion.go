@@ -159,6 +159,66 @@ func (o ResourceVersionOutput) ToResourceVersionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
+func (o ResourceVersionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+func (o ResourceVersionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if this type version is the current default version
+func (o ResourceVersionOutput) IsDefaultVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.BoolOutput { return v.IsDefaultVersion }).(pulumi.BoolOutput)
+}
+
+// Specifies logging configuration information for a type.
+func (o ResourceVersionOutput) LoggingConfig() ResourceVersionLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *ResourceVersion) ResourceVersionLoggingConfigPtrOutput { return v.LoggingConfig }).(ResourceVersionLoggingConfigPtrOutput)
+}
+
+// The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+func (o ResourceVersionOutput) ProvisioningType() ResourceVersionProvisioningTypeOutput {
+	return o.ApplyT(func(v *ResourceVersion) ResourceVersionProvisioningTypeOutput { return v.ProvisioningType }).(ResourceVersionProvisioningTypeOutput)
+}
+
+// A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+//
+// For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
+func (o ResourceVersionOutput) SchemaHandlerPackage() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.StringOutput { return v.SchemaHandlerPackage }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the type without the versionID.
+func (o ResourceVersionOutput) TypeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.StringOutput { return v.TypeArn }).(pulumi.StringOutput)
+}
+
+// The name of the type being registered.
+//
+// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+func (o ResourceVersionOutput) TypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.StringOutput { return v.TypeName }).(pulumi.StringOutput)
+}
+
+// The ID of the version of the type represented by this resource instance.
+func (o ResourceVersionOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceVersion) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
+}
+
+// The scope at which the type is visible and usable in CloudFormation operations.
+//
+// Valid values include:
+//
+// PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+//
+// PUBLIC: The type is publically visible and usable within any Amazon account.
+func (o ResourceVersionOutput) Visibility() ResourceVersionVisibilityOutput {
+	return o.ApplyT(func(v *ResourceVersion) ResourceVersionVisibilityOutput { return v.Visibility }).(ResourceVersionVisibilityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionInput)(nil)).Elem(), &ResourceVersion{})
 	pulumi.RegisterOutputType(ResourceVersionOutput{})

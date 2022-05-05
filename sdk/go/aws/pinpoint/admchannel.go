@@ -122,6 +122,22 @@ func (o ADMChannelOutput) ToADMChannelOutputWithContext(ctx context.Context) ADM
 	return o
 }
 
+func (o ADMChannelOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADMChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ADMChannelOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADMChannel) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o ADMChannelOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADMChannel) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+func (o ADMChannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ADMChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ADMChannelInput)(nil)).Elem(), &ADMChannel{})
 	pulumi.RegisterOutputType(ADMChannelOutput{})

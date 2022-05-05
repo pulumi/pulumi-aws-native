@@ -139,6 +139,40 @@ func (o LocationFSxOpenZFSOutput) ToLocationFSxOpenZFSOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
+func (o LocationFSxOpenZFSOutput) FsxFilesystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.
+func (o LocationFSxOpenZFSOutput) LocationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
+}
+
+// The URL of the FSx OpenZFS that was described.
+func (o LocationFSxOpenZFSOutput) LocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationFSxOpenZFSOutput) Protocol() LocationFSxOpenZFSProtocolOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) LocationFSxOpenZFSProtocolOutput { return v.Protocol }).(LocationFSxOpenZFSProtocolOutput)
+}
+
+// The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
+func (o LocationFSxOpenZFSOutput) SecurityGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
+}
+
+// A subdirectory in the location's path.
+func (o LocationFSxOpenZFSOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LocationFSxOpenZFSOutput) Tags() LocationFSxOpenZFSTagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) LocationFSxOpenZFSTagArrayOutput { return v.Tags }).(LocationFSxOpenZFSTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSInput)(nil)).Elem(), &LocationFSxOpenZFS{})
 	pulumi.RegisterOutputType(LocationFSxOpenZFSOutput{})

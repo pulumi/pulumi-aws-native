@@ -116,6 +116,18 @@ func (o MasterOutput) ToMasterOutputWithContext(ctx context.Context) MasterOutpu
 	return o
 }
 
+func (o MasterOutput) DetectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Master) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+func (o MasterOutput) InvitationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Master) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
+}
+
+func (o MasterOutput) MasterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Master) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MasterInput)(nil)).Elem(), &Master{})
 	pulumi.RegisterOutputType(MasterOutput{})

@@ -128,6 +128,50 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.
 	return o
 }
 
+func (o GameSessionQueueOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GameSessionQueueOutput) CustomEventData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.CustomEventData }).(pulumi.StringPtrOutput)
+}
+
+func (o GameSessionQueueOutput) Destinations() GameSessionQueueDestinationArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueDestinationArrayOutput { return v.Destinations }).(GameSessionQueueDestinationArrayOutput)
+}
+
+func (o GameSessionQueueOutput) FilterConfiguration() GameSessionQueueFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueFilterConfigurationPtrOutput { return v.FilterConfiguration }).(GameSessionQueueFilterConfigurationPtrOutput)
+}
+
+func (o GameSessionQueueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GameSessionQueueOutput) NotificationTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
+}
+
+func (o GameSessionQueueOutput) PlayerLatencyPolicies() GameSessionQueuePlayerLatencyPolicyArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueuePlayerLatencyPolicyArrayOutput {
+		return v.PlayerLatencyPolicies
+	}).(GameSessionQueuePlayerLatencyPolicyArrayOutput)
+}
+
+func (o GameSessionQueueOutput) PriorityConfiguration() GameSessionQueuePriorityConfigurationPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueuePriorityConfigurationPtrOutput {
+		return v.PriorityConfiguration
+	}).(GameSessionQueuePriorityConfigurationPtrOutput)
+}
+
+func (o GameSessionQueueOutput) Tags() GameSessionQueueTagArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueTagArrayOutput { return v.Tags }).(GameSessionQueueTagArrayOutput)
+}
+
+func (o GameSessionQueueOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.IntPtrOutput { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueInput)(nil)).Elem(), &GameSessionQueue{})
 	pulumi.RegisterOutputType(GameSessionQueueOutput{})

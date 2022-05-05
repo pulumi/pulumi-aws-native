@@ -154,6 +154,54 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
+// Amazon Resource Name for the Schema.
+func (o SchemaOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SchemaOutput) CheckpointVersion() SchemaVersionTypePtrOutput {
+	return o.ApplyT(func(v *Schema) SchemaVersionTypePtrOutput { return v.CheckpointVersion }).(SchemaVersionTypePtrOutput)
+}
+
+// Compatibility setting for the schema.
+func (o SchemaOutput) Compatibility() SchemaCompatibilityOutput {
+	return o.ApplyT(func(v *Schema) SchemaCompatibilityOutput { return v.Compatibility }).(SchemaCompatibilityOutput)
+}
+
+// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
+func (o SchemaOutput) DataFormat() SchemaDataFormatOutput {
+	return o.ApplyT(func(v *Schema) SchemaDataFormatOutput { return v.DataFormat }).(SchemaDataFormatOutput)
+}
+
+// A description of the schema. If description is not provided, there will not be any default value for this.
+func (o SchemaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Represents the version ID associated with the initial schema version.
+func (o SchemaOutput) InitialSchemaVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.InitialSchemaVersionId }).(pulumi.StringOutput)
+}
+
+// Name of the schema.
+func (o SchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SchemaOutput) Registry() SchemaRegistryPtrOutput {
+	return o.ApplyT(func(v *Schema) SchemaRegistryPtrOutput { return v.Registry }).(SchemaRegistryPtrOutput)
+}
+
+// Definition for the initial schema version in plain-text.
+func (o SchemaOutput) SchemaDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaDefinition }).(pulumi.StringOutput)
+}
+
+// List of tags to tag the schema
+func (o SchemaOutput) Tags() SchemaTagArrayOutput {
+	return o.ApplyT(func(v *Schema) SchemaTagArrayOutput { return v.Tags }).(SchemaTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaInput)(nil)).Elem(), &Schema{})
 	pulumi.RegisterOutputType(SchemaOutput{})

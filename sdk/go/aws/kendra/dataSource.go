@@ -136,6 +136,49 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+func (o DataSourceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+		return v.CustomDocumentEnrichmentConfiguration
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
+}
+
+func (o DataSourceOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceConfigurationPtrOutput { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOutput) IndexId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+// Tags for labeling the data source
+func (o DataSourceOutput) Tags() DataSourceTagArrayOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceTagArrayOutput { return v.Tags }).(DataSourceTagArrayOutput)
+}
+
+func (o DataSourceOutput) Type() DataSourceTypeOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceTypeOutput { return v.Type }).(DataSourceTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), &DataSource{})
 	pulumi.RegisterOutputType(DataSourceOutput{})

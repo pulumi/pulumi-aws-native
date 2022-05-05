@@ -113,6 +113,14 @@ func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutputWithContext(ctx co
 	return o
 }
 
+func (o UserToGroupAdditionOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserToGroupAddition) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+}
+
+func (o UserToGroupAdditionOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserToGroupAddition) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserToGroupAdditionInput)(nil)).Elem(), &UserToGroupAddition{})
 	pulumi.RegisterOutputType(UserToGroupAdditionOutput{})

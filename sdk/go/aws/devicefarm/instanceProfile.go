@@ -117,6 +117,34 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InstanceProfileOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceProfileOutput) ExcludeAppPackagesFromCleanup() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringArrayOutput { return v.ExcludeAppPackagesFromCleanup }).(pulumi.StringArrayOutput)
+}
+
+func (o InstanceProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o InstanceProfileOutput) PackageCleanup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.PackageCleanup }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceProfileOutput) RebootAfterUse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceProfileOutput) Tags() InstanceProfileTagArrayOutput {
+	return o.ApplyT(func(v *InstanceProfile) InstanceProfileTagArrayOutput { return v.Tags }).(InstanceProfileTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileInput)(nil)).Elem(), &InstanceProfile{})
 	pulumi.RegisterOutputType(InstanceProfileOutput{})

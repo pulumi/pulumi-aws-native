@@ -125,6 +125,32 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+func (o AliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AliasOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+func (o AliasOutput) FunctionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
+}
+
+func (o AliasOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AliasOutput) ProvisionedConcurrencyConfig() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ApplyT(func(v *Alias) AliasProvisionedConcurrencyConfigurationPtrOutput {
+		return v.ProvisionedConcurrencyConfig
+	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+func (o AliasOutput) RoutingConfig() AliasRoutingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Alias) AliasRoutingConfigurationPtrOutput { return v.RoutingConfig }).(AliasRoutingConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasInput)(nil)).Elem(), &Alias{})
 	pulumi.RegisterOutputType(AliasOutput{})

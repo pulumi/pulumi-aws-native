@@ -131,6 +131,31 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
+func (o LoggingConfigurationOutput) LogDestinationConfigs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringArrayOutput { return v.LogDestinationConfigs }).(pulumi.StringArrayOutput)
+}
+
+// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+func (o LoggingConfigurationOutput) LoggingFilter() LoggingFilterPropertiesPtrOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) LoggingFilterPropertiesPtrOutput { return v.LoggingFilter }).(LoggingFilterPropertiesPtrOutput)
+}
+
+// Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
+func (o LoggingConfigurationOutput) ManagedByFirewallManager() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.BoolOutput { return v.ManagedByFirewallManager }).(pulumi.BoolOutput)
+}
+
+// The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
+func (o LoggingConfigurationOutput) RedactedFields() LoggingConfigurationFieldToMatchArrayOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationFieldToMatchArrayOutput { return v.RedactedFields }).(LoggingConfigurationFieldToMatchArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
+func (o LoggingConfigurationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationInput)(nil)).Elem(), &LoggingConfiguration{})
 	pulumi.RegisterOutputType(LoggingConfigurationOutput{})

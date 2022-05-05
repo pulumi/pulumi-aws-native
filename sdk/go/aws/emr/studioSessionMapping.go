@@ -135,6 +135,26 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx 
 	return o
 }
 
+// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
+func (o StudioSessionMappingOutput) IdentityName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.IdentityName }).(pulumi.StringOutput)
+}
+
+// Specifies whether the identity to map to the Studio is a user or a group.
+func (o StudioSessionMappingOutput) IdentityType() StudioSessionMappingIdentityTypeOutput {
+	return o.ApplyT(func(v *StudioSessionMapping) StudioSessionMappingIdentityTypeOutput { return v.IdentityType }).(StudioSessionMappingIdentityTypeOutput)
+}
+
+// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
+func (o StudioSessionMappingOutput) SessionPolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.SessionPolicyArn }).(pulumi.StringOutput)
+}
+
+// The ID of the Amazon EMR Studio to which the user or group will be mapped.
+func (o StudioSessionMappingOutput) StudioId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingInput)(nil)).Elem(), &StudioSessionMapping{})
 	pulumi.RegisterOutputType(StudioSessionMappingOutput{})

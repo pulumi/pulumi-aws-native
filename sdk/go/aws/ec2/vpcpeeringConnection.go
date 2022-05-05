@@ -125,6 +125,30 @@ func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutputWithContext(ctx 
 	return o
 }
 
+func (o VPCPeeringConnectionOutput) PeerOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringPtrOutput { return v.PeerOwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCPeeringConnectionOutput) PeerRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringPtrOutput { return v.PeerRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCPeeringConnectionOutput) PeerRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringPtrOutput { return v.PeerRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
+}
+
+func (o VPCPeeringConnectionOutput) Tags() VPCPeeringConnectionTagArrayOutput {
+	return o.ApplyT(func(v *VPCPeeringConnection) VPCPeeringConnectionTagArrayOutput { return v.Tags }).(VPCPeeringConnectionTagArrayOutput)
+}
+
+func (o VPCPeeringConnectionOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCPeeringConnectionInput)(nil)).Elem(), &VPCPeeringConnection{})
 	pulumi.RegisterOutputType(VPCPeeringConnectionOutput{})

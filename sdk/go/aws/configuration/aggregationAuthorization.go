@@ -125,6 +125,26 @@ func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutputWithCont
 	return o
 }
 
+// The ARN of the AggregationAuthorization.
+func (o AggregationAuthorizationOutput) AggregationAuthorizationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AggregationAuthorization) pulumi.StringOutput { return v.AggregationAuthorizationArn }).(pulumi.StringOutput)
+}
+
+// The 12-digit account ID of the account authorized to aggregate data.
+func (o AggregationAuthorizationOutput) AuthorizedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AggregationAuthorization) pulumi.StringOutput { return v.AuthorizedAccountId }).(pulumi.StringOutput)
+}
+
+// The region authorized to collect aggregated data.
+func (o AggregationAuthorizationOutput) AuthorizedAwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *AggregationAuthorization) pulumi.StringOutput { return v.AuthorizedAwsRegion }).(pulumi.StringOutput)
+}
+
+// The tags for the AggregationAuthorization.
+func (o AggregationAuthorizationOutput) Tags() AggregationAuthorizationTagArrayOutput {
+	return o.ApplyT(func(v *AggregationAuthorization) AggregationAuthorizationTagArrayOutput { return v.Tags }).(AggregationAuthorizationTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationInput)(nil)).Elem(), &AggregationAuthorization{})
 	pulumi.RegisterOutputType(AggregationAuthorizationOutput{})

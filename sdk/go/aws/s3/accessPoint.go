@@ -141,6 +141,52 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The alias of this Access Point. This alias can be used for compatibility purposes with other AWS services and third-party applications.
+func (o AccessPointOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the specified accesspoint.
+func (o AccessPointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the bucket that you want to associate this Access Point with.
+func (o AccessPointOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
+func (o AccessPointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
+func (o AccessPointOutput) NetworkOrigin() AccessPointNetworkOriginOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointNetworkOriginOutput { return v.NetworkOrigin }).(AccessPointNetworkOriginOutput)
+}
+
+// The Access Point Policy you want to apply to this access point.
+func (o AccessPointOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+func (o AccessPointOutput) PolicyStatus() PolicyStatusPropertiesPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) PolicyStatusPropertiesPtrOutput { return v.PolicyStatus }).(PolicyStatusPropertiesPtrOutput)
+}
+
+// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+func (o AccessPointOutput) PublicAccessBlockConfiguration() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointPublicAccessBlockConfigurationPtrOutput {
+		return v.PublicAccessBlockConfiguration
+	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
+func (o AccessPointOutput) VpcConfiguration() AccessPointVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointVpcConfigurationPtrOutput { return v.VpcConfiguration }).(AccessPointVpcConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointInput)(nil)).Elem(), &AccessPoint{})
 	pulumi.RegisterOutputType(AccessPointOutput{})

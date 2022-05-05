@@ -142,6 +142,44 @@ func (o SolutionOutput) ToSolutionOutputWithContext(ctx context.Context) Solutio
 	return o
 }
 
+// The ARN of the dataset group that provides the training data.
+func (o SolutionOutput) DatasetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.DatasetGroupArn }).(pulumi.StringOutput)
+}
+
+// When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.
+func (o SolutionOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringPtrOutput { return v.EventType }).(pulumi.StringPtrOutput)
+}
+
+// The name for the solution
+func (o SolutionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
+func (o SolutionOutput) PerformAutoML() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.BoolPtrOutput { return v.PerformAutoML }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
+func (o SolutionOutput) PerformHPO() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.BoolPtrOutput { return v.PerformHPO }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
+func (o SolutionOutput) RecipeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringPtrOutput { return v.RecipeArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SolutionOutput) SolutionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.SolutionArn }).(pulumi.StringOutput)
+}
+
+func (o SolutionOutput) SolutionConfig() SolutionConfigPtrOutput {
+	return o.ApplyT(func(v *Solution) SolutionConfigPtrOutput { return v.SolutionConfig }).(SolutionConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionInput)(nil)).Elem(), &Solution{})
 	pulumi.RegisterOutputType(SolutionOutput{})

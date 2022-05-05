@@ -169,6 +169,76 @@ func (o OriginEndpointOutput) ToOriginEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+func (o OriginEndpointOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointOutput) Authorization() OriginEndpointAuthorizationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointAuthorizationPtrOutput { return v.Authorization }).(OriginEndpointAuthorizationPtrOutput)
+}
+
+// The ID of the Channel the OriginEndpoint is associated with.
+func (o OriginEndpointOutput) ChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointOutput) CmafPackage() OriginEndpointCmafPackagePtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointCmafPackagePtrOutput { return v.CmafPackage }).(OriginEndpointCmafPackagePtrOutput)
+}
+
+func (o OriginEndpointOutput) DashPackage() OriginEndpointDashPackagePtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointDashPackagePtrOutput { return v.DashPackage }).(OriginEndpointDashPackagePtrOutput)
+}
+
+// A short text description of the OriginEndpoint.
+func (o OriginEndpointOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o OriginEndpointOutput) HlsPackage() OriginEndpointHlsPackagePtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointHlsPackagePtrOutput { return v.HlsPackage }).(OriginEndpointHlsPackagePtrOutput)
+}
+
+// A short string appended to the end of the OriginEndpoint URL.
+func (o OriginEndpointOutput) ManifestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.ManifestName }).(pulumi.StringPtrOutput)
+}
+
+func (o OriginEndpointOutput) MssPackage() OriginEndpointMssPackagePtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointMssPackagePtrOutput { return v.MssPackage }).(OriginEndpointMssPackagePtrOutput)
+}
+
+// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+func (o OriginEndpointOutput) Origination() OriginEndpointOriginationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointOriginationPtrOutput { return v.Origination }).(OriginEndpointOriginationPtrOutput)
+}
+
+// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
+func (o OriginEndpointOutput) StartoverWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.IntPtrOutput { return v.StartoverWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o OriginEndpointOutput) Tags() OriginEndpointTagArrayOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointTagArrayOutput { return v.Tags }).(OriginEndpointTagArrayOutput)
+}
+
+// Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
+func (o OriginEndpointOutput) TimeDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.IntPtrOutput { return v.TimeDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+// The URL of the packaged OriginEndpoint for consumption.
+func (o OriginEndpointOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+func (o OriginEndpointOutput) Whitelist() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringArrayOutput { return v.Whitelist }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointInput)(nil)).Elem(), &OriginEndpoint{})
 	pulumi.RegisterOutputType(OriginEndpointOutput{})

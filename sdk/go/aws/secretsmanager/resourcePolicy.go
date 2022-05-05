@@ -116,6 +116,18 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ResourcePolicyOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.BoolPtrOutput { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ResourcePolicyOutput) ResourcePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.ResourcePolicy }).(pulumi.AnyOutput)
+}
+
+func (o ResourcePolicyOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyInput)(nil)).Elem(), &ResourcePolicy{})
 	pulumi.RegisterOutputType(ResourcePolicyOutput{})

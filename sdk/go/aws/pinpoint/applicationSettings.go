@@ -119,6 +119,26 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx co
 	return o
 }
 
+func (o ApplicationSettingsOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationSettingsOutput) CampaignHook() ApplicationSettingsCampaignHookPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) ApplicationSettingsCampaignHookPtrOutput { return v.CampaignHook }).(ApplicationSettingsCampaignHookPtrOutput)
+}
+
+func (o ApplicationSettingsOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolPtrOutput { return v.CloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApplicationSettingsOutput) Limits() ApplicationSettingsLimitsPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) ApplicationSettingsLimitsPtrOutput { return v.Limits }).(ApplicationSettingsLimitsPtrOutput)
+}
+
+func (o ApplicationSettingsOutput) QuietTime() ApplicationSettingsQuietTimePtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) ApplicationSettingsQuietTimePtrOutput { return v.QuietTime }).(ApplicationSettingsQuietTimePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsInput)(nil)).Elem(), &ApplicationSettings{})
 	pulumi.RegisterOutputType(ApplicationSettingsOutput{})

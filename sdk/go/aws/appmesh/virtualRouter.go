@@ -125,6 +125,38 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o VirtualRouterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualRouterOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o VirtualRouterOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualRouterOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o VirtualRouterOutput) Spec() VirtualRouterSpecOutput {
+	return o.ApplyT(func(v *VirtualRouter) VirtualRouterSpecOutput { return v.Spec }).(VirtualRouterSpecOutput)
+}
+
+func (o VirtualRouterOutput) Tags() VirtualRouterTagArrayOutput {
+	return o.ApplyT(func(v *VirtualRouter) VirtualRouterTagArrayOutput { return v.Tags }).(VirtualRouterTagArrayOutput)
+}
+
+func (o VirtualRouterOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o VirtualRouterOutput) VirtualRouterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringPtrOutput { return v.VirtualRouterName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterInput)(nil)).Elem(), &VirtualRouter{})
 	pulumi.RegisterOutputType(VirtualRouterOutput{})

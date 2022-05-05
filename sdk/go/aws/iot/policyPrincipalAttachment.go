@@ -113,6 +113,14 @@ func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutputWithCo
 	return o
 }
 
+func (o PolicyPrincipalAttachmentOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyPrincipalAttachment) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+func (o PolicyPrincipalAttachmentOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyPrincipalAttachment) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPrincipalAttachmentInput)(nil)).Elem(), &PolicyPrincipalAttachment{})
 	pulumi.RegisterOutputType(PolicyPrincipalAttachmentOutput{})

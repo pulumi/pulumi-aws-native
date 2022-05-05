@@ -131,6 +131,30 @@ func (o ApiCacheOutput) ToApiCacheOutputWithContext(ctx context.Context) ApiCach
 	return o
 }
 
+func (o ApiCacheOutput) ApiCachingBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.ApiCachingBehavior }).(pulumi.StringOutput)
+}
+
+func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiCacheOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiCacheOutput) Ttl() pulumi.Float64Output {
+	return o.ApplyT(func(v *ApiCache) pulumi.Float64Output { return v.Ttl }).(pulumi.Float64Output)
+}
+
+func (o ApiCacheOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiCacheInput)(nil)).Elem(), &ApiCache{})
 	pulumi.RegisterOutputType(ApiCacheOutput{})

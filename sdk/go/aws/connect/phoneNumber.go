@@ -148,6 +148,46 @@ func (o PhoneNumberOutput) ToPhoneNumberOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// The phone number e164 address.
+func (o PhoneNumberOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+}
+
+// The phone number country code.
+func (o PhoneNumberOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+// The description of the phone number.
+func (o PhoneNumberOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The phone number ARN
+func (o PhoneNumberOutput) PhoneNumberArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.PhoneNumberArn }).(pulumi.StringOutput)
+}
+
+// The phone number prefix.
+func (o PhoneNumberOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// One or more tags.
+func (o PhoneNumberOutput) Tags() PhoneNumberTagArrayOutput {
+	return o.ApplyT(func(v *PhoneNumber) PhoneNumberTagArrayOutput { return v.Tags }).(PhoneNumberTagArrayOutput)
+}
+
+// The ARN of the Amazon Connect instance the phone number is claimed to.
+func (o PhoneNumberOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
+}
+
+// The phone number type, either TOLL_FREE or DID.
+func (o PhoneNumberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberInput)(nil)).Elem(), &PhoneNumber{})
 	pulumi.RegisterOutputType(PhoneNumberOutput{})

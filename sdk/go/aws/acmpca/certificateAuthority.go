@@ -160,6 +160,57 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the certificate authority.
+func (o CertificateAuthorityOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
+func (o CertificateAuthorityOutput) CertificateSigningRequest() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateSigningRequest }).(pulumi.StringOutput)
+}
+
+// Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
+func (o CertificateAuthorityOutput) CsrExtensions() CertificateAuthorityCsrExtensionsPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthorityCsrExtensionsPtrOutput { return v.CsrExtensions }).(CertificateAuthorityCsrExtensionsPtrOutput)
+}
+
+// Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
+func (o CertificateAuthorityOutput) KeyAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.KeyAlgorithm }).(pulumi.StringOutput)
+}
+
+// KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
+func (o CertificateAuthorityOutput) KeyStorageSecurityStandard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.KeyStorageSecurityStandard }).(pulumi.StringPtrOutput)
+}
+
+// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+func (o CertificateAuthorityOutput) RevocationConfiguration() CertificateAuthorityRevocationConfigurationPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthorityRevocationConfigurationPtrOutput {
+		return v.RevocationConfiguration
+	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
+}
+
+// Algorithm your CA uses to sign certificate requests.
+func (o CertificateAuthorityOutput) SigningAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.SigningAlgorithm }).(pulumi.StringOutput)
+}
+
+// Structure that contains X.500 distinguished name information for your CA.
+func (o CertificateAuthorityOutput) Subject() CertificateAuthoritySubjectOutput {
+	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthoritySubjectOutput { return v.Subject }).(CertificateAuthoritySubjectOutput)
+}
+
+func (o CertificateAuthorityOutput) Tags() CertificateAuthorityTagArrayOutput {
+	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthorityTagArrayOutput { return v.Tags }).(CertificateAuthorityTagArrayOutput)
+}
+
+// The type of the certificate authority.
+func (o CertificateAuthorityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityInput)(nil)).Elem(), &CertificateAuthority{})
 	pulumi.RegisterOutputType(CertificateAuthorityOutput{})

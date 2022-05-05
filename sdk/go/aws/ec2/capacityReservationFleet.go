@@ -126,6 +126,52 @@ func (o CapacityReservationFleetOutput) ToCapacityReservationFleetOutputWithCont
 	return o
 }
 
+func (o CapacityReservationFleetOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.StringPtrOutput { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationFleetOutput) CapacityReservationFleetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.StringOutput { return v.CapacityReservationFleetId }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationFleetOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationFleetOutput) InstanceMatchCriteria() CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+		return v.InstanceMatchCriteria
+	}).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
+}
+
+func (o CapacityReservationFleetOutput) InstanceTypeSpecifications() CapacityReservationFleetInstanceTypeSpecificationArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetInstanceTypeSpecificationArrayOutput {
+		return v.InstanceTypeSpecifications
+	}).(CapacityReservationFleetInstanceTypeSpecificationArrayOutput)
+}
+
+func (o CapacityReservationFleetOutput) NoRemoveEndDate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.BoolPtrOutput { return v.NoRemoveEndDate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CapacityReservationFleetOutput) RemoveEndDate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.BoolPtrOutput { return v.RemoveEndDate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CapacityReservationFleetOutput) TagSpecifications() CapacityReservationFleetTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetTagSpecificationArrayOutput {
+		return v.TagSpecifications
+	}).(CapacityReservationFleetTagSpecificationArrayOutput)
+}
+
+func (o CapacityReservationFleetOutput) Tenancy() CapacityReservationFleetTenancyPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetTenancyPtrOutput { return v.Tenancy }).(CapacityReservationFleetTenancyPtrOutput)
+}
+
+func (o CapacityReservationFleetOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.IntPtrOutput { return v.TotalTargetCapacity }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInput)(nil)).Elem(), &CapacityReservationFleet{})
 	pulumi.RegisterOutputType(CapacityReservationFleetOutput{})

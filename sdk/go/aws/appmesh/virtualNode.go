@@ -125,6 +125,38 @@ func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) V
 	return o
 }
 
+func (o VirtualNodeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualNodeOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o VirtualNodeOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringPtrOutput { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualNodeOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o VirtualNodeOutput) Spec() VirtualNodeSpecOutput {
+	return o.ApplyT(func(v *VirtualNode) VirtualNodeSpecOutput { return v.Spec }).(VirtualNodeSpecOutput)
+}
+
+func (o VirtualNodeOutput) Tags() VirtualNodeTagArrayOutput {
+	return o.ApplyT(func(v *VirtualNode) VirtualNodeTagArrayOutput { return v.Tags }).(VirtualNodeTagArrayOutput)
+}
+
+func (o VirtualNodeOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o VirtualNodeOutput) VirtualNodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringPtrOutput { return v.VirtualNodeName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeInput)(nil)).Elem(), &VirtualNode{})
 	pulumi.RegisterOutputType(VirtualNodeOutput{})

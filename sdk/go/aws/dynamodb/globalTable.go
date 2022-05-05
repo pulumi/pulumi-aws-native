@@ -144,6 +144,64 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 	return o
 }
 
+func (o GlobalTableOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableOutput) AttributeDefinitions() GlobalTableAttributeDefinitionArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableAttributeDefinitionArrayOutput { return v.AttributeDefinitions }).(GlobalTableAttributeDefinitionArrayOutput)
+}
+
+func (o GlobalTableOutput) BillingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
+}
+
+func (o GlobalTableOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
+}
+
+func (o GlobalTableOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableKeySchemaArrayOutput { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
+}
+
+func (o GlobalTableOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
+}
+
+func (o GlobalTableOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableReplicaSpecificationArrayOutput { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
+}
+
+func (o GlobalTableOutput) SSESpecification() GlobalTableSSESpecificationPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableSSESpecificationPtrOutput { return v.SSESpecification }).(GlobalTableSSESpecificationPtrOutput)
+}
+
+func (o GlobalTableOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableStreamSpecificationPtrOutput { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
+}
+
+func (o GlobalTableOutput) TableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.TableId }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o GlobalTableOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
+		return v.WriteProvisionedThroughputSettings
+	}).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableInput)(nil)).Elem(), &GlobalTable{})
 	pulumi.RegisterOutputType(GlobalTableOutput{})

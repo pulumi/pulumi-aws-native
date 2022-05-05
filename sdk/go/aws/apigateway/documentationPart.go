@@ -119,6 +119,18 @@ func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx contex
 	return o
 }
 
+func (o DocumentationPartOutput) Location() DocumentationPartLocationOutput {
+	return o.ApplyT(func(v *DocumentationPart) DocumentationPartLocationOutput { return v.Location }).(DocumentationPartLocationOutput)
+}
+
+func (o DocumentationPartOutput) Properties() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
+}
+
+func (o DocumentationPartOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartInput)(nil)).Elem(), &DocumentationPart{})
 	pulumi.RegisterOutputType(DocumentationPartOutput{})

@@ -122,6 +122,36 @@ func (o EntityTypeOutput) ToEntityTypeOutputWithContext(ctx context.Context) Ent
 	return o
 }
 
+// The entity type ARN.
+func (o EntityTypeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The timestamp when the entity type was created.
+func (o EntityTypeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityType) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The entity type description.
+func (o EntityTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the entity type was last updated.
+func (o EntityTypeOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityType) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The name of the entity type.
+func (o EntityTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags associated with this entity type.
+func (o EntityTypeOutput) Tags() EntityTypeTagArrayOutput {
+	return o.ApplyT(func(v *EntityType) EntityTypeTagArrayOutput { return v.Tags }).(EntityTypeTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTypeInput)(nil)).Elem(), &EntityType{})
 	pulumi.RegisterOutputType(EntityTypeOutput{})

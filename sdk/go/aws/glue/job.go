@@ -161,6 +161,78 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+func (o JobOutput) AllocatedCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.Float64PtrOutput { return v.AllocatedCapacity }).(pulumi.Float64PtrOutput)
+}
+
+func (o JobOutput) Command() JobCommandOutput {
+	return o.ApplyT(func(v *Job) JobCommandOutput { return v.Command }).(JobCommandOutput)
+}
+
+func (o JobOutput) Connections() JobConnectionsListPtrOutput {
+	return o.ApplyT(func(v *Job) JobConnectionsListPtrOutput { return v.Connections }).(JobConnectionsListPtrOutput)
+}
+
+func (o JobOutput) DefaultArguments() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.DefaultArguments }).(pulumi.AnyOutput)
+}
+
+func (o JobOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) ExecutionProperty() JobExecutionPropertyPtrOutput {
+	return o.ApplyT(func(v *Job) JobExecutionPropertyPtrOutput { return v.ExecutionProperty }).(JobExecutionPropertyPtrOutput)
+}
+
+func (o JobOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.Float64PtrOutput { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+func (o JobOutput) MaxRetries() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.Float64PtrOutput { return v.MaxRetries }).(pulumi.Float64PtrOutput)
+}
+
+func (o JobOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) NotificationProperty() JobNotificationPropertyPtrOutput {
+	return o.ApplyT(func(v *Job) JobNotificationPropertyPtrOutput { return v.NotificationProperty }).(JobNotificationPropertyPtrOutput)
+}
+
+func (o JobOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o JobOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o JobOutput) SecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o JobOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+func (o JobOutput) WorkerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobInput)(nil)).Elem(), &Job{})
 	pulumi.RegisterOutputType(JobOutput{})

@@ -122,6 +122,26 @@ func (o ClientVpnAuthorizationRuleOutput) ToClientVpnAuthorizationRuleOutputWith
 	return o
 }
 
+func (o ClientVpnAuthorizationRuleOutput) AccessGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.StringPtrOutput { return v.AccessGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnAuthorizationRuleOutput) AuthorizeAllGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.BoolPtrOutput { return v.AuthorizeAllGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClientVpnAuthorizationRuleOutput) ClientVpnEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnAuthorizationRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnAuthorizationRuleOutput) TargetNetworkCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.StringOutput { return v.TargetNetworkCidr }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnAuthorizationRuleInput)(nil)).Elem(), &ClientVpnAuthorizationRule{})
 	pulumi.RegisterOutputType(ClientVpnAuthorizationRuleOutput{})

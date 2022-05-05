@@ -118,6 +118,26 @@ func (o DeviceProfileOutput) ToDeviceProfileOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Service profile Arn. Returned after successful create.
+func (o DeviceProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
+func (o DeviceProfileOutput) LoRaWAN() DeviceProfileLoRaWANDeviceProfilePtrOutput {
+	return o.ApplyT(func(v *DeviceProfile) DeviceProfileLoRaWANDeviceProfilePtrOutput { return v.LoRaWAN }).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
+}
+
+// Name of service profile
+func (o DeviceProfileOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceProfile) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the device profile.
+func (o DeviceProfileOutput) Tags() DeviceProfileTagArrayOutput {
+	return o.ApplyT(func(v *DeviceProfile) DeviceProfileTagArrayOutput { return v.Tags }).(DeviceProfileTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileInput)(nil)).Elem(), &DeviceProfile{})
 	pulumi.RegisterOutputType(DeviceProfileOutput{})

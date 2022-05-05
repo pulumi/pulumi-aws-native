@@ -143,6 +143,64 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// Autoscaling configuration ARN
+func (o ServiceOutput) AutoScalingConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoScalingConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) EncryptionConfiguration() ServiceEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ServiceEncryptionConfigurationPtrOutput)
+}
+
+func (o ServiceOutput) HealthCheckConfiguration() ServiceHealthCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigurationPtrOutput { return v.HealthCheckConfiguration }).(ServiceHealthCheckConfigurationPtrOutput)
+}
+
+func (o ServiceOutput) InstanceConfiguration() ServiceInstanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceInstanceConfigurationPtrOutput { return v.InstanceConfiguration }).(ServiceInstanceConfigurationPtrOutput)
+}
+
+func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
+}
+
+func (o ServiceOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceObservabilityConfigurationPtrOutput { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AppRunner Service.
+func (o ServiceOutput) ServiceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
+}
+
+// The AppRunner Service Id
+func (o ServiceOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+// The AppRunner Service Name.
+func (o ServiceOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+// The Service Url of the AppRunner Service.
+func (o ServiceOutput) ServiceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) SourceConfiguration() ServiceSourceConfigurationOutput {
+	return o.ApplyT(func(v *Service) ServiceSourceConfigurationOutput { return v.SourceConfiguration }).(ServiceSourceConfigurationOutput)
+}
+
+// AppRunner Service status.
+func (o ServiceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) Tags() ServiceTagArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInput)(nil)).Elem(), &Service{})
 	pulumi.RegisterOutputType(ServiceOutput{})

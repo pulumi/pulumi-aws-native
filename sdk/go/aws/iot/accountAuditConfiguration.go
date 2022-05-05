@@ -126,6 +126,28 @@ func (o AccountAuditConfigurationOutput) ToAccountAuditConfigurationOutputWithCo
 	return o
 }
 
+// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+func (o AccountAuditConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountAuditConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func (o AccountAuditConfigurationOutput) AuditCheckConfigurations() AccountAuditConfigurationAuditCheckConfigurationsOutput {
+	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditCheckConfigurationsOutput {
+		return v.AuditCheckConfigurations
+	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
+}
+
+func (o AccountAuditConfigurationOutput) AuditNotificationTargetConfigurations() AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
+		return v.AuditNotificationTargetConfigurations
+	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
+}
+
+// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
+func (o AccountAuditConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountAuditConfiguration) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationInput)(nil)).Elem(), &AccountAuditConfiguration{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationOutput{})

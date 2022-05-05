@@ -121,6 +121,42 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx cont
 	return o
 }
 
+func (o GeofenceCollectionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionArn }).(pulumi.StringOutput)
+}
+
+func (o GeofenceCollectionOutput) CollectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionName }).(pulumi.StringOutput)
+}
+
+func (o GeofenceCollectionOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+func (o GeofenceCollectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GeofenceCollectionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o GeofenceCollectionOutput) PricingPlan() GeofenceCollectionPricingPlanPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) GeofenceCollectionPricingPlanPtrOutput { return v.PricingPlan }).(GeofenceCollectionPricingPlanPtrOutput)
+}
+
+func (o GeofenceCollectionOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
+}
+
+func (o GeofenceCollectionOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GeofenceCollectionInput)(nil)).Elem(), &GeofenceCollection{})
 	pulumi.RegisterOutputType(GeofenceCollectionOutput{})

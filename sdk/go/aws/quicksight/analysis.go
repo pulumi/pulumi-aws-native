@@ -179,6 +179,82 @@ func (o AnalysisOutput) ToAnalysisOutputWithContext(ctx context.Context) Analysi
 	return o
 }
 
+func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AnalysisId }).(pulumi.StringOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the analysis.</p>
+func (o AnalysisOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// <p>The time that the analysis was created.</p>
+func (o AnalysisOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// <p>The ARNs of the datasets of the analysis.</p>
+func (o AnalysisOutput) DataSetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringArrayOutput { return v.DataSetArns }).(pulumi.StringArrayOutput)
+}
+
+// <p>Errors associated with the analysis.</p>
+func (o AnalysisOutput) Errors() AnalysisErrorArrayOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisErrorArrayOutput { return v.Errors }).(AnalysisErrorArrayOutput)
+}
+
+// <p>The time that the analysis was last updated.</p>
+func (o AnalysisOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// <p>The descriptive name of the analysis.</p>
+func (o AnalysisOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisOutput) Parameters() AnalysisParametersPtrOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisParametersPtrOutput { return v.Parameters }).(AnalysisParametersPtrOutput)
+}
+
+// <p>A structure that describes the principals and the resource-level permissions on an
+//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
+//             providing a list of AWS Identity and Access Management (IAM) action information for each
+//             principal listed by Amazon Resource Name (ARN). </p>
+//
+//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+func (o AnalysisOutput) Permissions() AnalysisResourcePermissionArrayOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisResourcePermissionArrayOutput { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o AnalysisOutput) Sheets() AnalysisSheetArrayOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisSheetArrayOutput { return v.Sheets }).(AnalysisSheetArrayOutput)
+}
+
+func (o AnalysisOutput) SourceEntity() AnalysisSourceEntityOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisSourceEntityOutput { return v.SourceEntity }).(AnalysisSourceEntityOutput)
+}
+
+func (o AnalysisOutput) Status() AnalysisResourceStatusOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisResourceStatusOutput { return v.Status }).(AnalysisResourceStatusOutput)
+}
+
+// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+//             analysis.</p>
+func (o AnalysisOutput) Tags() AnalysisTagArrayOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisTagArrayOutput { return v.Tags }).(AnalysisTagArrayOutput)
+}
+
+// <p>The ARN of the theme of the analysis.</p>
+func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisInput)(nil)).Elem(), &Analysis{})
 	pulumi.RegisterOutputType(AnalysisOutput{})

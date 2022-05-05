@@ -113,6 +113,20 @@ func (o ReplicationSetOutput) ToReplicationSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the ReplicationSet.
+func (o ReplicationSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ReplicationSetOutput) DeletionProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationSet) pulumi.BoolPtrOutput { return v.DeletionProtected }).(pulumi.BoolPtrOutput)
+}
+
+// The ReplicationSet configuration.
+func (o ReplicationSetOutput) Regions() ReplicationSetReplicationRegionArrayOutput {
+	return o.ApplyT(func(v *ReplicationSet) ReplicationSetReplicationRegionArrayOutput { return v.Regions }).(ReplicationSetReplicationRegionArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSetInput)(nil)).Elem(), &ReplicationSet{})
 	pulumi.RegisterOutputType(ReplicationSetOutput{})
