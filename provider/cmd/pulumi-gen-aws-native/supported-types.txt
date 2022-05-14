@@ -270,6 +270,7 @@ AWS::IoT::Logging
 AWS::IoT::MitigationAction
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ResourceSpecificLogging
+AWS::IoT::RoleAlias
 AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
