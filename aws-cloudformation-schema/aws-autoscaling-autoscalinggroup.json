@@ -46,6 +46,9 @@
     "HealthCheckGracePeriod" : {
       "type" : "integer"
     },
+    "DefaultInstanceWarmup" : {
+      "type" : "integer"
+    },
     "NewInstancesProtectedFromScaleIn" : {
       "type" : "boolean"
     },

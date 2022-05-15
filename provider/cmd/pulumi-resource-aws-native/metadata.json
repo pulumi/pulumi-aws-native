@@ -4679,7 +4679,7 @@
                 },
                 "typeArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the type version."
+                    "description": "The Amazon Resource Name (ARN) of the type without version number."
                 },
                 "typeName": {
                     "type": "string",
@@ -4701,7 +4701,7 @@
                 },
                 "typeArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the type version."
+                    "description": "The Amazon Resource Name (ARN) of the type without version number."
                 },
                 "typeName": {
                     "type": "string",
@@ -4709,8 +4709,7 @@
                 }
             },
             "createOnly": [
-                "configurationAlias",
-                "typeArn"
+                "configurationAlias"
             ]
         },
         "aws-native:cloudformation:HookVersion": {
@@ -19503,7 +19502,7 @@
                 },
                 "targetType": {
                     "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingTargetType",
-                    "description": "The target type. Value must be THING_GROUP."
+                    "description": "The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID."
                 }
             },
             "outputs": {
@@ -19521,7 +19520,7 @@
                 },
                 "targetType": {
                     "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingTargetType",
-                    "description": "The target type. Value must be THING_GROUP."
+                    "description": "The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID."
                 }
             },
             "required": [
@@ -19532,6 +19531,62 @@
             "createOnly": [
                 "targetName",
                 "targetType"
+            ]
+        },
+        "aws-native:iot:RoleAlias": {
+            "cf": "AWS::IoT::RoleAlias",
+            "inputs": {
+                "credentialDurationSeconds": {
+                    "type": "integer"
+                },
+                "roleAlias": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "RoleAliasValue"
+                        }
+                    }
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:RoleAliasTag"
+                    }
+                }
+            },
+            "outputs": {
+                "credentialDurationSeconds": {
+                    "type": "integer"
+                },
+                "roleAlias": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "RoleAliasValue"
+                        }
+                    }
+                },
+                "roleAliasArn": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:RoleAliasTag"
+                    }
+                }
+            },
+            "required": [
+                "roleArn"
+            ],
+            "createOnly": [
+                "roleAlias"
             ]
         },
         "aws-native:iot:ScheduledAudit": {
@@ -26689,8 +26744,12 @@
                     "description": "The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. "
                 },
                 "dashConfiguration": {
-                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPut",
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfiguration",
                     "description": "The configuration for DASH content."
+                },
+                "hlsConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationHlsConfiguration",
+                    "description": "The configuration for HLS content."
                 },
                 "livePreRollConfiguration": {
                     "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration",
@@ -26707,10 +26766,6 @@
                 "personalizationThresholdSeconds": {
                     "type": "integer",
                     "description": "Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html)."
-                },
-                "sessionInitializationEndpointPrefix": {
-                    "type": "string",
-                    "description": "The URL that the player uses to initialize a session that uses client-side reporting."
                 },
                 "slateAdUrl": {
                     "type": "string",
@@ -26754,8 +26809,12 @@
                     "description": "The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. "
                 },
                 "dashConfiguration": {
-                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPut",
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfiguration",
                     "description": "The configuration for DASH content."
+                },
+                "hlsConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationHlsConfiguration",
+                    "description": "The configuration for HLS content."
                 },
                 "livePreRollConfiguration": {
                     "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration",
@@ -26772,6 +26831,14 @@
                 "personalizationThresholdSeconds": {
                     "type": "integer",
                     "description": "Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html)."
+                },
+                "playbackConfigurationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the playback configuration."
+                },
+                "playbackEndpointPrefix": {
+                    "type": "string",
+                    "description": "The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting."
                 },
                 "sessionInitializationEndpointPrefix": {
                     "type": "string",
@@ -31934,6 +32001,161 @@
             },
             "createOnly": [
                 "projectName"
+            ]
+        },
+        "aws-native:rekognition:StreamProcessor": {
+            "cf": "AWS::Rekognition::StreamProcessor",
+            "inputs": {
+                "boundingBoxRegionsOfInterest": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rekognition:StreamProcessorBoundingBox"
+                    },
+                    "description": "The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%."
+                },
+                "connectedHomeSettings": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorConnectedHomeSettings"
+                },
+                "dataSharingPreference": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorDataSharingPreference"
+                },
+                "faceSearchSettings": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorFaceSearchSettings"
+                },
+                "kinesisDataStream": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorKinesisDataStream"
+                },
+                "kinesisVideoStream": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorKinesisVideoStream"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor."
+                },
+                "notificationChannel": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorNotificationChannel"
+                },
+                "polygonRegionsOfInterest": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws-native:rekognition:StreamProcessorPoint"
+                        }
+                    },
+                    "description": "The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic."
+                },
+                "s3Destination": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorS3Destination"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rekognition:StreamProcessorTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "boundingBoxRegionsOfInterest": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rekognition:StreamProcessorBoundingBox"
+                    },
+                    "description": "The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%."
+                },
+                "connectedHomeSettings": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorConnectedHomeSettings"
+                },
+                "dataSharingPreference": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorDataSharingPreference"
+                },
+                "faceSearchSettings": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorFaceSearchSettings"
+                },
+                "kinesisDataStream": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorKinesisDataStream"
+                },
+                "kinesisVideoStream": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorKinesisVideoStream"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor."
+                },
+                "notificationChannel": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorNotificationChannel"
+                },
+                "polygonRegionsOfInterest": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws-native:rekognition:StreamProcessorPoint"
+                        }
+                    },
+                    "description": "The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic."
+                },
+                "s3Destination": {
+                    "$ref": "#/types/aws-native:rekognition:StreamProcessorS3Destination"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Current status of the stream processor."
+                },
+                "statusMessage": {
+                    "type": "string",
+                    "description": "Detailed status message about the stream processor."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rekognition:StreamProcessorTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "kinesisVideoStream",
+                "roleArn"
+            ],
+            "createOnly": [
+                "boundingBoxRegionsOfInterest",
+                "connectedHomeSettings",
+                "dataSharingPreference",
+                "faceSearchSettings",
+                "kinesisDataStream",
+                "kinesisVideoStream",
+                "kmsKeyId",
+                "name",
+                "notificationChannel",
+                "polygonRegionsOfInterest",
+                "roleArn",
+                "s3Destination"
             ]
         },
         "aws-native:resiliencehub:App": {
@@ -37554,6 +37776,10 @@
                     "$ref": "#/types/aws-native:synthetics:CanaryCode",
                     "description": "Provide the canary script source"
                 },
+                "deleteLambdaResourcesOnCanaryDeletion": {
+                    "type": "boolean",
+                    "description": "Deletes associated lambda resources created by Synthetics if set to True. Default is False"
+                },
                 "executionRoleArn": {
                     "type": "string",
                     "description": "Lambda Execution role used to run your canaries"
@@ -37613,6 +37839,10 @@
                 "code": {
                     "$ref": "#/types/aws-native:synthetics:CanaryCode",
                     "description": "Provide the canary script source"
+                },
+                "deleteLambdaResourcesOnCanaryDeletion": {
+                    "type": "boolean",
+                    "description": "Deletes associated lambda resources created by Synthetics if set to True. Default is False"
                 },
                 "executionRoleArn": {
                     "type": "string",
@@ -54939,6 +55169,19 @@
         "aws-native:iot:ResourceSpecificLoggingTargetType": {
             "type": "string"
         },
+        "aws-native:iot:RoleAliasTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:iot:ScheduledAuditDayOfWeek": {
             "type": "string"
         },
@@ -63992,21 +64235,34 @@
         "aws-native:mediatailor:PlaybackConfigurationConfigurationAliases": {
             "type": "object"
         },
-        "aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPut": {
+        "aws-native:mediatailor:PlaybackConfigurationDashConfiguration": {
             "type": "object",
             "properties": {
+                "manifestEndpointPrefix": {
+                    "type": "string",
+                    "description": "The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting."
+                },
                 "mpdLocation": {
                     "type": "string",
                     "description": "The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value."
                 },
                 "originManifestType": {
-                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPutOriginManifestType",
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationDashConfigurationOriginManifestType",
                     "description": "The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD."
                 }
             }
         },
-        "aws-native:mediatailor:PlaybackConfigurationDashConfigurationForPutOriginManifestType": {
+        "aws-native:mediatailor:PlaybackConfigurationDashConfigurationOriginManifestType": {
             "type": "string"
+        },
+        "aws-native:mediatailor:PlaybackConfigurationHlsConfiguration": {
+            "type": "object",
+            "properties": {
+                "manifestEndpointPrefix": {
+                    "type": "string",
+                    "description": "The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting."
+                }
+            }
         },
         "aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration": {
             "type": "object",
@@ -67902,6 +68158,126 @@
             }
         },
         "aws-native:rekognition:CollectionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorBoundingBox": {
+            "type": "object",
+            "properties": {
+                "height": {
+                    "type": "number"
+                },
+                "left": {
+                    "type": "number"
+                },
+                "top": {
+                    "type": "number"
+                },
+                "width": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorConnectedHomeSettings": {
+            "type": "object",
+            "properties": {
+                "labels": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "minConfidence": {
+                    "type": "number",
+                    "description": "Minimum object class match confidence score that must be met to return a result for a recognized object."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorDataSharingPreference": {
+            "type": "object",
+            "properties": {
+                "optIn": {
+                    "type": "boolean",
+                    "description": "Flag to enable data-sharing"
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorFaceSearchSettings": {
+            "type": "object",
+            "properties": {
+                "collectionId": {
+                    "type": "string",
+                    "description": "The ID of a collection that contains faces that you want to search for."
+                },
+                "faceMatchThreshold": {
+                    "type": "number",
+                    "description": "Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorKinesisDataStream": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Kinesis Data Stream stream."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorKinesisVideoStream": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Kinesis Video Stream that streams the source video."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorNotificationChannel": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the SNS topic."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorPoint": {
+            "type": "object",
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "The X coordinate of the point."
+                },
+                "y": {
+                    "type": "number",
+                    "description": "The Y coordinate of the point."
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorS3Destination": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "Name of the S3 bucket."
+                },
+                "objectKeyPrefix": {
+                    "type": "string",
+                    "description": "The object key prefix path where the results will be stored. Default is no prefix path"
+                }
+            }
+        },
+        "aws-native:rekognition:StreamProcessorTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -72641,6 +73017,25 @@
                 }
             }
         },
+        "aws-native:ssmincidents:ResponsePlanDynamicSsmParameter": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/types/aws-native:ssmincidents:ResponsePlanDynamicSsmParameterValue"
+                }
+            }
+        },
+        "aws-native:ssmincidents:ResponsePlanDynamicSsmParameterValue": {
+            "type": "object",
+            "properties": {
+                "variable": {
+                    "$ref": "#/types/aws-native:ssmincidents:ResponsePlanVariableType"
+                }
+            }
+        },
         "aws-native:ssmincidents:ResponsePlanIncidentTemplate": {
             "type": "object",
             "properties": {
@@ -72688,6 +73083,13 @@
                     "type": "string",
                     "description": "The version of the document to use when starting the SSM automation document."
                 },
+                "dynamicParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ssmincidents:ResponsePlanDynamicSsmParameter"
+                    },
+                    "description": "The parameters with dynamic values to set when starting the SSM automation document."
+                },
                 "parameters": {
                     "type": "array",
                     "items": {
@@ -72732,6 +73134,9 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:ssmincidents:ResponsePlanVariableType": {
+            "type": "string"
         },
         "aws-native:sso:AssignmentPrincipalType": {
             "type": "string"
@@ -73624,6 +74029,14 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupBody": {
+            "type": "object",
+            "properties": {
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupOversizeHandling"
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupBodyParsingFallbackBehavior": {
             "type": "string"
         },
@@ -73655,6 +74068,41 @@
             "properties": {
                 "immunityTimeProperty": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupImmunityTimeProperty"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupCookieMatchPattern": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Inspect all parts of the web request cookies."
+                },
+                "excludedCookies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "includedCookies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupCookies": {
+            "type": "object",
+            "properties": {
+                "matchPattern": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCookieMatchPattern"
+                },
+                "matchScope": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupMapMatchScope"
+                },
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupOversizeHandling"
                 }
             }
         },
@@ -73711,8 +74159,13 @@
                     "description": "All query arguments of a web request."
                 },
                 "body": {
-                    "$ref": "pulumi.json#/Any",
-                    "description": "The body of a web request. This immediately follows the request headers."
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupBody"
+                },
+                "cookies": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCookies"
+                },
+                "headers": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupHeaders"
                 },
                 "jsonBody": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupJsonBody"
@@ -73782,6 +74235,41 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupHeaderMatchPattern": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Inspect all parts of the web request headers."
+                },
+                "excludedHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "includedHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupHeaders": {
+            "type": "object",
+            "properties": {
+                "matchPattern": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupHeaderMatchPattern"
+                },
+                "matchScope": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupMapMatchScope"
+                },
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupOversizeHandling"
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupIPSetForwardedIPConfiguration": {
             "type": "object",
             "properties": {
@@ -73832,6 +74320,9 @@
                 },
                 "matchScope": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupJsonMatchScope"
+                },
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupOversizeHandling"
                 }
             }
         },
@@ -73883,6 +74374,9 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupMapMatchScope": {
+            "type": "string"
+        },
         "aws-native:wafv2:RuleGroupNotStatement": {
             "type": "object",
             "properties": {
@@ -73901,6 +74395,9 @@
                     }
                 }
             }
+        },
+        "aws-native:wafv2:RuleGroupOversizeHandling": {
+            "type": "string"
         },
         "aws-native:wafv2:RuleGroupPositionalConstraint": {
             "type": "string"
@@ -74206,6 +74703,14 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLBody": {
+            "type": "object",
+            "properties": {
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLOversizeHandling"
+                }
+            }
+        },
         "aws-native:wafv2:WebACLBodyParsingFallbackBehavior": {
             "type": "string"
         },
@@ -74245,6 +74750,41 @@
             "properties": {
                 "immunityTimeProperty": {
                     "$ref": "#/types/aws-native:wafv2:WebACLImmunityTimeProperty"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLCookieMatchPattern": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Inspect all parts of the web request cookies."
+                },
+                "excludedCookies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "includedCookies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLCookies": {
+            "type": "object",
+            "properties": {
+                "matchPattern": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCookieMatchPattern"
+                },
+                "matchScope": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLMapMatchScope"
+                },
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLOversizeHandling"
                 }
             }
         },
@@ -74336,8 +74876,13 @@
                     "description": "All query arguments of a web request."
                 },
                 "body": {
-                    "$ref": "pulumi.json#/Any",
-                    "description": "The body of a web request. This immediately follows the request headers."
+                    "$ref": "#/types/aws-native:wafv2:WebACLBody"
+                },
+                "cookies": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCookies"
+                },
+                "headers": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLHeaders"
                 },
                 "jsonBody": {
                     "$ref": "#/types/aws-native:wafv2:WebACLJsonBody"
@@ -74407,6 +74952,41 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLHeaderMatchPattern": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Inspect all parts of the web request headers."
+                },
+                "excludedHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "includedHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLHeaders": {
+            "type": "object",
+            "properties": {
+                "matchPattern": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLHeaderMatchPattern"
+                },
+                "matchScope": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLMapMatchScope"
+                },
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLOversizeHandling"
+                }
+            }
+        },
         "aws-native:wafv2:WebACLIPSetForwardedIPConfiguration": {
             "type": "object",
             "properties": {
@@ -74457,6 +75037,9 @@
                 },
                 "matchScope": {
                     "$ref": "#/types/aws-native:wafv2:WebACLJsonMatchScope"
+                },
+                "oversizeHandling": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLOversizeHandling"
                 }
             }
         },
@@ -74550,6 +75133,9 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLMapMatchScope": {
+            "type": "string"
+        },
         "aws-native:wafv2:WebACLNotStatement": {
             "type": "object",
             "properties": {
@@ -74581,6 +75167,9 @@
                     "description": "Keep the RuleGroup or ManagedRuleGroup behavior as is."
                 }
             }
+        },
+        "aws-native:wafv2:WebACLOversizeHandling": {
+            "type": "string"
         },
         "aws-native:wafv2:WebACLPositionalConstraint": {
             "type": "string"
@@ -75541,7 +76130,7 @@
         "aws-native:cloudformation:getHookTypeConfig": {
             "cf": "AWS::CloudFormation::HookTypeConfig",
             "ids": [
-                "typeArn"
+                "configurationArn"
             ]
         },
         "aws-native:cloudformation:getHookVersion": {
@@ -76783,6 +77372,12 @@
                 "targetId"
             ]
         },
+        "aws-native:iot:getRoleAlias": {
+            "cf": "AWS::IoT::RoleAlias",
+            "ids": [
+                "roleAlias"
+            ]
+        },
         "aws-native:iot:getScheduledAudit": {
             "cf": "AWS::IoT::ScheduledAudit",
             "ids": [
@@ -77704,6 +78299,12 @@
             "cf": "AWS::Rekognition::Project",
             "ids": [
                 "projectName"
+            ]
+        },
+        "aws-native:rekognition:getStreamProcessor": {
+            "cf": "AWS::Rekognition::StreamProcessor",
+            "ids": [
+                "name"
             ]
         },
         "aws-native:resiliencehub:getApp": {
