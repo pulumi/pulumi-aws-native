@@ -134,6 +134,11 @@
           "description" : "A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.",
           "type" : "string",
           "enum" : [ "POINT_IN_TIME_CONSISTENT", "ONLY_FILES_TRANSFERRED", "NONE" ]
+        },
+        "ObjectTags" : {
+          "description" : "A value that determines whether object tags should be read from the source object store and written to the destination object store.",
+          "type" : "string",
+          "enum" : [ "PRESERVE", "NONE" ]
         }
       }
     },
