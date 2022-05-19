@@ -157,6 +157,7 @@ AWS::EC2::NetworkInsightsAccessScopeAnalysis
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
 AWS::EC2::NetworkInterface
+AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
@@ -270,6 +271,7 @@ AWS::IoT::Logging
 AWS::IoT::MitigationAction
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ResourceSpecificLogging
+AWS::IoT::RoleAlias
 AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
@@ -484,6 +486,7 @@ AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::ModelBiasJobDefinition
 AWS::SageMaker::ModelExplainabilityJobDefinition
+AWS::SageMaker::ModelPackage
 AWS::SageMaker::ModelPackageGroup
 AWS::SageMaker::ModelQualityJobDefinition
 AWS::SageMaker::MonitoringSchedule
