@@ -21,7 +21,6 @@ from .get_portfolio_product_association import *
 from .get_portfolio_share import *
 from .get_resource_update_constraint import *
 from .get_service_action import *
-from .get_service_action_association import *
 from .get_stack_set_constraint import *
 from .get_tag_option import *
 from .get_tag_option_association import *

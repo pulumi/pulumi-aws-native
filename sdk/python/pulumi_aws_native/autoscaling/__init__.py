@@ -7,7 +7,6 @@ import typing
 # Export this package's modules as members:
 from .auto_scaling_group import *
 from .get_auto_scaling_group import *
-from .get_launch_configuration import *
 from .get_lifecycle_hook import *
 from .get_scaling_policy import *
 from .get_scheduled_action import *

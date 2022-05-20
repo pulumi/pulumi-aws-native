@@ -14,8 +14,6 @@ from .entitlement import *
 from .fleet import *
 from .get_app_block import *
 from .get_application import *
-from .get_application_entitlement_association import *
-from .get_application_fleet_association import *
 from .get_directory_config import *
 from .get_entitlement import *
 from .get_fleet import *

@@ -12,7 +12,6 @@ from .get_hook_default_version import *
 from .get_hook_type_config import *
 from .get_hook_version import *
 from .get_macro import *
-from .get_module_default_version import *
 from .get_module_version import *
 from .get_public_type_version import *
 from .get_publisher import *

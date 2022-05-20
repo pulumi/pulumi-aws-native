@@ -24,7 +24,6 @@ from .get_partition import *
 from .get_registry import *
 from .get_schema import *
 from .get_schema_version import *
-from .get_schema_version_metadata import *
 from .get_security_configuration import *
 from .get_table import *
 from .get_trigger import *
