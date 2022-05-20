@@ -75149,13 +75149,6 @@
                 "certificateAuthorityArn"
             ]
         },
-        "aws-native:acmpca:getPermission": {
-            "cf": "AWS::ACMPCA::Permission",
-            "ids": [
-                "certificateAuthorityArn",
-                "principal"
-            ]
-        },
         "aws-native:amplify:getApp": {
             "cf": "AWS::Amplify::App",
             "ids": [
@@ -75350,21 +75343,6 @@
                 "arn"
             ]
         },
-        "aws-native:appstream:getApplicationEntitlementAssociation": {
-            "cf": "AWS::AppStream::ApplicationEntitlementAssociation",
-            "ids": [
-                "stackName",
-                "entitlementName",
-                "applicationIdentifier"
-            ]
-        },
-        "aws-native:appstream:getApplicationFleetAssociation": {
-            "cf": "AWS::AppStream::ApplicationFleetAssociation",
-            "ids": [
-                "fleetName",
-                "applicationArn"
-            ]
-        },
         "aws-native:appstream:getEntitlement": {
             "cf": "AWS::AppStream::Entitlement",
             "ids": [
@@ -75425,12 +75403,6 @@
             "cf": "AWS::AuditManager::Assessment",
             "ids": [
                 "assessmentId"
-            ]
-        },
-        "aws-native:autoscaling:getLaunchConfiguration": {
-            "cf": "AWS::AutoScaling::LaunchConfiguration",
-            "ids": [
-                "launchConfigurationName"
             ]
         },
         "aws-native:autoscaling:getLifecycleHook": {
@@ -75546,12 +75518,6 @@
         },
         "aws-native:cloudformation:getHookVersion": {
             "cf": "AWS::CloudFormation::HookVersion",
-            "ids": [
-                "arn"
-            ]
-        },
-        "aws-native:cloudformation:getModuleDefaultVersion": {
-            "cf": "AWS::CloudFormation::ModuleDefaultVersion",
             "ids": [
                 "arn"
             ]
@@ -76218,12 +76184,6 @@
                 "vpcId"
             ]
         },
-        "aws-native:ecr:getPullThroughCacheRule": {
-            "cf": "AWS::ECR::PullThroughCacheRule",
-            "ids": [
-                "ecrRepositoryPrefix"
-            ]
-        },
         "aws-native:ecr:getRegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "ids": [
@@ -76568,14 +76528,6 @@
             "cf": "AWS::Glue::SchemaVersion",
             "ids": [
                 "versionId"
-            ]
-        },
-        "aws-native:glue:getSchemaVersionMetadata": {
-            "cf": "AWS::Glue::SchemaVersionMetadata",
-            "ids": [
-                "schemaVersionId",
-                "key",
-                "value"
             ]
         },
         "aws-native:greengrassv2:getComponentVersion": {
@@ -77223,13 +77175,6 @@
                 "trackerName"
             ]
         },
-        "aws-native:location:getTrackerConsumer": {
-            "cf": "AWS::Location::TrackerConsumer",
-            "ids": [
-                "trackerName",
-                "consumerArn"
-            ]
-        },
         "aws-native:logs:getLogGroup": {
             "cf": "AWS::Logs::LogGroup",
             "ids": [
@@ -77423,13 +77368,6 @@
                 "ruleGroupArn"
             ]
         },
-        "aws-native:networkmanager:getCustomerGatewayAssociation": {
-            "cf": "AWS::NetworkManager::CustomerGatewayAssociation",
-            "ids": [
-                "globalNetworkId",
-                "customerGatewayArn"
-            ]
-        },
         "aws-native:networkmanager:getDevice": {
             "cf": "AWS::NetworkManager::Device",
             "ids": [
@@ -77450,26 +77388,11 @@
                 "linkId"
             ]
         },
-        "aws-native:networkmanager:getLinkAssociation": {
-            "cf": "AWS::NetworkManager::LinkAssociation",
-            "ids": [
-                "globalNetworkId",
-                "deviceId",
-                "linkId"
-            ]
-        },
         "aws-native:networkmanager:getSite": {
             "cf": "AWS::NetworkManager::Site",
             "ids": [
                 "globalNetworkId",
                 "siteId"
-            ]
-        },
-        "aws-native:networkmanager:getTransitGatewayRegistration": {
-            "cf": "AWS::NetworkManager::TransitGatewayRegistration",
-            "ids": [
-                "globalNetworkId",
-                "transitGatewayArn"
             ]
         },
         "aws-native:nimblestudio:getLaunchProfile": {
@@ -77760,12 +77683,6 @@
                 "arn"
             ]
         },
-        "aws-native:route53:getDNSSEC": {
-            "cf": "AWS::Route53::DNSSEC",
-            "ids": [
-                "hostedZoneId"
-            ]
-        },
         "aws-native:route53:getHealthCheck": {
             "cf": "AWS::Route53::HealthCheck",
             "ids": [
@@ -77992,12 +77909,6 @@
                 "domainId"
             ]
         },
-        "aws-native:sagemaker:getFeatureGroup": {
-            "cf": "AWS::SageMaker::FeatureGroup",
-            "ids": [
-                "featureGroupName"
-            ]
-        },
         "aws-native:sagemaker:getImage": {
             "cf": "AWS::SageMaker::Image",
             "ids": [
@@ -78071,14 +77982,6 @@
                 "id"
             ]
         },
-        "aws-native:servicecatalog:getServiceActionAssociation": {
-            "cf": "AWS::ServiceCatalog::ServiceActionAssociation",
-            "ids": [
-                "productId",
-                "provisioningArtifactId",
-                "serviceActionId"
-            ]
-        },
         "aws-native:servicecatalogappregistry:getApplication": {
             "cf": "AWS::ServiceCatalogAppRegistry::Application",
             "ids": [
@@ -78103,12 +78006,6 @@
                 "id"
             ]
         },
-        "aws-native:ses:getConfigurationSet": {
-            "cf": "AWS::SES::ConfigurationSet",
-            "ids": [
-                "name"
-            ]
-        },
         "aws-native:ses:getConfigurationSetEventDestination": {
             "cf": "AWS::SES::ConfigurationSetEventDestination",
             "ids": [
@@ -78125,13 +78022,6 @@
             "cf": "AWS::SES::Template",
             "ids": [
                 "id"
-            ]
-        },
-        "aws-native:signer:getProfilePermission": {
-            "cf": "AWS::Signer::ProfilePermission",
-            "ids": [
-                "statementId",
-                "profileName"
             ]
         },
         "aws-native:signer:getSigningProfile": {
@@ -78186,17 +78076,6 @@
             "cf": "AWS::SSMIncidents::ResponsePlan",
             "ids": [
                 "arn"
-            ]
-        },
-        "aws-native:sso:getAssignment": {
-            "cf": "AWS::SSO::Assignment",
-            "ids": [
-                "instanceArn",
-                "targetId",
-                "targetType",
-                "permissionSetArn",
-                "principalType",
-                "principalId"
             ]
         },
         "aws-native:sso:getInstanceAccessControlAttributeConfiguration": {
@@ -78297,13 +78176,6 @@
                 "name",
                 "id",
                 "scope"
-            ]
-        },
-        "aws-native:wafv2:getWebACLAssociation": {
-            "cf": "AWS::WAFv2::WebACLAssociation",
-            "ids": [
-                "resourceArn",
-                "webACLArn"
             ]
         },
         "aws-native:wisdom:getAssistant": {
