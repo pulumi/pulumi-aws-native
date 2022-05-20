@@ -11,7 +11,6 @@ export * from "./getHookDefaultVersion";
 export * from "./getHookTypeConfig";
 export * from "./getHookVersion";
 export * from "./getMacro";
-export * from "./getModuleDefaultVersion";
 export * from "./getModuleVersion";
 export * from "./getPublicTypeVersion";
 export * from "./getPublisher";

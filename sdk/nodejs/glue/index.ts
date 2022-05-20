@@ -23,7 +23,6 @@ export * from "./getPartition";
 export * from "./getRegistry";
 export * from "./getSchema";
 export * from "./getSchemaVersion";
-export * from "./getSchemaVersionMetadata";
 export * from "./getSecurityConfiguration";
 export * from "./getTable";
 export * from "./getTrigger";

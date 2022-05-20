@@ -10,7 +10,6 @@ export * from "./filter";
 export * from "./getDetector";
 export * from "./getFilter";
 export * from "./getIPSet";
-export * from "./getMaster";
 export * from "./getMember";
 export * from "./getThreatIntelSet";
 export * from "./ipset";
