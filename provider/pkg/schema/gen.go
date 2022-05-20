@@ -618,6 +618,11 @@ func (ctx *context) gatherInvoke() error {
 		outputs[sdkName] = *p
 	}
 
+	if len(outputs) == 0 {
+		// If there are no outputs to be returned, (all are write/create properties), no need to emit the function.
+		return nil
+	}
+
 	ctx.pkg.Functions[getterToken] = pschema.FunctionSpec{
 		Description: ctx.resourceSpec.Description,
 		Inputs: &pschema.ObjectTypeSpec{
