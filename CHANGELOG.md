@@ -1,5 +1,5 @@
 ## HEAD (Unreleased)
-(None)
+- Exclude functions with empty outputs [#499](https://github.com/pulumi/pulumi-aws-native/pull/499)
 
 ## 0.16.1 (Apr 29, 2022)
 - Fix getAzs [#472](https://github.com/pulumi/pulumi-aws-native/pull/472)
