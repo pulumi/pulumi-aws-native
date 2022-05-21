@@ -371,6 +371,9 @@
         "Hostname" : {
           "type" : "string"
         },
+        "IpPreference" : {
+          "type" : "string"
+        },
         "ResponseType" : {
           "type" : "string"
         }
@@ -438,6 +441,9 @@
           "type" : "string"
         },
         "ServiceName" : {
+          "type" : "string"
+        },
+        "IpPreference" : {
           "type" : "string"
         }
       },
