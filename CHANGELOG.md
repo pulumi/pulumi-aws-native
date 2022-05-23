@@ -1,4 +1,9 @@
 ## HEAD (Unreleased)
+(None)
+
+
+## 0.17.0 (May 23, 2022)
+- Update to include the latest resource definitions
 - Exclude functions with empty outputs [#499](https://github.com/pulumi/pulumi-aws-native/pull/499)
 
 ## 0.16.1 (Apr 29, 2022)
