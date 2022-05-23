@@ -116,7 +116,9 @@
       }
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "additionalProperties" : false,
   "required" : [ "ScheduledActionName" ],
   "primaryIdentifier" : [ "/properties/ScheduledActionName" ],

@@ -32,6 +32,10 @@
       "description" : "When true, the SSL/TLS certificate is attached to the Lightsail load balancer.",
       "type" : "boolean"
     },
+    "HttpsRedirectionEnabled" : {
+      "description" : "A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.",
+      "type" : "boolean"
+    },
     "Status" : {
       "description" : "The validation status of the SSL/TLS certificate.",
       "type" : "string"
@@ -45,19 +49,19 @@
   "createOnlyProperties" : [ "/properties/LoadBalancerName", "/properties/CertificateName", "/properties/CertificateDomainName", "/properties/CertificateAlternativeNames" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "lightsail:CreateLoadBalancerTlsCertificate", "lightsail:GetLoadBalancerTlsCertificates", "lightsail:AttachLoadBalancerTlsCertificate" ]
+      "permissions" : [ "lightsail:CreateLoadBalancerTlsCertificate", "lightsail:GetLoadBalancerTlsCertificates", "lightsail:GetLoadBalancer", "lightsail:AttachLoadBalancerTlsCertificate", "lightsail:UpdateLoadBalancerAttribute" ]
     },
     "read" : {
-      "permissions" : [ "lightsail:GetLoadBalancerTlsCertificates" ]
+      "permissions" : [ "lightsail:GetLoadBalancerTlsCertificates", "lightsail:GetLoadBalancer" ]
     },
     "update" : {
-      "permissions" : [ "lightsail:AttachLoadBalancerTlsCertificate", "lightsail:GetLoadBalancerTlsCertificates" ]
+      "permissions" : [ "lightsail:AttachLoadBalancerTlsCertificate", "lightsail:GetLoadBalancerTlsCertificates", "lightsail:GetLoadBalancer", "lightsail:UpdateLoadBalancerAttribute" ]
     },
     "delete" : {
-      "permissions" : [ "lightsail:DeleteLoadBalancerTlsCertificate", "lightsail:GetLoadBalancerTlsCertificates" ]
+      "permissions" : [ "lightsail:DeleteLoadBalancerTlsCertificate", "lightsail:GetLoadBalancerTlsCertificates", "lightsail:GetLoadBalancer" ]
     },
     "list" : {
-      "permissions" : [ "lightsail:GetLoadBalancerTlsCertificates" ]
+      "permissions" : [ "lightsail:GetLoadBalancerTlsCertificates", "lightsail:GetLoadBalancer" ]
     }
   }
 }
