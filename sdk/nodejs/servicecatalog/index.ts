@@ -20,7 +20,6 @@ export * from "./getPortfolioProductAssociation";
 export * from "./getPortfolioShare";
 export * from "./getResourceUpdateConstraint";
 export * from "./getServiceAction";
-export * from "./getServiceActionAssociation";
 export * from "./getStackSetConstraint";
 export * from "./getTagOption";
 export * from "./getTagOptionAssociation";

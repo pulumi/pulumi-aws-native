@@ -7,13 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./customerGatewayAssociation";
 export * from "./device";
-export * from "./getCustomerGatewayAssociation";
 export * from "./getDevice";
 export * from "./getGlobalNetwork";
 export * from "./getLink";
-export * from "./getLinkAssociation";
 export * from "./getSite";
-export * from "./getTransitGatewayRegistration";
 export * from "./globalNetwork";
 export * from "./link";
 export * from "./linkAssociation";

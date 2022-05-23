@@ -24,7 +24,6 @@ export * from "./getDeviceFleet";
 export * from "./getDomain";
 export * from "./getEndpoint";
 export * from "./getEndpointConfig";
-export * from "./getFeatureGroup";
 export * from "./getImage";
 export * from "./getImageVersion";
 export * from "./getModel";

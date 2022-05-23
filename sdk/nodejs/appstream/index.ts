@@ -14,8 +14,6 @@ export * from "./entitlement";
 export * from "./fleet";
 export * from "./getAppBlock";
 export * from "./getApplication";
-export * from "./getApplicationEntitlementAssociation";
-export * from "./getApplicationFleetAssociation";
 export * from "./getDirectoryConfig";
 export * from "./getEntitlement";
 export * from "./getFleet";

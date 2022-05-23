@@ -7,7 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .dnssec import *
-from .get_dnssec import *
 from .get_health_check import *
 from .get_hosted_zone import *
 from .get_key_signing_key import *

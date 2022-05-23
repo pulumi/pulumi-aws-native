@@ -11,7 +11,6 @@ export * from "./certificateAuthorityActivation";
 export * from "./getCertificate";
 export * from "./getCertificateAuthority";
 export * from "./getCertificateAuthorityActivation";
-export * from "./getPermission";
 export * from "./permission";
 
 // Import resources to register:

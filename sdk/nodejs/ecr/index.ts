@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getPublicRepository";
-export * from "./getPullThroughCacheRule";
 export * from "./getRegistryPolicy";
 export * from "./getReplicationConfiguration";
 export * from "./getRepository";

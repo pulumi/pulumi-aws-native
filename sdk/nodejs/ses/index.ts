@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 export * from "./configurationSet";
 export * from "./configurationSetEventDestination";
 export * from "./contactList";
-export * from "./getConfigurationSet";
 export * from "./getConfigurationSetEventDestination";
 export * from "./getContactList";
 export * from "./getReceiptFilter";

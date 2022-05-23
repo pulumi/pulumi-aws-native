@@ -11,7 +11,6 @@ from .certificate_authority_activation import *
 from .get_certificate import *
 from .get_certificate_authority import *
 from .get_certificate_authority_activation import *
-from .get_permission import *
 from .permission import *
 from ._inputs import *
 from . import outputs

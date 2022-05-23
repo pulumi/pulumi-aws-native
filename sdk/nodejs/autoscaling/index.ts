@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./autoScalingGroup";
 export * from "./getAutoScalingGroup";
-export * from "./getLaunchConfiguration";
 export * from "./getLifecycleHook";
 export * from "./getScalingPolicy";
 export * from "./getScheduledAction";
