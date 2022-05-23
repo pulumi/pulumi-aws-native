@@ -737,6 +737,7 @@ class TaskOptionsArgs:
                  gid: Optional[pulumi.Input['TaskOptionsGid']] = None,
                  log_level: Optional[pulumi.Input['TaskOptionsLogLevel']] = None,
                  mtime: Optional[pulumi.Input['TaskOptionsMtime']] = None,
+                 object_tags: Optional[pulumi.Input['TaskOptionsObjectTags']] = None,
                  overwrite_mode: Optional[pulumi.Input['TaskOptionsOverwriteMode']] = None,
                  posix_permissions: Optional[pulumi.Input['TaskOptionsPosixPermissions']] = None,
                  preserve_deleted_files: Optional[pulumi.Input['TaskOptionsPreserveDeletedFiles']] = None,
@@ -753,6 +754,7 @@ class TaskOptionsArgs:
         :param pulumi.Input['TaskOptionsGid'] gid: The group ID (GID) of the file's owners.
         :param pulumi.Input['TaskOptionsLogLevel'] log_level: A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         :param pulumi.Input['TaskOptionsMtime'] mtime: A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
+        :param pulumi.Input['TaskOptionsObjectTags'] object_tags: A value that determines whether object tags should be read from the source object store and written to the destination object store.
         :param pulumi.Input['TaskOptionsOverwriteMode'] overwrite_mode: A value that determines whether files at the destination should be overwritten or preserved when copying files.
         :param pulumi.Input['TaskOptionsPosixPermissions'] posix_permissions: A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
         :param pulumi.Input['TaskOptionsPreserveDeletedFiles'] preserve_deleted_files: A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
@@ -773,6 +775,8 @@ class TaskOptionsArgs:
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if object_tags is not None:
+            pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
             pulumi.set(__self__, "overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
@@ -851,6 +855,18 @@ class TaskOptionsArgs:
     @mtime.setter
     def mtime(self, value: Optional[pulumi.Input['TaskOptionsMtime']]):
         pulumi.set(self, "mtime", value)
+
+    @property
+    @pulumi.getter(name="objectTags")
+    def object_tags(self) -> Optional[pulumi.Input['TaskOptionsObjectTags']]:
+        """
+        A value that determines whether object tags should be read from the source object store and written to the destination object store.
+        """
+        return pulumi.get(self, "object_tags")
+
+    @object_tags.setter
+    def object_tags(self, value: Optional[pulumi.Input['TaskOptionsObjectTags']]):
+        pulumi.set(self, "object_tags", value)
 
     @property
     @pulumi.getter(name="overwriteMode")

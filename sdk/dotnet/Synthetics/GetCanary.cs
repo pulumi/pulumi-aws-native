@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly Outputs.CanaryCode? Code;
         /// <summary>
+        /// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        /// </summary>
+        public readonly bool? DeleteLambdaResourcesOnCanaryDeletion;
+        /// <summary>
         /// Lambda Execution role used to run your canaries
         /// </summary>
         public readonly string? ExecutionRoleArn;
@@ -121,6 +125,8 @@ namespace Pulumi.AwsNative.Synthetics
 
             Outputs.CanaryCode? code,
 
+            bool? deleteLambdaResourcesOnCanaryDeletion,
+
             string? executionRoleArn,
 
             int? failureRetentionPeriod,
@@ -148,6 +154,7 @@ namespace Pulumi.AwsNative.Synthetics
             ArtifactConfig = artifactConfig;
             ArtifactS3Location = artifactS3Location;
             Code = code;
+            DeleteLambdaResourcesOnCanaryDeletion = deleteLambdaResourcesOnCanaryDeletion;
             ExecutionRoleArn = executionRoleArn;
             FailureRetentionPeriod = failureRetentionPeriod;
             Id = id;

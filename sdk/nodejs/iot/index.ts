@@ -26,6 +26,7 @@ export * from "./getPolicy";
 export * from "./getPolicyPrincipalAttachment";
 export * from "./getProvisioningTemplate";
 export * from "./getResourceSpecificLogging";
+export * from "./getRoleAlias";
 export * from "./getScheduledAudit";
 export * from "./getSecurityProfile";
 export * from "./getThing";
@@ -39,6 +40,7 @@ export * from "./policy";
 export * from "./policyPrincipalAttachment";
 export * from "./provisioningTemplate";
 export * from "./resourceSpecificLogging";
+export * from "./roleAlias";
 export * from "./scheduledAudit";
 export * from "./securityProfile";
 export * from "./thing";
@@ -64,6 +66,7 @@ import { Policy } from "./policy";
 import { PolicyPrincipalAttachment } from "./policyPrincipalAttachment";
 import { ProvisioningTemplate } from "./provisioningTemplate";
 import { ResourceSpecificLogging } from "./resourceSpecificLogging";
+import { RoleAlias } from "./roleAlias";
 import { ScheduledAudit } from "./scheduledAudit";
 import { SecurityProfile } from "./securityProfile";
 import { Thing } from "./thing";
@@ -103,6 +106,8 @@ const _module = {
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
             case "aws-native:iot:ResourceSpecificLogging":
                 return new ResourceSpecificLogging(name, <any>undefined, { urn })
+            case "aws-native:iot:RoleAlias":
+                return new RoleAlias(name, <any>undefined, { urn })
             case "aws-native:iot:ScheduledAudit":
                 return new ScheduledAudit(name, <any>undefined, { urn })
             case "aws-native:iot:SecurityProfile":

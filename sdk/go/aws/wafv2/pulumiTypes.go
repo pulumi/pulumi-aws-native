@@ -1638,6 +1638,142 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 	}).(RuleGroupStatementArrayOutput)
 }
 
+// The body of a web request. This immediately follows the request headers.
+type RuleGroupBody struct {
+	OversizeHandling *RuleGroupOversizeHandling `pulumi:"oversizeHandling"`
+}
+
+// RuleGroupBodyInput is an input type that accepts RuleGroupBodyArgs and RuleGroupBodyOutput values.
+// You can construct a concrete instance of `RuleGroupBodyInput` via:
+//
+//          RuleGroupBodyArgs{...}
+type RuleGroupBodyInput interface {
+	pulumi.Input
+
+	ToRuleGroupBodyOutput() RuleGroupBodyOutput
+	ToRuleGroupBodyOutputWithContext(context.Context) RuleGroupBodyOutput
+}
+
+// The body of a web request. This immediately follows the request headers.
+type RuleGroupBodyArgs struct {
+	OversizeHandling RuleGroupOversizeHandlingPtrInput `pulumi:"oversizeHandling"`
+}
+
+func (RuleGroupBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupBody)(nil)).Elem()
+}
+
+func (i RuleGroupBodyArgs) ToRuleGroupBodyOutput() RuleGroupBodyOutput {
+	return i.ToRuleGroupBodyOutputWithContext(context.Background())
+}
+
+func (i RuleGroupBodyArgs) ToRuleGroupBodyOutputWithContext(ctx context.Context) RuleGroupBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupBodyOutput)
+}
+
+func (i RuleGroupBodyArgs) ToRuleGroupBodyPtrOutput() RuleGroupBodyPtrOutput {
+	return i.ToRuleGroupBodyPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupBodyArgs) ToRuleGroupBodyPtrOutputWithContext(ctx context.Context) RuleGroupBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupBodyOutput).ToRuleGroupBodyPtrOutputWithContext(ctx)
+}
+
+// RuleGroupBodyPtrInput is an input type that accepts RuleGroupBodyArgs, RuleGroupBodyPtr and RuleGroupBodyPtrOutput values.
+// You can construct a concrete instance of `RuleGroupBodyPtrInput` via:
+//
+//          RuleGroupBodyArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupBodyPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupBodyPtrOutput() RuleGroupBodyPtrOutput
+	ToRuleGroupBodyPtrOutputWithContext(context.Context) RuleGroupBodyPtrOutput
+}
+
+type ruleGroupBodyPtrType RuleGroupBodyArgs
+
+func RuleGroupBodyPtr(v *RuleGroupBodyArgs) RuleGroupBodyPtrInput {
+	return (*ruleGroupBodyPtrType)(v)
+}
+
+func (*ruleGroupBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupBody)(nil)).Elem()
+}
+
+func (i *ruleGroupBodyPtrType) ToRuleGroupBodyPtrOutput() RuleGroupBodyPtrOutput {
+	return i.ToRuleGroupBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupBodyPtrType) ToRuleGroupBodyPtrOutputWithContext(ctx context.Context) RuleGroupBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupBodyPtrOutput)
+}
+
+// The body of a web request. This immediately follows the request headers.
+type RuleGroupBodyOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupBody)(nil)).Elem()
+}
+
+func (o RuleGroupBodyOutput) ToRuleGroupBodyOutput() RuleGroupBodyOutput {
+	return o
+}
+
+func (o RuleGroupBodyOutput) ToRuleGroupBodyOutputWithContext(ctx context.Context) RuleGroupBodyOutput {
+	return o
+}
+
+func (o RuleGroupBodyOutput) ToRuleGroupBodyPtrOutput() RuleGroupBodyPtrOutput {
+	return o.ToRuleGroupBodyPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupBodyOutput) ToRuleGroupBodyPtrOutputWithContext(ctx context.Context) RuleGroupBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupBody) *RuleGroupBody {
+		return &v
+	}).(RuleGroupBodyPtrOutput)
+}
+
+func (o RuleGroupBodyOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupBody) *RuleGroupOversizeHandling { return v.OversizeHandling }).(RuleGroupOversizeHandlingPtrOutput)
+}
+
+type RuleGroupBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupBody)(nil)).Elem()
+}
+
+func (o RuleGroupBodyPtrOutput) ToRuleGroupBodyPtrOutput() RuleGroupBodyPtrOutput {
+	return o
+}
+
+func (o RuleGroupBodyPtrOutput) ToRuleGroupBodyPtrOutputWithContext(ctx context.Context) RuleGroupBodyPtrOutput {
+	return o
+}
+
+func (o RuleGroupBodyPtrOutput) Elem() RuleGroupBodyOutput {
+	return o.ApplyT(func(v *RuleGroupBody) RuleGroupBody {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupBody
+		return ret
+	}).(RuleGroupBodyOutput)
+}
+
+func (o RuleGroupBodyPtrOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupBody) *RuleGroupOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return v.OversizeHandling
+	}).(RuleGroupOversizeHandlingPtrOutput)
+}
+
 // Byte Match statement.
 type RuleGroupByteMatchStatement struct {
 	FieldToMatch         RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
@@ -1965,6 +2101,342 @@ func (o RuleGroupCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunit
 		}
 		return v.ImmunityTimeProperty
 	}).(RuleGroupImmunityTimePropertyPtrOutput)
+}
+
+// The pattern to look for in the request cookies.
+type RuleGroupCookieMatchPattern struct {
+	// Inspect all parts of the web request cookies.
+	All             interface{} `pulumi:"all"`
+	ExcludedCookies []string    `pulumi:"excludedCookies"`
+	IncludedCookies []string    `pulumi:"includedCookies"`
+}
+
+// RuleGroupCookieMatchPatternInput is an input type that accepts RuleGroupCookieMatchPatternArgs and RuleGroupCookieMatchPatternOutput values.
+// You can construct a concrete instance of `RuleGroupCookieMatchPatternInput` via:
+//
+//          RuleGroupCookieMatchPatternArgs{...}
+type RuleGroupCookieMatchPatternInput interface {
+	pulumi.Input
+
+	ToRuleGroupCookieMatchPatternOutput() RuleGroupCookieMatchPatternOutput
+	ToRuleGroupCookieMatchPatternOutputWithContext(context.Context) RuleGroupCookieMatchPatternOutput
+}
+
+// The pattern to look for in the request cookies.
+type RuleGroupCookieMatchPatternArgs struct {
+	// Inspect all parts of the web request cookies.
+	All             pulumi.Input            `pulumi:"all"`
+	ExcludedCookies pulumi.StringArrayInput `pulumi:"excludedCookies"`
+	IncludedCookies pulumi.StringArrayInput `pulumi:"includedCookies"`
+}
+
+func (RuleGroupCookieMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCookieMatchPattern)(nil)).Elem()
+}
+
+func (i RuleGroupCookieMatchPatternArgs) ToRuleGroupCookieMatchPatternOutput() RuleGroupCookieMatchPatternOutput {
+	return i.ToRuleGroupCookieMatchPatternOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCookieMatchPatternArgs) ToRuleGroupCookieMatchPatternOutputWithContext(ctx context.Context) RuleGroupCookieMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookieMatchPatternOutput)
+}
+
+func (i RuleGroupCookieMatchPatternArgs) ToRuleGroupCookieMatchPatternPtrOutput() RuleGroupCookieMatchPatternPtrOutput {
+	return i.ToRuleGroupCookieMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCookieMatchPatternArgs) ToRuleGroupCookieMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupCookieMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookieMatchPatternOutput).ToRuleGroupCookieMatchPatternPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCookieMatchPatternPtrInput is an input type that accepts RuleGroupCookieMatchPatternArgs, RuleGroupCookieMatchPatternPtr and RuleGroupCookieMatchPatternPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCookieMatchPatternPtrInput` via:
+//
+//          RuleGroupCookieMatchPatternArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupCookieMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCookieMatchPatternPtrOutput() RuleGroupCookieMatchPatternPtrOutput
+	ToRuleGroupCookieMatchPatternPtrOutputWithContext(context.Context) RuleGroupCookieMatchPatternPtrOutput
+}
+
+type ruleGroupCookieMatchPatternPtrType RuleGroupCookieMatchPatternArgs
+
+func RuleGroupCookieMatchPatternPtr(v *RuleGroupCookieMatchPatternArgs) RuleGroupCookieMatchPatternPtrInput {
+	return (*ruleGroupCookieMatchPatternPtrType)(v)
+}
+
+func (*ruleGroupCookieMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCookieMatchPattern)(nil)).Elem()
+}
+
+func (i *ruleGroupCookieMatchPatternPtrType) ToRuleGroupCookieMatchPatternPtrOutput() RuleGroupCookieMatchPatternPtrOutput {
+	return i.ToRuleGroupCookieMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCookieMatchPatternPtrType) ToRuleGroupCookieMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupCookieMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookieMatchPatternPtrOutput)
+}
+
+// The pattern to look for in the request cookies.
+type RuleGroupCookieMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCookieMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCookieMatchPattern)(nil)).Elem()
+}
+
+func (o RuleGroupCookieMatchPatternOutput) ToRuleGroupCookieMatchPatternOutput() RuleGroupCookieMatchPatternOutput {
+	return o
+}
+
+func (o RuleGroupCookieMatchPatternOutput) ToRuleGroupCookieMatchPatternOutputWithContext(ctx context.Context) RuleGroupCookieMatchPatternOutput {
+	return o
+}
+
+func (o RuleGroupCookieMatchPatternOutput) ToRuleGroupCookieMatchPatternPtrOutput() RuleGroupCookieMatchPatternPtrOutput {
+	return o.ToRuleGroupCookieMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCookieMatchPatternOutput) ToRuleGroupCookieMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupCookieMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCookieMatchPattern) *RuleGroupCookieMatchPattern {
+		return &v
+	}).(RuleGroupCookieMatchPatternPtrOutput)
+}
+
+// Inspect all parts of the web request cookies.
+func (o RuleGroupCookieMatchPatternOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleGroupCookieMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
+}
+
+func (o RuleGroupCookieMatchPatternOutput) ExcludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupCookieMatchPattern) []string { return v.ExcludedCookies }).(pulumi.StringArrayOutput)
+}
+
+func (o RuleGroupCookieMatchPatternOutput) IncludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupCookieMatchPattern) []string { return v.IncludedCookies }).(pulumi.StringArrayOutput)
+}
+
+type RuleGroupCookieMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCookieMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCookieMatchPattern)(nil)).Elem()
+}
+
+func (o RuleGroupCookieMatchPatternPtrOutput) ToRuleGroupCookieMatchPatternPtrOutput() RuleGroupCookieMatchPatternPtrOutput {
+	return o
+}
+
+func (o RuleGroupCookieMatchPatternPtrOutput) ToRuleGroupCookieMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupCookieMatchPatternPtrOutput {
+	return o
+}
+
+func (o RuleGroupCookieMatchPatternPtrOutput) Elem() RuleGroupCookieMatchPatternOutput {
+	return o.ApplyT(func(v *RuleGroupCookieMatchPattern) RuleGroupCookieMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCookieMatchPattern
+		return ret
+	}).(RuleGroupCookieMatchPatternOutput)
+}
+
+// Inspect all parts of the web request cookies.
+func (o RuleGroupCookieMatchPatternPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RuleGroupCookieMatchPattern) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+func (o RuleGroupCookieMatchPatternPtrOutput) ExcludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleGroupCookieMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedCookies
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuleGroupCookieMatchPatternPtrOutput) IncludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleGroupCookieMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedCookies
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes headers of a web request.
+type RuleGroupCookies struct {
+	MatchPattern     RuleGroupCookieMatchPattern `pulumi:"matchPattern"`
+	MatchScope       RuleGroupMapMatchScope      `pulumi:"matchScope"`
+	OversizeHandling RuleGroupOversizeHandling   `pulumi:"oversizeHandling"`
+}
+
+// RuleGroupCookiesInput is an input type that accepts RuleGroupCookiesArgs and RuleGroupCookiesOutput values.
+// You can construct a concrete instance of `RuleGroupCookiesInput` via:
+//
+//          RuleGroupCookiesArgs{...}
+type RuleGroupCookiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupCookiesOutput() RuleGroupCookiesOutput
+	ToRuleGroupCookiesOutputWithContext(context.Context) RuleGroupCookiesOutput
+}
+
+// Includes headers of a web request.
+type RuleGroupCookiesArgs struct {
+	MatchPattern     RuleGroupCookieMatchPatternInput `pulumi:"matchPattern"`
+	MatchScope       RuleGroupMapMatchScopeInput      `pulumi:"matchScope"`
+	OversizeHandling RuleGroupOversizeHandlingInput   `pulumi:"oversizeHandling"`
+}
+
+func (RuleGroupCookiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCookies)(nil)).Elem()
+}
+
+func (i RuleGroupCookiesArgs) ToRuleGroupCookiesOutput() RuleGroupCookiesOutput {
+	return i.ToRuleGroupCookiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCookiesArgs) ToRuleGroupCookiesOutputWithContext(ctx context.Context) RuleGroupCookiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookiesOutput)
+}
+
+func (i RuleGroupCookiesArgs) ToRuleGroupCookiesPtrOutput() RuleGroupCookiesPtrOutput {
+	return i.ToRuleGroupCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCookiesArgs) ToRuleGroupCookiesPtrOutputWithContext(ctx context.Context) RuleGroupCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookiesOutput).ToRuleGroupCookiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCookiesPtrInput is an input type that accepts RuleGroupCookiesArgs, RuleGroupCookiesPtr and RuleGroupCookiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCookiesPtrInput` via:
+//
+//          RuleGroupCookiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupCookiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCookiesPtrOutput() RuleGroupCookiesPtrOutput
+	ToRuleGroupCookiesPtrOutputWithContext(context.Context) RuleGroupCookiesPtrOutput
+}
+
+type ruleGroupCookiesPtrType RuleGroupCookiesArgs
+
+func RuleGroupCookiesPtr(v *RuleGroupCookiesArgs) RuleGroupCookiesPtrInput {
+	return (*ruleGroupCookiesPtrType)(v)
+}
+
+func (*ruleGroupCookiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCookies)(nil)).Elem()
+}
+
+func (i *ruleGroupCookiesPtrType) ToRuleGroupCookiesPtrOutput() RuleGroupCookiesPtrOutput {
+	return i.ToRuleGroupCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCookiesPtrType) ToRuleGroupCookiesPtrOutputWithContext(ctx context.Context) RuleGroupCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookiesPtrOutput)
+}
+
+// Includes headers of a web request.
+type RuleGroupCookiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCookiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCookies)(nil)).Elem()
+}
+
+func (o RuleGroupCookiesOutput) ToRuleGroupCookiesOutput() RuleGroupCookiesOutput {
+	return o
+}
+
+func (o RuleGroupCookiesOutput) ToRuleGroupCookiesOutputWithContext(ctx context.Context) RuleGroupCookiesOutput {
+	return o
+}
+
+func (o RuleGroupCookiesOutput) ToRuleGroupCookiesPtrOutput() RuleGroupCookiesPtrOutput {
+	return o.ToRuleGroupCookiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCookiesOutput) ToRuleGroupCookiesPtrOutputWithContext(ctx context.Context) RuleGroupCookiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCookies) *RuleGroupCookies {
+		return &v
+	}).(RuleGroupCookiesPtrOutput)
+}
+
+func (o RuleGroupCookiesOutput) MatchPattern() RuleGroupCookieMatchPatternOutput {
+	return o.ApplyT(func(v RuleGroupCookies) RuleGroupCookieMatchPattern { return v.MatchPattern }).(RuleGroupCookieMatchPatternOutput)
+}
+
+func (o RuleGroupCookiesOutput) MatchScope() RuleGroupMapMatchScopeOutput {
+	return o.ApplyT(func(v RuleGroupCookies) RuleGroupMapMatchScope { return v.MatchScope }).(RuleGroupMapMatchScopeOutput)
+}
+
+func (o RuleGroupCookiesOutput) OversizeHandling() RuleGroupOversizeHandlingOutput {
+	return o.ApplyT(func(v RuleGroupCookies) RuleGroupOversizeHandling { return v.OversizeHandling }).(RuleGroupOversizeHandlingOutput)
+}
+
+type RuleGroupCookiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCookiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCookies)(nil)).Elem()
+}
+
+func (o RuleGroupCookiesPtrOutput) ToRuleGroupCookiesPtrOutput() RuleGroupCookiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupCookiesPtrOutput) ToRuleGroupCookiesPtrOutputWithContext(ctx context.Context) RuleGroupCookiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupCookiesPtrOutput) Elem() RuleGroupCookiesOutput {
+	return o.ApplyT(func(v *RuleGroupCookies) RuleGroupCookies {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCookies
+		return ret
+	}).(RuleGroupCookiesOutput)
+}
+
+func (o RuleGroupCookiesPtrOutput) MatchPattern() RuleGroupCookieMatchPatternPtrOutput {
+	return o.ApplyT(func(v *RuleGroupCookies) *RuleGroupCookieMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(RuleGroupCookieMatchPatternPtrOutput)
+}
+
+func (o RuleGroupCookiesPtrOutput) MatchScope() RuleGroupMapMatchScopePtrOutput {
+	return o.ApplyT(func(v *RuleGroupCookies) *RuleGroupMapMatchScope {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(RuleGroupMapMatchScopePtrOutput)
+}
+
+func (o RuleGroupCookiesPtrOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupCookies) *RuleGroupOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return &v.OversizeHandling
+	}).(RuleGroupOversizeHandlingPtrOutput)
 }
 
 // HTTP header.
@@ -2508,10 +2980,11 @@ func (o RuleGroupCustomResponseBodiesPtrOutput) Elem() RuleGroupCustomResponseBo
 // Field of the request to match.
 type RuleGroupFieldToMatch struct {
 	// All query arguments of a web request.
-	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
-	// The body of a web request. This immediately follows the request headers.
-	Body     interface{}        `pulumi:"body"`
-	JsonBody *RuleGroupJsonBody `pulumi:"jsonBody"`
+	AllQueryArguments interface{}        `pulumi:"allQueryArguments"`
+	Body              *RuleGroupBody     `pulumi:"body"`
+	Cookies           *RuleGroupCookies  `pulumi:"cookies"`
+	Headers           *RuleGroupHeaders  `pulumi:"headers"`
+	JsonBody          *RuleGroupJsonBody `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -2537,10 +3010,11 @@ type RuleGroupFieldToMatchInput interface {
 // Field of the request to match.
 type RuleGroupFieldToMatchArgs struct {
 	// All query arguments of a web request.
-	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
-	// The body of a web request. This immediately follows the request headers.
-	Body     pulumi.Input              `pulumi:"body"`
-	JsonBody RuleGroupJsonBodyPtrInput `pulumi:"jsonBody"`
+	AllQueryArguments pulumi.Input              `pulumi:"allQueryArguments"`
+	Body              RuleGroupBodyPtrInput     `pulumi:"body"`
+	Cookies           RuleGroupCookiesPtrInput  `pulumi:"cookies"`
+	Headers           RuleGroupHeadersPtrInput  `pulumi:"headers"`
+	JsonBody          RuleGroupJsonBodyPtrInput `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -2635,9 +3109,16 @@ func (o RuleGroupFieldToMatchOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.AllQueryArguments }).(pulumi.AnyOutput)
 }
 
-// The body of a web request. This immediately follows the request headers.
-func (o RuleGroupFieldToMatchOutput) Body() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.Body }).(pulumi.AnyOutput)
+func (o RuleGroupFieldToMatchOutput) Body() RuleGroupBodyPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupBody { return v.Body }).(RuleGroupBodyPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchOutput) Cookies() RuleGroupCookiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupCookies { return v.Cookies }).(RuleGroupCookiesPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchOutput) Headers() RuleGroupHeadersPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupHeaders { return v.Headers }).(RuleGroupHeadersPtrOutput)
 }
 
 func (o RuleGroupFieldToMatchOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
@@ -2704,14 +3185,31 @@ func (o RuleGroupFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The body of a web request. This immediately follows the request headers.
-func (o RuleGroupFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
+func (o RuleGroupFieldToMatchPtrOutput) Body() RuleGroupBodyPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupBody {
 		if v == nil {
 			return nil
 		}
 		return v.Body
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupBodyPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchPtrOutput) Cookies() RuleGroupCookiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupCookies {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(RuleGroupCookiesPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchPtrOutput) Headers() RuleGroupHeadersPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupHeaders {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(RuleGroupHeadersPtrOutput)
 }
 
 func (o RuleGroupFieldToMatchPtrOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
@@ -3339,6 +3837,342 @@ func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIPConfig() RuleGroupForwar
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
+// The pattern to look for in the request headers.
+type RuleGroupHeaderMatchPattern struct {
+	// Inspect all parts of the web request headers.
+	All             interface{} `pulumi:"all"`
+	ExcludedHeaders []string    `pulumi:"excludedHeaders"`
+	IncludedHeaders []string    `pulumi:"includedHeaders"`
+}
+
+// RuleGroupHeaderMatchPatternInput is an input type that accepts RuleGroupHeaderMatchPatternArgs and RuleGroupHeaderMatchPatternOutput values.
+// You can construct a concrete instance of `RuleGroupHeaderMatchPatternInput` via:
+//
+//          RuleGroupHeaderMatchPatternArgs{...}
+type RuleGroupHeaderMatchPatternInput interface {
+	pulumi.Input
+
+	ToRuleGroupHeaderMatchPatternOutput() RuleGroupHeaderMatchPatternOutput
+	ToRuleGroupHeaderMatchPatternOutputWithContext(context.Context) RuleGroupHeaderMatchPatternOutput
+}
+
+// The pattern to look for in the request headers.
+type RuleGroupHeaderMatchPatternArgs struct {
+	// Inspect all parts of the web request headers.
+	All             pulumi.Input            `pulumi:"all"`
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
+}
+
+func (RuleGroupHeaderMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupHeaderMatchPattern)(nil)).Elem()
+}
+
+func (i RuleGroupHeaderMatchPatternArgs) ToRuleGroupHeaderMatchPatternOutput() RuleGroupHeaderMatchPatternOutput {
+	return i.ToRuleGroupHeaderMatchPatternOutputWithContext(context.Background())
+}
+
+func (i RuleGroupHeaderMatchPatternArgs) ToRuleGroupHeaderMatchPatternOutputWithContext(ctx context.Context) RuleGroupHeaderMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderMatchPatternOutput)
+}
+
+func (i RuleGroupHeaderMatchPatternArgs) ToRuleGroupHeaderMatchPatternPtrOutput() RuleGroupHeaderMatchPatternPtrOutput {
+	return i.ToRuleGroupHeaderMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupHeaderMatchPatternArgs) ToRuleGroupHeaderMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupHeaderMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderMatchPatternOutput).ToRuleGroupHeaderMatchPatternPtrOutputWithContext(ctx)
+}
+
+// RuleGroupHeaderMatchPatternPtrInput is an input type that accepts RuleGroupHeaderMatchPatternArgs, RuleGroupHeaderMatchPatternPtr and RuleGroupHeaderMatchPatternPtrOutput values.
+// You can construct a concrete instance of `RuleGroupHeaderMatchPatternPtrInput` via:
+//
+//          RuleGroupHeaderMatchPatternArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupHeaderMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupHeaderMatchPatternPtrOutput() RuleGroupHeaderMatchPatternPtrOutput
+	ToRuleGroupHeaderMatchPatternPtrOutputWithContext(context.Context) RuleGroupHeaderMatchPatternPtrOutput
+}
+
+type ruleGroupHeaderMatchPatternPtrType RuleGroupHeaderMatchPatternArgs
+
+func RuleGroupHeaderMatchPatternPtr(v *RuleGroupHeaderMatchPatternArgs) RuleGroupHeaderMatchPatternPtrInput {
+	return (*ruleGroupHeaderMatchPatternPtrType)(v)
+}
+
+func (*ruleGroupHeaderMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupHeaderMatchPattern)(nil)).Elem()
+}
+
+func (i *ruleGroupHeaderMatchPatternPtrType) ToRuleGroupHeaderMatchPatternPtrOutput() RuleGroupHeaderMatchPatternPtrOutput {
+	return i.ToRuleGroupHeaderMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupHeaderMatchPatternPtrType) ToRuleGroupHeaderMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupHeaderMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderMatchPatternPtrOutput)
+}
+
+// The pattern to look for in the request headers.
+type RuleGroupHeaderMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupHeaderMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupHeaderMatchPattern)(nil)).Elem()
+}
+
+func (o RuleGroupHeaderMatchPatternOutput) ToRuleGroupHeaderMatchPatternOutput() RuleGroupHeaderMatchPatternOutput {
+	return o
+}
+
+func (o RuleGroupHeaderMatchPatternOutput) ToRuleGroupHeaderMatchPatternOutputWithContext(ctx context.Context) RuleGroupHeaderMatchPatternOutput {
+	return o
+}
+
+func (o RuleGroupHeaderMatchPatternOutput) ToRuleGroupHeaderMatchPatternPtrOutput() RuleGroupHeaderMatchPatternPtrOutput {
+	return o.ToRuleGroupHeaderMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupHeaderMatchPatternOutput) ToRuleGroupHeaderMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupHeaderMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupHeaderMatchPattern) *RuleGroupHeaderMatchPattern {
+		return &v
+	}).(RuleGroupHeaderMatchPatternPtrOutput)
+}
+
+// Inspect all parts of the web request headers.
+func (o RuleGroupHeaderMatchPatternOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleGroupHeaderMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
+}
+
+func (o RuleGroupHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupHeaderMatchPattern) []string { return v.ExcludedHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o RuleGroupHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupHeaderMatchPattern) []string { return v.IncludedHeaders }).(pulumi.StringArrayOutput)
+}
+
+type RuleGroupHeaderMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupHeaderMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupHeaderMatchPattern)(nil)).Elem()
+}
+
+func (o RuleGroupHeaderMatchPatternPtrOutput) ToRuleGroupHeaderMatchPatternPtrOutput() RuleGroupHeaderMatchPatternPtrOutput {
+	return o
+}
+
+func (o RuleGroupHeaderMatchPatternPtrOutput) ToRuleGroupHeaderMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupHeaderMatchPatternPtrOutput {
+	return o
+}
+
+func (o RuleGroupHeaderMatchPatternPtrOutput) Elem() RuleGroupHeaderMatchPatternOutput {
+	return o.ApplyT(func(v *RuleGroupHeaderMatchPattern) RuleGroupHeaderMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupHeaderMatchPattern
+		return ret
+	}).(RuleGroupHeaderMatchPatternOutput)
+}
+
+// Inspect all parts of the web request headers.
+func (o RuleGroupHeaderMatchPatternPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RuleGroupHeaderMatchPattern) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+func (o RuleGroupHeaderMatchPatternPtrOutput) ExcludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleGroupHeaderMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuleGroupHeaderMatchPatternPtrOutput) IncludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleGroupHeaderMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes headers of a web request.
+type RuleGroupHeaders struct {
+	MatchPattern     RuleGroupHeaderMatchPattern `pulumi:"matchPattern"`
+	MatchScope       RuleGroupMapMatchScope      `pulumi:"matchScope"`
+	OversizeHandling RuleGroupOversizeHandling   `pulumi:"oversizeHandling"`
+}
+
+// RuleGroupHeadersInput is an input type that accepts RuleGroupHeadersArgs and RuleGroupHeadersOutput values.
+// You can construct a concrete instance of `RuleGroupHeadersInput` via:
+//
+//          RuleGroupHeadersArgs{...}
+type RuleGroupHeadersInput interface {
+	pulumi.Input
+
+	ToRuleGroupHeadersOutput() RuleGroupHeadersOutput
+	ToRuleGroupHeadersOutputWithContext(context.Context) RuleGroupHeadersOutput
+}
+
+// Includes headers of a web request.
+type RuleGroupHeadersArgs struct {
+	MatchPattern     RuleGroupHeaderMatchPatternInput `pulumi:"matchPattern"`
+	MatchScope       RuleGroupMapMatchScopeInput      `pulumi:"matchScope"`
+	OversizeHandling RuleGroupOversizeHandlingInput   `pulumi:"oversizeHandling"`
+}
+
+func (RuleGroupHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupHeaders)(nil)).Elem()
+}
+
+func (i RuleGroupHeadersArgs) ToRuleGroupHeadersOutput() RuleGroupHeadersOutput {
+	return i.ToRuleGroupHeadersOutputWithContext(context.Background())
+}
+
+func (i RuleGroupHeadersArgs) ToRuleGroupHeadersOutputWithContext(ctx context.Context) RuleGroupHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeadersOutput)
+}
+
+func (i RuleGroupHeadersArgs) ToRuleGroupHeadersPtrOutput() RuleGroupHeadersPtrOutput {
+	return i.ToRuleGroupHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupHeadersArgs) ToRuleGroupHeadersPtrOutputWithContext(ctx context.Context) RuleGroupHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeadersOutput).ToRuleGroupHeadersPtrOutputWithContext(ctx)
+}
+
+// RuleGroupHeadersPtrInput is an input type that accepts RuleGroupHeadersArgs, RuleGroupHeadersPtr and RuleGroupHeadersPtrOutput values.
+// You can construct a concrete instance of `RuleGroupHeadersPtrInput` via:
+//
+//          RuleGroupHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupHeadersPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupHeadersPtrOutput() RuleGroupHeadersPtrOutput
+	ToRuleGroupHeadersPtrOutputWithContext(context.Context) RuleGroupHeadersPtrOutput
+}
+
+type ruleGroupHeadersPtrType RuleGroupHeadersArgs
+
+func RuleGroupHeadersPtr(v *RuleGroupHeadersArgs) RuleGroupHeadersPtrInput {
+	return (*ruleGroupHeadersPtrType)(v)
+}
+
+func (*ruleGroupHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupHeaders)(nil)).Elem()
+}
+
+func (i *ruleGroupHeadersPtrType) ToRuleGroupHeadersPtrOutput() RuleGroupHeadersPtrOutput {
+	return i.ToRuleGroupHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupHeadersPtrType) ToRuleGroupHeadersPtrOutputWithContext(ctx context.Context) RuleGroupHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeadersPtrOutput)
+}
+
+// Includes headers of a web request.
+type RuleGroupHeadersOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupHeaders)(nil)).Elem()
+}
+
+func (o RuleGroupHeadersOutput) ToRuleGroupHeadersOutput() RuleGroupHeadersOutput {
+	return o
+}
+
+func (o RuleGroupHeadersOutput) ToRuleGroupHeadersOutputWithContext(ctx context.Context) RuleGroupHeadersOutput {
+	return o
+}
+
+func (o RuleGroupHeadersOutput) ToRuleGroupHeadersPtrOutput() RuleGroupHeadersPtrOutput {
+	return o.ToRuleGroupHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupHeadersOutput) ToRuleGroupHeadersPtrOutputWithContext(ctx context.Context) RuleGroupHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupHeaders) *RuleGroupHeaders {
+		return &v
+	}).(RuleGroupHeadersPtrOutput)
+}
+
+func (o RuleGroupHeadersOutput) MatchPattern() RuleGroupHeaderMatchPatternOutput {
+	return o.ApplyT(func(v RuleGroupHeaders) RuleGroupHeaderMatchPattern { return v.MatchPattern }).(RuleGroupHeaderMatchPatternOutput)
+}
+
+func (o RuleGroupHeadersOutput) MatchScope() RuleGroupMapMatchScopeOutput {
+	return o.ApplyT(func(v RuleGroupHeaders) RuleGroupMapMatchScope { return v.MatchScope }).(RuleGroupMapMatchScopeOutput)
+}
+
+func (o RuleGroupHeadersOutput) OversizeHandling() RuleGroupOversizeHandlingOutput {
+	return o.ApplyT(func(v RuleGroupHeaders) RuleGroupOversizeHandling { return v.OversizeHandling }).(RuleGroupOversizeHandlingOutput)
+}
+
+type RuleGroupHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupHeaders)(nil)).Elem()
+}
+
+func (o RuleGroupHeadersPtrOutput) ToRuleGroupHeadersPtrOutput() RuleGroupHeadersPtrOutput {
+	return o
+}
+
+func (o RuleGroupHeadersPtrOutput) ToRuleGroupHeadersPtrOutputWithContext(ctx context.Context) RuleGroupHeadersPtrOutput {
+	return o
+}
+
+func (o RuleGroupHeadersPtrOutput) Elem() RuleGroupHeadersOutput {
+	return o.ApplyT(func(v *RuleGroupHeaders) RuleGroupHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupHeaders
+		return ret
+	}).(RuleGroupHeadersOutput)
+}
+
+func (o RuleGroupHeadersPtrOutput) MatchPattern() RuleGroupHeaderMatchPatternPtrOutput {
+	return o.ApplyT(func(v *RuleGroupHeaders) *RuleGroupHeaderMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(RuleGroupHeaderMatchPatternPtrOutput)
+}
+
+func (o RuleGroupHeadersPtrOutput) MatchScope() RuleGroupMapMatchScopePtrOutput {
+	return o.ApplyT(func(v *RuleGroupHeaders) *RuleGroupMapMatchScope {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(RuleGroupMapMatchScopePtrOutput)
+}
+
+func (o RuleGroupHeadersPtrOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupHeaders) *RuleGroupOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return &v.OversizeHandling
+	}).(RuleGroupOversizeHandlingPtrOutput)
+}
+
 type RuleGroupIPSetForwardedIPConfiguration struct {
 	FallbackBehavior RuleGroupIPSetForwardedIPConfigurationFallbackBehavior `pulumi:"fallbackBehavior"`
 	HeaderName       string                                                 `pulumi:"headerName"`
@@ -3794,6 +4628,7 @@ type RuleGroupJsonBody struct {
 	InvalidFallbackBehavior *RuleGroupBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
 	MatchPattern            RuleGroupJsonMatchPattern             `pulumi:"matchPattern"`
 	MatchScope              RuleGroupJsonMatchScope               `pulumi:"matchScope"`
+	OversizeHandling        *RuleGroupOversizeHandling            `pulumi:"oversizeHandling"`
 }
 
 // RuleGroupJsonBodyInput is an input type that accepts RuleGroupJsonBodyArgs and RuleGroupJsonBodyOutput values.
@@ -3812,6 +4647,7 @@ type RuleGroupJsonBodyArgs struct {
 	InvalidFallbackBehavior RuleGroupBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
 	MatchPattern            RuleGroupJsonMatchPatternInput               `pulumi:"matchPattern"`
 	MatchScope              RuleGroupJsonMatchScopeInput                 `pulumi:"matchScope"`
+	OversizeHandling        RuleGroupOversizeHandlingPtrInput            `pulumi:"oversizeHandling"`
 }
 
 func (RuleGroupJsonBodyArgs) ElementType() reflect.Type {
@@ -3904,6 +4740,10 @@ func (o RuleGroupJsonBodyOutput) MatchScope() RuleGroupJsonMatchScopeOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) RuleGroupJsonMatchScope { return v.MatchScope }).(RuleGroupJsonMatchScopeOutput)
 }
 
+func (o RuleGroupJsonBodyOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupJsonBody) *RuleGroupOversizeHandling { return v.OversizeHandling }).(RuleGroupOversizeHandlingPtrOutput)
+}
+
 type RuleGroupJsonBodyPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupJsonBodyPtrOutput) ElementType() reflect.Type {
@@ -3953,6 +4793,15 @@ func (o RuleGroupJsonBodyPtrOutput) MatchScope() RuleGroupJsonMatchScopePtrOutpu
 		}
 		return &v.MatchScope
 	}).(RuleGroupJsonMatchScopePtrOutput)
+}
+
+func (o RuleGroupJsonBodyPtrOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return v.OversizeHandling
+	}).(RuleGroupOversizeHandlingPtrOutput)
 }
 
 // The pattern to look for in the JSON body.
@@ -7622,6 +8471,142 @@ func (o WebACLBlockActionPtrOutput) CustomResponse() WebACLCustomResponsePtrOutp
 	}).(WebACLCustomResponsePtrOutput)
 }
 
+// The body of a web request. This immediately follows the request headers.
+type WebACLBody struct {
+	OversizeHandling *WebACLOversizeHandling `pulumi:"oversizeHandling"`
+}
+
+// WebACLBodyInput is an input type that accepts WebACLBodyArgs and WebACLBodyOutput values.
+// You can construct a concrete instance of `WebACLBodyInput` via:
+//
+//          WebACLBodyArgs{...}
+type WebACLBodyInput interface {
+	pulumi.Input
+
+	ToWebACLBodyOutput() WebACLBodyOutput
+	ToWebACLBodyOutputWithContext(context.Context) WebACLBodyOutput
+}
+
+// The body of a web request. This immediately follows the request headers.
+type WebACLBodyArgs struct {
+	OversizeHandling WebACLOversizeHandlingPtrInput `pulumi:"oversizeHandling"`
+}
+
+func (WebACLBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLBody)(nil)).Elem()
+}
+
+func (i WebACLBodyArgs) ToWebACLBodyOutput() WebACLBodyOutput {
+	return i.ToWebACLBodyOutputWithContext(context.Background())
+}
+
+func (i WebACLBodyArgs) ToWebACLBodyOutputWithContext(ctx context.Context) WebACLBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLBodyOutput)
+}
+
+func (i WebACLBodyArgs) ToWebACLBodyPtrOutput() WebACLBodyPtrOutput {
+	return i.ToWebACLBodyPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLBodyArgs) ToWebACLBodyPtrOutputWithContext(ctx context.Context) WebACLBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLBodyOutput).ToWebACLBodyPtrOutputWithContext(ctx)
+}
+
+// WebACLBodyPtrInput is an input type that accepts WebACLBodyArgs, WebACLBodyPtr and WebACLBodyPtrOutput values.
+// You can construct a concrete instance of `WebACLBodyPtrInput` via:
+//
+//          WebACLBodyArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLBodyPtrInput interface {
+	pulumi.Input
+
+	ToWebACLBodyPtrOutput() WebACLBodyPtrOutput
+	ToWebACLBodyPtrOutputWithContext(context.Context) WebACLBodyPtrOutput
+}
+
+type webACLBodyPtrType WebACLBodyArgs
+
+func WebACLBodyPtr(v *WebACLBodyArgs) WebACLBodyPtrInput {
+	return (*webACLBodyPtrType)(v)
+}
+
+func (*webACLBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLBody)(nil)).Elem()
+}
+
+func (i *webACLBodyPtrType) ToWebACLBodyPtrOutput() WebACLBodyPtrOutput {
+	return i.ToWebACLBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLBodyPtrType) ToWebACLBodyPtrOutputWithContext(ctx context.Context) WebACLBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLBodyPtrOutput)
+}
+
+// The body of a web request. This immediately follows the request headers.
+type WebACLBodyOutput struct{ *pulumi.OutputState }
+
+func (WebACLBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLBody)(nil)).Elem()
+}
+
+func (o WebACLBodyOutput) ToWebACLBodyOutput() WebACLBodyOutput {
+	return o
+}
+
+func (o WebACLBodyOutput) ToWebACLBodyOutputWithContext(ctx context.Context) WebACLBodyOutput {
+	return o
+}
+
+func (o WebACLBodyOutput) ToWebACLBodyPtrOutput() WebACLBodyPtrOutput {
+	return o.ToWebACLBodyPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLBodyOutput) ToWebACLBodyPtrOutputWithContext(ctx context.Context) WebACLBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLBody) *WebACLBody {
+		return &v
+	}).(WebACLBodyPtrOutput)
+}
+
+func (o WebACLBodyOutput) OversizeHandling() WebACLOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v WebACLBody) *WebACLOversizeHandling { return v.OversizeHandling }).(WebACLOversizeHandlingPtrOutput)
+}
+
+type WebACLBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLBody)(nil)).Elem()
+}
+
+func (o WebACLBodyPtrOutput) ToWebACLBodyPtrOutput() WebACLBodyPtrOutput {
+	return o
+}
+
+func (o WebACLBodyPtrOutput) ToWebACLBodyPtrOutputWithContext(ctx context.Context) WebACLBodyPtrOutput {
+	return o
+}
+
+func (o WebACLBodyPtrOutput) Elem() WebACLBodyOutput {
+	return o.ApplyT(func(v *WebACLBody) WebACLBody {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLBody
+		return ret
+	}).(WebACLBodyOutput)
+}
+
+func (o WebACLBodyPtrOutput) OversizeHandling() WebACLOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLBody) *WebACLOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return v.OversizeHandling
+	}).(WebACLOversizeHandlingPtrOutput)
+}
+
 // Byte Match statement.
 type WebACLByteMatchStatement struct {
 	FieldToMatch         WebACLFieldToMatch         `pulumi:"fieldToMatch"`
@@ -8085,6 +9070,342 @@ func (o WebACLCaptchaConfigPtrOutput) ImmunityTimeProperty() WebACLImmunityTimeP
 		}
 		return v.ImmunityTimeProperty
 	}).(WebACLImmunityTimePropertyPtrOutput)
+}
+
+// The pattern to look for in the request cookies.
+type WebACLCookieMatchPattern struct {
+	// Inspect all parts of the web request cookies.
+	All             interface{} `pulumi:"all"`
+	ExcludedCookies []string    `pulumi:"excludedCookies"`
+	IncludedCookies []string    `pulumi:"includedCookies"`
+}
+
+// WebACLCookieMatchPatternInput is an input type that accepts WebACLCookieMatchPatternArgs and WebACLCookieMatchPatternOutput values.
+// You can construct a concrete instance of `WebACLCookieMatchPatternInput` via:
+//
+//          WebACLCookieMatchPatternArgs{...}
+type WebACLCookieMatchPatternInput interface {
+	pulumi.Input
+
+	ToWebACLCookieMatchPatternOutput() WebACLCookieMatchPatternOutput
+	ToWebACLCookieMatchPatternOutputWithContext(context.Context) WebACLCookieMatchPatternOutput
+}
+
+// The pattern to look for in the request cookies.
+type WebACLCookieMatchPatternArgs struct {
+	// Inspect all parts of the web request cookies.
+	All             pulumi.Input            `pulumi:"all"`
+	ExcludedCookies pulumi.StringArrayInput `pulumi:"excludedCookies"`
+	IncludedCookies pulumi.StringArrayInput `pulumi:"includedCookies"`
+}
+
+func (WebACLCookieMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCookieMatchPattern)(nil)).Elem()
+}
+
+func (i WebACLCookieMatchPatternArgs) ToWebACLCookieMatchPatternOutput() WebACLCookieMatchPatternOutput {
+	return i.ToWebACLCookieMatchPatternOutputWithContext(context.Background())
+}
+
+func (i WebACLCookieMatchPatternArgs) ToWebACLCookieMatchPatternOutputWithContext(ctx context.Context) WebACLCookieMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCookieMatchPatternOutput)
+}
+
+func (i WebACLCookieMatchPatternArgs) ToWebACLCookieMatchPatternPtrOutput() WebACLCookieMatchPatternPtrOutput {
+	return i.ToWebACLCookieMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLCookieMatchPatternArgs) ToWebACLCookieMatchPatternPtrOutputWithContext(ctx context.Context) WebACLCookieMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCookieMatchPatternOutput).ToWebACLCookieMatchPatternPtrOutputWithContext(ctx)
+}
+
+// WebACLCookieMatchPatternPtrInput is an input type that accepts WebACLCookieMatchPatternArgs, WebACLCookieMatchPatternPtr and WebACLCookieMatchPatternPtrOutput values.
+// You can construct a concrete instance of `WebACLCookieMatchPatternPtrInput` via:
+//
+//          WebACLCookieMatchPatternArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLCookieMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToWebACLCookieMatchPatternPtrOutput() WebACLCookieMatchPatternPtrOutput
+	ToWebACLCookieMatchPatternPtrOutputWithContext(context.Context) WebACLCookieMatchPatternPtrOutput
+}
+
+type webACLCookieMatchPatternPtrType WebACLCookieMatchPatternArgs
+
+func WebACLCookieMatchPatternPtr(v *WebACLCookieMatchPatternArgs) WebACLCookieMatchPatternPtrInput {
+	return (*webACLCookieMatchPatternPtrType)(v)
+}
+
+func (*webACLCookieMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCookieMatchPattern)(nil)).Elem()
+}
+
+func (i *webACLCookieMatchPatternPtrType) ToWebACLCookieMatchPatternPtrOutput() WebACLCookieMatchPatternPtrOutput {
+	return i.ToWebACLCookieMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLCookieMatchPatternPtrType) ToWebACLCookieMatchPatternPtrOutputWithContext(ctx context.Context) WebACLCookieMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCookieMatchPatternPtrOutput)
+}
+
+// The pattern to look for in the request cookies.
+type WebACLCookieMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (WebACLCookieMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCookieMatchPattern)(nil)).Elem()
+}
+
+func (o WebACLCookieMatchPatternOutput) ToWebACLCookieMatchPatternOutput() WebACLCookieMatchPatternOutput {
+	return o
+}
+
+func (o WebACLCookieMatchPatternOutput) ToWebACLCookieMatchPatternOutputWithContext(ctx context.Context) WebACLCookieMatchPatternOutput {
+	return o
+}
+
+func (o WebACLCookieMatchPatternOutput) ToWebACLCookieMatchPatternPtrOutput() WebACLCookieMatchPatternPtrOutput {
+	return o.ToWebACLCookieMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLCookieMatchPatternOutput) ToWebACLCookieMatchPatternPtrOutputWithContext(ctx context.Context) WebACLCookieMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLCookieMatchPattern) *WebACLCookieMatchPattern {
+		return &v
+	}).(WebACLCookieMatchPatternPtrOutput)
+}
+
+// Inspect all parts of the web request cookies.
+func (o WebACLCookieMatchPatternOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v WebACLCookieMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
+}
+
+func (o WebACLCookieMatchPatternOutput) ExcludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLCookieMatchPattern) []string { return v.ExcludedCookies }).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLCookieMatchPatternOutput) IncludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLCookieMatchPattern) []string { return v.IncludedCookies }).(pulumi.StringArrayOutput)
+}
+
+type WebACLCookieMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLCookieMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCookieMatchPattern)(nil)).Elem()
+}
+
+func (o WebACLCookieMatchPatternPtrOutput) ToWebACLCookieMatchPatternPtrOutput() WebACLCookieMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebACLCookieMatchPatternPtrOutput) ToWebACLCookieMatchPatternPtrOutputWithContext(ctx context.Context) WebACLCookieMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebACLCookieMatchPatternPtrOutput) Elem() WebACLCookieMatchPatternOutput {
+	return o.ApplyT(func(v *WebACLCookieMatchPattern) WebACLCookieMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLCookieMatchPattern
+		return ret
+	}).(WebACLCookieMatchPatternOutput)
+}
+
+// Inspect all parts of the web request cookies.
+func (o WebACLCookieMatchPatternPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WebACLCookieMatchPattern) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+func (o WebACLCookieMatchPatternPtrOutput) ExcludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLCookieMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedCookies
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLCookieMatchPatternPtrOutput) IncludedCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLCookieMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedCookies
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes headers of a web request.
+type WebACLCookies struct {
+	MatchPattern     WebACLCookieMatchPattern `pulumi:"matchPattern"`
+	MatchScope       WebACLMapMatchScope      `pulumi:"matchScope"`
+	OversizeHandling WebACLOversizeHandling   `pulumi:"oversizeHandling"`
+}
+
+// WebACLCookiesInput is an input type that accepts WebACLCookiesArgs and WebACLCookiesOutput values.
+// You can construct a concrete instance of `WebACLCookiesInput` via:
+//
+//          WebACLCookiesArgs{...}
+type WebACLCookiesInput interface {
+	pulumi.Input
+
+	ToWebACLCookiesOutput() WebACLCookiesOutput
+	ToWebACLCookiesOutputWithContext(context.Context) WebACLCookiesOutput
+}
+
+// Includes headers of a web request.
+type WebACLCookiesArgs struct {
+	MatchPattern     WebACLCookieMatchPatternInput `pulumi:"matchPattern"`
+	MatchScope       WebACLMapMatchScopeInput      `pulumi:"matchScope"`
+	OversizeHandling WebACLOversizeHandlingInput   `pulumi:"oversizeHandling"`
+}
+
+func (WebACLCookiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCookies)(nil)).Elem()
+}
+
+func (i WebACLCookiesArgs) ToWebACLCookiesOutput() WebACLCookiesOutput {
+	return i.ToWebACLCookiesOutputWithContext(context.Background())
+}
+
+func (i WebACLCookiesArgs) ToWebACLCookiesOutputWithContext(ctx context.Context) WebACLCookiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCookiesOutput)
+}
+
+func (i WebACLCookiesArgs) ToWebACLCookiesPtrOutput() WebACLCookiesPtrOutput {
+	return i.ToWebACLCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLCookiesArgs) ToWebACLCookiesPtrOutputWithContext(ctx context.Context) WebACLCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCookiesOutput).ToWebACLCookiesPtrOutputWithContext(ctx)
+}
+
+// WebACLCookiesPtrInput is an input type that accepts WebACLCookiesArgs, WebACLCookiesPtr and WebACLCookiesPtrOutput values.
+// You can construct a concrete instance of `WebACLCookiesPtrInput` via:
+//
+//          WebACLCookiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLCookiesPtrInput interface {
+	pulumi.Input
+
+	ToWebACLCookiesPtrOutput() WebACLCookiesPtrOutput
+	ToWebACLCookiesPtrOutputWithContext(context.Context) WebACLCookiesPtrOutput
+}
+
+type webACLCookiesPtrType WebACLCookiesArgs
+
+func WebACLCookiesPtr(v *WebACLCookiesArgs) WebACLCookiesPtrInput {
+	return (*webACLCookiesPtrType)(v)
+}
+
+func (*webACLCookiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCookies)(nil)).Elem()
+}
+
+func (i *webACLCookiesPtrType) ToWebACLCookiesPtrOutput() WebACLCookiesPtrOutput {
+	return i.ToWebACLCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLCookiesPtrType) ToWebACLCookiesPtrOutputWithContext(ctx context.Context) WebACLCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCookiesPtrOutput)
+}
+
+// Includes headers of a web request.
+type WebACLCookiesOutput struct{ *pulumi.OutputState }
+
+func (WebACLCookiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCookies)(nil)).Elem()
+}
+
+func (o WebACLCookiesOutput) ToWebACLCookiesOutput() WebACLCookiesOutput {
+	return o
+}
+
+func (o WebACLCookiesOutput) ToWebACLCookiesOutputWithContext(ctx context.Context) WebACLCookiesOutput {
+	return o
+}
+
+func (o WebACLCookiesOutput) ToWebACLCookiesPtrOutput() WebACLCookiesPtrOutput {
+	return o.ToWebACLCookiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLCookiesOutput) ToWebACLCookiesPtrOutputWithContext(ctx context.Context) WebACLCookiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLCookies) *WebACLCookies {
+		return &v
+	}).(WebACLCookiesPtrOutput)
+}
+
+func (o WebACLCookiesOutput) MatchPattern() WebACLCookieMatchPatternOutput {
+	return o.ApplyT(func(v WebACLCookies) WebACLCookieMatchPattern { return v.MatchPattern }).(WebACLCookieMatchPatternOutput)
+}
+
+func (o WebACLCookiesOutput) MatchScope() WebACLMapMatchScopeOutput {
+	return o.ApplyT(func(v WebACLCookies) WebACLMapMatchScope { return v.MatchScope }).(WebACLMapMatchScopeOutput)
+}
+
+func (o WebACLCookiesOutput) OversizeHandling() WebACLOversizeHandlingOutput {
+	return o.ApplyT(func(v WebACLCookies) WebACLOversizeHandling { return v.OversizeHandling }).(WebACLOversizeHandlingOutput)
+}
+
+type WebACLCookiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLCookiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCookies)(nil)).Elem()
+}
+
+func (o WebACLCookiesPtrOutput) ToWebACLCookiesPtrOutput() WebACLCookiesPtrOutput {
+	return o
+}
+
+func (o WebACLCookiesPtrOutput) ToWebACLCookiesPtrOutputWithContext(ctx context.Context) WebACLCookiesPtrOutput {
+	return o
+}
+
+func (o WebACLCookiesPtrOutput) Elem() WebACLCookiesOutput {
+	return o.ApplyT(func(v *WebACLCookies) WebACLCookies {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLCookies
+		return ret
+	}).(WebACLCookiesOutput)
+}
+
+func (o WebACLCookiesPtrOutput) MatchPattern() WebACLCookieMatchPatternPtrOutput {
+	return o.ApplyT(func(v *WebACLCookies) *WebACLCookieMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(WebACLCookieMatchPatternPtrOutput)
+}
+
+func (o WebACLCookiesPtrOutput) MatchScope() WebACLMapMatchScopePtrOutput {
+	return o.ApplyT(func(v *WebACLCookies) *WebACLMapMatchScope {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(WebACLMapMatchScopePtrOutput)
+}
+
+func (o WebACLCookiesPtrOutput) OversizeHandling() WebACLOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLCookies) *WebACLOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return &v.OversizeHandling
+	}).(WebACLOversizeHandlingPtrOutput)
 }
 
 // Allow traffic towards application.
@@ -9094,10 +10415,11 @@ func (o WebACLFieldIdentifierPtrOutput) Identifier() pulumi.StringPtrOutput {
 // Field of the request to match.
 type WebACLFieldToMatch struct {
 	// All query arguments of a web request.
-	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
-	// The body of a web request. This immediately follows the request headers.
-	Body     interface{}     `pulumi:"body"`
-	JsonBody *WebACLJsonBody `pulumi:"jsonBody"`
+	AllQueryArguments interface{}     `pulumi:"allQueryArguments"`
+	Body              *WebACLBody     `pulumi:"body"`
+	Cookies           *WebACLCookies  `pulumi:"cookies"`
+	Headers           *WebACLHeaders  `pulumi:"headers"`
+	JsonBody          *WebACLJsonBody `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -9123,10 +10445,11 @@ type WebACLFieldToMatchInput interface {
 // Field of the request to match.
 type WebACLFieldToMatchArgs struct {
 	// All query arguments of a web request.
-	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
-	// The body of a web request. This immediately follows the request headers.
-	Body     pulumi.Input           `pulumi:"body"`
-	JsonBody WebACLJsonBodyPtrInput `pulumi:"jsonBody"`
+	AllQueryArguments pulumi.Input           `pulumi:"allQueryArguments"`
+	Body              WebACLBodyPtrInput     `pulumi:"body"`
+	Cookies           WebACLCookiesPtrInput  `pulumi:"cookies"`
+	Headers           WebACLHeadersPtrInput  `pulumi:"headers"`
+	JsonBody          WebACLJsonBodyPtrInput `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -9221,9 +10544,16 @@ func (o WebACLFieldToMatchOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.AllQueryArguments }).(pulumi.AnyOutput)
 }
 
-// The body of a web request. This immediately follows the request headers.
-func (o WebACLFieldToMatchOutput) Body() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.Body }).(pulumi.AnyOutput)
+func (o WebACLFieldToMatchOutput) Body() WebACLBodyPtrOutput {
+	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLBody { return v.Body }).(WebACLBodyPtrOutput)
+}
+
+func (o WebACLFieldToMatchOutput) Cookies() WebACLCookiesPtrOutput {
+	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLCookies { return v.Cookies }).(WebACLCookiesPtrOutput)
+}
+
+func (o WebACLFieldToMatchOutput) Headers() WebACLHeadersPtrOutput {
+	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLHeaders { return v.Headers }).(WebACLHeadersPtrOutput)
 }
 
 func (o WebACLFieldToMatchOutput) JsonBody() WebACLJsonBodyPtrOutput {
@@ -9290,14 +10620,31 @@ func (o WebACLFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The body of a web request. This immediately follows the request headers.
-func (o WebACLFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
+func (o WebACLFieldToMatchPtrOutput) Body() WebACLBodyPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLBody {
 		if v == nil {
 			return nil
 		}
 		return v.Body
-	}).(pulumi.AnyOutput)
+	}).(WebACLBodyPtrOutput)
+}
+
+func (o WebACLFieldToMatchPtrOutput) Cookies() WebACLCookiesPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLCookies {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(WebACLCookiesPtrOutput)
+}
+
+func (o WebACLFieldToMatchPtrOutput) Headers() WebACLHeadersPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLHeaders {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(WebACLHeadersPtrOutput)
 }
 
 func (o WebACLFieldToMatchPtrOutput) JsonBody() WebACLJsonBodyPtrOutput {
@@ -9925,6 +11272,342 @@ func (o WebACLGeoMatchStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPC
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
+// The pattern to look for in the request headers.
+type WebACLHeaderMatchPattern struct {
+	// Inspect all parts of the web request headers.
+	All             interface{} `pulumi:"all"`
+	ExcludedHeaders []string    `pulumi:"excludedHeaders"`
+	IncludedHeaders []string    `pulumi:"includedHeaders"`
+}
+
+// WebACLHeaderMatchPatternInput is an input type that accepts WebACLHeaderMatchPatternArgs and WebACLHeaderMatchPatternOutput values.
+// You can construct a concrete instance of `WebACLHeaderMatchPatternInput` via:
+//
+//          WebACLHeaderMatchPatternArgs{...}
+type WebACLHeaderMatchPatternInput interface {
+	pulumi.Input
+
+	ToWebACLHeaderMatchPatternOutput() WebACLHeaderMatchPatternOutput
+	ToWebACLHeaderMatchPatternOutputWithContext(context.Context) WebACLHeaderMatchPatternOutput
+}
+
+// The pattern to look for in the request headers.
+type WebACLHeaderMatchPatternArgs struct {
+	// Inspect all parts of the web request headers.
+	All             pulumi.Input            `pulumi:"all"`
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
+}
+
+func (WebACLHeaderMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLHeaderMatchPattern)(nil)).Elem()
+}
+
+func (i WebACLHeaderMatchPatternArgs) ToWebACLHeaderMatchPatternOutput() WebACLHeaderMatchPatternOutput {
+	return i.ToWebACLHeaderMatchPatternOutputWithContext(context.Background())
+}
+
+func (i WebACLHeaderMatchPatternArgs) ToWebACLHeaderMatchPatternOutputWithContext(ctx context.Context) WebACLHeaderMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLHeaderMatchPatternOutput)
+}
+
+func (i WebACLHeaderMatchPatternArgs) ToWebACLHeaderMatchPatternPtrOutput() WebACLHeaderMatchPatternPtrOutput {
+	return i.ToWebACLHeaderMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLHeaderMatchPatternArgs) ToWebACLHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebACLHeaderMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLHeaderMatchPatternOutput).ToWebACLHeaderMatchPatternPtrOutputWithContext(ctx)
+}
+
+// WebACLHeaderMatchPatternPtrInput is an input type that accepts WebACLHeaderMatchPatternArgs, WebACLHeaderMatchPatternPtr and WebACLHeaderMatchPatternPtrOutput values.
+// You can construct a concrete instance of `WebACLHeaderMatchPatternPtrInput` via:
+//
+//          WebACLHeaderMatchPatternArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLHeaderMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToWebACLHeaderMatchPatternPtrOutput() WebACLHeaderMatchPatternPtrOutput
+	ToWebACLHeaderMatchPatternPtrOutputWithContext(context.Context) WebACLHeaderMatchPatternPtrOutput
+}
+
+type webACLHeaderMatchPatternPtrType WebACLHeaderMatchPatternArgs
+
+func WebACLHeaderMatchPatternPtr(v *WebACLHeaderMatchPatternArgs) WebACLHeaderMatchPatternPtrInput {
+	return (*webACLHeaderMatchPatternPtrType)(v)
+}
+
+func (*webACLHeaderMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLHeaderMatchPattern)(nil)).Elem()
+}
+
+func (i *webACLHeaderMatchPatternPtrType) ToWebACLHeaderMatchPatternPtrOutput() WebACLHeaderMatchPatternPtrOutput {
+	return i.ToWebACLHeaderMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLHeaderMatchPatternPtrType) ToWebACLHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebACLHeaderMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLHeaderMatchPatternPtrOutput)
+}
+
+// The pattern to look for in the request headers.
+type WebACLHeaderMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (WebACLHeaderMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLHeaderMatchPattern)(nil)).Elem()
+}
+
+func (o WebACLHeaderMatchPatternOutput) ToWebACLHeaderMatchPatternOutput() WebACLHeaderMatchPatternOutput {
+	return o
+}
+
+func (o WebACLHeaderMatchPatternOutput) ToWebACLHeaderMatchPatternOutputWithContext(ctx context.Context) WebACLHeaderMatchPatternOutput {
+	return o
+}
+
+func (o WebACLHeaderMatchPatternOutput) ToWebACLHeaderMatchPatternPtrOutput() WebACLHeaderMatchPatternPtrOutput {
+	return o.ToWebACLHeaderMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLHeaderMatchPatternOutput) ToWebACLHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebACLHeaderMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLHeaderMatchPattern) *WebACLHeaderMatchPattern {
+		return &v
+	}).(WebACLHeaderMatchPatternPtrOutput)
+}
+
+// Inspect all parts of the web request headers.
+func (o WebACLHeaderMatchPatternOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v WebACLHeaderMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
+}
+
+func (o WebACLHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLHeaderMatchPattern) []string { return v.ExcludedHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLHeaderMatchPattern) []string { return v.IncludedHeaders }).(pulumi.StringArrayOutput)
+}
+
+type WebACLHeaderMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLHeaderMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLHeaderMatchPattern)(nil)).Elem()
+}
+
+func (o WebACLHeaderMatchPatternPtrOutput) ToWebACLHeaderMatchPatternPtrOutput() WebACLHeaderMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebACLHeaderMatchPatternPtrOutput) ToWebACLHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebACLHeaderMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebACLHeaderMatchPatternPtrOutput) Elem() WebACLHeaderMatchPatternOutput {
+	return o.ApplyT(func(v *WebACLHeaderMatchPattern) WebACLHeaderMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLHeaderMatchPattern
+		return ret
+	}).(WebACLHeaderMatchPatternOutput)
+}
+
+// Inspect all parts of the web request headers.
+func (o WebACLHeaderMatchPatternPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WebACLHeaderMatchPattern) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+func (o WebACLHeaderMatchPatternPtrOutput) ExcludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLHeaderMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLHeaderMatchPatternPtrOutput) IncludedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLHeaderMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes headers of a web request.
+type WebACLHeaders struct {
+	MatchPattern     WebACLHeaderMatchPattern `pulumi:"matchPattern"`
+	MatchScope       WebACLMapMatchScope      `pulumi:"matchScope"`
+	OversizeHandling WebACLOversizeHandling   `pulumi:"oversizeHandling"`
+}
+
+// WebACLHeadersInput is an input type that accepts WebACLHeadersArgs and WebACLHeadersOutput values.
+// You can construct a concrete instance of `WebACLHeadersInput` via:
+//
+//          WebACLHeadersArgs{...}
+type WebACLHeadersInput interface {
+	pulumi.Input
+
+	ToWebACLHeadersOutput() WebACLHeadersOutput
+	ToWebACLHeadersOutputWithContext(context.Context) WebACLHeadersOutput
+}
+
+// Includes headers of a web request.
+type WebACLHeadersArgs struct {
+	MatchPattern     WebACLHeaderMatchPatternInput `pulumi:"matchPattern"`
+	MatchScope       WebACLMapMatchScopeInput      `pulumi:"matchScope"`
+	OversizeHandling WebACLOversizeHandlingInput   `pulumi:"oversizeHandling"`
+}
+
+func (WebACLHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLHeaders)(nil)).Elem()
+}
+
+func (i WebACLHeadersArgs) ToWebACLHeadersOutput() WebACLHeadersOutput {
+	return i.ToWebACLHeadersOutputWithContext(context.Background())
+}
+
+func (i WebACLHeadersArgs) ToWebACLHeadersOutputWithContext(ctx context.Context) WebACLHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLHeadersOutput)
+}
+
+func (i WebACLHeadersArgs) ToWebACLHeadersPtrOutput() WebACLHeadersPtrOutput {
+	return i.ToWebACLHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLHeadersArgs) ToWebACLHeadersPtrOutputWithContext(ctx context.Context) WebACLHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLHeadersOutput).ToWebACLHeadersPtrOutputWithContext(ctx)
+}
+
+// WebACLHeadersPtrInput is an input type that accepts WebACLHeadersArgs, WebACLHeadersPtr and WebACLHeadersPtrOutput values.
+// You can construct a concrete instance of `WebACLHeadersPtrInput` via:
+//
+//          WebACLHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLHeadersPtrInput interface {
+	pulumi.Input
+
+	ToWebACLHeadersPtrOutput() WebACLHeadersPtrOutput
+	ToWebACLHeadersPtrOutputWithContext(context.Context) WebACLHeadersPtrOutput
+}
+
+type webACLHeadersPtrType WebACLHeadersArgs
+
+func WebACLHeadersPtr(v *WebACLHeadersArgs) WebACLHeadersPtrInput {
+	return (*webACLHeadersPtrType)(v)
+}
+
+func (*webACLHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLHeaders)(nil)).Elem()
+}
+
+func (i *webACLHeadersPtrType) ToWebACLHeadersPtrOutput() WebACLHeadersPtrOutput {
+	return i.ToWebACLHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLHeadersPtrType) ToWebACLHeadersPtrOutputWithContext(ctx context.Context) WebACLHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLHeadersPtrOutput)
+}
+
+// Includes headers of a web request.
+type WebACLHeadersOutput struct{ *pulumi.OutputState }
+
+func (WebACLHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLHeaders)(nil)).Elem()
+}
+
+func (o WebACLHeadersOutput) ToWebACLHeadersOutput() WebACLHeadersOutput {
+	return o
+}
+
+func (o WebACLHeadersOutput) ToWebACLHeadersOutputWithContext(ctx context.Context) WebACLHeadersOutput {
+	return o
+}
+
+func (o WebACLHeadersOutput) ToWebACLHeadersPtrOutput() WebACLHeadersPtrOutput {
+	return o.ToWebACLHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLHeadersOutput) ToWebACLHeadersPtrOutputWithContext(ctx context.Context) WebACLHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLHeaders) *WebACLHeaders {
+		return &v
+	}).(WebACLHeadersPtrOutput)
+}
+
+func (o WebACLHeadersOutput) MatchPattern() WebACLHeaderMatchPatternOutput {
+	return o.ApplyT(func(v WebACLHeaders) WebACLHeaderMatchPattern { return v.MatchPattern }).(WebACLHeaderMatchPatternOutput)
+}
+
+func (o WebACLHeadersOutput) MatchScope() WebACLMapMatchScopeOutput {
+	return o.ApplyT(func(v WebACLHeaders) WebACLMapMatchScope { return v.MatchScope }).(WebACLMapMatchScopeOutput)
+}
+
+func (o WebACLHeadersOutput) OversizeHandling() WebACLOversizeHandlingOutput {
+	return o.ApplyT(func(v WebACLHeaders) WebACLOversizeHandling { return v.OversizeHandling }).(WebACLOversizeHandlingOutput)
+}
+
+type WebACLHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLHeaders)(nil)).Elem()
+}
+
+func (o WebACLHeadersPtrOutput) ToWebACLHeadersPtrOutput() WebACLHeadersPtrOutput {
+	return o
+}
+
+func (o WebACLHeadersPtrOutput) ToWebACLHeadersPtrOutputWithContext(ctx context.Context) WebACLHeadersPtrOutput {
+	return o
+}
+
+func (o WebACLHeadersPtrOutput) Elem() WebACLHeadersOutput {
+	return o.ApplyT(func(v *WebACLHeaders) WebACLHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLHeaders
+		return ret
+	}).(WebACLHeadersOutput)
+}
+
+func (o WebACLHeadersPtrOutput) MatchPattern() WebACLHeaderMatchPatternPtrOutput {
+	return o.ApplyT(func(v *WebACLHeaders) *WebACLHeaderMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(WebACLHeaderMatchPatternPtrOutput)
+}
+
+func (o WebACLHeadersPtrOutput) MatchScope() WebACLMapMatchScopePtrOutput {
+	return o.ApplyT(func(v *WebACLHeaders) *WebACLMapMatchScope {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(WebACLMapMatchScopePtrOutput)
+}
+
+func (o WebACLHeadersPtrOutput) OversizeHandling() WebACLOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLHeaders) *WebACLOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return &v.OversizeHandling
+	}).(WebACLOversizeHandlingPtrOutput)
+}
+
 type WebACLIPSetForwardedIPConfiguration struct {
 	FallbackBehavior WebACLIPSetForwardedIPConfigurationFallbackBehavior `pulumi:"fallbackBehavior"`
 	HeaderName       string                                              `pulumi:"headerName"`
@@ -10380,6 +12063,7 @@ type WebACLJsonBody struct {
 	InvalidFallbackBehavior *WebACLBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
 	MatchPattern            WebACLJsonMatchPattern             `pulumi:"matchPattern"`
 	MatchScope              WebACLJsonMatchScope               `pulumi:"matchScope"`
+	OversizeHandling        *WebACLOversizeHandling            `pulumi:"oversizeHandling"`
 }
 
 // WebACLJsonBodyInput is an input type that accepts WebACLJsonBodyArgs and WebACLJsonBodyOutput values.
@@ -10398,6 +12082,7 @@ type WebACLJsonBodyArgs struct {
 	InvalidFallbackBehavior WebACLBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
 	MatchPattern            WebACLJsonMatchPatternInput               `pulumi:"matchPattern"`
 	MatchScope              WebACLJsonMatchScopeInput                 `pulumi:"matchScope"`
+	OversizeHandling        WebACLOversizeHandlingPtrInput            `pulumi:"oversizeHandling"`
 }
 
 func (WebACLJsonBodyArgs) ElementType() reflect.Type {
@@ -10490,6 +12175,10 @@ func (o WebACLJsonBodyOutput) MatchScope() WebACLJsonMatchScopeOutput {
 	return o.ApplyT(func(v WebACLJsonBody) WebACLJsonMatchScope { return v.MatchScope }).(WebACLJsonMatchScopeOutput)
 }
 
+func (o WebACLJsonBodyOutput) OversizeHandling() WebACLOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v WebACLJsonBody) *WebACLOversizeHandling { return v.OversizeHandling }).(WebACLOversizeHandlingPtrOutput)
+}
+
 type WebACLJsonBodyPtrOutput struct{ *pulumi.OutputState }
 
 func (WebACLJsonBodyPtrOutput) ElementType() reflect.Type {
@@ -10539,6 +12228,15 @@ func (o WebACLJsonBodyPtrOutput) MatchScope() WebACLJsonMatchScopePtrOutput {
 		}
 		return &v.MatchScope
 	}).(WebACLJsonMatchScopePtrOutput)
+}
+
+func (o WebACLJsonBodyPtrOutput) OversizeHandling() WebACLOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) *WebACLOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return v.OversizeHandling
+	}).(WebACLOversizeHandlingPtrOutput)
 }
 
 // The pattern to look for in the JSON body.
@@ -13890,10 +15588,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetTagArrayInput)(nil)).Elem(), RegexPatternSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementPtrInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyInput)(nil)).Elem(), RuleGroupBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyPtrInput)(nil)).Elem(), RuleGroupBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupByteMatchStatementInput)(nil)).Elem(), RuleGroupByteMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupByteMatchStatementPtrInput)(nil)).Elem(), RuleGroupByteMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaConfigInput)(nil)).Elem(), RuleGroupCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaConfigPtrInput)(nil)).Elem(), RuleGroupCaptchaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternPtrInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesInput)(nil)).Elem(), RuleGroupCookiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesPtrInput)(nil)).Elem(), RuleGroupCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomHTTPHeaderInput)(nil)).Elem(), RuleGroupCustomHTTPHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomHTTPHeaderArrayInput)(nil)).Elem(), RuleGroupCustomHTTPHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomRequestHandlingInput)(nil)).Elem(), RuleGroupCustomRequestHandlingArgs{})
@@ -13912,6 +15616,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIPConfigurationPtrInput)(nil)).Elem(), RuleGroupForwardedIPConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupGeoMatchStatementInput)(nil)).Elem(), RuleGroupGeoMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupGeoMatchStatementPtrInput)(nil)).Elem(), RuleGroupGeoMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderMatchPatternInput)(nil)).Elem(), RuleGroupHeaderMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderMatchPatternPtrInput)(nil)).Elem(), RuleGroupHeaderMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeadersInput)(nil)).Elem(), RuleGroupHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeadersPtrInput)(nil)).Elem(), RuleGroupHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationInput)(nil)).Elem(), RuleGroupIPSetForwardedIPConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetForwardedIPConfigurationPtrInput)(nil)).Elem(), RuleGroupIPSetForwardedIPConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIPSetReferenceStatementInput)(nil)).Elem(), RuleGroupIPSetReferenceStatementArgs{})
@@ -13968,12 +15676,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAndStatementPtrInput)(nil)).Elem(), WebACLAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBlockActionInput)(nil)).Elem(), WebACLBlockActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBlockActionPtrInput)(nil)).Elem(), WebACLBlockActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyInput)(nil)).Elem(), WebACLBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyPtrInput)(nil)).Elem(), WebACLBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLByteMatchStatementInput)(nil)).Elem(), WebACLByteMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLByteMatchStatementPtrInput)(nil)).Elem(), WebACLByteMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaActionInput)(nil)).Elem(), WebACLCaptchaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaActionPtrInput)(nil)).Elem(), WebACLCaptchaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaConfigInput)(nil)).Elem(), WebACLCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaConfigPtrInput)(nil)).Elem(), WebACLCaptchaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookieMatchPatternInput)(nil)).Elem(), WebACLCookieMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookieMatchPatternPtrInput)(nil)).Elem(), WebACLCookieMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookiesInput)(nil)).Elem(), WebACLCookiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookiesPtrInput)(nil)).Elem(), WebACLCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCountActionInput)(nil)).Elem(), WebACLCountActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCountActionPtrInput)(nil)).Elem(), WebACLCountActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCustomHTTPHeaderInput)(nil)).Elem(), WebACLCustomHTTPHeaderArgs{})
@@ -13999,6 +15713,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLForwardedIPConfigurationPtrInput)(nil)).Elem(), WebACLForwardedIPConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLGeoMatchStatementInput)(nil)).Elem(), WebACLGeoMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLGeoMatchStatementPtrInput)(nil)).Elem(), WebACLGeoMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLHeaderMatchPatternInput)(nil)).Elem(), WebACLHeaderMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLHeaderMatchPatternPtrInput)(nil)).Elem(), WebACLHeaderMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLHeadersInput)(nil)).Elem(), WebACLHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLHeadersPtrInput)(nil)).Elem(), WebACLHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationInput)(nil)).Elem(), WebACLIPSetForwardedIPConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetForwardedIPConfigurationPtrInput)(nil)).Elem(), WebACLIPSetForwardedIPConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLIPSetReferenceStatementInput)(nil)).Elem(), WebACLIPSetReferenceStatementArgs{})
@@ -14073,10 +15791,16 @@ func init() {
 	pulumi.RegisterOutputType(RegexPatternSetTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupBodyOutput{})
+	pulumi.RegisterOutputType(RuleGroupBodyPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupCaptchaConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternOutput{})
+	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCookiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupCookiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomHTTPHeaderOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomHTTPHeaderArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomRequestHandlingOutput{})
@@ -14095,6 +15819,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupGeoMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupGeoMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupHeaderMatchPatternOutput{})
+	pulumi.RegisterOutputType(RuleGroupHeaderMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupHeadersOutput{})
+	pulumi.RegisterOutputType(RuleGroupHeadersPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetReferenceStatementOutput{})
@@ -14154,12 +15882,18 @@ func init() {
 	pulumi.RegisterOutputType(WebACLAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLBlockActionOutput{})
 	pulumi.RegisterOutputType(WebACLBlockActionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLBodyOutput{})
+	pulumi.RegisterOutputType(WebACLBodyPtrOutput{})
 	pulumi.RegisterOutputType(WebACLByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLByteMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCaptchaActionOutput{})
 	pulumi.RegisterOutputType(WebACLCaptchaActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(WebACLCaptchaConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebACLCookieMatchPatternOutput{})
+	pulumi.RegisterOutputType(WebACLCookieMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(WebACLCookiesOutput{})
+	pulumi.RegisterOutputType(WebACLCookiesPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCountActionOutput{})
 	pulumi.RegisterOutputType(WebACLCountActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCustomHTTPHeaderOutput{})
@@ -14186,6 +15920,10 @@ func init() {
 	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebACLGeoMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLGeoMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLHeaderMatchPatternOutput{})
+	pulumi.RegisterOutputType(WebACLHeaderMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(WebACLHeadersOutput{})
+	pulumi.RegisterOutputType(WebACLHeadersPtrOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetReferenceStatementOutput{})

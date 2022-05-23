@@ -78,7 +78,11 @@ namespace Pulumi.AwsNative.MediaTailor
         /// <summary>
         /// The configuration for DASH content.
         /// </summary>
-        public readonly Outputs.PlaybackConfigurationDashConfigurationForPut? DashConfiguration;
+        public readonly Outputs.PlaybackConfigurationDashConfiguration? DashConfiguration;
+        /// <summary>
+        /// The configuration for HLS content.
+        /// </summary>
+        public readonly Outputs.PlaybackConfigurationHlsConfiguration? HlsConfiguration;
         /// <summary>
         /// The configuration for pre-roll ad insertion.
         /// </summary>
@@ -91,6 +95,14 @@ namespace Pulumi.AwsNative.MediaTailor
         /// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         /// </summary>
         public readonly int? PersonalizationThresholdSeconds;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the playback configuration.
+        /// </summary>
+        public readonly string? PlaybackConfigurationArn;
+        /// <summary>
+        /// The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+        /// </summary>
+        public readonly string? PlaybackEndpointPrefix;
         /// <summary>
         /// The URL that the player uses to initialize a session that uses client-side reporting.
         /// </summary>
@@ -124,13 +136,19 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.PlaybackConfigurationConfigurationAliases? configurationAliases,
 
-            Outputs.PlaybackConfigurationDashConfigurationForPut? dashConfiguration,
+            Outputs.PlaybackConfigurationDashConfiguration? dashConfiguration,
+
+            Outputs.PlaybackConfigurationHlsConfiguration? hlsConfiguration,
 
             Outputs.PlaybackConfigurationLivePreRollConfiguration? livePreRollConfiguration,
 
             Outputs.PlaybackConfigurationManifestProcessingRules? manifestProcessingRules,
 
             int? personalizationThresholdSeconds,
+
+            string? playbackConfigurationArn,
+
+            string? playbackEndpointPrefix,
 
             string? sessionInitializationEndpointPrefix,
 
@@ -148,9 +166,12 @@ namespace Pulumi.AwsNative.MediaTailor
             CdnConfiguration = cdnConfiguration;
             ConfigurationAliases = configurationAliases;
             DashConfiguration = dashConfiguration;
+            HlsConfiguration = hlsConfiguration;
             LivePreRollConfiguration = livePreRollConfiguration;
             ManifestProcessingRules = manifestProcessingRules;
             PersonalizationThresholdSeconds = personalizationThresholdSeconds;
+            PlaybackConfigurationArn = playbackConfigurationArn;
+            PlaybackEndpointPrefix = playbackEndpointPrefix;
             SessionInitializationEndpointPrefix = sessionInitializationEndpointPrefix;
             SlateAdUrl = slateAdUrl;
             Tags = tags;

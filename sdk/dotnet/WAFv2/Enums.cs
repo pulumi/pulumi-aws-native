@@ -469,6 +469,70 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
     /// <summary>
+    /// The parts of the request to match against using the MatchPattern.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupMapMatchScope : IEquatable<RuleGroupMapMatchScope>
+    {
+        private readonly string _value;
+
+        private RuleGroupMapMatchScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupMapMatchScope All { get; } = new RuleGroupMapMatchScope("ALL");
+        public static RuleGroupMapMatchScope Key { get; } = new RuleGroupMapMatchScope("KEY");
+        public static RuleGroupMapMatchScope Value { get; } = new RuleGroupMapMatchScope("VALUE");
+
+        public static bool operator ==(RuleGroupMapMatchScope left, RuleGroupMapMatchScope right) => left.Equals(right);
+        public static bool operator !=(RuleGroupMapMatchScope left, RuleGroupMapMatchScope right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupMapMatchScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupMapMatchScope other && Equals(other);
+        public bool Equals(RuleGroupMapMatchScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Handling of requests containing oversize fields
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupOversizeHandling : IEquatable<RuleGroupOversizeHandling>
+    {
+        private readonly string _value;
+
+        private RuleGroupOversizeHandling(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupOversizeHandling Continue { get; } = new RuleGroupOversizeHandling("CONTINUE");
+        public static RuleGroupOversizeHandling Match { get; } = new RuleGroupOversizeHandling("MATCH");
+        public static RuleGroupOversizeHandling NoMatch { get; } = new RuleGroupOversizeHandling("NO_MATCH");
+
+        public static bool operator ==(RuleGroupOversizeHandling left, RuleGroupOversizeHandling right) => left.Equals(right);
+        public static bool operator !=(RuleGroupOversizeHandling left, RuleGroupOversizeHandling right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupOversizeHandling value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupOversizeHandling other && Equals(other);
+        public bool Equals(RuleGroupOversizeHandling other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Position of the evaluation in the FieldToMatch of request.
     /// </summary>
     [EnumType]
@@ -841,6 +905,70 @@ namespace Pulumi.AwsNative.WAFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebACLManagedRuleGroupConfigPayloadType other && Equals(other);
         public bool Equals(WebACLManagedRuleGroupConfigPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The parts of the request to match against using the MatchPattern.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebACLMapMatchScope : IEquatable<WebACLMapMatchScope>
+    {
+        private readonly string _value;
+
+        private WebACLMapMatchScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLMapMatchScope All { get; } = new WebACLMapMatchScope("ALL");
+        public static WebACLMapMatchScope Key { get; } = new WebACLMapMatchScope("KEY");
+        public static WebACLMapMatchScope Value { get; } = new WebACLMapMatchScope("VALUE");
+
+        public static bool operator ==(WebACLMapMatchScope left, WebACLMapMatchScope right) => left.Equals(right);
+        public static bool operator !=(WebACLMapMatchScope left, WebACLMapMatchScope right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLMapMatchScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLMapMatchScope other && Equals(other);
+        public bool Equals(WebACLMapMatchScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Handling of requests containing oversize fields
+    /// </summary>
+    [EnumType]
+    public readonly struct WebACLOversizeHandling : IEquatable<WebACLOversizeHandling>
+    {
+        private readonly string _value;
+
+        private WebACLOversizeHandling(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLOversizeHandling Continue { get; } = new WebACLOversizeHandling("CONTINUE");
+        public static WebACLOversizeHandling Match { get; } = new WebACLOversizeHandling("MATCH");
+        public static WebACLOversizeHandling NoMatch { get; } = new WebACLOversizeHandling("NO_MATCH");
+
+        public static bool operator ==(WebACLOversizeHandling left, WebACLOversizeHandling right) => left.Equals(right);
+        public static bool operator !=(WebACLOversizeHandling left, WebACLOversizeHandling right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLOversizeHandling value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLOversizeHandling other && Equals(other);
+        public bool Equals(WebACLOversizeHandling other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

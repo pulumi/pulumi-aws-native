@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Lightsail
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerTag> Tags;
+        /// <summary>
+        /// The name of the TLS policy to apply to the load balancer.
+        /// </summary>
+        public readonly string? TlsPolicyName;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
@@ -89,7 +93,9 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? sessionStickinessLBCookieDurationSeconds,
 
-            ImmutableArray<Outputs.LoadBalancerTag> tags)
+            ImmutableArray<Outputs.LoadBalancerTag> tags,
+
+            string? tlsPolicyName)
         {
             AttachedInstances = attachedInstances;
             HealthCheckPath = healthCheckPath;
@@ -97,6 +103,7 @@ namespace Pulumi.AwsNative.Lightsail
             SessionStickinessEnabled = sessionStickinessEnabled;
             SessionStickinessLBCookieDurationSeconds = sessionStickinessLBCookieDurationSeconds;
             Tags = tags;
+            TlsPolicyName = tlsPolicyName;
         }
     }
 }

@@ -12,10 +12,18 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::PlacementGroup
     /// </summary>
-    [Obsolete(@"PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:PlacementGroup")]
     public partial class PlacementGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Group Name of Placement Group.
+        /// </summary>
+        [Output("groupName")]
+        public Output<string> GroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The placement strategy.
+        /// </summary>
         [Output("strategy")]
         public Output<string?> Strategy { get; private set; } = null!;
 
@@ -64,6 +72,9 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class PlacementGroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The placement strategy.
+        /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }
 

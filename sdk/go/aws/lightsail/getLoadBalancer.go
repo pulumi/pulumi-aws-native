@@ -37,6 +37,8 @@ type LookupLoadBalancerResult struct {
 	SessionStickinessLBCookieDurationSeconds *string `pulumi:"sessionStickinessLBCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LoadBalancerTag `pulumi:"tags"`
+	// The name of the TLS policy to apply to the load balancer.
+	TlsPolicyName *string `pulumi:"tlsPolicyName"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -102,6 +104,11 @@ func (o LookupLoadBalancerResultOutput) SessionStickinessLBCookieDurationSeconds
 // An array of key-value pairs to apply to this resource.
 func (o LookupLoadBalancerResultOutput) Tags() LoadBalancerTagArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerTag { return v.Tags }).(LoadBalancerTagArrayOutput)
+}
+
+// The name of the TLS policy to apply to the load balancer.
+func (o LookupLoadBalancerResultOutput) TlsPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.TlsPolicyName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

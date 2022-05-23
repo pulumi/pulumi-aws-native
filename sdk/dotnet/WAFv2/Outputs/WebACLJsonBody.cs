@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Pulumi.AwsNative.WAFv2.WebACLBodyParsingFallbackBehavior? InvalidFallbackBehavior;
         public readonly Outputs.WebACLJsonMatchPattern MatchPattern;
         public readonly Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope MatchScope;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLOversizeHandling? OversizeHandling;
 
         [OutputConstructor]
         private WebACLJsonBody(
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLJsonMatchPattern matchPattern,
 
-            Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope matchScope)
+            Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope matchScope,
+
+            Pulumi.AwsNative.WAFv2.WebACLOversizeHandling? oversizeHandling)
         {
             InvalidFallbackBehavior = invalidFallbackBehavior;
             MatchPattern = matchPattern;
             MatchScope = matchScope;
+            OversizeHandling = oversizeHandling;
         }
     }
 }

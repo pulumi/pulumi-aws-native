@@ -28,6 +28,7 @@ export interface GetAutoScalingGroupResult {
     readonly capacityRebalance?: boolean;
     readonly context?: string;
     readonly cooldown?: string;
+    readonly defaultInstanceWarmup?: number;
     readonly desiredCapacity?: string;
     readonly desiredCapacityType?: string;
     readonly healthCheckGracePeriod?: number;

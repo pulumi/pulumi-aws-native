@@ -158,10 +158,13 @@ export type ResourceSpecificLoggingLogLevel = (typeof ResourceSpecificLoggingLog
 
 export const ResourceSpecificLoggingTargetType = {
     ThingGroup: "THING_GROUP",
+    ClientId: "CLIENT_ID",
+    SourceIp: "SOURCE_IP",
+    PrincipalId: "PRINCIPAL_ID",
 } as const;
 
 /**
- * The target type. Value must be THING_GROUP.
+ * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
  */
 export type ResourceSpecificLoggingTargetType = (typeof ResourceSpecificLoggingTargetType)[keyof typeof ResourceSpecificLoggingTargetType];
 

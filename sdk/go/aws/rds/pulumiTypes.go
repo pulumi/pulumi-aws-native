@@ -1750,6 +1750,115 @@ func (o DBSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) DBSubnetGroupTagOu
 	}).(DBSubnetGroupTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type EventSubscriptionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// EventSubscriptionTagInput is an input type that accepts EventSubscriptionTagArgs and EventSubscriptionTagOutput values.
+// You can construct a concrete instance of `EventSubscriptionTagInput` via:
+//
+//          EventSubscriptionTagArgs{...}
+type EventSubscriptionTagInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionTagOutput() EventSubscriptionTagOutput
+	ToEventSubscriptionTagOutputWithContext(context.Context) EventSubscriptionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type EventSubscriptionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventSubscriptionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionTag)(nil)).Elem()
+}
+
+func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutput() EventSubscriptionTagOutput {
+	return i.ToEventSubscriptionTagOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagOutput)
+}
+
+// EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
+//
+//          EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
+type EventSubscriptionTagArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionTagArrayOutput() EventSubscriptionTagArrayOutput
+	ToEventSubscriptionTagArrayOutputWithContext(context.Context) EventSubscriptionTagArrayOutput
+}
+
+type EventSubscriptionTagArray []EventSubscriptionTagInput
+
+func (EventSubscriptionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionTag)(nil)).Elem()
+}
+
+func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutput() EventSubscriptionTagArrayOutput {
+	return i.ToEventSubscriptionTagArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventSubscriptionTagOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionTag)(nil)).Elem()
+}
+
+func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutput() EventSubscriptionTagOutput {
+	return o
+}
+
+func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EventSubscriptionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EventSubscriptionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventSubscriptionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionTag)(nil)).Elem()
+}
+
+func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutput() EventSubscriptionTagArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscriptionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionTag {
+		return vs[0].([]EventSubscriptionTag)[vs[1].(int)]
+	}).(EventSubscriptionTagOutput)
+}
+
 type OptionGroupOptionConfiguration struct {
 	DBSecurityGroupMemberships  []string                   `pulumi:"dBSecurityGroupMemberships"`
 	OptionName                  string                     `pulumi:"optionName"`
@@ -2105,6 +2214,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupTagArrayInput)(nil)).Elem(), DBSecurityGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBSubnetGroupTagInput)(nil)).Elem(), DBSubnetGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBSubnetGroupTagArrayInput)(nil)).Elem(), DBSubnetGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationInput)(nil)).Elem(), OptionGroupOptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationArrayInput)(nil)).Elem(), OptionGroupOptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingInput)(nil)).Elem(), OptionGroupOptionSettingArgs{})
@@ -2141,6 +2252,8 @@ func init() {
 	pulumi.RegisterOutputType(DBSecurityGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(DBSubnetGroupTagOutput{})
 	pulumi.RegisterOutputType(DBSubnetGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionTagOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionTagArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionSettingOutput{})

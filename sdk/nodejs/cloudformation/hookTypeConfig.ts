@@ -48,7 +48,7 @@ export class HookTypeConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationArn!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the type version.
+     * The Amazon Resource Name (ARN) of the type without version number.
      */
     public readonly typeArn!: pulumi.Output<string | undefined>;
     /**
@@ -99,7 +99,7 @@ export interface HookTypeConfigArgs {
      */
     configurationAlias?: pulumi.Input<enums.cloudformation.HookTypeConfigConfigurationAlias>;
     /**
-     * The Amazon Resource Name (ARN) of the type version.
+     * The Amazon Resource Name (ARN) of the type without version number.
      */
     typeArn?: pulumi.Input<string>;
     /**

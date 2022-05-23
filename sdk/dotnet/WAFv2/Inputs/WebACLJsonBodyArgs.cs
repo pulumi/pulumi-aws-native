@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("matchScope", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope> MatchScope { get; set; } = null!;
 
+        [Input("oversizeHandling")]
+        public Input<Pulumi.AwsNative.WAFv2.WebACLOversizeHandling>? OversizeHandling { get; set; }
+
         public WebACLJsonBodyArgs()
         {
         }

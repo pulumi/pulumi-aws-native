@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::VPCPeeringConnection
- *
- * @deprecated VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VPCPeeringConnection extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class VPCPeeringConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VPCPeeringConnection {
-        pulumi.log.warn("VPCPeeringConnection is deprecated: VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VPCPeeringConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,11 +35,26 @@ export class VPCPeeringConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VPCPeeringConnection.__pulumiType;
     }
 
+    /**
+     * The AWS account ID of the owner of the accepter VPC.
+     */
     public readonly peerOwnerId!: pulumi.Output<string | undefined>;
+    /**
+     * The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+     */
     public readonly peerRegion!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+     */
     public readonly peerRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+     */
     public readonly peerVpcId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.VPCPeeringConnectionTag[] | undefined>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -52,9 +64,7 @@ export class VPCPeeringConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCPeeringConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VPCPeeringConnection is deprecated: VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -87,10 +97,25 @@ export class VPCPeeringConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a VPCPeeringConnection resource.
  */
 export interface VPCPeeringConnectionArgs {
+    /**
+     * The AWS account ID of the owner of the accepter VPC.
+     */
     peerOwnerId?: pulumi.Input<string>;
+    /**
+     * The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+     */
     peerRegion?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+     */
     peerRoleArn?: pulumi.Input<string>;
+    /**
+     * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+     */
     peerVpcId: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.VPCPeeringConnectionTagArgs>[]>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

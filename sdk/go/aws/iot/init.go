@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProvisioningTemplate{}
 	case "aws-native:iot:ResourceSpecificLogging":
 		r = &ResourceSpecificLogging{}
+	case "aws-native:iot:RoleAlias":
+		r = &RoleAlias{}
 	case "aws-native:iot:ScheduledAudit":
 		r = &ScheduledAudit{}
 	case "aws-native:iot:SecurityProfile":

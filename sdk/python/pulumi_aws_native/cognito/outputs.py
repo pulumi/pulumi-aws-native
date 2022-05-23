@@ -1615,13 +1615,12 @@ class UserPoolUsernameConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 case_sensitive: Optional[bool] = None):
-        if case_sensitive is not None:
-            pulumi.set(__self__, "case_sensitive", case_sensitive)
+                 case_sensitive: bool):
+        pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter(name="caseSensitive")
-    def case_sensitive(self) -> Optional[bool]:
+    def case_sensitive(self) -> bool:
         return pulumi.get(self, "case_sensitive")
 
 

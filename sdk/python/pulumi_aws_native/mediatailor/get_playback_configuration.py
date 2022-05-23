@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaybackConfigurationResult:
-    def __init__(__self__, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, live_pre_roll_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+    def __init__(__self__, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, hls_configuration=None, live_pre_roll_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
         if ad_decision_server_url and not isinstance(ad_decision_server_url, str):
             raise TypeError("Expected argument 'ad_decision_server_url' to be a str")
         pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
@@ -38,6 +38,9 @@ class GetPlaybackConfigurationResult:
         if dash_configuration and not isinstance(dash_configuration, dict):
             raise TypeError("Expected argument 'dash_configuration' to be a dict")
         pulumi.set(__self__, "dash_configuration", dash_configuration)
+        if hls_configuration and not isinstance(hls_configuration, dict):
+            raise TypeError("Expected argument 'hls_configuration' to be a dict")
+        pulumi.set(__self__, "hls_configuration", hls_configuration)
         if live_pre_roll_configuration and not isinstance(live_pre_roll_configuration, dict):
             raise TypeError("Expected argument 'live_pre_roll_configuration' to be a dict")
         pulumi.set(__self__, "live_pre_roll_configuration", live_pre_roll_configuration)
@@ -47,6 +50,12 @@ class GetPlaybackConfigurationResult:
         if personalization_threshold_seconds and not isinstance(personalization_threshold_seconds, int):
             raise TypeError("Expected argument 'personalization_threshold_seconds' to be a int")
         pulumi.set(__self__, "personalization_threshold_seconds", personalization_threshold_seconds)
+        if playback_configuration_arn and not isinstance(playback_configuration_arn, str):
+            raise TypeError("Expected argument 'playback_configuration_arn' to be a str")
+        pulumi.set(__self__, "playback_configuration_arn", playback_configuration_arn)
+        if playback_endpoint_prefix and not isinstance(playback_endpoint_prefix, str):
+            raise TypeError("Expected argument 'playback_endpoint_prefix' to be a str")
+        pulumi.set(__self__, "playback_endpoint_prefix", playback_endpoint_prefix)
         if session_initialization_endpoint_prefix and not isinstance(session_initialization_endpoint_prefix, str):
             raise TypeError("Expected argument 'session_initialization_endpoint_prefix' to be a str")
         pulumi.set(__self__, "session_initialization_endpoint_prefix", session_initialization_endpoint_prefix)
@@ -105,11 +114,19 @@ class GetPlaybackConfigurationResult:
 
     @property
     @pulumi.getter(name="dashConfiguration")
-    def dash_configuration(self) -> Optional['outputs.PlaybackConfigurationDashConfigurationForPut']:
+    def dash_configuration(self) -> Optional['outputs.PlaybackConfigurationDashConfiguration']:
         """
         The configuration for DASH content.
         """
         return pulumi.get(self, "dash_configuration")
+
+    @property
+    @pulumi.getter(name="hlsConfiguration")
+    def hls_configuration(self) -> Optional['outputs.PlaybackConfigurationHlsConfiguration']:
+        """
+        The configuration for HLS content.
+        """
+        return pulumi.get(self, "hls_configuration")
 
     @property
     @pulumi.getter(name="livePreRollConfiguration")
@@ -134,6 +151,22 @@ class GetPlaybackConfigurationResult:
         Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         """
         return pulumi.get(self, "personalization_threshold_seconds")
+
+    @property
+    @pulumi.getter(name="playbackConfigurationArn")
+    def playback_configuration_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the playback configuration.
+        """
+        return pulumi.get(self, "playback_configuration_arn")
+
+    @property
+    @pulumi.getter(name="playbackEndpointPrefix")
+    def playback_endpoint_prefix(self) -> Optional[str]:
+        """
+        The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+        """
+        return pulumi.get(self, "playback_endpoint_prefix")
 
     @property
     @pulumi.getter(name="sessionInitializationEndpointPrefix")
@@ -188,9 +221,12 @@ class AwaitableGetPlaybackConfigurationResult(GetPlaybackConfigurationResult):
             cdn_configuration=self.cdn_configuration,
             configuration_aliases=self.configuration_aliases,
             dash_configuration=self.dash_configuration,
+            hls_configuration=self.hls_configuration,
             live_pre_roll_configuration=self.live_pre_roll_configuration,
             manifest_processing_rules=self.manifest_processing_rules,
             personalization_threshold_seconds=self.personalization_threshold_seconds,
+            playback_configuration_arn=self.playback_configuration_arn,
+            playback_endpoint_prefix=self.playback_endpoint_prefix,
             session_initialization_endpoint_prefix=self.session_initialization_endpoint_prefix,
             slate_ad_url=self.slate_ad_url,
             tags=self.tags,
@@ -221,9 +257,12 @@ def get_playback_configuration(name: Optional[str] = None,
         cdn_configuration=__ret__.cdn_configuration,
         configuration_aliases=__ret__.configuration_aliases,
         dash_configuration=__ret__.dash_configuration,
+        hls_configuration=__ret__.hls_configuration,
         live_pre_roll_configuration=__ret__.live_pre_roll_configuration,
         manifest_processing_rules=__ret__.manifest_processing_rules,
         personalization_threshold_seconds=__ret__.personalization_threshold_seconds,
+        playback_configuration_arn=__ret__.playback_configuration_arn,
+        playback_endpoint_prefix=__ret__.playback_endpoint_prefix,
         session_initialization_endpoint_prefix=__ret__.session_initialization_endpoint_prefix,
         slate_ad_url=__ret__.slate_ad_url,
         tags=__ret__.tags,

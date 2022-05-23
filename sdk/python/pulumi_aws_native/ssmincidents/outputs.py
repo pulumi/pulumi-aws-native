@@ -15,6 +15,8 @@ __all__ = [
     'ReplicationSetReplicationRegion',
     'ResponsePlanAction',
     'ResponsePlanChatChannel',
+    'ResponsePlanDynamicSsmParameter',
+    'ResponsePlanDynamicSsmParameterValue',
     'ResponsePlanIncidentTemplate',
     'ResponsePlanNotificationTargetItem',
     'ResponsePlanSsmAutomation',
@@ -176,6 +178,50 @@ class ResponsePlanChatChannel(dict):
 
 
 @pulumi.output_type
+class ResponsePlanDynamicSsmParameter(dict):
+    """
+    A parameter with a dynamic value to set when starting the SSM automation document.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: 'outputs.ResponsePlanDynamicSsmParameterValue'):
+        """
+        A parameter with a dynamic value to set when starting the SSM automation document.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.ResponsePlanDynamicSsmParameterValue':
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ResponsePlanDynamicSsmParameterValue(dict):
+    """
+    Value of the dynamic parameter to set when starting the SSM automation document.
+    """
+    def __init__(__self__, *,
+                 variable: Optional['ResponsePlanVariableType'] = None):
+        """
+        Value of the dynamic parameter to set when starting the SSM automation document.
+        """
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional['ResponsePlanVariableType']:
+        return pulumi.get(self, "variable")
+
+
+@pulumi.output_type
 class ResponsePlanIncidentTemplate(dict):
     """
     The incident template configuration.
@@ -313,6 +359,8 @@ class ResponsePlanSsmAutomation(dict):
             suggest = "role_arn"
         elif key == "documentVersion":
             suggest = "document_version"
+        elif key == "dynamicParameters":
+            suggest = "dynamic_parameters"
         elif key == "targetAccount":
             suggest = "target_account"
 
@@ -331,6 +379,7 @@ class ResponsePlanSsmAutomation(dict):
                  document_name: str,
                  role_arn: str,
                  document_version: Optional[str] = None,
+                 dynamic_parameters: Optional[Sequence['outputs.ResponsePlanDynamicSsmParameter']] = None,
                  parameters: Optional[Sequence['outputs.ResponsePlanSsmParameter']] = None,
                  target_account: Optional['ResponsePlanSsmAutomationTargetAccount'] = None):
         """
@@ -338,6 +387,7 @@ class ResponsePlanSsmAutomation(dict):
         :param str document_name: The document name to use when starting the SSM automation document.
         :param str role_arn: The role ARN to use when starting the SSM automation document.
         :param str document_version: The version of the document to use when starting the SSM automation document.
+        :param Sequence['ResponsePlanDynamicSsmParameter'] dynamic_parameters: The parameters with dynamic values to set when starting the SSM automation document.
         :param Sequence['ResponsePlanSsmParameter'] parameters: The parameters to set when starting the SSM automation document.
         :param 'ResponsePlanSsmAutomationTargetAccount' target_account: The account type to use when starting the SSM automation document.
         """
@@ -345,6 +395,8 @@ class ResponsePlanSsmAutomation(dict):
         pulumi.set(__self__, "role_arn", role_arn)
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
+        if dynamic_parameters is not None:
+            pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if target_account is not None:
@@ -373,6 +425,14 @@ class ResponsePlanSsmAutomation(dict):
         The version of the document to use when starting the SSM automation document.
         """
         return pulumi.get(self, "document_version")
+
+    @property
+    @pulumi.getter(name="dynamicParameters")
+    def dynamic_parameters(self) -> Optional[Sequence['outputs.ResponsePlanDynamicSsmParameter']]:
+        """
+        The parameters with dynamic values to set when starting the SSM automation document.
+        """
+        return pulumi.get(self, "dynamic_parameters")
 
     @property
     @pulumi.getter

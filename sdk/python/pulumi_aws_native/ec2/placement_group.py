@@ -16,6 +16,7 @@ class PlacementGroupArgs:
                  strategy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
+        :param pulumi.Input[str] strategy: The placement strategy.
         """
         if strategy is not None:
             pulumi.set(__self__, "strategy", strategy)
@@ -23,6 +24,9 @@ class PlacementGroupArgs:
     @property
     @pulumi.getter
     def strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The placement strategy.
+        """
         return pulumi.get(self, "strategy")
 
     @strategy.setter
@@ -30,12 +34,7 @@ class PlacementGroupArgs:
         pulumi.set(self, "strategy", value)
 
 
-warnings.warn("""PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class PlacementGroup(pulumi.CustomResource):
-    warnings.warn("""PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -47,6 +46,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] strategy: The placement strategy.
         """
         ...
     @overload
@@ -74,7 +74,6 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PlacementGroup is deprecated: PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -87,6 +86,7 @@ class PlacementGroup(pulumi.CustomResource):
             __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
             __props__.__dict__["strategy"] = strategy
+            __props__.__dict__["group_name"] = None
         super(PlacementGroup, __self__).__init__(
             'aws-native:ec2:PlacementGroup',
             resource_name,
@@ -109,11 +109,23 @@ class PlacementGroup(pulumi.CustomResource):
 
         __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
+        __props__.__dict__["group_name"] = None
         __props__.__dict__["strategy"] = None
         return PlacementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Output[str]:
+        """
+        The Group Name of Placement Group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @property
     @pulumi.getter
     def strategy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The placement strategy.
+        """
         return pulumi.get(self, "strategy")
 

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
             set => _attributes = value;
         }
 
+        [Input("ipPreference")]
+        public Input<string>? IpPreference { get; set; }
+
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 

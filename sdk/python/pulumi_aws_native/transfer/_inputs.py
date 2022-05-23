@@ -154,9 +154,12 @@ class ServerIdentityProviderDetailsArgs:
 class ServerProtocolDetailsArgs:
     def __init__(__self__, *,
                  passive_ip: Optional[pulumi.Input[str]] = None,
+                 set_stat_option: Optional[pulumi.Input[str]] = None,
                  tls_session_resumption_mode: Optional[pulumi.Input[str]] = None):
         if passive_ip is not None:
             pulumi.set(__self__, "passive_ip", passive_ip)
+        if set_stat_option is not None:
+            pulumi.set(__self__, "set_stat_option", set_stat_option)
         if tls_session_resumption_mode is not None:
             pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
 
@@ -168,6 +171,15 @@ class ServerProtocolDetailsArgs:
     @passive_ip.setter
     def passive_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "passive_ip", value)
+
+    @property
+    @pulumi.getter(name="setStatOption")
+    def set_stat_option(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "set_stat_option")
+
+    @set_stat_option.setter
+    def set_stat_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "set_stat_option", value)
 
     @property
     @pulumi.getter(name="tlsSessionResumptionMode")

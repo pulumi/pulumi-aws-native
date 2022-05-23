@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCanaryResult:
-    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, start_canary_after_creation=None, state=None, success_retention_period=None, tags=None, v_pc_config=None, visual_reference=None):
+    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, delete_lambda_resources_on_canary_deletion=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, start_canary_after_creation=None, state=None, success_retention_period=None, tags=None, v_pc_config=None, visual_reference=None):
         if artifact_config and not isinstance(artifact_config, dict):
             raise TypeError("Expected argument 'artifact_config' to be a dict")
         pulumi.set(__self__, "artifact_config", artifact_config)
@@ -28,6 +28,9 @@ class GetCanaryResult:
         if code and not isinstance(code, dict):
             raise TypeError("Expected argument 'code' to be a dict")
         pulumi.set(__self__, "code", code)
+        if delete_lambda_resources_on_canary_deletion and not isinstance(delete_lambda_resources_on_canary_deletion, bool):
+            raise TypeError("Expected argument 'delete_lambda_resources_on_canary_deletion' to be a bool")
+        pulumi.set(__self__, "delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
         if execution_role_arn and not isinstance(execution_role_arn, str):
             raise TypeError("Expected argument 'execution_role_arn' to be a str")
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -88,6 +91,14 @@ class GetCanaryResult:
         Provide the canary script source
         """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="deleteLambdaResourcesOnCanaryDeletion")
+    def delete_lambda_resources_on_canary_deletion(self) -> Optional[bool]:
+        """
+        Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        """
+        return pulumi.get(self, "delete_lambda_resources_on_canary_deletion")
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -192,6 +203,7 @@ class AwaitableGetCanaryResult(GetCanaryResult):
             artifact_config=self.artifact_config,
             artifact_s3_location=self.artifact_s3_location,
             code=self.code,
+            delete_lambda_resources_on_canary_deletion=self.delete_lambda_resources_on_canary_deletion,
             execution_role_arn=self.execution_role_arn,
             failure_retention_period=self.failure_retention_period,
             id=self.id,
@@ -226,6 +238,7 @@ def get_canary(name: Optional[str] = None,
         artifact_config=__ret__.artifact_config,
         artifact_s3_location=__ret__.artifact_s3_location,
         code=__ret__.code,
+        delete_lambda_resources_on_canary_deletion=__ret__.delete_lambda_resources_on_canary_deletion,
         execution_role_arn=__ret__.execution_role_arn,
         failure_retention_period=__ret__.failure_retention_period,
         id=__ret__.id,

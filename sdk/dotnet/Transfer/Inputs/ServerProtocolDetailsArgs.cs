@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("passiveIp")]
         public Input<string>? PassiveIp { get; set; }
 
+        [Input("setStatOption")]
+        public Input<string>? SetStatOption { get; set; }
+
         [Input("tlsSessionResumptionMode")]
         public Input<string>? TlsSessionResumptionMode { get; set; }
 

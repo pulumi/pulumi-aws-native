@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string> ConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the type version.
+        /// The Amazon Resource Name (ARN) of the type without version number.
         /// </summary>
         [Output("typeArn")]
         public Output<string?> TypeArn { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Input<Pulumi.AwsNative.CloudFormation.HookTypeConfigConfigurationAlias>? ConfigurationAlias { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the type version.
+        /// The Amazon Resource Name (ARN) of the type without version number.
         /// </summary>
         [Input("typeArn")]
         public Input<string>? TypeArn { get; set; }

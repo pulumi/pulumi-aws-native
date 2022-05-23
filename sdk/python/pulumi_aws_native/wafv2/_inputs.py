@@ -22,8 +22,11 @@ __all__ = [
     'LoggingFilterPropertiesArgs',
     'RegexPatternSetTagArgs',
     'RuleGroupAndStatementArgs',
+    'RuleGroupBodyArgs',
     'RuleGroupByteMatchStatementArgs',
     'RuleGroupCaptchaConfigArgs',
+    'RuleGroupCookieMatchPatternArgs',
+    'RuleGroupCookiesArgs',
     'RuleGroupCustomHTTPHeaderArgs',
     'RuleGroupCustomRequestHandlingArgs',
     'RuleGroupCustomResponseBodiesArgs',
@@ -33,6 +36,8 @@ __all__ = [
     'RuleGroupFieldToMatchArgs',
     'RuleGroupForwardedIPConfigurationArgs',
     'RuleGroupGeoMatchStatementArgs',
+    'RuleGroupHeaderMatchPatternArgs',
+    'RuleGroupHeadersArgs',
     'RuleGroupIPSetForwardedIPConfigurationArgs',
     'RuleGroupIPSetReferenceStatementArgs',
     'RuleGroupImmunityTimePropertyArgs',
@@ -61,9 +66,12 @@ __all__ = [
     'WebACLAllowActionArgs',
     'WebACLAndStatementArgs',
     'WebACLBlockActionArgs',
+    'WebACLBodyArgs',
     'WebACLByteMatchStatementArgs',
     'WebACLCaptchaActionArgs',
     'WebACLCaptchaConfigArgs',
+    'WebACLCookieMatchPatternArgs',
+    'WebACLCookiesArgs',
     'WebACLCountActionArgs',
     'WebACLCustomHTTPHeaderArgs',
     'WebACLCustomRequestHandlingArgs',
@@ -77,6 +85,8 @@ __all__ = [
     'WebACLFieldToMatchArgs',
     'WebACLForwardedIPConfigurationArgs',
     'WebACLGeoMatchStatementArgs',
+    'WebACLHeaderMatchPatternArgs',
+    'WebACLHeadersArgs',
     'WebACLIPSetForwardedIPConfigurationArgs',
     'WebACLIPSetReferenceStatementArgs',
     'WebACLImmunityTimePropertyArgs',
@@ -559,6 +569,26 @@ class RuleGroupAndStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupBodyArgs:
+    def __init__(__self__, *,
+                 oversize_handling: Optional[pulumi.Input['RuleGroupOversizeHandling']] = None):
+        """
+        The body of a web request. This immediately follows the request headers.
+        """
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional[pulumi.Input['RuleGroupOversizeHandling']]:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: Optional[pulumi.Input['RuleGroupOversizeHandling']]):
+        pulumi.set(self, "oversize_handling", value)
+
+
+@pulumi.input_type
 class RuleGroupByteMatchStatementArgs:
     def __init__(__self__, *,
                  field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
@@ -638,6 +668,95 @@ class RuleGroupCaptchaConfigArgs:
     @immunity_time_property.setter
     def immunity_time_property(self, value: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
+
+
+@pulumi.input_type
+class RuleGroupCookieMatchPatternArgs:
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The pattern to look for in the request cookies.
+        :param Any all: Inspect all parts of the web request cookies.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_cookies is not None:
+            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+        if included_cookies is not None:
+            pulumi.set(__self__, "included_cookies", included_cookies)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request cookies.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[Any]):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter(name="excludedCookies")
+    def excluded_cookies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_cookies")
+
+    @excluded_cookies.setter
+    def excluded_cookies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_cookies", value)
+
+    @property
+    @pulumi.getter(name="includedCookies")
+    def included_cookies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "included_cookies")
+
+    @included_cookies.setter
+    def included_cookies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_cookies", value)
+
+
+@pulumi.input_type
+class RuleGroupCookiesArgs:
+    def __init__(__self__, *,
+                 match_pattern: pulumi.Input['RuleGroupCookieMatchPatternArgs'],
+                 match_scope: pulumi.Input['RuleGroupMapMatchScope'],
+                 oversize_handling: pulumi.Input['RuleGroupOversizeHandling']):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> pulumi.Input['RuleGroupCookieMatchPatternArgs']:
+        return pulumi.get(self, "match_pattern")
+
+    @match_pattern.setter
+    def match_pattern(self, value: pulumi.Input['RuleGroupCookieMatchPatternArgs']):
+        pulumi.set(self, "match_pattern", value)
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> pulumi.Input['RuleGroupMapMatchScope']:
+        return pulumi.get(self, "match_scope")
+
+    @match_scope.setter
+    def match_scope(self, value: pulumi.Input['RuleGroupMapMatchScope']):
+        pulumi.set(self, "match_scope", value)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> pulumi.Input['RuleGroupOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: pulumi.Input['RuleGroupOversizeHandling']):
+        pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
@@ -792,7 +911,9 @@ class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs:
 class RuleGroupFieldToMatchArgs:
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
-                 body: Optional[Any] = None,
+                 body: Optional[pulumi.Input['RuleGroupBodyArgs']] = None,
+                 cookies: Optional[pulumi.Input['RuleGroupCookiesArgs']] = None,
+                 headers: Optional[pulumi.Input['RuleGroupHeadersArgs']] = None,
                  json_body: Optional[pulumi.Input['RuleGroupJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -802,7 +923,6 @@ class RuleGroupFieldToMatchArgs:
         """
         Field of the request to match.
         :param Any all_query_arguments: All query arguments of a web request.
-        :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         :param pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs'] single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
@@ -812,6 +932,10 @@ class RuleGroupFieldToMatchArgs:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -839,15 +963,30 @@ class RuleGroupFieldToMatchArgs:
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[Any]:
-        """
-        The body of a web request. This immediately follows the request headers.
-        """
+    def body(self) -> Optional[pulumi.Input['RuleGroupBodyArgs']]:
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[Any]):
+    def body(self, value: Optional[pulumi.Input['RuleGroupBodyArgs']]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional[pulumi.Input['RuleGroupCookiesArgs']]:
+        return pulumi.get(self, "cookies")
+
+    @cookies.setter
+    def cookies(self, value: Optional[pulumi.Input['RuleGroupCookiesArgs']]):
+        pulumi.set(self, "cookies", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['RuleGroupHeadersArgs']]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['RuleGroupHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -973,6 +1112,95 @@ class RuleGroupGeoMatchStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupHeaderMatchPatternArgs:
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The pattern to look for in the request headers.
+        :param Any all: Inspect all parts of the web request headers.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_headers is not None:
+            pulumi.set(__self__, "excluded_headers", excluded_headers)
+        if included_headers is not None:
+            pulumi.set(__self__, "included_headers", included_headers)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request headers.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[Any]):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter(name="excludedHeaders")
+    def excluded_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_headers")
+
+    @excluded_headers.setter
+    def excluded_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_headers", value)
+
+    @property
+    @pulumi.getter(name="includedHeaders")
+    def included_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "included_headers")
+
+    @included_headers.setter
+    def included_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_headers", value)
+
+
+@pulumi.input_type
+class RuleGroupHeadersArgs:
+    def __init__(__self__, *,
+                 match_pattern: pulumi.Input['RuleGroupHeaderMatchPatternArgs'],
+                 match_scope: pulumi.Input['RuleGroupMapMatchScope'],
+                 oversize_handling: pulumi.Input['RuleGroupOversizeHandling']):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> pulumi.Input['RuleGroupHeaderMatchPatternArgs']:
+        return pulumi.get(self, "match_pattern")
+
+    @match_pattern.setter
+    def match_pattern(self, value: pulumi.Input['RuleGroupHeaderMatchPatternArgs']):
+        pulumi.set(self, "match_pattern", value)
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> pulumi.Input['RuleGroupMapMatchScope']:
+        return pulumi.get(self, "match_scope")
+
+    @match_scope.setter
+    def match_scope(self, value: pulumi.Input['RuleGroupMapMatchScope']):
+        pulumi.set(self, "match_scope", value)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> pulumi.Input['RuleGroupOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: pulumi.Input['RuleGroupOversizeHandling']):
+        pulumi.set(self, "oversize_handling", value)
+
+
+@pulumi.input_type
 class RuleGroupIPSetForwardedIPConfigurationArgs:
     def __init__(__self__, *,
                  fallback_behavior: pulumi.Input['RuleGroupIPSetForwardedIPConfigurationFallbackBehavior'],
@@ -1059,7 +1287,8 @@ class RuleGroupJsonBodyArgs:
     def __init__(__self__, *,
                  match_pattern: pulumi.Input['RuleGroupJsonMatchPatternArgs'],
                  match_scope: pulumi.Input['RuleGroupJsonMatchScope'],
-                 invalid_fallback_behavior: Optional[pulumi.Input['RuleGroupBodyParsingFallbackBehavior']] = None):
+                 invalid_fallback_behavior: Optional[pulumi.Input['RuleGroupBodyParsingFallbackBehavior']] = None,
+                 oversize_handling: Optional[pulumi.Input['RuleGroupOversizeHandling']] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -1067,6 +1296,8 @@ class RuleGroupJsonBodyArgs:
         pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
             pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -1094,6 +1325,15 @@ class RuleGroupJsonBodyArgs:
     @invalid_fallback_behavior.setter
     def invalid_fallback_behavior(self, value: Optional[pulumi.Input['RuleGroupBodyParsingFallbackBehavior']]):
         pulumi.set(self, "invalid_fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional[pulumi.Input['RuleGroupOversizeHandling']]:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: Optional[pulumi.Input['RuleGroupOversizeHandling']]):
+        pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
@@ -2011,6 +2251,26 @@ class WebACLBlockActionArgs:
 
 
 @pulumi.input_type
+class WebACLBodyArgs:
+    def __init__(__self__, *,
+                 oversize_handling: Optional[pulumi.Input['WebACLOversizeHandling']] = None):
+        """
+        The body of a web request. This immediately follows the request headers.
+        """
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional[pulumi.Input['WebACLOversizeHandling']]:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: Optional[pulumi.Input['WebACLOversizeHandling']]):
+        pulumi.set(self, "oversize_handling", value)
+
+
+@pulumi.input_type
 class WebACLByteMatchStatementArgs:
     def __init__(__self__, *,
                  field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
@@ -2110,6 +2370,95 @@ class WebACLCaptchaConfigArgs:
     @immunity_time_property.setter
     def immunity_time_property(self, value: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
+
+
+@pulumi.input_type
+class WebACLCookieMatchPatternArgs:
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The pattern to look for in the request cookies.
+        :param Any all: Inspect all parts of the web request cookies.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_cookies is not None:
+            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+        if included_cookies is not None:
+            pulumi.set(__self__, "included_cookies", included_cookies)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request cookies.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[Any]):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter(name="excludedCookies")
+    def excluded_cookies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_cookies")
+
+    @excluded_cookies.setter
+    def excluded_cookies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_cookies", value)
+
+    @property
+    @pulumi.getter(name="includedCookies")
+    def included_cookies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "included_cookies")
+
+    @included_cookies.setter
+    def included_cookies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_cookies", value)
+
+
+@pulumi.input_type
+class WebACLCookiesArgs:
+    def __init__(__self__, *,
+                 match_pattern: pulumi.Input['WebACLCookieMatchPatternArgs'],
+                 match_scope: pulumi.Input['WebACLMapMatchScope'],
+                 oversize_handling: pulumi.Input['WebACLOversizeHandling']):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> pulumi.Input['WebACLCookieMatchPatternArgs']:
+        return pulumi.get(self, "match_pattern")
+
+    @match_pattern.setter
+    def match_pattern(self, value: pulumi.Input['WebACLCookieMatchPatternArgs']):
+        pulumi.set(self, "match_pattern", value)
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> pulumi.Input['WebACLMapMatchScope']:
+        return pulumi.get(self, "match_scope")
+
+    @match_scope.setter
+    def match_scope(self, value: pulumi.Input['WebACLMapMatchScope']):
+        pulumi.set(self, "match_scope", value)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> pulumi.Input['WebACLOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: pulumi.Input['WebACLOversizeHandling']):
+        pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type
@@ -2351,7 +2700,9 @@ class WebACLFieldToMatchSingleQueryArgumentPropertiesArgs:
 class WebACLFieldToMatchArgs:
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
-                 body: Optional[Any] = None,
+                 body: Optional[pulumi.Input['WebACLBodyArgs']] = None,
+                 cookies: Optional[pulumi.Input['WebACLCookiesArgs']] = None,
+                 headers: Optional[pulumi.Input['WebACLHeadersArgs']] = None,
                  json_body: Optional[pulumi.Input['WebACLJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -2361,7 +2712,6 @@ class WebACLFieldToMatchArgs:
         """
         Field of the request to match.
         :param Any all_query_arguments: All query arguments of a web request.
-        :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         :param pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs'] single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
@@ -2371,6 +2721,10 @@ class WebACLFieldToMatchArgs:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -2398,15 +2752,30 @@ class WebACLFieldToMatchArgs:
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[Any]:
-        """
-        The body of a web request. This immediately follows the request headers.
-        """
+    def body(self) -> Optional[pulumi.Input['WebACLBodyArgs']]:
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[Any]):
+    def body(self, value: Optional[pulumi.Input['WebACLBodyArgs']]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional[pulumi.Input['WebACLCookiesArgs']]:
+        return pulumi.get(self, "cookies")
+
+    @cookies.setter
+    def cookies(self, value: Optional[pulumi.Input['WebACLCookiesArgs']]):
+        pulumi.set(self, "cookies", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WebACLHeadersArgs']]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WebACLHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -2532,6 +2901,95 @@ class WebACLGeoMatchStatementArgs:
 
 
 @pulumi.input_type
+class WebACLHeaderMatchPatternArgs:
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The pattern to look for in the request headers.
+        :param Any all: Inspect all parts of the web request headers.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_headers is not None:
+            pulumi.set(__self__, "excluded_headers", excluded_headers)
+        if included_headers is not None:
+            pulumi.set(__self__, "included_headers", included_headers)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request headers.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[Any]):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter(name="excludedHeaders")
+    def excluded_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_headers")
+
+    @excluded_headers.setter
+    def excluded_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_headers", value)
+
+    @property
+    @pulumi.getter(name="includedHeaders")
+    def included_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "included_headers")
+
+    @included_headers.setter
+    def included_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_headers", value)
+
+
+@pulumi.input_type
+class WebACLHeadersArgs:
+    def __init__(__self__, *,
+                 match_pattern: pulumi.Input['WebACLHeaderMatchPatternArgs'],
+                 match_scope: pulumi.Input['WebACLMapMatchScope'],
+                 oversize_handling: pulumi.Input['WebACLOversizeHandling']):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> pulumi.Input['WebACLHeaderMatchPatternArgs']:
+        return pulumi.get(self, "match_pattern")
+
+    @match_pattern.setter
+    def match_pattern(self, value: pulumi.Input['WebACLHeaderMatchPatternArgs']):
+        pulumi.set(self, "match_pattern", value)
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> pulumi.Input['WebACLMapMatchScope']:
+        return pulumi.get(self, "match_scope")
+
+    @match_scope.setter
+    def match_scope(self, value: pulumi.Input['WebACLMapMatchScope']):
+        pulumi.set(self, "match_scope", value)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> pulumi.Input['WebACLOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: pulumi.Input['WebACLOversizeHandling']):
+        pulumi.set(self, "oversize_handling", value)
+
+
+@pulumi.input_type
 class WebACLIPSetForwardedIPConfigurationArgs:
     def __init__(__self__, *,
                  fallback_behavior: pulumi.Input['WebACLIPSetForwardedIPConfigurationFallbackBehavior'],
@@ -2618,7 +3076,8 @@ class WebACLJsonBodyArgs:
     def __init__(__self__, *,
                  match_pattern: pulumi.Input['WebACLJsonMatchPatternArgs'],
                  match_scope: pulumi.Input['WebACLJsonMatchScope'],
-                 invalid_fallback_behavior: Optional[pulumi.Input['WebACLBodyParsingFallbackBehavior']] = None):
+                 invalid_fallback_behavior: Optional[pulumi.Input['WebACLBodyParsingFallbackBehavior']] = None,
+                 oversize_handling: Optional[pulumi.Input['WebACLOversizeHandling']] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -2626,6 +3085,8 @@ class WebACLJsonBodyArgs:
         pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
             pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -2653,6 +3114,15 @@ class WebACLJsonBodyArgs:
     @invalid_fallback_behavior.setter
     def invalid_fallback_behavior(self, value: Optional[pulumi.Input['WebACLBodyParsingFallbackBehavior']]):
         pulumi.set(self, "invalid_fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional[pulumi.Input['WebACLOversizeHandling']]:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: Optional[pulumi.Input['WebACLOversizeHandling']]):
+        pulumi.set(self, "oversize_handling", value)
 
 
 @pulumi.input_type

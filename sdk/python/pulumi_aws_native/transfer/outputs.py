@@ -172,6 +172,8 @@ class ServerProtocolDetails(dict):
         suggest = None
         if key == "passiveIp":
             suggest = "passive_ip"
+        elif key == "setStatOption":
+            suggest = "set_stat_option"
         elif key == "tlsSessionResumptionMode":
             suggest = "tls_session_resumption_mode"
 
@@ -188,9 +190,12 @@ class ServerProtocolDetails(dict):
 
     def __init__(__self__, *,
                  passive_ip: Optional[str] = None,
+                 set_stat_option: Optional[str] = None,
                  tls_session_resumption_mode: Optional[str] = None):
         if passive_ip is not None:
             pulumi.set(__self__, "passive_ip", passive_ip)
+        if set_stat_option is not None:
+            pulumi.set(__self__, "set_stat_option", set_stat_option)
         if tls_session_resumption_mode is not None:
             pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
 
@@ -198,6 +203,11 @@ class ServerProtocolDetails(dict):
     @pulumi.getter(name="passiveIp")
     def passive_ip(self) -> Optional[str]:
         return pulumi.get(self, "passive_ip")
+
+    @property
+    @pulumi.getter(name="setStatOption")
+    def set_stat_option(self) -> Optional[str]:
+        return pulumi.get(self, "set_stat_option")
 
     @property
     @pulumi.getter(name="tlsSessionResumptionMode")

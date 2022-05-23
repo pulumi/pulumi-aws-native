@@ -4311,6 +4311,115 @@ func (o ProvisioningTemplateTagArrayOutput) Index(i pulumi.IntInput) Provisionin
 }
 
 // A key-value pair to associate with a resource.
+type RoleAliasTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RoleAliasTagInput is an input type that accepts RoleAliasTagArgs and RoleAliasTagOutput values.
+// You can construct a concrete instance of `RoleAliasTagInput` via:
+//
+//          RoleAliasTagArgs{...}
+type RoleAliasTagInput interface {
+	pulumi.Input
+
+	ToRoleAliasTagOutput() RoleAliasTagOutput
+	ToRoleAliasTagOutputWithContext(context.Context) RoleAliasTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RoleAliasTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RoleAliasTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAliasTag)(nil)).Elem()
+}
+
+func (i RoleAliasTagArgs) ToRoleAliasTagOutput() RoleAliasTagOutput {
+	return i.ToRoleAliasTagOutputWithContext(context.Background())
+}
+
+func (i RoleAliasTagArgs) ToRoleAliasTagOutputWithContext(ctx context.Context) RoleAliasTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasTagOutput)
+}
+
+// RoleAliasTagArrayInput is an input type that accepts RoleAliasTagArray and RoleAliasTagArrayOutput values.
+// You can construct a concrete instance of `RoleAliasTagArrayInput` via:
+//
+//          RoleAliasTagArray{ RoleAliasTagArgs{...} }
+type RoleAliasTagArrayInput interface {
+	pulumi.Input
+
+	ToRoleAliasTagArrayOutput() RoleAliasTagArrayOutput
+	ToRoleAliasTagArrayOutputWithContext(context.Context) RoleAliasTagArrayOutput
+}
+
+type RoleAliasTagArray []RoleAliasTagInput
+
+func (RoleAliasTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleAliasTag)(nil)).Elem()
+}
+
+func (i RoleAliasTagArray) ToRoleAliasTagArrayOutput() RoleAliasTagArrayOutput {
+	return i.ToRoleAliasTagArrayOutputWithContext(context.Background())
+}
+
+func (i RoleAliasTagArray) ToRoleAliasTagArrayOutputWithContext(ctx context.Context) RoleAliasTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RoleAliasTagOutput struct{ *pulumi.OutputState }
+
+func (RoleAliasTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAliasTag)(nil)).Elem()
+}
+
+func (o RoleAliasTagOutput) ToRoleAliasTagOutput() RoleAliasTagOutput {
+	return o
+}
+
+func (o RoleAliasTagOutput) ToRoleAliasTagOutputWithContext(ctx context.Context) RoleAliasTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RoleAliasTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAliasTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RoleAliasTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAliasTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RoleAliasTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleAliasTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleAliasTag)(nil)).Elem()
+}
+
+func (o RoleAliasTagArrayOutput) ToRoleAliasTagArrayOutput() RoleAliasTagArrayOutput {
+	return o
+}
+
+func (o RoleAliasTagArrayOutput) ToRoleAliasTagArrayOutputWithContext(ctx context.Context) RoleAliasTagArrayOutput {
+	return o
+}
+
+func (o RoleAliasTagArrayOutput) Index(i pulumi.IntInput) RoleAliasTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleAliasTag {
+		return vs[0].([]RoleAliasTag)[vs[1].(int)]
+	}).(RoleAliasTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type ScheduledAuditTag struct {
 	// The tag's key.
 	Key string `pulumi:"key"`
@@ -11867,6 +11976,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateProvisioningHookPtrInput)(nil)).Elem(), ProvisioningTemplateProvisioningHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateTagInput)(nil)).Elem(), ProvisioningTemplateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateTagArrayInput)(nil)).Elem(), ProvisioningTemplateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasTagInput)(nil)).Elem(), RoleAliasTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasTagArrayInput)(nil)).Elem(), RoleAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAuditTagInput)(nil)).Elem(), ScheduledAuditTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAuditTagArrayInput)(nil)).Elem(), ScheduledAuditTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileBehaviorInput)(nil)).Elem(), SecurityProfileBehaviorArgs{})
@@ -12021,6 +12132,8 @@ func init() {
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateTagOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateTagArrayOutput{})
+	pulumi.RegisterOutputType(RoleAliasTagOutput{})
+	pulumi.RegisterOutputType(RoleAliasTagArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditTagOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditTagArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorOutput{})

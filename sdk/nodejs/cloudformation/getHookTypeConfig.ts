@@ -14,15 +14,15 @@ export function getHookTypeConfig(args: GetHookTypeConfigArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:cloudformation:getHookTypeConfig", {
-        "typeArn": args.typeArn,
+        "configurationArn": args.configurationArn,
     }, opts);
 }
 
 export interface GetHookTypeConfigArgs {
     /**
-     * The Amazon Resource Name (ARN) of the type version.
+     * The Amazon Resource Name (ARN) for the configuration data, in this account and region.
      */
-    typeArn: string;
+    configurationArn: string;
 }
 
 export interface GetHookTypeConfigResult {
@@ -34,6 +34,10 @@ export interface GetHookTypeConfigResult {
      * The Amazon Resource Name (ARN) for the configuration data, in this account and region.
      */
     readonly configurationArn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the type without version number.
+     */
+    readonly typeArn?: string;
     /**
      * The name of the type being registered.
      *
@@ -48,7 +52,7 @@ export function getHookTypeConfigOutput(args: GetHookTypeConfigOutputArgs, opts?
 
 export interface GetHookTypeConfigOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the type version.
+     * The Amazon Resource Name (ARN) for the configuration data, in this account and region.
      */
-    typeArn: pulumi.Input<string>;
+    configurationArn: pulumi.Input<string>;
 }

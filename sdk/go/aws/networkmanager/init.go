@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:networkmanager:ConnectAttachment":
+		r = &ConnectAttachment{}
+	case "aws-native:networkmanager:ConnectPeer":
+		r = &ConnectPeer{}
+	case "aws-native:networkmanager:CoreNetwork":
+		r = &CoreNetwork{}
 	case "aws-native:networkmanager:CustomerGatewayAssociation":
 		r = &CustomerGatewayAssociation{}
 	case "aws-native:networkmanager:Device":
@@ -33,8 +39,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkAssociation{}
 	case "aws-native:networkmanager:Site":
 		r = &Site{}
+	case "aws-native:networkmanager:SiteToSiteVpnAttachment":
+		r = &SiteToSiteVpnAttachment{}
 	case "aws-native:networkmanager:TransitGatewayRegistration":
 		r = &TransitGatewayRegistration{}
+	case "aws-native:networkmanager:VpcAttachment":
+		r = &VpcAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

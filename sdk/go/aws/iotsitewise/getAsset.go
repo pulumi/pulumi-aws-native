@@ -27,7 +27,9 @@ type LookupAssetArgs struct {
 
 type LookupAssetResult struct {
 	// The ARN of the asset
-	AssetArn         *string          `pulumi:"assetArn"`
+	AssetArn *string `pulumi:"assetArn"`
+	// A description for the asset
+	AssetDescription *string          `pulumi:"assetDescription"`
 	AssetHierarchies []AssetHierarchy `pulumi:"assetHierarchies"`
 	// The ID of the asset
 	AssetId *string `pulumi:"assetId"`
@@ -79,6 +81,11 @@ func (o LookupAssetResultOutput) ToLookupAssetResultOutputWithContext(ctx contex
 // The ARN of the asset
 func (o LookupAssetResultOutput) AssetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetResult) *string { return v.AssetArn }).(pulumi.StringPtrOutput)
+}
+
+// A description for the asset
+func (o LookupAssetResultOutput) AssetDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetResult) *string { return v.AssetDescription }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAssetResultOutput) AssetHierarchies() AssetHierarchyArrayOutput {

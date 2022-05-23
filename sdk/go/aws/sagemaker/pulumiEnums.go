@@ -3303,6 +3303,1261 @@ func (o ModelPackageGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// The approval status of the model package.
+type ModelPackageModelApprovalStatus string
+
+const (
+	ModelPackageModelApprovalStatusApproved              = ModelPackageModelApprovalStatus("Approved")
+	ModelPackageModelApprovalStatusRejected              = ModelPackageModelApprovalStatus("Rejected")
+	ModelPackageModelApprovalStatusPendingManualApproval = ModelPackageModelApprovalStatus("PendingManualApproval")
+)
+
+func (ModelPackageModelApprovalStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelApprovalStatus)(nil)).Elem()
+}
+
+func (e ModelPackageModelApprovalStatus) ToModelPackageModelApprovalStatusOutput() ModelPackageModelApprovalStatusOutput {
+	return pulumi.ToOutput(e).(ModelPackageModelApprovalStatusOutput)
+}
+
+func (e ModelPackageModelApprovalStatus) ToModelPackageModelApprovalStatusOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageModelApprovalStatusOutput)
+}
+
+func (e ModelPackageModelApprovalStatus) ToModelPackageModelApprovalStatusPtrOutput() ModelPackageModelApprovalStatusPtrOutput {
+	return e.ToModelPackageModelApprovalStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageModelApprovalStatus) ToModelPackageModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusPtrOutput {
+	return ModelPackageModelApprovalStatus(e).ToModelPackageModelApprovalStatusOutputWithContext(ctx).ToModelPackageModelApprovalStatusPtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageModelApprovalStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageModelApprovalStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageModelApprovalStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageModelApprovalStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageModelApprovalStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelApprovalStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelApprovalStatus)(nil)).Elem()
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToModelPackageModelApprovalStatusOutput() ModelPackageModelApprovalStatusOutput {
+	return o
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToModelPackageModelApprovalStatusOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusOutput {
+	return o
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToModelPackageModelApprovalStatusPtrOutput() ModelPackageModelApprovalStatusPtrOutput {
+	return o.ToModelPackageModelApprovalStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToModelPackageModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageModelApprovalStatus) *ModelPackageModelApprovalStatus {
+		return &v
+	}).(ModelPackageModelApprovalStatusPtrOutput)
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageModelApprovalStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelApprovalStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageModelApprovalStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageModelApprovalStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelApprovalStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelApprovalStatus)(nil)).Elem()
+}
+
+func (o ModelPackageModelApprovalStatusPtrOutput) ToModelPackageModelApprovalStatusPtrOutput() ModelPackageModelApprovalStatusPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelApprovalStatusPtrOutput) ToModelPackageModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelApprovalStatusPtrOutput) Elem() ModelPackageModelApprovalStatusOutput {
+	return o.ApplyT(func(v *ModelPackageModelApprovalStatus) ModelPackageModelApprovalStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageModelApprovalStatus
+		return ret
+	}).(ModelPackageModelApprovalStatusOutput)
+}
+
+func (o ModelPackageModelApprovalStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelApprovalStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageModelApprovalStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageModelApprovalStatusInput is an input type that accepts ModelPackageModelApprovalStatusArgs and ModelPackageModelApprovalStatusOutput values.
+// You can construct a concrete instance of `ModelPackageModelApprovalStatusInput` via:
+//
+//          ModelPackageModelApprovalStatusArgs{...}
+type ModelPackageModelApprovalStatusInput interface {
+	pulumi.Input
+
+	ToModelPackageModelApprovalStatusOutput() ModelPackageModelApprovalStatusOutput
+	ToModelPackageModelApprovalStatusOutputWithContext(context.Context) ModelPackageModelApprovalStatusOutput
+}
+
+var modelPackageModelApprovalStatusPtrType = reflect.TypeOf((**ModelPackageModelApprovalStatus)(nil)).Elem()
+
+type ModelPackageModelApprovalStatusPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageModelApprovalStatusPtrOutput() ModelPackageModelApprovalStatusPtrOutput
+	ToModelPackageModelApprovalStatusPtrOutputWithContext(context.Context) ModelPackageModelApprovalStatusPtrOutput
+}
+
+type modelPackageModelApprovalStatusPtr string
+
+func ModelPackageModelApprovalStatusPtr(v string) ModelPackageModelApprovalStatusPtrInput {
+	return (*modelPackageModelApprovalStatusPtr)(&v)
+}
+
+func (*modelPackageModelApprovalStatusPtr) ElementType() reflect.Type {
+	return modelPackageModelApprovalStatusPtrType
+}
+
+func (in *modelPackageModelApprovalStatusPtr) ToModelPackageModelApprovalStatusPtrOutput() ModelPackageModelApprovalStatusPtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageModelApprovalStatusPtrOutput)
+}
+
+func (in *modelPackageModelApprovalStatusPtr) ToModelPackageModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageModelApprovalStatusPtrOutput)
+}
+
+// The S3 Data Source Type
+type ModelPackageS3DataSourceS3DataType string
+
+const (
+	ModelPackageS3DataSourceS3DataTypeManifestFile          = ModelPackageS3DataSourceS3DataType("ManifestFile")
+	ModelPackageS3DataSourceS3DataTypeS3Prefix              = ModelPackageS3DataSourceS3DataType("S3Prefix")
+	ModelPackageS3DataSourceS3DataTypeAugmentedManifestFile = ModelPackageS3DataSourceS3DataType("AugmentedManifestFile")
+)
+
+func (ModelPackageS3DataSourceS3DataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageS3DataSourceS3DataType)(nil)).Elem()
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToModelPackageS3DataSourceS3DataTypeOutput() ModelPackageS3DataSourceS3DataTypeOutput {
+	return pulumi.ToOutput(e).(ModelPackageS3DataSourceS3DataTypeOutput)
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToModelPackageS3DataSourceS3DataTypeOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageS3DataSourceS3DataTypeOutput)
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToModelPackageS3DataSourceS3DataTypePtrOutput() ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return e.ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return ModelPackageS3DataSourceS3DataType(e).ToModelPackageS3DataSourceS3DataTypeOutputWithContext(ctx).ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageS3DataSourceS3DataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageS3DataSourceS3DataTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageS3DataSourceS3DataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageS3DataSourceS3DataType)(nil)).Elem()
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToModelPackageS3DataSourceS3DataTypeOutput() ModelPackageS3DataSourceS3DataTypeOutput {
+	return o
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToModelPackageS3DataSourceS3DataTypeOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypeOutput {
+	return o
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToModelPackageS3DataSourceS3DataTypePtrOutput() ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return o.ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageS3DataSourceS3DataType) *ModelPackageS3DataSourceS3DataType {
+		return &v
+	}).(ModelPackageS3DataSourceS3DataTypePtrOutput)
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageS3DataSourceS3DataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageS3DataSourceS3DataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageS3DataSourceS3DataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageS3DataSourceS3DataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageS3DataSourceS3DataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageS3DataSourceS3DataType)(nil)).Elem()
+}
+
+func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToModelPackageS3DataSourceS3DataTypePtrOutput() ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return o
+}
+
+func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return o
+}
+
+func (o ModelPackageS3DataSourceS3DataTypePtrOutput) Elem() ModelPackageS3DataSourceS3DataTypeOutput {
+	return o.ApplyT(func(v *ModelPackageS3DataSourceS3DataType) ModelPackageS3DataSourceS3DataType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageS3DataSourceS3DataType
+		return ret
+	}).(ModelPackageS3DataSourceS3DataTypeOutput)
+}
+
+func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageS3DataSourceS3DataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageS3DataSourceS3DataTypeInput is an input type that accepts ModelPackageS3DataSourceS3DataTypeArgs and ModelPackageS3DataSourceS3DataTypeOutput values.
+// You can construct a concrete instance of `ModelPackageS3DataSourceS3DataTypeInput` via:
+//
+//          ModelPackageS3DataSourceS3DataTypeArgs{...}
+type ModelPackageS3DataSourceS3DataTypeInput interface {
+	pulumi.Input
+
+	ToModelPackageS3DataSourceS3DataTypeOutput() ModelPackageS3DataSourceS3DataTypeOutput
+	ToModelPackageS3DataSourceS3DataTypeOutputWithContext(context.Context) ModelPackageS3DataSourceS3DataTypeOutput
+}
+
+var modelPackageS3DataSourceS3DataTypePtrType = reflect.TypeOf((**ModelPackageS3DataSourceS3DataType)(nil)).Elem()
+
+type ModelPackageS3DataSourceS3DataTypePtrInput interface {
+	pulumi.Input
+
+	ToModelPackageS3DataSourceS3DataTypePtrOutput() ModelPackageS3DataSourceS3DataTypePtrOutput
+	ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(context.Context) ModelPackageS3DataSourceS3DataTypePtrOutput
+}
+
+type modelPackageS3DataSourceS3DataTypePtr string
+
+func ModelPackageS3DataSourceS3DataTypePtr(v string) ModelPackageS3DataSourceS3DataTypePtrInput {
+	return (*modelPackageS3DataSourceS3DataTypePtr)(&v)
+}
+
+func (*modelPackageS3DataSourceS3DataTypePtr) ElementType() reflect.Type {
+	return modelPackageS3DataSourceS3DataTypePtrType
+}
+
+func (in *modelPackageS3DataSourceS3DataTypePtr) ToModelPackageS3DataSourceS3DataTypePtrOutput() ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageS3DataSourceS3DataTypePtrOutput)
+}
+
+func (in *modelPackageS3DataSourceS3DataTypePtr) ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageS3DataSourceS3DataTypePtrOutput)
+}
+
+// The current status of the model package.
+type ModelPackageStatus string
+
+const (
+	ModelPackageStatusPending    = ModelPackageStatus("Pending")
+	ModelPackageStatusDeleting   = ModelPackageStatus("Deleting")
+	ModelPackageStatusInProgress = ModelPackageStatus("InProgress")
+	ModelPackageStatusCompleted  = ModelPackageStatus("Completed")
+	ModelPackageStatusFailed     = ModelPackageStatus("Failed")
+)
+
+type ModelPackageStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatus)(nil)).Elem()
+}
+
+func (o ModelPackageStatusOutput) ToModelPackageStatusOutput() ModelPackageStatusOutput {
+	return o
+}
+
+func (o ModelPackageStatusOutput) ToModelPackageStatusOutputWithContext(ctx context.Context) ModelPackageStatusOutput {
+	return o
+}
+
+func (o ModelPackageStatusOutput) ToModelPackageStatusPtrOutput() ModelPackageStatusPtrOutput {
+	return o.ToModelPackageStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusOutput) ToModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageStatus) *ModelPackageStatus {
+		return &v
+	}).(ModelPackageStatusPtrOutput)
+}
+
+func (o ModelPackageStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageStatus)(nil)).Elem()
+}
+
+func (o ModelPackageStatusPtrOutput) ToModelPackageStatusPtrOutput() ModelPackageStatusPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusPtrOutput) ToModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusPtrOutput) Elem() ModelPackageStatusOutput {
+	return o.ApplyT(func(v *ModelPackageStatus) ModelPackageStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageStatus
+		return ret
+	}).(ModelPackageStatusOutput)
+}
+
+func (o ModelPackageStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status.
+type ModelPackageStatusItemStatus string
+
+const (
+	ModelPackageStatusItemStatusNotStarted = ModelPackageStatusItemStatus("NotStarted")
+	ModelPackageStatusItemStatusFailed     = ModelPackageStatusItemStatus("Failed")
+	ModelPackageStatusItemStatusInProgress = ModelPackageStatusItemStatus("InProgress")
+	ModelPackageStatusItemStatusCompleted  = ModelPackageStatusItemStatus("Completed")
+)
+
+func (ModelPackageStatusItemStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatusItemStatus)(nil)).Elem()
+}
+
+func (e ModelPackageStatusItemStatus) ToModelPackageStatusItemStatusOutput() ModelPackageStatusItemStatusOutput {
+	return pulumi.ToOutput(e).(ModelPackageStatusItemStatusOutput)
+}
+
+func (e ModelPackageStatusItemStatus) ToModelPackageStatusItemStatusOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageStatusItemStatusOutput)
+}
+
+func (e ModelPackageStatusItemStatus) ToModelPackageStatusItemStatusPtrOutput() ModelPackageStatusItemStatusPtrOutput {
+	return e.ToModelPackageStatusItemStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageStatusItemStatus) ToModelPackageStatusItemStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusPtrOutput {
+	return ModelPackageStatusItemStatus(e).ToModelPackageStatusItemStatusOutputWithContext(ctx).ToModelPackageStatusItemStatusPtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageStatusItemStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageStatusItemStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageStatusItemStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageStatusItemStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageStatusItemStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusItemStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatusItemStatus)(nil)).Elem()
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToModelPackageStatusItemStatusOutput() ModelPackageStatusItemStatusOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToModelPackageStatusItemStatusOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToModelPackageStatusItemStatusPtrOutput() ModelPackageStatusItemStatusPtrOutput {
+	return o.ToModelPackageStatusItemStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToModelPackageStatusItemStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageStatusItemStatus) *ModelPackageStatusItemStatus {
+		return &v
+	}).(ModelPackageStatusItemStatusPtrOutput)
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageStatusItemStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusItemStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageStatusItemStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageStatusItemStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusItemStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageStatusItemStatus)(nil)).Elem()
+}
+
+func (o ModelPackageStatusItemStatusPtrOutput) ToModelPackageStatusItemStatusPtrOutput() ModelPackageStatusItemStatusPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemStatusPtrOutput) ToModelPackageStatusItemStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemStatusPtrOutput) Elem() ModelPackageStatusItemStatusOutput {
+	return o.ApplyT(func(v *ModelPackageStatusItemStatus) ModelPackageStatusItemStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageStatusItemStatus
+		return ret
+	}).(ModelPackageStatusItemStatusOutput)
+}
+
+func (o ModelPackageStatusItemStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusItemStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageStatusItemStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageStatusItemStatusInput is an input type that accepts ModelPackageStatusItemStatusArgs and ModelPackageStatusItemStatusOutput values.
+// You can construct a concrete instance of `ModelPackageStatusItemStatusInput` via:
+//
+//          ModelPackageStatusItemStatusArgs{...}
+type ModelPackageStatusItemStatusInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusItemStatusOutput() ModelPackageStatusItemStatusOutput
+	ToModelPackageStatusItemStatusOutputWithContext(context.Context) ModelPackageStatusItemStatusOutput
+}
+
+var modelPackageStatusItemStatusPtrType = reflect.TypeOf((**ModelPackageStatusItemStatus)(nil)).Elem()
+
+type ModelPackageStatusItemStatusPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusItemStatusPtrOutput() ModelPackageStatusItemStatusPtrOutput
+	ToModelPackageStatusItemStatusPtrOutputWithContext(context.Context) ModelPackageStatusItemStatusPtrOutput
+}
+
+type modelPackageStatusItemStatusPtr string
+
+func ModelPackageStatusItemStatusPtr(v string) ModelPackageStatusItemStatusPtrInput {
+	return (*modelPackageStatusItemStatusPtr)(&v)
+}
+
+func (*modelPackageStatusItemStatusPtr) ElementType() reflect.Type {
+	return modelPackageStatusItemStatusPtrType
+}
+
+func (in *modelPackageStatusItemStatusPtr) ToModelPackageStatusItemStatusPtrOutput() ModelPackageStatusItemStatusPtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageStatusItemStatusPtrOutput)
+}
+
+func (in *modelPackageStatusItemStatusPtr) ToModelPackageStatusItemStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageStatusItemStatusPtrOutput)
+}
+
+// If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+type ModelPackageTransformInputCompressionType string
+
+const (
+	ModelPackageTransformInputCompressionTypeNone = ModelPackageTransformInputCompressionType("None")
+	ModelPackageTransformInputCompressionTypeGzip = ModelPackageTransformInputCompressionType("Gzip")
+)
+
+func (ModelPackageTransformInputCompressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformInputCompressionType)(nil)).Elem()
+}
+
+func (e ModelPackageTransformInputCompressionType) ToModelPackageTransformInputCompressionTypeOutput() ModelPackageTransformInputCompressionTypeOutput {
+	return pulumi.ToOutput(e).(ModelPackageTransformInputCompressionTypeOutput)
+}
+
+func (e ModelPackageTransformInputCompressionType) ToModelPackageTransformInputCompressionTypeOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageTransformInputCompressionTypeOutput)
+}
+
+func (e ModelPackageTransformInputCompressionType) ToModelPackageTransformInputCompressionTypePtrOutput() ModelPackageTransformInputCompressionTypePtrOutput {
+	return e.ToModelPackageTransformInputCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformInputCompressionType) ToModelPackageTransformInputCompressionTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypePtrOutput {
+	return ModelPackageTransformInputCompressionType(e).ToModelPackageTransformInputCompressionTypeOutputWithContext(ctx).ToModelPackageTransformInputCompressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageTransformInputCompressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformInputCompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformInputCompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformInputCompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageTransformInputCompressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformInputCompressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformInputCompressionType)(nil)).Elem()
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToModelPackageTransformInputCompressionTypeOutput() ModelPackageTransformInputCompressionTypeOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToModelPackageTransformInputCompressionTypeOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypeOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToModelPackageTransformInputCompressionTypePtrOutput() ModelPackageTransformInputCompressionTypePtrOutput {
+	return o.ToModelPackageTransformInputCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToModelPackageTransformInputCompressionTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageTransformInputCompressionType) *ModelPackageTransformInputCompressionType {
+		return &v
+	}).(ModelPackageTransformInputCompressionTypePtrOutput)
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformInputCompressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputCompressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformInputCompressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageTransformInputCompressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformInputCompressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageTransformInputCompressionType)(nil)).Elem()
+}
+
+func (o ModelPackageTransformInputCompressionTypePtrOutput) ToModelPackageTransformInputCompressionTypePtrOutput() ModelPackageTransformInputCompressionTypePtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputCompressionTypePtrOutput) ToModelPackageTransformInputCompressionTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypePtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputCompressionTypePtrOutput) Elem() ModelPackageTransformInputCompressionTypeOutput {
+	return o.ApplyT(func(v *ModelPackageTransformInputCompressionType) ModelPackageTransformInputCompressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageTransformInputCompressionType
+		return ret
+	}).(ModelPackageTransformInputCompressionTypeOutput)
+}
+
+func (o ModelPackageTransformInputCompressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputCompressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageTransformInputCompressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageTransformInputCompressionTypeInput is an input type that accepts ModelPackageTransformInputCompressionTypeArgs and ModelPackageTransformInputCompressionTypeOutput values.
+// You can construct a concrete instance of `ModelPackageTransformInputCompressionTypeInput` via:
+//
+//          ModelPackageTransformInputCompressionTypeArgs{...}
+type ModelPackageTransformInputCompressionTypeInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformInputCompressionTypeOutput() ModelPackageTransformInputCompressionTypeOutput
+	ToModelPackageTransformInputCompressionTypeOutputWithContext(context.Context) ModelPackageTransformInputCompressionTypeOutput
+}
+
+var modelPackageTransformInputCompressionTypePtrType = reflect.TypeOf((**ModelPackageTransformInputCompressionType)(nil)).Elem()
+
+type ModelPackageTransformInputCompressionTypePtrInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformInputCompressionTypePtrOutput() ModelPackageTransformInputCompressionTypePtrOutput
+	ToModelPackageTransformInputCompressionTypePtrOutputWithContext(context.Context) ModelPackageTransformInputCompressionTypePtrOutput
+}
+
+type modelPackageTransformInputCompressionTypePtr string
+
+func ModelPackageTransformInputCompressionTypePtr(v string) ModelPackageTransformInputCompressionTypePtrInput {
+	return (*modelPackageTransformInputCompressionTypePtr)(&v)
+}
+
+func (*modelPackageTransformInputCompressionTypePtr) ElementType() reflect.Type {
+	return modelPackageTransformInputCompressionTypePtrType
+}
+
+func (in *modelPackageTransformInputCompressionTypePtr) ToModelPackageTransformInputCompressionTypePtrOutput() ModelPackageTransformInputCompressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageTransformInputCompressionTypePtrOutput)
+}
+
+func (in *modelPackageTransformInputCompressionTypePtr) ToModelPackageTransformInputCompressionTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageTransformInputCompressionTypePtrOutput)
+}
+
+// The method to use to split the transform job's data files into smaller batches.
+type ModelPackageTransformInputSplitType string
+
+const (
+	ModelPackageTransformInputSplitTypeNone     = ModelPackageTransformInputSplitType("None")
+	ModelPackageTransformInputSplitTypeTFRecord = ModelPackageTransformInputSplitType("TFRecord")
+	ModelPackageTransformInputSplitTypeLine     = ModelPackageTransformInputSplitType("Line")
+	ModelPackageTransformInputSplitTypeRecordIO = ModelPackageTransformInputSplitType("RecordIO")
+)
+
+func (ModelPackageTransformInputSplitType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformInputSplitType)(nil)).Elem()
+}
+
+func (e ModelPackageTransformInputSplitType) ToModelPackageTransformInputSplitTypeOutput() ModelPackageTransformInputSplitTypeOutput {
+	return pulumi.ToOutput(e).(ModelPackageTransformInputSplitTypeOutput)
+}
+
+func (e ModelPackageTransformInputSplitType) ToModelPackageTransformInputSplitTypeOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageTransformInputSplitTypeOutput)
+}
+
+func (e ModelPackageTransformInputSplitType) ToModelPackageTransformInputSplitTypePtrOutput() ModelPackageTransformInputSplitTypePtrOutput {
+	return e.ToModelPackageTransformInputSplitTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformInputSplitType) ToModelPackageTransformInputSplitTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypePtrOutput {
+	return ModelPackageTransformInputSplitType(e).ToModelPackageTransformInputSplitTypeOutputWithContext(ctx).ToModelPackageTransformInputSplitTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageTransformInputSplitType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformInputSplitType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformInputSplitType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformInputSplitType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageTransformInputSplitTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformInputSplitTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformInputSplitType)(nil)).Elem()
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToModelPackageTransformInputSplitTypeOutput() ModelPackageTransformInputSplitTypeOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToModelPackageTransformInputSplitTypeOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypeOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToModelPackageTransformInputSplitTypePtrOutput() ModelPackageTransformInputSplitTypePtrOutput {
+	return o.ToModelPackageTransformInputSplitTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToModelPackageTransformInputSplitTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageTransformInputSplitType) *ModelPackageTransformInputSplitType {
+		return &v
+	}).(ModelPackageTransformInputSplitTypePtrOutput)
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformInputSplitType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputSplitTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformInputSplitType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageTransformInputSplitTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformInputSplitTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageTransformInputSplitType)(nil)).Elem()
+}
+
+func (o ModelPackageTransformInputSplitTypePtrOutput) ToModelPackageTransformInputSplitTypePtrOutput() ModelPackageTransformInputSplitTypePtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputSplitTypePtrOutput) ToModelPackageTransformInputSplitTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypePtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputSplitTypePtrOutput) Elem() ModelPackageTransformInputSplitTypeOutput {
+	return o.ApplyT(func(v *ModelPackageTransformInputSplitType) ModelPackageTransformInputSplitType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageTransformInputSplitType
+		return ret
+	}).(ModelPackageTransformInputSplitTypeOutput)
+}
+
+func (o ModelPackageTransformInputSplitTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformInputSplitTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageTransformInputSplitType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageTransformInputSplitTypeInput is an input type that accepts ModelPackageTransformInputSplitTypeArgs and ModelPackageTransformInputSplitTypeOutput values.
+// You can construct a concrete instance of `ModelPackageTransformInputSplitTypeInput` via:
+//
+//          ModelPackageTransformInputSplitTypeArgs{...}
+type ModelPackageTransformInputSplitTypeInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformInputSplitTypeOutput() ModelPackageTransformInputSplitTypeOutput
+	ToModelPackageTransformInputSplitTypeOutputWithContext(context.Context) ModelPackageTransformInputSplitTypeOutput
+}
+
+var modelPackageTransformInputSplitTypePtrType = reflect.TypeOf((**ModelPackageTransformInputSplitType)(nil)).Elem()
+
+type ModelPackageTransformInputSplitTypePtrInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformInputSplitTypePtrOutput() ModelPackageTransformInputSplitTypePtrOutput
+	ToModelPackageTransformInputSplitTypePtrOutputWithContext(context.Context) ModelPackageTransformInputSplitTypePtrOutput
+}
+
+type modelPackageTransformInputSplitTypePtr string
+
+func ModelPackageTransformInputSplitTypePtr(v string) ModelPackageTransformInputSplitTypePtrInput {
+	return (*modelPackageTransformInputSplitTypePtr)(&v)
+}
+
+func (*modelPackageTransformInputSplitTypePtr) ElementType() reflect.Type {
+	return modelPackageTransformInputSplitTypePtrType
+}
+
+func (in *modelPackageTransformInputSplitTypePtr) ToModelPackageTransformInputSplitTypePtrOutput() ModelPackageTransformInputSplitTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageTransformInputSplitTypePtrOutput)
+}
+
+func (in *modelPackageTransformInputSplitTypePtr) ToModelPackageTransformInputSplitTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageTransformInputSplitTypePtrOutput)
+}
+
+// A string that determines the number of records included in a single mini-batch.
+type ModelPackageTransformJobDefinitionBatchStrategy string
+
+const (
+	ModelPackageTransformJobDefinitionBatchStrategyMultiRecord  = ModelPackageTransformJobDefinitionBatchStrategy("MultiRecord")
+	ModelPackageTransformJobDefinitionBatchStrategySingleRecord = ModelPackageTransformJobDefinitionBatchStrategy("SingleRecord")
+)
+
+func (ModelPackageTransformJobDefinitionBatchStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformJobDefinitionBatchStrategy)(nil)).Elem()
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToModelPackageTransformJobDefinitionBatchStrategyOutput() ModelPackageTransformJobDefinitionBatchStrategyOutput {
+	return pulumi.ToOutput(e).(ModelPackageTransformJobDefinitionBatchStrategyOutput)
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToModelPackageTransformJobDefinitionBatchStrategyOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageTransformJobDefinitionBatchStrategyOutput)
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutput() ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return e.ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return ModelPackageTransformJobDefinitionBatchStrategy(e).ToModelPackageTransformJobDefinitionBatchStrategyOutputWithContext(ctx).ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformJobDefinitionBatchStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageTransformJobDefinitionBatchStrategyOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformJobDefinitionBatchStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformJobDefinitionBatchStrategy)(nil)).Elem()
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToModelPackageTransformJobDefinitionBatchStrategyOutput() ModelPackageTransformJobDefinitionBatchStrategyOutput {
+	return o
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToModelPackageTransformJobDefinitionBatchStrategyOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyOutput {
+	return o
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutput() ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return o.ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageTransformJobDefinitionBatchStrategy) *ModelPackageTransformJobDefinitionBatchStrategy {
+		return &v
+	}).(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformJobDefinitionBatchStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformJobDefinitionBatchStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageTransformJobDefinitionBatchStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageTransformJobDefinitionBatchStrategy)(nil)).Elem()
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutput() ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) Elem() ModelPackageTransformJobDefinitionBatchStrategyOutput {
+	return o.ApplyT(func(v *ModelPackageTransformJobDefinitionBatchStrategy) ModelPackageTransformJobDefinitionBatchStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageTransformJobDefinitionBatchStrategy
+		return ret
+	}).(ModelPackageTransformJobDefinitionBatchStrategyOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageTransformJobDefinitionBatchStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageTransformJobDefinitionBatchStrategyInput is an input type that accepts ModelPackageTransformJobDefinitionBatchStrategyArgs and ModelPackageTransformJobDefinitionBatchStrategyOutput values.
+// You can construct a concrete instance of `ModelPackageTransformJobDefinitionBatchStrategyInput` via:
+//
+//          ModelPackageTransformJobDefinitionBatchStrategyArgs{...}
+type ModelPackageTransformJobDefinitionBatchStrategyInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformJobDefinitionBatchStrategyOutput() ModelPackageTransformJobDefinitionBatchStrategyOutput
+	ToModelPackageTransformJobDefinitionBatchStrategyOutputWithContext(context.Context) ModelPackageTransformJobDefinitionBatchStrategyOutput
+}
+
+var modelPackageTransformJobDefinitionBatchStrategyPtrType = reflect.TypeOf((**ModelPackageTransformJobDefinitionBatchStrategy)(nil)).Elem()
+
+type ModelPackageTransformJobDefinitionBatchStrategyPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformJobDefinitionBatchStrategyPtrOutput() ModelPackageTransformJobDefinitionBatchStrategyPtrOutput
+	ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(context.Context) ModelPackageTransformJobDefinitionBatchStrategyPtrOutput
+}
+
+type modelPackageTransformJobDefinitionBatchStrategyPtr string
+
+func ModelPackageTransformJobDefinitionBatchStrategyPtr(v string) ModelPackageTransformJobDefinitionBatchStrategyPtrInput {
+	return (*modelPackageTransformJobDefinitionBatchStrategyPtr)(&v)
+}
+
+func (*modelPackageTransformJobDefinitionBatchStrategyPtr) ElementType() reflect.Type {
+	return modelPackageTransformJobDefinitionBatchStrategyPtrType
+}
+
+func (in *modelPackageTransformJobDefinitionBatchStrategyPtr) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutput() ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput)
+}
+
+func (in *modelPackageTransformJobDefinitionBatchStrategyPtr) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput)
+}
+
+// Defines how to assemble the results of the transform job as a single S3 object.
+type ModelPackageTransformOutputAssembleWith string
+
+const (
+	ModelPackageTransformOutputAssembleWithNone = ModelPackageTransformOutputAssembleWith("None")
+	ModelPackageTransformOutputAssembleWithLine = ModelPackageTransformOutputAssembleWith("Line")
+)
+
+func (ModelPackageTransformOutputAssembleWith) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformOutputAssembleWith)(nil)).Elem()
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToModelPackageTransformOutputAssembleWithOutput() ModelPackageTransformOutputAssembleWithOutput {
+	return pulumi.ToOutput(e).(ModelPackageTransformOutputAssembleWithOutput)
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToModelPackageTransformOutputAssembleWithOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageTransformOutputAssembleWithOutput)
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToModelPackageTransformOutputAssembleWithPtrOutput() ModelPackageTransformOutputAssembleWithPtrOutput {
+	return e.ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithPtrOutput {
+	return ModelPackageTransformOutputAssembleWith(e).ToModelPackageTransformOutputAssembleWithOutputWithContext(ctx).ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(ctx)
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelPackageTransformOutputAssembleWith) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelPackageTransformOutputAssembleWithOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformOutputAssembleWithOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformOutputAssembleWith)(nil)).Elem()
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToModelPackageTransformOutputAssembleWithOutput() ModelPackageTransformOutputAssembleWithOutput {
+	return o
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToModelPackageTransformOutputAssembleWithOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithOutput {
+	return o
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToModelPackageTransformOutputAssembleWithPtrOutput() ModelPackageTransformOutputAssembleWithPtrOutput {
+	return o.ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageTransformOutputAssembleWith) *ModelPackageTransformOutputAssembleWith {
+		return &v
+	}).(ModelPackageTransformOutputAssembleWithPtrOutput)
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformOutputAssembleWith) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformOutputAssembleWithOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageTransformOutputAssembleWith) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageTransformOutputAssembleWithPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformOutputAssembleWithPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageTransformOutputAssembleWith)(nil)).Elem()
+}
+
+func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToModelPackageTransformOutputAssembleWithPtrOutput() ModelPackageTransformOutputAssembleWithPtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithPtrOutput {
+	return o
+}
+
+func (o ModelPackageTransformOutputAssembleWithPtrOutput) Elem() ModelPackageTransformOutputAssembleWithOutput {
+	return o.ApplyT(func(v *ModelPackageTransformOutputAssembleWith) ModelPackageTransformOutputAssembleWith {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageTransformOutputAssembleWith
+		return ret
+	}).(ModelPackageTransformOutputAssembleWithOutput)
+}
+
+func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageTransformOutputAssembleWith) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelPackageTransformOutputAssembleWithInput is an input type that accepts ModelPackageTransformOutputAssembleWithArgs and ModelPackageTransformOutputAssembleWithOutput values.
+// You can construct a concrete instance of `ModelPackageTransformOutputAssembleWithInput` via:
+//
+//          ModelPackageTransformOutputAssembleWithArgs{...}
+type ModelPackageTransformOutputAssembleWithInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformOutputAssembleWithOutput() ModelPackageTransformOutputAssembleWithOutput
+	ToModelPackageTransformOutputAssembleWithOutputWithContext(context.Context) ModelPackageTransformOutputAssembleWithOutput
+}
+
+var modelPackageTransformOutputAssembleWithPtrType = reflect.TypeOf((**ModelPackageTransformOutputAssembleWith)(nil)).Elem()
+
+type ModelPackageTransformOutputAssembleWithPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformOutputAssembleWithPtrOutput() ModelPackageTransformOutputAssembleWithPtrOutput
+	ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(context.Context) ModelPackageTransformOutputAssembleWithPtrOutput
+}
+
+type modelPackageTransformOutputAssembleWithPtr string
+
+func ModelPackageTransformOutputAssembleWithPtr(v string) ModelPackageTransformOutputAssembleWithPtrInput {
+	return (*modelPackageTransformOutputAssembleWithPtr)(&v)
+}
+
+func (*modelPackageTransformOutputAssembleWithPtr) ElementType() reflect.Type {
+	return modelPackageTransformOutputAssembleWithPtrType
+}
+
+func (in *modelPackageTransformOutputAssembleWithPtr) ToModelPackageTransformOutputAssembleWithPtrOutput() ModelPackageTransformOutputAssembleWithPtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageTransformOutputAssembleWithPtrOutput)
+}
+
+func (in *modelPackageTransformOutputAssembleWithPtr) ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageTransformOutputAssembleWithPtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelQualityJobDefinitionEndpointInputS3DataDistributionType string
 
@@ -5788,6 +7043,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelApprovalStatusInput)(nil)).Elem(), ModelPackageModelApprovalStatus("Approved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelApprovalStatusPtrInput)(nil)).Elem(), ModelPackageModelApprovalStatus("Approved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageS3DataSourceS3DataTypeInput)(nil)).Elem(), ModelPackageS3DataSourceS3DataType("ManifestFile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageS3DataSourceS3DataTypePtrInput)(nil)).Elem(), ModelPackageS3DataSourceS3DataType("ManifestFile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemStatusInput)(nil)).Elem(), ModelPackageStatusItemStatus("NotStarted"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemStatusPtrInput)(nil)).Elem(), ModelPackageStatusItemStatus("NotStarted"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputCompressionTypeInput)(nil)).Elem(), ModelPackageTransformInputCompressionType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputCompressionTypePtrInput)(nil)).Elem(), ModelPackageTransformInputCompressionType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputSplitTypeInput)(nil)).Elem(), ModelPackageTransformInputSplitType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputSplitTypePtrInput)(nil)).Elem(), ModelPackageTransformInputSplitType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformJobDefinitionBatchStrategyInput)(nil)).Elem(), ModelPackageTransformJobDefinitionBatchStrategy("MultiRecord"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformJobDefinitionBatchStrategyPtrInput)(nil)).Elem(), ModelPackageTransformJobDefinitionBatchStrategy("MultiRecord"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformOutputAssembleWithInput)(nil)).Elem(), ModelPackageTransformOutputAssembleWith("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformOutputAssembleWithPtrInput)(nil)).Elem(), ModelPackageTransformOutputAssembleWith("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3InputModeInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3InputMode("Pipe"))
@@ -5856,6 +7125,22 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupStatusOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelApprovalStatusOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelApprovalStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageS3DataSourceS3DataTypeOutput{})
+	pulumi.RegisterOutputType(ModelPackageS3DataSourceS3DataTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusItemStatusOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusItemStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformInputCompressionTypeOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformInputCompressionTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformInputSplitTypeOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformInputSplitTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformJobDefinitionBatchStrategyOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformOutputAssembleWithOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformOutputAssembleWithPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3InputModeOutput{})

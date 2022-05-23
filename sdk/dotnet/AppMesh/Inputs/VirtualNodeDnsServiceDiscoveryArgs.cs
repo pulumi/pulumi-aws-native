@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("hostname", required: true)]
         public Input<string> Hostname { get; set; } = null!;
 
+        [Input("ipPreference")]
+        public Input<string>? IpPreference { get; set; }
+
         [Input("responseType")]
         public Input<string>? ResponseType { get; set; }
 

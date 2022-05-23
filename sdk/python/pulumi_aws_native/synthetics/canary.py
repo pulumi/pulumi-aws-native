@@ -22,6 +22,7 @@ class CanaryArgs:
                  schedule: pulumi.Input['CanaryScheduleArgs'],
                  start_canary_after_creation: pulumi.Input[bool],
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+                 delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
@@ -38,6 +39,7 @@ class CanaryArgs:
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: Provide artifact configuration
+        :param pulumi.Input[bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[str] name: Name of the canary.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
@@ -53,6 +55,8 @@ class CanaryArgs:
         pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
         if artifact_config is not None:
             pulumi.set(__self__, "artifact_config", artifact_config)
+        if delete_lambda_resources_on_canary_deletion is not None:
+            pulumi.set(__self__, "delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if name is not None:
@@ -153,6 +157,18 @@ class CanaryArgs:
         pulumi.set(self, "artifact_config", value)
 
     @property
+    @pulumi.getter(name="deleteLambdaResourcesOnCanaryDeletion")
+    def delete_lambda_resources_on_canary_deletion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        """
+        return pulumi.get(self, "delete_lambda_resources_on_canary_deletion")
+
+    @delete_lambda_resources_on_canary_deletion.setter
+    def delete_lambda_resources_on_canary_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_lambda_resources_on_canary_deletion", value)
+
+    @property
     @pulumi.getter(name="failureRetentionPeriod")
     def failure_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
@@ -242,6 +258,7 @@ class Canary(pulumi.CustomResource):
                  artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
+                 delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -262,6 +279,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: Provide artifact configuration
         :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
         :param pulumi.Input[pulumi.InputType['CanaryCodeArgs']] code: Provide the canary script source
+        :param pulumi.Input[bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[str] name: Name of the canary.
@@ -300,6 +318,7 @@ class Canary(pulumi.CustomResource):
                  artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
+                 delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -330,6 +349,7 @@ class Canary(pulumi.CustomResource):
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
+            __props__.__dict__["delete_lambda_resources_on_canary_deletion"] = delete_lambda_resources_on_canary_deletion
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
@@ -375,6 +395,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["artifact_config"] = None
         __props__.__dict__["artifact_s3_location"] = None
         __props__.__dict__["code"] = None
+        __props__.__dict__["delete_lambda_resources_on_canary_deletion"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["failure_retention_period"] = None
         __props__.__dict__["name"] = None
@@ -412,6 +433,14 @@ class Canary(pulumi.CustomResource):
         Provide the canary script source
         """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="deleteLambdaResourcesOnCanaryDeletion")
+    def delete_lambda_resources_on_canary_deletion(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        """
+        return pulumi.get(self, "delete_lambda_resources_on_canary_deletion")
 
     @property
     @pulumi.getter(name="executionRoleArn")

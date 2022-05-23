@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssetResult:
-    def __init__(__self__, asset_arn=None, asset_hierarchies=None, asset_id=None, asset_model_id=None, asset_name=None, asset_properties=None, tags=None):
+    def __init__(__self__, asset_arn=None, asset_description=None, asset_hierarchies=None, asset_id=None, asset_model_id=None, asset_name=None, asset_properties=None, tags=None):
         if asset_arn and not isinstance(asset_arn, str):
             raise TypeError("Expected argument 'asset_arn' to be a str")
         pulumi.set(__self__, "asset_arn", asset_arn)
+        if asset_description and not isinstance(asset_description, str):
+            raise TypeError("Expected argument 'asset_description' to be a str")
+        pulumi.set(__self__, "asset_description", asset_description)
         if asset_hierarchies and not isinstance(asset_hierarchies, list):
             raise TypeError("Expected argument 'asset_hierarchies' to be a list")
         pulumi.set(__self__, "asset_hierarchies", asset_hierarchies)
@@ -49,6 +52,14 @@ class GetAssetResult:
         The ARN of the asset
         """
         return pulumi.get(self, "asset_arn")
+
+    @property
+    @pulumi.getter(name="assetDescription")
+    def asset_description(self) -> Optional[str]:
+        """
+        A description for the asset
+        """
+        return pulumi.get(self, "asset_description")
 
     @property
     @pulumi.getter(name="assetHierarchies")
@@ -100,6 +111,7 @@ class AwaitableGetAssetResult(GetAssetResult):
             yield self
         return GetAssetResult(
             asset_arn=self.asset_arn,
+            asset_description=self.asset_description,
             asset_hierarchies=self.asset_hierarchies,
             asset_id=self.asset_id,
             asset_model_id=self.asset_model_id,
@@ -126,6 +138,7 @@ def get_asset(asset_id: Optional[str] = None,
 
     return AwaitableGetAssetResult(
         asset_arn=__ret__.asset_arn,
+        asset_description=__ret__.asset_description,
         asset_hierarchies=__ret__.asset_hierarchies,
         asset_id=__ret__.asset_id,
         asset_model_id=__ret__.asset_model_id,

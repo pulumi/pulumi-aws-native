@@ -48,6 +48,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly code!: pulumi.Output<outputs.synthetics.CanaryCode>;
     /**
+     * Deletes associated lambda resources created by Synthetics if set to True. Default is False
+     */
+    public readonly deleteLambdaResourcesOnCanaryDeletion!: pulumi.Output<boolean | undefined>;
+    /**
      * Lambda Execution role used to run your canaries
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
             resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
             resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args ? args.deleteLambdaResourcesOnCanaryDeletion : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -141,6 +146,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["artifactConfig"] = undefined /*out*/;
             resourceInputs["artifactS3Location"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["failureRetentionPeriod"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -175,6 +181,10 @@ export interface CanaryArgs {
      * Provide the canary script source
      */
     code: pulumi.Input<inputs.synthetics.CanaryCodeArgs>;
+    /**
+     * Deletes associated lambda resources created by Synthetics if set to True. Default is False
+     */
+    deleteLambdaResourcesOnCanaryDeletion?: pulumi.Input<boolean>;
     /**
      * Lambda Execution role used to run your canaries
      */

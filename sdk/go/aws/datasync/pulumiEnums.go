@@ -2262,6 +2262,171 @@ func (in *taskOptionsMtimePtr) ToTaskOptionsMtimePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsMtimePtrOutput)
 }
 
+// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+type TaskOptionsObjectTags string
+
+const (
+	TaskOptionsObjectTagsPreserve = TaskOptionsObjectTags("PRESERVE")
+	TaskOptionsObjectTagsNone     = TaskOptionsObjectTags("NONE")
+)
+
+func (TaskOptionsObjectTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskOptionsObjectTags)(nil)).Elem()
+}
+
+func (e TaskOptionsObjectTags) ToTaskOptionsObjectTagsOutput() TaskOptionsObjectTagsOutput {
+	return pulumi.ToOutput(e).(TaskOptionsObjectTagsOutput)
+}
+
+func (e TaskOptionsObjectTags) ToTaskOptionsObjectTagsOutputWithContext(ctx context.Context) TaskOptionsObjectTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskOptionsObjectTagsOutput)
+}
+
+func (e TaskOptionsObjectTags) ToTaskOptionsObjectTagsPtrOutput() TaskOptionsObjectTagsPtrOutput {
+	return e.ToTaskOptionsObjectTagsPtrOutputWithContext(context.Background())
+}
+
+func (e TaskOptionsObjectTags) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
+	return TaskOptionsObjectTags(e).ToTaskOptionsObjectTagsOutputWithContext(ctx).ToTaskOptionsObjectTagsPtrOutputWithContext(ctx)
+}
+
+func (e TaskOptionsObjectTags) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskOptionsObjectTags) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskOptionsObjectTags) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskOptionsObjectTags) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskOptionsObjectTagsOutput struct{ *pulumi.OutputState }
+
+func (TaskOptionsObjectTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskOptionsObjectTags)(nil)).Elem()
+}
+
+func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsOutput() TaskOptionsObjectTagsOutput {
+	return o
+}
+
+func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsOutputWithContext(ctx context.Context) TaskOptionsObjectTagsOutput {
+	return o
+}
+
+func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsPtrOutput() TaskOptionsObjectTagsPtrOutput {
+	return o.ToTaskOptionsObjectTagsPtrOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskOptionsObjectTags) *TaskOptionsObjectTags {
+		return &v
+	}).(TaskOptionsObjectTagsPtrOutput)
+}
+
+func (o TaskOptionsObjectTagsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectTagsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskOptionsObjectTags) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskOptionsObjectTagsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectTagsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskOptionsObjectTags) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskOptionsObjectTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskOptionsObjectTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskOptionsObjectTags)(nil)).Elem()
+}
+
+func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutput() TaskOptionsObjectTagsPtrOutput {
+	return o
+}
+
+func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
+	return o
+}
+
+func (o TaskOptionsObjectTagsPtrOutput) Elem() TaskOptionsObjectTagsOutput {
+	return o.ApplyT(func(v *TaskOptionsObjectTags) TaskOptionsObjectTags {
+		if v != nil {
+			return *v
+		}
+		var ret TaskOptionsObjectTags
+		return ret
+	}).(TaskOptionsObjectTagsOutput)
+}
+
+func (o TaskOptionsObjectTagsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskOptionsObjectTags) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskOptionsObjectTagsInput is an input type that accepts TaskOptionsObjectTagsArgs and TaskOptionsObjectTagsOutput values.
+// You can construct a concrete instance of `TaskOptionsObjectTagsInput` via:
+//
+//          TaskOptionsObjectTagsArgs{...}
+type TaskOptionsObjectTagsInput interface {
+	pulumi.Input
+
+	ToTaskOptionsObjectTagsOutput() TaskOptionsObjectTagsOutput
+	ToTaskOptionsObjectTagsOutputWithContext(context.Context) TaskOptionsObjectTagsOutput
+}
+
+var taskOptionsObjectTagsPtrType = reflect.TypeOf((**TaskOptionsObjectTags)(nil)).Elem()
+
+type TaskOptionsObjectTagsPtrInput interface {
+	pulumi.Input
+
+	ToTaskOptionsObjectTagsPtrOutput() TaskOptionsObjectTagsPtrOutput
+	ToTaskOptionsObjectTagsPtrOutputWithContext(context.Context) TaskOptionsObjectTagsPtrOutput
+}
+
+type taskOptionsObjectTagsPtr string
+
+func TaskOptionsObjectTagsPtr(v string) TaskOptionsObjectTagsPtrInput {
+	return (*taskOptionsObjectTagsPtr)(&v)
+}
+
+func (*taskOptionsObjectTagsPtr) ElementType() reflect.Type {
+	return taskOptionsObjectTagsPtrType
+}
+
+func (in *taskOptionsObjectTagsPtr) ToTaskOptionsObjectTagsPtrOutput() TaskOptionsObjectTagsPtrOutput {
+	return pulumi.ToOutput(in).(TaskOptionsObjectTagsPtrOutput)
+}
+
+func (in *taskOptionsObjectTagsPtr) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsObjectTagsPtrOutput)
+}
+
 // A value that determines whether files at the destination should be overwritten or preserved when copying files.
 type TaskOptionsOverwriteMode string
 
@@ -3872,6 +4037,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsLogLevelPtrInput)(nil)).Elem(), TaskOptionsLogLevel("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsMtimeInput)(nil)).Elem(), TaskOptionsMtime("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsMtimePtrInput)(nil)).Elem(), TaskOptionsMtime("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsObjectTagsInput)(nil)).Elem(), TaskOptionsObjectTags("PRESERVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsObjectTagsPtrInput)(nil)).Elem(), TaskOptionsObjectTags("PRESERVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsOverwriteModeInput)(nil)).Elem(), TaskOptionsOverwriteMode("ALWAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsOverwriteModePtrInput)(nil)).Elem(), TaskOptionsOverwriteMode("ALWAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsPosixPermissionsInput)(nil)).Elem(), TaskOptionsPosixPermissions("NONE"))
@@ -3918,6 +4085,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskOptionsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsMtimeOutput{})
 	pulumi.RegisterOutputType(TaskOptionsMtimePtrOutput{})
+	pulumi.RegisterOutputType(TaskOptionsObjectTagsOutput{})
+	pulumi.RegisterOutputType(TaskOptionsObjectTagsPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOverwriteModeOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOverwriteModePtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsPosixPermissionsOutput{})

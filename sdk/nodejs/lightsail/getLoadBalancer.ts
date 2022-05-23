@@ -48,6 +48,10 @@ export interface GetLoadBalancerResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.lightsail.LoadBalancerTag[];
+    /**
+     * The name of the TLS policy to apply to the load balancer.
+     */
+    readonly tlsPolicyName?: string;
 }
 
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {

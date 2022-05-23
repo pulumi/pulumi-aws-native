@@ -32,6 +32,10 @@ export interface GetLoadBalancerTlsCertificateArgs {
 
 export interface GetLoadBalancerTlsCertificateResult {
     /**
+     * A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+     */
+    readonly httpsRedirectionEnabled?: boolean;
+    /**
      * When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
      */
     readonly isAttached?: boolean;

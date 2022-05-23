@@ -267,6 +267,95 @@ export const ModelPackageGroupStatus = {
  */
 export type ModelPackageGroupStatus = (typeof ModelPackageGroupStatus)[keyof typeof ModelPackageGroupStatus];
 
+export const ModelPackageModelApprovalStatus = {
+    Approved: "Approved",
+    Rejected: "Rejected",
+    PendingManualApproval: "PendingManualApproval",
+} as const;
+
+/**
+ * The approval status of the model package.
+ */
+export type ModelPackageModelApprovalStatus = (typeof ModelPackageModelApprovalStatus)[keyof typeof ModelPackageModelApprovalStatus];
+
+export const ModelPackageS3DataSourceS3DataType = {
+    ManifestFile: "ManifestFile",
+    S3Prefix: "S3Prefix",
+    AugmentedManifestFile: "AugmentedManifestFile",
+} as const;
+
+/**
+ * The S3 Data Source Type
+ */
+export type ModelPackageS3DataSourceS3DataType = (typeof ModelPackageS3DataSourceS3DataType)[keyof typeof ModelPackageS3DataSourceS3DataType];
+
+export const ModelPackageStatus = {
+    Pending: "Pending",
+    Deleting: "Deleting",
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The current status of the model package.
+ */
+export type ModelPackageStatus = (typeof ModelPackageStatus)[keyof typeof ModelPackageStatus];
+
+export const ModelPackageStatusItemStatus = {
+    NotStarted: "NotStarted",
+    Failed: "Failed",
+    InProgress: "InProgress",
+    Completed: "Completed",
+} as const;
+
+/**
+ * The current status.
+ */
+export type ModelPackageStatusItemStatus = (typeof ModelPackageStatusItemStatus)[keyof typeof ModelPackageStatusItemStatus];
+
+export const ModelPackageTransformInputCompressionType = {
+    None: "None",
+    Gzip: "Gzip",
+} as const;
+
+/**
+ * If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+ */
+export type ModelPackageTransformInputCompressionType = (typeof ModelPackageTransformInputCompressionType)[keyof typeof ModelPackageTransformInputCompressionType];
+
+export const ModelPackageTransformInputSplitType = {
+    None: "None",
+    TFRecord: "TFRecord",
+    Line: "Line",
+    RecordIO: "RecordIO",
+} as const;
+
+/**
+ * The method to use to split the transform job's data files into smaller batches. 
+ */
+export type ModelPackageTransformInputSplitType = (typeof ModelPackageTransformInputSplitType)[keyof typeof ModelPackageTransformInputSplitType];
+
+export const ModelPackageTransformJobDefinitionBatchStrategy = {
+    MultiRecord: "MultiRecord",
+    SingleRecord: "SingleRecord",
+} as const;
+
+/**
+ * A string that determines the number of records included in a single mini-batch.
+ */
+export type ModelPackageTransformJobDefinitionBatchStrategy = (typeof ModelPackageTransformJobDefinitionBatchStrategy)[keyof typeof ModelPackageTransformJobDefinitionBatchStrategy];
+
+export const ModelPackageTransformOutputAssembleWith = {
+    None: "None",
+    Line: "Line",
+} as const;
+
+/**
+ * Defines how to assemble the results of the transform job as a single S3 object.
+ */
+export type ModelPackageTransformOutputAssembleWith = (typeof ModelPackageTransformOutputAssembleWith)[keyof typeof ModelPackageTransformOutputAssembleWith];
+
 export const ModelQualityJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",

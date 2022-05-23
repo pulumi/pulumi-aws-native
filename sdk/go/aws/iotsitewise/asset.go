@@ -16,7 +16,9 @@ type Asset struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the asset
-	AssetArn         pulumi.StringOutput       `pulumi:"assetArn"`
+	AssetArn pulumi.StringOutput `pulumi:"assetArn"`
+	// A description for the asset
+	AssetDescription pulumi.StringPtrOutput    `pulumi:"assetDescription"`
 	AssetHierarchies AssetHierarchyArrayOutput `pulumi:"assetHierarchies"`
 	// The ID of the asset
 	AssetId pulumi.StringOutput `pulumi:"assetId"`
@@ -71,6 +73,8 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
+	// A description for the asset
+	AssetDescription *string          `pulumi:"assetDescription"`
 	AssetHierarchies []AssetHierarchy `pulumi:"assetHierarchies"`
 	// The ID of the asset model from which to create the asset.
 	AssetModelId string `pulumi:"assetModelId"`
@@ -83,6 +87,8 @@ type assetArgs struct {
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
+	// A description for the asset
+	AssetDescription pulumi.StringPtrInput
 	AssetHierarchies AssetHierarchyArrayInput
 	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringInput
@@ -133,6 +139,11 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 // The ARN of the asset
 func (o AssetOutput) AssetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetArn }).(pulumi.StringOutput)
+}
+
+// A description for the asset
+func (o AssetOutput) AssetDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.AssetDescription }).(pulumi.StringPtrOutput)
 }
 
 func (o AssetOutput) AssetHierarchies() AssetHierarchyArrayOutput {

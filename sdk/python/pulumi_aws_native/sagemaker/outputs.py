@@ -105,7 +105,41 @@ __all__ = [
     'ModelImageConfig',
     'ModelInferenceExecutionConfig',
     'ModelMultiModelConfig',
+    'ModelPackageAdditionalInferenceSpecificationDefinition',
+    'ModelPackageBias',
+    'ModelPackageContainerDefinition',
+    'ModelPackageContainerDefinitionModelInputProperties',
+    'ModelPackageCreatedBy',
+    'ModelPackageCustomerMetadataProperties',
+    'ModelPackageDataSource',
+    'ModelPackageDriftCheckBaselines',
+    'ModelPackageDriftCheckBias',
+    'ModelPackageDriftCheckExplainability',
+    'ModelPackageDriftCheckModelDataQuality',
+    'ModelPackageDriftCheckModelQuality',
+    'ModelPackageEnvironment',
+    'ModelPackageExplainability',
+    'ModelPackageFileSource',
     'ModelPackageGroupTag',
+    'ModelPackageInferenceSpecification',
+    'ModelPackageLastModifiedBy',
+    'ModelPackageMetadataProperties',
+    'ModelPackageMetricsSource',
+    'ModelPackageModelDataQuality',
+    'ModelPackageModelMetrics',
+    'ModelPackageModelQuality',
+    'ModelPackageS3DataSource',
+    'ModelPackageSourceAlgorithm',
+    'ModelPackageSourceAlgorithmSpecification',
+    'ModelPackageStatusDetails',
+    'ModelPackageStatusItem',
+    'ModelPackageTag',
+    'ModelPackageTransformInput',
+    'ModelPackageTransformJobDefinition',
+    'ModelPackageTransformOutput',
+    'ModelPackageTransformResources',
+    'ModelPackageValidationProfile',
+    'ModelPackageValidationSpecification',
     'ModelQualityJobDefinitionClusterConfig',
     'ModelQualityJobDefinitionConstraintsResource',
     'ModelQualityJobDefinitionEndpointInput',
@@ -4777,6 +4811,729 @@ class ModelMultiModelConfig(dict):
 
 
 @pulumi.output_type
+class ModelPackageAdditionalInferenceSpecificationDefinition(dict):
+    """
+    Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedContentTypes":
+            suggest = "supported_content_types"
+        elif key == "supportedRealtimeInferenceInstanceTypes":
+            suggest = "supported_realtime_inference_instance_types"
+        elif key == "supportedResponseMIMETypes":
+            suggest = "supported_response_mime_types"
+        elif key == "supportedTransformInstanceTypes":
+            suggest = "supported_transform_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageAdditionalInferenceSpecificationDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageAdditionalInferenceSpecificationDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageAdditionalInferenceSpecificationDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.ModelPackageContainerDefinition'],
+                 name: str,
+                 description: Optional[str] = None,
+                 supported_content_types: Optional[Sequence[str]] = None,
+                 supported_realtime_inference_instance_types: Optional[Sequence[str]] = None,
+                 supported_response_mime_types: Optional[Sequence[str]] = None,
+                 supported_transform_instance_types: Optional[Sequence[str]] = None):
+        """
+        Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+        :param Sequence['ModelPackageContainerDefinition'] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
+        :param str name: A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+        :param str description: A description of the additional Inference specification.
+        :param Sequence[str] supported_content_types: The supported MIME types for the input data.
+        :param Sequence[str] supported_realtime_inference_instance_types: A list of the instance types that are used to generate inferences in real-time
+        :param Sequence[str] supported_response_mime_types: The supported MIME types for the output data.
+        :param Sequence[str] supported_transform_instance_types: A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if supported_content_types is not None:
+            pulumi.set(__self__, "supported_content_types", supported_content_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_response_mime_types is not None:
+            pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.ModelPackageContainerDefinition']:
+        """
+        The Amazon ECR registry path of the Docker image that contains the inference code.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the additional Inference specification.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Optional[Sequence[str]]:
+        """
+        The supported MIME types for the input data.
+        """
+        return pulumi.get(self, "supported_content_types")
+
+    @property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of the instance types that are used to generate inferences in real-time
+        """
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @property
+    @pulumi.getter(name="supportedResponseMIMETypes")
+    def supported_response_mime_types(self) -> Optional[Sequence[str]]:
+        """
+        The supported MIME types for the output data.
+        """
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        return pulumi.get(self, "supported_transform_instance_types")
+
+
+@pulumi.output_type
+class ModelPackageBias(dict):
+    """
+    Contains bias metrics for a model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postTrainingReport":
+            suggest = "post_training_report"
+        elif key == "preTrainingReport":
+            suggest = "pre_training_report"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageBias. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageBias.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageBias.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_training_report: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 pre_training_report: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 report: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Contains bias metrics for a model.
+        """
+        if post_training_report is not None:
+            pulumi.set(__self__, "post_training_report", post_training_report)
+        if pre_training_report is not None:
+            pulumi.set(__self__, "pre_training_report", pre_training_report)
+        if report is not None:
+            pulumi.set(__self__, "report", report)
+
+    @property
+    @pulumi.getter(name="postTrainingReport")
+    def post_training_report(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "post_training_report")
+
+    @property
+    @pulumi.getter(name="preTrainingReport")
+    def pre_training_report(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "pre_training_report")
+
+    @property
+    @pulumi.getter
+    def report(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "report")
+
+
+@pulumi.output_type
+class ModelPackageContainerDefinition(dict):
+    """
+    Describes the Docker container for the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerHostname":
+            suggest = "container_hostname"
+        elif key == "frameworkVersion":
+            suggest = "framework_version"
+        elif key == "imageDigest":
+            suggest = "image_digest"
+        elif key == "modelDataUrl":
+            suggest = "model_data_url"
+        elif key == "modelInput":
+            suggest = "model_input"
+        elif key == "nearestModelName":
+            suggest = "nearest_model_name"
+        elif key == "productId":
+            suggest = "product_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: str,
+                 container_hostname: Optional[str] = None,
+                 environment: Optional['outputs.ModelPackageEnvironment'] = None,
+                 framework: Optional[str] = None,
+                 framework_version: Optional[str] = None,
+                 image_digest: Optional[str] = None,
+                 model_data_url: Optional[str] = None,
+                 model_input: Optional['outputs.ModelPackageContainerDefinitionModelInputProperties'] = None,
+                 nearest_model_name: Optional[str] = None,
+                 product_id: Optional[str] = None):
+        """
+        Describes the Docker container for the model package.
+        :param str image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+        :param str container_hostname: The DNS host name for the Docker container.
+        :param str framework: The machine learning framework of the model package container image.
+        :param str framework_version: The framework version of the Model Package Container Image.
+        :param str image_digest: An MD5 hash of the training algorithm that identifies the Docker image used for training.
+        :param str model_data_url: A structure with Model Input details.
+        :param str nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+        :param str product_id: The AWS Marketplace product ID of the model package.
+        """
+        pulumi.set(__self__, "image", image)
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_input is not None:
+            pulumi.set(__self__, "model_input", model_input)
+        if nearest_model_name is not None:
+            pulumi.set(__self__, "nearest_model_name", nearest_model_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[str]:
+        """
+        The DNS host name for the Docker container.
+        """
+        return pulumi.get(self, "container_hostname")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.ModelPackageEnvironment']:
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def framework(self) -> Optional[str]:
+        """
+        The machine learning framework of the model package container image.
+        """
+        return pulumi.get(self, "framework")
+
+    @property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[str]:
+        """
+        The framework version of the Model Package Container Image.
+        """
+        return pulumi.get(self, "framework_version")
+
+    @property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[str]:
+        """
+        An MD5 hash of the training algorithm that identifies the Docker image used for training.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[str]:
+        """
+        A structure with Model Input details.
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @property
+    @pulumi.getter(name="modelInput")
+    def model_input(self) -> Optional['outputs.ModelPackageContainerDefinitionModelInputProperties']:
+        return pulumi.get(self, "model_input")
+
+    @property
+    @pulumi.getter(name="nearestModelName")
+    def nearest_model_name(self) -> Optional[str]:
+        """
+        The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+        """
+        return pulumi.get(self, "nearest_model_name")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[str]:
+        """
+        The AWS Marketplace product ID of the model package.
+        """
+        return pulumi.get(self, "product_id")
+
+
+@pulumi.output_type
+class ModelPackageContainerDefinitionModelInputProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataInputConfig":
+            suggest = "data_input_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageContainerDefinitionModelInputProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageContainerDefinitionModelInputProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageContainerDefinitionModelInputProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_input_config: str):
+        """
+        :param str data_input_config: The input configuration object for the model.
+        """
+        pulumi.set(__self__, "data_input_config", data_input_config)
+
+    @property
+    @pulumi.getter(name="dataInputConfig")
+    def data_input_config(self) -> str:
+        """
+        The input configuration object for the model.
+        """
+        return pulumi.get(self, "data_input_config")
+
+
+@pulumi.output_type
+class ModelPackageCreatedBy(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ModelPackageCustomerMetadataProperties(dict):
+    """
+    The metadata properties associated with the model package versions.
+    """
+    def __init__(__self__):
+        """
+        The metadata properties associated with the model package versions.
+        """
+        pass
+
+
+@pulumi.output_type
+class ModelPackageDataSource(dict):
+    """
+    Describes the input source of a transform job and the way the transform job consumes it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: 'outputs.ModelPackageS3DataSource'):
+        """
+        Describes the input source of a transform job and the way the transform job consumes it.
+        """
+        pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> 'outputs.ModelPackageS3DataSource':
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class ModelPackageDriftCheckBaselines(dict):
+    """
+    Represents the drift check baselines that can be used when the model monitor is set using the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelDataQuality":
+            suggest = "model_data_quality"
+        elif key == "modelQuality":
+            suggest = "model_quality"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageDriftCheckBaselines. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageDriftCheckBaselines.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageDriftCheckBaselines.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bias: Optional['outputs.ModelPackageDriftCheckBias'] = None,
+                 explainability: Optional['outputs.ModelPackageDriftCheckExplainability'] = None,
+                 model_data_quality: Optional['outputs.ModelPackageDriftCheckModelDataQuality'] = None,
+                 model_quality: Optional['outputs.ModelPackageDriftCheckModelQuality'] = None):
+        """
+        Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        """
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if explainability is not None:
+            pulumi.set(__self__, "explainability", explainability)
+        if model_data_quality is not None:
+            pulumi.set(__self__, "model_data_quality", model_data_quality)
+        if model_quality is not None:
+            pulumi.set(__self__, "model_quality", model_quality)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional['outputs.ModelPackageDriftCheckBias']:
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def explainability(self) -> Optional['outputs.ModelPackageDriftCheckExplainability']:
+        return pulumi.get(self, "explainability")
+
+    @property
+    @pulumi.getter(name="modelDataQuality")
+    def model_data_quality(self) -> Optional['outputs.ModelPackageDriftCheckModelDataQuality']:
+        return pulumi.get(self, "model_data_quality")
+
+    @property
+    @pulumi.getter(name="modelQuality")
+    def model_quality(self) -> Optional['outputs.ModelPackageDriftCheckModelQuality']:
+        return pulumi.get(self, "model_quality")
+
+
+@pulumi.output_type
+class ModelPackageDriftCheckBias(dict):
+    """
+    Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configFile":
+            suggest = "config_file"
+        elif key == "postTrainingConstraints":
+            suggest = "post_training_constraints"
+        elif key == "preTrainingConstraints":
+            suggest = "pre_training_constraints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageDriftCheckBias. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageDriftCheckBias.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageDriftCheckBias.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_file: Optional['outputs.ModelPackageFileSource'] = None,
+                 post_training_constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 pre_training_constraints: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+        """
+        if config_file is not None:
+            pulumi.set(__self__, "config_file", config_file)
+        if post_training_constraints is not None:
+            pulumi.set(__self__, "post_training_constraints", post_training_constraints)
+        if pre_training_constraints is not None:
+            pulumi.set(__self__, "pre_training_constraints", pre_training_constraints)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> Optional['outputs.ModelPackageFileSource']:
+        return pulumi.get(self, "config_file")
+
+    @property
+    @pulumi.getter(name="postTrainingConstraints")
+    def post_training_constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "post_training_constraints")
+
+    @property
+    @pulumi.getter(name="preTrainingConstraints")
+    def pre_training_constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "pre_training_constraints")
+
+
+@pulumi.output_type
+class ModelPackageDriftCheckExplainability(dict):
+    """
+    Contains explainability metrics for a model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configFile":
+            suggest = "config_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageDriftCheckExplainability. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageDriftCheckExplainability.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageDriftCheckExplainability.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_file: Optional['outputs.ModelPackageFileSource'] = None,
+                 constraints: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Contains explainability metrics for a model.
+        """
+        if config_file is not None:
+            pulumi.set(__self__, "config_file", config_file)
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> Optional['outputs.ModelPackageFileSource']:
+        return pulumi.get(self, "config_file")
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "constraints")
+
+
+@pulumi.output_type
+class ModelPackageDriftCheckModelDataQuality(dict):
+    """
+    Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+    """
+    def __init__(__self__, *,
+                 constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "constraints")
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "statistics")
+
+
+@pulumi.output_type
+class ModelPackageDriftCheckModelQuality(dict):
+    """
+    Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+    """
+    def __init__(__self__, *,
+                 constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "constraints")
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "statistics")
+
+
+@pulumi.output_type
+class ModelPackageEnvironment(dict):
+    """
+    Sets the environment variables in the Docker container
+    """
+    def __init__(__self__):
+        """
+        Sets the environment variables in the Docker container
+        """
+        pass
+
+
+@pulumi.output_type
+class ModelPackageExplainability(dict):
+    """
+    Contains explainability metrics for a model.
+    """
+    def __init__(__self__, *,
+                 report: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Contains explainability metrics for a model.
+        """
+        if report is not None:
+            pulumi.set(__self__, "report", report)
+
+    @property
+    @pulumi.getter
+    def report(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "report")
+
+
+@pulumi.output_type
+class ModelPackageFileSource(dict):
+    """
+    Represents a File Source Object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "contentDigest":
+            suggest = "content_digest"
+        elif key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageFileSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageFileSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageFileSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: str,
+                 content_digest: Optional[str] = None,
+                 content_type: Optional[str] = None):
+        """
+        Represents a File Source Object.
+        :param str s3_uri: The Amazon S3 URI for the file source.
+        :param str content_digest: The digest of the file source.
+        :param str content_type: The type of content stored in the file source.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if content_digest is not None:
+            pulumi.set(__self__, "content_digest", content_digest)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        """
+        The Amazon S3 URI for the file source.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="contentDigest")
+    def content_digest(self) -> Optional[str]:
+        """
+        The digest of the file source.
+        """
+        return pulumi.get(self, "content_digest")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The type of content stored in the file source.
+        """
+        return pulumi.get(self, "content_type")
+
+
+@pulumi.output_type
 class ModelPackageGroupTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -4807,6 +5564,1070 @@ class ModelPackageGroupTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ModelPackageInferenceSpecification(dict):
+    """
+    Details about inference jobs that can be run with models based on this model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedContentTypes":
+            suggest = "supported_content_types"
+        elif key == "supportedResponseMIMETypes":
+            suggest = "supported_response_mime_types"
+        elif key == "supportedRealtimeInferenceInstanceTypes":
+            suggest = "supported_realtime_inference_instance_types"
+        elif key == "supportedTransformInstanceTypes":
+            suggest = "supported_transform_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageInferenceSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageInferenceSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageInferenceSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.ModelPackageContainerDefinition'],
+                 supported_content_types: Sequence[str],
+                 supported_response_mime_types: Sequence[str],
+                 supported_realtime_inference_instance_types: Optional[Sequence[str]] = None,
+                 supported_transform_instance_types: Optional[Sequence[str]] = None):
+        """
+        Details about inference jobs that can be run with models based on this model package.
+        :param Sequence['ModelPackageContainerDefinition'] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
+        :param Sequence[str] supported_content_types: The supported MIME types for the input data.
+        :param Sequence[str] supported_response_mime_types: The supported MIME types for the output data.
+        :param Sequence[str] supported_realtime_inference_instance_types: A list of the instance types that are used to generate inferences in real-time
+        :param Sequence[str] supported_transform_instance_types: A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "supported_content_types", supported_content_types)
+        pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.ModelPackageContainerDefinition']:
+        """
+        The Amazon ECR registry path of the Docker image that contains the inference code.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Sequence[str]:
+        """
+        The supported MIME types for the input data.
+        """
+        return pulumi.get(self, "supported_content_types")
+
+    @property
+    @pulumi.getter(name="supportedResponseMIMETypes")
+    def supported_response_mime_types(self) -> Sequence[str]:
+        """
+        The supported MIME types for the output data.
+        """
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of the instance types that are used to generate inferences in real-time
+        """
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        return pulumi.get(self, "supported_transform_instance_types")
+
+
+@pulumi.output_type
+class ModelPackageLastModifiedBy(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ModelPackageMetadataProperties(dict):
+    """
+    Metadata properties of the tracking entity, trial, or trial component.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commitId":
+            suggest = "commit_id"
+        elif key == "generatedBy":
+            suggest = "generated_by"
+        elif key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageMetadataProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageMetadataProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageMetadataProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 commit_id: Optional[str] = None,
+                 generated_by: Optional[str] = None,
+                 project_id: Optional[str] = None,
+                 repository: Optional[str] = None):
+        """
+        Metadata properties of the tracking entity, trial, or trial component.
+        :param str commit_id: The commit ID.
+        :param str generated_by: The entity this entity was generated by.
+        :param str project_id: The project ID metadata.
+        :param str repository: The repository metadata.
+        """
+        if commit_id is not None:
+            pulumi.set(__self__, "commit_id", commit_id)
+        if generated_by is not None:
+            pulumi.set(__self__, "generated_by", generated_by)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="commitId")
+    def commit_id(self) -> Optional[str]:
+        """
+        The commit ID.
+        """
+        return pulumi.get(self, "commit_id")
+
+    @property
+    @pulumi.getter(name="generatedBy")
+    def generated_by(self) -> Optional[str]:
+        """
+        The entity this entity was generated by.
+        """
+        return pulumi.get(self, "generated_by")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[str]:
+        """
+        The project ID metadata.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        The repository metadata.
+        """
+        return pulumi.get(self, "repository")
+
+
+@pulumi.output_type
+class ModelPackageMetricsSource(dict):
+    """
+    Represents a Metric Source Object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "contentDigest":
+            suggest = "content_digest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageMetricsSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageMetricsSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageMetricsSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type: str,
+                 s3_uri: str,
+                 content_digest: Optional[str] = None):
+        """
+        Represents a Metric Source Object.
+        :param str content_type: The type of content stored in the metric source.
+        :param str s3_uri: The Amazon S3 URI for the metric source.
+        :param str content_digest: The digest of the metric source.
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if content_digest is not None:
+            pulumi.set(__self__, "content_digest", content_digest)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        The type of content stored in the metric source.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        """
+        The Amazon S3 URI for the metric source.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="contentDigest")
+    def content_digest(self) -> Optional[str]:
+        """
+        The digest of the metric source.
+        """
+        return pulumi.get(self, "content_digest")
+
+
+@pulumi.output_type
+class ModelPackageModelDataQuality(dict):
+    """
+    Metrics that measure the quality of the input data for a model.
+    """
+    def __init__(__self__, *,
+                 constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Metrics that measure the quality of the input data for a model.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "constraints")
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "statistics")
+
+
+@pulumi.output_type
+class ModelPackageModelMetrics(dict):
+    """
+    A structure that contains model metrics reports.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelDataQuality":
+            suggest = "model_data_quality"
+        elif key == "modelQuality":
+            suggest = "model_quality"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageModelMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageModelMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageModelMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bias: Optional['outputs.ModelPackageBias'] = None,
+                 explainability: Optional['outputs.ModelPackageExplainability'] = None,
+                 model_data_quality: Optional['outputs.ModelPackageModelDataQuality'] = None,
+                 model_quality: Optional['outputs.ModelPackageModelQuality'] = None):
+        """
+        A structure that contains model metrics reports.
+        """
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if explainability is not None:
+            pulumi.set(__self__, "explainability", explainability)
+        if model_data_quality is not None:
+            pulumi.set(__self__, "model_data_quality", model_data_quality)
+        if model_quality is not None:
+            pulumi.set(__self__, "model_quality", model_quality)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional['outputs.ModelPackageBias']:
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def explainability(self) -> Optional['outputs.ModelPackageExplainability']:
+        return pulumi.get(self, "explainability")
+
+    @property
+    @pulumi.getter(name="modelDataQuality")
+    def model_data_quality(self) -> Optional['outputs.ModelPackageModelDataQuality']:
+        return pulumi.get(self, "model_data_quality")
+
+    @property
+    @pulumi.getter(name="modelQuality")
+    def model_quality(self) -> Optional['outputs.ModelPackageModelQuality']:
+        return pulumi.get(self, "model_quality")
+
+
+@pulumi.output_type
+class ModelPackageModelQuality(dict):
+    """
+    Metrics that measure the quality of a model.
+    """
+    def __init__(__self__, *,
+                 constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
+                 statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
+        """
+        Metrics that measure the quality of a model.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "constraints")
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional['outputs.ModelPackageMetricsSource']:
+        return pulumi.get(self, "statistics")
+
+
+@pulumi.output_type
+class ModelPackageS3DataSource(dict):
+    """
+    Describes the S3 data source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: 'ModelPackageS3DataSourceS3DataType',
+                 s3_uri: str):
+        """
+        Describes the S3 data source.
+        :param 'ModelPackageS3DataSourceS3DataType' s3_data_type: The S3 Data Source Type
+        :param str s3_uri: Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> 'ModelPackageS3DataSourceS3DataType':
+        """
+        The S3 Data Source Type
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        """
+        Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+        """
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class ModelPackageSourceAlgorithm(dict):
+    """
+    Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "algorithmName":
+            suggest = "algorithm_name"
+        elif key == "modelDataUrl":
+            suggest = "model_data_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageSourceAlgorithm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageSourceAlgorithm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageSourceAlgorithm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm_name: str,
+                 model_data_url: Optional[str] = None):
+        """
+        Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        :param str algorithm_name: The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        :param str model_data_url: The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
+        pulumi.set(__self__, "algorithm_name", algorithm_name)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+
+    @property
+    @pulumi.getter(name="algorithmName")
+    def algorithm_name(self) -> str:
+        """
+        The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        """
+        return pulumi.get(self, "algorithm_name")
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[str]:
+        """
+        The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
+        return pulumi.get(self, "model_data_url")
+
+
+@pulumi.output_type
+class ModelPackageSourceAlgorithmSpecification(dict):
+    """
+    Details about the algorithm that was used to create the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAlgorithms":
+            suggest = "source_algorithms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageSourceAlgorithmSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageSourceAlgorithmSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageSourceAlgorithmSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_algorithms: Sequence['outputs.ModelPackageSourceAlgorithm']):
+        """
+        Details about the algorithm that was used to create the model package.
+        :param Sequence['ModelPackageSourceAlgorithm'] source_algorithms: A list of algorithms that were used to create a model package.
+        """
+        pulumi.set(__self__, "source_algorithms", source_algorithms)
+
+    @property
+    @pulumi.getter(name="sourceAlgorithms")
+    def source_algorithms(self) -> Sequence['outputs.ModelPackageSourceAlgorithm']:
+        """
+        A list of algorithms that were used to create a model package.
+        """
+        return pulumi.get(self, "source_algorithms")
+
+
+@pulumi.output_type
+class ModelPackageStatusDetails(dict):
+    """
+    Details about the current status of the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validationStatuses":
+            suggest = "validation_statuses"
+        elif key == "imageScanStatuses":
+            suggest = "image_scan_statuses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageStatusDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageStatusDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageStatusDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 validation_statuses: Sequence['outputs.ModelPackageStatusItem'],
+                 image_scan_statuses: Optional[Sequence['outputs.ModelPackageStatusItem']] = None):
+        """
+        Details about the current status of the model package.
+        """
+        pulumi.set(__self__, "validation_statuses", validation_statuses)
+        if image_scan_statuses is not None:
+            pulumi.set(__self__, "image_scan_statuses", image_scan_statuses)
+
+    @property
+    @pulumi.getter(name="validationStatuses")
+    def validation_statuses(self) -> Sequence['outputs.ModelPackageStatusItem']:
+        return pulumi.get(self, "validation_statuses")
+
+    @property
+    @pulumi.getter(name="imageScanStatuses")
+    def image_scan_statuses(self) -> Optional[Sequence['outputs.ModelPackageStatusItem']]:
+        return pulumi.get(self, "image_scan_statuses")
+
+
+@pulumi.output_type
+class ModelPackageStatusItem(dict):
+    """
+    Represents the overall status of a model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureReason":
+            suggest = "failure_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageStatusItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageStatusItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageStatusItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 status: 'ModelPackageStatusItemStatus',
+                 failure_reason: Optional[str] = None):
+        """
+        Represents the overall status of a model package.
+        :param str name: The name of the model package for which the overall status is being reported.
+        :param 'ModelPackageStatusItemStatus' status: The current status.
+        :param str failure_reason: If the overall status is Failed, the reason for the failure.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the model package for which the overall status is being reported.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'ModelPackageStatusItemStatus':
+        """
+        The current status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        If the overall status is Failed, the reason for the failure.
+        """
+        return pulumi.get(self, "failure_reason")
+
+
+@pulumi.output_type
+class ModelPackageTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ModelPackageTransformInput(dict):
+    """
+    Describes the input source of a transform job and the way the transform job consumes it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "splitType":
+            suggest = "split_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: 'outputs.ModelPackageDataSource',
+                 compression_type: Optional['ModelPackageTransformInputCompressionType'] = None,
+                 content_type: Optional[str] = None,
+                 split_type: Optional['ModelPackageTransformInputSplitType'] = None):
+        """
+        Describes the input source of a transform job and the way the transform job consumes it.
+        :param 'ModelPackageTransformInputCompressionType' compression_type: If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+        :param str content_type: The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+        :param 'ModelPackageTransformInputSplitType' split_type: The method to use to split the transform job's data files into smaller batches. 
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if split_type is not None:
+            pulumi.set(__self__, "split_type", split_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> 'outputs.ModelPackageDataSource':
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional['ModelPackageTransformInputCompressionType']:
+        """
+        If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="splitType")
+    def split_type(self) -> Optional['ModelPackageTransformInputSplitType']:
+        """
+        The method to use to split the transform job's data files into smaller batches. 
+        """
+        return pulumi.get(self, "split_type")
+
+
+@pulumi.output_type
+class ModelPackageTransformJobDefinition(dict):
+    """
+    Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transformInput":
+            suggest = "transform_input"
+        elif key == "transformOutput":
+            suggest = "transform_output"
+        elif key == "transformResources":
+            suggest = "transform_resources"
+        elif key == "batchStrategy":
+            suggest = "batch_strategy"
+        elif key == "maxConcurrentTransforms":
+            suggest = "max_concurrent_transforms"
+        elif key == "maxPayloadInMB":
+            suggest = "max_payload_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageTransformJobDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageTransformJobDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageTransformJobDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transform_input: 'outputs.ModelPackageTransformInput',
+                 transform_output: 'outputs.ModelPackageTransformOutput',
+                 transform_resources: 'outputs.ModelPackageTransformResources',
+                 batch_strategy: Optional['ModelPackageTransformJobDefinitionBatchStrategy'] = None,
+                 environment: Optional['outputs.ModelPackageEnvironment'] = None,
+                 max_concurrent_transforms: Optional[int] = None,
+                 max_payload_in_mb: Optional[int] = None):
+        """
+        Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+        :param 'ModelPackageTransformJobDefinitionBatchStrategy' batch_strategy: A string that determines the number of records included in a single mini-batch.
+        :param int max_concurrent_transforms: The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+        :param int max_payload_in_mb: The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+        """
+        pulumi.set(__self__, "transform_input", transform_input)
+        pulumi.set(__self__, "transform_output", transform_output)
+        pulumi.set(__self__, "transform_resources", transform_resources)
+        if batch_strategy is not None:
+            pulumi.set(__self__, "batch_strategy", batch_strategy)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if max_concurrent_transforms is not None:
+            pulumi.set(__self__, "max_concurrent_transforms", max_concurrent_transforms)
+        if max_payload_in_mb is not None:
+            pulumi.set(__self__, "max_payload_in_mb", max_payload_in_mb)
+
+    @property
+    @pulumi.getter(name="transformInput")
+    def transform_input(self) -> 'outputs.ModelPackageTransformInput':
+        return pulumi.get(self, "transform_input")
+
+    @property
+    @pulumi.getter(name="transformOutput")
+    def transform_output(self) -> 'outputs.ModelPackageTransformOutput':
+        return pulumi.get(self, "transform_output")
+
+    @property
+    @pulumi.getter(name="transformResources")
+    def transform_resources(self) -> 'outputs.ModelPackageTransformResources':
+        return pulumi.get(self, "transform_resources")
+
+    @property
+    @pulumi.getter(name="batchStrategy")
+    def batch_strategy(self) -> Optional['ModelPackageTransformJobDefinitionBatchStrategy']:
+        """
+        A string that determines the number of records included in a single mini-batch.
+        """
+        return pulumi.get(self, "batch_strategy")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.ModelPackageEnvironment']:
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="maxConcurrentTransforms")
+    def max_concurrent_transforms(self) -> Optional[int]:
+        """
+        The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+        """
+        return pulumi.get(self, "max_concurrent_transforms")
+
+    @property
+    @pulumi.getter(name="maxPayloadInMB")
+    def max_payload_in_mb(self) -> Optional[int]:
+        """
+        The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+        """
+        return pulumi.get(self, "max_payload_in_mb")
+
+
+@pulumi.output_type
+class ModelPackageTransformOutput(dict):
+    """
+    Describes the results of a transform job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "assembleWith":
+            suggest = "assemble_with"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageTransformOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageTransformOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageTransformOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: str,
+                 accept: Optional[str] = None,
+                 assemble_with: Optional['ModelPackageTransformOutputAssembleWith'] = None,
+                 kms_key_id: Optional[str] = None):
+        """
+        Describes the results of a transform job.
+        :param str s3_output_path: The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+        :param str accept: The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+        :param 'ModelPackageTransformOutputAssembleWith' assemble_with: Defines how to assemble the results of the transform job as a single S3 object.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if accept is not None:
+            pulumi.set(__self__, "accept", accept)
+        if assemble_with is not None:
+            pulumi.set(__self__, "assemble_with", assemble_with)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> str:
+        """
+        The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @property
+    @pulumi.getter
+    def accept(self) -> Optional[str]:
+        """
+        The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+        """
+        return pulumi.get(self, "accept")
+
+    @property
+    @pulumi.getter(name="assembleWith")
+    def assemble_with(self) -> Optional['ModelPackageTransformOutputAssembleWith']:
+        """
+        Defines how to assemble the results of the transform job as a single S3 object.
+        """
+        return pulumi.get(self, "assemble_with")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ModelPackageTransformResources(dict):
+    """
+    Describes the resources, including ML instance types and ML instance count, to use for transform job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageTransformResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageTransformResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageTransformResources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: int,
+                 instance_type: str,
+                 volume_kms_key_id: Optional[str] = None):
+        """
+        Describes the resources, including ML instance types and ML instance count, to use for transform job.
+        :param int instance_count: The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+        :param str instance_type: The ML compute instance type for the transform job.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        The ML compute instance type for the transform job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+
+@pulumi.output_type
+class ModelPackageValidationProfile(dict):
+    """
+    Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileName":
+            suggest = "profile_name"
+        elif key == "transformJobDefinition":
+            suggest = "transform_job_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageValidationProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageValidationProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageValidationProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profile_name: str,
+                 transform_job_definition: 'outputs.ModelPackageTransformJobDefinition'):
+        """
+        Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+        :param str profile_name: The name of the profile for the model package.
+        """
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "transform_job_definition", transform_job_definition)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> str:
+        """
+        The name of the profile for the model package.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @property
+    @pulumi.getter(name="transformJobDefinition")
+    def transform_job_definition(self) -> 'outputs.ModelPackageTransformJobDefinition':
+        return pulumi.get(self, "transform_job_definition")
+
+
+@pulumi.output_type
+class ModelPackageValidationSpecification(dict):
+    """
+    Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validationProfiles":
+            suggest = "validation_profiles"
+        elif key == "validationRole":
+            suggest = "validation_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelPackageValidationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelPackageValidationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelPackageValidationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 validation_profiles: Sequence['outputs.ModelPackageValidationProfile'],
+                 validation_role: str):
+        """
+        Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+        :param str validation_role: The IAM roles to be used for the validation of the model package.
+        """
+        pulumi.set(__self__, "validation_profiles", validation_profiles)
+        pulumi.set(__self__, "validation_role", validation_role)
+
+    @property
+    @pulumi.getter(name="validationProfiles")
+    def validation_profiles(self) -> Sequence['outputs.ModelPackageValidationProfile']:
+        return pulumi.get(self, "validation_profiles")
+
+    @property
+    @pulumi.getter(name="validationRole")
+    def validation_role(self) -> str:
+        """
+        The IAM roles to be used for the validation of the model package.
+        """
+        return pulumi.get(self, "validation_role")
 
 
 @pulumi.output_type

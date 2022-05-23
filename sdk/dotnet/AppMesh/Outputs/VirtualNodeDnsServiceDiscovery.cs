@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     public sealed class VirtualNodeDnsServiceDiscovery
     {
         public readonly string Hostname;
+        public readonly string? IpPreference;
         public readonly string? ResponseType;
 
         [OutputConstructor]
         private VirtualNodeDnsServiceDiscovery(
             string hostname,
 
+            string? ipPreference,
+
             string? responseType)
         {
             Hostname = hostname;
+            IpPreference = ipPreference;
             ResponseType = responseType;
         }
     }

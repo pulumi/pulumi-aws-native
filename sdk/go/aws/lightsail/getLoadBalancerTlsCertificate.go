@@ -28,6 +28,8 @@ type LookupLoadBalancerTlsCertificateArgs struct {
 }
 
 type LookupLoadBalancerTlsCertificateResult struct {
+	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+	HttpsRedirectionEnabled *bool `pulumi:"httpsRedirectionEnabled"`
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
 	IsAttached                    *bool   `pulumi:"isAttached"`
 	LoadBalancerTlsCertificateArn *string `pulumi:"loadBalancerTlsCertificateArn"`
@@ -71,6 +73,11 @@ func (o LookupLoadBalancerTlsCertificateResultOutput) ToLookupLoadBalancerTlsCer
 
 func (o LookupLoadBalancerTlsCertificateResultOutput) ToLookupLoadBalancerTlsCertificateResultOutputWithContext(ctx context.Context) LookupLoadBalancerTlsCertificateResultOutput {
 	return o
+}
+
+// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+func (o LookupLoadBalancerTlsCertificateResultOutput) HttpsRedirectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerTlsCertificateResult) *bool { return v.HttpsRedirectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // When true, the SSL/TLS certificate is attached to the Lightsail load balancer.

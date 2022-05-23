@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("cooldown")]
         public Output<string?> Cooldown { get; private set; } = null!;
 
+        [Output("defaultInstanceWarmup")]
+        public Output<int?> DefaultInstanceWarmup { get; private set; } = null!;
+
         [Output("desiredCapacity")]
         public Output<string?> DesiredCapacity { get; private set; } = null!;
 
@@ -164,6 +167,9 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [Input("cooldown")]
         public Input<string>? Cooldown { get; set; }
+
+        [Input("defaultInstanceWarmup")]
+        public Input<int>? DefaultInstanceWarmup { get; set; }
 
         [Input("desiredCapacity")]
         public Input<string>? DesiredCapacity { get; set; }

@@ -21,6 +21,8 @@ type Canary struct {
 	ArtifactS3Location pulumi.StringOutput `pulumi:"artifactS3Location"`
 	// Provide the canary script source
 	Code CanaryCodeOutput `pulumi:"code"`
+	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+	DeleteLambdaResourcesOnCanaryDeletion pulumi.BoolPtrOutput `pulumi:"deleteLambdaResourcesOnCanaryDeletion"`
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
@@ -109,6 +111,8 @@ type canaryArgs struct {
 	ArtifactS3Location string `pulumi:"artifactS3Location"`
 	// Provide the canary script source
 	Code CanaryCode `pulumi:"code"`
+	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+	DeleteLambdaResourcesOnCanaryDeletion *bool `pulumi:"deleteLambdaResourcesOnCanaryDeletion"`
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
@@ -140,6 +144,8 @@ type CanaryArgs struct {
 	ArtifactS3Location pulumi.StringInput
 	// Provide the canary script source
 	Code CanaryCodeInput
+	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+	DeleteLambdaResourcesOnCanaryDeletion pulumi.BoolPtrInput
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn pulumi.StringInput
 	// Retention period of failed canary runs represented in number of days
@@ -213,6 +219,11 @@ func (o CanaryOutput) ArtifactS3Location() pulumi.StringOutput {
 // Provide the canary script source
 func (o CanaryOutput) Code() CanaryCodeOutput {
 	return o.ApplyT(func(v *Canary) CanaryCodeOutput { return v.Code }).(CanaryCodeOutput)
+}
+
+// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+func (o CanaryOutput) DeleteLambdaResourcesOnCanaryDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.BoolPtrOutput { return v.DeleteLambdaResourcesOnCanaryDeletion }).(pulumi.BoolPtrOutput)
 }
 
 // Lambda Execution role used to run your canaries

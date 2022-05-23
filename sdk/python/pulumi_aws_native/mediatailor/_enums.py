@@ -6,7 +6,7 @@ from enum import Enum
 
 __all__ = [
     'PlaybackConfigurationAvailSuppressionMode',
-    'PlaybackConfigurationDashConfigurationForPutOriginManifestType',
+    'PlaybackConfigurationDashConfigurationOriginManifestType',
 ]
 
 
@@ -18,7 +18,7 @@ class PlaybackConfigurationAvailSuppressionMode(str, Enum):
     BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE"
 
 
-class PlaybackConfigurationDashConfigurationForPutOriginManifestType(str, Enum):
+class PlaybackConfigurationDashConfigurationOriginManifestType(str, Enum):
     """
     The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
     """

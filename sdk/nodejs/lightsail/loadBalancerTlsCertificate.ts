@@ -47,6 +47,10 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
      */
     public readonly certificateName!: pulumi.Output<string>;
     /**
+     * A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+     */
+    public readonly httpsRedirectionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
      */
     public readonly isAttached!: pulumi.Output<boolean | undefined>;
@@ -83,6 +87,7 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
             resourceInputs["certificateAlternativeNames"] = args ? args.certificateAlternativeNames : undefined;
             resourceInputs["certificateDomainName"] = args ? args.certificateDomainName : undefined;
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["httpsRedirectionEnabled"] = args ? args.httpsRedirectionEnabled : undefined;
             resourceInputs["isAttached"] = args ? args.isAttached : undefined;
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             resourceInputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
@@ -91,6 +96,7 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
             resourceInputs["certificateAlternativeNames"] = undefined /*out*/;
             resourceInputs["certificateDomainName"] = undefined /*out*/;
             resourceInputs["certificateName"] = undefined /*out*/;
+            resourceInputs["httpsRedirectionEnabled"] = undefined /*out*/;
             resourceInputs["isAttached"] = undefined /*out*/;
             resourceInputs["loadBalancerName"] = undefined /*out*/;
             resourceInputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
@@ -117,6 +123,10 @@ export interface LoadBalancerTlsCertificateArgs {
      * The SSL/TLS certificate name.
      */
     certificateName: pulumi.Input<string>;
+    /**
+     * A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+     */
+    httpsRedirectionEnabled?: pulumi.Input<boolean>;
     /**
      * When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
      */

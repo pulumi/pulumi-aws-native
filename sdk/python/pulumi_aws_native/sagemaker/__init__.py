@@ -30,6 +30,7 @@ from .get_image_version import *
 from .get_model import *
 from .get_model_bias_job_definition import *
 from .get_model_explainability_job_definition import *
+from .get_model_package import *
 from .get_model_package_group import *
 from .get_model_quality_job_definition import *
 from .get_monitoring_schedule import *
@@ -44,6 +45,7 @@ from .image_version import *
 from .model import *
 from .model_bias_job_definition import *
 from .model_explainability_job_definition import *
+from .model_package import *
 from .model_package_group import *
 from .model_quality_job_definition import *
 from .monitoring_schedule import *

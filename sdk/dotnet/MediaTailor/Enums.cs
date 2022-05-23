@@ -42,26 +42,26 @@ namespace Pulumi.AwsNative.MediaTailor
     /// The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
     /// </summary>
     [EnumType]
-    public readonly struct PlaybackConfigurationDashConfigurationForPutOriginManifestType : IEquatable<PlaybackConfigurationDashConfigurationForPutOriginManifestType>
+    public readonly struct PlaybackConfigurationDashConfigurationOriginManifestType : IEquatable<PlaybackConfigurationDashConfigurationOriginManifestType>
     {
         private readonly string _value;
 
-        private PlaybackConfigurationDashConfigurationForPutOriginManifestType(string value)
+        private PlaybackConfigurationDashConfigurationOriginManifestType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PlaybackConfigurationDashConfigurationForPutOriginManifestType SinglePeriod { get; } = new PlaybackConfigurationDashConfigurationForPutOriginManifestType("SINGLE_PERIOD");
-        public static PlaybackConfigurationDashConfigurationForPutOriginManifestType MultiPeriod { get; } = new PlaybackConfigurationDashConfigurationForPutOriginManifestType("MULTI_PERIOD");
+        public static PlaybackConfigurationDashConfigurationOriginManifestType SinglePeriod { get; } = new PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD");
+        public static PlaybackConfigurationDashConfigurationOriginManifestType MultiPeriod { get; } = new PlaybackConfigurationDashConfigurationOriginManifestType("MULTI_PERIOD");
 
-        public static bool operator ==(PlaybackConfigurationDashConfigurationForPutOriginManifestType left, PlaybackConfigurationDashConfigurationForPutOriginManifestType right) => left.Equals(right);
-        public static bool operator !=(PlaybackConfigurationDashConfigurationForPutOriginManifestType left, PlaybackConfigurationDashConfigurationForPutOriginManifestType right) => !left.Equals(right);
+        public static bool operator ==(PlaybackConfigurationDashConfigurationOriginManifestType left, PlaybackConfigurationDashConfigurationOriginManifestType right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationDashConfigurationOriginManifestType left, PlaybackConfigurationDashConfigurationOriginManifestType right) => !left.Equals(right);
 
-        public static explicit operator string(PlaybackConfigurationDashConfigurationForPutOriginManifestType value) => value._value;
+        public static explicit operator string(PlaybackConfigurationDashConfigurationOriginManifestType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PlaybackConfigurationDashConfigurationForPutOriginManifestType other && Equals(other);
-        public bool Equals(PlaybackConfigurationDashConfigurationForPutOriginManifestType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationDashConfigurationOriginManifestType other && Equals(other);
+        public bool Equals(PlaybackConfigurationDashConfigurationOriginManifestType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

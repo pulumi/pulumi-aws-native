@@ -29,6 +29,7 @@ export * from "./getImageVersion";
 export * from "./getModel";
 export * from "./getModelBiasJobDefinition";
 export * from "./getModelExplainabilityJobDefinition";
+export * from "./getModelPackage";
 export * from "./getModelPackageGroup";
 export * from "./getModelQualityJobDefinition";
 export * from "./getMonitoringSchedule";
@@ -43,6 +44,7 @@ export * from "./imageVersion";
 export * from "./model";
 export * from "./modelBiasJobDefinition";
 export * from "./modelExplainabilityJobDefinition";
+export * from "./modelPackage";
 export * from "./modelPackageGroup";
 export * from "./modelQualityJobDefinition";
 export * from "./monitoringSchedule";
@@ -72,6 +74,7 @@ import { ImageVersion } from "./imageVersion";
 import { Model } from "./model";
 import { ModelBiasJobDefinition } from "./modelBiasJobDefinition";
 import { ModelExplainabilityJobDefinition } from "./modelExplainabilityJobDefinition";
+import { ModelPackage } from "./modelPackage";
 import { ModelPackageGroup } from "./modelPackageGroup";
 import { ModelQualityJobDefinition } from "./modelQualityJobDefinition";
 import { MonitoringSchedule } from "./monitoringSchedule";
@@ -116,6 +119,8 @@ const _module = {
                 return new ModelBiasJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
                 return new ModelExplainabilityJobDefinition(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:ModelPackage":
+                return new ModelPackage(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelPackageGroup":
                 return new ModelPackageGroup(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelQualityJobDefinition":

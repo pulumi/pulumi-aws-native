@@ -2489,6 +2489,338 @@ func (in *ruleGroupLabelMatchScopePtr) ToRuleGroupLabelMatchScopePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupLabelMatchScopePtrOutput)
 }
 
+// The parts of the request to match against using the MatchPattern.
+type RuleGroupMapMatchScope string
+
+const (
+	RuleGroupMapMatchScopeAll   = RuleGroupMapMatchScope("ALL")
+	RuleGroupMapMatchScopeKey   = RuleGroupMapMatchScope("KEY")
+	RuleGroupMapMatchScopeValue = RuleGroupMapMatchScope("VALUE")
+)
+
+func (RuleGroupMapMatchScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMapMatchScope)(nil)).Elem()
+}
+
+func (e RuleGroupMapMatchScope) ToRuleGroupMapMatchScopeOutput() RuleGroupMapMatchScopeOutput {
+	return pulumi.ToOutput(e).(RuleGroupMapMatchScopeOutput)
+}
+
+func (e RuleGroupMapMatchScope) ToRuleGroupMapMatchScopeOutputWithContext(ctx context.Context) RuleGroupMapMatchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupMapMatchScopeOutput)
+}
+
+func (e RuleGroupMapMatchScope) ToRuleGroupMapMatchScopePtrOutput() RuleGroupMapMatchScopePtrOutput {
+	return e.ToRuleGroupMapMatchScopePtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupMapMatchScope) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
+	return RuleGroupMapMatchScope(e).ToRuleGroupMapMatchScopeOutputWithContext(ctx).ToRuleGroupMapMatchScopePtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupMapMatchScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupMapMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupMapMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupMapMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupMapMatchScopeOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMapMatchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMapMatchScope)(nil)).Elem()
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToRuleGroupMapMatchScopeOutput() RuleGroupMapMatchScopeOutput {
+	return o
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToRuleGroupMapMatchScopeOutputWithContext(ctx context.Context) RuleGroupMapMatchScopeOutput {
+	return o
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToRuleGroupMapMatchScopePtrOutput() RuleGroupMapMatchScopePtrOutput {
+	return o.ToRuleGroupMapMatchScopePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupMapMatchScope) *RuleGroupMapMatchScope {
+		return &v
+	}).(RuleGroupMapMatchScopePtrOutput)
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupMapMatchScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMapMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupMapMatchScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupMapMatchScopePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMapMatchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMapMatchScope)(nil)).Elem()
+}
+
+func (o RuleGroupMapMatchScopePtrOutput) ToRuleGroupMapMatchScopePtrOutput() RuleGroupMapMatchScopePtrOutput {
+	return o
+}
+
+func (o RuleGroupMapMatchScopePtrOutput) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
+	return o
+}
+
+func (o RuleGroupMapMatchScopePtrOutput) Elem() RuleGroupMapMatchScopeOutput {
+	return o.ApplyT(func(v *RuleGroupMapMatchScope) RuleGroupMapMatchScope {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupMapMatchScope
+		return ret
+	}).(RuleGroupMapMatchScopeOutput)
+}
+
+func (o RuleGroupMapMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupMapMatchScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupMapMatchScopeInput is an input type that accepts RuleGroupMapMatchScopeArgs and RuleGroupMapMatchScopeOutput values.
+// You can construct a concrete instance of `RuleGroupMapMatchScopeInput` via:
+//
+//          RuleGroupMapMatchScopeArgs{...}
+type RuleGroupMapMatchScopeInput interface {
+	pulumi.Input
+
+	ToRuleGroupMapMatchScopeOutput() RuleGroupMapMatchScopeOutput
+	ToRuleGroupMapMatchScopeOutputWithContext(context.Context) RuleGroupMapMatchScopeOutput
+}
+
+var ruleGroupMapMatchScopePtrType = reflect.TypeOf((**RuleGroupMapMatchScope)(nil)).Elem()
+
+type RuleGroupMapMatchScopePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupMapMatchScopePtrOutput() RuleGroupMapMatchScopePtrOutput
+	ToRuleGroupMapMatchScopePtrOutputWithContext(context.Context) RuleGroupMapMatchScopePtrOutput
+}
+
+type ruleGroupMapMatchScopePtr string
+
+func RuleGroupMapMatchScopePtr(v string) RuleGroupMapMatchScopePtrInput {
+	return (*ruleGroupMapMatchScopePtr)(&v)
+}
+
+func (*ruleGroupMapMatchScopePtr) ElementType() reflect.Type {
+	return ruleGroupMapMatchScopePtrType
+}
+
+func (in *ruleGroupMapMatchScopePtr) ToRuleGroupMapMatchScopePtrOutput() RuleGroupMapMatchScopePtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupMapMatchScopePtrOutput)
+}
+
+func (in *ruleGroupMapMatchScopePtr) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupMapMatchScopePtrOutput)
+}
+
+// Handling of requests containing oversize fields
+type RuleGroupOversizeHandling string
+
+const (
+	RuleGroupOversizeHandlingContinue = RuleGroupOversizeHandling("CONTINUE")
+	RuleGroupOversizeHandlingMatch    = RuleGroupOversizeHandling("MATCH")
+	RuleGroupOversizeHandlingNoMatch  = RuleGroupOversizeHandling("NO_MATCH")
+)
+
+func (RuleGroupOversizeHandling) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupOversizeHandling)(nil)).Elem()
+}
+
+func (e RuleGroupOversizeHandling) ToRuleGroupOversizeHandlingOutput() RuleGroupOversizeHandlingOutput {
+	return pulumi.ToOutput(e).(RuleGroupOversizeHandlingOutput)
+}
+
+func (e RuleGroupOversizeHandling) ToRuleGroupOversizeHandlingOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupOversizeHandlingOutput)
+}
+
+func (e RuleGroupOversizeHandling) ToRuleGroupOversizeHandlingPtrOutput() RuleGroupOversizeHandlingPtrOutput {
+	return e.ToRuleGroupOversizeHandlingPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupOversizeHandling) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
+	return RuleGroupOversizeHandling(e).ToRuleGroupOversizeHandlingOutputWithContext(ctx).ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupOversizeHandling) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupOversizeHandling) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupOversizeHandling) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupOversizeHandling) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupOversizeHandlingOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupOversizeHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupOversizeHandling)(nil)).Elem()
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToRuleGroupOversizeHandlingOutput() RuleGroupOversizeHandlingOutput {
+	return o
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToRuleGroupOversizeHandlingOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingOutput {
+	return o
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToRuleGroupOversizeHandlingPtrOutput() RuleGroupOversizeHandlingPtrOutput {
+	return o.ToRuleGroupOversizeHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupOversizeHandling) *RuleGroupOversizeHandling {
+		return &v
+	}).(RuleGroupOversizeHandlingPtrOutput)
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupOversizeHandling) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupOversizeHandlingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupOversizeHandling) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupOversizeHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupOversizeHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupOversizeHandling)(nil)).Elem()
+}
+
+func (o RuleGroupOversizeHandlingPtrOutput) ToRuleGroupOversizeHandlingPtrOutput() RuleGroupOversizeHandlingPtrOutput {
+	return o
+}
+
+func (o RuleGroupOversizeHandlingPtrOutput) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
+	return o
+}
+
+func (o RuleGroupOversizeHandlingPtrOutput) Elem() RuleGroupOversizeHandlingOutput {
+	return o.ApplyT(func(v *RuleGroupOversizeHandling) RuleGroupOversizeHandling {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupOversizeHandling
+		return ret
+	}).(RuleGroupOversizeHandlingOutput)
+}
+
+func (o RuleGroupOversizeHandlingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupOversizeHandling) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupOversizeHandlingInput is an input type that accepts RuleGroupOversizeHandlingArgs and RuleGroupOversizeHandlingOutput values.
+// You can construct a concrete instance of `RuleGroupOversizeHandlingInput` via:
+//
+//          RuleGroupOversizeHandlingArgs{...}
+type RuleGroupOversizeHandlingInput interface {
+	pulumi.Input
+
+	ToRuleGroupOversizeHandlingOutput() RuleGroupOversizeHandlingOutput
+	ToRuleGroupOversizeHandlingOutputWithContext(context.Context) RuleGroupOversizeHandlingOutput
+}
+
+var ruleGroupOversizeHandlingPtrType = reflect.TypeOf((**RuleGroupOversizeHandling)(nil)).Elem()
+
+type RuleGroupOversizeHandlingPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupOversizeHandlingPtrOutput() RuleGroupOversizeHandlingPtrOutput
+	ToRuleGroupOversizeHandlingPtrOutputWithContext(context.Context) RuleGroupOversizeHandlingPtrOutput
+}
+
+type ruleGroupOversizeHandlingPtr string
+
+func RuleGroupOversizeHandlingPtr(v string) RuleGroupOversizeHandlingPtrInput {
+	return (*ruleGroupOversizeHandlingPtr)(&v)
+}
+
+func (*ruleGroupOversizeHandlingPtr) ElementType() reflect.Type {
+	return ruleGroupOversizeHandlingPtrType
+}
+
+func (in *ruleGroupOversizeHandlingPtr) ToRuleGroupOversizeHandlingPtrOutput() RuleGroupOversizeHandlingPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupOversizeHandlingPtrOutput)
+}
+
+func (in *ruleGroupOversizeHandlingPtr) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupOversizeHandlingPtrOutput)
+}
+
 // Position of the evaluation in the FieldToMatch of request.
 type RuleGroupPositionalConstraint string
 
@@ -4491,6 +4823,338 @@ func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupCo
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
+// The parts of the request to match against using the MatchPattern.
+type WebACLMapMatchScope string
+
+const (
+	WebACLMapMatchScopeAll   = WebACLMapMatchScope("ALL")
+	WebACLMapMatchScopeKey   = WebACLMapMatchScope("KEY")
+	WebACLMapMatchScopeValue = WebACLMapMatchScope("VALUE")
+)
+
+func (WebACLMapMatchScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLMapMatchScope)(nil)).Elem()
+}
+
+func (e WebACLMapMatchScope) ToWebACLMapMatchScopeOutput() WebACLMapMatchScopeOutput {
+	return pulumi.ToOutput(e).(WebACLMapMatchScopeOutput)
+}
+
+func (e WebACLMapMatchScope) ToWebACLMapMatchScopeOutputWithContext(ctx context.Context) WebACLMapMatchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebACLMapMatchScopeOutput)
+}
+
+func (e WebACLMapMatchScope) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
+	return e.ToWebACLMapMatchScopePtrOutputWithContext(context.Background())
+}
+
+func (e WebACLMapMatchScope) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
+	return WebACLMapMatchScope(e).ToWebACLMapMatchScopeOutputWithContext(ctx).ToWebACLMapMatchScopePtrOutputWithContext(ctx)
+}
+
+func (e WebACLMapMatchScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLMapMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLMapMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLMapMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebACLMapMatchScopeOutput struct{ *pulumi.OutputState }
+
+func (WebACLMapMatchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLMapMatchScope)(nil)).Elem()
+}
+
+func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopeOutput() WebACLMapMatchScopeOutput {
+	return o
+}
+
+func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopeOutputWithContext(ctx context.Context) WebACLMapMatchScopeOutput {
+	return o
+}
+
+func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
+	return o.ToWebACLMapMatchScopePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLMapMatchScope) *WebACLMapMatchScope {
+		return &v
+	}).(WebACLMapMatchScopePtrOutput)
+}
+
+func (o WebACLMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebACLMapMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLMapMatchScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebACLMapMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLMapMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLMapMatchScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLMapMatchScopePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLMapMatchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLMapMatchScope)(nil)).Elem()
+}
+
+func (o WebACLMapMatchScopePtrOutput) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
+	return o
+}
+
+func (o WebACLMapMatchScopePtrOutput) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
+	return o
+}
+
+func (o WebACLMapMatchScopePtrOutput) Elem() WebACLMapMatchScopeOutput {
+	return o.ApplyT(func(v *WebACLMapMatchScope) WebACLMapMatchScope {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLMapMatchScope
+		return ret
+	}).(WebACLMapMatchScopeOutput)
+}
+
+func (o WebACLMapMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLMapMatchScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebACLMapMatchScopeInput is an input type that accepts WebACLMapMatchScopeArgs and WebACLMapMatchScopeOutput values.
+// You can construct a concrete instance of `WebACLMapMatchScopeInput` via:
+//
+//          WebACLMapMatchScopeArgs{...}
+type WebACLMapMatchScopeInput interface {
+	pulumi.Input
+
+	ToWebACLMapMatchScopeOutput() WebACLMapMatchScopeOutput
+	ToWebACLMapMatchScopeOutputWithContext(context.Context) WebACLMapMatchScopeOutput
+}
+
+var webACLMapMatchScopePtrType = reflect.TypeOf((**WebACLMapMatchScope)(nil)).Elem()
+
+type WebACLMapMatchScopePtrInput interface {
+	pulumi.Input
+
+	ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput
+	ToWebACLMapMatchScopePtrOutputWithContext(context.Context) WebACLMapMatchScopePtrOutput
+}
+
+type webACLMapMatchScopePtr string
+
+func WebACLMapMatchScopePtr(v string) WebACLMapMatchScopePtrInput {
+	return (*webACLMapMatchScopePtr)(&v)
+}
+
+func (*webACLMapMatchScopePtr) ElementType() reflect.Type {
+	return webACLMapMatchScopePtrType
+}
+
+func (in *webACLMapMatchScopePtr) ToWebACLMapMatchScopePtrOutput() WebACLMapMatchScopePtrOutput {
+	return pulumi.ToOutput(in).(WebACLMapMatchScopePtrOutput)
+}
+
+func (in *webACLMapMatchScopePtr) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebACLMapMatchScopePtrOutput)
+}
+
+// Handling of requests containing oversize fields
+type WebACLOversizeHandling string
+
+const (
+	WebACLOversizeHandlingContinue = WebACLOversizeHandling("CONTINUE")
+	WebACLOversizeHandlingMatch    = WebACLOversizeHandling("MATCH")
+	WebACLOversizeHandlingNoMatch  = WebACLOversizeHandling("NO_MATCH")
+)
+
+func (WebACLOversizeHandling) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLOversizeHandling)(nil)).Elem()
+}
+
+func (e WebACLOversizeHandling) ToWebACLOversizeHandlingOutput() WebACLOversizeHandlingOutput {
+	return pulumi.ToOutput(e).(WebACLOversizeHandlingOutput)
+}
+
+func (e WebACLOversizeHandling) ToWebACLOversizeHandlingOutputWithContext(ctx context.Context) WebACLOversizeHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebACLOversizeHandlingOutput)
+}
+
+func (e WebACLOversizeHandling) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
+	return e.ToWebACLOversizeHandlingPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLOversizeHandling) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
+	return WebACLOversizeHandling(e).ToWebACLOversizeHandlingOutputWithContext(ctx).ToWebACLOversizeHandlingPtrOutputWithContext(ctx)
+}
+
+func (e WebACLOversizeHandling) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLOversizeHandling) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLOversizeHandling) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLOversizeHandling) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebACLOversizeHandlingOutput struct{ *pulumi.OutputState }
+
+func (WebACLOversizeHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLOversizeHandling)(nil)).Elem()
+}
+
+func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingOutput() WebACLOversizeHandlingOutput {
+	return o
+}
+
+func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingOutputWithContext(ctx context.Context) WebACLOversizeHandlingOutput {
+	return o
+}
+
+func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
+	return o.ToWebACLOversizeHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLOversizeHandling) *WebACLOversizeHandling {
+		return &v
+	}).(WebACLOversizeHandlingPtrOutput)
+}
+
+func (o WebACLOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebACLOversizeHandlingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLOversizeHandling) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebACLOversizeHandlingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLOversizeHandlingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLOversizeHandling) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLOversizeHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLOversizeHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLOversizeHandling)(nil)).Elem()
+}
+
+func (o WebACLOversizeHandlingPtrOutput) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
+	return o
+}
+
+func (o WebACLOversizeHandlingPtrOutput) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
+	return o
+}
+
+func (o WebACLOversizeHandlingPtrOutput) Elem() WebACLOversizeHandlingOutput {
+	return o.ApplyT(func(v *WebACLOversizeHandling) WebACLOversizeHandling {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLOversizeHandling
+		return ret
+	}).(WebACLOversizeHandlingOutput)
+}
+
+func (o WebACLOversizeHandlingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLOversizeHandling) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebACLOversizeHandlingInput is an input type that accepts WebACLOversizeHandlingArgs and WebACLOversizeHandlingOutput values.
+// You can construct a concrete instance of `WebACLOversizeHandlingInput` via:
+//
+//          WebACLOversizeHandlingArgs{...}
+type WebACLOversizeHandlingInput interface {
+	pulumi.Input
+
+	ToWebACLOversizeHandlingOutput() WebACLOversizeHandlingOutput
+	ToWebACLOversizeHandlingOutputWithContext(context.Context) WebACLOversizeHandlingOutput
+}
+
+var webACLOversizeHandlingPtrType = reflect.TypeOf((**WebACLOversizeHandling)(nil)).Elem()
+
+type WebACLOversizeHandlingPtrInput interface {
+	pulumi.Input
+
+	ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput
+	ToWebACLOversizeHandlingPtrOutputWithContext(context.Context) WebACLOversizeHandlingPtrOutput
+}
+
+type webACLOversizeHandlingPtr string
+
+func WebACLOversizeHandlingPtr(v string) WebACLOversizeHandlingPtrInput {
+	return (*webACLOversizeHandlingPtr)(&v)
+}
+
+func (*webACLOversizeHandlingPtr) ElementType() reflect.Type {
+	return webACLOversizeHandlingPtrType
+}
+
+func (in *webACLOversizeHandlingPtr) ToWebACLOversizeHandlingPtrOutput() WebACLOversizeHandlingPtrOutput {
+	return pulumi.ToOutput(in).(WebACLOversizeHandlingPtrOutput)
+}
+
+func (in *webACLOversizeHandlingPtr) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebACLOversizeHandlingPtrOutput)
+}
+
 // Position of the evaluation in the FieldToMatch of request.
 type WebACLPositionalConstraint string
 
@@ -5371,6 +6035,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchScopePtrInput)(nil)).Elem(), RuleGroupJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchScopeInput)(nil)).Elem(), RuleGroupLabelMatchScope("LABEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchScopePtrInput)(nil)).Elem(), RuleGroupLabelMatchScope("LABEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMapMatchScopeInput)(nil)).Elem(), RuleGroupMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMapMatchScopePtrInput)(nil)).Elem(), RuleGroupMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOversizeHandlingInput)(nil)).Elem(), RuleGroupOversizeHandling("CONTINUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOversizeHandlingPtrInput)(nil)).Elem(), RuleGroupOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintPtrInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
@@ -5395,6 +6063,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLLabelMatchScopePtrInput)(nil)).Elem(), WebACLLabelMatchScope("LABEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadTypeInput)(nil)).Elem(), WebACLManagedRuleGroupConfigPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLManagedRuleGroupConfigPayloadTypePtrInput)(nil)).Elem(), WebACLManagedRuleGroupConfigPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLMapMatchScopeInput)(nil)).Elem(), WebACLMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLMapMatchScopePtrInput)(nil)).Elem(), WebACLMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOversizeHandlingInput)(nil)).Elem(), WebACLOversizeHandling("CONTINUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOversizeHandlingPtrInput)(nil)).Elem(), WebACLOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintPtrInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
@@ -5435,6 +6107,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupJsonMatchScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupLabelMatchScopeOutput{})
 	pulumi.RegisterOutputType(RuleGroupLabelMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupMapMatchScopeOutput{})
+	pulumi.RegisterOutputType(RuleGroupMapMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupOversizeHandlingOutput{})
+	pulumi.RegisterOutputType(RuleGroupOversizeHandlingPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupPositionalConstraintOutput{})
 	pulumi.RegisterOutputType(RuleGroupPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypeOutput{})
@@ -5459,6 +6135,10 @@ func init() {
 	pulumi.RegisterOutputType(WebACLLabelMatchScopePtrOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigPayloadTypeOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupConfigPayloadTypePtrOutput{})
+	pulumi.RegisterOutputType(WebACLMapMatchScopeOutput{})
+	pulumi.RegisterOutputType(WebACLMapMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(WebACLOversizeHandlingOutput{})
+	pulumi.RegisterOutputType(WebACLOversizeHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebACLPositionalConstraintOutput{})
 	pulumi.RegisterOutputType(WebACLPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypeOutput{})

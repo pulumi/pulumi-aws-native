@@ -20,6 +20,8 @@ __all__ = [
     'RuleGroupIPSetForwardedIPConfigurationPosition',
     'RuleGroupJsonMatchScope',
     'RuleGroupLabelMatchScope',
+    'RuleGroupMapMatchScope',
+    'RuleGroupOversizeHandling',
     'RuleGroupPositionalConstraint',
     'RuleGroupRateBasedStatementAggregateKeyType',
     'RuleGroupScope',
@@ -32,6 +34,8 @@ __all__ = [
     'WebACLJsonMatchScope',
     'WebACLLabelMatchScope',
     'WebACLManagedRuleGroupConfigPayloadType',
+    'WebACLMapMatchScope',
+    'WebACLOversizeHandling',
     'WebACLPositionalConstraint',
     'WebACLRateBasedStatementAggregateKeyType',
     'WebACLScope',
@@ -156,6 +160,24 @@ class RuleGroupLabelMatchScope(str, Enum):
     NAMESPACE = "NAMESPACE"
 
 
+class RuleGroupMapMatchScope(str, Enum):
+    """
+    The parts of the request to match against using the MatchPattern.
+    """
+    ALL = "ALL"
+    KEY = "KEY"
+    VALUE = "VALUE"
+
+
+class RuleGroupOversizeHandling(str, Enum):
+    """
+    Handling of requests containing oversize fields
+    """
+    CONTINUE_ = "CONTINUE"
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
 class RuleGroupPositionalConstraint(str, Enum):
     """
     Position of the evaluation in the FieldToMatch of request.
@@ -258,6 +280,24 @@ class WebACLLabelMatchScope(str, Enum):
 class WebACLManagedRuleGroupConfigPayloadType(str, Enum):
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
+
+
+class WebACLMapMatchScope(str, Enum):
+    """
+    The parts of the request to match against using the MatchPattern.
+    """
+    ALL = "ALL"
+    KEY = "KEY"
+    VALUE = "VALUE"
+
+
+class WebACLOversizeHandling(str, Enum):
+    """
+    Handling of requests containing oversize fields
+    """
+    CONTINUE_ = "CONTINUE"
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
 
 
 class WebACLPositionalConstraint(str, Enum):

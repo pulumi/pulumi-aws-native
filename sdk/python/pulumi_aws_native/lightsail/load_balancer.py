@@ -22,7 +22,8 @@ class LoadBalancerArgs:
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
+                 tls_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[int] instance_port: The instance port where you're creating your load balancer.
@@ -33,6 +34,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[bool] session_stickiness_enabled: Configuration option to enable session stickiness.
         :param pulumi.Input[str] session_stickiness_lb_cookie_duration_seconds: Configuration option to adjust session stickiness cookie duration parameter.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
         pulumi.set(__self__, "instance_port", instance_port)
         if attached_instances is not None:
@@ -49,6 +51,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "session_stickiness_lb_cookie_duration_seconds", session_stickiness_lb_cookie_duration_seconds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tls_policy_name is not None:
+            pulumi.set(__self__, "tls_policy_name", tls_policy_name)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -146,6 +150,18 @@ class LoadBalancerArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tlsPolicyName")
+    def tls_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the TLS policy to apply to the load balancer.
+        """
+        return pulumi.get(self, "tls_policy_name")
+
+    @tls_policy_name.setter
+    def tls_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_policy_name", value)
+
 
 class LoadBalancer(pulumi.CustomResource):
     @overload
@@ -160,6 +176,7 @@ class LoadBalancer(pulumi.CustomResource):
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]]] = None,
+                 tls_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancer
@@ -174,6 +191,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] session_stickiness_enabled: Configuration option to enable session stickiness.
         :param pulumi.Input[str] session_stickiness_lb_cookie_duration_seconds: Configuration option to adjust session stickiness cookie duration parameter.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
         ...
     @overload
@@ -207,6 +225,7 @@ class LoadBalancer(pulumi.CustomResource):
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]]] = None,
+                 tls_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -229,6 +248,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["session_stickiness_enabled"] = session_stickiness_enabled
             __props__.__dict__["session_stickiness_lb_cookie_duration_seconds"] = session_stickiness_lb_cookie_duration_seconds
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tls_policy_name"] = tls_policy_name
             __props__.__dict__["load_balancer_arn"] = None
         super(LoadBalancer, __self__).__init__(
             'aws-native:lightsail:LoadBalancer',
@@ -261,6 +281,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["session_stickiness_enabled"] = None
         __props__.__dict__["session_stickiness_lb_cookie_duration_seconds"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tls_policy_name"] = None
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -331,4 +352,12 @@ class LoadBalancer(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tlsPolicyName")
+    def tls_policy_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the TLS policy to apply to the load balancer.
+        """
+        return pulumi.get(self, "tls_policy_name")
 

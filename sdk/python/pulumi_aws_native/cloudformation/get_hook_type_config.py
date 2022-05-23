@@ -17,13 +17,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetHookTypeConfigResult:
-    def __init__(__self__, configuration=None, configuration_arn=None, type_name=None):
+    def __init__(__self__, configuration=None, configuration_arn=None, type_arn=None, type_name=None):
         if configuration and not isinstance(configuration, str):
             raise TypeError("Expected argument 'configuration' to be a str")
         pulumi.set(__self__, "configuration", configuration)
         if configuration_arn and not isinstance(configuration_arn, str):
             raise TypeError("Expected argument 'configuration_arn' to be a str")
         pulumi.set(__self__, "configuration_arn", configuration_arn)
+        if type_arn and not isinstance(type_arn, str):
+            raise TypeError("Expected argument 'type_arn' to be a str")
+        pulumi.set(__self__, "type_arn", type_arn)
         if type_name and not isinstance(type_name, str):
             raise TypeError("Expected argument 'type_name' to be a str")
         pulumi.set(__self__, "type_name", type_name)
@@ -45,6 +48,14 @@ class GetHookTypeConfigResult:
         return pulumi.get(self, "configuration_arn")
 
     @property
+    @pulumi.getter(name="typeArn")
+    def type_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the type without version number.
+        """
+        return pulumi.get(self, "type_arn")
+
+    @property
     @pulumi.getter(name="typeName")
     def type_name(self) -> Optional[str]:
         """
@@ -63,19 +74,20 @@ class AwaitableGetHookTypeConfigResult(GetHookTypeConfigResult):
         return GetHookTypeConfigResult(
             configuration=self.configuration,
             configuration_arn=self.configuration_arn,
+            type_arn=self.type_arn,
             type_name=self.type_name)
 
 
-def get_hook_type_config(type_arn: Optional[str] = None,
+def get_hook_type_config(configuration_arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHookTypeConfigResult:
     """
     Specifies the configuration data for a registered hook in CloudFormation Registry.
 
 
-    :param str type_arn: The Amazon Resource Name (ARN) of the type version.
+    :param str configuration_arn: The Amazon Resource Name (ARN) for the configuration data, in this account and region.
     """
     __args__ = dict()
-    __args__['typeArn'] = type_arn
+    __args__['configurationArn'] = configuration_arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -85,16 +97,17 @@ def get_hook_type_config(type_arn: Optional[str] = None,
     return AwaitableGetHookTypeConfigResult(
         configuration=__ret__.configuration,
         configuration_arn=__ret__.configuration_arn,
+        type_arn=__ret__.type_arn,
         type_name=__ret__.type_name)
 
 
 @_utilities.lift_output_func(get_hook_type_config)
-def get_hook_type_config_output(type_arn: Optional[pulumi.Input[str]] = None,
+def get_hook_type_config_output(configuration_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHookTypeConfigResult]:
     """
     Specifies the configuration data for a registered hook in CloudFormation Registry.
 
 
-    :param str type_arn: The Amazon Resource Name (ARN) of the type version.
+    :param str configuration_arn: The Amazon Resource Name (ARN) for the configuration data, in this account and region.
     """
     ...

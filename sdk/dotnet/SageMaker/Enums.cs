@@ -693,6 +693,263 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The approval status of the model package.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageModelApprovalStatus : IEquatable<ModelPackageModelApprovalStatus>
+    {
+        private readonly string _value;
+
+        private ModelPackageModelApprovalStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageModelApprovalStatus Approved { get; } = new ModelPackageModelApprovalStatus("Approved");
+        public static ModelPackageModelApprovalStatus Rejected { get; } = new ModelPackageModelApprovalStatus("Rejected");
+        public static ModelPackageModelApprovalStatus PendingManualApproval { get; } = new ModelPackageModelApprovalStatus("PendingManualApproval");
+
+        public static bool operator ==(ModelPackageModelApprovalStatus left, ModelPackageModelApprovalStatus right) => left.Equals(right);
+        public static bool operator !=(ModelPackageModelApprovalStatus left, ModelPackageModelApprovalStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageModelApprovalStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageModelApprovalStatus other && Equals(other);
+        public bool Equals(ModelPackageModelApprovalStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The S3 Data Source Type
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageS3DataSourceS3DataType : IEquatable<ModelPackageS3DataSourceS3DataType>
+    {
+        private readonly string _value;
+
+        private ModelPackageS3DataSourceS3DataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageS3DataSourceS3DataType ManifestFile { get; } = new ModelPackageS3DataSourceS3DataType("ManifestFile");
+        public static ModelPackageS3DataSourceS3DataType S3Prefix { get; } = new ModelPackageS3DataSourceS3DataType("S3Prefix");
+        public static ModelPackageS3DataSourceS3DataType AugmentedManifestFile { get; } = new ModelPackageS3DataSourceS3DataType("AugmentedManifestFile");
+
+        public static bool operator ==(ModelPackageS3DataSourceS3DataType left, ModelPackageS3DataSourceS3DataType right) => left.Equals(right);
+        public static bool operator !=(ModelPackageS3DataSourceS3DataType left, ModelPackageS3DataSourceS3DataType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageS3DataSourceS3DataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageS3DataSourceS3DataType other && Equals(other);
+        public bool Equals(ModelPackageS3DataSourceS3DataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the model package.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageStatus : IEquatable<ModelPackageStatus>
+    {
+        private readonly string _value;
+
+        private ModelPackageStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageStatus Pending { get; } = new ModelPackageStatus("Pending");
+        public static ModelPackageStatus Deleting { get; } = new ModelPackageStatus("Deleting");
+        public static ModelPackageStatus InProgress { get; } = new ModelPackageStatus("InProgress");
+        public static ModelPackageStatus Completed { get; } = new ModelPackageStatus("Completed");
+        public static ModelPackageStatus Failed { get; } = new ModelPackageStatus("Failed");
+
+        public static bool operator ==(ModelPackageStatus left, ModelPackageStatus right) => left.Equals(right);
+        public static bool operator !=(ModelPackageStatus left, ModelPackageStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageStatus other && Equals(other);
+        public bool Equals(ModelPackageStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageStatusItemStatus : IEquatable<ModelPackageStatusItemStatus>
+    {
+        private readonly string _value;
+
+        private ModelPackageStatusItemStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageStatusItemStatus NotStarted { get; } = new ModelPackageStatusItemStatus("NotStarted");
+        public static ModelPackageStatusItemStatus Failed { get; } = new ModelPackageStatusItemStatus("Failed");
+        public static ModelPackageStatusItemStatus InProgress { get; } = new ModelPackageStatusItemStatus("InProgress");
+        public static ModelPackageStatusItemStatus Completed { get; } = new ModelPackageStatusItemStatus("Completed");
+
+        public static bool operator ==(ModelPackageStatusItemStatus left, ModelPackageStatusItemStatus right) => left.Equals(right);
+        public static bool operator !=(ModelPackageStatusItemStatus left, ModelPackageStatusItemStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageStatusItemStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageStatusItemStatus other && Equals(other);
+        public bool Equals(ModelPackageStatusItemStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageTransformInputCompressionType : IEquatable<ModelPackageTransformInputCompressionType>
+    {
+        private readonly string _value;
+
+        private ModelPackageTransformInputCompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageTransformInputCompressionType None { get; } = new ModelPackageTransformInputCompressionType("None");
+        public static ModelPackageTransformInputCompressionType Gzip { get; } = new ModelPackageTransformInputCompressionType("Gzip");
+
+        public static bool operator ==(ModelPackageTransformInputCompressionType left, ModelPackageTransformInputCompressionType right) => left.Equals(right);
+        public static bool operator !=(ModelPackageTransformInputCompressionType left, ModelPackageTransformInputCompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageTransformInputCompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageTransformInputCompressionType other && Equals(other);
+        public bool Equals(ModelPackageTransformInputCompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The method to use to split the transform job's data files into smaller batches. 
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageTransformInputSplitType : IEquatable<ModelPackageTransformInputSplitType>
+    {
+        private readonly string _value;
+
+        private ModelPackageTransformInputSplitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageTransformInputSplitType None { get; } = new ModelPackageTransformInputSplitType("None");
+        public static ModelPackageTransformInputSplitType TFRecord { get; } = new ModelPackageTransformInputSplitType("TFRecord");
+        public static ModelPackageTransformInputSplitType Line { get; } = new ModelPackageTransformInputSplitType("Line");
+        public static ModelPackageTransformInputSplitType RecordIO { get; } = new ModelPackageTransformInputSplitType("RecordIO");
+
+        public static bool operator ==(ModelPackageTransformInputSplitType left, ModelPackageTransformInputSplitType right) => left.Equals(right);
+        public static bool operator !=(ModelPackageTransformInputSplitType left, ModelPackageTransformInputSplitType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageTransformInputSplitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageTransformInputSplitType other && Equals(other);
+        public bool Equals(ModelPackageTransformInputSplitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A string that determines the number of records included in a single mini-batch.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageTransformJobDefinitionBatchStrategy : IEquatable<ModelPackageTransformJobDefinitionBatchStrategy>
+    {
+        private readonly string _value;
+
+        private ModelPackageTransformJobDefinitionBatchStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageTransformJobDefinitionBatchStrategy MultiRecord { get; } = new ModelPackageTransformJobDefinitionBatchStrategy("MultiRecord");
+        public static ModelPackageTransformJobDefinitionBatchStrategy SingleRecord { get; } = new ModelPackageTransformJobDefinitionBatchStrategy("SingleRecord");
+
+        public static bool operator ==(ModelPackageTransformJobDefinitionBatchStrategy left, ModelPackageTransformJobDefinitionBatchStrategy right) => left.Equals(right);
+        public static bool operator !=(ModelPackageTransformJobDefinitionBatchStrategy left, ModelPackageTransformJobDefinitionBatchStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageTransformJobDefinitionBatchStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageTransformJobDefinitionBatchStrategy other && Equals(other);
+        public bool Equals(ModelPackageTransformJobDefinitionBatchStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines how to assemble the results of the transform job as a single S3 object.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelPackageTransformOutputAssembleWith : IEquatable<ModelPackageTransformOutputAssembleWith>
+    {
+        private readonly string _value;
+
+        private ModelPackageTransformOutputAssembleWith(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelPackageTransformOutputAssembleWith None { get; } = new ModelPackageTransformOutputAssembleWith("None");
+        public static ModelPackageTransformOutputAssembleWith Line { get; } = new ModelPackageTransformOutputAssembleWith("Line");
+
+        public static bool operator ==(ModelPackageTransformOutputAssembleWith left, ModelPackageTransformOutputAssembleWith right) => left.Equals(right);
+        public static bool operator !=(ModelPackageTransformOutputAssembleWith left, ModelPackageTransformOutputAssembleWith right) => !left.Equals(right);
+
+        public static explicit operator string(ModelPackageTransformOutputAssembleWith value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelPackageTransformOutputAssembleWith other && Equals(other);
+        public bool Equals(ModelPackageTransformOutputAssembleWith other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]

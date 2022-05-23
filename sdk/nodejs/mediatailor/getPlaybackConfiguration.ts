@@ -50,7 +50,11 @@ export interface GetPlaybackConfigurationResult {
     /**
      * The configuration for DASH content.
      */
-    readonly dashConfiguration?: outputs.mediatailor.PlaybackConfigurationDashConfigurationForPut;
+    readonly dashConfiguration?: outputs.mediatailor.PlaybackConfigurationDashConfiguration;
+    /**
+     * The configuration for HLS content.
+     */
+    readonly hlsConfiguration?: outputs.mediatailor.PlaybackConfigurationHlsConfiguration;
     /**
      * The configuration for pre-roll ad insertion.
      */
@@ -63,6 +67,14 @@ export interface GetPlaybackConfigurationResult {
      * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
     readonly personalizationThresholdSeconds?: number;
+    /**
+     * The Amazon Resource Name (ARN) for the playback configuration.
+     */
+    readonly playbackConfigurationArn?: string;
+    /**
+     * The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+     */
+    readonly playbackEndpointPrefix?: string;
     /**
      * The URL that the player uses to initialize a session that uses client-side reporting.
      */

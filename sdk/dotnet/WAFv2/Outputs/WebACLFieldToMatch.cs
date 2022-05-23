@@ -20,10 +20,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// All query arguments of a web request.
         /// </summary>
         public readonly object? AllQueryArguments;
-        /// <summary>
-        /// The body of a web request. This immediately follows the request headers.
-        /// </summary>
-        public readonly object? Body;
+        public readonly Outputs.WebACLBody? Body;
+        public readonly Outputs.WebACLCookies? Cookies;
+        public readonly Outputs.WebACLHeaders? Headers;
         public readonly Outputs.WebACLJsonBody? JsonBody;
         /// <summary>
         /// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -47,7 +46,11 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private WebACLFieldToMatch(
             object? allQueryArguments,
 
-            object? body,
+            Outputs.WebACLBody? body,
+
+            Outputs.WebACLCookies? cookies,
+
+            Outputs.WebACLHeaders? headers,
 
             Outputs.WebACLJsonBody? jsonBody,
 
@@ -63,6 +66,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         {
             AllQueryArguments = allQueryArguments;
             Body = body;
+            Cookies = cookies;
+            Headers = headers;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

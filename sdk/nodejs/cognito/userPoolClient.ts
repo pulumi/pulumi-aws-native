@@ -47,6 +47,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     public readonly clientName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     public readonly defaultRedirectURI!: pulumi.Output<string | undefined>;
+    public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean | undefined>;
     public readonly enableTokenRevocation!: pulumi.Output<boolean | undefined>;
     public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
     public readonly generateSecret!: pulumi.Output<boolean | undefined>;
@@ -85,6 +86,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["callbackURLs"] = args ? args.callbackURLs : undefined;
             resourceInputs["clientName"] = args ? args.clientName : undefined;
             resourceInputs["defaultRedirectURI"] = args ? args.defaultRedirectURI : undefined;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = args ? args.enablePropagateAdditionalUserContextData : undefined;
             resourceInputs["enableTokenRevocation"] = args ? args.enableTokenRevocation : undefined;
             resourceInputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
             resourceInputs["generateSecret"] = args ? args.generateSecret : undefined;
@@ -109,6 +111,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["clientName"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["defaultRedirectURI"] = undefined /*out*/;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = undefined /*out*/;
             resourceInputs["enableTokenRevocation"] = undefined /*out*/;
             resourceInputs["explicitAuthFlows"] = undefined /*out*/;
             resourceInputs["generateSecret"] = undefined /*out*/;
@@ -140,6 +143,7 @@ export interface UserPoolClientArgs {
     callbackURLs?: pulumi.Input<pulumi.Input<string>[]>;
     clientName?: pulumi.Input<string>;
     defaultRedirectURI?: pulumi.Input<string>;
+    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean>;
     enableTokenRevocation?: pulumi.Input<boolean>;
     explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     generateSecret?: pulumi.Input<boolean>;

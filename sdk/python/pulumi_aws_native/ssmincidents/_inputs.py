@@ -14,6 +14,8 @@ __all__ = [
     'ReplicationSetReplicationRegionArgs',
     'ResponsePlanActionArgs',
     'ResponsePlanChatChannelArgs',
+    'ResponsePlanDynamicSsmParameterValueArgs',
+    'ResponsePlanDynamicSsmParameterArgs',
     'ResponsePlanIncidentTemplateArgs',
     'ResponsePlanNotificationTargetItemArgs',
     'ResponsePlanSsmAutomationArgs',
@@ -110,6 +112,56 @@ class ResponsePlanChatChannelArgs:
     @chatbot_sns.setter
     def chatbot_sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "chatbot_sns", value)
+
+
+@pulumi.input_type
+class ResponsePlanDynamicSsmParameterValueArgs:
+    def __init__(__self__, *,
+                 variable: Optional[pulumi.Input['ResponsePlanVariableType']] = None):
+        """
+        Value of the dynamic parameter to set when starting the SSM automation document.
+        """
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional[pulumi.Input['ResponsePlanVariableType']]:
+        return pulumi.get(self, "variable")
+
+    @variable.setter
+    def variable(self, value: Optional[pulumi.Input['ResponsePlanVariableType']]):
+        pulumi.set(self, "variable", value)
+
+
+@pulumi.input_type
+class ResponsePlanDynamicSsmParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']):
+        """
+        A parameter with a dynamic value to set when starting the SSM automation document.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -224,6 +276,7 @@ class ResponsePlanSsmAutomationArgs:
                  document_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  document_version: Optional[pulumi.Input[str]] = None,
+                 dynamic_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
                  target_account: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']] = None):
         """
@@ -231,6 +284,7 @@ class ResponsePlanSsmAutomationArgs:
         :param pulumi.Input[str] document_name: The document name to use when starting the SSM automation document.
         :param pulumi.Input[str] role_arn: The role ARN to use when starting the SSM automation document.
         :param pulumi.Input[str] document_version: The version of the document to use when starting the SSM automation document.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]] dynamic_parameters: The parameters with dynamic values to set when starting the SSM automation document.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]] parameters: The parameters to set when starting the SSM automation document.
         :param pulumi.Input['ResponsePlanSsmAutomationTargetAccount'] target_account: The account type to use when starting the SSM automation document.
         """
@@ -238,6 +292,8 @@ class ResponsePlanSsmAutomationArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
+        if dynamic_parameters is not None:
+            pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if target_account is not None:
@@ -278,6 +334,18 @@ class ResponsePlanSsmAutomationArgs:
     @document_version.setter
     def document_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "document_version", value)
+
+    @property
+    @pulumi.getter(name="dynamicParameters")
+    def dynamic_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]:
+        """
+        The parameters with dynamic values to set when starting the SSM automation document.
+        """
+        return pulumi.get(self, "dynamic_parameters")
+
+    @dynamic_parameters.setter
+    def dynamic_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]):
+        pulumi.set(self, "dynamic_parameters", value)
 
     @property
     @pulumi.getter

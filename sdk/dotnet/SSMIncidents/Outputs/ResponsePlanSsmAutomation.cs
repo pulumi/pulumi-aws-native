@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
         /// </summary>
         public readonly string? DocumentVersion;
         /// <summary>
+        /// The parameters with dynamic values to set when starting the SSM automation document.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResponsePlanDynamicSsmParameter> DynamicParameters;
+        /// <summary>
         /// The parameters to set when starting the SSM automation document.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanSsmParameter> Parameters;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 
             string? documentVersion,
 
+            ImmutableArray<Outputs.ResponsePlanDynamicSsmParameter> dynamicParameters,
+
             ImmutableArray<Outputs.ResponsePlanSsmParameter> parameters,
 
             string roleArn,
@@ -51,6 +57,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
         {
             DocumentName = documentName;
             DocumentVersion = documentVersion;
+            DynamicParameters = dynamicParameters;
             Parameters = parameters;
             RoleArn = roleArn;
             TargetAccount = targetAccount;

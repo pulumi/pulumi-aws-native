@@ -14,16 +14,22 @@ export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:ec2:getPlacementGroup", {
-        "id": args.id,
+        "groupName": args.groupName,
     }, opts);
 }
 
 export interface GetPlacementGroupArgs {
-    id: string;
+    /**
+     * The Group Name of Placement Group.
+     */
+    groupName: string;
 }
 
 export interface GetPlacementGroupResult {
-    readonly id?: string;
+    /**
+     * The Group Name of Placement Group.
+     */
+    readonly groupName?: string;
 }
 
 export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
@@ -31,5 +37,8 @@ export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?
 }
 
 export interface GetPlacementGroupOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The Group Name of Placement Group.
+     */
+    groupName: pulumi.Input<string>;
 }

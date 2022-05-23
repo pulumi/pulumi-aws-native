@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration_name=None, launch_template=None, launch_template_specification=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, v_pc_zone_identifier=None):
+    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration_name=None, launch_template=None, launch_template_specification=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, v_pc_zone_identifier=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -31,6 +31,9 @@ class GetAutoScalingGroupResult:
         if cooldown and not isinstance(cooldown, str):
             raise TypeError("Expected argument 'cooldown' to be a str")
         pulumi.set(__self__, "cooldown", cooldown)
+        if default_instance_warmup and not isinstance(default_instance_warmup, int):
+            raise TypeError("Expected argument 'default_instance_warmup' to be a int")
+        pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
         if desired_capacity and not isinstance(desired_capacity, str):
             raise TypeError("Expected argument 'desired_capacity' to be a str")
         pulumi.set(__self__, "desired_capacity", desired_capacity)
@@ -120,6 +123,11 @@ class GetAutoScalingGroupResult:
     @pulumi.getter
     def cooldown(self) -> Optional[str]:
         return pulumi.get(self, "cooldown")
+
+    @property
+    @pulumi.getter(name="defaultInstanceWarmup")
+    def default_instance_warmup(self) -> Optional[int]:
+        return pulumi.get(self, "default_instance_warmup")
 
     @property
     @pulumi.getter(name="desiredCapacity")
@@ -247,6 +255,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             capacity_rebalance=self.capacity_rebalance,
             context=self.context,
             cooldown=self.cooldown,
+            default_instance_warmup=self.default_instance_warmup,
             desired_capacity=self.desired_capacity,
             desired_capacity_type=self.desired_capacity_type,
             health_check_grace_period=self.health_check_grace_period,
@@ -290,6 +299,7 @@ def get_auto_scaling_group(id: Optional[str] = None,
         capacity_rebalance=__ret__.capacity_rebalance,
         context=__ret__.context,
         cooldown=__ret__.cooldown,
+        default_instance_warmup=__ret__.default_instance_warmup,
         desired_capacity=__ret__.desired_capacity,
         desired_capacity_type=__ret__.desired_capacity_type,
         health_check_grace_period=__ret__.health_check_grace_period,

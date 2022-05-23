@@ -58,7 +58,11 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
     /**
      * The configuration for DASH content.
      */
-    public readonly dashConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationDashConfigurationForPut | undefined>;
+    public readonly dashConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationDashConfiguration | undefined>;
+    /**
+     * The configuration for HLS content.
+     */
+    public readonly hlsConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationHlsConfiguration | undefined>;
     /**
      * The configuration for pre-roll ad insertion.
      */
@@ -76,9 +80,17 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      */
     public readonly personalizationThresholdSeconds!: pulumi.Output<number | undefined>;
     /**
+     * The Amazon Resource Name (ARN) for the playback configuration.
+     */
+    public /*out*/ readonly playbackConfigurationArn!: pulumi.Output<string>;
+    /**
+     * The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+     */
+    public /*out*/ readonly playbackEndpointPrefix!: pulumi.Output<string>;
+    /**
      * The URL that the player uses to initialize a session that uses client-side reporting.
      */
-    public readonly sessionInitializationEndpointPrefix!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly sessionInitializationEndpointPrefix!: pulumi.Output<string>;
     /**
      * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
      */
@@ -119,15 +131,18 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["cdnConfiguration"] = args ? args.cdnConfiguration : undefined;
             resourceInputs["configurationAliases"] = args ? args.configurationAliases : undefined;
             resourceInputs["dashConfiguration"] = args ? args.dashConfiguration : undefined;
+            resourceInputs["hlsConfiguration"] = args ? args.hlsConfiguration : undefined;
             resourceInputs["livePreRollConfiguration"] = args ? args.livePreRollConfiguration : undefined;
             resourceInputs["manifestProcessingRules"] = args ? args.manifestProcessingRules : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["personalizationThresholdSeconds"] = args ? args.personalizationThresholdSeconds : undefined;
-            resourceInputs["sessionInitializationEndpointPrefix"] = args ? args.sessionInitializationEndpointPrefix : undefined;
             resourceInputs["slateAdUrl"] = args ? args.slateAdUrl : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transcodeProfileName"] = args ? args.transcodeProfileName : undefined;
             resourceInputs["videoContentSourceUrl"] = args ? args.videoContentSourceUrl : undefined;
+            resourceInputs["playbackConfigurationArn"] = undefined /*out*/;
+            resourceInputs["playbackEndpointPrefix"] = undefined /*out*/;
+            resourceInputs["sessionInitializationEndpointPrefix"] = undefined /*out*/;
         } else {
             resourceInputs["adDecisionServerUrl"] = undefined /*out*/;
             resourceInputs["availSuppression"] = undefined /*out*/;
@@ -135,10 +150,13 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["cdnConfiguration"] = undefined /*out*/;
             resourceInputs["configurationAliases"] = undefined /*out*/;
             resourceInputs["dashConfiguration"] = undefined /*out*/;
+            resourceInputs["hlsConfiguration"] = undefined /*out*/;
             resourceInputs["livePreRollConfiguration"] = undefined /*out*/;
             resourceInputs["manifestProcessingRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["personalizationThresholdSeconds"] = undefined /*out*/;
+            resourceInputs["playbackConfigurationArn"] = undefined /*out*/;
+            resourceInputs["playbackEndpointPrefix"] = undefined /*out*/;
             resourceInputs["sessionInitializationEndpointPrefix"] = undefined /*out*/;
             resourceInputs["slateAdUrl"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -177,7 +195,11 @@ export interface PlaybackConfigurationArgs {
     /**
      * The configuration for DASH content.
      */
-    dashConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationDashConfigurationForPutArgs>;
+    dashConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationDashConfigurationArgs>;
+    /**
+     * The configuration for HLS content.
+     */
+    hlsConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHlsConfigurationArgs>;
     /**
      * The configuration for pre-roll ad insertion.
      */
@@ -194,10 +216,6 @@ export interface PlaybackConfigurationArgs {
      * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
     personalizationThresholdSeconds?: pulumi.Input<number>;
-    /**
-     * The URL that the player uses to initialize a session that uses client-side reporting.
-     */
-    sessionInitializationEndpointPrefix?: pulumi.Input<string>;
     /**
      * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
      */

@@ -10,6 +10,983 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Connect attachment options for protocol
+type ConnectAttachmentOptions struct {
+	// Tunnel protocol for connect attachment
+	Protocol *string `pulumi:"protocol"`
+}
+
+// ConnectAttachmentOptionsInput is an input type that accepts ConnectAttachmentOptionsArgs and ConnectAttachmentOptionsOutput values.
+// You can construct a concrete instance of `ConnectAttachmentOptionsInput` via:
+//
+//          ConnectAttachmentOptionsArgs{...}
+type ConnectAttachmentOptionsInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentOptionsOutput() ConnectAttachmentOptionsOutput
+	ToConnectAttachmentOptionsOutputWithContext(context.Context) ConnectAttachmentOptionsOutput
+}
+
+// Connect attachment options for protocol
+type ConnectAttachmentOptionsArgs struct {
+	// Tunnel protocol for connect attachment
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (ConnectAttachmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutput() ConnectAttachmentOptionsOutput {
+	return i.ToConnectAttachmentOptionsOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutputWithContext(ctx context.Context) ConnectAttachmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput)
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return i.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput).ToConnectAttachmentOptionsPtrOutputWithContext(ctx)
+}
+
+// ConnectAttachmentOptionsPtrInput is an input type that accepts ConnectAttachmentOptionsArgs, ConnectAttachmentOptionsPtr and ConnectAttachmentOptionsPtrOutput values.
+// You can construct a concrete instance of `ConnectAttachmentOptionsPtrInput` via:
+//
+//          ConnectAttachmentOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectAttachmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput
+	ToConnectAttachmentOptionsPtrOutputWithContext(context.Context) ConnectAttachmentOptionsPtrOutput
+}
+
+type connectAttachmentOptionsPtrType ConnectAttachmentOptionsArgs
+
+func ConnectAttachmentOptionsPtr(v *ConnectAttachmentOptionsArgs) ConnectAttachmentOptionsPtrInput {
+	return (*connectAttachmentOptionsPtrType)(v)
+}
+
+func (*connectAttachmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return i.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsPtrOutput)
+}
+
+// Connect attachment options for protocol
+type ConnectAttachmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutput() ConnectAttachmentOptionsOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutputWithContext(ctx context.Context) ConnectAttachmentOptionsOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return o.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentOptions) *ConnectAttachmentOptions {
+		return &v
+	}).(ConnectAttachmentOptionsPtrOutput)
+}
+
+// Tunnel protocol for connect attachment
+func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type ConnectAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) Elem() ConnectAttachmentOptionsOutput {
+	return o.ApplyT(func(v *ConnectAttachmentOptions) ConnectAttachmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectAttachmentOptions
+		return ret
+	}).(ConnectAttachmentOptionsOutput)
+}
+
+// Tunnel protocol for connect attachment
+func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachmentOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectAttachmentProposedSegmentChange struct {
+	// New policy rule number of the attachment
+	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
+	// Proposed segment name
+	SegmentName *string `pulumi:"segmentName"`
+	// Proposed tags for the Segment.
+	Tags []ConnectAttachmentTag `pulumi:"tags"`
+}
+
+// A key-value pair to associate with a resource.
+type ConnectAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentProposedSegmentChangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangeOutput() ConnectAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+// New policy rule number of the attachment
+func (o ConnectAttachmentProposedSegmentChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectAttachmentProposedSegmentChange) *int { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
+}
+
+// Proposed segment name
+func (o ConnectAttachmentProposedSegmentChangeOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectAttachmentProposedSegmentChange) *string { return v.SegmentName }).(pulumi.StringPtrOutput)
+}
+
+// Proposed tags for the Segment.
+func (o ConnectAttachmentProposedSegmentChangeOutput) Tags() ConnectAttachmentTagArrayOutput {
+	return o.ApplyT(func(v ConnectAttachmentProposedSegmentChange) []ConnectAttachmentTag { return v.Tags }).(ConnectAttachmentTagArrayOutput)
+}
+
+type ConnectAttachmentProposedSegmentChangePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentProposedSegmentChangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) Elem() ConnectAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) ConnectAttachmentProposedSegmentChange {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectAttachmentProposedSegmentChange
+		return ret
+	}).(ConnectAttachmentProposedSegmentChangeOutput)
+}
+
+// New policy rule number of the attachment
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Proposed segment name
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Proposed tags for the Segment.
+func (o ConnectAttachmentProposedSegmentChangePtrOutput) Tags() ConnectAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) []ConnectAttachmentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(ConnectAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectAttachmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ConnectAttachmentTagInput is an input type that accepts ConnectAttachmentTagArgs and ConnectAttachmentTagOutput values.
+// You can construct a concrete instance of `ConnectAttachmentTagInput` via:
+//
+//          ConnectAttachmentTagArgs{...}
+type ConnectAttachmentTagInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentTagOutput() ConnectAttachmentTagOutput
+	ToConnectAttachmentTagOutputWithContext(context.Context) ConnectAttachmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ConnectAttachmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnectAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentTag)(nil)).Elem()
+}
+
+func (i ConnectAttachmentTagArgs) ToConnectAttachmentTagOutput() ConnectAttachmentTagOutput {
+	return i.ToConnectAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentTagArgs) ToConnectAttachmentTagOutputWithContext(ctx context.Context) ConnectAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentTagOutput)
+}
+
+// ConnectAttachmentTagArrayInput is an input type that accepts ConnectAttachmentTagArray and ConnectAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `ConnectAttachmentTagArrayInput` via:
+//
+//          ConnectAttachmentTagArray{ ConnectAttachmentTagArgs{...} }
+type ConnectAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentTagArrayOutput() ConnectAttachmentTagArrayOutput
+	ToConnectAttachmentTagArrayOutputWithContext(context.Context) ConnectAttachmentTagArrayOutput
+}
+
+type ConnectAttachmentTagArray []ConnectAttachmentTagInput
+
+func (ConnectAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectAttachmentTag)(nil)).Elem()
+}
+
+func (i ConnectAttachmentTagArray) ToConnectAttachmentTagArrayOutput() ConnectAttachmentTagArrayOutput {
+	return i.ToConnectAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentTagArray) ToConnectAttachmentTagArrayOutputWithContext(ctx context.Context) ConnectAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentTag)(nil)).Elem()
+}
+
+func (o ConnectAttachmentTagOutput) ToConnectAttachmentTagOutput() ConnectAttachmentTagOutput {
+	return o
+}
+
+func (o ConnectAttachmentTagOutput) ToConnectAttachmentTagOutputWithContext(ctx context.Context) ConnectAttachmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ConnectAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ConnectAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnectAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectAttachmentTag)(nil)).Elem()
+}
+
+func (o ConnectAttachmentTagArrayOutput) ToConnectAttachmentTagArrayOutput() ConnectAttachmentTagArrayOutput {
+	return o
+}
+
+func (o ConnectAttachmentTagArrayOutput) ToConnectAttachmentTagArrayOutputWithContext(ctx context.Context) ConnectAttachmentTagArrayOutput {
+	return o
+}
+
+func (o ConnectAttachmentTagArrayOutput) Index(i pulumi.IntInput) ConnectAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectAttachmentTag {
+		return vs[0].([]ConnectAttachmentTag)[vs[1].(int)]
+	}).(ConnectAttachmentTagOutput)
+}
+
+// Bgp configuration for connect peer
+type ConnectPeerBgpConfiguration struct {
+	CoreNetworkAddress *string  `pulumi:"coreNetworkAddress"`
+	CoreNetworkAsn     *float64 `pulumi:"coreNetworkAsn"`
+	PeerAddress        *string  `pulumi:"peerAddress"`
+	PeerAsn            *float64 `pulumi:"peerAsn"`
+}
+
+// Bgp configuration for connect peer
+type ConnectPeerBgpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerBgpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerBgpConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerBgpConfigurationOutput) ToConnectPeerBgpConfigurationOutput() ConnectPeerBgpConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerBgpConfigurationOutput) ToConnectPeerBgpConfigurationOutputWithContext(ctx context.Context) ConnectPeerBgpConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerBgpConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerBgpConfigurationOutput) CoreNetworkAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *float64 { return v.CoreNetworkAsn }).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectPeerBgpConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerBgpConfigurationOutput) PeerAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *float64 { return v.PeerAsn }).(pulumi.Float64PtrOutput)
+}
+
+type ConnectPeerBgpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerBgpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerBgpConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerBgpConfigurationArrayOutput) ToConnectPeerBgpConfigurationArrayOutput() ConnectPeerBgpConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectPeerBgpConfigurationArrayOutput) ToConnectPeerBgpConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerBgpConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectPeerBgpConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPeerBgpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectPeerBgpConfiguration {
+		return vs[0].([]ConnectPeerBgpConfiguration)[vs[1].(int)]
+	}).(ConnectPeerBgpConfigurationOutput)
+}
+
+// Bgp options
+type ConnectPeerBgpOptions struct {
+	PeerAsn *float64 `pulumi:"peerAsn"`
+}
+
+// ConnectPeerBgpOptionsInput is an input type that accepts ConnectPeerBgpOptionsArgs and ConnectPeerBgpOptionsOutput values.
+// You can construct a concrete instance of `ConnectPeerBgpOptionsInput` via:
+//
+//          ConnectPeerBgpOptionsArgs{...}
+type ConnectPeerBgpOptionsInput interface {
+	pulumi.Input
+
+	ToConnectPeerBgpOptionsOutput() ConnectPeerBgpOptionsOutput
+	ToConnectPeerBgpOptionsOutputWithContext(context.Context) ConnectPeerBgpOptionsOutput
+}
+
+// Bgp options
+type ConnectPeerBgpOptionsArgs struct {
+	PeerAsn pulumi.Float64PtrInput `pulumi:"peerAsn"`
+}
+
+func (ConnectPeerBgpOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutput() ConnectPeerBgpOptionsOutput {
+	return i.ToConnectPeerBgpOptionsOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsOutput)
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return i.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsOutput).ToConnectPeerBgpOptionsPtrOutputWithContext(ctx)
+}
+
+// ConnectPeerBgpOptionsPtrInput is an input type that accepts ConnectPeerBgpOptionsArgs, ConnectPeerBgpOptionsPtr and ConnectPeerBgpOptionsPtrOutput values.
+// You can construct a concrete instance of `ConnectPeerBgpOptionsPtrInput` via:
+//
+//          ConnectPeerBgpOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectPeerBgpOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput
+	ToConnectPeerBgpOptionsPtrOutputWithContext(context.Context) ConnectPeerBgpOptionsPtrOutput
+}
+
+type connectPeerBgpOptionsPtrType ConnectPeerBgpOptionsArgs
+
+func ConnectPeerBgpOptionsPtr(v *ConnectPeerBgpOptionsArgs) ConnectPeerBgpOptionsPtrInput {
+	return (*connectPeerBgpOptionsPtrType)(v)
+}
+
+func (*connectPeerBgpOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (i *connectPeerBgpOptionsPtrType) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return i.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectPeerBgpOptionsPtrType) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsPtrOutput)
+}
+
+// Bgp options
+type ConnectPeerBgpOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerBgpOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsOutput() ConnectPeerBgpOptionsOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return o.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectPeerBgpOptions) *ConnectPeerBgpOptions {
+		return &v
+	}).(ConnectPeerBgpOptionsPtrOutput)
+}
+
+func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpOptions) *float64 { return v.PeerAsn }).(pulumi.Float64PtrOutput)
+}
+
+type ConnectPeerBgpOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerBgpOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
+	return o.ApplyT(func(v *ConnectPeerBgpOptions) ConnectPeerBgpOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectPeerBgpOptions
+		return ret
+	}).(ConnectPeerBgpOptionsOutput)
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConnectPeerBgpOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PeerAsn
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ConnectPeerConfiguration struct {
+	BgpConfigurations  []ConnectPeerBgpConfiguration `pulumi:"bgpConfigurations"`
+	CoreNetworkAddress *string                       `pulumi:"coreNetworkAddress"`
+	InsideCidrBlocks   []string                      `pulumi:"insideCidrBlocks"`
+	PeerAddress        *string                       `pulumi:"peerAddress"`
+	Protocol           *string                       `pulumi:"protocol"`
+}
+
+type ConnectPeerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutput() ConnectPeerConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) []ConnectPeerBgpConfiguration { return v.BgpConfigurations }).(ConnectPeerBgpConfigurationArrayOutput)
+}
+
+func (o ConnectPeerConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectPeerConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type ConnectPeerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerConfigurationPtrOutput) ToConnectPeerConfigurationPtrOutput() ConnectPeerConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationPtrOutput) ToConnectPeerConfigurationPtrOutputWithContext(ctx context.Context) ConnectPeerConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationPtrOutput) Elem() ConnectPeerConfigurationOutput {
+	return o.ApplyT(func(v *ConnectPeerConfiguration) ConnectPeerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectPeerConfiguration
+		return ret
+	}).(ConnectPeerConfigurationOutput)
+}
+
+func (o ConnectPeerConfigurationPtrOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
+	return o.ApplyT(func(v *ConnectPeerConfiguration) []ConnectPeerBgpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BgpConfigurations
+	}).(ConnectPeerBgpConfigurationArrayOutput)
+}
+
+func (o ConnectPeerConfigurationPtrOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CoreNetworkAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationPtrOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectPeerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InsideCidrBlocks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectPeerConfigurationPtrOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectPeerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ConnectPeerTagInput is an input type that accepts ConnectPeerTagArgs and ConnectPeerTagOutput values.
+// You can construct a concrete instance of `ConnectPeerTagInput` via:
+//
+//          ConnectPeerTagArgs{...}
+type ConnectPeerTagInput interface {
+	pulumi.Input
+
+	ToConnectPeerTagOutput() ConnectPeerTagOutput
+	ToConnectPeerTagOutputWithContext(context.Context) ConnectPeerTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ConnectPeerTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnectPeerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerTag)(nil)).Elem()
+}
+
+func (i ConnectPeerTagArgs) ToConnectPeerTagOutput() ConnectPeerTagOutput {
+	return i.ToConnectPeerTagOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerTagArgs) ToConnectPeerTagOutputWithContext(ctx context.Context) ConnectPeerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerTagOutput)
+}
+
+// ConnectPeerTagArrayInput is an input type that accepts ConnectPeerTagArray and ConnectPeerTagArrayOutput values.
+// You can construct a concrete instance of `ConnectPeerTagArrayInput` via:
+//
+//          ConnectPeerTagArray{ ConnectPeerTagArgs{...} }
+type ConnectPeerTagArrayInput interface {
+	pulumi.Input
+
+	ToConnectPeerTagArrayOutput() ConnectPeerTagArrayOutput
+	ToConnectPeerTagArrayOutputWithContext(context.Context) ConnectPeerTagArrayOutput
+}
+
+type ConnectPeerTagArray []ConnectPeerTagInput
+
+func (ConnectPeerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerTag)(nil)).Elem()
+}
+
+func (i ConnectPeerTagArray) ToConnectPeerTagArrayOutput() ConnectPeerTagArrayOutput {
+	return i.ToConnectPeerTagArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerTagArray) ToConnectPeerTagArrayOutputWithContext(ctx context.Context) ConnectPeerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectPeerTagOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerTag)(nil)).Elem()
+}
+
+func (o ConnectPeerTagOutput) ToConnectPeerTagOutput() ConnectPeerTagOutput {
+	return o
+}
+
+func (o ConnectPeerTagOutput) ToConnectPeerTagOutputWithContext(ctx context.Context) ConnectPeerTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ConnectPeerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectPeerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ConnectPeerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectPeerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnectPeerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerTag)(nil)).Elem()
+}
+
+func (o ConnectPeerTagArrayOutput) ToConnectPeerTagArrayOutput() ConnectPeerTagArrayOutput {
+	return o
+}
+
+func (o ConnectPeerTagArrayOutput) ToConnectPeerTagArrayOutputWithContext(ctx context.Context) ConnectPeerTagArrayOutput {
+	return o
+}
+
+func (o ConnectPeerTagArrayOutput) Index(i pulumi.IntInput) ConnectPeerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectPeerTag {
+		return vs[0].([]ConnectPeerTag)[vs[1].(int)]
+	}).(ConnectPeerTagOutput)
+}
+
+type CoreNetworkEdge struct {
+	// The ASN of a core network edge.
+	Asn *float64 `pulumi:"asn"`
+	// The Region where a core network edge is located.
+	EdgeLocation     *string  `pulumi:"edgeLocation"`
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+}
+
+type CoreNetworkEdgeOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEdgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEdge)(nil)).Elem()
+}
+
+func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutput() CoreNetworkEdgeOutput {
+	return o
+}
+
+func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutputWithContext(ctx context.Context) CoreNetworkEdgeOutput {
+	return o
+}
+
+// The ASN of a core network edge.
+func (o CoreNetworkEdgeOutput) Asn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CoreNetworkEdge) *float64 { return v.Asn }).(pulumi.Float64PtrOutput)
+}
+
+// The Region where a core network edge is located.
+func (o CoreNetworkEdgeOutput) EdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkEdge) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o CoreNetworkEdgeOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkEdge) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkEdgeArrayOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEdgeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkEdge)(nil)).Elem()
+}
+
+func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutput() CoreNetworkEdgeArrayOutput {
+	return o
+}
+
+func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) CoreNetworkEdgeArrayOutput {
+	return o
+}
+
+func (o CoreNetworkEdgeArrayOutput) Index(i pulumi.IntInput) CoreNetworkEdgeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkEdge {
+		return vs[0].([]CoreNetworkEdge)[vs[1].(int)]
+	}).(CoreNetworkEdgeOutput)
+}
+
+type CoreNetworkSegment struct {
+	EdgeLocations []string `pulumi:"edgeLocations"`
+	// Name of segment
+	Name           *string  `pulumi:"name"`
+	SharedSegments []string `pulumi:"sharedSegments"`
+}
+
+type CoreNetworkSegmentOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkSegment)(nil)).Elem()
+}
+
+func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutput() CoreNetworkSegmentOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutputWithContext(ctx context.Context) CoreNetworkSegmentOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// Name of segment
+func (o CoreNetworkSegmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkSegment) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CoreNetworkSegmentOutput) SharedSegments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.SharedSegments }).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkSegment)(nil)).Elem()
+}
+
+func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutput() CoreNetworkSegmentArrayOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) CoreNetworkSegmentArrayOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentArrayOutput) Index(i pulumi.IntInput) CoreNetworkSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkSegment {
+		return vs[0].([]CoreNetworkSegment)[vs[1].(int)]
+	}).(CoreNetworkSegmentOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CoreNetworkTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// CoreNetworkTagInput is an input type that accepts CoreNetworkTagArgs and CoreNetworkTagOutput values.
+// You can construct a concrete instance of `CoreNetworkTagInput` via:
+//
+//          CoreNetworkTagArgs{...}
+type CoreNetworkTagInput interface {
+	pulumi.Input
+
+	ToCoreNetworkTagOutput() CoreNetworkTagOutput
+	ToCoreNetworkTagOutputWithContext(context.Context) CoreNetworkTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CoreNetworkTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CoreNetworkTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkTag)(nil)).Elem()
+}
+
+func (i CoreNetworkTagArgs) ToCoreNetworkTagOutput() CoreNetworkTagOutput {
+	return i.ToCoreNetworkTagOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkTagArgs) ToCoreNetworkTagOutputWithContext(ctx context.Context) CoreNetworkTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkTagOutput)
+}
+
+// CoreNetworkTagArrayInput is an input type that accepts CoreNetworkTagArray and CoreNetworkTagArrayOutput values.
+// You can construct a concrete instance of `CoreNetworkTagArrayInput` via:
+//
+//          CoreNetworkTagArray{ CoreNetworkTagArgs{...} }
+type CoreNetworkTagArrayInput interface {
+	pulumi.Input
+
+	ToCoreNetworkTagArrayOutput() CoreNetworkTagArrayOutput
+	ToCoreNetworkTagArrayOutputWithContext(context.Context) CoreNetworkTagArrayOutput
+}
+
+type CoreNetworkTagArray []CoreNetworkTagInput
+
+func (CoreNetworkTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkTag)(nil)).Elem()
+}
+
+func (i CoreNetworkTagArray) ToCoreNetworkTagArrayOutput() CoreNetworkTagArrayOutput {
+	return i.ToCoreNetworkTagArrayOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkTagArray) ToCoreNetworkTagArrayOutputWithContext(ctx context.Context) CoreNetworkTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CoreNetworkTagOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkTag)(nil)).Elem()
+}
+
+func (o CoreNetworkTagOutput) ToCoreNetworkTagOutput() CoreNetworkTagOutput {
+	return o
+}
+
+func (o CoreNetworkTagOutput) ToCoreNetworkTagOutputWithContext(ctx context.Context) CoreNetworkTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CoreNetworkTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CoreNetworkTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CoreNetworkTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CoreNetworkTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CoreNetworkTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkTag)(nil)).Elem()
+}
+
+func (o CoreNetworkTagArrayOutput) ToCoreNetworkTagArrayOutput() CoreNetworkTagArrayOutput {
+	return o
+}
+
+func (o CoreNetworkTagArrayOutput) ToCoreNetworkTagArrayOutputWithContext(ctx context.Context) CoreNetworkTagArrayOutput {
+	return o
+}
+
+func (o CoreNetworkTagArrayOutput) Index(i pulumi.IntInput) CoreNetworkTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkTag {
+		return vs[0].([]CoreNetworkTag)[vs[1].(int)]
+	}).(CoreNetworkTagOutput)
+}
+
 // The site location.
 type DeviceLocation struct {
 	// The physical address.
@@ -886,7 +1863,563 @@ func (o SiteTagArrayOutput) Index(i pulumi.IntInput) SiteTagOutput {
 	}).(SiteTagOutput)
 }
 
+// The attachment to move from one segment to another.
+type SiteToSiteVpnAttachmentProposedSegmentChange struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName *string `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
+}
+
+// The attachment to move from one segment to another.
+type SiteToSiteVpnAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutput() SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+// The rule number in the policy document that applies to this change.
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentProposedSegmentChange) *int { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentProposedSegmentChange) *string { return v.SegmentName }).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) Tags() SiteToSiteVpnAttachmentTagArrayOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentProposedSegmentChange) []SiteToSiteVpnAttachmentTag { return v.Tags }).(SiteToSiteVpnAttachmentTagArrayOutput)
+}
+
+type SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteToSiteVpnAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) Elem() SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachmentProposedSegmentChange) SiteToSiteVpnAttachmentProposedSegmentChange {
+		if v != nil {
+			return *v
+		}
+		var ret SiteToSiteVpnAttachmentProposedSegmentChange
+		return ret
+	}).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachmentProposedSegmentChange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachmentProposedSegmentChange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput) Tags() SiteToSiteVpnAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachmentProposedSegmentChange) []SiteToSiteVpnAttachmentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(SiteToSiteVpnAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SiteToSiteVpnAttachmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// SiteToSiteVpnAttachmentTagInput is an input type that accepts SiteToSiteVpnAttachmentTagArgs and SiteToSiteVpnAttachmentTagOutput values.
+// You can construct a concrete instance of `SiteToSiteVpnAttachmentTagInput` via:
+//
+//          SiteToSiteVpnAttachmentTagArgs{...}
+type SiteToSiteVpnAttachmentTagInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentTagOutput() SiteToSiteVpnAttachmentTagOutput
+	ToSiteToSiteVpnAttachmentTagOutputWithContext(context.Context) SiteToSiteVpnAttachmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type SiteToSiteVpnAttachmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SiteToSiteVpnAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentTag)(nil)).Elem()
+}
+
+func (i SiteToSiteVpnAttachmentTagArgs) ToSiteToSiteVpnAttachmentTagOutput() SiteToSiteVpnAttachmentTagOutput {
+	return i.ToSiteToSiteVpnAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i SiteToSiteVpnAttachmentTagArgs) ToSiteToSiteVpnAttachmentTagOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentTagOutput)
+}
+
+// SiteToSiteVpnAttachmentTagArrayInput is an input type that accepts SiteToSiteVpnAttachmentTagArray and SiteToSiteVpnAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `SiteToSiteVpnAttachmentTagArrayInput` via:
+//
+//          SiteToSiteVpnAttachmentTagArray{ SiteToSiteVpnAttachmentTagArgs{...} }
+type SiteToSiteVpnAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentTagArrayOutput() SiteToSiteVpnAttachmentTagArrayOutput
+	ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(context.Context) SiteToSiteVpnAttachmentTagArrayOutput
+}
+
+type SiteToSiteVpnAttachmentTagArray []SiteToSiteVpnAttachmentTagInput
+
+func (SiteToSiteVpnAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteToSiteVpnAttachmentTag)(nil)).Elem()
+}
+
+func (i SiteToSiteVpnAttachmentTagArray) ToSiteToSiteVpnAttachmentTagArrayOutput() SiteToSiteVpnAttachmentTagArrayOutput {
+	return i.ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i SiteToSiteVpnAttachmentTagArray) ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SiteToSiteVpnAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentTag)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentTagOutput) ToSiteToSiteVpnAttachmentTagOutput() SiteToSiteVpnAttachmentTagOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentTagOutput) ToSiteToSiteVpnAttachmentTagOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SiteToSiteVpnAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SiteToSiteVpnAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SiteToSiteVpnAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteToSiteVpnAttachmentTag)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentTagArrayOutput) ToSiteToSiteVpnAttachmentTagArrayOutput() SiteToSiteVpnAttachmentTagArrayOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentTagArrayOutput) ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagArrayOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentTagArrayOutput) Index(i pulumi.IntInput) SiteToSiteVpnAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SiteToSiteVpnAttachmentTag {
+		return vs[0].([]SiteToSiteVpnAttachmentTag)[vs[1].(int)]
+	}).(SiteToSiteVpnAttachmentTagOutput)
+}
+
+// The attachment to move from one segment to another.
+type VpcAttachmentProposedSegmentChange struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName *string `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags []VpcAttachmentTag `pulumi:"tags"`
+}
+
+// The attachment to move from one segment to another.
+type VpcAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentProposedSegmentChangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangeOutput() VpcAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+// The rule number in the policy document that applies to this change.
+func (o VpcAttachmentProposedSegmentChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentProposedSegmentChange) *int { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o VpcAttachmentProposedSegmentChangeOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentProposedSegmentChange) *string { return v.SegmentName }).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o VpcAttachmentProposedSegmentChangeOutput) Tags() VpcAttachmentTagArrayOutput {
+	return o.ApplyT(func(v VpcAttachmentProposedSegmentChange) []VpcAttachmentTag { return v.Tags }).(VpcAttachmentTagArrayOutput)
+}
+
+type VpcAttachmentProposedSegmentChangePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentProposedSegmentChangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o VpcAttachmentProposedSegmentChangePtrOutput) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o VpcAttachmentProposedSegmentChangePtrOutput) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o VpcAttachmentProposedSegmentChangePtrOutput) Elem() VpcAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *VpcAttachmentProposedSegmentChange) VpcAttachmentProposedSegmentChange {
+		if v != nil {
+			return *v
+		}
+		var ret VpcAttachmentProposedSegmentChange
+		return ret
+	}).(VpcAttachmentProposedSegmentChangeOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o VpcAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentProposedSegmentChange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o VpcAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentProposedSegmentChange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o VpcAttachmentProposedSegmentChangePtrOutput) Tags() VpcAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *VpcAttachmentProposedSegmentChange) []VpcAttachmentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(VpcAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VpcAttachmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// VpcAttachmentTagInput is an input type that accepts VpcAttachmentTagArgs and VpcAttachmentTagOutput values.
+// You can construct a concrete instance of `VpcAttachmentTagInput` via:
+//
+//          VpcAttachmentTagArgs{...}
+type VpcAttachmentTagInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentTagOutput() VpcAttachmentTagOutput
+	ToVpcAttachmentTagOutputWithContext(context.Context) VpcAttachmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type VpcAttachmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpcAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentTag)(nil)).Elem()
+}
+
+func (i VpcAttachmentTagArgs) ToVpcAttachmentTagOutput() VpcAttachmentTagOutput {
+	return i.ToVpcAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentTagArgs) ToVpcAttachmentTagOutputWithContext(ctx context.Context) VpcAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentTagOutput)
+}
+
+// VpcAttachmentTagArrayInput is an input type that accepts VpcAttachmentTagArray and VpcAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `VpcAttachmentTagArrayInput` via:
+//
+//          VpcAttachmentTagArray{ VpcAttachmentTagArgs{...} }
+type VpcAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentTagArrayOutput() VpcAttachmentTagArrayOutput
+	ToVpcAttachmentTagArrayOutputWithContext(context.Context) VpcAttachmentTagArrayOutput
+}
+
+type VpcAttachmentTagArray []VpcAttachmentTagInput
+
+func (VpcAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcAttachmentTag)(nil)).Elem()
+}
+
+func (i VpcAttachmentTagArray) ToVpcAttachmentTagArrayOutput() VpcAttachmentTagArrayOutput {
+	return i.ToVpcAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentTagArray) ToVpcAttachmentTagArrayOutputWithContext(ctx context.Context) VpcAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VpcAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentTag)(nil)).Elem()
+}
+
+func (o VpcAttachmentTagOutput) ToVpcAttachmentTagOutput() VpcAttachmentTagOutput {
+	return o
+}
+
+func (o VpcAttachmentTagOutput) ToVpcAttachmentTagOutputWithContext(ctx context.Context) VpcAttachmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VpcAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VpcAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpcAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcAttachmentTag)(nil)).Elem()
+}
+
+func (o VpcAttachmentTagArrayOutput) ToVpcAttachmentTagArrayOutput() VpcAttachmentTagArrayOutput {
+	return o
+}
+
+func (o VpcAttachmentTagArrayOutput) ToVpcAttachmentTagArrayOutputWithContext(ctx context.Context) VpcAttachmentTagArrayOutput {
+	return o
+}
+
+func (o VpcAttachmentTagArrayOutput) Index(i pulumi.IntInput) VpcAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcAttachmentTag {
+		return vs[0].([]VpcAttachmentTag)[vs[1].(int)]
+	}).(VpcAttachmentTagOutput)
+}
+
+// Vpc options of the attachment.
+type VpcAttachmentVpcOptions struct {
+	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+	Ipv6Support *bool `pulumi:"ipv6Support"`
+}
+
+// VpcAttachmentVpcOptionsInput is an input type that accepts VpcAttachmentVpcOptionsArgs and VpcAttachmentVpcOptionsOutput values.
+// You can construct a concrete instance of `VpcAttachmentVpcOptionsInput` via:
+//
+//          VpcAttachmentVpcOptionsArgs{...}
+type VpcAttachmentVpcOptionsInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentVpcOptionsOutput() VpcAttachmentVpcOptionsOutput
+	ToVpcAttachmentVpcOptionsOutputWithContext(context.Context) VpcAttachmentVpcOptionsOutput
+}
+
+// Vpc options of the attachment.
+type VpcAttachmentVpcOptionsArgs struct {
+	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+	Ipv6Support pulumi.BoolPtrInput `pulumi:"ipv6Support"`
+}
+
+func (VpcAttachmentVpcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentVpcOptions)(nil)).Elem()
+}
+
+func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsOutput() VpcAttachmentVpcOptionsOutput {
+	return i.ToVpcAttachmentVpcOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentVpcOptionsOutput)
+}
+
+func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsPtrOutput() VpcAttachmentVpcOptionsPtrOutput {
+	return i.ToVpcAttachmentVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentVpcOptionsOutput).ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx)
+}
+
+// VpcAttachmentVpcOptionsPtrInput is an input type that accepts VpcAttachmentVpcOptionsArgs, VpcAttachmentVpcOptionsPtr and VpcAttachmentVpcOptionsPtrOutput values.
+// You can construct a concrete instance of `VpcAttachmentVpcOptionsPtrInput` via:
+//
+//          VpcAttachmentVpcOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type VpcAttachmentVpcOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentVpcOptionsPtrOutput() VpcAttachmentVpcOptionsPtrOutput
+	ToVpcAttachmentVpcOptionsPtrOutputWithContext(context.Context) VpcAttachmentVpcOptionsPtrOutput
+}
+
+type vpcAttachmentVpcOptionsPtrType VpcAttachmentVpcOptionsArgs
+
+func VpcAttachmentVpcOptionsPtr(v *VpcAttachmentVpcOptionsArgs) VpcAttachmentVpcOptionsPtrInput {
+	return (*vpcAttachmentVpcOptionsPtrType)(v)
+}
+
+func (*vpcAttachmentVpcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentVpcOptions)(nil)).Elem()
+}
+
+func (i *vpcAttachmentVpcOptionsPtrType) ToVpcAttachmentVpcOptionsPtrOutput() VpcAttachmentVpcOptionsPtrOutput {
+	return i.ToVpcAttachmentVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcAttachmentVpcOptionsPtrType) ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentVpcOptionsPtrOutput)
+}
+
+// Vpc options of the attachment.
+type VpcAttachmentVpcOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentVpcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentVpcOptions)(nil)).Elem()
+}
+
+func (o VpcAttachmentVpcOptionsOutput) ToVpcAttachmentVpcOptionsOutput() VpcAttachmentVpcOptionsOutput {
+	return o
+}
+
+func (o VpcAttachmentVpcOptionsOutput) ToVpcAttachmentVpcOptionsOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsOutput {
+	return o
+}
+
+func (o VpcAttachmentVpcOptionsOutput) ToVpcAttachmentVpcOptionsPtrOutput() VpcAttachmentVpcOptionsPtrOutput {
+	return o.ToVpcAttachmentVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentVpcOptionsOutput) ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentVpcOptions) *VpcAttachmentVpcOptions {
+		return &v
+	}).(VpcAttachmentVpcOptionsPtrOutput)
+}
+
+// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+func (o VpcAttachmentVpcOptionsOutput) Ipv6Support() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.Ipv6Support }).(pulumi.BoolPtrOutput)
+}
+
+type VpcAttachmentVpcOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentVpcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentVpcOptions)(nil)).Elem()
+}
+
+func (o VpcAttachmentVpcOptionsPtrOutput) ToVpcAttachmentVpcOptionsPtrOutput() VpcAttachmentVpcOptionsPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentVpcOptionsPtrOutput) ToVpcAttachmentVpcOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentVpcOptionsPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentVpcOptionsPtrOutput) Elem() VpcAttachmentVpcOptionsOutput {
+	return o.ApplyT(func(v *VpcAttachmentVpcOptions) VpcAttachmentVpcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcAttachmentVpcOptions
+		return ret
+	}).(VpcAttachmentVpcOptionsOutput)
+}
+
+// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+func (o VpcAttachmentVpcOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentVpcOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv6Support
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsPtrInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagInput)(nil)).Elem(), ConnectAttachmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagArrayInput)(nil)).Elem(), ConnectAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsPtrInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerTagInput)(nil)).Elem(), ConnectPeerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerTagArrayInput)(nil)).Elem(), ConnectPeerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagInput)(nil)).Elem(), CoreNetworkTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagArrayInput)(nil)).Elem(), CoreNetworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagInput)(nil)).Elem(), DeviceTagArgs{})
@@ -900,6 +2433,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagInput)(nil)).Elem(), SiteTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagArrayInput)(nil)).Elem(), SiteTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagInput)(nil)).Elem(), VpcAttachmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagArrayInput)(nil)).Elem(), VpcAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsPtrInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
+	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentProposedSegmentChangeOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentProposedSegmentChangePtrOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentTagOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(ConnectPeerBgpConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectPeerBgpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ConnectPeerBgpOptionsOutput{})
+	pulumi.RegisterOutputType(ConnectPeerBgpOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectPeerConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectPeerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectPeerTagOutput{})
+	pulumi.RegisterOutputType(ConnectPeerTagArrayOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEdgeOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEdgeArrayOutput{})
+	pulumi.RegisterOutputType(CoreNetworkSegmentOutput{})
+	pulumi.RegisterOutputType(CoreNetworkSegmentArrayOutput{})
+	pulumi.RegisterOutputType(CoreNetworkTagOutput{})
+	pulumi.RegisterOutputType(CoreNetworkTagArrayOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceTagOutput{})
@@ -914,4 +2473,14 @@ func init() {
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
 	pulumi.RegisterOutputType(SiteTagOutput{})
 	pulumi.RegisterOutputType(SiteTagArrayOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedSegmentChangeOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangeOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangePtrOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentTagOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentVpcOptionsOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentVpcOptionsPtrOutput{})
 }

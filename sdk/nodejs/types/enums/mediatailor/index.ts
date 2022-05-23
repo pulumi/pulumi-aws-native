@@ -12,7 +12,7 @@ export const PlaybackConfigurationAvailSuppressionMode = {
  */
 export type PlaybackConfigurationAvailSuppressionMode = (typeof PlaybackConfigurationAvailSuppressionMode)[keyof typeof PlaybackConfigurationAvailSuppressionMode];
 
-export const PlaybackConfigurationDashConfigurationForPutOriginManifestType = {
+export const PlaybackConfigurationDashConfigurationOriginManifestType = {
     SinglePeriod: "SINGLE_PERIOD",
     MultiPeriod: "MULTI_PERIOD",
 } as const;
@@ -20,4 +20,4 @@ export const PlaybackConfigurationDashConfigurationForPutOriginManifestType = {
 /**
  * The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
  */
-export type PlaybackConfigurationDashConfigurationForPutOriginManifestType = (typeof PlaybackConfigurationDashConfigurationForPutOriginManifestType)[keyof typeof PlaybackConfigurationDashConfigurationForPutOriginManifestType];
+export type PlaybackConfigurationDashConfigurationOriginManifestType = (typeof PlaybackConfigurationDashConfigurationOriginManifestType)[keyof typeof PlaybackConfigurationDashConfigurationOriginManifestType];

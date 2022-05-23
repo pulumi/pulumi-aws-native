@@ -155,9 +155,12 @@ class ResourceSpecificLoggingLogLevel(str, Enum):
 
 class ResourceSpecificLoggingTargetType(str, Enum):
     """
-    The target type. Value must be THING_GROUP.
+    The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
     """
     THING_GROUP = "THING_GROUP"
+    CLIENT_ID = "CLIENT_ID"
+    SOURCE_IP = "SOURCE_IP"
+    PRINCIPAL_ID = "PRINCIPAL_ID"
 
 
 class ScheduledAuditDayOfWeek(str, Enum):

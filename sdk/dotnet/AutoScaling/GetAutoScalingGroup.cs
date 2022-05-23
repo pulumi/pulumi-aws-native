@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public readonly bool? CapacityRebalance;
         public readonly string? Context;
         public readonly string? Cooldown;
+        public readonly int? DefaultInstanceWarmup;
         public readonly string? DesiredCapacity;
         public readonly string? DesiredCapacityType;
         public readonly int? HealthCheckGracePeriod;
@@ -86,6 +87,8 @@ namespace Pulumi.AwsNative.AutoScaling
             string? context,
 
             string? cooldown,
+
+            int? defaultInstanceWarmup,
 
             string? desiredCapacity,
 
@@ -137,6 +140,7 @@ namespace Pulumi.AwsNative.AutoScaling
             CapacityRebalance = capacityRebalance;
             Context = context;
             Cooldown = cooldown;
+            DefaultInstanceWarmup = defaultInstanceWarmup;
             DesiredCapacity = desiredCapacity;
             DesiredCapacityType = desiredCapacityType;
             HealthCheckGracePeriod = healthCheckGracePeriod;

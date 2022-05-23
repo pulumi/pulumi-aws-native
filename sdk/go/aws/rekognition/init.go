@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Collection{}
 	case "aws-native:rekognition:Project":
 		r = &Project{}
+	case "aws-native:rekognition:StreamProcessor":
+		r = &StreamProcessor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

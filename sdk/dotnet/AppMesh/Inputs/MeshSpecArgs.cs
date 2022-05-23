@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("egressFilter")]
         public Input<Inputs.MeshEgressFilterArgs>? EgressFilter { get; set; }
 
+        [Input("serviceDiscovery")]
+        public Input<Inputs.MeshServiceDiscoveryArgs>? ServiceDiscovery { get; set; }
+
         public MeshSpecArgs()
         {
         }

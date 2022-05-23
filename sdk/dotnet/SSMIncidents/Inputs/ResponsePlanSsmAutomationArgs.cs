@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
+        [Input("dynamicParameters")]
+        private InputList<Inputs.ResponsePlanDynamicSsmParameterArgs>? _dynamicParameters;
+
+        /// <summary>
+        /// The parameters with dynamic values to set when starting the SSM automation document.
+        /// </summary>
+        public InputList<Inputs.ResponsePlanDynamicSsmParameterArgs> DynamicParameters
+        {
+            get => _dynamicParameters ?? (_dynamicParameters = new InputList<Inputs.ResponsePlanDynamicSsmParameterArgs>());
+            set => _dynamicParameters = value;
+        }
+
         [Input("parameters")]
         private InputList<Inputs.ResponsePlanSsmParameterArgs>? _parameters;
 

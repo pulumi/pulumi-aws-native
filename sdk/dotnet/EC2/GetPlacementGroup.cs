@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetPlacementGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The Group Name of Placement Group.
+        /// </summary>
+        [Input("groupName", required: true)]
+        public string GroupName { get; set; } = null!;
 
         public GetPlacementGroupArgs()
         {
@@ -37,8 +40,11 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetPlacementGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The Group Name of Placement Group.
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
 
         public GetPlacementGroupInvokeArgs()
         {
@@ -49,12 +55,15 @@ namespace Pulumi.AwsNative.EC2
     [OutputType]
     public sealed class GetPlacementGroupResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// The Group Name of Placement Group.
+        /// </summary>
+        public readonly string? GroupName;
 
         [OutputConstructor]
-        private GetPlacementGroupResult(string? id)
+        private GetPlacementGroupResult(string? groupName)
         {
-            Id = id;
+            GroupName = groupName;
         }
     }
 }

@@ -8,11 +8,14 @@ import * as utilities from "../utilities";
 export * from "./collection";
 export * from "./getCollection";
 export * from "./getProject";
+export * from "./getStreamProcessor";
 export * from "./project";
+export * from "./streamProcessor";
 
 // Import resources to register:
 import { Collection } from "./collection";
 import { Project } from "./project";
+import { StreamProcessor } from "./streamProcessor";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +25,8 @@ const _module = {
                 return new Collection(name, <any>undefined, { urn })
             case "aws-native:rekognition:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws-native:rekognition:StreamProcessor":
+                return new StreamProcessor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

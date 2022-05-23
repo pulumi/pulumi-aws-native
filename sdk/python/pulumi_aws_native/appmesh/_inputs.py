@@ -34,6 +34,7 @@ __all__ = [
     'GatewayRouteTargetArgs',
     'GatewayRouteVirtualServiceArgs',
     'MeshEgressFilterArgs',
+    'MeshServiceDiscoveryArgs',
     'MeshSpecArgs',
     'MeshTagArgs',
     'RouteDurationArgs',
@@ -963,11 +964,31 @@ class MeshEgressFilterArgs:
 
 
 @pulumi.input_type
+class MeshServiceDiscoveryArgs:
+    def __init__(__self__, *,
+                 ip_preference: Optional[pulumi.Input[str]] = None):
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_preference")
+
+    @ip_preference.setter
+    def ip_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_preference", value)
+
+
+@pulumi.input_type
 class MeshSpecArgs:
     def __init__(__self__, *,
-                 egress_filter: Optional[pulumi.Input['MeshEgressFilterArgs']] = None):
+                 egress_filter: Optional[pulumi.Input['MeshEgressFilterArgs']] = None,
+                 service_discovery: Optional[pulumi.Input['MeshServiceDiscoveryArgs']] = None):
         if egress_filter is not None:
             pulumi.set(__self__, "egress_filter", egress_filter)
+        if service_discovery is not None:
+            pulumi.set(__self__, "service_discovery", service_discovery)
 
     @property
     @pulumi.getter(name="egressFilter")
@@ -977,6 +998,15 @@ class MeshSpecArgs:
     @egress_filter.setter
     def egress_filter(self, value: Optional[pulumi.Input['MeshEgressFilterArgs']]):
         pulumi.set(self, "egress_filter", value)
+
+    @property
+    @pulumi.getter(name="serviceDiscovery")
+    def service_discovery(self) -> Optional[pulumi.Input['MeshServiceDiscoveryArgs']]:
+        return pulumi.get(self, "service_discovery")
+
+    @service_discovery.setter
+    def service_discovery(self, value: Optional[pulumi.Input['MeshServiceDiscoveryArgs']]):
+        pulumi.set(self, "service_discovery", value)
 
 
 @pulumi.input_type
@@ -2839,11 +2869,14 @@ class VirtualNodeAwsCloudMapServiceDiscoveryArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeAwsCloudMapInstanceAttributeArgs']]]] = None):
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeAwsCloudMapInstanceAttributeArgs']]]] = None,
+                 ip_preference: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "service_name", service_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -2871,6 +2904,15 @@ class VirtualNodeAwsCloudMapServiceDiscoveryArgs:
     @attributes.setter
     def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeAwsCloudMapInstanceAttributeArgs']]]]):
         pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_preference")
+
+    @ip_preference.setter
+    def ip_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_preference", value)
 
 
 @pulumi.input_type
@@ -3062,8 +3104,11 @@ class VirtualNodeConnectionPoolArgs:
 class VirtualNodeDnsServiceDiscoveryArgs:
     def __init__(__self__, *,
                  hostname: pulumi.Input[str],
+                 ip_preference: Optional[pulumi.Input[str]] = None,
                  response_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "hostname", hostname)
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
         if response_type is not None:
             pulumi.set(__self__, "response_type", response_type)
 
@@ -3075,6 +3120,15 @@ class VirtualNodeDnsServiceDiscoveryArgs:
     @hostname.setter
     def hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_preference")
+
+    @ip_preference.setter
+    def ip_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_preference", value)
 
     @property
     @pulumi.getter(name="responseType")

@@ -22,6 +22,7 @@ type AutoScalingGroup struct {
 	CapacityRebalance                pulumi.BoolPtrOutput                                  `pulumi:"capacityRebalance"`
 	Context                          pulumi.StringPtrOutput                                `pulumi:"context"`
 	Cooldown                         pulumi.StringPtrOutput                                `pulumi:"cooldown"`
+	DefaultInstanceWarmup            pulumi.IntPtrOutput                                   `pulumi:"defaultInstanceWarmup"`
 	DesiredCapacity                  pulumi.StringPtrOutput                                `pulumi:"desiredCapacity"`
 	DesiredCapacityType              pulumi.StringPtrOutput                                `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           pulumi.IntPtrOutput                                   `pulumi:"healthCheckGracePeriod"`
@@ -97,6 +98,7 @@ type autoScalingGroupArgs struct {
 	CapacityRebalance                *bool                                        `pulumi:"capacityRebalance"`
 	Context                          *string                                      `pulumi:"context"`
 	Cooldown                         *string                                      `pulumi:"cooldown"`
+	DefaultInstanceWarmup            *int                                         `pulumi:"defaultInstanceWarmup"`
 	DesiredCapacity                  *string                                      `pulumi:"desiredCapacity"`
 	DesiredCapacityType              *string                                      `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
@@ -128,6 +130,7 @@ type AutoScalingGroupArgs struct {
 	CapacityRebalance                pulumi.BoolPtrInput
 	Context                          pulumi.StringPtrInput
 	Cooldown                         pulumi.StringPtrInput
+	DefaultInstanceWarmup            pulumi.IntPtrInput
 	DesiredCapacity                  pulumi.StringPtrInput
 	DesiredCapacityType              pulumi.StringPtrInput
 	HealthCheckGracePeriod           pulumi.IntPtrInput
@@ -207,6 +210,10 @@ func (o AutoScalingGroupOutput) Context() pulumi.StringPtrOutput {
 
 func (o AutoScalingGroupOutput) Cooldown() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.Cooldown }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) DefaultInstanceWarmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.IntPtrOutput { return v.DefaultInstanceWarmup }).(pulumi.IntPtrOutput)
 }
 
 func (o AutoScalingGroupOutput) DesiredCapacity() pulumi.StringPtrOutput {

@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Pulumi.AwsNative.WAFv2.RuleGroupBodyParsingFallbackBehavior? InvalidFallbackBehavior;
         public readonly Outputs.RuleGroupJsonMatchPattern MatchPattern;
         public readonly Pulumi.AwsNative.WAFv2.RuleGroupJsonMatchScope MatchScope;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupOversizeHandling? OversizeHandling;
 
         [OutputConstructor]
         private RuleGroupJsonBody(
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.RuleGroupJsonMatchPattern matchPattern,
 
-            Pulumi.AwsNative.WAFv2.RuleGroupJsonMatchScope matchScope)
+            Pulumi.AwsNative.WAFv2.RuleGroupJsonMatchScope matchScope,
+
+            Pulumi.AwsNative.WAFv2.RuleGroupOversizeHandling? oversizeHandling)
         {
             InvalidFallbackBehavior = invalidFallbackBehavior;
             MatchPattern = matchPattern;
             MatchScope = matchScope;
+            OversizeHandling = oversizeHandling;
         }
     }
 }

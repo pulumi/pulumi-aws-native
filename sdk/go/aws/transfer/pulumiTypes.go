@@ -471,6 +471,7 @@ func (o ServerProtocolArrayOutput) Index(i pulumi.IntInput) ServerProtocolOutput
 
 type ServerProtocolDetails struct {
 	PassiveIp                *string `pulumi:"passiveIp"`
+	SetStatOption            *string `pulumi:"setStatOption"`
 	TlsSessionResumptionMode *string `pulumi:"tlsSessionResumptionMode"`
 }
 
@@ -487,6 +488,7 @@ type ServerProtocolDetailsInput interface {
 
 type ServerProtocolDetailsArgs struct {
 	PassiveIp                pulumi.StringPtrInput `pulumi:"passiveIp"`
+	SetStatOption            pulumi.StringPtrInput `pulumi:"setStatOption"`
 	TlsSessionResumptionMode pulumi.StringPtrInput `pulumi:"tlsSessionResumptionMode"`
 }
 
@@ -571,6 +573,10 @@ func (o ServerProtocolDetailsOutput) PassiveIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.PassiveIp }).(pulumi.StringPtrOutput)
 }
 
+func (o ServerProtocolDetailsOutput) SetStatOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.SetStatOption }).(pulumi.StringPtrOutput)
+}
+
 func (o ServerProtocolDetailsOutput) TlsSessionResumptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.TlsSessionResumptionMode }).(pulumi.StringPtrOutput)
 }
@@ -605,6 +611,15 @@ func (o ServerProtocolDetailsPtrOutput) PassiveIp() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PassiveIp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerProtocolDetailsPtrOutput) SetStatOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SetStatOption
 	}).(pulumi.StringPtrOutput)
 }
 

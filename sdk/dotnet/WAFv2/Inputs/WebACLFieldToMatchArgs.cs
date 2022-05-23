@@ -21,11 +21,14 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("allQueryArguments")]
         public Input<object>? AllQueryArguments { get; set; }
 
-        /// <summary>
-        /// The body of a web request. This immediately follows the request headers.
-        /// </summary>
         [Input("body")]
-        public Input<object>? Body { get; set; }
+        public Input<Inputs.WebACLBodyArgs>? Body { get; set; }
+
+        [Input("cookies")]
+        public Input<Inputs.WebACLCookiesArgs>? Cookies { get; set; }
+
+        [Input("headers")]
+        public Input<Inputs.WebACLHeadersArgs>? Headers { get; set; }
 
         [Input("jsonBody")]
         public Input<Inputs.WebACLJsonBodyArgs>? JsonBody { get; set; }

@@ -22,6 +22,7 @@ class AutoScalingGroupArgs:
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[str]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -57,6 +58,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "context", context)
         if cooldown is not None:
             pulumi.set(__self__, "cooldown", cooldown)
+        if default_instance_warmup is not None:
+            pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
         if desired_capacity_type is not None:
@@ -160,6 +163,15 @@ class AutoScalingGroupArgs:
     @cooldown.setter
     def cooldown(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cooldown", value)
+
+    @property
+    @pulumi.getter(name="defaultInstanceWarmup")
+    def default_instance_warmup(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "default_instance_warmup")
+
+    @default_instance_warmup.setter
+    def default_instance_warmup(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_instance_warmup", value)
 
     @property
     @pulumi.getter(name="desiredCapacity")
@@ -357,6 +369,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[str]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -415,6 +428,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[str]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -455,6 +469,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
             __props__.__dict__["context"] = context
             __props__.__dict__["cooldown"] = cooldown
+            __props__.__dict__["default_instance_warmup"] = default_instance_warmup
             __props__.__dict__["desired_capacity"] = desired_capacity
             __props__.__dict__["desired_capacity_type"] = desired_capacity_type
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
@@ -509,6 +524,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["capacity_rebalance"] = None
         __props__.__dict__["context"] = None
         __props__.__dict__["cooldown"] = None
+        __props__.__dict__["default_instance_warmup"] = None
         __props__.__dict__["desired_capacity"] = None
         __props__.__dict__["desired_capacity_type"] = None
         __props__.__dict__["health_check_grace_period"] = None
@@ -558,6 +574,11 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter
     def cooldown(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "cooldown")
+
+    @property
+    @pulumi.getter(name="defaultInstanceWarmup")
+    def default_instance_warmup(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "default_instance_warmup")
 
     @property
     @pulumi.getter(name="desiredCapacity")

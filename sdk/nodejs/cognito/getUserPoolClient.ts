@@ -33,6 +33,7 @@ export interface GetUserPoolClientResult {
     readonly clientName?: string;
     readonly clientSecret?: string;
     readonly defaultRedirectURI?: string;
+    readonly enablePropagateAdditionalUserContextData?: boolean;
     readonly enableTokenRevocation?: boolean;
     readonly explicitAuthFlows?: string[];
     readonly id?: string;

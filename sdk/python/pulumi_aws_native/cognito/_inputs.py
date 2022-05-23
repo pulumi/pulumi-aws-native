@@ -1363,17 +1363,16 @@ class UserPoolUserAttributeTypeArgs:
 @pulumi.input_type
 class UserPoolUsernameConfigurationArgs:
     def __init__(__self__, *,
-                 case_sensitive: Optional[pulumi.Input[bool]] = None):
-        if case_sensitive is not None:
-            pulumi.set(__self__, "case_sensitive", case_sensitive)
+                 case_sensitive: pulumi.Input[bool]):
+        pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter(name="caseSensitive")
-    def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
+    def case_sensitive(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "case_sensitive")
 
     @case_sensitive.setter
-    def case_sensitive(self, value: Optional[pulumi.Input[bool]]):
+    def case_sensitive(self, value: pulumi.Input[bool]):
         pulumi.set(self, "case_sensitive", value)
 
 

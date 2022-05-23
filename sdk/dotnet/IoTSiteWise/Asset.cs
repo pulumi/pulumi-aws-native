@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         [Output("assetArn")]
         public Output<string> AssetArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the asset
+        /// </summary>
+        [Output("assetDescription")]
+        public Output<string?> AssetDescription { get; private set; } = null!;
+
         [Output("assetHierarchies")]
         public Output<ImmutableArray<Outputs.AssetHierarchy>> AssetHierarchies { get; private set; } = null!;
 
@@ -96,6 +102,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class AssetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the asset
+        /// </summary>
+        [Input("assetDescription")]
+        public Input<string>? AssetDescription { get; set; }
+
         [Input("assetHierarchies")]
         private InputList<Inputs.AssetHierarchyArgs>? _assetHierarchies;
         public InputList<Inputs.AssetHierarchyArgs> AssetHierarchies

@@ -23,6 +23,11 @@ class VPCPeeringConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCPeeringConnectionTagArgs']]]] = None):
         """
         The set of arguments for constructing a VPCPeeringConnection resource.
+        :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the accepter VPC.
+        :param pulumi.Input[str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+        :param pulumi.Input[str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
         """
         pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -38,6 +43,9 @@ class VPCPeeringConnectionArgs:
     @property
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        """
         return pulumi.get(self, "peer_vpc_id")
 
     @peer_vpc_id.setter
@@ -47,6 +55,9 @@ class VPCPeeringConnectionArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -56,6 +67,9 @@ class VPCPeeringConnectionArgs:
     @property
     @pulumi.getter(name="peerOwnerId")
     def peer_owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the owner of the accepter VPC.
+        """
         return pulumi.get(self, "peer_owner_id")
 
     @peer_owner_id.setter
@@ -65,6 +79,9 @@ class VPCPeeringConnectionArgs:
     @property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+        """
         return pulumi.get(self, "peer_region")
 
     @peer_region.setter
@@ -74,6 +91,9 @@ class VPCPeeringConnectionArgs:
     @property
     @pulumi.getter(name="peerRoleArn")
     def peer_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        """
         return pulumi.get(self, "peer_role_arn")
 
     @peer_role_arn.setter
@@ -90,12 +110,7 @@ class VPCPeeringConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VPCPeeringConnection(pulumi.CustomResource):
-    warnings.warn("""VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +127,11 @@ class VPCPeeringConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the accepter VPC.
+        :param pulumi.Input[str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+        :param pulumi.Input[str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -144,7 +164,6 @@ class VPCPeeringConnection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCPeeringConnectionTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPCPeeringConnection is deprecated: VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -199,21 +218,33 @@ class VPCPeeringConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="peerOwnerId")
     def peer_owner_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account ID of the owner of the accepter VPC.
+        """
         return pulumi.get(self, "peer_owner_id")
 
     @property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+        """
         return pulumi.get(self, "peer_region")
 
     @property
     @pulumi.getter(name="peerRoleArn")
     def peer_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        """
         return pulumi.get(self, "peer_role_arn")
 
     @property
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        """
         return pulumi.get(self, "peer_vpc_id")
 
     @property
@@ -224,5 +255,8 @@ class VPCPeeringConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

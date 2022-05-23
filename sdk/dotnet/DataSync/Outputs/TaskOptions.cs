@@ -37,6 +37,10 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.DataSync.TaskOptionsMtime? Mtime;
         /// <summary>
+        /// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsObjectTags? ObjectTags;
+        /// <summary>
         /// A value that determines whether files at the destination should be overwritten or preserved when copying files.
         /// </summary>
         public readonly Pulumi.AwsNative.DataSync.TaskOptionsOverwriteMode? OverwriteMode;
@@ -85,6 +89,8 @@ namespace Pulumi.AwsNative.DataSync.Outputs
 
             Pulumi.AwsNative.DataSync.TaskOptionsMtime? mtime,
 
+            Pulumi.AwsNative.DataSync.TaskOptionsObjectTags? objectTags,
+
             Pulumi.AwsNative.DataSync.TaskOptionsOverwriteMode? overwriteMode,
 
             Pulumi.AwsNative.DataSync.TaskOptionsPosixPermissions? posixPermissions,
@@ -108,6 +114,7 @@ namespace Pulumi.AwsNative.DataSync.Outputs
             Gid = gid;
             LogLevel = logLevel;
             Mtime = mtime;
+            ObjectTags = objectTags;
             OverwriteMode = overwriteMode;
             PosixPermissions = posixPermissions;
             PreserveDeletedFiles = preserveDeletedFiles;

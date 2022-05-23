@@ -22,12 +22,12 @@ class PlaybackConfigurationArgs:
                  bumper: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']] = None,
                  cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
                  configuration_aliases: Optional[pulumi.Input['PlaybackConfigurationConfigurationAliasesArgs']] = None,
-                 dash_configuration: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationForPutArgs']] = None,
+                 dash_configuration: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']] = None,
+                 hls_configuration: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']] = None,
                  manifest_processing_rules: Optional[pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  personalization_threshold_seconds: Optional[pulumi.Input[int]] = None,
-                 session_initialization_endpoint_prefix: Optional[pulumi.Input[str]] = None,
                  slate_ad_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]]] = None,
                  transcode_profile_name: Optional[pulumi.Input[str]] = None):
@@ -39,12 +39,12 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param pulumi.Input['PlaybackConfigurationConfigurationAliasesArgs'] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-        :param pulumi.Input['PlaybackConfigurationDashConfigurationForPutArgs'] dash_configuration: The configuration for DASH content.
+        :param pulumi.Input['PlaybackConfigurationDashConfigurationArgs'] dash_configuration: The configuration for DASH content.
+        :param pulumi.Input['PlaybackConfigurationHlsConfigurationArgs'] hls_configuration: The configuration for HLS content.
         :param pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs'] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
         :param pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs'] manifest_processing_rules: The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
         :param pulumi.Input[str] name: The identifier for the playback configuration.
         :param pulumi.Input[int] personalization_threshold_seconds: Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
-        :param pulumi.Input[str] session_initialization_endpoint_prefix: The URL that the player uses to initialize a session that uses client-side reporting.
         :param pulumi.Input[str] slate_ad_url: The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
         :param pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]] tags: The tags to assign to the playback configuration.
         :param pulumi.Input[str] transcode_profile_name: The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
@@ -61,6 +61,8 @@ class PlaybackConfigurationArgs:
             pulumi.set(__self__, "configuration_aliases", configuration_aliases)
         if dash_configuration is not None:
             pulumi.set(__self__, "dash_configuration", dash_configuration)
+        if hls_configuration is not None:
+            pulumi.set(__self__, "hls_configuration", hls_configuration)
         if live_pre_roll_configuration is not None:
             pulumi.set(__self__, "live_pre_roll_configuration", live_pre_roll_configuration)
         if manifest_processing_rules is not None:
@@ -69,8 +71,6 @@ class PlaybackConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if personalization_threshold_seconds is not None:
             pulumi.set(__self__, "personalization_threshold_seconds", personalization_threshold_seconds)
-        if session_initialization_endpoint_prefix is not None:
-            pulumi.set(__self__, "session_initialization_endpoint_prefix", session_initialization_endpoint_prefix)
         if slate_ad_url is not None:
             pulumi.set(__self__, "slate_ad_url", slate_ad_url)
         if tags is not None:
@@ -152,15 +152,27 @@ class PlaybackConfigurationArgs:
 
     @property
     @pulumi.getter(name="dashConfiguration")
-    def dash_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationDashConfigurationForPutArgs']]:
+    def dash_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']]:
         """
         The configuration for DASH content.
         """
         return pulumi.get(self, "dash_configuration")
 
     @dash_configuration.setter
-    def dash_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationForPutArgs']]):
+    def dash_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']]):
         pulumi.set(self, "dash_configuration", value)
+
+    @property
+    @pulumi.getter(name="hlsConfiguration")
+    def hls_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']]:
+        """
+        The configuration for HLS content.
+        """
+        return pulumi.get(self, "hls_configuration")
+
+    @hls_configuration.setter
+    def hls_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']]):
+        pulumi.set(self, "hls_configuration", value)
 
     @property
     @pulumi.getter(name="livePreRollConfiguration")
@@ -211,18 +223,6 @@ class PlaybackConfigurationArgs:
         pulumi.set(self, "personalization_threshold_seconds", value)
 
     @property
-    @pulumi.getter(name="sessionInitializationEndpointPrefix")
-    def session_initialization_endpoint_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL that the player uses to initialize a session that uses client-side reporting.
-        """
-        return pulumi.get(self, "session_initialization_endpoint_prefix")
-
-    @session_initialization_endpoint_prefix.setter
-    def session_initialization_endpoint_prefix(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "session_initialization_endpoint_prefix", value)
-
-    @property
     @pulumi.getter(name="slateAdUrl")
     def slate_ad_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -269,12 +269,12 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  bumper: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']]] = None,
                  cdn_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']]] = None,
                  configuration_aliases: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationConfigurationAliasesArgs']]] = None,
-                 dash_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationForPutArgs']]] = None,
+                 dash_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']]] = None,
+                 hls_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']]] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']]] = None,
                  manifest_processing_rules: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationManifestProcessingRulesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  personalization_threshold_seconds: Optional[pulumi.Input[int]] = None,
-                 session_initialization_endpoint_prefix: Optional[pulumi.Input[str]] = None,
                  slate_ad_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackConfigurationTagArgs']]]]] = None,
                  transcode_profile_name: Optional[pulumi.Input[str]] = None,
@@ -290,12 +290,12 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationConfigurationAliasesArgs']] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-        :param pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationForPutArgs']] dash_configuration: The configuration for DASH content.
+        :param pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']] dash_configuration: The configuration for DASH content.
+        :param pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']] hls_configuration: The configuration for HLS content.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationManifestProcessingRulesArgs']] manifest_processing_rules: The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
         :param pulumi.Input[str] name: The identifier for the playback configuration.
         :param pulumi.Input[int] personalization_threshold_seconds: Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
-        :param pulumi.Input[str] session_initialization_endpoint_prefix: The URL that the player uses to initialize a session that uses client-side reporting.
         :param pulumi.Input[str] slate_ad_url: The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackConfigurationTagArgs']]]] tags: The tags to assign to the playback configuration.
         :param pulumi.Input[str] transcode_profile_name: The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
@@ -330,12 +330,12 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  bumper: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']]] = None,
                  cdn_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']]] = None,
                  configuration_aliases: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationConfigurationAliasesArgs']]] = None,
-                 dash_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationForPutArgs']]] = None,
+                 dash_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']]] = None,
+                 hls_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']]] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']]] = None,
                  manifest_processing_rules: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationManifestProcessingRulesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  personalization_threshold_seconds: Optional[pulumi.Input[int]] = None,
-                 session_initialization_endpoint_prefix: Optional[pulumi.Input[str]] = None,
                  slate_ad_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackConfigurationTagArgs']]]]] = None,
                  transcode_profile_name: Optional[pulumi.Input[str]] = None,
@@ -360,17 +360,20 @@ class PlaybackConfiguration(pulumi.CustomResource):
             __props__.__dict__["cdn_configuration"] = cdn_configuration
             __props__.__dict__["configuration_aliases"] = configuration_aliases
             __props__.__dict__["dash_configuration"] = dash_configuration
+            __props__.__dict__["hls_configuration"] = hls_configuration
             __props__.__dict__["live_pre_roll_configuration"] = live_pre_roll_configuration
             __props__.__dict__["manifest_processing_rules"] = manifest_processing_rules
             __props__.__dict__["name"] = name
             __props__.__dict__["personalization_threshold_seconds"] = personalization_threshold_seconds
-            __props__.__dict__["session_initialization_endpoint_prefix"] = session_initialization_endpoint_prefix
             __props__.__dict__["slate_ad_url"] = slate_ad_url
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transcode_profile_name"] = transcode_profile_name
             if video_content_source_url is None and not opts.urn:
                 raise TypeError("Missing required property 'video_content_source_url'")
             __props__.__dict__["video_content_source_url"] = video_content_source_url
+            __props__.__dict__["playback_configuration_arn"] = None
+            __props__.__dict__["playback_endpoint_prefix"] = None
+            __props__.__dict__["session_initialization_endpoint_prefix"] = None
         super(PlaybackConfiguration, __self__).__init__(
             'aws-native:mediatailor:PlaybackConfiguration',
             resource_name,
@@ -399,10 +402,13 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__.__dict__["cdn_configuration"] = None
         __props__.__dict__["configuration_aliases"] = None
         __props__.__dict__["dash_configuration"] = None
+        __props__.__dict__["hls_configuration"] = None
         __props__.__dict__["live_pre_roll_configuration"] = None
         __props__.__dict__["manifest_processing_rules"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["personalization_threshold_seconds"] = None
+        __props__.__dict__["playback_configuration_arn"] = None
+        __props__.__dict__["playback_endpoint_prefix"] = None
         __props__.__dict__["session_initialization_endpoint_prefix"] = None
         __props__.__dict__["slate_ad_url"] = None
         __props__.__dict__["tags"] = None
@@ -452,11 +458,19 @@ class PlaybackConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashConfiguration")
-    def dash_configuration(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationDashConfigurationForPut']]:
+    def dash_configuration(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationDashConfiguration']]:
         """
         The configuration for DASH content.
         """
         return pulumi.get(self, "dash_configuration")
+
+    @property
+    @pulumi.getter(name="hlsConfiguration")
+    def hls_configuration(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationHlsConfiguration']]:
+        """
+        The configuration for HLS content.
+        """
+        return pulumi.get(self, "hls_configuration")
 
     @property
     @pulumi.getter(name="livePreRollConfiguration")
@@ -491,8 +505,24 @@ class PlaybackConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "personalization_threshold_seconds")
 
     @property
+    @pulumi.getter(name="playbackConfigurationArn")
+    def playback_configuration_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the playback configuration.
+        """
+        return pulumi.get(self, "playback_configuration_arn")
+
+    @property
+    @pulumi.getter(name="playbackEndpointPrefix")
+    def playback_endpoint_prefix(self) -> pulumi.Output[str]:
+        """
+        The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+        """
+        return pulumi.get(self, "playback_endpoint_prefix")
+
+    @property
     @pulumi.getter(name="sessionInitializationEndpointPrefix")
-    def session_initialization_endpoint_prefix(self) -> pulumi.Output[Optional[str]]:
+    def session_initialization_endpoint_prefix(self) -> pulumi.Output[str]:
         """
         The URL that the player uses to initialize a session that uses client-side reporting.
         """

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ResponsePlanSsmAutomationTargetAccount',
+    'ResponsePlanVariableType',
 ]
 
 
@@ -15,3 +16,11 @@ class ResponsePlanSsmAutomationTargetAccount(str, Enum):
     """
     IMPACTED_ACCOUNT = "IMPACTED_ACCOUNT"
     RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT"
+
+
+class ResponsePlanVariableType(str, Enum):
+    """
+    The variable types used as dynamic parameter value when starting the SSM automation document.
+    """
+    INCIDENT_RECORD_ARN = "INCIDENT_RECORD_ARN"
+    INVOLVED_RESOURCES = "INVOLVED_RESOURCES"

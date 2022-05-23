@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<Outputs.CanaryCode> Code { get; private set; } = null!;
 
         /// <summary>
+        /// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        /// </summary>
+        [Output("deleteLambdaResourcesOnCanaryDeletion")]
+        public Output<bool?> DeleteLambdaResourcesOnCanaryDeletion { get; private set; } = null!;
+
+        /// <summary>
         /// Lambda Execution role used to run your canaries
         /// </summary>
         [Output("executionRoleArn")]
@@ -164,6 +170,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("code", required: true)]
         public Input<Inputs.CanaryCodeArgs> Code { get; set; } = null!;
+
+        /// <summary>
+        /// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        /// </summary>
+        [Input("deleteLambdaResourcesOnCanaryDeletion")]
+        public Input<bool>? DeleteLambdaResourcesOnCanaryDeletion { get; set; }
 
         /// <summary>
         /// Lambda Execution role used to run your canaries

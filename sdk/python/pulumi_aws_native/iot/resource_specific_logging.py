@@ -21,7 +21,7 @@ class ResourceSpecificLoggingArgs:
         The set of arguments for constructing a ResourceSpecificLogging resource.
         :param pulumi.Input['ResourceSpecificLoggingLogLevel'] log_level: The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         :param pulumi.Input[str] target_name: The target name.
-        :param pulumi.Input['ResourceSpecificLoggingTargetType'] target_type: The target type. Value must be THING_GROUP.
+        :param pulumi.Input['ResourceSpecificLoggingTargetType'] target_type: The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
         """
         pulumi.set(__self__, "log_level", log_level)
         pulumi.set(__self__, "target_name", target_name)
@@ -55,7 +55,7 @@ class ResourceSpecificLoggingArgs:
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input['ResourceSpecificLoggingTargetType']:
         """
-        The target type. Value must be THING_GROUP.
+        The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
         """
         return pulumi.get(self, "target_type")
 
@@ -80,7 +80,7 @@ class ResourceSpecificLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResourceSpecificLoggingLogLevel'] log_level: The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         :param pulumi.Input[str] target_name: The target name.
-        :param pulumi.Input['ResourceSpecificLoggingTargetType'] target_type: The target type. Value must be THING_GROUP.
+        :param pulumi.Input['ResourceSpecificLoggingTargetType'] target_type: The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
         """
         ...
     @overload
@@ -187,7 +187,7 @@ class ResourceSpecificLogging(pulumi.CustomResource):
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output['ResourceSpecificLoggingTargetType']:
         """
-        The target type. Value must be THING_GROUP.
+        The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
         """
         return pulumi.get(self, "target_type")
 

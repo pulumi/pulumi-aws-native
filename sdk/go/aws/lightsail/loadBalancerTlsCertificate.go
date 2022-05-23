@@ -21,6 +21,8 @@ type LoadBalancerTlsCertificate struct {
 	CertificateDomainName pulumi.StringOutput `pulumi:"certificateDomainName"`
 	// The SSL/TLS certificate name.
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
+	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+	HttpsRedirectionEnabled pulumi.BoolPtrOutput `pulumi:"httpsRedirectionEnabled"`
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
 	IsAttached pulumi.BoolPtrOutput `pulumi:"isAttached"`
 	// The name of your load balancer.
@@ -84,6 +86,8 @@ type loadBalancerTlsCertificateArgs struct {
 	CertificateDomainName string `pulumi:"certificateDomainName"`
 	// The SSL/TLS certificate name.
 	CertificateName string `pulumi:"certificateName"`
+	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+	HttpsRedirectionEnabled *bool `pulumi:"httpsRedirectionEnabled"`
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
 	IsAttached *bool `pulumi:"isAttached"`
 	// The name of your load balancer.
@@ -98,6 +102,8 @@ type LoadBalancerTlsCertificateArgs struct {
 	CertificateDomainName pulumi.StringInput
 	// The SSL/TLS certificate name.
 	CertificateName pulumi.StringInput
+	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+	HttpsRedirectionEnabled pulumi.BoolPtrInput
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
 	IsAttached pulumi.BoolPtrInput
 	// The name of your load balancer.
@@ -154,6 +160,11 @@ func (o LoadBalancerTlsCertificateOutput) CertificateDomainName() pulumi.StringO
 // The SSL/TLS certificate name.
 func (o LoadBalancerTlsCertificateOutput) CertificateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.StringOutput { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+func (o LoadBalancerTlsCertificateOutput) HttpsRedirectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerTlsCertificate) pulumi.BoolPtrOutput { return v.HttpsRedirectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // When true, the SSL/TLS certificate is attached to the Lightsail load balancer.

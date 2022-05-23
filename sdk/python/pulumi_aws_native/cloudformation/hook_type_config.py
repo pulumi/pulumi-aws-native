@@ -22,7 +22,7 @@ class HookTypeConfigArgs:
         The set of arguments for constructing a HookTypeConfig resource.
         :param pulumi.Input[str] configuration: The configuration data for the extension, in this account and region.
         :param pulumi.Input['HookTypeConfigConfigurationAlias'] configuration_alias: An alias by which to refer to this extension configuration data.
-        :param pulumi.Input[str] type_arn: The Amazon Resource Name (ARN) of the type version.
+        :param pulumi.Input[str] type_arn: The Amazon Resource Name (ARN) of the type without version number.
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -64,7 +64,7 @@ class HookTypeConfigArgs:
     @pulumi.getter(name="typeArn")
     def type_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the type version.
+        The Amazon Resource Name (ARN) of the type without version number.
         """
         return pulumi.get(self, "type_arn")
 
@@ -104,7 +104,7 @@ class HookTypeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration: The configuration data for the extension, in this account and region.
         :param pulumi.Input['HookTypeConfigConfigurationAlias'] configuration_alias: An alias by which to refer to this extension configuration data.
-        :param pulumi.Input[str] type_arn: The Amazon Resource Name (ARN) of the type version.
+        :param pulumi.Input[str] type_arn: The Amazon Resource Name (ARN) of the type without version number.
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -211,7 +211,7 @@ class HookTypeConfig(pulumi.CustomResource):
     @pulumi.getter(name="typeArn")
     def type_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of the type version.
+        The Amazon Resource Name (ARN) of the type without version number.
         """
         return pulumi.get(self, "type_arn")
 

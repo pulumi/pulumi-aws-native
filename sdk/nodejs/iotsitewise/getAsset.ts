@@ -31,6 +31,10 @@ export interface GetAssetResult {
      * The ARN of the asset
      */
     readonly assetArn?: string;
+    /**
+     * A description for the asset
+     */
+    readonly assetDescription?: string;
     readonly assetHierarchies?: outputs.iotsitewise.AssetHierarchy[];
     /**
      * The ID of the asset

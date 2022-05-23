@@ -23,8 +23,11 @@ __all__ = [
     'LoggingFilterProperties',
     'RegexPatternSetTag',
     'RuleGroupAndStatement',
+    'RuleGroupBody',
     'RuleGroupByteMatchStatement',
     'RuleGroupCaptchaConfig',
+    'RuleGroupCookieMatchPattern',
+    'RuleGroupCookies',
     'RuleGroupCustomHTTPHeader',
     'RuleGroupCustomRequestHandling',
     'RuleGroupCustomResponse',
@@ -34,6 +37,8 @@ __all__ = [
     'RuleGroupFieldToMatchSingleQueryArgumentProperties',
     'RuleGroupForwardedIPConfiguration',
     'RuleGroupGeoMatchStatement',
+    'RuleGroupHeaderMatchPattern',
+    'RuleGroupHeaders',
     'RuleGroupIPSetForwardedIPConfiguration',
     'RuleGroupIPSetReferenceStatement',
     'RuleGroupImmunityTimeProperty',
@@ -63,9 +68,12 @@ __all__ = [
     'WebACLAllowAction',
     'WebACLAndStatement',
     'WebACLBlockAction',
+    'WebACLBody',
     'WebACLByteMatchStatement',
     'WebACLCaptchaAction',
     'WebACLCaptchaConfig',
+    'WebACLCookieMatchPattern',
+    'WebACLCookies',
     'WebACLCountAction',
     'WebACLCustomHTTPHeader',
     'WebACLCustomRequestHandling',
@@ -79,6 +87,8 @@ __all__ = [
     'WebACLFieldToMatchSingleQueryArgumentProperties',
     'WebACLForwardedIPConfiguration',
     'WebACLGeoMatchStatement',
+    'WebACLHeaderMatchPattern',
+    'WebACLHeaders',
     'WebACLIPSetForwardedIPConfiguration',
     'WebACLIPSetReferenceStatement',
     'WebACLImmunityTimeProperty',
@@ -596,6 +606,42 @@ class RuleGroupAndStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupBody(dict):
+    """
+    The body of a web request. This immediately follows the request headers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: Optional['RuleGroupOversizeHandling'] = None):
+        """
+        The body of a web request. This immediately follows the request headers.
+        """
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional['RuleGroupOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupByteMatchStatement(dict):
     """
     Byte Match statement.
@@ -696,6 +742,117 @@ class RuleGroupCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.RuleGroupImmunityTimeProperty']:
         return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class RuleGroupCookieMatchPattern(dict):
+    """
+    The pattern to look for in the request cookies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedCookies":
+            suggest = "excluded_cookies"
+        elif key == "includedCookies":
+            suggest = "included_cookies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCookieMatchPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCookieMatchPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCookieMatchPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_cookies: Optional[Sequence[str]] = None,
+                 included_cookies: Optional[Sequence[str]] = None):
+        """
+        The pattern to look for in the request cookies.
+        :param Any all: Inspect all parts of the web request cookies.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_cookies is not None:
+            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+        if included_cookies is not None:
+            pulumi.set(__self__, "included_cookies", included_cookies)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request cookies.
+        """
+        return pulumi.get(self, "all")
+
+    @property
+    @pulumi.getter(name="excludedCookies")
+    def excluded_cookies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_cookies")
+
+    @property
+    @pulumi.getter(name="includedCookies")
+    def included_cookies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "included_cookies")
+
+
+@pulumi.output_type
+class RuleGroupCookies(dict):
+    """
+    Includes headers of a web request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPattern":
+            suggest = "match_pattern"
+        elif key == "matchScope":
+            suggest = "match_scope"
+        elif key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCookies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCookies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCookies.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_pattern: 'outputs.RuleGroupCookieMatchPattern',
+                 match_scope: 'RuleGroupMapMatchScope',
+                 oversize_handling: 'RuleGroupOversizeHandling'):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> 'outputs.RuleGroupCookieMatchPattern':
+        return pulumi.get(self, "match_pattern")
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> 'RuleGroupMapMatchScope':
+        return pulumi.get(self, "match_scope")
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> 'RuleGroupOversizeHandling':
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -871,7 +1028,9 @@ class RuleGroupFieldToMatch(dict):
 
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
-                 body: Optional[Any] = None,
+                 body: Optional['outputs.RuleGroupBody'] = None,
+                 cookies: Optional['outputs.RuleGroupCookies'] = None,
+                 headers: Optional['outputs.RuleGroupHeaders'] = None,
                  json_body: Optional['outputs.RuleGroupJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -881,7 +1040,6 @@ class RuleGroupFieldToMatch(dict):
         """
         Field of the request to match.
         :param Any all_query_arguments: All query arguments of a web request.
-        :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         :param 'RuleGroupFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
@@ -891,6 +1049,10 @@ class RuleGroupFieldToMatch(dict):
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -914,11 +1076,18 @@ class RuleGroupFieldToMatch(dict):
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[Any]:
-        """
-        The body of a web request. This immediately follows the request headers.
-        """
+    def body(self) -> Optional['outputs.RuleGroupBody']:
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional['outputs.RuleGroupCookies']:
+        return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional['outputs.RuleGroupHeaders']:
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -1072,6 +1241,117 @@ class RuleGroupGeoMatchStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupHeaderMatchPattern(dict):
+    """
+    The pattern to look for in the request headers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedHeaders":
+            suggest = "excluded_headers"
+        elif key == "includedHeaders":
+            suggest = "included_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupHeaderMatchPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupHeaderMatchPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupHeaderMatchPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_headers: Optional[Sequence[str]] = None,
+                 included_headers: Optional[Sequence[str]] = None):
+        """
+        The pattern to look for in the request headers.
+        :param Any all: Inspect all parts of the web request headers.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_headers is not None:
+            pulumi.set(__self__, "excluded_headers", excluded_headers)
+        if included_headers is not None:
+            pulumi.set(__self__, "included_headers", included_headers)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request headers.
+        """
+        return pulumi.get(self, "all")
+
+    @property
+    @pulumi.getter(name="excludedHeaders")
+    def excluded_headers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_headers")
+
+    @property
+    @pulumi.getter(name="includedHeaders")
+    def included_headers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "included_headers")
+
+
+@pulumi.output_type
+class RuleGroupHeaders(dict):
+    """
+    Includes headers of a web request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPattern":
+            suggest = "match_pattern"
+        elif key == "matchScope":
+            suggest = "match_scope"
+        elif key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupHeaders. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupHeaders.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupHeaders.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_pattern: 'outputs.RuleGroupHeaderMatchPattern',
+                 match_scope: 'RuleGroupMapMatchScope',
+                 oversize_handling: 'RuleGroupOversizeHandling'):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> 'outputs.RuleGroupHeaderMatchPattern':
+        return pulumi.get(self, "match_pattern")
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> 'RuleGroupMapMatchScope':
+        return pulumi.get(self, "match_scope")
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> 'RuleGroupOversizeHandling':
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupIPSetForwardedIPConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1196,6 +1476,8 @@ class RuleGroupJsonBody(dict):
             suggest = "match_scope"
         elif key == "invalidFallbackBehavior":
             suggest = "invalid_fallback_behavior"
+        elif key == "oversizeHandling":
+            suggest = "oversize_handling"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupJsonBody. Access the value via the '{suggest}' property getter instead.")
@@ -1211,7 +1493,8 @@ class RuleGroupJsonBody(dict):
     def __init__(__self__, *,
                  match_pattern: 'outputs.RuleGroupJsonMatchPattern',
                  match_scope: 'RuleGroupJsonMatchScope',
-                 invalid_fallback_behavior: Optional['RuleGroupBodyParsingFallbackBehavior'] = None):
+                 invalid_fallback_behavior: Optional['RuleGroupBodyParsingFallbackBehavior'] = None,
+                 oversize_handling: Optional['RuleGroupOversizeHandling'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -1219,6 +1502,8 @@ class RuleGroupJsonBody(dict):
         pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
             pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -1234,6 +1519,11 @@ class RuleGroupJsonBody(dict):
     @pulumi.getter(name="invalidFallbackBehavior")
     def invalid_fallback_behavior(self) -> Optional['RuleGroupBodyParsingFallbackBehavior']:
         return pulumi.get(self, "invalid_fallback_behavior")
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional['RuleGroupOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -2279,6 +2569,42 @@ class WebACLBlockAction(dict):
 
 
 @pulumi.output_type
+class WebACLBody(dict):
+    """
+    The body of a web request. This immediately follows the request headers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: Optional['WebACLOversizeHandling'] = None):
+        """
+        The body of a web request. This immediately follows the request headers.
+        """
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional['WebACLOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebACLByteMatchStatement(dict):
     """
     Byte Match statement.
@@ -2415,6 +2741,117 @@ class WebACLCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.WebACLImmunityTimeProperty']:
         return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class WebACLCookieMatchPattern(dict):
+    """
+    The pattern to look for in the request cookies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedCookies":
+            suggest = "excluded_cookies"
+        elif key == "includedCookies":
+            suggest = "included_cookies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLCookieMatchPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLCookieMatchPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLCookieMatchPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_cookies: Optional[Sequence[str]] = None,
+                 included_cookies: Optional[Sequence[str]] = None):
+        """
+        The pattern to look for in the request cookies.
+        :param Any all: Inspect all parts of the web request cookies.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_cookies is not None:
+            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+        if included_cookies is not None:
+            pulumi.set(__self__, "included_cookies", included_cookies)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request cookies.
+        """
+        return pulumi.get(self, "all")
+
+    @property
+    @pulumi.getter(name="excludedCookies")
+    def excluded_cookies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_cookies")
+
+    @property
+    @pulumi.getter(name="includedCookies")
+    def included_cookies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "included_cookies")
+
+
+@pulumi.output_type
+class WebACLCookies(dict):
+    """
+    Includes headers of a web request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPattern":
+            suggest = "match_pattern"
+        elif key == "matchScope":
+            suggest = "match_scope"
+        elif key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLCookies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLCookies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLCookies.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_pattern: 'outputs.WebACLCookieMatchPattern',
+                 match_scope: 'WebACLMapMatchScope',
+                 oversize_handling: 'WebACLOversizeHandling'):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> 'outputs.WebACLCookieMatchPattern':
+        return pulumi.get(self, "match_pattern")
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> 'WebACLMapMatchScope':
+        return pulumi.get(self, "match_scope")
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> 'WebACLOversizeHandling':
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -2683,7 +3120,9 @@ class WebACLFieldToMatch(dict):
 
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
-                 body: Optional[Any] = None,
+                 body: Optional['outputs.WebACLBody'] = None,
+                 cookies: Optional['outputs.WebACLCookies'] = None,
+                 headers: Optional['outputs.WebACLHeaders'] = None,
                  json_body: Optional['outputs.WebACLJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -2693,7 +3132,6 @@ class WebACLFieldToMatch(dict):
         """
         Field of the request to match.
         :param Any all_query_arguments: All query arguments of a web request.
-        :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         :param 'WebACLFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
@@ -2703,6 +3141,10 @@ class WebACLFieldToMatch(dict):
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -2726,11 +3168,18 @@ class WebACLFieldToMatch(dict):
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[Any]:
-        """
-        The body of a web request. This immediately follows the request headers.
-        """
+    def body(self) -> Optional['outputs.WebACLBody']:
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional['outputs.WebACLCookies']:
+        return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional['outputs.WebACLHeaders']:
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -2884,6 +3333,117 @@ class WebACLGeoMatchStatement(dict):
 
 
 @pulumi.output_type
+class WebACLHeaderMatchPattern(dict):
+    """
+    The pattern to look for in the request headers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedHeaders":
+            suggest = "excluded_headers"
+        elif key == "includedHeaders":
+            suggest = "included_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLHeaderMatchPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLHeaderMatchPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLHeaderMatchPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 excluded_headers: Optional[Sequence[str]] = None,
+                 included_headers: Optional[Sequence[str]] = None):
+        """
+        The pattern to look for in the request headers.
+        :param Any all: Inspect all parts of the web request headers.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if excluded_headers is not None:
+            pulumi.set(__self__, "excluded_headers", excluded_headers)
+        if included_headers is not None:
+            pulumi.set(__self__, "included_headers", included_headers)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Inspect all parts of the web request headers.
+        """
+        return pulumi.get(self, "all")
+
+    @property
+    @pulumi.getter(name="excludedHeaders")
+    def excluded_headers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_headers")
+
+    @property
+    @pulumi.getter(name="includedHeaders")
+    def included_headers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "included_headers")
+
+
+@pulumi.output_type
+class WebACLHeaders(dict):
+    """
+    Includes headers of a web request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPattern":
+            suggest = "match_pattern"
+        elif key == "matchScope":
+            suggest = "match_scope"
+        elif key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLHeaders. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLHeaders.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLHeaders.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_pattern: 'outputs.WebACLHeaderMatchPattern',
+                 match_scope: 'WebACLMapMatchScope',
+                 oversize_handling: 'WebACLOversizeHandling'):
+        """
+        Includes headers of a web request.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> 'outputs.WebACLHeaderMatchPattern':
+        return pulumi.get(self, "match_pattern")
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> 'WebACLMapMatchScope':
+        return pulumi.get(self, "match_scope")
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> 'WebACLOversizeHandling':
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebACLIPSetForwardedIPConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3008,6 +3568,8 @@ class WebACLJsonBody(dict):
             suggest = "match_scope"
         elif key == "invalidFallbackBehavior":
             suggest = "invalid_fallback_behavior"
+        elif key == "oversizeHandling":
+            suggest = "oversize_handling"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebACLJsonBody. Access the value via the '{suggest}' property getter instead.")
@@ -3023,7 +3585,8 @@ class WebACLJsonBody(dict):
     def __init__(__self__, *,
                  match_pattern: 'outputs.WebACLJsonMatchPattern',
                  match_scope: 'WebACLJsonMatchScope',
-                 invalid_fallback_behavior: Optional['WebACLBodyParsingFallbackBehavior'] = None):
+                 invalid_fallback_behavior: Optional['WebACLBodyParsingFallbackBehavior'] = None,
+                 oversize_handling: Optional['WebACLOversizeHandling'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -3031,6 +3594,8 @@ class WebACLJsonBody(dict):
         pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
             pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+        if oversize_handling is not None:
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -3046,6 +3611,11 @@ class WebACLJsonBody(dict):
     @pulumi.getter(name="invalidFallbackBehavior")
     def invalid_fallback_behavior(self) -> Optional['WebACLBodyParsingFallbackBehavior']:
         return pulumi.get(self, "invalid_fallback_behavior")
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> Optional['WebACLOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type

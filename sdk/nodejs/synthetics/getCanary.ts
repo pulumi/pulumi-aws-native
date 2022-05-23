@@ -40,6 +40,10 @@ export interface GetCanaryResult {
      */
     readonly code?: outputs.synthetics.CanaryCode;
     /**
+     * Deletes associated lambda resources created by Synthetics if set to True. Default is False
+     */
+    readonly deleteLambdaResourcesOnCanaryDeletion?: boolean;
+    /**
      * Lambda Execution role used to run your canaries
      */
     readonly executionRoleArn?: string;

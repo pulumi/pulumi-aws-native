@@ -458,6 +458,37 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskOptionsObjectTags : IEquatable<TaskOptionsObjectTags>
+    {
+        private readonly string _value;
+
+        private TaskOptionsObjectTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskOptionsObjectTags Preserve { get; } = new TaskOptionsObjectTags("PRESERVE");
+        public static TaskOptionsObjectTags None { get; } = new TaskOptionsObjectTags("NONE");
+
+        public static bool operator ==(TaskOptionsObjectTags left, TaskOptionsObjectTags right) => left.Equals(right);
+        public static bool operator !=(TaskOptionsObjectTags left, TaskOptionsObjectTags right) => !left.Equals(right);
+
+        public static explicit operator string(TaskOptionsObjectTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskOptionsObjectTags other && Equals(other);
+        public bool Equals(TaskOptionsObjectTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A value that determines whether files at the destination should be overwritten or preserved when copying files.
     /// </summary>
     [EnumType]

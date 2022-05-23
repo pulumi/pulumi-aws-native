@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetHookTypeConfigArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the type version.
+        /// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
         /// </summary>
-        [Input("typeArn", required: true)]
-        public string TypeArn { get; set; } = null!;
+        [Input("configurationArn", required: true)]
+        public string ConfigurationArn { get; set; } = null!;
 
         public GetHookTypeConfigArgs()
         {
@@ -41,10 +41,10 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetHookTypeConfigInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the type version.
+        /// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
         /// </summary>
-        [Input("typeArn", required: true)]
-        public Input<string> TypeArn { get; set; } = null!;
+        [Input("configurationArn", required: true)]
+        public Input<string> ConfigurationArn { get; set; } = null!;
 
         public GetHookTypeConfigInvokeArgs()
         {
@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly string? ConfigurationArn;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the type without version number.
+        /// </summary>
+        public readonly string? TypeArn;
+        /// <summary>
         /// The name of the type being registered.
         /// 
         /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -76,10 +80,13 @@ namespace Pulumi.AwsNative.CloudFormation
 
             string? configurationArn,
 
+            string? typeArn,
+
             string? typeName)
         {
             Configuration = configuration;
             ConfigurationArn = configurationArn;
+            TypeArn = typeArn;
             TypeName = typeName;
         }
     }

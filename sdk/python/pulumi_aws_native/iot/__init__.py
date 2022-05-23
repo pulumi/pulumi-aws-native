@@ -27,6 +27,7 @@ from .get_policy import *
 from .get_policy_principal_attachment import *
 from .get_provisioning_template import *
 from .get_resource_specific_logging import *
+from .get_role_alias import *
 from .get_scheduled_audit import *
 from .get_security_profile import *
 from .get_thing import *
@@ -40,6 +41,7 @@ from .policy import *
 from .policy_principal_attachment import *
 from .provisioning_template import *
 from .resource_specific_logging import *
+from .role_alias import *
 from .scheduled_audit import *
 from .security_profile import *
 from .thing import *

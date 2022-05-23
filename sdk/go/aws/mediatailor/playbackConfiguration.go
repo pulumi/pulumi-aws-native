@@ -26,7 +26,9 @@ type PlaybackConfiguration struct {
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
 	ConfigurationAliases PlaybackConfigurationConfigurationAliasesPtrOutput `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
-	DashConfiguration PlaybackConfigurationDashConfigurationForPutPtrOutput `pulumi:"dashConfiguration"`
+	DashConfiguration PlaybackConfigurationDashConfigurationPtrOutput `pulumi:"dashConfiguration"`
+	// The configuration for HLS content.
+	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrOutput `pulumi:"hlsConfiguration"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration PlaybackConfigurationLivePreRollConfigurationPtrOutput `pulumi:"livePreRollConfiguration"`
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
@@ -35,8 +37,12 @@ type PlaybackConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	PersonalizationThresholdSeconds pulumi.IntPtrOutput `pulumi:"personalizationThresholdSeconds"`
+	// The Amazon Resource Name (ARN) for the playback configuration.
+	PlaybackConfigurationArn pulumi.StringOutput `pulumi:"playbackConfigurationArn"`
+	// The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+	PlaybackEndpointPrefix pulumi.StringOutput `pulumi:"playbackEndpointPrefix"`
 	// The URL that the player uses to initialize a session that uses client-side reporting.
-	SessionInitializationEndpointPrefix pulumi.StringPtrOutput `pulumi:"sessionInitializationEndpointPrefix"`
+	SessionInitializationEndpointPrefix pulumi.StringOutput `pulumi:"sessionInitializationEndpointPrefix"`
 	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
 	SlateAdUrl pulumi.StringPtrOutput `pulumi:"slateAdUrl"`
 	// The tags to assign to the playback configuration.
@@ -103,7 +109,9 @@ type playbackConfigurationArgs struct {
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
 	ConfigurationAliases *PlaybackConfigurationConfigurationAliases `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
-	DashConfiguration *PlaybackConfigurationDashConfigurationForPut `pulumi:"dashConfiguration"`
+	DashConfiguration *PlaybackConfigurationDashConfiguration `pulumi:"dashConfiguration"`
+	// The configuration for HLS content.
+	HlsConfiguration *PlaybackConfigurationHlsConfiguration `pulumi:"hlsConfiguration"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration *PlaybackConfigurationLivePreRollConfiguration `pulumi:"livePreRollConfiguration"`
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
@@ -112,8 +120,6 @@ type playbackConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	PersonalizationThresholdSeconds *int `pulumi:"personalizationThresholdSeconds"`
-	// The URL that the player uses to initialize a session that uses client-side reporting.
-	SessionInitializationEndpointPrefix *string `pulumi:"sessionInitializationEndpointPrefix"`
 	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
 	SlateAdUrl *string `pulumi:"slateAdUrl"`
 	// The tags to assign to the playback configuration.
@@ -137,7 +143,9 @@ type PlaybackConfigurationArgs struct {
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
 	ConfigurationAliases PlaybackConfigurationConfigurationAliasesPtrInput
 	// The configuration for DASH content.
-	DashConfiguration PlaybackConfigurationDashConfigurationForPutPtrInput
+	DashConfiguration PlaybackConfigurationDashConfigurationPtrInput
+	// The configuration for HLS content.
+	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrInput
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration PlaybackConfigurationLivePreRollConfigurationPtrInput
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
@@ -146,8 +154,6 @@ type PlaybackConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	PersonalizationThresholdSeconds pulumi.IntPtrInput
-	// The URL that the player uses to initialize a session that uses client-side reporting.
-	SessionInitializationEndpointPrefix pulumi.StringPtrInput
 	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
 	SlateAdUrl pulumi.StringPtrInput
 	// The tags to assign to the playback configuration.
@@ -227,10 +233,17 @@ func (o PlaybackConfigurationOutput) ConfigurationAliases() PlaybackConfiguratio
 }
 
 // The configuration for DASH content.
-func (o PlaybackConfigurationOutput) DashConfiguration() PlaybackConfigurationDashConfigurationForPutPtrOutput {
-	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationDashConfigurationForPutPtrOutput {
+func (o PlaybackConfigurationOutput) DashConfiguration() PlaybackConfigurationDashConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationDashConfigurationPtrOutput {
 		return v.DashConfiguration
-	}).(PlaybackConfigurationDashConfigurationForPutPtrOutput)
+	}).(PlaybackConfigurationDashConfigurationPtrOutput)
+}
+
+// The configuration for HLS content.
+func (o PlaybackConfigurationOutput) HlsConfiguration() PlaybackConfigurationHlsConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationHlsConfigurationPtrOutput {
+		return v.HlsConfiguration
+	}).(PlaybackConfigurationHlsConfigurationPtrOutput)
 }
 
 // The configuration for pre-roll ad insertion.
@@ -257,9 +270,19 @@ func (o PlaybackConfigurationOutput) PersonalizationThresholdSeconds() pulumi.In
 	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.IntPtrOutput { return v.PersonalizationThresholdSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the playback configuration.
+func (o PlaybackConfigurationOutput) PlaybackConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.PlaybackConfigurationArn }).(pulumi.StringOutput)
+}
+
+// The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+func (o PlaybackConfigurationOutput) PlaybackEndpointPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.PlaybackEndpointPrefix }).(pulumi.StringOutput)
+}
+
 // The URL that the player uses to initialize a session that uses client-side reporting.
-func (o PlaybackConfigurationOutput) SessionInitializationEndpointPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringPtrOutput { return v.SessionInitializationEndpointPrefix }).(pulumi.StringPtrOutput)
+func (o PlaybackConfigurationOutput) SessionInitializationEndpointPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.SessionInitializationEndpointPrefix }).(pulumi.StringOutput)
 }
 
 // The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.

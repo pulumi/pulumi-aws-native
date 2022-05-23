@@ -20,7 +20,7 @@ type HookTypeConfig struct {
 	ConfigurationAlias HookTypeConfigConfigurationAliasPtrOutput `pulumi:"configurationAlias"`
 	// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
 	ConfigurationArn pulumi.StringOutput `pulumi:"configurationArn"`
-	// The Amazon Resource Name (ARN) of the type version.
+	// The Amazon Resource Name (ARN) of the type without version number.
 	TypeArn pulumi.StringPtrOutput `pulumi:"typeArn"`
 	// The name of the type being registered.
 	//
@@ -71,7 +71,7 @@ type hookTypeConfigArgs struct {
 	Configuration *string `pulumi:"configuration"`
 	// An alias by which to refer to this extension configuration data.
 	ConfigurationAlias *HookTypeConfigConfigurationAlias `pulumi:"configurationAlias"`
-	// The Amazon Resource Name (ARN) of the type version.
+	// The Amazon Resource Name (ARN) of the type without version number.
 	TypeArn *string `pulumi:"typeArn"`
 	// The name of the type being registered.
 	//
@@ -85,7 +85,7 @@ type HookTypeConfigArgs struct {
 	Configuration pulumi.StringPtrInput
 	// An alias by which to refer to this extension configuration data.
 	ConfigurationAlias HookTypeConfigConfigurationAliasPtrInput
-	// The Amazon Resource Name (ARN) of the type version.
+	// The Amazon Resource Name (ARN) of the type without version number.
 	TypeArn pulumi.StringPtrInput
 	// The name of the type being registered.
 	//
@@ -145,7 +145,7 @@ func (o HookTypeConfigOutput) ConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HookTypeConfig) pulumi.StringOutput { return v.ConfigurationArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the type version.
+// The Amazon Resource Name (ARN) of the type without version number.
 func (o HookTypeConfigOutput) TypeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HookTypeConfig) pulumi.StringPtrOutput { return v.TypeArn }).(pulumi.StringPtrOutput)
 }

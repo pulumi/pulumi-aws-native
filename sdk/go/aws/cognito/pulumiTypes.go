@@ -4978,7 +4978,7 @@ func (o UserPoolUserAttributeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolU
 }
 
 type UserPoolUsernameConfiguration struct {
-	CaseSensitive *bool `pulumi:"caseSensitive"`
+	CaseSensitive bool `pulumi:"caseSensitive"`
 }
 
 // UserPoolUsernameConfigurationInput is an input type that accepts UserPoolUsernameConfigurationArgs and UserPoolUsernameConfigurationOutput values.
@@ -4993,7 +4993,7 @@ type UserPoolUsernameConfigurationInput interface {
 }
 
 type UserPoolUsernameConfigurationArgs struct {
-	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
+	CaseSensitive pulumi.BoolInput `pulumi:"caseSensitive"`
 }
 
 func (UserPoolUsernameConfigurationArgs) ElementType() reflect.Type {
@@ -5073,8 +5073,8 @@ func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrO
 	}).(UserPoolUsernameConfigurationPtrOutput)
 }
 
-func (o UserPoolUsernameConfigurationOutput) CaseSensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v UserPoolUsernameConfiguration) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+func (o UserPoolUsernameConfigurationOutput) CaseSensitive() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserPoolUsernameConfiguration) bool { return v.CaseSensitive }).(pulumi.BoolOutput)
 }
 
 type UserPoolUsernameConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5106,7 +5106,7 @@ func (o UserPoolUsernameConfigurationPtrOutput) CaseSensitive() pulumi.BoolPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.CaseSensitive
+		return &v.CaseSensitive
 	}).(pulumi.BoolPtrOutput)
 }
 

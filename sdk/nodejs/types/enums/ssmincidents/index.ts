@@ -11,3 +11,13 @@ export const ResponsePlanSsmAutomationTargetAccount = {
  * The account type to use when starting the SSM automation document.
  */
 export type ResponsePlanSsmAutomationTargetAccount = (typeof ResponsePlanSsmAutomationTargetAccount)[keyof typeof ResponsePlanSsmAutomationTargetAccount];
+
+export const ResponsePlanVariableType = {
+    IncidentRecordArn: "INCIDENT_RECORD_ARN",
+    InvolvedResources: "INVOLVED_RESOURCES",
+} as const;
+
+/**
+ * The variable types used as dynamic parameter value when starting the SSM automation document.
+ */
+export type ResponsePlanVariableType = (typeof ResponsePlanVariableType)[keyof typeof ResponsePlanVariableType];

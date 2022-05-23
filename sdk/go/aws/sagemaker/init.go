@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ModelBiasJobDefinition{}
 	case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
 		r = &ModelExplainabilityJobDefinition{}
+	case "aws-native:sagemaker:ModelPackage":
+		r = &ModelPackage{}
 	case "aws-native:sagemaker:ModelPackageGroup":
 		r = &ModelPackageGroup{}
 	case "aws-native:sagemaker:ModelQualityJobDefinition":

@@ -32,6 +32,8 @@ type LookupCanaryResult struct {
 	ArtifactS3Location *string `pulumi:"artifactS3Location"`
 	// Provide the canary script source
 	Code *CanaryCode `pulumi:"code"`
+	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+	DeleteLambdaResourcesOnCanaryDeletion *bool `pulumi:"deleteLambdaResourcesOnCanaryDeletion"`
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
@@ -106,6 +108,11 @@ func (o LookupCanaryResultOutput) ArtifactS3Location() pulumi.StringPtrOutput {
 // Provide the canary script source
 func (o LookupCanaryResultOutput) Code() CanaryCodePtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *CanaryCode { return v.Code }).(CanaryCodePtrOutput)
+}
+
+// Deletes associated lambda resources created by Synthetics if set to True. Default is False
+func (o LookupCanaryResultOutput) DeleteLambdaResourcesOnCanaryDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCanaryResult) *bool { return v.DeleteLambdaResourcesOnCanaryDeletion }).(pulumi.BoolPtrOutput)
 }
 
 // Lambda Execution role used to run your canaries

@@ -16,6 +16,9 @@
         "type" : "string"
       }
     },
+    "EnablePropagateAdditionalUserContextData" : {
+      "type" : "boolean"
+    },
     "IdTokenValidity" : {
       "type" : "integer"
     },

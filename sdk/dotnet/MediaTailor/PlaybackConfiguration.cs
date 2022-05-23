@@ -49,7 +49,13 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The configuration for DASH content.
         /// </summary>
         [Output("dashConfiguration")]
-        public Output<Outputs.PlaybackConfigurationDashConfigurationForPut?> DashConfiguration { get; private set; } = null!;
+        public Output<Outputs.PlaybackConfigurationDashConfiguration?> DashConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for HLS content.
+        /// </summary>
+        [Output("hlsConfiguration")]
+        public Output<Outputs.PlaybackConfigurationHlsConfiguration?> HlsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for pre-roll ad insertion.
@@ -76,10 +82,22 @@ namespace Pulumi.AwsNative.MediaTailor
         public Output<int?> PersonalizationThresholdSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the playback configuration.
+        /// </summary>
+        [Output("playbackConfigurationArn")]
+        public Output<string> PlaybackConfigurationArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
+        /// </summary>
+        [Output("playbackEndpointPrefix")]
+        public Output<string> PlaybackEndpointPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// The URL that the player uses to initialize a session that uses client-side reporting.
         /// </summary>
         [Output("sessionInitializationEndpointPrefix")]
-        public Output<string?> SessionInitializationEndpointPrefix { get; private set; } = null!;
+        public Output<string> SessionInitializationEndpointPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
@@ -184,7 +202,13 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The configuration for DASH content.
         /// </summary>
         [Input("dashConfiguration")]
-        public Input<Inputs.PlaybackConfigurationDashConfigurationForPutArgs>? DashConfiguration { get; set; }
+        public Input<Inputs.PlaybackConfigurationDashConfigurationArgs>? DashConfiguration { get; set; }
+
+        /// <summary>
+        /// The configuration for HLS content.
+        /// </summary>
+        [Input("hlsConfiguration")]
+        public Input<Inputs.PlaybackConfigurationHlsConfigurationArgs>? HlsConfiguration { get; set; }
 
         /// <summary>
         /// The configuration for pre-roll ad insertion.
@@ -209,12 +233,6 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         [Input("personalizationThresholdSeconds")]
         public Input<int>? PersonalizationThresholdSeconds { get; set; }
-
-        /// <summary>
-        /// The URL that the player uses to initialize a session that uses client-side reporting.
-        /// </summary>
-        [Input("sessionInitializationEndpointPrefix")]
-        public Input<string>? SessionInitializationEndpointPrefix { get; set; }
 
         /// <summary>
         /// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.

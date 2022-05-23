@@ -17,15 +17,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlacementGroupResult:
-    def __init__(__self__, id=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, group_name=None):
+        if group_name and not isinstance(group_name, str):
+            raise TypeError("Expected argument 'group_name' to be a str")
+        pulumi.set(__self__, "group_name", group_name)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        """
+        The Group Name of Placement Group.
+        """
+        return pulumi.get(self, "group_name")
 
 
 class AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
@@ -34,16 +37,19 @@ class AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
         if False:
             yield self
         return GetPlacementGroupResult(
-            id=self.id)
+            group_name=self.group_name)
 
 
-def get_placement_group(id: Optional[str] = None,
+def get_placement_group(group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupResult:
     """
     Resource Type definition for AWS::EC2::PlacementGroup
+
+
+    :param str group_name: The Group Name of Placement Group.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['groupName'] = group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -51,13 +57,16 @@ def get_placement_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult).value
 
     return AwaitableGetPlacementGroupResult(
-        id=__ret__.id)
+        group_name=__ret__.group_name)
 
 
 @_utilities.lift_output_func(get_placement_group)
-def get_placement_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_placement_group_output(group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Resource Type definition for AWS::EC2::PlacementGroup
+
+
+    :param str group_name: The Group Name of Placement Group.
     """
     ...

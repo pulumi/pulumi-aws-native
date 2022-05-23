@@ -3586,8 +3586,142 @@ func (o MeshEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MeshServiceDiscovery struct {
+	IpPreference *string `pulumi:"ipPreference"`
+}
+
+// MeshServiceDiscoveryInput is an input type that accepts MeshServiceDiscoveryArgs and MeshServiceDiscoveryOutput values.
+// You can construct a concrete instance of `MeshServiceDiscoveryInput` via:
+//
+//          MeshServiceDiscoveryArgs{...}
+type MeshServiceDiscoveryInput interface {
+	pulumi.Input
+
+	ToMeshServiceDiscoveryOutput() MeshServiceDiscoveryOutput
+	ToMeshServiceDiscoveryOutputWithContext(context.Context) MeshServiceDiscoveryOutput
+}
+
+type MeshServiceDiscoveryArgs struct {
+	IpPreference pulumi.StringPtrInput `pulumi:"ipPreference"`
+}
+
+func (MeshServiceDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshServiceDiscovery)(nil)).Elem()
+}
+
+func (i MeshServiceDiscoveryArgs) ToMeshServiceDiscoveryOutput() MeshServiceDiscoveryOutput {
+	return i.ToMeshServiceDiscoveryOutputWithContext(context.Background())
+}
+
+func (i MeshServiceDiscoveryArgs) ToMeshServiceDiscoveryOutputWithContext(ctx context.Context) MeshServiceDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshServiceDiscoveryOutput)
+}
+
+func (i MeshServiceDiscoveryArgs) ToMeshServiceDiscoveryPtrOutput() MeshServiceDiscoveryPtrOutput {
+	return i.ToMeshServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i MeshServiceDiscoveryArgs) ToMeshServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshServiceDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshServiceDiscoveryOutput).ToMeshServiceDiscoveryPtrOutputWithContext(ctx)
+}
+
+// MeshServiceDiscoveryPtrInput is an input type that accepts MeshServiceDiscoveryArgs, MeshServiceDiscoveryPtr and MeshServiceDiscoveryPtrOutput values.
+// You can construct a concrete instance of `MeshServiceDiscoveryPtrInput` via:
+//
+//          MeshServiceDiscoveryArgs{...}
+//
+//  or:
+//
+//          nil
+type MeshServiceDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToMeshServiceDiscoveryPtrOutput() MeshServiceDiscoveryPtrOutput
+	ToMeshServiceDiscoveryPtrOutputWithContext(context.Context) MeshServiceDiscoveryPtrOutput
+}
+
+type meshServiceDiscoveryPtrType MeshServiceDiscoveryArgs
+
+func MeshServiceDiscoveryPtr(v *MeshServiceDiscoveryArgs) MeshServiceDiscoveryPtrInput {
+	return (*meshServiceDiscoveryPtrType)(v)
+}
+
+func (*meshServiceDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshServiceDiscovery)(nil)).Elem()
+}
+
+func (i *meshServiceDiscoveryPtrType) ToMeshServiceDiscoveryPtrOutput() MeshServiceDiscoveryPtrOutput {
+	return i.ToMeshServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *meshServiceDiscoveryPtrType) ToMeshServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshServiceDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshServiceDiscoveryPtrOutput)
+}
+
+type MeshServiceDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (MeshServiceDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshServiceDiscovery)(nil)).Elem()
+}
+
+func (o MeshServiceDiscoveryOutput) ToMeshServiceDiscoveryOutput() MeshServiceDiscoveryOutput {
+	return o
+}
+
+func (o MeshServiceDiscoveryOutput) ToMeshServiceDiscoveryOutputWithContext(ctx context.Context) MeshServiceDiscoveryOutput {
+	return o
+}
+
+func (o MeshServiceDiscoveryOutput) ToMeshServiceDiscoveryPtrOutput() MeshServiceDiscoveryPtrOutput {
+	return o.ToMeshServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o MeshServiceDiscoveryOutput) ToMeshServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshServiceDiscoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshServiceDiscovery) *MeshServiceDiscovery {
+		return &v
+	}).(MeshServiceDiscoveryPtrOutput)
+}
+
+func (o MeshServiceDiscoveryOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeshServiceDiscovery) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
+}
+
+type MeshServiceDiscoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (MeshServiceDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshServiceDiscovery)(nil)).Elem()
+}
+
+func (o MeshServiceDiscoveryPtrOutput) ToMeshServiceDiscoveryPtrOutput() MeshServiceDiscoveryPtrOutput {
+	return o
+}
+
+func (o MeshServiceDiscoveryPtrOutput) ToMeshServiceDiscoveryPtrOutputWithContext(ctx context.Context) MeshServiceDiscoveryPtrOutput {
+	return o
+}
+
+func (o MeshServiceDiscoveryPtrOutput) Elem() MeshServiceDiscoveryOutput {
+	return o.ApplyT(func(v *MeshServiceDiscovery) MeshServiceDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret MeshServiceDiscovery
+		return ret
+	}).(MeshServiceDiscoveryOutput)
+}
+
+func (o MeshServiceDiscoveryPtrOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeshServiceDiscovery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpPreference
+	}).(pulumi.StringPtrOutput)
+}
+
 type MeshSpec struct {
-	EgressFilter *MeshEgressFilter `pulumi:"egressFilter"`
+	EgressFilter     *MeshEgressFilter     `pulumi:"egressFilter"`
+	ServiceDiscovery *MeshServiceDiscovery `pulumi:"serviceDiscovery"`
 }
 
 // MeshSpecInput is an input type that accepts MeshSpecArgs and MeshSpecOutput values.
@@ -3602,7 +3736,8 @@ type MeshSpecInput interface {
 }
 
 type MeshSpecArgs struct {
-	EgressFilter MeshEgressFilterPtrInput `pulumi:"egressFilter"`
+	EgressFilter     MeshEgressFilterPtrInput     `pulumi:"egressFilter"`
+	ServiceDiscovery MeshServiceDiscoveryPtrInput `pulumi:"serviceDiscovery"`
 }
 
 func (MeshSpecArgs) ElementType() reflect.Type {
@@ -3686,6 +3821,10 @@ func (o MeshSpecOutput) EgressFilter() MeshEgressFilterPtrOutput {
 	return o.ApplyT(func(v MeshSpec) *MeshEgressFilter { return v.EgressFilter }).(MeshEgressFilterPtrOutput)
 }
 
+func (o MeshSpecOutput) ServiceDiscovery() MeshServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v MeshSpec) *MeshServiceDiscovery { return v.ServiceDiscovery }).(MeshServiceDiscoveryPtrOutput)
+}
+
 type MeshSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecPtrOutput) ElementType() reflect.Type {
@@ -3717,6 +3856,15 @@ func (o MeshSpecPtrOutput) EgressFilter() MeshEgressFilterPtrOutput {
 		}
 		return v.EgressFilter
 	}).(MeshEgressFilterPtrOutput)
+}
+
+func (o MeshSpecPtrOutput) ServiceDiscovery() MeshServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v *MeshSpec) *MeshServiceDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDiscovery
+	}).(MeshServiceDiscoveryPtrOutput)
 }
 
 type MeshTag struct {
@@ -11945,6 +12093,7 @@ func (o VirtualNodeAwsCloudMapInstanceAttributeArrayOutput) Index(i pulumi.IntIn
 
 type VirtualNodeAwsCloudMapServiceDiscovery struct {
 	Attributes    []VirtualNodeAwsCloudMapInstanceAttribute `pulumi:"attributes"`
+	IpPreference  *string                                   `pulumi:"ipPreference"`
 	NamespaceName string                                    `pulumi:"namespaceName"`
 	ServiceName   string                                    `pulumi:"serviceName"`
 }
@@ -11962,6 +12111,7 @@ type VirtualNodeAwsCloudMapServiceDiscoveryInput interface {
 
 type VirtualNodeAwsCloudMapServiceDiscoveryArgs struct {
 	Attributes    VirtualNodeAwsCloudMapInstanceAttributeArrayInput `pulumi:"attributes"`
+	IpPreference  pulumi.StringPtrInput                             `pulumi:"ipPreference"`
 	NamespaceName pulumi.StringInput                                `pulumi:"namespaceName"`
 	ServiceName   pulumi.StringInput                                `pulumi:"serviceName"`
 }
@@ -12049,6 +12199,10 @@ func (o VirtualNodeAwsCloudMapServiceDiscoveryOutput) Attributes() VirtualNodeAw
 	}).(VirtualNodeAwsCloudMapInstanceAttributeArrayOutput)
 }
 
+func (o VirtualNodeAwsCloudMapServiceDiscoveryOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNodeAwsCloudMapServiceDiscovery) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
+}
+
 func (o VirtualNodeAwsCloudMapServiceDiscoveryOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeAwsCloudMapServiceDiscovery) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
@@ -12088,6 +12242,15 @@ func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) Attributes() VirtualNod
 		}
 		return v.Attributes
 	}).(VirtualNodeAwsCloudMapInstanceAttributeArrayOutput)
+}
+
+func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeAwsCloudMapServiceDiscovery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpPreference
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput) NamespaceName() pulumi.StringPtrOutput {
@@ -12974,6 +13137,7 @@ func (o VirtualNodeConnectionPoolPtrOutput) TCP() VirtualNodeTcpConnectionPoolPt
 
 type VirtualNodeDnsServiceDiscovery struct {
 	Hostname     string  `pulumi:"hostname"`
+	IpPreference *string `pulumi:"ipPreference"`
 	ResponseType *string `pulumi:"responseType"`
 }
 
@@ -12990,6 +13154,7 @@ type VirtualNodeDnsServiceDiscoveryInput interface {
 
 type VirtualNodeDnsServiceDiscoveryArgs struct {
 	Hostname     pulumi.StringInput    `pulumi:"hostname"`
+	IpPreference pulumi.StringPtrInput `pulumi:"ipPreference"`
 	ResponseType pulumi.StringPtrInput `pulumi:"responseType"`
 }
 
@@ -13074,6 +13239,10 @@ func (o VirtualNodeDnsServiceDiscoveryOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeDnsServiceDiscovery) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
+func (o VirtualNodeDnsServiceDiscoveryOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNodeDnsServiceDiscovery) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
+}
+
 func (o VirtualNodeDnsServiceDiscoveryOutput) ResponseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNodeDnsServiceDiscovery) *string { return v.ResponseType }).(pulumi.StringPtrOutput)
 }
@@ -13108,6 +13277,15 @@ func (o VirtualNodeDnsServiceDiscoveryPtrOutput) Hostname() pulumi.StringPtrOutp
 			return nil
 		}
 		return &v.Hostname
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualNodeDnsServiceDiscoveryPtrOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeDnsServiceDiscovery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpPreference
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18805,6 +18983,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteVirtualServicePtrInput)(nil)).Elem(), GatewayRouteVirtualServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshEgressFilterInput)(nil)).Elem(), MeshEgressFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshEgressFilterPtrInput)(nil)).Elem(), MeshEgressFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshServiceDiscoveryInput)(nil)).Elem(), MeshServiceDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshServiceDiscoveryPtrInput)(nil)).Elem(), MeshServiceDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecInput)(nil)).Elem(), MeshSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecPtrInput)(nil)).Elem(), MeshSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshTagInput)(nil)).Elem(), MeshTagArgs{})
@@ -19065,6 +19245,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteVirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(MeshEgressFilterOutput{})
 	pulumi.RegisterOutputType(MeshEgressFilterPtrOutput{})
+	pulumi.RegisterOutputType(MeshServiceDiscoveryOutput{})
+	pulumi.RegisterOutputType(MeshServiceDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(MeshSpecOutput{})
 	pulumi.RegisterOutputType(MeshSpecPtrOutput{})
 	pulumi.RegisterOutputType(MeshTagOutput{})

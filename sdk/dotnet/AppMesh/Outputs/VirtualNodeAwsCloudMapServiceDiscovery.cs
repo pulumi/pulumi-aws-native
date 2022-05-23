@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     public sealed class VirtualNodeAwsCloudMapServiceDiscovery
     {
         public readonly ImmutableArray<Outputs.VirtualNodeAwsCloudMapInstanceAttribute> Attributes;
+        public readonly string? IpPreference;
         public readonly string NamespaceName;
         public readonly string ServiceName;
 
@@ -21,11 +22,14 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         private VirtualNodeAwsCloudMapServiceDiscovery(
             ImmutableArray<Outputs.VirtualNodeAwsCloudMapInstanceAttribute> attributes,
 
+            string? ipPreference,
+
             string namespaceName,
 
             string serviceName)
         {
             Attributes = attributes;
+            IpPreference = ipPreference;
             NamespaceName = namespaceName;
             ServiceName = serviceName;
         }

@@ -19,6 +19,7 @@ __all__ = [
     'TaskOptionsGid',
     'TaskOptionsLogLevel',
     'TaskOptionsMtime',
+    'TaskOptionsObjectTags',
     'TaskOptionsOverwriteMode',
     'TaskOptionsPosixPermissions',
     'TaskOptionsPreserveDeletedFiles',
@@ -158,6 +159,14 @@ class TaskOptionsMtime(str, Enum):
     """
     NONE = "NONE"
     PRESERVE = "PRESERVE"
+
+
+class TaskOptionsObjectTags(str, Enum):
+    """
+    A value that determines whether object tags should be read from the source object store and written to the destination object store.
+    """
+    PRESERVE = "PRESERVE"
+    NONE = "NONE"
 
 
 class TaskOptionsOverwriteMode(str, Enum):

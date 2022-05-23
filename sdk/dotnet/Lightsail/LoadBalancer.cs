@@ -66,6 +66,12 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("tags")]
         public Output<ImmutableArray<Outputs.LoadBalancerTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the TLS policy to apply to the load balancer.
+        /// </summary>
+        [Output("tlsPolicyName")]
+        public Output<string?> TlsPolicyName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -170,6 +176,12 @@ namespace Pulumi.AwsNative.Lightsail
             get => _tags ?? (_tags = new InputList<Inputs.LoadBalancerTagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the TLS policy to apply to the load balancer.
+        /// </summary>
+        [Input("tlsPolicyName")]
+        public Input<string>? TlsPolicyName { get; set; }
 
         public LoadBalancerArgs()
         {

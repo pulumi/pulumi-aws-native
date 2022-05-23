@@ -12,25 +12,39 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::VPCPeeringConnection
     /// </summary>
-    [Obsolete(@"VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCPeeringConnection")]
     public partial class VPCPeeringConnection : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID of the owner of the accepter VPC.
+        /// </summary>
         [Output("peerOwnerId")]
         public Output<string?> PeerOwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+        /// </summary>
         [Output("peerRegion")]
         public Output<string?> PeerRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        /// </summary>
         [Output("peerRoleArn")]
         public Output<string?> PeerRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        /// </summary>
         [Output("peerVpcId")]
         public Output<string> PeerVpcId { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VPCPeeringConnectionTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -79,15 +93,27 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class VPCPeeringConnectionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID of the owner of the accepter VPC.
+        /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
 
+        /// <summary>
+        /// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+        /// </summary>
         [Input("peerRegion")]
         public Input<string>? PeerRegion { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        /// </summary>
         [Input("peerRoleArn")]
         public Input<string>? PeerRoleArn { get; set; }
 
+        /// <summary>
+        /// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        /// </summary>
         [Input("peerVpcId", required: true)]
         public Input<string> PeerVpcId { get; set; } = null!;
 
@@ -99,6 +125,9 @@ namespace Pulumi.AwsNative.EC2
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

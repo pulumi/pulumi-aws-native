@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public Input<Pulumi.AwsNative.DataSync.TaskOptionsMtime>? Mtime { get; set; }
 
         /// <summary>
+        /// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+        /// </summary>
+        [Input("objectTags")]
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsObjectTags>? ObjectTags { get; set; }
+
+        /// <summary>
         /// A value that determines whether files at the destination should be overwritten or preserved when copying files.
         /// </summary>
         [Input("overwriteMode")]

@@ -11771,6 +11771,2323 @@ func (o ModelMultiModelConfigPtrOutput) ModelCacheSetting() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+type ModelPackageAdditionalInferenceSpecificationDefinition struct {
+	// The Amazon ECR registry path of the Docker image that contains the inference code.
+	Containers []ModelPackageContainerDefinition `pulumi:"containers"`
+	// A description of the additional Inference specification.
+	Description *string `pulumi:"description"`
+	// A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+	Name string `pulumi:"name"`
+	// The supported MIME types for the input data.
+	SupportedContentTypes []string `pulumi:"supportedContentTypes"`
+	// A list of the instance types that are used to generate inferences in real-time
+	SupportedRealtimeInferenceInstanceTypes []string `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	// The supported MIME types for the output data.
+	SupportedResponseMIMETypes []string `pulumi:"supportedResponseMIMETypes"`
+	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+	SupportedTransformInstanceTypes []string `pulumi:"supportedTransformInstanceTypes"`
+}
+
+// ModelPackageAdditionalInferenceSpecificationDefinitionInput is an input type that accepts ModelPackageAdditionalInferenceSpecificationDefinitionArgs and ModelPackageAdditionalInferenceSpecificationDefinitionOutput values.
+// You can construct a concrete instance of `ModelPackageAdditionalInferenceSpecificationDefinitionInput` via:
+//
+//          ModelPackageAdditionalInferenceSpecificationDefinitionArgs{...}
+type ModelPackageAdditionalInferenceSpecificationDefinitionInput interface {
+	pulumi.Input
+
+	ToModelPackageAdditionalInferenceSpecificationDefinitionOutput() ModelPackageAdditionalInferenceSpecificationDefinitionOutput
+	ToModelPackageAdditionalInferenceSpecificationDefinitionOutputWithContext(context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionOutput
+}
+
+// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+type ModelPackageAdditionalInferenceSpecificationDefinitionArgs struct {
+	// The Amazon ECR registry path of the Docker image that contains the inference code.
+	Containers ModelPackageContainerDefinitionArrayInput `pulumi:"containers"`
+	// A description of the additional Inference specification.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The supported MIME types for the input data.
+	SupportedContentTypes pulumi.StringArrayInput `pulumi:"supportedContentTypes"`
+	// A list of the instance types that are used to generate inferences in real-time
+	SupportedRealtimeInferenceInstanceTypes pulumi.StringArrayInput `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	// The supported MIME types for the output data.
+	SupportedResponseMIMETypes pulumi.StringArrayInput `pulumi:"supportedResponseMIMETypes"`
+	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+	SupportedTransformInstanceTypes pulumi.StringArrayInput `pulumi:"supportedTransformInstanceTypes"`
+}
+
+func (ModelPackageAdditionalInferenceSpecificationDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinition)(nil)).Elem()
+}
+
+func (i ModelPackageAdditionalInferenceSpecificationDefinitionArgs) ToModelPackageAdditionalInferenceSpecificationDefinitionOutput() ModelPackageAdditionalInferenceSpecificationDefinitionOutput {
+	return i.ToModelPackageAdditionalInferenceSpecificationDefinitionOutputWithContext(context.Background())
+}
+
+func (i ModelPackageAdditionalInferenceSpecificationDefinitionArgs) ToModelPackageAdditionalInferenceSpecificationDefinitionOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageAdditionalInferenceSpecificationDefinitionOutput)
+}
+
+func (i ModelPackageAdditionalInferenceSpecificationDefinitionArgs) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return i.ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageAdditionalInferenceSpecificationDefinitionArgs) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageAdditionalInferenceSpecificationDefinitionOutput).ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(ctx)
+}
+
+// ModelPackageAdditionalInferenceSpecificationDefinitionPtrInput is an input type that accepts ModelPackageAdditionalInferenceSpecificationDefinitionArgs, ModelPackageAdditionalInferenceSpecificationDefinitionPtr and ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput values.
+// You can construct a concrete instance of `ModelPackageAdditionalInferenceSpecificationDefinitionPtrInput` via:
+//
+//          ModelPackageAdditionalInferenceSpecificationDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageAdditionalInferenceSpecificationDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput
+	ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput
+}
+
+type modelPackageAdditionalInferenceSpecificationDefinitionPtrType ModelPackageAdditionalInferenceSpecificationDefinitionArgs
+
+func ModelPackageAdditionalInferenceSpecificationDefinitionPtr(v *ModelPackageAdditionalInferenceSpecificationDefinitionArgs) ModelPackageAdditionalInferenceSpecificationDefinitionPtrInput {
+	return (*modelPackageAdditionalInferenceSpecificationDefinitionPtrType)(v)
+}
+
+func (*modelPackageAdditionalInferenceSpecificationDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageAdditionalInferenceSpecificationDefinition)(nil)).Elem()
+}
+
+func (i *modelPackageAdditionalInferenceSpecificationDefinitionPtrType) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return i.ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageAdditionalInferenceSpecificationDefinitionPtrType) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput)
+}
+
+// ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput is an input type that accepts ModelPackageAdditionalInferenceSpecificationDefinitionArray and ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput values.
+// You can construct a concrete instance of `ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput` via:
+//
+//          ModelPackageAdditionalInferenceSpecificationDefinitionArray{ ModelPackageAdditionalInferenceSpecificationDefinitionArgs{...} }
+type ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput
+	ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutputWithContext(context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput
+}
+
+type ModelPackageAdditionalInferenceSpecificationDefinitionArray []ModelPackageAdditionalInferenceSpecificationDefinitionInput
+
+func (ModelPackageAdditionalInferenceSpecificationDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageAdditionalInferenceSpecificationDefinition)(nil)).Elem()
+}
+
+func (i ModelPackageAdditionalInferenceSpecificationDefinitionArray) ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
+	return i.ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageAdditionalInferenceSpecificationDefinitionArray) ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput)
+}
+
+// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+type ModelPackageAdditionalInferenceSpecificationDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageAdditionalInferenceSpecificationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinition)(nil)).Elem()
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionOutput() ModelPackageAdditionalInferenceSpecificationDefinitionOutput {
+	return o
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionOutput {
+	return o
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return o.ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageAdditionalInferenceSpecificationDefinition) *ModelPackageAdditionalInferenceSpecificationDefinition {
+		return &v
+	}).(ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput)
+}
+
+// The Amazon ECR registry path of the Docker image that contains the inference code.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) Containers() ModelPackageContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) []ModelPackageContainerDefinition {
+		return v.Containers
+	}).(ModelPackageContainerDefinitionArrayOutput)
+}
+
+// A description of the additional Inference specification.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The supported MIME types for the input data.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		return v.SupportedContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types that are used to generate inferences in real-time
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		return v.SupportedRealtimeInferenceInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The supported MIME types for the output data.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		return v.SupportedResponseMIMETypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		return v.SupportedTransformInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageAdditionalInferenceSpecificationDefinition)(nil)).Elem()
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return o
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionPtrOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
+	return o
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) Elem() ModelPackageAdditionalInferenceSpecificationDefinitionOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) ModelPackageAdditionalInferenceSpecificationDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageAdditionalInferenceSpecificationDefinition
+		return ret
+	}).(ModelPackageAdditionalInferenceSpecificationDefinitionOutput)
+}
+
+// The Amazon ECR registry path of the Docker image that contains the inference code.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) Containers() ModelPackageContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) []ModelPackageContainerDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(ModelPackageContainerDefinitionArrayOutput)
+}
+
+// A description of the additional Inference specification.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The supported MIME types for the input data.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types that are used to generate inferences in real-time
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedRealtimeInferenceInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The supported MIME types for the output data.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedResponseMIMETypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageAdditionalInferenceSpecificationDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTransformInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageAdditionalInferenceSpecificationDefinition)(nil)).Elem()
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
+	return o
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput) ToModelPackageAdditionalInferenceSpecificationDefinitionArrayOutputWithContext(ctx context.Context) ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
+	return o
+}
+
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput) Index(i pulumi.IntInput) ModelPackageAdditionalInferenceSpecificationDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageAdditionalInferenceSpecificationDefinition {
+		return vs[0].([]ModelPackageAdditionalInferenceSpecificationDefinition)[vs[1].(int)]
+	}).(ModelPackageAdditionalInferenceSpecificationDefinitionOutput)
+}
+
+// Contains bias metrics for a model.
+type ModelPackageBias struct {
+	PostTrainingReport *ModelPackageMetricsSource `pulumi:"postTrainingReport"`
+	PreTrainingReport  *ModelPackageMetricsSource `pulumi:"preTrainingReport"`
+	Report             *ModelPackageMetricsSource `pulumi:"report"`
+}
+
+// ModelPackageBiasInput is an input type that accepts ModelPackageBiasArgs and ModelPackageBiasOutput values.
+// You can construct a concrete instance of `ModelPackageBiasInput` via:
+//
+//          ModelPackageBiasArgs{...}
+type ModelPackageBiasInput interface {
+	pulumi.Input
+
+	ToModelPackageBiasOutput() ModelPackageBiasOutput
+	ToModelPackageBiasOutputWithContext(context.Context) ModelPackageBiasOutput
+}
+
+// Contains bias metrics for a model.
+type ModelPackageBiasArgs struct {
+	PostTrainingReport ModelPackageMetricsSourcePtrInput `pulumi:"postTrainingReport"`
+	PreTrainingReport  ModelPackageMetricsSourcePtrInput `pulumi:"preTrainingReport"`
+	Report             ModelPackageMetricsSourcePtrInput `pulumi:"report"`
+}
+
+func (ModelPackageBiasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageBias)(nil)).Elem()
+}
+
+func (i ModelPackageBiasArgs) ToModelPackageBiasOutput() ModelPackageBiasOutput {
+	return i.ToModelPackageBiasOutputWithContext(context.Background())
+}
+
+func (i ModelPackageBiasArgs) ToModelPackageBiasOutputWithContext(ctx context.Context) ModelPackageBiasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageBiasOutput)
+}
+
+func (i ModelPackageBiasArgs) ToModelPackageBiasPtrOutput() ModelPackageBiasPtrOutput {
+	return i.ToModelPackageBiasPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageBiasArgs) ToModelPackageBiasPtrOutputWithContext(ctx context.Context) ModelPackageBiasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageBiasOutput).ToModelPackageBiasPtrOutputWithContext(ctx)
+}
+
+// ModelPackageBiasPtrInput is an input type that accepts ModelPackageBiasArgs, ModelPackageBiasPtr and ModelPackageBiasPtrOutput values.
+// You can construct a concrete instance of `ModelPackageBiasPtrInput` via:
+//
+//          ModelPackageBiasArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageBiasPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageBiasPtrOutput() ModelPackageBiasPtrOutput
+	ToModelPackageBiasPtrOutputWithContext(context.Context) ModelPackageBiasPtrOutput
+}
+
+type modelPackageBiasPtrType ModelPackageBiasArgs
+
+func ModelPackageBiasPtr(v *ModelPackageBiasArgs) ModelPackageBiasPtrInput {
+	return (*modelPackageBiasPtrType)(v)
+}
+
+func (*modelPackageBiasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageBias)(nil)).Elem()
+}
+
+func (i *modelPackageBiasPtrType) ToModelPackageBiasPtrOutput() ModelPackageBiasPtrOutput {
+	return i.ToModelPackageBiasPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageBiasPtrType) ToModelPackageBiasPtrOutputWithContext(ctx context.Context) ModelPackageBiasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageBiasPtrOutput)
+}
+
+// Contains bias metrics for a model.
+type ModelPackageBiasOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageBiasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageBias)(nil)).Elem()
+}
+
+func (o ModelPackageBiasOutput) ToModelPackageBiasOutput() ModelPackageBiasOutput {
+	return o
+}
+
+func (o ModelPackageBiasOutput) ToModelPackageBiasOutputWithContext(ctx context.Context) ModelPackageBiasOutput {
+	return o
+}
+
+func (o ModelPackageBiasOutput) ToModelPackageBiasPtrOutput() ModelPackageBiasPtrOutput {
+	return o.ToModelPackageBiasPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageBiasOutput) ToModelPackageBiasPtrOutputWithContext(ctx context.Context) ModelPackageBiasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageBias) *ModelPackageBias {
+		return &v
+	}).(ModelPackageBiasPtrOutput)
+}
+
+func (o ModelPackageBiasOutput) PostTrainingReport() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageBias) *ModelPackageMetricsSource { return v.PostTrainingReport }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageBiasOutput) PreTrainingReport() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageBias) *ModelPackageMetricsSource { return v.PreTrainingReport }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageBiasOutput) Report() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageBias) *ModelPackageMetricsSource { return v.Report }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageBiasPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageBiasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageBias)(nil)).Elem()
+}
+
+func (o ModelPackageBiasPtrOutput) ToModelPackageBiasPtrOutput() ModelPackageBiasPtrOutput {
+	return o
+}
+
+func (o ModelPackageBiasPtrOutput) ToModelPackageBiasPtrOutputWithContext(ctx context.Context) ModelPackageBiasPtrOutput {
+	return o
+}
+
+func (o ModelPackageBiasPtrOutput) Elem() ModelPackageBiasOutput {
+	return o.ApplyT(func(v *ModelPackageBias) ModelPackageBias {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageBias
+		return ret
+	}).(ModelPackageBiasOutput)
+}
+
+func (o ModelPackageBiasPtrOutput) PostTrainingReport() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageBias) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.PostTrainingReport
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageBiasPtrOutput) PreTrainingReport() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageBias) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.PreTrainingReport
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageBiasPtrOutput) Report() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageBias) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Report
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Describes the Docker container for the model package.
+type ModelPackageContainerDefinition struct {
+	// The DNS host name for the Docker container.
+	ContainerHostname *string                  `pulumi:"containerHostname"`
+	Environment       *ModelPackageEnvironment `pulumi:"environment"`
+	// The machine learning framework of the model package container image.
+	Framework *string `pulumi:"framework"`
+	// The framework version of the Model Package Container Image.
+	FrameworkVersion *string `pulumi:"frameworkVersion"`
+	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+	Image string `pulumi:"image"`
+	// An MD5 hash of the training algorithm that identifies the Docker image used for training.
+	ImageDigest *string `pulumi:"imageDigest"`
+	// A structure with Model Input details.
+	ModelDataUrl *string                                              `pulumi:"modelDataUrl"`
+	ModelInput   *ModelPackageContainerDefinitionModelInputProperties `pulumi:"modelInput"`
+	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+	NearestModelName *string `pulumi:"nearestModelName"`
+	// The AWS Marketplace product ID of the model package.
+	ProductId *string `pulumi:"productId"`
+}
+
+// ModelPackageContainerDefinitionInput is an input type that accepts ModelPackageContainerDefinitionArgs and ModelPackageContainerDefinitionOutput values.
+// You can construct a concrete instance of `ModelPackageContainerDefinitionInput` via:
+//
+//          ModelPackageContainerDefinitionArgs{...}
+type ModelPackageContainerDefinitionInput interface {
+	pulumi.Input
+
+	ToModelPackageContainerDefinitionOutput() ModelPackageContainerDefinitionOutput
+	ToModelPackageContainerDefinitionOutputWithContext(context.Context) ModelPackageContainerDefinitionOutput
+}
+
+// Describes the Docker container for the model package.
+type ModelPackageContainerDefinitionArgs struct {
+	// The DNS host name for the Docker container.
+	ContainerHostname pulumi.StringPtrInput           `pulumi:"containerHostname"`
+	Environment       ModelPackageEnvironmentPtrInput `pulumi:"environment"`
+	// The machine learning framework of the model package container image.
+	Framework pulumi.StringPtrInput `pulumi:"framework"`
+	// The framework version of the Model Package Container Image.
+	FrameworkVersion pulumi.StringPtrInput `pulumi:"frameworkVersion"`
+	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+	Image pulumi.StringInput `pulumi:"image"`
+	// An MD5 hash of the training algorithm that identifies the Docker image used for training.
+	ImageDigest pulumi.StringPtrInput `pulumi:"imageDigest"`
+	// A structure with Model Input details.
+	ModelDataUrl pulumi.StringPtrInput                                       `pulumi:"modelDataUrl"`
+	ModelInput   ModelPackageContainerDefinitionModelInputPropertiesPtrInput `pulumi:"modelInput"`
+	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+	NearestModelName pulumi.StringPtrInput `pulumi:"nearestModelName"`
+	// The AWS Marketplace product ID of the model package.
+	ProductId pulumi.StringPtrInput `pulumi:"productId"`
+}
+
+func (ModelPackageContainerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (i ModelPackageContainerDefinitionArgs) ToModelPackageContainerDefinitionOutput() ModelPackageContainerDefinitionOutput {
+	return i.ToModelPackageContainerDefinitionOutputWithContext(context.Background())
+}
+
+func (i ModelPackageContainerDefinitionArgs) ToModelPackageContainerDefinitionOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageContainerDefinitionOutput)
+}
+
+// ModelPackageContainerDefinitionArrayInput is an input type that accepts ModelPackageContainerDefinitionArray and ModelPackageContainerDefinitionArrayOutput values.
+// You can construct a concrete instance of `ModelPackageContainerDefinitionArrayInput` via:
+//
+//          ModelPackageContainerDefinitionArray{ ModelPackageContainerDefinitionArgs{...} }
+type ModelPackageContainerDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageContainerDefinitionArrayOutput() ModelPackageContainerDefinitionArrayOutput
+	ToModelPackageContainerDefinitionArrayOutputWithContext(context.Context) ModelPackageContainerDefinitionArrayOutput
+}
+
+type ModelPackageContainerDefinitionArray []ModelPackageContainerDefinitionInput
+
+func (ModelPackageContainerDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (i ModelPackageContainerDefinitionArray) ToModelPackageContainerDefinitionArrayOutput() ModelPackageContainerDefinitionArrayOutput {
+	return i.ToModelPackageContainerDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageContainerDefinitionArray) ToModelPackageContainerDefinitionArrayOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageContainerDefinitionArrayOutput)
+}
+
+// Describes the Docker container for the model package.
+type ModelPackageContainerDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageContainerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (o ModelPackageContainerDefinitionOutput) ToModelPackageContainerDefinitionOutput() ModelPackageContainerDefinitionOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionOutput) ToModelPackageContainerDefinitionOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionOutput {
+	return o
+}
+
+// The DNS host name for the Docker container.
+func (o ModelPackageContainerDefinitionOutput) ContainerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelPackageContainerDefinitionOutput) Environment() ModelPackageEnvironmentPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *ModelPackageEnvironment { return v.Environment }).(ModelPackageEnvironmentPtrOutput)
+}
+
+// The machine learning framework of the model package container image.
+func (o ModelPackageContainerDefinitionOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.Framework }).(pulumi.StringPtrOutput)
+}
+
+// The framework version of the Model Package Container Image.
+func (o ModelPackageContainerDefinitionOutput) FrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.FrameworkVersion }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+func (o ModelPackageContainerDefinitionOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// An MD5 hash of the training algorithm that identifies the Docker image used for training.
+func (o ModelPackageContainerDefinitionOutput) ImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
+}
+
+// A structure with Model Input details.
+func (o ModelPackageContainerDefinitionOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelPackageContainerDefinitionOutput) ModelInput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *ModelPackageContainerDefinitionModelInputProperties {
+		return v.ModelInput
+	}).(ModelPackageContainerDefinitionModelInputPropertiesPtrOutput)
+}
+
+// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+func (o ModelPackageContainerDefinitionOutput) NearestModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.NearestModelName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Marketplace product ID of the model package.
+func (o ModelPackageContainerDefinitionOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.ProductId }).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageContainerDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageContainerDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (o ModelPackageContainerDefinitionArrayOutput) ToModelPackageContainerDefinitionArrayOutput() ModelPackageContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionArrayOutput) ToModelPackageContainerDefinitionArrayOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionArrayOutput) Index(i pulumi.IntInput) ModelPackageContainerDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageContainerDefinition {
+		return vs[0].([]ModelPackageContainerDefinition)[vs[1].(int)]
+	}).(ModelPackageContainerDefinitionOutput)
+}
+
+type ModelPackageContainerDefinitionModelInputProperties struct {
+	// The input configuration object for the model.
+	DataInputConfig string `pulumi:"dataInputConfig"`
+}
+
+// ModelPackageContainerDefinitionModelInputPropertiesInput is an input type that accepts ModelPackageContainerDefinitionModelInputPropertiesArgs and ModelPackageContainerDefinitionModelInputPropertiesOutput values.
+// You can construct a concrete instance of `ModelPackageContainerDefinitionModelInputPropertiesInput` via:
+//
+//          ModelPackageContainerDefinitionModelInputPropertiesArgs{...}
+type ModelPackageContainerDefinitionModelInputPropertiesInput interface {
+	pulumi.Input
+
+	ToModelPackageContainerDefinitionModelInputPropertiesOutput() ModelPackageContainerDefinitionModelInputPropertiesOutput
+	ToModelPackageContainerDefinitionModelInputPropertiesOutputWithContext(context.Context) ModelPackageContainerDefinitionModelInputPropertiesOutput
+}
+
+type ModelPackageContainerDefinitionModelInputPropertiesArgs struct {
+	// The input configuration object for the model.
+	DataInputConfig pulumi.StringInput `pulumi:"dataInputConfig"`
+}
+
+func (ModelPackageContainerDefinitionModelInputPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageContainerDefinitionModelInputProperties)(nil)).Elem()
+}
+
+func (i ModelPackageContainerDefinitionModelInputPropertiesArgs) ToModelPackageContainerDefinitionModelInputPropertiesOutput() ModelPackageContainerDefinitionModelInputPropertiesOutput {
+	return i.ToModelPackageContainerDefinitionModelInputPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelPackageContainerDefinitionModelInputPropertiesArgs) ToModelPackageContainerDefinitionModelInputPropertiesOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionModelInputPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageContainerDefinitionModelInputPropertiesOutput)
+}
+
+func (i ModelPackageContainerDefinitionModelInputPropertiesArgs) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return i.ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageContainerDefinitionModelInputPropertiesArgs) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageContainerDefinitionModelInputPropertiesOutput).ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelPackageContainerDefinitionModelInputPropertiesPtrInput is an input type that accepts ModelPackageContainerDefinitionModelInputPropertiesArgs, ModelPackageContainerDefinitionModelInputPropertiesPtr and ModelPackageContainerDefinitionModelInputPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelPackageContainerDefinitionModelInputPropertiesPtrInput` via:
+//
+//          ModelPackageContainerDefinitionModelInputPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageContainerDefinitionModelInputPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageContainerDefinitionModelInputPropertiesPtrOutput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput
+	ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(context.Context) ModelPackageContainerDefinitionModelInputPropertiesPtrOutput
+}
+
+type modelPackageContainerDefinitionModelInputPropertiesPtrType ModelPackageContainerDefinitionModelInputPropertiesArgs
+
+func ModelPackageContainerDefinitionModelInputPropertiesPtr(v *ModelPackageContainerDefinitionModelInputPropertiesArgs) ModelPackageContainerDefinitionModelInputPropertiesPtrInput {
+	return (*modelPackageContainerDefinitionModelInputPropertiesPtrType)(v)
+}
+
+func (*modelPackageContainerDefinitionModelInputPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageContainerDefinitionModelInputProperties)(nil)).Elem()
+}
+
+func (i *modelPackageContainerDefinitionModelInputPropertiesPtrType) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return i.ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageContainerDefinitionModelInputPropertiesPtrType) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageContainerDefinitionModelInputPropertiesPtrOutput)
+}
+
+type ModelPackageContainerDefinitionModelInputPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageContainerDefinitionModelInputPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageContainerDefinitionModelInputProperties)(nil)).Elem()
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesOutput) ToModelPackageContainerDefinitionModelInputPropertiesOutput() ModelPackageContainerDefinitionModelInputPropertiesOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesOutput) ToModelPackageContainerDefinitionModelInputPropertiesOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionModelInputPropertiesOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesOutput) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return o.ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesOutput) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageContainerDefinitionModelInputProperties) *ModelPackageContainerDefinitionModelInputProperties {
+		return &v
+	}).(ModelPackageContainerDefinitionModelInputPropertiesPtrOutput)
+}
+
+// The input configuration object for the model.
+func (o ModelPackageContainerDefinitionModelInputPropertiesOutput) DataInputConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageContainerDefinitionModelInputProperties) string { return v.DataInputConfig }).(pulumi.StringOutput)
+}
+
+type ModelPackageContainerDefinitionModelInputPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageContainerDefinitionModelInputPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageContainerDefinitionModelInputProperties)(nil)).Elem()
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesPtrOutput) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesPtrOutput) ToModelPackageContainerDefinitionModelInputPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelPackageContainerDefinitionModelInputPropertiesPtrOutput) Elem() ModelPackageContainerDefinitionModelInputPropertiesOutput {
+	return o.ApplyT(func(v *ModelPackageContainerDefinitionModelInputProperties) ModelPackageContainerDefinitionModelInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageContainerDefinitionModelInputProperties
+		return ret
+	}).(ModelPackageContainerDefinitionModelInputPropertiesOutput)
+}
+
+// The input configuration object for the model.
+func (o ModelPackageContainerDefinitionModelInputPropertiesPtrOutput) DataInputConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageContainerDefinitionModelInputProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataInputConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageCreatedBy struct {
+}
+
+// ModelPackageCreatedByInput is an input type that accepts ModelPackageCreatedByArgs and ModelPackageCreatedByOutput values.
+// You can construct a concrete instance of `ModelPackageCreatedByInput` via:
+//
+//          ModelPackageCreatedByArgs{...}
+type ModelPackageCreatedByInput interface {
+	pulumi.Input
+
+	ToModelPackageCreatedByOutput() ModelPackageCreatedByOutput
+	ToModelPackageCreatedByOutputWithContext(context.Context) ModelPackageCreatedByOutput
+}
+
+type ModelPackageCreatedByArgs struct {
+}
+
+func (ModelPackageCreatedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageCreatedBy)(nil)).Elem()
+}
+
+func (i ModelPackageCreatedByArgs) ToModelPackageCreatedByOutput() ModelPackageCreatedByOutput {
+	return i.ToModelPackageCreatedByOutputWithContext(context.Background())
+}
+
+func (i ModelPackageCreatedByArgs) ToModelPackageCreatedByOutputWithContext(ctx context.Context) ModelPackageCreatedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageCreatedByOutput)
+}
+
+func (i ModelPackageCreatedByArgs) ToModelPackageCreatedByPtrOutput() ModelPackageCreatedByPtrOutput {
+	return i.ToModelPackageCreatedByPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageCreatedByArgs) ToModelPackageCreatedByPtrOutputWithContext(ctx context.Context) ModelPackageCreatedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageCreatedByOutput).ToModelPackageCreatedByPtrOutputWithContext(ctx)
+}
+
+// ModelPackageCreatedByPtrInput is an input type that accepts ModelPackageCreatedByArgs, ModelPackageCreatedByPtr and ModelPackageCreatedByPtrOutput values.
+// You can construct a concrete instance of `ModelPackageCreatedByPtrInput` via:
+//
+//          ModelPackageCreatedByArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageCreatedByPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageCreatedByPtrOutput() ModelPackageCreatedByPtrOutput
+	ToModelPackageCreatedByPtrOutputWithContext(context.Context) ModelPackageCreatedByPtrOutput
+}
+
+type modelPackageCreatedByPtrType ModelPackageCreatedByArgs
+
+func ModelPackageCreatedByPtr(v *ModelPackageCreatedByArgs) ModelPackageCreatedByPtrInput {
+	return (*modelPackageCreatedByPtrType)(v)
+}
+
+func (*modelPackageCreatedByPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageCreatedBy)(nil)).Elem()
+}
+
+func (i *modelPackageCreatedByPtrType) ToModelPackageCreatedByPtrOutput() ModelPackageCreatedByPtrOutput {
+	return i.ToModelPackageCreatedByPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageCreatedByPtrType) ToModelPackageCreatedByPtrOutputWithContext(ctx context.Context) ModelPackageCreatedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageCreatedByPtrOutput)
+}
+
+type ModelPackageCreatedByOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageCreatedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageCreatedBy)(nil)).Elem()
+}
+
+func (o ModelPackageCreatedByOutput) ToModelPackageCreatedByOutput() ModelPackageCreatedByOutput {
+	return o
+}
+
+func (o ModelPackageCreatedByOutput) ToModelPackageCreatedByOutputWithContext(ctx context.Context) ModelPackageCreatedByOutput {
+	return o
+}
+
+func (o ModelPackageCreatedByOutput) ToModelPackageCreatedByPtrOutput() ModelPackageCreatedByPtrOutput {
+	return o.ToModelPackageCreatedByPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageCreatedByOutput) ToModelPackageCreatedByPtrOutputWithContext(ctx context.Context) ModelPackageCreatedByPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageCreatedBy) *ModelPackageCreatedBy {
+		return &v
+	}).(ModelPackageCreatedByPtrOutput)
+}
+
+type ModelPackageCreatedByPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageCreatedByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageCreatedBy)(nil)).Elem()
+}
+
+func (o ModelPackageCreatedByPtrOutput) ToModelPackageCreatedByPtrOutput() ModelPackageCreatedByPtrOutput {
+	return o
+}
+
+func (o ModelPackageCreatedByPtrOutput) ToModelPackageCreatedByPtrOutputWithContext(ctx context.Context) ModelPackageCreatedByPtrOutput {
+	return o
+}
+
+func (o ModelPackageCreatedByPtrOutput) Elem() ModelPackageCreatedByOutput {
+	return o.ApplyT(func(v *ModelPackageCreatedBy) ModelPackageCreatedBy {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageCreatedBy
+		return ret
+	}).(ModelPackageCreatedByOutput)
+}
+
+// The metadata properties associated with the model package versions.
+type ModelPackageCustomerMetadataProperties struct {
+}
+
+// ModelPackageCustomerMetadataPropertiesInput is an input type that accepts ModelPackageCustomerMetadataPropertiesArgs and ModelPackageCustomerMetadataPropertiesOutput values.
+// You can construct a concrete instance of `ModelPackageCustomerMetadataPropertiesInput` via:
+//
+//          ModelPackageCustomerMetadataPropertiesArgs{...}
+type ModelPackageCustomerMetadataPropertiesInput interface {
+	pulumi.Input
+
+	ToModelPackageCustomerMetadataPropertiesOutput() ModelPackageCustomerMetadataPropertiesOutput
+	ToModelPackageCustomerMetadataPropertiesOutputWithContext(context.Context) ModelPackageCustomerMetadataPropertiesOutput
+}
+
+// The metadata properties associated with the model package versions.
+type ModelPackageCustomerMetadataPropertiesArgs struct {
+}
+
+func (ModelPackageCustomerMetadataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageCustomerMetadataProperties)(nil)).Elem()
+}
+
+func (i ModelPackageCustomerMetadataPropertiesArgs) ToModelPackageCustomerMetadataPropertiesOutput() ModelPackageCustomerMetadataPropertiesOutput {
+	return i.ToModelPackageCustomerMetadataPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelPackageCustomerMetadataPropertiesArgs) ToModelPackageCustomerMetadataPropertiesOutputWithContext(ctx context.Context) ModelPackageCustomerMetadataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageCustomerMetadataPropertiesOutput)
+}
+
+func (i ModelPackageCustomerMetadataPropertiesArgs) ToModelPackageCustomerMetadataPropertiesPtrOutput() ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return i.ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageCustomerMetadataPropertiesArgs) ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageCustomerMetadataPropertiesOutput).ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelPackageCustomerMetadataPropertiesPtrInput is an input type that accepts ModelPackageCustomerMetadataPropertiesArgs, ModelPackageCustomerMetadataPropertiesPtr and ModelPackageCustomerMetadataPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelPackageCustomerMetadataPropertiesPtrInput` via:
+//
+//          ModelPackageCustomerMetadataPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageCustomerMetadataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageCustomerMetadataPropertiesPtrOutput() ModelPackageCustomerMetadataPropertiesPtrOutput
+	ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(context.Context) ModelPackageCustomerMetadataPropertiesPtrOutput
+}
+
+type modelPackageCustomerMetadataPropertiesPtrType ModelPackageCustomerMetadataPropertiesArgs
+
+func ModelPackageCustomerMetadataPropertiesPtr(v *ModelPackageCustomerMetadataPropertiesArgs) ModelPackageCustomerMetadataPropertiesPtrInput {
+	return (*modelPackageCustomerMetadataPropertiesPtrType)(v)
+}
+
+func (*modelPackageCustomerMetadataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageCustomerMetadataProperties)(nil)).Elem()
+}
+
+func (i *modelPackageCustomerMetadataPropertiesPtrType) ToModelPackageCustomerMetadataPropertiesPtrOutput() ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return i.ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageCustomerMetadataPropertiesPtrType) ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageCustomerMetadataPropertiesPtrOutput)
+}
+
+// The metadata properties associated with the model package versions.
+type ModelPackageCustomerMetadataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageCustomerMetadataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageCustomerMetadataProperties)(nil)).Elem()
+}
+
+func (o ModelPackageCustomerMetadataPropertiesOutput) ToModelPackageCustomerMetadataPropertiesOutput() ModelPackageCustomerMetadataPropertiesOutput {
+	return o
+}
+
+func (o ModelPackageCustomerMetadataPropertiesOutput) ToModelPackageCustomerMetadataPropertiesOutputWithContext(ctx context.Context) ModelPackageCustomerMetadataPropertiesOutput {
+	return o
+}
+
+func (o ModelPackageCustomerMetadataPropertiesOutput) ToModelPackageCustomerMetadataPropertiesPtrOutput() ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return o.ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageCustomerMetadataPropertiesOutput) ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageCustomerMetadataProperties) *ModelPackageCustomerMetadataProperties {
+		return &v
+	}).(ModelPackageCustomerMetadataPropertiesPtrOutput)
+}
+
+type ModelPackageCustomerMetadataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageCustomerMetadataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageCustomerMetadataProperties)(nil)).Elem()
+}
+
+func (o ModelPackageCustomerMetadataPropertiesPtrOutput) ToModelPackageCustomerMetadataPropertiesPtrOutput() ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelPackageCustomerMetadataPropertiesPtrOutput) ToModelPackageCustomerMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageCustomerMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelPackageCustomerMetadataPropertiesPtrOutput) Elem() ModelPackageCustomerMetadataPropertiesOutput {
+	return o.ApplyT(func(v *ModelPackageCustomerMetadataProperties) ModelPackageCustomerMetadataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageCustomerMetadataProperties
+		return ret
+	}).(ModelPackageCustomerMetadataPropertiesOutput)
+}
+
+// Describes the input source of a transform job and the way the transform job consumes it.
+type ModelPackageDataSource struct {
+	S3DataSource ModelPackageS3DataSource `pulumi:"s3DataSource"`
+}
+
+// ModelPackageDataSourceInput is an input type that accepts ModelPackageDataSourceArgs and ModelPackageDataSourceOutput values.
+// You can construct a concrete instance of `ModelPackageDataSourceInput` via:
+//
+//          ModelPackageDataSourceArgs{...}
+type ModelPackageDataSourceInput interface {
+	pulumi.Input
+
+	ToModelPackageDataSourceOutput() ModelPackageDataSourceOutput
+	ToModelPackageDataSourceOutputWithContext(context.Context) ModelPackageDataSourceOutput
+}
+
+// Describes the input source of a transform job and the way the transform job consumes it.
+type ModelPackageDataSourceArgs struct {
+	S3DataSource ModelPackageS3DataSourceInput `pulumi:"s3DataSource"`
+}
+
+func (ModelPackageDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDataSource)(nil)).Elem()
+}
+
+func (i ModelPackageDataSourceArgs) ToModelPackageDataSourceOutput() ModelPackageDataSourceOutput {
+	return i.ToModelPackageDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDataSourceArgs) ToModelPackageDataSourceOutputWithContext(ctx context.Context) ModelPackageDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDataSourceOutput)
+}
+
+// Describes the input source of a transform job and the way the transform job consumes it.
+type ModelPackageDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDataSource)(nil)).Elem()
+}
+
+func (o ModelPackageDataSourceOutput) ToModelPackageDataSourceOutput() ModelPackageDataSourceOutput {
+	return o
+}
+
+func (o ModelPackageDataSourceOutput) ToModelPackageDataSourceOutputWithContext(ctx context.Context) ModelPackageDataSourceOutput {
+	return o
+}
+
+func (o ModelPackageDataSourceOutput) S3DataSource() ModelPackageS3DataSourceOutput {
+	return o.ApplyT(func(v ModelPackageDataSource) ModelPackageS3DataSource { return v.S3DataSource }).(ModelPackageS3DataSourceOutput)
+}
+
+// Represents the drift check baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckBaselines struct {
+	Bias             *ModelPackageDriftCheckBias             `pulumi:"bias"`
+	Explainability   *ModelPackageDriftCheckExplainability   `pulumi:"explainability"`
+	ModelDataQuality *ModelPackageDriftCheckModelDataQuality `pulumi:"modelDataQuality"`
+	ModelQuality     *ModelPackageDriftCheckModelQuality     `pulumi:"modelQuality"`
+}
+
+// ModelPackageDriftCheckBaselinesInput is an input type that accepts ModelPackageDriftCheckBaselinesArgs and ModelPackageDriftCheckBaselinesOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckBaselinesInput` via:
+//
+//          ModelPackageDriftCheckBaselinesArgs{...}
+type ModelPackageDriftCheckBaselinesInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckBaselinesOutput() ModelPackageDriftCheckBaselinesOutput
+	ToModelPackageDriftCheckBaselinesOutputWithContext(context.Context) ModelPackageDriftCheckBaselinesOutput
+}
+
+// Represents the drift check baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckBaselinesArgs struct {
+	Bias             ModelPackageDriftCheckBiasPtrInput             `pulumi:"bias"`
+	Explainability   ModelPackageDriftCheckExplainabilityPtrInput   `pulumi:"explainability"`
+	ModelDataQuality ModelPackageDriftCheckModelDataQualityPtrInput `pulumi:"modelDataQuality"`
+	ModelQuality     ModelPackageDriftCheckModelQualityPtrInput     `pulumi:"modelQuality"`
+}
+
+func (ModelPackageDriftCheckBaselinesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckBaselines)(nil)).Elem()
+}
+
+func (i ModelPackageDriftCheckBaselinesArgs) ToModelPackageDriftCheckBaselinesOutput() ModelPackageDriftCheckBaselinesOutput {
+	return i.ToModelPackageDriftCheckBaselinesOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckBaselinesArgs) ToModelPackageDriftCheckBaselinesOutputWithContext(ctx context.Context) ModelPackageDriftCheckBaselinesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckBaselinesOutput)
+}
+
+func (i ModelPackageDriftCheckBaselinesArgs) ToModelPackageDriftCheckBaselinesPtrOutput() ModelPackageDriftCheckBaselinesPtrOutput {
+	return i.ToModelPackageDriftCheckBaselinesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckBaselinesArgs) ToModelPackageDriftCheckBaselinesPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBaselinesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckBaselinesOutput).ToModelPackageDriftCheckBaselinesPtrOutputWithContext(ctx)
+}
+
+// ModelPackageDriftCheckBaselinesPtrInput is an input type that accepts ModelPackageDriftCheckBaselinesArgs, ModelPackageDriftCheckBaselinesPtr and ModelPackageDriftCheckBaselinesPtrOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckBaselinesPtrInput` via:
+//
+//          ModelPackageDriftCheckBaselinesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageDriftCheckBaselinesPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckBaselinesPtrOutput() ModelPackageDriftCheckBaselinesPtrOutput
+	ToModelPackageDriftCheckBaselinesPtrOutputWithContext(context.Context) ModelPackageDriftCheckBaselinesPtrOutput
+}
+
+type modelPackageDriftCheckBaselinesPtrType ModelPackageDriftCheckBaselinesArgs
+
+func ModelPackageDriftCheckBaselinesPtr(v *ModelPackageDriftCheckBaselinesArgs) ModelPackageDriftCheckBaselinesPtrInput {
+	return (*modelPackageDriftCheckBaselinesPtrType)(v)
+}
+
+func (*modelPackageDriftCheckBaselinesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckBaselines)(nil)).Elem()
+}
+
+func (i *modelPackageDriftCheckBaselinesPtrType) ToModelPackageDriftCheckBaselinesPtrOutput() ModelPackageDriftCheckBaselinesPtrOutput {
+	return i.ToModelPackageDriftCheckBaselinesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageDriftCheckBaselinesPtrType) ToModelPackageDriftCheckBaselinesPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBaselinesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckBaselinesPtrOutput)
+}
+
+// Represents the drift check baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckBaselinesOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckBaselinesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckBaselines)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) ToModelPackageDriftCheckBaselinesOutput() ModelPackageDriftCheckBaselinesOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) ToModelPackageDriftCheckBaselinesOutputWithContext(ctx context.Context) ModelPackageDriftCheckBaselinesOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) ToModelPackageDriftCheckBaselinesPtrOutput() ModelPackageDriftCheckBaselinesPtrOutput {
+	return o.ToModelPackageDriftCheckBaselinesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) ToModelPackageDriftCheckBaselinesPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBaselinesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckBaselines {
+		return &v
+	}).(ModelPackageDriftCheckBaselinesPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) Bias() ModelPackageDriftCheckBiasPtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckBias { return v.Bias }).(ModelPackageDriftCheckBiasPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) Explainability() ModelPackageDriftCheckExplainabilityPtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckExplainability { return v.Explainability }).(ModelPackageDriftCheckExplainabilityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) ModelDataQuality() ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckModelDataQuality {
+		return v.ModelDataQuality
+	}).(ModelPackageDriftCheckModelDataQualityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesOutput) ModelQuality() ModelPackageDriftCheckModelQualityPtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckModelQuality { return v.ModelQuality }).(ModelPackageDriftCheckModelQualityPtrOutput)
+}
+
+type ModelPackageDriftCheckBaselinesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckBaselinesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckBaselines)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) ToModelPackageDriftCheckBaselinesPtrOutput() ModelPackageDriftCheckBaselinesPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) ToModelPackageDriftCheckBaselinesPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBaselinesPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) Elem() ModelPackageDriftCheckBaselinesOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBaselines) ModelPackageDriftCheckBaselines {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageDriftCheckBaselines
+		return ret
+	}).(ModelPackageDriftCheckBaselinesOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) Bias() ModelPackageDriftCheckBiasPtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckBias {
+		if v == nil {
+			return nil
+		}
+		return v.Bias
+	}).(ModelPackageDriftCheckBiasPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) Explainability() ModelPackageDriftCheckExplainabilityPtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckExplainability {
+		if v == nil {
+			return nil
+		}
+		return v.Explainability
+	}).(ModelPackageDriftCheckExplainabilityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) ModelDataQuality() ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckModelDataQuality {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataQuality
+	}).(ModelPackageDriftCheckModelDataQualityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBaselinesPtrOutput) ModelQuality() ModelPackageDriftCheckModelQualityPtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckModelQuality {
+		if v == nil {
+			return nil
+		}
+		return v.ModelQuality
+	}).(ModelPackageDriftCheckModelQualityPtrOutput)
+}
+
+// Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckBias struct {
+	ConfigFile              *ModelPackageFileSource    `pulumi:"configFile"`
+	PostTrainingConstraints *ModelPackageMetricsSource `pulumi:"postTrainingConstraints"`
+	PreTrainingConstraints  *ModelPackageMetricsSource `pulumi:"preTrainingConstraints"`
+}
+
+// ModelPackageDriftCheckBiasInput is an input type that accepts ModelPackageDriftCheckBiasArgs and ModelPackageDriftCheckBiasOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckBiasInput` via:
+//
+//          ModelPackageDriftCheckBiasArgs{...}
+type ModelPackageDriftCheckBiasInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckBiasOutput() ModelPackageDriftCheckBiasOutput
+	ToModelPackageDriftCheckBiasOutputWithContext(context.Context) ModelPackageDriftCheckBiasOutput
+}
+
+// Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckBiasArgs struct {
+	ConfigFile              ModelPackageFileSourcePtrInput    `pulumi:"configFile"`
+	PostTrainingConstraints ModelPackageMetricsSourcePtrInput `pulumi:"postTrainingConstraints"`
+	PreTrainingConstraints  ModelPackageMetricsSourcePtrInput `pulumi:"preTrainingConstraints"`
+}
+
+func (ModelPackageDriftCheckBiasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckBias)(nil)).Elem()
+}
+
+func (i ModelPackageDriftCheckBiasArgs) ToModelPackageDriftCheckBiasOutput() ModelPackageDriftCheckBiasOutput {
+	return i.ToModelPackageDriftCheckBiasOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckBiasArgs) ToModelPackageDriftCheckBiasOutputWithContext(ctx context.Context) ModelPackageDriftCheckBiasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckBiasOutput)
+}
+
+func (i ModelPackageDriftCheckBiasArgs) ToModelPackageDriftCheckBiasPtrOutput() ModelPackageDriftCheckBiasPtrOutput {
+	return i.ToModelPackageDriftCheckBiasPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckBiasArgs) ToModelPackageDriftCheckBiasPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBiasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckBiasOutput).ToModelPackageDriftCheckBiasPtrOutputWithContext(ctx)
+}
+
+// ModelPackageDriftCheckBiasPtrInput is an input type that accepts ModelPackageDriftCheckBiasArgs, ModelPackageDriftCheckBiasPtr and ModelPackageDriftCheckBiasPtrOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckBiasPtrInput` via:
+//
+//          ModelPackageDriftCheckBiasArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageDriftCheckBiasPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckBiasPtrOutput() ModelPackageDriftCheckBiasPtrOutput
+	ToModelPackageDriftCheckBiasPtrOutputWithContext(context.Context) ModelPackageDriftCheckBiasPtrOutput
+}
+
+type modelPackageDriftCheckBiasPtrType ModelPackageDriftCheckBiasArgs
+
+func ModelPackageDriftCheckBiasPtr(v *ModelPackageDriftCheckBiasArgs) ModelPackageDriftCheckBiasPtrInput {
+	return (*modelPackageDriftCheckBiasPtrType)(v)
+}
+
+func (*modelPackageDriftCheckBiasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckBias)(nil)).Elem()
+}
+
+func (i *modelPackageDriftCheckBiasPtrType) ToModelPackageDriftCheckBiasPtrOutput() ModelPackageDriftCheckBiasPtrOutput {
+	return i.ToModelPackageDriftCheckBiasPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageDriftCheckBiasPtrType) ToModelPackageDriftCheckBiasPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBiasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckBiasPtrOutput)
+}
+
+// Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckBiasOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckBiasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckBias)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckBiasOutput) ToModelPackageDriftCheckBiasOutput() ModelPackageDriftCheckBiasOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBiasOutput) ToModelPackageDriftCheckBiasOutputWithContext(ctx context.Context) ModelPackageDriftCheckBiasOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBiasOutput) ToModelPackageDriftCheckBiasPtrOutput() ModelPackageDriftCheckBiasPtrOutput {
+	return o.ToModelPackageDriftCheckBiasPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageDriftCheckBiasOutput) ToModelPackageDriftCheckBiasPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBiasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageDriftCheckBias) *ModelPackageDriftCheckBias {
+		return &v
+	}).(ModelPackageDriftCheckBiasPtrOutput)
+}
+
+func (o ModelPackageDriftCheckBiasOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBias) *ModelPackageFileSource { return v.ConfigFile }).(ModelPackageFileSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckBiasOutput) PostTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBias) *ModelPackageMetricsSource { return v.PostTrainingConstraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckBiasOutput) PreTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckBias) *ModelPackageMetricsSource { return v.PreTrainingConstraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageDriftCheckBiasPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckBiasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckBias)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckBiasPtrOutput) ToModelPackageDriftCheckBiasPtrOutput() ModelPackageDriftCheckBiasPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBiasPtrOutput) ToModelPackageDriftCheckBiasPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckBiasPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckBiasPtrOutput) Elem() ModelPackageDriftCheckBiasOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBias) ModelPackageDriftCheckBias {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageDriftCheckBias
+		return ret
+	}).(ModelPackageDriftCheckBiasOutput)
+}
+
+func (o ModelPackageDriftCheckBiasPtrOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBias) *ModelPackageFileSource {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigFile
+	}).(ModelPackageFileSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckBiasPtrOutput) PostTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBias) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.PostTrainingConstraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckBiasPtrOutput) PreTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckBias) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.PreTrainingConstraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Contains explainability metrics for a model.
+type ModelPackageDriftCheckExplainability struct {
+	ConfigFile  *ModelPackageFileSource    `pulumi:"configFile"`
+	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
+}
+
+// ModelPackageDriftCheckExplainabilityInput is an input type that accepts ModelPackageDriftCheckExplainabilityArgs and ModelPackageDriftCheckExplainabilityOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckExplainabilityInput` via:
+//
+//          ModelPackageDriftCheckExplainabilityArgs{...}
+type ModelPackageDriftCheckExplainabilityInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckExplainabilityOutput() ModelPackageDriftCheckExplainabilityOutput
+	ToModelPackageDriftCheckExplainabilityOutputWithContext(context.Context) ModelPackageDriftCheckExplainabilityOutput
+}
+
+// Contains explainability metrics for a model.
+type ModelPackageDriftCheckExplainabilityArgs struct {
+	ConfigFile  ModelPackageFileSourcePtrInput    `pulumi:"configFile"`
+	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
+}
+
+func (ModelPackageDriftCheckExplainabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckExplainability)(nil)).Elem()
+}
+
+func (i ModelPackageDriftCheckExplainabilityArgs) ToModelPackageDriftCheckExplainabilityOutput() ModelPackageDriftCheckExplainabilityOutput {
+	return i.ToModelPackageDriftCheckExplainabilityOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckExplainabilityArgs) ToModelPackageDriftCheckExplainabilityOutputWithContext(ctx context.Context) ModelPackageDriftCheckExplainabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckExplainabilityOutput)
+}
+
+func (i ModelPackageDriftCheckExplainabilityArgs) ToModelPackageDriftCheckExplainabilityPtrOutput() ModelPackageDriftCheckExplainabilityPtrOutput {
+	return i.ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckExplainabilityArgs) ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckExplainabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckExplainabilityOutput).ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(ctx)
+}
+
+// ModelPackageDriftCheckExplainabilityPtrInput is an input type that accepts ModelPackageDriftCheckExplainabilityArgs, ModelPackageDriftCheckExplainabilityPtr and ModelPackageDriftCheckExplainabilityPtrOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckExplainabilityPtrInput` via:
+//
+//          ModelPackageDriftCheckExplainabilityArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageDriftCheckExplainabilityPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckExplainabilityPtrOutput() ModelPackageDriftCheckExplainabilityPtrOutput
+	ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(context.Context) ModelPackageDriftCheckExplainabilityPtrOutput
+}
+
+type modelPackageDriftCheckExplainabilityPtrType ModelPackageDriftCheckExplainabilityArgs
+
+func ModelPackageDriftCheckExplainabilityPtr(v *ModelPackageDriftCheckExplainabilityArgs) ModelPackageDriftCheckExplainabilityPtrInput {
+	return (*modelPackageDriftCheckExplainabilityPtrType)(v)
+}
+
+func (*modelPackageDriftCheckExplainabilityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckExplainability)(nil)).Elem()
+}
+
+func (i *modelPackageDriftCheckExplainabilityPtrType) ToModelPackageDriftCheckExplainabilityPtrOutput() ModelPackageDriftCheckExplainabilityPtrOutput {
+	return i.ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageDriftCheckExplainabilityPtrType) ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckExplainabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckExplainabilityPtrOutput)
+}
+
+// Contains explainability metrics for a model.
+type ModelPackageDriftCheckExplainabilityOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckExplainabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckExplainability)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckExplainabilityOutput) ToModelPackageDriftCheckExplainabilityOutput() ModelPackageDriftCheckExplainabilityOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckExplainabilityOutput) ToModelPackageDriftCheckExplainabilityOutputWithContext(ctx context.Context) ModelPackageDriftCheckExplainabilityOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckExplainabilityOutput) ToModelPackageDriftCheckExplainabilityPtrOutput() ModelPackageDriftCheckExplainabilityPtrOutput {
+	return o.ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageDriftCheckExplainabilityOutput) ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckExplainabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageDriftCheckExplainability) *ModelPackageDriftCheckExplainability {
+		return &v
+	}).(ModelPackageDriftCheckExplainabilityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckExplainabilityOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckExplainability) *ModelPackageFileSource { return v.ConfigFile }).(ModelPackageFileSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckExplainabilityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckExplainability) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageDriftCheckExplainabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckExplainabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckExplainability)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckExplainabilityPtrOutput) ToModelPackageDriftCheckExplainabilityPtrOutput() ModelPackageDriftCheckExplainabilityPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckExplainabilityPtrOutput) ToModelPackageDriftCheckExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckExplainabilityPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckExplainabilityPtrOutput) Elem() ModelPackageDriftCheckExplainabilityOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckExplainability) ModelPackageDriftCheckExplainability {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageDriftCheckExplainability
+		return ret
+	}).(ModelPackageDriftCheckExplainabilityOutput)
+}
+
+func (o ModelPackageDriftCheckExplainabilityPtrOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckExplainability) *ModelPackageFileSource {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigFile
+	}).(ModelPackageFileSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckExplainabilityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckExplainability) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Constraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckModelDataQuality struct {
+	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
+	Statistics  *ModelPackageMetricsSource `pulumi:"statistics"`
+}
+
+// ModelPackageDriftCheckModelDataQualityInput is an input type that accepts ModelPackageDriftCheckModelDataQualityArgs and ModelPackageDriftCheckModelDataQualityOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckModelDataQualityInput` via:
+//
+//          ModelPackageDriftCheckModelDataQualityArgs{...}
+type ModelPackageDriftCheckModelDataQualityInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckModelDataQualityOutput() ModelPackageDriftCheckModelDataQualityOutput
+	ToModelPackageDriftCheckModelDataQualityOutputWithContext(context.Context) ModelPackageDriftCheckModelDataQualityOutput
+}
+
+// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckModelDataQualityArgs struct {
+	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
+	Statistics  ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
+}
+
+func (ModelPackageDriftCheckModelDataQualityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckModelDataQuality)(nil)).Elem()
+}
+
+func (i ModelPackageDriftCheckModelDataQualityArgs) ToModelPackageDriftCheckModelDataQualityOutput() ModelPackageDriftCheckModelDataQualityOutput {
+	return i.ToModelPackageDriftCheckModelDataQualityOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckModelDataQualityArgs) ToModelPackageDriftCheckModelDataQualityOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelDataQualityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckModelDataQualityOutput)
+}
+
+func (i ModelPackageDriftCheckModelDataQualityArgs) ToModelPackageDriftCheckModelDataQualityPtrOutput() ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return i.ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckModelDataQualityArgs) ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckModelDataQualityOutput).ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(ctx)
+}
+
+// ModelPackageDriftCheckModelDataQualityPtrInput is an input type that accepts ModelPackageDriftCheckModelDataQualityArgs, ModelPackageDriftCheckModelDataQualityPtr and ModelPackageDriftCheckModelDataQualityPtrOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckModelDataQualityPtrInput` via:
+//
+//          ModelPackageDriftCheckModelDataQualityArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageDriftCheckModelDataQualityPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckModelDataQualityPtrOutput() ModelPackageDriftCheckModelDataQualityPtrOutput
+	ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(context.Context) ModelPackageDriftCheckModelDataQualityPtrOutput
+}
+
+type modelPackageDriftCheckModelDataQualityPtrType ModelPackageDriftCheckModelDataQualityArgs
+
+func ModelPackageDriftCheckModelDataQualityPtr(v *ModelPackageDriftCheckModelDataQualityArgs) ModelPackageDriftCheckModelDataQualityPtrInput {
+	return (*modelPackageDriftCheckModelDataQualityPtrType)(v)
+}
+
+func (*modelPackageDriftCheckModelDataQualityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckModelDataQuality)(nil)).Elem()
+}
+
+func (i *modelPackageDriftCheckModelDataQualityPtrType) ToModelPackageDriftCheckModelDataQualityPtrOutput() ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return i.ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageDriftCheckModelDataQualityPtrType) ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckModelDataQualityPtrOutput)
+}
+
+// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckModelDataQualityOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckModelDataQualityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckModelDataQuality)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckModelDataQualityOutput) ToModelPackageDriftCheckModelDataQualityOutput() ModelPackageDriftCheckModelDataQualityOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelDataQualityOutput) ToModelPackageDriftCheckModelDataQualityOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelDataQualityOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelDataQualityOutput) ToModelPackageDriftCheckModelDataQualityPtrOutput() ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return o.ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageDriftCheckModelDataQualityOutput) ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageDriftCheckModelDataQuality) *ModelPackageDriftCheckModelDataQuality {
+		return &v
+	}).(ModelPackageDriftCheckModelDataQualityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckModelDataQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckModelDataQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageDriftCheckModelDataQualityPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckModelDataQualityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckModelDataQuality)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckModelDataQualityPtrOutput) ToModelPackageDriftCheckModelDataQualityPtrOutput() ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelDataQualityPtrOutput) ToModelPackageDriftCheckModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelDataQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Elem() ModelPackageDriftCheckModelDataQualityOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckModelDataQuality) ModelPackageDriftCheckModelDataQuality {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageDriftCheckModelDataQuality
+		return ret
+	}).(ModelPackageDriftCheckModelDataQualityOutput)
+}
+
+func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Constraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Statistics
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckModelQuality struct {
+	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
+	Statistics  *ModelPackageMetricsSource `pulumi:"statistics"`
+}
+
+// ModelPackageDriftCheckModelQualityInput is an input type that accepts ModelPackageDriftCheckModelQualityArgs and ModelPackageDriftCheckModelQualityOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckModelQualityInput` via:
+//
+//          ModelPackageDriftCheckModelQualityArgs{...}
+type ModelPackageDriftCheckModelQualityInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckModelQualityOutput() ModelPackageDriftCheckModelQualityOutput
+	ToModelPackageDriftCheckModelQualityOutputWithContext(context.Context) ModelPackageDriftCheckModelQualityOutput
+}
+
+// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckModelQualityArgs struct {
+	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
+	Statistics  ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
+}
+
+func (ModelPackageDriftCheckModelQualityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckModelQuality)(nil)).Elem()
+}
+
+func (i ModelPackageDriftCheckModelQualityArgs) ToModelPackageDriftCheckModelQualityOutput() ModelPackageDriftCheckModelQualityOutput {
+	return i.ToModelPackageDriftCheckModelQualityOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckModelQualityArgs) ToModelPackageDriftCheckModelQualityOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelQualityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckModelQualityOutput)
+}
+
+func (i ModelPackageDriftCheckModelQualityArgs) ToModelPackageDriftCheckModelQualityPtrOutput() ModelPackageDriftCheckModelQualityPtrOutput {
+	return i.ToModelPackageDriftCheckModelQualityPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageDriftCheckModelQualityArgs) ToModelPackageDriftCheckModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckModelQualityOutput).ToModelPackageDriftCheckModelQualityPtrOutputWithContext(ctx)
+}
+
+// ModelPackageDriftCheckModelQualityPtrInput is an input type that accepts ModelPackageDriftCheckModelQualityArgs, ModelPackageDriftCheckModelQualityPtr and ModelPackageDriftCheckModelQualityPtrOutput values.
+// You can construct a concrete instance of `ModelPackageDriftCheckModelQualityPtrInput` via:
+//
+//          ModelPackageDriftCheckModelQualityArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageDriftCheckModelQualityPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageDriftCheckModelQualityPtrOutput() ModelPackageDriftCheckModelQualityPtrOutput
+	ToModelPackageDriftCheckModelQualityPtrOutputWithContext(context.Context) ModelPackageDriftCheckModelQualityPtrOutput
+}
+
+type modelPackageDriftCheckModelQualityPtrType ModelPackageDriftCheckModelQualityArgs
+
+func ModelPackageDriftCheckModelQualityPtr(v *ModelPackageDriftCheckModelQualityArgs) ModelPackageDriftCheckModelQualityPtrInput {
+	return (*modelPackageDriftCheckModelQualityPtrType)(v)
+}
+
+func (*modelPackageDriftCheckModelQualityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckModelQuality)(nil)).Elem()
+}
+
+func (i *modelPackageDriftCheckModelQualityPtrType) ToModelPackageDriftCheckModelQualityPtrOutput() ModelPackageDriftCheckModelQualityPtrOutput {
+	return i.ToModelPackageDriftCheckModelQualityPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageDriftCheckModelQualityPtrType) ToModelPackageDriftCheckModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageDriftCheckModelQualityPtrOutput)
+}
+
+// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+type ModelPackageDriftCheckModelQualityOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckModelQualityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageDriftCheckModelQuality)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckModelQualityOutput) ToModelPackageDriftCheckModelQualityOutput() ModelPackageDriftCheckModelQualityOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelQualityOutput) ToModelPackageDriftCheckModelQualityOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelQualityOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelQualityOutput) ToModelPackageDriftCheckModelQualityPtrOutput() ModelPackageDriftCheckModelQualityPtrOutput {
+	return o.ToModelPackageDriftCheckModelQualityPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageDriftCheckModelQualityOutput) ToModelPackageDriftCheckModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelQualityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageDriftCheckModelQuality) *ModelPackageDriftCheckModelQuality {
+		return &v
+	}).(ModelPackageDriftCheckModelQualityPtrOutput)
+}
+
+func (o ModelPackageDriftCheckModelQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckModelQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageDriftCheckModelQualityPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageDriftCheckModelQualityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageDriftCheckModelQuality)(nil)).Elem()
+}
+
+func (o ModelPackageDriftCheckModelQualityPtrOutput) ToModelPackageDriftCheckModelQualityPtrOutput() ModelPackageDriftCheckModelQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelQualityPtrOutput) ToModelPackageDriftCheckModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageDriftCheckModelQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageDriftCheckModelQualityPtrOutput) Elem() ModelPackageDriftCheckModelQualityOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckModelQuality) ModelPackageDriftCheckModelQuality {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageDriftCheckModelQuality
+		return ret
+	}).(ModelPackageDriftCheckModelQualityOutput)
+}
+
+func (o ModelPackageDriftCheckModelQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Constraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageDriftCheckModelQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Statistics
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Sets the environment variables in the Docker container
+type ModelPackageEnvironment struct {
+}
+
+// ModelPackageEnvironmentInput is an input type that accepts ModelPackageEnvironmentArgs and ModelPackageEnvironmentOutput values.
+// You can construct a concrete instance of `ModelPackageEnvironmentInput` via:
+//
+//          ModelPackageEnvironmentArgs{...}
+type ModelPackageEnvironmentInput interface {
+	pulumi.Input
+
+	ToModelPackageEnvironmentOutput() ModelPackageEnvironmentOutput
+	ToModelPackageEnvironmentOutputWithContext(context.Context) ModelPackageEnvironmentOutput
+}
+
+// Sets the environment variables in the Docker container
+type ModelPackageEnvironmentArgs struct {
+}
+
+func (ModelPackageEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageEnvironment)(nil)).Elem()
+}
+
+func (i ModelPackageEnvironmentArgs) ToModelPackageEnvironmentOutput() ModelPackageEnvironmentOutput {
+	return i.ToModelPackageEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ModelPackageEnvironmentArgs) ToModelPackageEnvironmentOutputWithContext(ctx context.Context) ModelPackageEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageEnvironmentOutput)
+}
+
+func (i ModelPackageEnvironmentArgs) ToModelPackageEnvironmentPtrOutput() ModelPackageEnvironmentPtrOutput {
+	return i.ToModelPackageEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageEnvironmentArgs) ToModelPackageEnvironmentPtrOutputWithContext(ctx context.Context) ModelPackageEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageEnvironmentOutput).ToModelPackageEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ModelPackageEnvironmentPtrInput is an input type that accepts ModelPackageEnvironmentArgs, ModelPackageEnvironmentPtr and ModelPackageEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ModelPackageEnvironmentPtrInput` via:
+//
+//          ModelPackageEnvironmentArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageEnvironmentPtrOutput() ModelPackageEnvironmentPtrOutput
+	ToModelPackageEnvironmentPtrOutputWithContext(context.Context) ModelPackageEnvironmentPtrOutput
+}
+
+type modelPackageEnvironmentPtrType ModelPackageEnvironmentArgs
+
+func ModelPackageEnvironmentPtr(v *ModelPackageEnvironmentArgs) ModelPackageEnvironmentPtrInput {
+	return (*modelPackageEnvironmentPtrType)(v)
+}
+
+func (*modelPackageEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageEnvironment)(nil)).Elem()
+}
+
+func (i *modelPackageEnvironmentPtrType) ToModelPackageEnvironmentPtrOutput() ModelPackageEnvironmentPtrOutput {
+	return i.ToModelPackageEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageEnvironmentPtrType) ToModelPackageEnvironmentPtrOutputWithContext(ctx context.Context) ModelPackageEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageEnvironmentPtrOutput)
+}
+
+// Sets the environment variables in the Docker container
+type ModelPackageEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageEnvironment)(nil)).Elem()
+}
+
+func (o ModelPackageEnvironmentOutput) ToModelPackageEnvironmentOutput() ModelPackageEnvironmentOutput {
+	return o
+}
+
+func (o ModelPackageEnvironmentOutput) ToModelPackageEnvironmentOutputWithContext(ctx context.Context) ModelPackageEnvironmentOutput {
+	return o
+}
+
+func (o ModelPackageEnvironmentOutput) ToModelPackageEnvironmentPtrOutput() ModelPackageEnvironmentPtrOutput {
+	return o.ToModelPackageEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageEnvironmentOutput) ToModelPackageEnvironmentPtrOutputWithContext(ctx context.Context) ModelPackageEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageEnvironment) *ModelPackageEnvironment {
+		return &v
+	}).(ModelPackageEnvironmentPtrOutput)
+}
+
+type ModelPackageEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageEnvironment)(nil)).Elem()
+}
+
+func (o ModelPackageEnvironmentPtrOutput) ToModelPackageEnvironmentPtrOutput() ModelPackageEnvironmentPtrOutput {
+	return o
+}
+
+func (o ModelPackageEnvironmentPtrOutput) ToModelPackageEnvironmentPtrOutputWithContext(ctx context.Context) ModelPackageEnvironmentPtrOutput {
+	return o
+}
+
+func (o ModelPackageEnvironmentPtrOutput) Elem() ModelPackageEnvironmentOutput {
+	return o.ApplyT(func(v *ModelPackageEnvironment) ModelPackageEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageEnvironment
+		return ret
+	}).(ModelPackageEnvironmentOutput)
+}
+
+// Contains explainability metrics for a model.
+type ModelPackageExplainability struct {
+	Report *ModelPackageMetricsSource `pulumi:"report"`
+}
+
+// ModelPackageExplainabilityInput is an input type that accepts ModelPackageExplainabilityArgs and ModelPackageExplainabilityOutput values.
+// You can construct a concrete instance of `ModelPackageExplainabilityInput` via:
+//
+//          ModelPackageExplainabilityArgs{...}
+type ModelPackageExplainabilityInput interface {
+	pulumi.Input
+
+	ToModelPackageExplainabilityOutput() ModelPackageExplainabilityOutput
+	ToModelPackageExplainabilityOutputWithContext(context.Context) ModelPackageExplainabilityOutput
+}
+
+// Contains explainability metrics for a model.
+type ModelPackageExplainabilityArgs struct {
+	Report ModelPackageMetricsSourcePtrInput `pulumi:"report"`
+}
+
+func (ModelPackageExplainabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageExplainability)(nil)).Elem()
+}
+
+func (i ModelPackageExplainabilityArgs) ToModelPackageExplainabilityOutput() ModelPackageExplainabilityOutput {
+	return i.ToModelPackageExplainabilityOutputWithContext(context.Background())
+}
+
+func (i ModelPackageExplainabilityArgs) ToModelPackageExplainabilityOutputWithContext(ctx context.Context) ModelPackageExplainabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageExplainabilityOutput)
+}
+
+func (i ModelPackageExplainabilityArgs) ToModelPackageExplainabilityPtrOutput() ModelPackageExplainabilityPtrOutput {
+	return i.ToModelPackageExplainabilityPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageExplainabilityArgs) ToModelPackageExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageExplainabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageExplainabilityOutput).ToModelPackageExplainabilityPtrOutputWithContext(ctx)
+}
+
+// ModelPackageExplainabilityPtrInput is an input type that accepts ModelPackageExplainabilityArgs, ModelPackageExplainabilityPtr and ModelPackageExplainabilityPtrOutput values.
+// You can construct a concrete instance of `ModelPackageExplainabilityPtrInput` via:
+//
+//          ModelPackageExplainabilityArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageExplainabilityPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageExplainabilityPtrOutput() ModelPackageExplainabilityPtrOutput
+	ToModelPackageExplainabilityPtrOutputWithContext(context.Context) ModelPackageExplainabilityPtrOutput
+}
+
+type modelPackageExplainabilityPtrType ModelPackageExplainabilityArgs
+
+func ModelPackageExplainabilityPtr(v *ModelPackageExplainabilityArgs) ModelPackageExplainabilityPtrInput {
+	return (*modelPackageExplainabilityPtrType)(v)
+}
+
+func (*modelPackageExplainabilityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageExplainability)(nil)).Elem()
+}
+
+func (i *modelPackageExplainabilityPtrType) ToModelPackageExplainabilityPtrOutput() ModelPackageExplainabilityPtrOutput {
+	return i.ToModelPackageExplainabilityPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageExplainabilityPtrType) ToModelPackageExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageExplainabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageExplainabilityPtrOutput)
+}
+
+// Contains explainability metrics for a model.
+type ModelPackageExplainabilityOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageExplainabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageExplainability)(nil)).Elem()
+}
+
+func (o ModelPackageExplainabilityOutput) ToModelPackageExplainabilityOutput() ModelPackageExplainabilityOutput {
+	return o
+}
+
+func (o ModelPackageExplainabilityOutput) ToModelPackageExplainabilityOutputWithContext(ctx context.Context) ModelPackageExplainabilityOutput {
+	return o
+}
+
+func (o ModelPackageExplainabilityOutput) ToModelPackageExplainabilityPtrOutput() ModelPackageExplainabilityPtrOutput {
+	return o.ToModelPackageExplainabilityPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageExplainabilityOutput) ToModelPackageExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageExplainabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageExplainability) *ModelPackageExplainability {
+		return &v
+	}).(ModelPackageExplainabilityPtrOutput)
+}
+
+func (o ModelPackageExplainabilityOutput) Report() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageExplainability) *ModelPackageMetricsSource { return v.Report }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageExplainabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageExplainabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageExplainability)(nil)).Elem()
+}
+
+func (o ModelPackageExplainabilityPtrOutput) ToModelPackageExplainabilityPtrOutput() ModelPackageExplainabilityPtrOutput {
+	return o
+}
+
+func (o ModelPackageExplainabilityPtrOutput) ToModelPackageExplainabilityPtrOutputWithContext(ctx context.Context) ModelPackageExplainabilityPtrOutput {
+	return o
+}
+
+func (o ModelPackageExplainabilityPtrOutput) Elem() ModelPackageExplainabilityOutput {
+	return o.ApplyT(func(v *ModelPackageExplainability) ModelPackageExplainability {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageExplainability
+		return ret
+	}).(ModelPackageExplainabilityOutput)
+}
+
+func (o ModelPackageExplainabilityPtrOutput) Report() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageExplainability) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Report
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Represents a File Source Object.
+type ModelPackageFileSource struct {
+	// The digest of the file source.
+	ContentDigest *string `pulumi:"contentDigest"`
+	// The type of content stored in the file source.
+	ContentType *string `pulumi:"contentType"`
+	// The Amazon S3 URI for the file source.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelPackageFileSourceInput is an input type that accepts ModelPackageFileSourceArgs and ModelPackageFileSourceOutput values.
+// You can construct a concrete instance of `ModelPackageFileSourceInput` via:
+//
+//          ModelPackageFileSourceArgs{...}
+type ModelPackageFileSourceInput interface {
+	pulumi.Input
+
+	ToModelPackageFileSourceOutput() ModelPackageFileSourceOutput
+	ToModelPackageFileSourceOutputWithContext(context.Context) ModelPackageFileSourceOutput
+}
+
+// Represents a File Source Object.
+type ModelPackageFileSourceArgs struct {
+	// The digest of the file source.
+	ContentDigest pulumi.StringPtrInput `pulumi:"contentDigest"`
+	// The type of content stored in the file source.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The Amazon S3 URI for the file source.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelPackageFileSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageFileSource)(nil)).Elem()
+}
+
+func (i ModelPackageFileSourceArgs) ToModelPackageFileSourceOutput() ModelPackageFileSourceOutput {
+	return i.ToModelPackageFileSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPackageFileSourceArgs) ToModelPackageFileSourceOutputWithContext(ctx context.Context) ModelPackageFileSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageFileSourceOutput)
+}
+
+func (i ModelPackageFileSourceArgs) ToModelPackageFileSourcePtrOutput() ModelPackageFileSourcePtrOutput {
+	return i.ToModelPackageFileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageFileSourceArgs) ToModelPackageFileSourcePtrOutputWithContext(ctx context.Context) ModelPackageFileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageFileSourceOutput).ToModelPackageFileSourcePtrOutputWithContext(ctx)
+}
+
+// ModelPackageFileSourcePtrInput is an input type that accepts ModelPackageFileSourceArgs, ModelPackageFileSourcePtr and ModelPackageFileSourcePtrOutput values.
+// You can construct a concrete instance of `ModelPackageFileSourcePtrInput` via:
+//
+//          ModelPackageFileSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageFileSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelPackageFileSourcePtrOutput() ModelPackageFileSourcePtrOutput
+	ToModelPackageFileSourcePtrOutputWithContext(context.Context) ModelPackageFileSourcePtrOutput
+}
+
+type modelPackageFileSourcePtrType ModelPackageFileSourceArgs
+
+func ModelPackageFileSourcePtr(v *ModelPackageFileSourceArgs) ModelPackageFileSourcePtrInput {
+	return (*modelPackageFileSourcePtrType)(v)
+}
+
+func (*modelPackageFileSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageFileSource)(nil)).Elem()
+}
+
+func (i *modelPackageFileSourcePtrType) ToModelPackageFileSourcePtrOutput() ModelPackageFileSourcePtrOutput {
+	return i.ToModelPackageFileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageFileSourcePtrType) ToModelPackageFileSourcePtrOutputWithContext(ctx context.Context) ModelPackageFileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageFileSourcePtrOutput)
+}
+
+// Represents a File Source Object.
+type ModelPackageFileSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageFileSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageFileSource)(nil)).Elem()
+}
+
+func (o ModelPackageFileSourceOutput) ToModelPackageFileSourceOutput() ModelPackageFileSourceOutput {
+	return o
+}
+
+func (o ModelPackageFileSourceOutput) ToModelPackageFileSourceOutputWithContext(ctx context.Context) ModelPackageFileSourceOutput {
+	return o
+}
+
+func (o ModelPackageFileSourceOutput) ToModelPackageFileSourcePtrOutput() ModelPackageFileSourcePtrOutput {
+	return o.ToModelPackageFileSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageFileSourceOutput) ToModelPackageFileSourcePtrOutputWithContext(ctx context.Context) ModelPackageFileSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageFileSource) *ModelPackageFileSource {
+		return &v
+	}).(ModelPackageFileSourcePtrOutput)
+}
+
+// The digest of the file source.
+func (o ModelPackageFileSourceOutput) ContentDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageFileSource) *string { return v.ContentDigest }).(pulumi.StringPtrOutput)
+}
+
+// The type of content stored in the file source.
+func (o ModelPackageFileSourceOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageFileSource) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI for the file source.
+func (o ModelPackageFileSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageFileSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelPackageFileSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageFileSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageFileSource)(nil)).Elem()
+}
+
+func (o ModelPackageFileSourcePtrOutput) ToModelPackageFileSourcePtrOutput() ModelPackageFileSourcePtrOutput {
+	return o
+}
+
+func (o ModelPackageFileSourcePtrOutput) ToModelPackageFileSourcePtrOutputWithContext(ctx context.Context) ModelPackageFileSourcePtrOutput {
+	return o
+}
+
+func (o ModelPackageFileSourcePtrOutput) Elem() ModelPackageFileSourceOutput {
+	return o.ApplyT(func(v *ModelPackageFileSource) ModelPackageFileSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageFileSource
+		return ret
+	}).(ModelPackageFileSourceOutput)
+}
+
+// The digest of the file source.
+func (o ModelPackageFileSourcePtrOutput) ContentDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageFileSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of content stored in the file source.
+func (o ModelPackageFileSourcePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageFileSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI for the file source.
+func (o ModelPackageFileSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageFileSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ModelPackageGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -11878,6 +14195,2691 @@ func (o ModelPackageGroupTagArrayOutput) Index(i pulumi.IntInput) ModelPackageGr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageGroupTag {
 		return vs[0].([]ModelPackageGroupTag)[vs[1].(int)]
 	}).(ModelPackageGroupTagOutput)
+}
+
+// Details about inference jobs that can be run with models based on this model package.
+type ModelPackageInferenceSpecification struct {
+	// The Amazon ECR registry path of the Docker image that contains the inference code.
+	Containers []ModelPackageContainerDefinition `pulumi:"containers"`
+	// The supported MIME types for the input data.
+	SupportedContentTypes []string `pulumi:"supportedContentTypes"`
+	// A list of the instance types that are used to generate inferences in real-time
+	SupportedRealtimeInferenceInstanceTypes []string `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	// The supported MIME types for the output data.
+	SupportedResponseMIMETypes []string `pulumi:"supportedResponseMIMETypes"`
+	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+	SupportedTransformInstanceTypes []string `pulumi:"supportedTransformInstanceTypes"`
+}
+
+// ModelPackageInferenceSpecificationInput is an input type that accepts ModelPackageInferenceSpecificationArgs and ModelPackageInferenceSpecificationOutput values.
+// You can construct a concrete instance of `ModelPackageInferenceSpecificationInput` via:
+//
+//          ModelPackageInferenceSpecificationArgs{...}
+type ModelPackageInferenceSpecificationInput interface {
+	pulumi.Input
+
+	ToModelPackageInferenceSpecificationOutput() ModelPackageInferenceSpecificationOutput
+	ToModelPackageInferenceSpecificationOutputWithContext(context.Context) ModelPackageInferenceSpecificationOutput
+}
+
+// Details about inference jobs that can be run with models based on this model package.
+type ModelPackageInferenceSpecificationArgs struct {
+	// The Amazon ECR registry path of the Docker image that contains the inference code.
+	Containers ModelPackageContainerDefinitionArrayInput `pulumi:"containers"`
+	// The supported MIME types for the input data.
+	SupportedContentTypes pulumi.StringArrayInput `pulumi:"supportedContentTypes"`
+	// A list of the instance types that are used to generate inferences in real-time
+	SupportedRealtimeInferenceInstanceTypes pulumi.StringArrayInput `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	// The supported MIME types for the output data.
+	SupportedResponseMIMETypes pulumi.StringArrayInput `pulumi:"supportedResponseMIMETypes"`
+	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+	SupportedTransformInstanceTypes pulumi.StringArrayInput `pulumi:"supportedTransformInstanceTypes"`
+}
+
+func (ModelPackageInferenceSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageInferenceSpecification)(nil)).Elem()
+}
+
+func (i ModelPackageInferenceSpecificationArgs) ToModelPackageInferenceSpecificationOutput() ModelPackageInferenceSpecificationOutput {
+	return i.ToModelPackageInferenceSpecificationOutputWithContext(context.Background())
+}
+
+func (i ModelPackageInferenceSpecificationArgs) ToModelPackageInferenceSpecificationOutputWithContext(ctx context.Context) ModelPackageInferenceSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageInferenceSpecificationOutput)
+}
+
+func (i ModelPackageInferenceSpecificationArgs) ToModelPackageInferenceSpecificationPtrOutput() ModelPackageInferenceSpecificationPtrOutput {
+	return i.ToModelPackageInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageInferenceSpecificationArgs) ToModelPackageInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageInferenceSpecificationOutput).ToModelPackageInferenceSpecificationPtrOutputWithContext(ctx)
+}
+
+// ModelPackageInferenceSpecificationPtrInput is an input type that accepts ModelPackageInferenceSpecificationArgs, ModelPackageInferenceSpecificationPtr and ModelPackageInferenceSpecificationPtrOutput values.
+// You can construct a concrete instance of `ModelPackageInferenceSpecificationPtrInput` via:
+//
+//          ModelPackageInferenceSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageInferenceSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageInferenceSpecificationPtrOutput() ModelPackageInferenceSpecificationPtrOutput
+	ToModelPackageInferenceSpecificationPtrOutputWithContext(context.Context) ModelPackageInferenceSpecificationPtrOutput
+}
+
+type modelPackageInferenceSpecificationPtrType ModelPackageInferenceSpecificationArgs
+
+func ModelPackageInferenceSpecificationPtr(v *ModelPackageInferenceSpecificationArgs) ModelPackageInferenceSpecificationPtrInput {
+	return (*modelPackageInferenceSpecificationPtrType)(v)
+}
+
+func (*modelPackageInferenceSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageInferenceSpecification)(nil)).Elem()
+}
+
+func (i *modelPackageInferenceSpecificationPtrType) ToModelPackageInferenceSpecificationPtrOutput() ModelPackageInferenceSpecificationPtrOutput {
+	return i.ToModelPackageInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageInferenceSpecificationPtrType) ToModelPackageInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageInferenceSpecificationPtrOutput)
+}
+
+// Details about inference jobs that can be run with models based on this model package.
+type ModelPackageInferenceSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageInferenceSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageInferenceSpecification)(nil)).Elem()
+}
+
+func (o ModelPackageInferenceSpecificationOutput) ToModelPackageInferenceSpecificationOutput() ModelPackageInferenceSpecificationOutput {
+	return o
+}
+
+func (o ModelPackageInferenceSpecificationOutput) ToModelPackageInferenceSpecificationOutputWithContext(ctx context.Context) ModelPackageInferenceSpecificationOutput {
+	return o
+}
+
+func (o ModelPackageInferenceSpecificationOutput) ToModelPackageInferenceSpecificationPtrOutput() ModelPackageInferenceSpecificationPtrOutput {
+	return o.ToModelPackageInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageInferenceSpecificationOutput) ToModelPackageInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageInferenceSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageInferenceSpecification) *ModelPackageInferenceSpecification {
+		return &v
+	}).(ModelPackageInferenceSpecificationPtrOutput)
+}
+
+// The Amazon ECR registry path of the Docker image that contains the inference code.
+func (o ModelPackageInferenceSpecificationOutput) Containers() ModelPackageContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v ModelPackageInferenceSpecification) []ModelPackageContainerDefinition { return v.Containers }).(ModelPackageContainerDefinitionArrayOutput)
+}
+
+// The supported MIME types for the input data.
+func (o ModelPackageInferenceSpecificationOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageInferenceSpecification) []string { return v.SupportedContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types that are used to generate inferences in real-time
+func (o ModelPackageInferenceSpecificationOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageInferenceSpecification) []string { return v.SupportedRealtimeInferenceInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The supported MIME types for the output data.
+func (o ModelPackageInferenceSpecificationOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageInferenceSpecification) []string { return v.SupportedResponseMIMETypes }).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+func (o ModelPackageInferenceSpecificationOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageInferenceSpecification) []string { return v.SupportedTransformInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ModelPackageInferenceSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageInferenceSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageInferenceSpecification)(nil)).Elem()
+}
+
+func (o ModelPackageInferenceSpecificationPtrOutput) ToModelPackageInferenceSpecificationPtrOutput() ModelPackageInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelPackageInferenceSpecificationPtrOutput) ToModelPackageInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelPackageInferenceSpecificationPtrOutput) Elem() ModelPackageInferenceSpecificationOutput {
+	return o.ApplyT(func(v *ModelPackageInferenceSpecification) ModelPackageInferenceSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageInferenceSpecification
+		return ret
+	}).(ModelPackageInferenceSpecificationOutput)
+}
+
+// The Amazon ECR registry path of the Docker image that contains the inference code.
+func (o ModelPackageInferenceSpecificationPtrOutput) Containers() ModelPackageContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v *ModelPackageInferenceSpecification) []ModelPackageContainerDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(ModelPackageContainerDefinitionArrayOutput)
+}
+
+// The supported MIME types for the input data.
+func (o ModelPackageInferenceSpecificationPtrOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types that are used to generate inferences in real-time
+func (o ModelPackageInferenceSpecificationPtrOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedRealtimeInferenceInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The supported MIME types for the output data.
+func (o ModelPackageInferenceSpecificationPtrOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedResponseMIMETypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+func (o ModelPackageInferenceSpecificationPtrOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelPackageInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTransformInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type ModelPackageLastModifiedBy struct {
+}
+
+// ModelPackageLastModifiedByInput is an input type that accepts ModelPackageLastModifiedByArgs and ModelPackageLastModifiedByOutput values.
+// You can construct a concrete instance of `ModelPackageLastModifiedByInput` via:
+//
+//          ModelPackageLastModifiedByArgs{...}
+type ModelPackageLastModifiedByInput interface {
+	pulumi.Input
+
+	ToModelPackageLastModifiedByOutput() ModelPackageLastModifiedByOutput
+	ToModelPackageLastModifiedByOutputWithContext(context.Context) ModelPackageLastModifiedByOutput
+}
+
+type ModelPackageLastModifiedByArgs struct {
+}
+
+func (ModelPackageLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageLastModifiedBy)(nil)).Elem()
+}
+
+func (i ModelPackageLastModifiedByArgs) ToModelPackageLastModifiedByOutput() ModelPackageLastModifiedByOutput {
+	return i.ToModelPackageLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i ModelPackageLastModifiedByArgs) ToModelPackageLastModifiedByOutputWithContext(ctx context.Context) ModelPackageLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageLastModifiedByOutput)
+}
+
+func (i ModelPackageLastModifiedByArgs) ToModelPackageLastModifiedByPtrOutput() ModelPackageLastModifiedByPtrOutput {
+	return i.ToModelPackageLastModifiedByPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageLastModifiedByArgs) ToModelPackageLastModifiedByPtrOutputWithContext(ctx context.Context) ModelPackageLastModifiedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageLastModifiedByOutput).ToModelPackageLastModifiedByPtrOutputWithContext(ctx)
+}
+
+// ModelPackageLastModifiedByPtrInput is an input type that accepts ModelPackageLastModifiedByArgs, ModelPackageLastModifiedByPtr and ModelPackageLastModifiedByPtrOutput values.
+// You can construct a concrete instance of `ModelPackageLastModifiedByPtrInput` via:
+//
+//          ModelPackageLastModifiedByArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageLastModifiedByPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageLastModifiedByPtrOutput() ModelPackageLastModifiedByPtrOutput
+	ToModelPackageLastModifiedByPtrOutputWithContext(context.Context) ModelPackageLastModifiedByPtrOutput
+}
+
+type modelPackageLastModifiedByPtrType ModelPackageLastModifiedByArgs
+
+func ModelPackageLastModifiedByPtr(v *ModelPackageLastModifiedByArgs) ModelPackageLastModifiedByPtrInput {
+	return (*modelPackageLastModifiedByPtrType)(v)
+}
+
+func (*modelPackageLastModifiedByPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageLastModifiedBy)(nil)).Elem()
+}
+
+func (i *modelPackageLastModifiedByPtrType) ToModelPackageLastModifiedByPtrOutput() ModelPackageLastModifiedByPtrOutput {
+	return i.ToModelPackageLastModifiedByPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageLastModifiedByPtrType) ToModelPackageLastModifiedByPtrOutputWithContext(ctx context.Context) ModelPackageLastModifiedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageLastModifiedByPtrOutput)
+}
+
+type ModelPackageLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageLastModifiedBy)(nil)).Elem()
+}
+
+func (o ModelPackageLastModifiedByOutput) ToModelPackageLastModifiedByOutput() ModelPackageLastModifiedByOutput {
+	return o
+}
+
+func (o ModelPackageLastModifiedByOutput) ToModelPackageLastModifiedByOutputWithContext(ctx context.Context) ModelPackageLastModifiedByOutput {
+	return o
+}
+
+func (o ModelPackageLastModifiedByOutput) ToModelPackageLastModifiedByPtrOutput() ModelPackageLastModifiedByPtrOutput {
+	return o.ToModelPackageLastModifiedByPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageLastModifiedByOutput) ToModelPackageLastModifiedByPtrOutputWithContext(ctx context.Context) ModelPackageLastModifiedByPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageLastModifiedBy) *ModelPackageLastModifiedBy {
+		return &v
+	}).(ModelPackageLastModifiedByPtrOutput)
+}
+
+type ModelPackageLastModifiedByPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageLastModifiedByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageLastModifiedBy)(nil)).Elem()
+}
+
+func (o ModelPackageLastModifiedByPtrOutput) ToModelPackageLastModifiedByPtrOutput() ModelPackageLastModifiedByPtrOutput {
+	return o
+}
+
+func (o ModelPackageLastModifiedByPtrOutput) ToModelPackageLastModifiedByPtrOutputWithContext(ctx context.Context) ModelPackageLastModifiedByPtrOutput {
+	return o
+}
+
+func (o ModelPackageLastModifiedByPtrOutput) Elem() ModelPackageLastModifiedByOutput {
+	return o.ApplyT(func(v *ModelPackageLastModifiedBy) ModelPackageLastModifiedBy {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageLastModifiedBy
+		return ret
+	}).(ModelPackageLastModifiedByOutput)
+}
+
+// Metadata properties of the tracking entity, trial, or trial component.
+type ModelPackageMetadataProperties struct {
+	// The commit ID.
+	CommitId *string `pulumi:"commitId"`
+	// The entity this entity was generated by.
+	GeneratedBy *string `pulumi:"generatedBy"`
+	// The project ID metadata.
+	ProjectId *string `pulumi:"projectId"`
+	// The repository metadata.
+	Repository *string `pulumi:"repository"`
+}
+
+// ModelPackageMetadataPropertiesInput is an input type that accepts ModelPackageMetadataPropertiesArgs and ModelPackageMetadataPropertiesOutput values.
+// You can construct a concrete instance of `ModelPackageMetadataPropertiesInput` via:
+//
+//          ModelPackageMetadataPropertiesArgs{...}
+type ModelPackageMetadataPropertiesInput interface {
+	pulumi.Input
+
+	ToModelPackageMetadataPropertiesOutput() ModelPackageMetadataPropertiesOutput
+	ToModelPackageMetadataPropertiesOutputWithContext(context.Context) ModelPackageMetadataPropertiesOutput
+}
+
+// Metadata properties of the tracking entity, trial, or trial component.
+type ModelPackageMetadataPropertiesArgs struct {
+	// The commit ID.
+	CommitId pulumi.StringPtrInput `pulumi:"commitId"`
+	// The entity this entity was generated by.
+	GeneratedBy pulumi.StringPtrInput `pulumi:"generatedBy"`
+	// The project ID metadata.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+	// The repository metadata.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+}
+
+func (ModelPackageMetadataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageMetadataProperties)(nil)).Elem()
+}
+
+func (i ModelPackageMetadataPropertiesArgs) ToModelPackageMetadataPropertiesOutput() ModelPackageMetadataPropertiesOutput {
+	return i.ToModelPackageMetadataPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelPackageMetadataPropertiesArgs) ToModelPackageMetadataPropertiesOutputWithContext(ctx context.Context) ModelPackageMetadataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageMetadataPropertiesOutput)
+}
+
+func (i ModelPackageMetadataPropertiesArgs) ToModelPackageMetadataPropertiesPtrOutput() ModelPackageMetadataPropertiesPtrOutput {
+	return i.ToModelPackageMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageMetadataPropertiesArgs) ToModelPackageMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageMetadataPropertiesOutput).ToModelPackageMetadataPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelPackageMetadataPropertiesPtrInput is an input type that accepts ModelPackageMetadataPropertiesArgs, ModelPackageMetadataPropertiesPtr and ModelPackageMetadataPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelPackageMetadataPropertiesPtrInput` via:
+//
+//          ModelPackageMetadataPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageMetadataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageMetadataPropertiesPtrOutput() ModelPackageMetadataPropertiesPtrOutput
+	ToModelPackageMetadataPropertiesPtrOutputWithContext(context.Context) ModelPackageMetadataPropertiesPtrOutput
+}
+
+type modelPackageMetadataPropertiesPtrType ModelPackageMetadataPropertiesArgs
+
+func ModelPackageMetadataPropertiesPtr(v *ModelPackageMetadataPropertiesArgs) ModelPackageMetadataPropertiesPtrInput {
+	return (*modelPackageMetadataPropertiesPtrType)(v)
+}
+
+func (*modelPackageMetadataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageMetadataProperties)(nil)).Elem()
+}
+
+func (i *modelPackageMetadataPropertiesPtrType) ToModelPackageMetadataPropertiesPtrOutput() ModelPackageMetadataPropertiesPtrOutput {
+	return i.ToModelPackageMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageMetadataPropertiesPtrType) ToModelPackageMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageMetadataPropertiesPtrOutput)
+}
+
+// Metadata properties of the tracking entity, trial, or trial component.
+type ModelPackageMetadataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageMetadataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageMetadataProperties)(nil)).Elem()
+}
+
+func (o ModelPackageMetadataPropertiesOutput) ToModelPackageMetadataPropertiesOutput() ModelPackageMetadataPropertiesOutput {
+	return o
+}
+
+func (o ModelPackageMetadataPropertiesOutput) ToModelPackageMetadataPropertiesOutputWithContext(ctx context.Context) ModelPackageMetadataPropertiesOutput {
+	return o
+}
+
+func (o ModelPackageMetadataPropertiesOutput) ToModelPackageMetadataPropertiesPtrOutput() ModelPackageMetadataPropertiesPtrOutput {
+	return o.ToModelPackageMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageMetadataPropertiesOutput) ToModelPackageMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageMetadataPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageMetadataProperties) *ModelPackageMetadataProperties {
+		return &v
+	}).(ModelPackageMetadataPropertiesPtrOutput)
+}
+
+// The commit ID.
+func (o ModelPackageMetadataPropertiesOutput) CommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageMetadataProperties) *string { return v.CommitId }).(pulumi.StringPtrOutput)
+}
+
+// The entity this entity was generated by.
+func (o ModelPackageMetadataPropertiesOutput) GeneratedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageMetadataProperties) *string { return v.GeneratedBy }).(pulumi.StringPtrOutput)
+}
+
+// The project ID metadata.
+func (o ModelPackageMetadataPropertiesOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageMetadataProperties) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+// The repository metadata.
+func (o ModelPackageMetadataPropertiesOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageMetadataProperties) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageMetadataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageMetadataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageMetadataProperties)(nil)).Elem()
+}
+
+func (o ModelPackageMetadataPropertiesPtrOutput) ToModelPackageMetadataPropertiesPtrOutput() ModelPackageMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelPackageMetadataPropertiesPtrOutput) ToModelPackageMetadataPropertiesPtrOutputWithContext(ctx context.Context) ModelPackageMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelPackageMetadataPropertiesPtrOutput) Elem() ModelPackageMetadataPropertiesOutput {
+	return o.ApplyT(func(v *ModelPackageMetadataProperties) ModelPackageMetadataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageMetadataProperties
+		return ret
+	}).(ModelPackageMetadataPropertiesOutput)
+}
+
+// The commit ID.
+func (o ModelPackageMetadataPropertiesPtrOutput) CommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommitId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The entity this entity was generated by.
+func (o ModelPackageMetadataPropertiesPtrOutput) GeneratedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The project ID metadata.
+func (o ModelPackageMetadataPropertiesPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository metadata.
+func (o ModelPackageMetadataPropertiesPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents a Metric Source Object.
+type ModelPackageMetricsSource struct {
+	// The digest of the metric source.
+	ContentDigest *string `pulumi:"contentDigest"`
+	// The type of content stored in the metric source.
+	ContentType string `pulumi:"contentType"`
+	// The Amazon S3 URI for the metric source.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelPackageMetricsSourceInput is an input type that accepts ModelPackageMetricsSourceArgs and ModelPackageMetricsSourceOutput values.
+// You can construct a concrete instance of `ModelPackageMetricsSourceInput` via:
+//
+//          ModelPackageMetricsSourceArgs{...}
+type ModelPackageMetricsSourceInput interface {
+	pulumi.Input
+
+	ToModelPackageMetricsSourceOutput() ModelPackageMetricsSourceOutput
+	ToModelPackageMetricsSourceOutputWithContext(context.Context) ModelPackageMetricsSourceOutput
+}
+
+// Represents a Metric Source Object.
+type ModelPackageMetricsSourceArgs struct {
+	// The digest of the metric source.
+	ContentDigest pulumi.StringPtrInput `pulumi:"contentDigest"`
+	// The type of content stored in the metric source.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// The Amazon S3 URI for the metric source.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelPackageMetricsSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageMetricsSource)(nil)).Elem()
+}
+
+func (i ModelPackageMetricsSourceArgs) ToModelPackageMetricsSourceOutput() ModelPackageMetricsSourceOutput {
+	return i.ToModelPackageMetricsSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPackageMetricsSourceArgs) ToModelPackageMetricsSourceOutputWithContext(ctx context.Context) ModelPackageMetricsSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageMetricsSourceOutput)
+}
+
+func (i ModelPackageMetricsSourceArgs) ToModelPackageMetricsSourcePtrOutput() ModelPackageMetricsSourcePtrOutput {
+	return i.ToModelPackageMetricsSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageMetricsSourceArgs) ToModelPackageMetricsSourcePtrOutputWithContext(ctx context.Context) ModelPackageMetricsSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageMetricsSourceOutput).ToModelPackageMetricsSourcePtrOutputWithContext(ctx)
+}
+
+// ModelPackageMetricsSourcePtrInput is an input type that accepts ModelPackageMetricsSourceArgs, ModelPackageMetricsSourcePtr and ModelPackageMetricsSourcePtrOutput values.
+// You can construct a concrete instance of `ModelPackageMetricsSourcePtrInput` via:
+//
+//          ModelPackageMetricsSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageMetricsSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelPackageMetricsSourcePtrOutput() ModelPackageMetricsSourcePtrOutput
+	ToModelPackageMetricsSourcePtrOutputWithContext(context.Context) ModelPackageMetricsSourcePtrOutput
+}
+
+type modelPackageMetricsSourcePtrType ModelPackageMetricsSourceArgs
+
+func ModelPackageMetricsSourcePtr(v *ModelPackageMetricsSourceArgs) ModelPackageMetricsSourcePtrInput {
+	return (*modelPackageMetricsSourcePtrType)(v)
+}
+
+func (*modelPackageMetricsSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageMetricsSource)(nil)).Elem()
+}
+
+func (i *modelPackageMetricsSourcePtrType) ToModelPackageMetricsSourcePtrOutput() ModelPackageMetricsSourcePtrOutput {
+	return i.ToModelPackageMetricsSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageMetricsSourcePtrType) ToModelPackageMetricsSourcePtrOutputWithContext(ctx context.Context) ModelPackageMetricsSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Represents a Metric Source Object.
+type ModelPackageMetricsSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageMetricsSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageMetricsSource)(nil)).Elem()
+}
+
+func (o ModelPackageMetricsSourceOutput) ToModelPackageMetricsSourceOutput() ModelPackageMetricsSourceOutput {
+	return o
+}
+
+func (o ModelPackageMetricsSourceOutput) ToModelPackageMetricsSourceOutputWithContext(ctx context.Context) ModelPackageMetricsSourceOutput {
+	return o
+}
+
+func (o ModelPackageMetricsSourceOutput) ToModelPackageMetricsSourcePtrOutput() ModelPackageMetricsSourcePtrOutput {
+	return o.ToModelPackageMetricsSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageMetricsSourceOutput) ToModelPackageMetricsSourcePtrOutputWithContext(ctx context.Context) ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageMetricsSource) *ModelPackageMetricsSource {
+		return &v
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// The digest of the metric source.
+func (o ModelPackageMetricsSourceOutput) ContentDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageMetricsSource) *string { return v.ContentDigest }).(pulumi.StringPtrOutput)
+}
+
+// The type of content stored in the metric source.
+func (o ModelPackageMetricsSourceOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageMetricsSource) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// The Amazon S3 URI for the metric source.
+func (o ModelPackageMetricsSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageMetricsSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelPackageMetricsSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageMetricsSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageMetricsSource)(nil)).Elem()
+}
+
+func (o ModelPackageMetricsSourcePtrOutput) ToModelPackageMetricsSourcePtrOutput() ModelPackageMetricsSourcePtrOutput {
+	return o
+}
+
+func (o ModelPackageMetricsSourcePtrOutput) ToModelPackageMetricsSourcePtrOutputWithContext(ctx context.Context) ModelPackageMetricsSourcePtrOutput {
+	return o
+}
+
+func (o ModelPackageMetricsSourcePtrOutput) Elem() ModelPackageMetricsSourceOutput {
+	return o.ApplyT(func(v *ModelPackageMetricsSource) ModelPackageMetricsSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageMetricsSource
+		return ret
+	}).(ModelPackageMetricsSourceOutput)
+}
+
+// The digest of the metric source.
+func (o ModelPackageMetricsSourcePtrOutput) ContentDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetricsSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of content stored in the metric source.
+func (o ModelPackageMetricsSourcePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetricsSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI for the metric source.
+func (o ModelPackageMetricsSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageMetricsSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metrics that measure the quality of the input data for a model.
+type ModelPackageModelDataQuality struct {
+	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
+	Statistics  *ModelPackageMetricsSource `pulumi:"statistics"`
+}
+
+// ModelPackageModelDataQualityInput is an input type that accepts ModelPackageModelDataQualityArgs and ModelPackageModelDataQualityOutput values.
+// You can construct a concrete instance of `ModelPackageModelDataQualityInput` via:
+//
+//          ModelPackageModelDataQualityArgs{...}
+type ModelPackageModelDataQualityInput interface {
+	pulumi.Input
+
+	ToModelPackageModelDataQualityOutput() ModelPackageModelDataQualityOutput
+	ToModelPackageModelDataQualityOutputWithContext(context.Context) ModelPackageModelDataQualityOutput
+}
+
+// Metrics that measure the quality of the input data for a model.
+type ModelPackageModelDataQualityArgs struct {
+	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
+	Statistics  ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
+}
+
+func (ModelPackageModelDataQualityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelDataQuality)(nil)).Elem()
+}
+
+func (i ModelPackageModelDataQualityArgs) ToModelPackageModelDataQualityOutput() ModelPackageModelDataQualityOutput {
+	return i.ToModelPackageModelDataQualityOutputWithContext(context.Background())
+}
+
+func (i ModelPackageModelDataQualityArgs) ToModelPackageModelDataQualityOutputWithContext(ctx context.Context) ModelPackageModelDataQualityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelDataQualityOutput)
+}
+
+func (i ModelPackageModelDataQualityArgs) ToModelPackageModelDataQualityPtrOutput() ModelPackageModelDataQualityPtrOutput {
+	return i.ToModelPackageModelDataQualityPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageModelDataQualityArgs) ToModelPackageModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelDataQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelDataQualityOutput).ToModelPackageModelDataQualityPtrOutputWithContext(ctx)
+}
+
+// ModelPackageModelDataQualityPtrInput is an input type that accepts ModelPackageModelDataQualityArgs, ModelPackageModelDataQualityPtr and ModelPackageModelDataQualityPtrOutput values.
+// You can construct a concrete instance of `ModelPackageModelDataQualityPtrInput` via:
+//
+//          ModelPackageModelDataQualityArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageModelDataQualityPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageModelDataQualityPtrOutput() ModelPackageModelDataQualityPtrOutput
+	ToModelPackageModelDataQualityPtrOutputWithContext(context.Context) ModelPackageModelDataQualityPtrOutput
+}
+
+type modelPackageModelDataQualityPtrType ModelPackageModelDataQualityArgs
+
+func ModelPackageModelDataQualityPtr(v *ModelPackageModelDataQualityArgs) ModelPackageModelDataQualityPtrInput {
+	return (*modelPackageModelDataQualityPtrType)(v)
+}
+
+func (*modelPackageModelDataQualityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelDataQuality)(nil)).Elem()
+}
+
+func (i *modelPackageModelDataQualityPtrType) ToModelPackageModelDataQualityPtrOutput() ModelPackageModelDataQualityPtrOutput {
+	return i.ToModelPackageModelDataQualityPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageModelDataQualityPtrType) ToModelPackageModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelDataQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelDataQualityPtrOutput)
+}
+
+// Metrics that measure the quality of the input data for a model.
+type ModelPackageModelDataQualityOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelDataQualityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelDataQuality)(nil)).Elem()
+}
+
+func (o ModelPackageModelDataQualityOutput) ToModelPackageModelDataQualityOutput() ModelPackageModelDataQualityOutput {
+	return o
+}
+
+func (o ModelPackageModelDataQualityOutput) ToModelPackageModelDataQualityOutputWithContext(ctx context.Context) ModelPackageModelDataQualityOutput {
+	return o
+}
+
+func (o ModelPackageModelDataQualityOutput) ToModelPackageModelDataQualityPtrOutput() ModelPackageModelDataQualityPtrOutput {
+	return o.ToModelPackageModelDataQualityPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelDataQualityOutput) ToModelPackageModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelDataQualityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageModelDataQuality) *ModelPackageModelDataQuality {
+		return &v
+	}).(ModelPackageModelDataQualityPtrOutput)
+}
+
+func (o ModelPackageModelDataQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageModelDataQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageModelDataQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageModelDataQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageModelDataQualityPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelDataQualityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelDataQuality)(nil)).Elem()
+}
+
+func (o ModelPackageModelDataQualityPtrOutput) ToModelPackageModelDataQualityPtrOutput() ModelPackageModelDataQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelDataQualityPtrOutput) ToModelPackageModelDataQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelDataQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelDataQualityPtrOutput) Elem() ModelPackageModelDataQualityOutput {
+	return o.ApplyT(func(v *ModelPackageModelDataQuality) ModelPackageModelDataQuality {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageModelDataQuality
+		return ret
+	}).(ModelPackageModelDataQualityOutput)
+}
+
+func (o ModelPackageModelDataQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelDataQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Constraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageModelDataQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelDataQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Statistics
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// A structure that contains model metrics reports.
+type ModelPackageModelMetrics struct {
+	Bias             *ModelPackageBias             `pulumi:"bias"`
+	Explainability   *ModelPackageExplainability   `pulumi:"explainability"`
+	ModelDataQuality *ModelPackageModelDataQuality `pulumi:"modelDataQuality"`
+	ModelQuality     *ModelPackageModelQuality     `pulumi:"modelQuality"`
+}
+
+// ModelPackageModelMetricsInput is an input type that accepts ModelPackageModelMetricsArgs and ModelPackageModelMetricsOutput values.
+// You can construct a concrete instance of `ModelPackageModelMetricsInput` via:
+//
+//          ModelPackageModelMetricsArgs{...}
+type ModelPackageModelMetricsInput interface {
+	pulumi.Input
+
+	ToModelPackageModelMetricsOutput() ModelPackageModelMetricsOutput
+	ToModelPackageModelMetricsOutputWithContext(context.Context) ModelPackageModelMetricsOutput
+}
+
+// A structure that contains model metrics reports.
+type ModelPackageModelMetricsArgs struct {
+	Bias             ModelPackageBiasPtrInput             `pulumi:"bias"`
+	Explainability   ModelPackageExplainabilityPtrInput   `pulumi:"explainability"`
+	ModelDataQuality ModelPackageModelDataQualityPtrInput `pulumi:"modelDataQuality"`
+	ModelQuality     ModelPackageModelQualityPtrInput     `pulumi:"modelQuality"`
+}
+
+func (ModelPackageModelMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelMetrics)(nil)).Elem()
+}
+
+func (i ModelPackageModelMetricsArgs) ToModelPackageModelMetricsOutput() ModelPackageModelMetricsOutput {
+	return i.ToModelPackageModelMetricsOutputWithContext(context.Background())
+}
+
+func (i ModelPackageModelMetricsArgs) ToModelPackageModelMetricsOutputWithContext(ctx context.Context) ModelPackageModelMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelMetricsOutput)
+}
+
+func (i ModelPackageModelMetricsArgs) ToModelPackageModelMetricsPtrOutput() ModelPackageModelMetricsPtrOutput {
+	return i.ToModelPackageModelMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageModelMetricsArgs) ToModelPackageModelMetricsPtrOutputWithContext(ctx context.Context) ModelPackageModelMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelMetricsOutput).ToModelPackageModelMetricsPtrOutputWithContext(ctx)
+}
+
+// ModelPackageModelMetricsPtrInput is an input type that accepts ModelPackageModelMetricsArgs, ModelPackageModelMetricsPtr and ModelPackageModelMetricsPtrOutput values.
+// You can construct a concrete instance of `ModelPackageModelMetricsPtrInput` via:
+//
+//          ModelPackageModelMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageModelMetricsPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageModelMetricsPtrOutput() ModelPackageModelMetricsPtrOutput
+	ToModelPackageModelMetricsPtrOutputWithContext(context.Context) ModelPackageModelMetricsPtrOutput
+}
+
+type modelPackageModelMetricsPtrType ModelPackageModelMetricsArgs
+
+func ModelPackageModelMetricsPtr(v *ModelPackageModelMetricsArgs) ModelPackageModelMetricsPtrInput {
+	return (*modelPackageModelMetricsPtrType)(v)
+}
+
+func (*modelPackageModelMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelMetrics)(nil)).Elem()
+}
+
+func (i *modelPackageModelMetricsPtrType) ToModelPackageModelMetricsPtrOutput() ModelPackageModelMetricsPtrOutput {
+	return i.ToModelPackageModelMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageModelMetricsPtrType) ToModelPackageModelMetricsPtrOutputWithContext(ctx context.Context) ModelPackageModelMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelMetricsPtrOutput)
+}
+
+// A structure that contains model metrics reports.
+type ModelPackageModelMetricsOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelMetrics)(nil)).Elem()
+}
+
+func (o ModelPackageModelMetricsOutput) ToModelPackageModelMetricsOutput() ModelPackageModelMetricsOutput {
+	return o
+}
+
+func (o ModelPackageModelMetricsOutput) ToModelPackageModelMetricsOutputWithContext(ctx context.Context) ModelPackageModelMetricsOutput {
+	return o
+}
+
+func (o ModelPackageModelMetricsOutput) ToModelPackageModelMetricsPtrOutput() ModelPackageModelMetricsPtrOutput {
+	return o.ToModelPackageModelMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelMetricsOutput) ToModelPackageModelMetricsPtrOutputWithContext(ctx context.Context) ModelPackageModelMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageModelMetrics) *ModelPackageModelMetrics {
+		return &v
+	}).(ModelPackageModelMetricsPtrOutput)
+}
+
+func (o ModelPackageModelMetricsOutput) Bias() ModelPackageBiasPtrOutput {
+	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageBias { return v.Bias }).(ModelPackageBiasPtrOutput)
+}
+
+func (o ModelPackageModelMetricsOutput) Explainability() ModelPackageExplainabilityPtrOutput {
+	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageExplainability { return v.Explainability }).(ModelPackageExplainabilityPtrOutput)
+}
+
+func (o ModelPackageModelMetricsOutput) ModelDataQuality() ModelPackageModelDataQualityPtrOutput {
+	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageModelDataQuality { return v.ModelDataQuality }).(ModelPackageModelDataQualityPtrOutput)
+}
+
+func (o ModelPackageModelMetricsOutput) ModelQuality() ModelPackageModelQualityPtrOutput {
+	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageModelQuality { return v.ModelQuality }).(ModelPackageModelQualityPtrOutput)
+}
+
+type ModelPackageModelMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelMetrics)(nil)).Elem()
+}
+
+func (o ModelPackageModelMetricsPtrOutput) ToModelPackageModelMetricsPtrOutput() ModelPackageModelMetricsPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelMetricsPtrOutput) ToModelPackageModelMetricsPtrOutputWithContext(ctx context.Context) ModelPackageModelMetricsPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelMetricsPtrOutput) Elem() ModelPackageModelMetricsOutput {
+	return o.ApplyT(func(v *ModelPackageModelMetrics) ModelPackageModelMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageModelMetrics
+		return ret
+	}).(ModelPackageModelMetricsOutput)
+}
+
+func (o ModelPackageModelMetricsPtrOutput) Bias() ModelPackageBiasPtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageBias {
+		if v == nil {
+			return nil
+		}
+		return v.Bias
+	}).(ModelPackageBiasPtrOutput)
+}
+
+func (o ModelPackageModelMetricsPtrOutput) Explainability() ModelPackageExplainabilityPtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageExplainability {
+		if v == nil {
+			return nil
+		}
+		return v.Explainability
+	}).(ModelPackageExplainabilityPtrOutput)
+}
+
+func (o ModelPackageModelMetricsPtrOutput) ModelDataQuality() ModelPackageModelDataQualityPtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageModelDataQuality {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataQuality
+	}).(ModelPackageModelDataQualityPtrOutput)
+}
+
+func (o ModelPackageModelMetricsPtrOutput) ModelQuality() ModelPackageModelQualityPtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageModelQuality {
+		if v == nil {
+			return nil
+		}
+		return v.ModelQuality
+	}).(ModelPackageModelQualityPtrOutput)
+}
+
+// Metrics that measure the quality of a model.
+type ModelPackageModelQuality struct {
+	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
+	Statistics  *ModelPackageMetricsSource `pulumi:"statistics"`
+}
+
+// ModelPackageModelQualityInput is an input type that accepts ModelPackageModelQualityArgs and ModelPackageModelQualityOutput values.
+// You can construct a concrete instance of `ModelPackageModelQualityInput` via:
+//
+//          ModelPackageModelQualityArgs{...}
+type ModelPackageModelQualityInput interface {
+	pulumi.Input
+
+	ToModelPackageModelQualityOutput() ModelPackageModelQualityOutput
+	ToModelPackageModelQualityOutputWithContext(context.Context) ModelPackageModelQualityOutput
+}
+
+// Metrics that measure the quality of a model.
+type ModelPackageModelQualityArgs struct {
+	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
+	Statistics  ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
+}
+
+func (ModelPackageModelQualityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelQuality)(nil)).Elem()
+}
+
+func (i ModelPackageModelQualityArgs) ToModelPackageModelQualityOutput() ModelPackageModelQualityOutput {
+	return i.ToModelPackageModelQualityOutputWithContext(context.Background())
+}
+
+func (i ModelPackageModelQualityArgs) ToModelPackageModelQualityOutputWithContext(ctx context.Context) ModelPackageModelQualityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelQualityOutput)
+}
+
+func (i ModelPackageModelQualityArgs) ToModelPackageModelQualityPtrOutput() ModelPackageModelQualityPtrOutput {
+	return i.ToModelPackageModelQualityPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageModelQualityArgs) ToModelPackageModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelQualityOutput).ToModelPackageModelQualityPtrOutputWithContext(ctx)
+}
+
+// ModelPackageModelQualityPtrInput is an input type that accepts ModelPackageModelQualityArgs, ModelPackageModelQualityPtr and ModelPackageModelQualityPtrOutput values.
+// You can construct a concrete instance of `ModelPackageModelQualityPtrInput` via:
+//
+//          ModelPackageModelQualityArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageModelQualityPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageModelQualityPtrOutput() ModelPackageModelQualityPtrOutput
+	ToModelPackageModelQualityPtrOutputWithContext(context.Context) ModelPackageModelQualityPtrOutput
+}
+
+type modelPackageModelQualityPtrType ModelPackageModelQualityArgs
+
+func ModelPackageModelQualityPtr(v *ModelPackageModelQualityArgs) ModelPackageModelQualityPtrInput {
+	return (*modelPackageModelQualityPtrType)(v)
+}
+
+func (*modelPackageModelQualityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelQuality)(nil)).Elem()
+}
+
+func (i *modelPackageModelQualityPtrType) ToModelPackageModelQualityPtrOutput() ModelPackageModelQualityPtrOutput {
+	return i.ToModelPackageModelQualityPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageModelQualityPtrType) ToModelPackageModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelQualityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageModelQualityPtrOutput)
+}
+
+// Metrics that measure the quality of a model.
+type ModelPackageModelQualityOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelQualityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageModelQuality)(nil)).Elem()
+}
+
+func (o ModelPackageModelQualityOutput) ToModelPackageModelQualityOutput() ModelPackageModelQualityOutput {
+	return o
+}
+
+func (o ModelPackageModelQualityOutput) ToModelPackageModelQualityOutputWithContext(ctx context.Context) ModelPackageModelQualityOutput {
+	return o
+}
+
+func (o ModelPackageModelQualityOutput) ToModelPackageModelQualityPtrOutput() ModelPackageModelQualityPtrOutput {
+	return o.ToModelPackageModelQualityPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageModelQualityOutput) ToModelPackageModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelQualityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageModelQuality) *ModelPackageModelQuality {
+		return &v
+	}).(ModelPackageModelQualityPtrOutput)
+}
+
+func (o ModelPackageModelQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageModelQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageModelQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v ModelPackageModelQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
+}
+
+type ModelPackageModelQualityPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageModelQualityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageModelQuality)(nil)).Elem()
+}
+
+func (o ModelPackageModelQualityPtrOutput) ToModelPackageModelQualityPtrOutput() ModelPackageModelQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelQualityPtrOutput) ToModelPackageModelQualityPtrOutputWithContext(ctx context.Context) ModelPackageModelQualityPtrOutput {
+	return o
+}
+
+func (o ModelPackageModelQualityPtrOutput) Elem() ModelPackageModelQualityOutput {
+	return o.ApplyT(func(v *ModelPackageModelQuality) ModelPackageModelQuality {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageModelQuality
+		return ret
+	}).(ModelPackageModelQualityOutput)
+}
+
+func (o ModelPackageModelQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Constraints
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+func (o ModelPackageModelQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPackageModelQuality) *ModelPackageMetricsSource {
+		if v == nil {
+			return nil
+		}
+		return v.Statistics
+	}).(ModelPackageMetricsSourcePtrOutput)
+}
+
+// Describes the S3 data source.
+type ModelPackageS3DataSource struct {
+	// The S3 Data Source Type
+	S3DataType ModelPackageS3DataSourceS3DataType `pulumi:"s3DataType"`
+	// Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelPackageS3DataSourceInput is an input type that accepts ModelPackageS3DataSourceArgs and ModelPackageS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelPackageS3DataSourceInput` via:
+//
+//          ModelPackageS3DataSourceArgs{...}
+type ModelPackageS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelPackageS3DataSourceOutput() ModelPackageS3DataSourceOutput
+	ToModelPackageS3DataSourceOutputWithContext(context.Context) ModelPackageS3DataSourceOutput
+}
+
+// Describes the S3 data source.
+type ModelPackageS3DataSourceArgs struct {
+	// The S3 Data Source Type
+	S3DataType ModelPackageS3DataSourceS3DataTypeInput `pulumi:"s3DataType"`
+	// Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelPackageS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageS3DataSource)(nil)).Elem()
+}
+
+func (i ModelPackageS3DataSourceArgs) ToModelPackageS3DataSourceOutput() ModelPackageS3DataSourceOutput {
+	return i.ToModelPackageS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPackageS3DataSourceArgs) ToModelPackageS3DataSourceOutputWithContext(ctx context.Context) ModelPackageS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageS3DataSourceOutput)
+}
+
+// Describes the S3 data source.
+type ModelPackageS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageS3DataSource)(nil)).Elem()
+}
+
+func (o ModelPackageS3DataSourceOutput) ToModelPackageS3DataSourceOutput() ModelPackageS3DataSourceOutput {
+	return o
+}
+
+func (o ModelPackageS3DataSourceOutput) ToModelPackageS3DataSourceOutputWithContext(ctx context.Context) ModelPackageS3DataSourceOutput {
+	return o
+}
+
+// The S3 Data Source Type
+func (o ModelPackageS3DataSourceOutput) S3DataType() ModelPackageS3DataSourceS3DataTypeOutput {
+	return o.ApplyT(func(v ModelPackageS3DataSource) ModelPackageS3DataSourceS3DataType { return v.S3DataType }).(ModelPackageS3DataSourceS3DataTypeOutput)
+}
+
+// Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+func (o ModelPackageS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+// Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+type ModelPackageSourceAlgorithm struct {
+	// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+	AlgorithmName string `pulumi:"algorithmName"`
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+}
+
+// ModelPackageSourceAlgorithmInput is an input type that accepts ModelPackageSourceAlgorithmArgs and ModelPackageSourceAlgorithmOutput values.
+// You can construct a concrete instance of `ModelPackageSourceAlgorithmInput` via:
+//
+//          ModelPackageSourceAlgorithmArgs{...}
+type ModelPackageSourceAlgorithmInput interface {
+	pulumi.Input
+
+	ToModelPackageSourceAlgorithmOutput() ModelPackageSourceAlgorithmOutput
+	ToModelPackageSourceAlgorithmOutputWithContext(context.Context) ModelPackageSourceAlgorithmOutput
+}
+
+// Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+type ModelPackageSourceAlgorithmArgs struct {
+	// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+	AlgorithmName pulumi.StringInput `pulumi:"algorithmName"`
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+}
+
+func (ModelPackageSourceAlgorithmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageSourceAlgorithm)(nil)).Elem()
+}
+
+func (i ModelPackageSourceAlgorithmArgs) ToModelPackageSourceAlgorithmOutput() ModelPackageSourceAlgorithmOutput {
+	return i.ToModelPackageSourceAlgorithmOutputWithContext(context.Background())
+}
+
+func (i ModelPackageSourceAlgorithmArgs) ToModelPackageSourceAlgorithmOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageSourceAlgorithmOutput)
+}
+
+// ModelPackageSourceAlgorithmArrayInput is an input type that accepts ModelPackageSourceAlgorithmArray and ModelPackageSourceAlgorithmArrayOutput values.
+// You can construct a concrete instance of `ModelPackageSourceAlgorithmArrayInput` via:
+//
+//          ModelPackageSourceAlgorithmArray{ ModelPackageSourceAlgorithmArgs{...} }
+type ModelPackageSourceAlgorithmArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageSourceAlgorithmArrayOutput() ModelPackageSourceAlgorithmArrayOutput
+	ToModelPackageSourceAlgorithmArrayOutputWithContext(context.Context) ModelPackageSourceAlgorithmArrayOutput
+}
+
+type ModelPackageSourceAlgorithmArray []ModelPackageSourceAlgorithmInput
+
+func (ModelPackageSourceAlgorithmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageSourceAlgorithm)(nil)).Elem()
+}
+
+func (i ModelPackageSourceAlgorithmArray) ToModelPackageSourceAlgorithmArrayOutput() ModelPackageSourceAlgorithmArrayOutput {
+	return i.ToModelPackageSourceAlgorithmArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageSourceAlgorithmArray) ToModelPackageSourceAlgorithmArrayOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageSourceAlgorithmArrayOutput)
+}
+
+// Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+type ModelPackageSourceAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageSourceAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageSourceAlgorithm)(nil)).Elem()
+}
+
+func (o ModelPackageSourceAlgorithmOutput) ToModelPackageSourceAlgorithmOutput() ModelPackageSourceAlgorithmOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmOutput) ToModelPackageSourceAlgorithmOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmOutput {
+	return o
+}
+
+// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+func (o ModelPackageSourceAlgorithmOutput) AlgorithmName() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageSourceAlgorithm) string { return v.AlgorithmName }).(pulumi.StringOutput)
+}
+
+// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+func (o ModelPackageSourceAlgorithmOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageSourceAlgorithm) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageSourceAlgorithmArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageSourceAlgorithmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageSourceAlgorithm)(nil)).Elem()
+}
+
+func (o ModelPackageSourceAlgorithmArrayOutput) ToModelPackageSourceAlgorithmArrayOutput() ModelPackageSourceAlgorithmArrayOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmArrayOutput) ToModelPackageSourceAlgorithmArrayOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmArrayOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmArrayOutput) Index(i pulumi.IntInput) ModelPackageSourceAlgorithmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageSourceAlgorithm {
+		return vs[0].([]ModelPackageSourceAlgorithm)[vs[1].(int)]
+	}).(ModelPackageSourceAlgorithmOutput)
+}
+
+// Details about the algorithm that was used to create the model package.
+type ModelPackageSourceAlgorithmSpecification struct {
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithms []ModelPackageSourceAlgorithm `pulumi:"sourceAlgorithms"`
+}
+
+// ModelPackageSourceAlgorithmSpecificationInput is an input type that accepts ModelPackageSourceAlgorithmSpecificationArgs and ModelPackageSourceAlgorithmSpecificationOutput values.
+// You can construct a concrete instance of `ModelPackageSourceAlgorithmSpecificationInput` via:
+//
+//          ModelPackageSourceAlgorithmSpecificationArgs{...}
+type ModelPackageSourceAlgorithmSpecificationInput interface {
+	pulumi.Input
+
+	ToModelPackageSourceAlgorithmSpecificationOutput() ModelPackageSourceAlgorithmSpecificationOutput
+	ToModelPackageSourceAlgorithmSpecificationOutputWithContext(context.Context) ModelPackageSourceAlgorithmSpecificationOutput
+}
+
+// Details about the algorithm that was used to create the model package.
+type ModelPackageSourceAlgorithmSpecificationArgs struct {
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithms ModelPackageSourceAlgorithmArrayInput `pulumi:"sourceAlgorithms"`
+}
+
+func (ModelPackageSourceAlgorithmSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageSourceAlgorithmSpecification)(nil)).Elem()
+}
+
+func (i ModelPackageSourceAlgorithmSpecificationArgs) ToModelPackageSourceAlgorithmSpecificationOutput() ModelPackageSourceAlgorithmSpecificationOutput {
+	return i.ToModelPackageSourceAlgorithmSpecificationOutputWithContext(context.Background())
+}
+
+func (i ModelPackageSourceAlgorithmSpecificationArgs) ToModelPackageSourceAlgorithmSpecificationOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageSourceAlgorithmSpecificationOutput)
+}
+
+func (i ModelPackageSourceAlgorithmSpecificationArgs) ToModelPackageSourceAlgorithmSpecificationPtrOutput() ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return i.ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageSourceAlgorithmSpecificationArgs) ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageSourceAlgorithmSpecificationOutput).ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(ctx)
+}
+
+// ModelPackageSourceAlgorithmSpecificationPtrInput is an input type that accepts ModelPackageSourceAlgorithmSpecificationArgs, ModelPackageSourceAlgorithmSpecificationPtr and ModelPackageSourceAlgorithmSpecificationPtrOutput values.
+// You can construct a concrete instance of `ModelPackageSourceAlgorithmSpecificationPtrInput` via:
+//
+//          ModelPackageSourceAlgorithmSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageSourceAlgorithmSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageSourceAlgorithmSpecificationPtrOutput() ModelPackageSourceAlgorithmSpecificationPtrOutput
+	ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(context.Context) ModelPackageSourceAlgorithmSpecificationPtrOutput
+}
+
+type modelPackageSourceAlgorithmSpecificationPtrType ModelPackageSourceAlgorithmSpecificationArgs
+
+func ModelPackageSourceAlgorithmSpecificationPtr(v *ModelPackageSourceAlgorithmSpecificationArgs) ModelPackageSourceAlgorithmSpecificationPtrInput {
+	return (*modelPackageSourceAlgorithmSpecificationPtrType)(v)
+}
+
+func (*modelPackageSourceAlgorithmSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageSourceAlgorithmSpecification)(nil)).Elem()
+}
+
+func (i *modelPackageSourceAlgorithmSpecificationPtrType) ToModelPackageSourceAlgorithmSpecificationPtrOutput() ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return i.ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageSourceAlgorithmSpecificationPtrType) ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageSourceAlgorithmSpecificationPtrOutput)
+}
+
+// Details about the algorithm that was used to create the model package.
+type ModelPackageSourceAlgorithmSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageSourceAlgorithmSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageSourceAlgorithmSpecification)(nil)).Elem()
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationOutput) ToModelPackageSourceAlgorithmSpecificationOutput() ModelPackageSourceAlgorithmSpecificationOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationOutput) ToModelPackageSourceAlgorithmSpecificationOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmSpecificationOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationOutput) ToModelPackageSourceAlgorithmSpecificationPtrOutput() ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return o.ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationOutput) ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageSourceAlgorithmSpecification) *ModelPackageSourceAlgorithmSpecification {
+		return &v
+	}).(ModelPackageSourceAlgorithmSpecificationPtrOutput)
+}
+
+// A list of algorithms that were used to create a model package.
+func (o ModelPackageSourceAlgorithmSpecificationOutput) SourceAlgorithms() ModelPackageSourceAlgorithmArrayOutput {
+	return o.ApplyT(func(v ModelPackageSourceAlgorithmSpecification) []ModelPackageSourceAlgorithm {
+		return v.SourceAlgorithms
+	}).(ModelPackageSourceAlgorithmArrayOutput)
+}
+
+type ModelPackageSourceAlgorithmSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageSourceAlgorithmSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageSourceAlgorithmSpecification)(nil)).Elem()
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationPtrOutput) ToModelPackageSourceAlgorithmSpecificationPtrOutput() ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationPtrOutput) ToModelPackageSourceAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageSourceAlgorithmSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelPackageSourceAlgorithmSpecificationPtrOutput) Elem() ModelPackageSourceAlgorithmSpecificationOutput {
+	return o.ApplyT(func(v *ModelPackageSourceAlgorithmSpecification) ModelPackageSourceAlgorithmSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageSourceAlgorithmSpecification
+		return ret
+	}).(ModelPackageSourceAlgorithmSpecificationOutput)
+}
+
+// A list of algorithms that were used to create a model package.
+func (o ModelPackageSourceAlgorithmSpecificationPtrOutput) SourceAlgorithms() ModelPackageSourceAlgorithmArrayOutput {
+	return o.ApplyT(func(v *ModelPackageSourceAlgorithmSpecification) []ModelPackageSourceAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAlgorithms
+	}).(ModelPackageSourceAlgorithmArrayOutput)
+}
+
+// Details about the current status of the model package.
+type ModelPackageStatusDetails struct {
+	ImageScanStatuses  []ModelPackageStatusItem `pulumi:"imageScanStatuses"`
+	ValidationStatuses []ModelPackageStatusItem `pulumi:"validationStatuses"`
+}
+
+// ModelPackageStatusDetailsInput is an input type that accepts ModelPackageStatusDetailsArgs and ModelPackageStatusDetailsOutput values.
+// You can construct a concrete instance of `ModelPackageStatusDetailsInput` via:
+//
+//          ModelPackageStatusDetailsArgs{...}
+type ModelPackageStatusDetailsInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusDetailsOutput() ModelPackageStatusDetailsOutput
+	ToModelPackageStatusDetailsOutputWithContext(context.Context) ModelPackageStatusDetailsOutput
+}
+
+// Details about the current status of the model package.
+type ModelPackageStatusDetailsArgs struct {
+	ImageScanStatuses  ModelPackageStatusItemArrayInput `pulumi:"imageScanStatuses"`
+	ValidationStatuses ModelPackageStatusItemArrayInput `pulumi:"validationStatuses"`
+}
+
+func (ModelPackageStatusDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatusDetails)(nil)).Elem()
+}
+
+func (i ModelPackageStatusDetailsArgs) ToModelPackageStatusDetailsOutput() ModelPackageStatusDetailsOutput {
+	return i.ToModelPackageStatusDetailsOutputWithContext(context.Background())
+}
+
+func (i ModelPackageStatusDetailsArgs) ToModelPackageStatusDetailsOutputWithContext(ctx context.Context) ModelPackageStatusDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusDetailsOutput)
+}
+
+func (i ModelPackageStatusDetailsArgs) ToModelPackageStatusDetailsPtrOutput() ModelPackageStatusDetailsPtrOutput {
+	return i.ToModelPackageStatusDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageStatusDetailsArgs) ToModelPackageStatusDetailsPtrOutputWithContext(ctx context.Context) ModelPackageStatusDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusDetailsOutput).ToModelPackageStatusDetailsPtrOutputWithContext(ctx)
+}
+
+// ModelPackageStatusDetailsPtrInput is an input type that accepts ModelPackageStatusDetailsArgs, ModelPackageStatusDetailsPtr and ModelPackageStatusDetailsPtrOutput values.
+// You can construct a concrete instance of `ModelPackageStatusDetailsPtrInput` via:
+//
+//          ModelPackageStatusDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageStatusDetailsPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusDetailsPtrOutput() ModelPackageStatusDetailsPtrOutput
+	ToModelPackageStatusDetailsPtrOutputWithContext(context.Context) ModelPackageStatusDetailsPtrOutput
+}
+
+type modelPackageStatusDetailsPtrType ModelPackageStatusDetailsArgs
+
+func ModelPackageStatusDetailsPtr(v *ModelPackageStatusDetailsArgs) ModelPackageStatusDetailsPtrInput {
+	return (*modelPackageStatusDetailsPtrType)(v)
+}
+
+func (*modelPackageStatusDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageStatusDetails)(nil)).Elem()
+}
+
+func (i *modelPackageStatusDetailsPtrType) ToModelPackageStatusDetailsPtrOutput() ModelPackageStatusDetailsPtrOutput {
+	return i.ToModelPackageStatusDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageStatusDetailsPtrType) ToModelPackageStatusDetailsPtrOutputWithContext(ctx context.Context) ModelPackageStatusDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusDetailsPtrOutput)
+}
+
+// Details about the current status of the model package.
+type ModelPackageStatusDetailsOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatusDetails)(nil)).Elem()
+}
+
+func (o ModelPackageStatusDetailsOutput) ToModelPackageStatusDetailsOutput() ModelPackageStatusDetailsOutput {
+	return o
+}
+
+func (o ModelPackageStatusDetailsOutput) ToModelPackageStatusDetailsOutputWithContext(ctx context.Context) ModelPackageStatusDetailsOutput {
+	return o
+}
+
+func (o ModelPackageStatusDetailsOutput) ToModelPackageStatusDetailsPtrOutput() ModelPackageStatusDetailsPtrOutput {
+	return o.ToModelPackageStatusDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusDetailsOutput) ToModelPackageStatusDetailsPtrOutputWithContext(ctx context.Context) ModelPackageStatusDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageStatusDetails) *ModelPackageStatusDetails {
+		return &v
+	}).(ModelPackageStatusDetailsPtrOutput)
+}
+
+func (o ModelPackageStatusDetailsOutput) ImageScanStatuses() ModelPackageStatusItemArrayOutput {
+	return o.ApplyT(func(v ModelPackageStatusDetails) []ModelPackageStatusItem { return v.ImageScanStatuses }).(ModelPackageStatusItemArrayOutput)
+}
+
+func (o ModelPackageStatusDetailsOutput) ValidationStatuses() ModelPackageStatusItemArrayOutput {
+	return o.ApplyT(func(v ModelPackageStatusDetails) []ModelPackageStatusItem { return v.ValidationStatuses }).(ModelPackageStatusItemArrayOutput)
+}
+
+type ModelPackageStatusDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageStatusDetails)(nil)).Elem()
+}
+
+func (o ModelPackageStatusDetailsPtrOutput) ToModelPackageStatusDetailsPtrOutput() ModelPackageStatusDetailsPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusDetailsPtrOutput) ToModelPackageStatusDetailsPtrOutputWithContext(ctx context.Context) ModelPackageStatusDetailsPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusDetailsPtrOutput) Elem() ModelPackageStatusDetailsOutput {
+	return o.ApplyT(func(v *ModelPackageStatusDetails) ModelPackageStatusDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageStatusDetails
+		return ret
+	}).(ModelPackageStatusDetailsOutput)
+}
+
+func (o ModelPackageStatusDetailsPtrOutput) ImageScanStatuses() ModelPackageStatusItemArrayOutput {
+	return o.ApplyT(func(v *ModelPackageStatusDetails) []ModelPackageStatusItem {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanStatuses
+	}).(ModelPackageStatusItemArrayOutput)
+}
+
+func (o ModelPackageStatusDetailsPtrOutput) ValidationStatuses() ModelPackageStatusItemArrayOutput {
+	return o.ApplyT(func(v *ModelPackageStatusDetails) []ModelPackageStatusItem {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationStatuses
+	}).(ModelPackageStatusItemArrayOutput)
+}
+
+// Represents the overall status of a model package.
+type ModelPackageStatusItem struct {
+	// If the overall status is Failed, the reason for the failure.
+	FailureReason *string `pulumi:"failureReason"`
+	// The name of the model package for which the overall status is being reported.
+	Name string `pulumi:"name"`
+	// The current status.
+	Status ModelPackageStatusItemStatus `pulumi:"status"`
+}
+
+// ModelPackageStatusItemInput is an input type that accepts ModelPackageStatusItemArgs and ModelPackageStatusItemOutput values.
+// You can construct a concrete instance of `ModelPackageStatusItemInput` via:
+//
+//          ModelPackageStatusItemArgs{...}
+type ModelPackageStatusItemInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusItemOutput() ModelPackageStatusItemOutput
+	ToModelPackageStatusItemOutputWithContext(context.Context) ModelPackageStatusItemOutput
+}
+
+// Represents the overall status of a model package.
+type ModelPackageStatusItemArgs struct {
+	// If the overall status is Failed, the reason for the failure.
+	FailureReason pulumi.StringPtrInput `pulumi:"failureReason"`
+	// The name of the model package for which the overall status is being reported.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The current status.
+	Status ModelPackageStatusItemStatusInput `pulumi:"status"`
+}
+
+func (ModelPackageStatusItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatusItem)(nil)).Elem()
+}
+
+func (i ModelPackageStatusItemArgs) ToModelPackageStatusItemOutput() ModelPackageStatusItemOutput {
+	return i.ToModelPackageStatusItemOutputWithContext(context.Background())
+}
+
+func (i ModelPackageStatusItemArgs) ToModelPackageStatusItemOutputWithContext(ctx context.Context) ModelPackageStatusItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusItemOutput)
+}
+
+func (i ModelPackageStatusItemArgs) ToModelPackageStatusItemPtrOutput() ModelPackageStatusItemPtrOutput {
+	return i.ToModelPackageStatusItemPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageStatusItemArgs) ToModelPackageStatusItemPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusItemOutput).ToModelPackageStatusItemPtrOutputWithContext(ctx)
+}
+
+// ModelPackageStatusItemPtrInput is an input type that accepts ModelPackageStatusItemArgs, ModelPackageStatusItemPtr and ModelPackageStatusItemPtrOutput values.
+// You can construct a concrete instance of `ModelPackageStatusItemPtrInput` via:
+//
+//          ModelPackageStatusItemArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageStatusItemPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusItemPtrOutput() ModelPackageStatusItemPtrOutput
+	ToModelPackageStatusItemPtrOutputWithContext(context.Context) ModelPackageStatusItemPtrOutput
+}
+
+type modelPackageStatusItemPtrType ModelPackageStatusItemArgs
+
+func ModelPackageStatusItemPtr(v *ModelPackageStatusItemArgs) ModelPackageStatusItemPtrInput {
+	return (*modelPackageStatusItemPtrType)(v)
+}
+
+func (*modelPackageStatusItemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageStatusItem)(nil)).Elem()
+}
+
+func (i *modelPackageStatusItemPtrType) ToModelPackageStatusItemPtrOutput() ModelPackageStatusItemPtrOutput {
+	return i.ToModelPackageStatusItemPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageStatusItemPtrType) ToModelPackageStatusItemPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusItemPtrOutput)
+}
+
+// ModelPackageStatusItemArrayInput is an input type that accepts ModelPackageStatusItemArray and ModelPackageStatusItemArrayOutput values.
+// You can construct a concrete instance of `ModelPackageStatusItemArrayInput` via:
+//
+//          ModelPackageStatusItemArray{ ModelPackageStatusItemArgs{...} }
+type ModelPackageStatusItemArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageStatusItemArrayOutput() ModelPackageStatusItemArrayOutput
+	ToModelPackageStatusItemArrayOutputWithContext(context.Context) ModelPackageStatusItemArrayOutput
+}
+
+type ModelPackageStatusItemArray []ModelPackageStatusItemInput
+
+func (ModelPackageStatusItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageStatusItem)(nil)).Elem()
+}
+
+func (i ModelPackageStatusItemArray) ToModelPackageStatusItemArrayOutput() ModelPackageStatusItemArrayOutput {
+	return i.ToModelPackageStatusItemArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageStatusItemArray) ToModelPackageStatusItemArrayOutputWithContext(ctx context.Context) ModelPackageStatusItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageStatusItemArrayOutput)
+}
+
+// Represents the overall status of a model package.
+type ModelPackageStatusItemOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageStatusItem)(nil)).Elem()
+}
+
+func (o ModelPackageStatusItemOutput) ToModelPackageStatusItemOutput() ModelPackageStatusItemOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemOutput) ToModelPackageStatusItemOutputWithContext(ctx context.Context) ModelPackageStatusItemOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemOutput) ToModelPackageStatusItemPtrOutput() ModelPackageStatusItemPtrOutput {
+	return o.ToModelPackageStatusItemPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageStatusItemOutput) ToModelPackageStatusItemPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageStatusItem) *ModelPackageStatusItem {
+		return &v
+	}).(ModelPackageStatusItemPtrOutput)
+}
+
+// If the overall status is Failed, the reason for the failure.
+func (o ModelPackageStatusItemOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageStatusItem) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
+}
+
+// The name of the model package for which the overall status is being reported.
+func (o ModelPackageStatusItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageStatusItem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current status.
+func (o ModelPackageStatusItemOutput) Status() ModelPackageStatusItemStatusOutput {
+	return o.ApplyT(func(v ModelPackageStatusItem) ModelPackageStatusItemStatus { return v.Status }).(ModelPackageStatusItemStatusOutput)
+}
+
+type ModelPackageStatusItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageStatusItem)(nil)).Elem()
+}
+
+func (o ModelPackageStatusItemPtrOutput) ToModelPackageStatusItemPtrOutput() ModelPackageStatusItemPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemPtrOutput) ToModelPackageStatusItemPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemPtrOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemPtrOutput) Elem() ModelPackageStatusItemOutput {
+	return o.ApplyT(func(v *ModelPackageStatusItem) ModelPackageStatusItem {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageStatusItem
+		return ret
+	}).(ModelPackageStatusItemOutput)
+}
+
+// If the overall status is Failed, the reason for the failure.
+func (o ModelPackageStatusItemPtrOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageStatusItem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FailureReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the model package for which the overall status is being reported.
+func (o ModelPackageStatusItemPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageStatusItem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status.
+func (o ModelPackageStatusItemPtrOutput) Status() ModelPackageStatusItemStatusPtrOutput {
+	return o.ApplyT(func(v *ModelPackageStatusItem) *ModelPackageStatusItemStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(ModelPackageStatusItemStatusPtrOutput)
+}
+
+type ModelPackageStatusItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageStatusItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageStatusItem)(nil)).Elem()
+}
+
+func (o ModelPackageStatusItemArrayOutput) ToModelPackageStatusItemArrayOutput() ModelPackageStatusItemArrayOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemArrayOutput) ToModelPackageStatusItemArrayOutputWithContext(ctx context.Context) ModelPackageStatusItemArrayOutput {
+	return o
+}
+
+func (o ModelPackageStatusItemArrayOutput) Index(i pulumi.IntInput) ModelPackageStatusItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageStatusItem {
+		return vs[0].([]ModelPackageStatusItem)[vs[1].(int)]
+	}).(ModelPackageStatusItemOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelPackageTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ModelPackageTagInput is an input type that accepts ModelPackageTagArgs and ModelPackageTagOutput values.
+// You can construct a concrete instance of `ModelPackageTagInput` via:
+//
+//          ModelPackageTagArgs{...}
+type ModelPackageTagInput interface {
+	pulumi.Input
+
+	ToModelPackageTagOutput() ModelPackageTagOutput
+	ToModelPackageTagOutputWithContext(context.Context) ModelPackageTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ModelPackageTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelPackageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTag)(nil)).Elem()
+}
+
+func (i ModelPackageTagArgs) ToModelPackageTagOutput() ModelPackageTagOutput {
+	return i.ToModelPackageTagOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTagArgs) ToModelPackageTagOutputWithContext(ctx context.Context) ModelPackageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagOutput)
+}
+
+func (i ModelPackageTagArgs) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
+	return i.ToModelPackageTagPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTagArgs) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagOutput).ToModelPackageTagPtrOutputWithContext(ctx)
+}
+
+// ModelPackageTagPtrInput is an input type that accepts ModelPackageTagArgs, ModelPackageTagPtr and ModelPackageTagPtrOutput values.
+// You can construct a concrete instance of `ModelPackageTagPtrInput` via:
+//
+//          ModelPackageTagArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageTagPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput
+	ToModelPackageTagPtrOutputWithContext(context.Context) ModelPackageTagPtrOutput
+}
+
+type modelPackageTagPtrType ModelPackageTagArgs
+
+func ModelPackageTagPtr(v *ModelPackageTagArgs) ModelPackageTagPtrInput {
+	return (*modelPackageTagPtrType)(v)
+}
+
+func (*modelPackageTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageTag)(nil)).Elem()
+}
+
+func (i *modelPackageTagPtrType) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
+	return i.ToModelPackageTagPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageTagPtrType) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagPtrOutput)
+}
+
+// ModelPackageTagArrayInput is an input type that accepts ModelPackageTagArray and ModelPackageTagArrayOutput values.
+// You can construct a concrete instance of `ModelPackageTagArrayInput` via:
+//
+//          ModelPackageTagArray{ ModelPackageTagArgs{...} }
+type ModelPackageTagArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageTagArrayOutput() ModelPackageTagArrayOutput
+	ToModelPackageTagArrayOutputWithContext(context.Context) ModelPackageTagArrayOutput
+}
+
+type ModelPackageTagArray []ModelPackageTagInput
+
+func (ModelPackageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageTag)(nil)).Elem()
+}
+
+func (i ModelPackageTagArray) ToModelPackageTagArrayOutput() ModelPackageTagArrayOutput {
+	return i.ToModelPackageTagArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTagArray) ToModelPackageTagArrayOutputWithContext(ctx context.Context) ModelPackageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelPackageTagOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTag)(nil)).Elem()
+}
+
+func (o ModelPackageTagOutput) ToModelPackageTagOutput() ModelPackageTagOutput {
+	return o
+}
+
+func (o ModelPackageTagOutput) ToModelPackageTagOutputWithContext(ctx context.Context) ModelPackageTagOutput {
+	return o
+}
+
+func (o ModelPackageTagOutput) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
+	return o.ToModelPackageTagPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageTagOutput) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageTag) *ModelPackageTag {
+		return &v
+	}).(ModelPackageTagPtrOutput)
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelPackageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelPackageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelPackageTagPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageTag)(nil)).Elem()
+}
+
+func (o ModelPackageTagPtrOutput) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
+	return o
+}
+
+func (o ModelPackageTagPtrOutput) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
+	return o
+}
+
+func (o ModelPackageTagPtrOutput) Elem() ModelPackageTagOutput {
+	return o.ApplyT(func(v *ModelPackageTag) ModelPackageTag {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageTag
+		return ret
+	}).(ModelPackageTagOutput)
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelPackageTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelPackageTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPackageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageTag)(nil)).Elem()
+}
+
+func (o ModelPackageTagArrayOutput) ToModelPackageTagArrayOutput() ModelPackageTagArrayOutput {
+	return o
+}
+
+func (o ModelPackageTagArrayOutput) ToModelPackageTagArrayOutputWithContext(ctx context.Context) ModelPackageTagArrayOutput {
+	return o
+}
+
+func (o ModelPackageTagArrayOutput) Index(i pulumi.IntInput) ModelPackageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageTag {
+		return vs[0].([]ModelPackageTag)[vs[1].(int)]
+	}).(ModelPackageTagOutput)
+}
+
+// Describes the input source of a transform job and the way the transform job consumes it.
+type ModelPackageTransformInput struct {
+	// If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+	CompressionType *ModelPackageTransformInputCompressionType `pulumi:"compressionType"`
+	// The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+	ContentType *string                `pulumi:"contentType"`
+	DataSource  ModelPackageDataSource `pulumi:"dataSource"`
+	// The method to use to split the transform job's data files into smaller batches.
+	SplitType *ModelPackageTransformInputSplitType `pulumi:"splitType"`
+}
+
+// ModelPackageTransformInputInput is an input type that accepts ModelPackageTransformInputArgs and ModelPackageTransformInputOutput values.
+// You can construct a concrete instance of `ModelPackageTransformInputInput` via:
+//
+//          ModelPackageTransformInputArgs{...}
+type ModelPackageTransformInputInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformInputOutput() ModelPackageTransformInputOutput
+	ToModelPackageTransformInputOutputWithContext(context.Context) ModelPackageTransformInputOutput
+}
+
+// Describes the input source of a transform job and the way the transform job consumes it.
+type ModelPackageTransformInputArgs struct {
+	// If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+	CompressionType ModelPackageTransformInputCompressionTypePtrInput `pulumi:"compressionType"`
+	// The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+	ContentType pulumi.StringPtrInput       `pulumi:"contentType"`
+	DataSource  ModelPackageDataSourceInput `pulumi:"dataSource"`
+	// The method to use to split the transform job's data files into smaller batches.
+	SplitType ModelPackageTransformInputSplitTypePtrInput `pulumi:"splitType"`
+}
+
+func (ModelPackageTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformInput)(nil)).Elem()
+}
+
+func (i ModelPackageTransformInputArgs) ToModelPackageTransformInputOutput() ModelPackageTransformInputOutput {
+	return i.ToModelPackageTransformInputOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTransformInputArgs) ToModelPackageTransformInputOutputWithContext(ctx context.Context) ModelPackageTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTransformInputOutput)
+}
+
+// Describes the input source of a transform job and the way the transform job consumes it.
+type ModelPackageTransformInputOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformInput)(nil)).Elem()
+}
+
+func (o ModelPackageTransformInputOutput) ToModelPackageTransformInputOutput() ModelPackageTransformInputOutput {
+	return o
+}
+
+func (o ModelPackageTransformInputOutput) ToModelPackageTransformInputOutputWithContext(ctx context.Context) ModelPackageTransformInputOutput {
+	return o
+}
+
+// If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+func (o ModelPackageTransformInputOutput) CompressionType() ModelPackageTransformInputCompressionTypePtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformInput) *ModelPackageTransformInputCompressionType {
+		return v.CompressionType
+	}).(ModelPackageTransformInputCompressionTypePtrOutput)
+}
+
+// The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+func (o ModelPackageTransformInputOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformInput) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelPackageTransformInputOutput) DataSource() ModelPackageDataSourceOutput {
+	return o.ApplyT(func(v ModelPackageTransformInput) ModelPackageDataSource { return v.DataSource }).(ModelPackageDataSourceOutput)
+}
+
+// The method to use to split the transform job's data files into smaller batches.
+func (o ModelPackageTransformInputOutput) SplitType() ModelPackageTransformInputSplitTypePtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformInput) *ModelPackageTransformInputSplitType { return v.SplitType }).(ModelPackageTransformInputSplitTypePtrOutput)
+}
+
+// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+type ModelPackageTransformJobDefinition struct {
+	// A string that determines the number of records included in a single mini-batch.
+	BatchStrategy *ModelPackageTransformJobDefinitionBatchStrategy `pulumi:"batchStrategy"`
+	Environment   *ModelPackageEnvironment                         `pulumi:"environment"`
+	// The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+	MaxConcurrentTransforms *int `pulumi:"maxConcurrentTransforms"`
+	// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+	MaxPayloadInMB     *int                           `pulumi:"maxPayloadInMB"`
+	TransformInput     ModelPackageTransformInput     `pulumi:"transformInput"`
+	TransformOutput    ModelPackageTransformOutput    `pulumi:"transformOutput"`
+	TransformResources ModelPackageTransformResources `pulumi:"transformResources"`
+}
+
+// ModelPackageTransformJobDefinitionInput is an input type that accepts ModelPackageTransformJobDefinitionArgs and ModelPackageTransformJobDefinitionOutput values.
+// You can construct a concrete instance of `ModelPackageTransformJobDefinitionInput` via:
+//
+//          ModelPackageTransformJobDefinitionArgs{...}
+type ModelPackageTransformJobDefinitionInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformJobDefinitionOutput() ModelPackageTransformJobDefinitionOutput
+	ToModelPackageTransformJobDefinitionOutputWithContext(context.Context) ModelPackageTransformJobDefinitionOutput
+}
+
+// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+type ModelPackageTransformJobDefinitionArgs struct {
+	// A string that determines the number of records included in a single mini-batch.
+	BatchStrategy ModelPackageTransformJobDefinitionBatchStrategyPtrInput `pulumi:"batchStrategy"`
+	Environment   ModelPackageEnvironmentPtrInput                         `pulumi:"environment"`
+	// The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+	MaxConcurrentTransforms pulumi.IntPtrInput `pulumi:"maxConcurrentTransforms"`
+	// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+	MaxPayloadInMB     pulumi.IntPtrInput                  `pulumi:"maxPayloadInMB"`
+	TransformInput     ModelPackageTransformInputInput     `pulumi:"transformInput"`
+	TransformOutput    ModelPackageTransformOutputInput    `pulumi:"transformOutput"`
+	TransformResources ModelPackageTransformResourcesInput `pulumi:"transformResources"`
+}
+
+func (ModelPackageTransformJobDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformJobDefinition)(nil)).Elem()
+}
+
+func (i ModelPackageTransformJobDefinitionArgs) ToModelPackageTransformJobDefinitionOutput() ModelPackageTransformJobDefinitionOutput {
+	return i.ToModelPackageTransformJobDefinitionOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTransformJobDefinitionArgs) ToModelPackageTransformJobDefinitionOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTransformJobDefinitionOutput)
+}
+
+// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+type ModelPackageTransformJobDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformJobDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformJobDefinition)(nil)).Elem()
+}
+
+func (o ModelPackageTransformJobDefinitionOutput) ToModelPackageTransformJobDefinitionOutput() ModelPackageTransformJobDefinitionOutput {
+	return o
+}
+
+func (o ModelPackageTransformJobDefinitionOutput) ToModelPackageTransformJobDefinitionOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionOutput {
+	return o
+}
+
+// A string that determines the number of records included in a single mini-batch.
+func (o ModelPackageTransformJobDefinitionOutput) BatchStrategy() ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *ModelPackageTransformJobDefinitionBatchStrategy {
+		return v.BatchStrategy
+	}).(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionOutput) Environment() ModelPackageEnvironmentPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *ModelPackageEnvironment { return v.Environment }).(ModelPackageEnvironmentPtrOutput)
+}
+
+// The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+func (o ModelPackageTransformJobDefinitionOutput) MaxConcurrentTransforms() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *int { return v.MaxConcurrentTransforms }).(pulumi.IntPtrOutput)
+}
+
+// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+func (o ModelPackageTransformJobDefinitionOutput) MaxPayloadInMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *int { return v.MaxPayloadInMB }).(pulumi.IntPtrOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionOutput) TransformInput() ModelPackageTransformInputOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) ModelPackageTransformInput { return v.TransformInput }).(ModelPackageTransformInputOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionOutput) TransformOutput() ModelPackageTransformOutputOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) ModelPackageTransformOutput { return v.TransformOutput }).(ModelPackageTransformOutputOutput)
+}
+
+func (o ModelPackageTransformJobDefinitionOutput) TransformResources() ModelPackageTransformResourcesOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) ModelPackageTransformResources { return v.TransformResources }).(ModelPackageTransformResourcesOutput)
+}
+
+// Describes the results of a transform job.
+type ModelPackageTransformOutput struct {
+	// The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+	Accept *string `pulumi:"accept"`
+	// Defines how to assemble the results of the transform job as a single S3 object.
+	AssembleWith *ModelPackageTransformOutputAssembleWith `pulumi:"assembleWith"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// ModelPackageTransformOutputInput is an input type that accepts ModelPackageTransformOutputArgs and ModelPackageTransformOutputOutput values.
+// You can construct a concrete instance of `ModelPackageTransformOutputInput` via:
+//
+//          ModelPackageTransformOutputArgs{...}
+type ModelPackageTransformOutputInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformOutputOutput() ModelPackageTransformOutputOutput
+	ToModelPackageTransformOutputOutputWithContext(context.Context) ModelPackageTransformOutputOutput
+}
+
+// Describes the results of a transform job.
+type ModelPackageTransformOutputArgs struct {
+	// The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+	Accept pulumi.StringPtrInput `pulumi:"accept"`
+	// Defines how to assemble the results of the transform job as a single S3 object.
+	AssembleWith ModelPackageTransformOutputAssembleWithPtrInput `pulumi:"assembleWith"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (ModelPackageTransformOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformOutput)(nil)).Elem()
+}
+
+func (i ModelPackageTransformOutputArgs) ToModelPackageTransformOutputOutput() ModelPackageTransformOutputOutput {
+	return i.ToModelPackageTransformOutputOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTransformOutputArgs) ToModelPackageTransformOutputOutputWithContext(ctx context.Context) ModelPackageTransformOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTransformOutputOutput)
+}
+
+// Describes the results of a transform job.
+type ModelPackageTransformOutputOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformOutput)(nil)).Elem()
+}
+
+func (o ModelPackageTransformOutputOutput) ToModelPackageTransformOutputOutput() ModelPackageTransformOutputOutput {
+	return o
+}
+
+func (o ModelPackageTransformOutputOutput) ToModelPackageTransformOutputOutputWithContext(ctx context.Context) ModelPackageTransformOutputOutput {
+	return o
+}
+
+// The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+func (o ModelPackageTransformOutputOutput) Accept() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformOutput) *string { return v.Accept }).(pulumi.StringPtrOutput)
+}
+
+// Defines how to assemble the results of the transform job as a single S3 object.
+func (o ModelPackageTransformOutputOutput) AssembleWith() ModelPackageTransformOutputAssembleWithPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformOutput) *ModelPackageTransformOutputAssembleWith { return v.AssembleWith }).(ModelPackageTransformOutputAssembleWithPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+func (o ModelPackageTransformOutputOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformOutput) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+func (o ModelPackageTransformOutputOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageTransformOutput) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+type ModelPackageTransformResources struct {
+	// The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+	InstanceCount int `pulumi:"instanceCount"`
+	// The ML compute instance type for the transform job.
+	InstanceType string `pulumi:"instanceType"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+}
+
+// ModelPackageTransformResourcesInput is an input type that accepts ModelPackageTransformResourcesArgs and ModelPackageTransformResourcesOutput values.
+// You can construct a concrete instance of `ModelPackageTransformResourcesInput` via:
+//
+//          ModelPackageTransformResourcesArgs{...}
+type ModelPackageTransformResourcesInput interface {
+	pulumi.Input
+
+	ToModelPackageTransformResourcesOutput() ModelPackageTransformResourcesOutput
+	ToModelPackageTransformResourcesOutputWithContext(context.Context) ModelPackageTransformResourcesOutput
+}
+
+// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+type ModelPackageTransformResourcesArgs struct {
+	// The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// The ML compute instance type for the transform job.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+}
+
+func (ModelPackageTransformResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformResources)(nil)).Elem()
+}
+
+func (i ModelPackageTransformResourcesArgs) ToModelPackageTransformResourcesOutput() ModelPackageTransformResourcesOutput {
+	return i.ToModelPackageTransformResourcesOutputWithContext(context.Background())
+}
+
+func (i ModelPackageTransformResourcesArgs) ToModelPackageTransformResourcesOutputWithContext(ctx context.Context) ModelPackageTransformResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTransformResourcesOutput)
+}
+
+// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+type ModelPackageTransformResourcesOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageTransformResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageTransformResources)(nil)).Elem()
+}
+
+func (o ModelPackageTransformResourcesOutput) ToModelPackageTransformResourcesOutput() ModelPackageTransformResourcesOutput {
+	return o
+}
+
+func (o ModelPackageTransformResourcesOutput) ToModelPackageTransformResourcesOutputWithContext(ctx context.Context) ModelPackageTransformResourcesOutput {
+	return o
+}
+
+// The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+func (o ModelPackageTransformResourcesOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ModelPackageTransformResources) int { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+// The ML compute instance type for the transform job.
+func (o ModelPackageTransformResourcesOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageTransformResources) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+func (o ModelPackageTransformResourcesOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformResources) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+type ModelPackageValidationProfile struct {
+	// The name of the profile for the model package.
+	ProfileName            string                             `pulumi:"profileName"`
+	TransformJobDefinition ModelPackageTransformJobDefinition `pulumi:"transformJobDefinition"`
+}
+
+// ModelPackageValidationProfileInput is an input type that accepts ModelPackageValidationProfileArgs and ModelPackageValidationProfileOutput values.
+// You can construct a concrete instance of `ModelPackageValidationProfileInput` via:
+//
+//          ModelPackageValidationProfileArgs{...}
+type ModelPackageValidationProfileInput interface {
+	pulumi.Input
+
+	ToModelPackageValidationProfileOutput() ModelPackageValidationProfileOutput
+	ToModelPackageValidationProfileOutputWithContext(context.Context) ModelPackageValidationProfileOutput
+}
+
+// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+type ModelPackageValidationProfileArgs struct {
+	// The name of the profile for the model package.
+	ProfileName            pulumi.StringInput                      `pulumi:"profileName"`
+	TransformJobDefinition ModelPackageTransformJobDefinitionInput `pulumi:"transformJobDefinition"`
+}
+
+func (ModelPackageValidationProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageValidationProfile)(nil)).Elem()
+}
+
+func (i ModelPackageValidationProfileArgs) ToModelPackageValidationProfileOutput() ModelPackageValidationProfileOutput {
+	return i.ToModelPackageValidationProfileOutputWithContext(context.Background())
+}
+
+func (i ModelPackageValidationProfileArgs) ToModelPackageValidationProfileOutputWithContext(ctx context.Context) ModelPackageValidationProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageValidationProfileOutput)
+}
+
+// ModelPackageValidationProfileArrayInput is an input type that accepts ModelPackageValidationProfileArray and ModelPackageValidationProfileArrayOutput values.
+// You can construct a concrete instance of `ModelPackageValidationProfileArrayInput` via:
+//
+//          ModelPackageValidationProfileArray{ ModelPackageValidationProfileArgs{...} }
+type ModelPackageValidationProfileArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageValidationProfileArrayOutput() ModelPackageValidationProfileArrayOutput
+	ToModelPackageValidationProfileArrayOutputWithContext(context.Context) ModelPackageValidationProfileArrayOutput
+}
+
+type ModelPackageValidationProfileArray []ModelPackageValidationProfileInput
+
+func (ModelPackageValidationProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageValidationProfile)(nil)).Elem()
+}
+
+func (i ModelPackageValidationProfileArray) ToModelPackageValidationProfileArrayOutput() ModelPackageValidationProfileArrayOutput {
+	return i.ToModelPackageValidationProfileArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageValidationProfileArray) ToModelPackageValidationProfileArrayOutputWithContext(ctx context.Context) ModelPackageValidationProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageValidationProfileArrayOutput)
+}
+
+// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+type ModelPackageValidationProfileOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageValidationProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageValidationProfile)(nil)).Elem()
+}
+
+func (o ModelPackageValidationProfileOutput) ToModelPackageValidationProfileOutput() ModelPackageValidationProfileOutput {
+	return o
+}
+
+func (o ModelPackageValidationProfileOutput) ToModelPackageValidationProfileOutputWithContext(ctx context.Context) ModelPackageValidationProfileOutput {
+	return o
+}
+
+// The name of the profile for the model package.
+func (o ModelPackageValidationProfileOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageValidationProfile) string { return v.ProfileName }).(pulumi.StringOutput)
+}
+
+func (o ModelPackageValidationProfileOutput) TransformJobDefinition() ModelPackageTransformJobDefinitionOutput {
+	return o.ApplyT(func(v ModelPackageValidationProfile) ModelPackageTransformJobDefinition {
+		return v.TransformJobDefinition
+	}).(ModelPackageTransformJobDefinitionOutput)
+}
+
+type ModelPackageValidationProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageValidationProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageValidationProfile)(nil)).Elem()
+}
+
+func (o ModelPackageValidationProfileArrayOutput) ToModelPackageValidationProfileArrayOutput() ModelPackageValidationProfileArrayOutput {
+	return o
+}
+
+func (o ModelPackageValidationProfileArrayOutput) ToModelPackageValidationProfileArrayOutputWithContext(ctx context.Context) ModelPackageValidationProfileArrayOutput {
+	return o
+}
+
+func (o ModelPackageValidationProfileArrayOutput) Index(i pulumi.IntInput) ModelPackageValidationProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageValidationProfile {
+		return vs[0].([]ModelPackageValidationProfile)[vs[1].(int)]
+	}).(ModelPackageValidationProfileOutput)
+}
+
+// Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+type ModelPackageValidationSpecification struct {
+	ValidationProfiles []ModelPackageValidationProfile `pulumi:"validationProfiles"`
+	// The IAM roles to be used for the validation of the model package.
+	ValidationRole string `pulumi:"validationRole"`
+}
+
+// ModelPackageValidationSpecificationInput is an input type that accepts ModelPackageValidationSpecificationArgs and ModelPackageValidationSpecificationOutput values.
+// You can construct a concrete instance of `ModelPackageValidationSpecificationInput` via:
+//
+//          ModelPackageValidationSpecificationArgs{...}
+type ModelPackageValidationSpecificationInput interface {
+	pulumi.Input
+
+	ToModelPackageValidationSpecificationOutput() ModelPackageValidationSpecificationOutput
+	ToModelPackageValidationSpecificationOutputWithContext(context.Context) ModelPackageValidationSpecificationOutput
+}
+
+// Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+type ModelPackageValidationSpecificationArgs struct {
+	ValidationProfiles ModelPackageValidationProfileArrayInput `pulumi:"validationProfiles"`
+	// The IAM roles to be used for the validation of the model package.
+	ValidationRole pulumi.StringInput `pulumi:"validationRole"`
+}
+
+func (ModelPackageValidationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageValidationSpecification)(nil)).Elem()
+}
+
+func (i ModelPackageValidationSpecificationArgs) ToModelPackageValidationSpecificationOutput() ModelPackageValidationSpecificationOutput {
+	return i.ToModelPackageValidationSpecificationOutputWithContext(context.Background())
+}
+
+func (i ModelPackageValidationSpecificationArgs) ToModelPackageValidationSpecificationOutputWithContext(ctx context.Context) ModelPackageValidationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageValidationSpecificationOutput)
+}
+
+func (i ModelPackageValidationSpecificationArgs) ToModelPackageValidationSpecificationPtrOutput() ModelPackageValidationSpecificationPtrOutput {
+	return i.ToModelPackageValidationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPackageValidationSpecificationArgs) ToModelPackageValidationSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageValidationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageValidationSpecificationOutput).ToModelPackageValidationSpecificationPtrOutputWithContext(ctx)
+}
+
+// ModelPackageValidationSpecificationPtrInput is an input type that accepts ModelPackageValidationSpecificationArgs, ModelPackageValidationSpecificationPtr and ModelPackageValidationSpecificationPtrOutput values.
+// You can construct a concrete instance of `ModelPackageValidationSpecificationPtrInput` via:
+//
+//          ModelPackageValidationSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPackageValidationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToModelPackageValidationSpecificationPtrOutput() ModelPackageValidationSpecificationPtrOutput
+	ToModelPackageValidationSpecificationPtrOutputWithContext(context.Context) ModelPackageValidationSpecificationPtrOutput
+}
+
+type modelPackageValidationSpecificationPtrType ModelPackageValidationSpecificationArgs
+
+func ModelPackageValidationSpecificationPtr(v *ModelPackageValidationSpecificationArgs) ModelPackageValidationSpecificationPtrInput {
+	return (*modelPackageValidationSpecificationPtrType)(v)
+}
+
+func (*modelPackageValidationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageValidationSpecification)(nil)).Elem()
+}
+
+func (i *modelPackageValidationSpecificationPtrType) ToModelPackageValidationSpecificationPtrOutput() ModelPackageValidationSpecificationPtrOutput {
+	return i.ToModelPackageValidationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPackageValidationSpecificationPtrType) ToModelPackageValidationSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageValidationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageValidationSpecificationPtrOutput)
+}
+
+// Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+type ModelPackageValidationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageValidationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageValidationSpecification)(nil)).Elem()
+}
+
+func (o ModelPackageValidationSpecificationOutput) ToModelPackageValidationSpecificationOutput() ModelPackageValidationSpecificationOutput {
+	return o
+}
+
+func (o ModelPackageValidationSpecificationOutput) ToModelPackageValidationSpecificationOutputWithContext(ctx context.Context) ModelPackageValidationSpecificationOutput {
+	return o
+}
+
+func (o ModelPackageValidationSpecificationOutput) ToModelPackageValidationSpecificationPtrOutput() ModelPackageValidationSpecificationPtrOutput {
+	return o.ToModelPackageValidationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPackageValidationSpecificationOutput) ToModelPackageValidationSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageValidationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageValidationSpecification) *ModelPackageValidationSpecification {
+		return &v
+	}).(ModelPackageValidationSpecificationPtrOutput)
+}
+
+func (o ModelPackageValidationSpecificationOutput) ValidationProfiles() ModelPackageValidationProfileArrayOutput {
+	return o.ApplyT(func(v ModelPackageValidationSpecification) []ModelPackageValidationProfile {
+		return v.ValidationProfiles
+	}).(ModelPackageValidationProfileArrayOutput)
+}
+
+// The IAM roles to be used for the validation of the model package.
+func (o ModelPackageValidationSpecificationOutput) ValidationRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageValidationSpecification) string { return v.ValidationRole }).(pulumi.StringOutput)
+}
+
+type ModelPackageValidationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageValidationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageValidationSpecification)(nil)).Elem()
+}
+
+func (o ModelPackageValidationSpecificationPtrOutput) ToModelPackageValidationSpecificationPtrOutput() ModelPackageValidationSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelPackageValidationSpecificationPtrOutput) ToModelPackageValidationSpecificationPtrOutputWithContext(ctx context.Context) ModelPackageValidationSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelPackageValidationSpecificationPtrOutput) Elem() ModelPackageValidationSpecificationOutput {
+	return o.ApplyT(func(v *ModelPackageValidationSpecification) ModelPackageValidationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageValidationSpecification
+		return ret
+	}).(ModelPackageValidationSpecificationOutput)
+}
+
+func (o ModelPackageValidationSpecificationPtrOutput) ValidationProfiles() ModelPackageValidationProfileArrayOutput {
+	return o.ApplyT(func(v *ModelPackageValidationSpecification) []ModelPackageValidationProfile {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationProfiles
+	}).(ModelPackageValidationProfileArrayOutput)
+}
+
+// The IAM roles to be used for the validation of the model package.
+func (o ModelPackageValidationSpecificationPtrOutput) ValidationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPackageValidationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration for the cluster used to run model monitoring jobs.
@@ -19691,8 +24693,73 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigPtrInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelMultiModelConfigInput)(nil)).Elem(), ModelMultiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelMultiModelConfigPtrInput)(nil)).Elem(), ModelMultiModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinitionInput)(nil)).Elem(), ModelPackageAdditionalInferenceSpecificationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinitionPtrInput)(nil)).Elem(), ModelPackageAdditionalInferenceSpecificationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput)(nil)).Elem(), ModelPackageAdditionalInferenceSpecificationDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageBiasInput)(nil)).Elem(), ModelPackageBiasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageBiasPtrInput)(nil)).Elem(), ModelPackageBiasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageContainerDefinitionInput)(nil)).Elem(), ModelPackageContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageContainerDefinitionArrayInput)(nil)).Elem(), ModelPackageContainerDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageContainerDefinitionModelInputPropertiesInput)(nil)).Elem(), ModelPackageContainerDefinitionModelInputPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageContainerDefinitionModelInputPropertiesPtrInput)(nil)).Elem(), ModelPackageContainerDefinitionModelInputPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageCreatedByInput)(nil)).Elem(), ModelPackageCreatedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageCreatedByPtrInput)(nil)).Elem(), ModelPackageCreatedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageCustomerMetadataPropertiesInput)(nil)).Elem(), ModelPackageCustomerMetadataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageCustomerMetadataPropertiesPtrInput)(nil)).Elem(), ModelPackageCustomerMetadataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDataSourceInput)(nil)).Elem(), ModelPackageDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckBaselinesInput)(nil)).Elem(), ModelPackageDriftCheckBaselinesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckBaselinesPtrInput)(nil)).Elem(), ModelPackageDriftCheckBaselinesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckBiasInput)(nil)).Elem(), ModelPackageDriftCheckBiasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckBiasPtrInput)(nil)).Elem(), ModelPackageDriftCheckBiasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckExplainabilityInput)(nil)).Elem(), ModelPackageDriftCheckExplainabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckExplainabilityPtrInput)(nil)).Elem(), ModelPackageDriftCheckExplainabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckModelDataQualityInput)(nil)).Elem(), ModelPackageDriftCheckModelDataQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckModelDataQualityPtrInput)(nil)).Elem(), ModelPackageDriftCheckModelDataQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckModelQualityInput)(nil)).Elem(), ModelPackageDriftCheckModelQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageDriftCheckModelQualityPtrInput)(nil)).Elem(), ModelPackageDriftCheckModelQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageEnvironmentInput)(nil)).Elem(), ModelPackageEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageEnvironmentPtrInput)(nil)).Elem(), ModelPackageEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageExplainabilityInput)(nil)).Elem(), ModelPackageExplainabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageExplainabilityPtrInput)(nil)).Elem(), ModelPackageExplainabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageFileSourceInput)(nil)).Elem(), ModelPackageFileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageFileSourcePtrInput)(nil)).Elem(), ModelPackageFileSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupTagInput)(nil)).Elem(), ModelPackageGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupTagArrayInput)(nil)).Elem(), ModelPackageGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageInferenceSpecificationInput)(nil)).Elem(), ModelPackageInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageInferenceSpecificationPtrInput)(nil)).Elem(), ModelPackageInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageLastModifiedByInput)(nil)).Elem(), ModelPackageLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageLastModifiedByPtrInput)(nil)).Elem(), ModelPackageLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageMetadataPropertiesInput)(nil)).Elem(), ModelPackageMetadataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageMetadataPropertiesPtrInput)(nil)).Elem(), ModelPackageMetadataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageMetricsSourceInput)(nil)).Elem(), ModelPackageMetricsSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageMetricsSourcePtrInput)(nil)).Elem(), ModelPackageMetricsSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelDataQualityInput)(nil)).Elem(), ModelPackageModelDataQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelDataQualityPtrInput)(nil)).Elem(), ModelPackageModelDataQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelMetricsInput)(nil)).Elem(), ModelPackageModelMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelMetricsPtrInput)(nil)).Elem(), ModelPackageModelMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelQualityInput)(nil)).Elem(), ModelPackageModelQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelQualityPtrInput)(nil)).Elem(), ModelPackageModelQualityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageS3DataSourceInput)(nil)).Elem(), ModelPackageS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageSourceAlgorithmInput)(nil)).Elem(), ModelPackageSourceAlgorithmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageSourceAlgorithmArrayInput)(nil)).Elem(), ModelPackageSourceAlgorithmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageSourceAlgorithmSpecificationInput)(nil)).Elem(), ModelPackageSourceAlgorithmSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageSourceAlgorithmSpecificationPtrInput)(nil)).Elem(), ModelPackageSourceAlgorithmSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusDetailsInput)(nil)).Elem(), ModelPackageStatusDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusDetailsPtrInput)(nil)).Elem(), ModelPackageStatusDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemInput)(nil)).Elem(), ModelPackageStatusItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemPtrInput)(nil)).Elem(), ModelPackageStatusItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemArrayInput)(nil)).Elem(), ModelPackageStatusItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTagInput)(nil)).Elem(), ModelPackageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTagPtrInput)(nil)).Elem(), ModelPackageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTagArrayInput)(nil)).Elem(), ModelPackageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputInput)(nil)).Elem(), ModelPackageTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformJobDefinitionInput)(nil)).Elem(), ModelPackageTransformJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformOutputInput)(nil)).Elem(), ModelPackageTransformOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformResourcesInput)(nil)).Elem(), ModelPackageTransformResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationProfileInput)(nil)).Elem(), ModelPackageValidationProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationProfileArrayInput)(nil)).Elem(), ModelPackageValidationProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationSpecificationInput)(nil)).Elem(), ModelPackageValidationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationSpecificationPtrInput)(nil)).Elem(), ModelPackageValidationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelQualityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelQualityJobDefinitionConstraintsResourceArgs{})
@@ -19963,8 +25030,73 @@ func init() {
 	pulumi.RegisterOutputType(ModelInferenceExecutionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelMultiModelConfigOutput{})
 	pulumi.RegisterOutputType(ModelMultiModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageAdditionalInferenceSpecificationDefinitionOutput{})
+	pulumi.RegisterOutputType(ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageBiasOutput{})
+	pulumi.RegisterOutputType(ModelPackageBiasPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageContainerDefinitionOutput{})
+	pulumi.RegisterOutputType(ModelPackageContainerDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageContainerDefinitionModelInputPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelPackageContainerDefinitionModelInputPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageCreatedByOutput{})
+	pulumi.RegisterOutputType(ModelPackageCreatedByPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageCustomerMetadataPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelPackageCustomerMetadataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckBaselinesOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckBaselinesPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckBiasOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckBiasPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckExplainabilityOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckExplainabilityPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckModelDataQualityOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckModelDataQualityPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckModelQualityOutput{})
+	pulumi.RegisterOutputType(ModelPackageDriftCheckModelQualityPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageEnvironmentOutput{})
+	pulumi.RegisterOutputType(ModelPackageEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageExplainabilityOutput{})
+	pulumi.RegisterOutputType(ModelPackageExplainabilityPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageFileSourceOutput{})
+	pulumi.RegisterOutputType(ModelPackageFileSourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupTagOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageInferenceSpecificationOutput{})
+	pulumi.RegisterOutputType(ModelPackageInferenceSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageLastModifiedByOutput{})
+	pulumi.RegisterOutputType(ModelPackageLastModifiedByPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageMetadataPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelPackageMetadataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageMetricsSourceOutput{})
+	pulumi.RegisterOutputType(ModelPackageMetricsSourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelDataQualityOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelDataQualityPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelMetricsOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelMetricsPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelQualityOutput{})
+	pulumi.RegisterOutputType(ModelPackageModelQualityPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelPackageSourceAlgorithmOutput{})
+	pulumi.RegisterOutputType(ModelPackageSourceAlgorithmArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageSourceAlgorithmSpecificationOutput{})
+	pulumi.RegisterOutputType(ModelPackageSourceAlgorithmSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusDetailsOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusItemOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusItemPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageStatusItemArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageTagOutput{})
+	pulumi.RegisterOutputType(ModelPackageTagPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageTagArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformInputOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformJobDefinitionOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformOutputOutput{})
+	pulumi.RegisterOutputType(ModelPackageTransformResourcesOutput{})
+	pulumi.RegisterOutputType(ModelPackageValidationProfileOutput{})
+	pulumi.RegisterOutputType(ModelPackageValidationProfileArrayOutput{})
+	pulumi.RegisterOutputType(ModelPackageValidationSpecificationOutput{})
+	pulumi.RegisterOutputType(ModelPackageValidationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourcePtrOutput{})

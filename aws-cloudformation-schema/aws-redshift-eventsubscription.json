@@ -109,7 +109,9 @@
       }
     }
   },
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true
+  },
   "additionalProperties" : false,
   "required" : [ "SubscriptionName" ],
   "primaryIdentifier" : [ "/properties/SubscriptionName" ],

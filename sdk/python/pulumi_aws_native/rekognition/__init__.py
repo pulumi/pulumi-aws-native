@@ -8,6 +8,8 @@ import typing
 from .collection import *
 from .get_collection import *
 from .get_project import *
+from .get_stream_processor import *
 from .project import *
+from .stream_processor import *
 from ._inputs import *
 from . import outputs

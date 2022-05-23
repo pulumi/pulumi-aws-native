@@ -29,6 +29,7 @@ type LookupAutoScalingGroupResult struct {
 	CapacityRebalance                *bool                                        `pulumi:"capacityRebalance"`
 	Context                          *string                                      `pulumi:"context"`
 	Cooldown                         *string                                      `pulumi:"cooldown"`
+	DefaultInstanceWarmup            *int                                         `pulumi:"defaultInstanceWarmup"`
 	DesiredCapacity                  *string                                      `pulumi:"desiredCapacity"`
 	DesiredCapacityType              *string                                      `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
@@ -103,6 +104,10 @@ func (o LookupAutoScalingGroupResultOutput) Context() pulumi.StringPtrOutput {
 
 func (o LookupAutoScalingGroupResultOutput) Cooldown() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.Cooldown }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAutoScalingGroupResultOutput) DefaultInstanceWarmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *int { return v.DefaultInstanceWarmup }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupAutoScalingGroupResultOutput) DesiredCapacity() pulumi.StringPtrOutput {

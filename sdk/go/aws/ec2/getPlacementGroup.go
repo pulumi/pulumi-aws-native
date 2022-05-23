@@ -21,11 +21,13 @@ func LookupPlacementGroup(ctx *pulumi.Context, args *LookupPlacementGroupArgs, o
 }
 
 type LookupPlacementGroupArgs struct {
-	Id string `pulumi:"id"`
+	// The Group Name of Placement Group.
+	GroupName string `pulumi:"groupName"`
 }
 
 type LookupPlacementGroupResult struct {
-	Id *string `pulumi:"id"`
+	// The Group Name of Placement Group.
+	GroupName *string `pulumi:"groupName"`
 }
 
 func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupResultOutput {
@@ -42,7 +44,8 @@ func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOu
 }
 
 type LookupPlacementGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The Group Name of Placement Group.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
 func (LookupPlacementGroupOutputArgs) ElementType() reflect.Type {
@@ -63,8 +66,9 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWith
 	return o
 }
 
-func (o LookupPlacementGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The Group Name of Placement Group.
+func (o LookupPlacementGroupResultOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

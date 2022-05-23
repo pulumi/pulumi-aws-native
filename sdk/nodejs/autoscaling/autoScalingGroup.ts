@@ -43,6 +43,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     public readonly capacityRebalance!: pulumi.Output<boolean | undefined>;
     public readonly context!: pulumi.Output<string | undefined>;
     public readonly cooldown!: pulumi.Output<string | undefined>;
+    public readonly defaultInstanceWarmup!: pulumi.Output<number | undefined>;
     public readonly desiredCapacity!: pulumi.Output<string | undefined>;
     public readonly desiredCapacityType!: pulumi.Output<string | undefined>;
     public readonly healthCheckGracePeriod!: pulumi.Output<number | undefined>;
@@ -91,6 +92,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
             resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["cooldown"] = args ? args.cooldown : undefined;
+            resourceInputs["defaultInstanceWarmup"] = args ? args.defaultInstanceWarmup : undefined;
             resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
             resourceInputs["desiredCapacityType"] = args ? args.desiredCapacityType : undefined;
             resourceInputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
@@ -120,6 +122,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["capacityRebalance"] = undefined /*out*/;
             resourceInputs["context"] = undefined /*out*/;
             resourceInputs["cooldown"] = undefined /*out*/;
+            resourceInputs["defaultInstanceWarmup"] = undefined /*out*/;
             resourceInputs["desiredCapacity"] = undefined /*out*/;
             resourceInputs["desiredCapacityType"] = undefined /*out*/;
             resourceInputs["healthCheckGracePeriod"] = undefined /*out*/;
@@ -158,6 +161,7 @@ export interface AutoScalingGroupArgs {
     capacityRebalance?: pulumi.Input<boolean>;
     context?: pulumi.Input<string>;
     cooldown?: pulumi.Input<string>;
+    defaultInstanceWarmup?: pulumi.Input<number>;
     desiredCapacity?: pulumi.Input<string>;
     desiredCapacityType?: pulumi.Input<string>;
     healthCheckGracePeriod?: pulumi.Input<number>;

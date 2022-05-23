@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("defaultRedirectURI")]
         public Output<string?> DefaultRedirectURI { get; private set; } = null!;
 
+        [Output("enablePropagateAdditionalUserContextData")]
+        public Output<bool?> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
+
         [Output("enableTokenRevocation")]
         public Output<bool?> EnableTokenRevocation { get; private set; } = null!;
 
@@ -165,6 +168,9 @@ namespace Pulumi.AwsNative.Cognito
 
         [Input("defaultRedirectURI")]
         public Input<string>? DefaultRedirectURI { get; set; }
+
+        [Input("enablePropagateAdditionalUserContextData")]
+        public Input<bool>? EnablePropagateAdditionalUserContextData { get; set; }
 
         [Input("enableTokenRevocation")]
         public Input<bool>? EnableTokenRevocation { get; set; }

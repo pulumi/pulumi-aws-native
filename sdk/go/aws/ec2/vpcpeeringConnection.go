@@ -12,17 +12,20 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::VPCPeeringConnection
-//
-// Deprecated: VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VPCPeeringConnection struct {
 	pulumi.CustomResourceState
 
-	PeerOwnerId pulumi.StringPtrOutput             `pulumi:"peerOwnerId"`
-	PeerRegion  pulumi.StringPtrOutput             `pulumi:"peerRegion"`
-	PeerRoleArn pulumi.StringPtrOutput             `pulumi:"peerRoleArn"`
-	PeerVpcId   pulumi.StringOutput                `pulumi:"peerVpcId"`
-	Tags        VPCPeeringConnectionTagArrayOutput `pulumi:"tags"`
-	VpcId       pulumi.StringOutput                `pulumi:"vpcId"`
+	// The AWS account ID of the owner of the accepter VPC.
+	PeerOwnerId pulumi.StringPtrOutput `pulumi:"peerOwnerId"`
+	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+	PeerRegion pulumi.StringPtrOutput `pulumi:"peerRegion"`
+	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+	PeerRoleArn pulumi.StringPtrOutput `pulumi:"peerRoleArn"`
+	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+	PeerVpcId pulumi.StringOutput                `pulumi:"peerVpcId"`
+	Tags      VPCPeeringConnectionTagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVPCPeeringConnection registers a new resource with the given unique name, arguments, and options.
@@ -70,22 +73,32 @@ func (VPCPeeringConnectionState) ElementType() reflect.Type {
 }
 
 type vpcpeeringConnectionArgs struct {
-	PeerOwnerId *string                   `pulumi:"peerOwnerId"`
-	PeerRegion  *string                   `pulumi:"peerRegion"`
-	PeerRoleArn *string                   `pulumi:"peerRoleArn"`
-	PeerVpcId   string                    `pulumi:"peerVpcId"`
-	Tags        []VPCPeeringConnectionTag `pulumi:"tags"`
-	VpcId       string                    `pulumi:"vpcId"`
+	// The AWS account ID of the owner of the accepter VPC.
+	PeerOwnerId *string `pulumi:"peerOwnerId"`
+	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+	PeerRegion *string `pulumi:"peerRegion"`
+	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+	PeerRoleArn *string `pulumi:"peerRoleArn"`
+	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+	PeerVpcId string                    `pulumi:"peerVpcId"`
+	Tags      []VPCPeeringConnectionTag `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VPCPeeringConnection resource.
 type VPCPeeringConnectionArgs struct {
+	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId pulumi.StringPtrInput
-	PeerRegion  pulumi.StringPtrInput
+	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+	PeerRegion pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
 	PeerRoleArn pulumi.StringPtrInput
-	PeerVpcId   pulumi.StringInput
-	Tags        VPCPeeringConnectionTagArrayInput
-	VpcId       pulumi.StringInput
+	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+	PeerVpcId pulumi.StringInput
+	Tags      VPCPeeringConnectionTagArrayInput
+	// The ID of the VPC.
+	VpcId pulumi.StringInput
 }
 
 func (VPCPeeringConnectionArgs) ElementType() reflect.Type {
@@ -125,18 +138,22 @@ func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutputWithContext(ctx 
 	return o
 }
 
+// The AWS account ID of the owner of the accepter VPC.
 func (o VPCPeeringConnectionOutput) PeerOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringPtrOutput { return v.PeerOwnerId }).(pulumi.StringPtrOutput)
 }
 
+// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 func (o VPCPeeringConnectionOutput) PeerRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringPtrOutput { return v.PeerRegion }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
 func (o VPCPeeringConnectionOutput) PeerRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringPtrOutput { return v.PeerRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 func (o VPCPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }
@@ -145,6 +162,7 @@ func (o VPCPeeringConnectionOutput) Tags() VPCPeeringConnectionTagArrayOutput {
 	return o.ApplyT(func(v *VPCPeeringConnection) VPCPeeringConnectionTagArrayOutput { return v.Tags }).(VPCPeeringConnectionTagArrayOutput)
 }
 
+// The ID of the VPC.
 func (o VPCPeeringConnectionOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPCPeeringConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

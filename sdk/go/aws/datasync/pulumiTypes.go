@@ -2309,6 +2309,8 @@ type TaskOptions struct {
 	LogLevel *TaskOptionsLogLevel `pulumi:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	Mtime *TaskOptionsMtime `pulumi:"mtime"`
+	// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+	ObjectTags *TaskOptionsObjectTags `pulumi:"objectTags"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	OverwriteMode *TaskOptionsOverwriteMode `pulumi:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
@@ -2352,6 +2354,8 @@ type TaskOptionsArgs struct {
 	LogLevel TaskOptionsLogLevelPtrInput `pulumi:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	Mtime TaskOptionsMtimePtrInput `pulumi:"mtime"`
+	// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+	ObjectTags TaskOptionsObjectTagsPtrInput `pulumi:"objectTags"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	OverwriteMode TaskOptionsOverwriteModePtrInput `pulumi:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
@@ -2475,6 +2479,11 @@ func (o TaskOptionsOutput) Mtime() TaskOptionsMtimePtrOutput {
 	return o.ApplyT(func(v TaskOptions) *TaskOptionsMtime { return v.Mtime }).(TaskOptionsMtimePtrOutput)
 }
 
+// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+func (o TaskOptionsOutput) ObjectTags() TaskOptionsObjectTagsPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsObjectTags { return v.ObjectTags }).(TaskOptionsObjectTagsPtrOutput)
+}
+
 // A value that determines whether files at the destination should be overwritten or preserved when copying files.
 func (o TaskOptionsOutput) OverwriteMode() TaskOptionsOverwriteModePtrOutput {
 	return o.ApplyT(func(v TaskOptions) *TaskOptionsOverwriteMode { return v.OverwriteMode }).(TaskOptionsOverwriteModePtrOutput)
@@ -2592,6 +2601,16 @@ func (o TaskOptionsPtrOutput) Mtime() TaskOptionsMtimePtrOutput {
 		}
 		return v.Mtime
 	}).(TaskOptionsMtimePtrOutput)
+}
+
+// A value that determines whether object tags should be read from the source object store and written to the destination object store.
+func (o TaskOptionsPtrOutput) ObjectTags() TaskOptionsObjectTagsPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsObjectTags {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectTags
+	}).(TaskOptionsObjectTagsPtrOutput)
 }
 
 // A value that determines whether files at the destination should be overwritten or preserved when copying files.

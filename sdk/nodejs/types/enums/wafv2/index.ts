@@ -148,6 +148,28 @@ export const RuleGroupLabelMatchScope = {
 
 export type RuleGroupLabelMatchScope = (typeof RuleGroupLabelMatchScope)[keyof typeof RuleGroupLabelMatchScope];
 
+export const RuleGroupMapMatchScope = {
+    All: "ALL",
+    Key: "KEY",
+    Value: "VALUE",
+} as const;
+
+/**
+ * The parts of the request to match against using the MatchPattern.
+ */
+export type RuleGroupMapMatchScope = (typeof RuleGroupMapMatchScope)[keyof typeof RuleGroupMapMatchScope];
+
+export const RuleGroupOversizeHandling = {
+    Continue: "CONTINUE",
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+/**
+ * Handling of requests containing oversize fields
+ */
+export type RuleGroupOversizeHandling = (typeof RuleGroupOversizeHandling)[keyof typeof RuleGroupOversizeHandling];
+
 export const RuleGroupPositionalConstraint = {
     Exactly: "EXACTLY",
     StartsWith: "STARTS_WITH",
@@ -275,6 +297,28 @@ export const WebACLManagedRuleGroupConfigPayloadType = {
 } as const;
 
 export type WebACLManagedRuleGroupConfigPayloadType = (typeof WebACLManagedRuleGroupConfigPayloadType)[keyof typeof WebACLManagedRuleGroupConfigPayloadType];
+
+export const WebACLMapMatchScope = {
+    All: "ALL",
+    Key: "KEY",
+    Value: "VALUE",
+} as const;
+
+/**
+ * The parts of the request to match against using the MatchPattern.
+ */
+export type WebACLMapMatchScope = (typeof WebACLMapMatchScope)[keyof typeof WebACLMapMatchScope];
+
+export const WebACLOversizeHandling = {
+    Continue: "CONTINUE",
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+/**
+ * Handling of requests containing oversize fields
+ */
+export type WebACLOversizeHandling = (typeof WebACLOversizeHandling)[keyof typeof WebACLOversizeHandling];
 
 export const WebACLPositionalConstraint = {
     Exactly: "EXACTLY",

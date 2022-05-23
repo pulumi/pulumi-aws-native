@@ -176,124 +176,124 @@ func (in *playbackConfigurationAvailSuppressionModePtr) ToPlaybackConfigurationA
 }
 
 // The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
-type PlaybackConfigurationDashConfigurationForPutOriginManifestType string
+type PlaybackConfigurationDashConfigurationOriginManifestType string
 
 const (
-	PlaybackConfigurationDashConfigurationForPutOriginManifestTypeSinglePeriod = PlaybackConfigurationDashConfigurationForPutOriginManifestType("SINGLE_PERIOD")
-	PlaybackConfigurationDashConfigurationForPutOriginManifestTypeMultiPeriod  = PlaybackConfigurationDashConfigurationForPutOriginManifestType("MULTI_PERIOD")
+	PlaybackConfigurationDashConfigurationOriginManifestTypeSinglePeriod = PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD")
+	PlaybackConfigurationDashConfigurationOriginManifestTypeMultiPeriod  = PlaybackConfigurationDashConfigurationOriginManifestType("MULTI_PERIOD")
 )
 
-func (PlaybackConfigurationDashConfigurationForPutOriginManifestType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaybackConfigurationDashConfigurationForPutOriginManifestType)(nil)).Elem()
+func (PlaybackConfigurationDashConfigurationOriginManifestType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestType)(nil)).Elem()
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput {
-	return pulumi.ToOutput(e).(PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput)
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutput() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput)
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput)
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput)
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
-	return e.ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(context.Background())
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
+	return e.ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(context.Background())
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
-	return PlaybackConfigurationDashConfigurationForPutOriginManifestType(e).ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutputWithContext(ctx).ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(ctx)
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
+	return PlaybackConfigurationDashConfigurationOriginManifestType(e).ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutputWithContext(ctx).ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx)
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToStringOutput() pulumi.StringOutput {
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PlaybackConfigurationDashConfigurationForPutOriginManifestType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PlaybackConfigurationDashConfigurationOriginManifestType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput struct{ *pulumi.OutputState }
+type PlaybackConfigurationDashConfigurationOriginManifestTypeOutput struct{ *pulumi.OutputState }
 
-func (PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaybackConfigurationDashConfigurationForPutOriginManifestType)(nil)).Elem()
+func (PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestType)(nil)).Elem()
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutput() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
 	return o
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
 	return o
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
-	return o.ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(context.Background())
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
+	return o.ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(context.Background())
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationDashConfigurationForPutOriginManifestType) *PlaybackConfigurationDashConfigurationForPutOriginManifestType {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationDashConfigurationOriginManifestType) *PlaybackConfigurationDashConfigurationOriginManifestType {
 		return &v
-	}).(PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput)
+	}).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationDashConfigurationForPutOriginManifestType) string {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationDashConfigurationOriginManifestType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationDashConfigurationForPutOriginManifestType) *string {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationDashConfigurationOriginManifestType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput struct{ *pulumi.OutputState }
+type PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput struct{ *pulumi.OutputState }
 
-func (PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlaybackConfigurationDashConfigurationForPutOriginManifestType)(nil)).Elem()
+func (PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationDashConfigurationOriginManifestType)(nil)).Elem()
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
 	return o
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
 	return o
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput) Elem() PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput {
-	return o.ApplyT(func(v *PlaybackConfigurationDashConfigurationForPutOriginManifestType) PlaybackConfigurationDashConfigurationForPutOriginManifestType {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) Elem() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationDashConfigurationOriginManifestType) PlaybackConfigurationDashConfigurationOriginManifestType {
 		if v != nil {
 			return *v
 		}
-		var ret PlaybackConfigurationDashConfigurationForPutOriginManifestType
+		var ret PlaybackConfigurationDashConfigurationOriginManifestType
 		return ret
-	}).(PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput)
+	}).(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput)
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationDashConfigurationForPutOriginManifestType) *string {
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationDashConfigurationOriginManifestType) *string {
 		if e == nil {
 			return nil
 		}
@@ -302,51 +302,51 @@ func (o PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// PlaybackConfigurationDashConfigurationForPutOriginManifestTypeInput is an input type that accepts PlaybackConfigurationDashConfigurationForPutOriginManifestTypeArgs and PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput values.
-// You can construct a concrete instance of `PlaybackConfigurationDashConfigurationForPutOriginManifestTypeInput` via:
+// PlaybackConfigurationDashConfigurationOriginManifestTypeInput is an input type that accepts PlaybackConfigurationDashConfigurationOriginManifestTypeArgs and PlaybackConfigurationDashConfigurationOriginManifestTypeOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationDashConfigurationOriginManifestTypeInput` via:
 //
-//          PlaybackConfigurationDashConfigurationForPutOriginManifestTypeArgs{...}
-type PlaybackConfigurationDashConfigurationForPutOriginManifestTypeInput interface {
+//          PlaybackConfigurationDashConfigurationOriginManifestTypeArgs{...}
+type PlaybackConfigurationDashConfigurationOriginManifestTypeInput interface {
 	pulumi.Input
 
-	ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput
-	ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutputWithContext(context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput
+	ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutput() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput
+	ToPlaybackConfigurationDashConfigurationOriginManifestTypeOutputWithContext(context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypeOutput
 }
 
-var playbackConfigurationDashConfigurationForPutOriginManifestTypePtrType = reflect.TypeOf((**PlaybackConfigurationDashConfigurationForPutOriginManifestType)(nil)).Elem()
+var playbackConfigurationDashConfigurationOriginManifestTypePtrType = reflect.TypeOf((**PlaybackConfigurationDashConfigurationOriginManifestType)(nil)).Elem()
 
-type PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrInput interface {
+type PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput interface {
 	pulumi.Input
 
-	ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput
-	ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput
+	ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput
+	ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput
 }
 
-type playbackConfigurationDashConfigurationForPutOriginManifestTypePtr string
+type playbackConfigurationDashConfigurationOriginManifestTypePtr string
 
-func PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtr(v string) PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrInput {
-	return (*playbackConfigurationDashConfigurationForPutOriginManifestTypePtr)(&v)
+func PlaybackConfigurationDashConfigurationOriginManifestTypePtr(v string) PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput {
+	return (*playbackConfigurationDashConfigurationOriginManifestTypePtr)(&v)
 }
 
-func (*playbackConfigurationDashConfigurationForPutOriginManifestTypePtr) ElementType() reflect.Type {
-	return playbackConfigurationDashConfigurationForPutOriginManifestTypePtrType
+func (*playbackConfigurationDashConfigurationOriginManifestTypePtr) ElementType() reflect.Type {
+	return playbackConfigurationDashConfigurationOriginManifestTypePtrType
 }
 
-func (in *playbackConfigurationDashConfigurationForPutOriginManifestTypePtr) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
-	return pulumi.ToOutput(in).(PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput)
+func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput() PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
-func (in *playbackConfigurationDashConfigurationForPutOriginManifestTypePtr) ToPlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput)
+func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModeInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationForPutOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationForPutOriginManifestType("SINGLE_PERIOD"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationForPutOriginManifestType("SINGLE_PERIOD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
-	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationForPutOriginManifestTypeOutput{})
-	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationForPutOriginManifestTypePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput{})
 }

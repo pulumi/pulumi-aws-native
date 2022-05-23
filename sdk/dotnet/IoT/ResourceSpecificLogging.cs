@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> TargetName { get; private set; } = null!;
 
         /// <summary>
-        /// The target type. Value must be THING_GROUP.
+        /// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
         /// </summary>
         [Output("targetType")]
         public Output<Pulumi.AwsNative.IoT.ResourceSpecificLoggingTargetType> TargetType { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string> TargetName { get; set; } = null!;
 
         /// <summary>
-        /// The target type. Value must be THING_GROUP.
+        /// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
         /// </summary>
         [Input("targetType", required: true)]
         public Input<Pulumi.AwsNative.IoT.ResourceSpecificLoggingTargetType> TargetType { get; set; } = null!;

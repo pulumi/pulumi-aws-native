@@ -25,6 +25,14 @@ __all__ = [
     'ModelExplainabilityJobDefinitionEndpointInputS3InputMode',
     'ModelExplainabilityJobDefinitionS3OutputS3UploadMode',
     'ModelPackageGroupStatus',
+    'ModelPackageModelApprovalStatus',
+    'ModelPackageS3DataSourceS3DataType',
+    'ModelPackageStatus',
+    'ModelPackageStatusItemStatus',
+    'ModelPackageTransformInputCompressionType',
+    'ModelPackageTransformInputSplitType',
+    'ModelPackageTransformJobDefinitionBatchStrategy',
+    'ModelPackageTransformOutputAssembleWith',
     'ModelQualityJobDefinitionEndpointInputS3DataDistributionType',
     'ModelQualityJobDefinitionEndpointInputS3InputMode',
     'ModelQualityJobDefinitionProblemType',
@@ -266,6 +274,79 @@ class ModelPackageGroupStatus(str, Enum):
     FAILED = "Failed"
     DELETING = "Deleting"
     DELETE_FAILED = "DeleteFailed"
+
+
+class ModelPackageModelApprovalStatus(str, Enum):
+    """
+    The approval status of the model package.
+    """
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    PENDING_MANUAL_APPROVAL = "PendingManualApproval"
+
+
+class ModelPackageS3DataSourceS3DataType(str, Enum):
+    """
+    The S3 Data Source Type
+    """
+    MANIFEST_FILE = "ManifestFile"
+    S3_PREFIX = "S3Prefix"
+    AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile"
+
+
+class ModelPackageStatus(str, Enum):
+    """
+    The current status of the model package.
+    """
+    PENDING = "Pending"
+    DELETING = "Deleting"
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+
+class ModelPackageStatusItemStatus(str, Enum):
+    """
+    The current status.
+    """
+    NOT_STARTED = "NotStarted"
+    FAILED = "Failed"
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+
+
+class ModelPackageTransformInputCompressionType(str, Enum):
+    """
+    If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+    """
+    NONE = "None"
+    GZIP = "Gzip"
+
+
+class ModelPackageTransformInputSplitType(str, Enum):
+    """
+    The method to use to split the transform job's data files into smaller batches. 
+    """
+    NONE = "None"
+    TF_RECORD = "TFRecord"
+    LINE = "Line"
+    RECORD_IO = "RecordIO"
+
+
+class ModelPackageTransformJobDefinitionBatchStrategy(str, Enum):
+    """
+    A string that determines the number of records included in a single mini-batch.
+    """
+    MULTI_RECORD = "MultiRecord"
+    SINGLE_RECORD = "SingleRecord"
+
+
+class ModelPackageTransformOutputAssembleWith(str, Enum):
+    """
+    Defines how to assemble the results of the transform job as a single S3 object.
+    """
+    NONE = "None"
+    LINE = "Line"
 
 
 class ModelQualityJobDefinitionEndpointInputS3DataDistributionType(str, Enum):

@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolClientResult:
-    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, callback_urls=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_token_revocation=None, explicit_auth_flows=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
+    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, callback_urls=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
         if access_token_validity and not isinstance(access_token_validity, int):
             raise TypeError("Expected argument 'access_token_validity' to be a int")
         pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -46,6 +46,9 @@ class GetUserPoolClientResult:
         if default_redirect_uri and not isinstance(default_redirect_uri, str):
             raise TypeError("Expected argument 'default_redirect_uri' to be a str")
         pulumi.set(__self__, "default_redirect_uri", default_redirect_uri)
+        if enable_propagate_additional_user_context_data and not isinstance(enable_propagate_additional_user_context_data, bool):
+            raise TypeError("Expected argument 'enable_propagate_additional_user_context_data' to be a bool")
+        pulumi.set(__self__, "enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
         if enable_token_revocation and not isinstance(enable_token_revocation, bool):
             raise TypeError("Expected argument 'enable_token_revocation' to be a bool")
         pulumi.set(__self__, "enable_token_revocation", enable_token_revocation)
@@ -129,6 +132,11 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "default_redirect_uri")
 
     @property
+    @pulumi.getter(name="enablePropagateAdditionalUserContextData")
+    def enable_propagate_additional_user_context_data(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_propagate_additional_user_context_data")
+
+    @property
     @pulumi.getter(name="enableTokenRevocation")
     def enable_token_revocation(self) -> Optional[bool]:
         return pulumi.get(self, "enable_token_revocation")
@@ -204,6 +212,7 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             client_name=self.client_name,
             client_secret=self.client_secret,
             default_redirect_uri=self.default_redirect_uri,
+            enable_propagate_additional_user_context_data=self.enable_propagate_additional_user_context_data,
             enable_token_revocation=self.enable_token_revocation,
             explicit_auth_flows=self.explicit_auth_flows,
             id=self.id,
@@ -241,6 +250,7 @@ def get_user_pool_client(id: Optional[str] = None,
         client_name=__ret__.client_name,
         client_secret=__ret__.client_secret,
         default_redirect_uri=__ret__.default_redirect_uri,
+        enable_propagate_additional_user_context_data=__ret__.enable_propagate_additional_user_context_data,
         enable_token_revocation=__ret__.enable_token_revocation,
         explicit_auth_flows=__ret__.explicit_auth_flows,
         id=__ret__.id,

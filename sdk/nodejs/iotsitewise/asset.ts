@@ -39,6 +39,10 @@ export class Asset extends pulumi.CustomResource {
      * The ARN of the asset
      */
     public /*out*/ readonly assetArn!: pulumi.Output<string>;
+    /**
+     * A description for the asset
+     */
+    public readonly assetDescription!: pulumi.Output<string | undefined>;
     public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
     /**
      * The ID of the asset
@@ -72,6 +76,7 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.assetModelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetModelId'");
             }
+            resourceInputs["assetDescription"] = args ? args.assetDescription : undefined;
             resourceInputs["assetHierarchies"] = args ? args.assetHierarchies : undefined;
             resourceInputs["assetModelId"] = args ? args.assetModelId : undefined;
             resourceInputs["assetName"] = args ? args.assetName : undefined;
@@ -81,6 +86,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["assetId"] = undefined /*out*/;
         } else {
             resourceInputs["assetArn"] = undefined /*out*/;
+            resourceInputs["assetDescription"] = undefined /*out*/;
             resourceInputs["assetHierarchies"] = undefined /*out*/;
             resourceInputs["assetId"] = undefined /*out*/;
             resourceInputs["assetModelId"] = undefined /*out*/;
@@ -97,6 +103,10 @@ export class Asset extends pulumi.CustomResource {
  * The set of arguments for constructing a Asset resource.
  */
 export interface AssetArgs {
+    /**
+     * A description for the asset
+     */
+    assetDescription?: pulumi.Input<string>;
     assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[]>;
     /**
      * The ID of the asset model from which to create the asset.

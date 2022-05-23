@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? ClientName;
         public readonly string? ClientSecret;
         public readonly string? DefaultRedirectURI;
+        public readonly bool? EnablePropagateAdditionalUserContextData;
         public readonly bool? EnableTokenRevocation;
         public readonly ImmutableArray<string> ExplicitAuthFlows;
         public readonly string? Id;
@@ -90,6 +91,8 @@ namespace Pulumi.AwsNative.Cognito
             string? clientSecret,
 
             string? defaultRedirectURI,
+
+            bool? enablePropagateAdditionalUserContextData,
 
             bool? enableTokenRevocation,
 
@@ -124,6 +127,7 @@ namespace Pulumi.AwsNative.Cognito
             ClientName = clientName;
             ClientSecret = clientSecret;
             DefaultRedirectURI = defaultRedirectURI;
+            EnablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
             EnableTokenRevocation = enableTokenRevocation;
             ExplicitAuthFlows = explicitAuthFlows;
             Id = id;

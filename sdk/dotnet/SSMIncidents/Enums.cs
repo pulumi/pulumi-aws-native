@@ -37,4 +37,35 @@ namespace Pulumi.AwsNative.SSMIncidents
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The variable types used as dynamic parameter value when starting the SSM automation document.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResponsePlanVariableType : IEquatable<ResponsePlanVariableType>
+    {
+        private readonly string _value;
+
+        private ResponsePlanVariableType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResponsePlanVariableType IncidentRecordArn { get; } = new ResponsePlanVariableType("INCIDENT_RECORD_ARN");
+        public static ResponsePlanVariableType InvolvedResources { get; } = new ResponsePlanVariableType("INVOLVED_RESOURCES");
+
+        public static bool operator ==(ResponsePlanVariableType left, ResponsePlanVariableType right) => left.Equals(right);
+        public static bool operator !=(ResponsePlanVariableType left, ResponsePlanVariableType right) => !left.Equals(right);
+
+        public static explicit operator string(ResponsePlanVariableType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResponsePlanVariableType other && Equals(other);
+        public bool Equals(ResponsePlanVariableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

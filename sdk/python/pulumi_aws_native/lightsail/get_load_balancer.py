@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, attached_instances=None, health_check_path=None, load_balancer_arn=None, session_stickiness_enabled=None, session_stickiness_lb_cookie_duration_seconds=None, tags=None):
+    def __init__(__self__, attached_instances=None, health_check_path=None, load_balancer_arn=None, session_stickiness_enabled=None, session_stickiness_lb_cookie_duration_seconds=None, tags=None, tls_policy_name=None):
         if attached_instances and not isinstance(attached_instances, list):
             raise TypeError("Expected argument 'attached_instances' to be a list")
         pulumi.set(__self__, "attached_instances", attached_instances)
@@ -37,6 +37,9 @@ class GetLoadBalancerResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if tls_policy_name and not isinstance(tls_policy_name, str):
+            raise TypeError("Expected argument 'tls_policy_name' to be a str")
+        pulumi.set(__self__, "tls_policy_name", tls_policy_name)
 
     @property
     @pulumi.getter(name="attachedInstances")
@@ -83,6 +86,14 @@ class GetLoadBalancerResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="tlsPolicyName")
+    def tls_policy_name(self) -> Optional[str]:
+        """
+        The name of the TLS policy to apply to the load balancer.
+        """
+        return pulumi.get(self, "tls_policy_name")
+
 
 class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
     # pylint: disable=using-constant-test
@@ -95,7 +106,8 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             load_balancer_arn=self.load_balancer_arn,
             session_stickiness_enabled=self.session_stickiness_enabled,
             session_stickiness_lb_cookie_duration_seconds=self.session_stickiness_lb_cookie_duration_seconds,
-            tags=self.tags)
+            tags=self.tags,
+            tls_policy_name=self.tls_policy_name)
 
 
 def get_load_balancer(load_balancer_name: Optional[str] = None,
@@ -120,7 +132,8 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
         load_balancer_arn=__ret__.load_balancer_arn,
         session_stickiness_enabled=__ret__.session_stickiness_enabled,
         session_stickiness_lb_cookie_duration_seconds=__ret__.session_stickiness_lb_cookie_duration_seconds,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        tls_policy_name=__ret__.tls_policy_name)
 
 
 @_utilities.lift_output_func(get_load_balancer)

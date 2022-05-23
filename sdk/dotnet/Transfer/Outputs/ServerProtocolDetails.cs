@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     public sealed class ServerProtocolDetails
     {
         public readonly string? PassiveIp;
+        public readonly string? SetStatOption;
         public readonly string? TlsSessionResumptionMode;
 
         [OutputConstructor]
         private ServerProtocolDetails(
             string? passiveIp,
 
+            string? setStatOption,
+
             string? tlsSessionResumptionMode)
         {
             PassiveIp = passiveIp;
+            SetStatOption = setStatOption;
             TlsSessionResumptionMode = tlsSessionResumptionMode;
         }
     }

@@ -158,6 +158,16 @@ export const TaskOptionsMtime = {
  */
 export type TaskOptionsMtime = (typeof TaskOptionsMtime)[keyof typeof TaskOptionsMtime];
 
+export const TaskOptionsObjectTags = {
+    Preserve: "PRESERVE",
+    None: "NONE",
+} as const;
+
+/**
+ * A value that determines whether object tags should be read from the source object store and written to the destination object store.
+ */
+export type TaskOptionsObjectTags = (typeof TaskOptionsObjectTags)[keyof typeof TaskOptionsObjectTags];
+
 export const TaskOptionsOverwriteMode = {
     Always: "ALWAYS",
     Never: "NEVER",

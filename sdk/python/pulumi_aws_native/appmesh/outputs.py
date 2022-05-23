@@ -35,6 +35,7 @@ __all__ = [
     'GatewayRouteTarget',
     'GatewayRouteVirtualService',
     'MeshEgressFilter',
+    'MeshServiceDiscovery',
     'MeshSpec',
     'MeshTag',
     'RouteDuration',
@@ -851,12 +852,44 @@ class MeshEgressFilter(dict):
 
 
 @pulumi.output_type
+class MeshServiceDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipPreference":
+            suggest = "ip_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MeshServiceDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MeshServiceDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MeshServiceDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_preference: Optional[str] = None):
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[str]:
+        return pulumi.get(self, "ip_preference")
+
+
+@pulumi.output_type
 class MeshSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "egressFilter":
             suggest = "egress_filter"
+        elif key == "serviceDiscovery":
+            suggest = "service_discovery"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MeshSpec. Access the value via the '{suggest}' property getter instead.")
@@ -870,14 +903,22 @@ class MeshSpec(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 egress_filter: Optional['outputs.MeshEgressFilter'] = None):
+                 egress_filter: Optional['outputs.MeshEgressFilter'] = None,
+                 service_discovery: Optional['outputs.MeshServiceDiscovery'] = None):
         if egress_filter is not None:
             pulumi.set(__self__, "egress_filter", egress_filter)
+        if service_discovery is not None:
+            pulumi.set(__self__, "service_discovery", service_discovery)
 
     @property
     @pulumi.getter(name="egressFilter")
     def egress_filter(self) -> Optional['outputs.MeshEgressFilter']:
         return pulumi.get(self, "egress_filter")
+
+    @property
+    @pulumi.getter(name="serviceDiscovery")
+    def service_discovery(self) -> Optional['outputs.MeshServiceDiscovery']:
+        return pulumi.get(self, "service_discovery")
 
 
 @pulumi.output_type
@@ -2845,6 +2886,8 @@ class VirtualNodeAwsCloudMapServiceDiscovery(dict):
             suggest = "namespace_name"
         elif key == "serviceName":
             suggest = "service_name"
+        elif key == "ipPreference":
+            suggest = "ip_preference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualNodeAwsCloudMapServiceDiscovery. Access the value via the '{suggest}' property getter instead.")
@@ -2860,11 +2903,14 @@ class VirtualNodeAwsCloudMapServiceDiscovery(dict):
     def __init__(__self__, *,
                  namespace_name: str,
                  service_name: str,
-                 attributes: Optional[Sequence['outputs.VirtualNodeAwsCloudMapInstanceAttribute']] = None):
+                 attributes: Optional[Sequence['outputs.VirtualNodeAwsCloudMapInstanceAttribute']] = None,
+                 ip_preference: Optional[str] = None):
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "service_name", service_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -2880,6 +2926,11 @@ class VirtualNodeAwsCloudMapServiceDiscovery(dict):
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.VirtualNodeAwsCloudMapInstanceAttribute']]:
         return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[str]:
+        return pulumi.get(self, "ip_preference")
 
 
 @pulumi.output_type
@@ -3111,7 +3162,9 @@ class VirtualNodeDnsServiceDiscovery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "responseType":
+        if key == "ipPreference":
+            suggest = "ip_preference"
+        elif key == "responseType":
             suggest = "response_type"
 
         if suggest:
@@ -3127,8 +3180,11 @@ class VirtualNodeDnsServiceDiscovery(dict):
 
     def __init__(__self__, *,
                  hostname: str,
+                 ip_preference: Optional[str] = None,
                  response_type: Optional[str] = None):
         pulumi.set(__self__, "hostname", hostname)
+        if ip_preference is not None:
+            pulumi.set(__self__, "ip_preference", ip_preference)
         if response_type is not None:
             pulumi.set(__self__, "response_type", response_type)
 
@@ -3136,6 +3192,11 @@ class VirtualNodeDnsServiceDiscovery(dict):
     @pulumi.getter
     def hostname(self) -> str:
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="ipPreference")
+    def ip_preference(self) -> Optional[str]:
+        return pulumi.get(self, "ip_preference")
 
     @property
     @pulumi.getter(name="responseType")

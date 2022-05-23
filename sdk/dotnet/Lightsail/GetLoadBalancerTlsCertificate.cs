@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Lightsail
     public sealed class GetLoadBalancerTlsCertificateResult
     {
         /// <summary>
+        /// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+        /// </summary>
+        public readonly bool? HttpsRedirectionEnabled;
+        /// <summary>
         /// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
         /// </summary>
         public readonly bool? IsAttached;
@@ -79,12 +83,15 @@ namespace Pulumi.AwsNative.Lightsail
 
         [OutputConstructor]
         private GetLoadBalancerTlsCertificateResult(
+            bool? httpsRedirectionEnabled,
+
             bool? isAttached,
 
             string? loadBalancerTlsCertificateArn,
 
             string? status)
         {
+            HttpsRedirectionEnabled = httpsRedirectionEnabled;
             IsAttached = isAttached;
             LoadBalancerTlsCertificateArn = loadBalancerTlsCertificateArn;
             Status = status;

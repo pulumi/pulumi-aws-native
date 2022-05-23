@@ -1787,6 +1787,7 @@ _utilities.register(
    "aws-native:iot:PolicyPrincipalAttachment": "PolicyPrincipalAttachment",
    "aws-native:iot:ProvisioningTemplate": "ProvisioningTemplate",
    "aws-native:iot:ResourceSpecificLogging": "ResourceSpecificLogging",
+   "aws-native:iot:RoleAlias": "RoleAlias",
    "aws-native:iot:ScheduledAudit": "ScheduledAudit",
    "aws-native:iot:SecurityProfile": "SecurityProfile",
    "aws-native:iot:Thing": "Thing",
@@ -2231,13 +2232,18 @@ _utilities.register(
   "mod": "networkmanager",
   "fqn": "pulumi_aws_native.networkmanager",
   "classes": {
+   "aws-native:networkmanager:ConnectAttachment": "ConnectAttachment",
+   "aws-native:networkmanager:ConnectPeer": "ConnectPeer",
+   "aws-native:networkmanager:CoreNetwork": "CoreNetwork",
    "aws-native:networkmanager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
    "aws-native:networkmanager:Device": "Device",
    "aws-native:networkmanager:GlobalNetwork": "GlobalNetwork",
    "aws-native:networkmanager:Link": "Link",
    "aws-native:networkmanager:LinkAssociation": "LinkAssociation",
    "aws-native:networkmanager:Site": "Site",
-   "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration"
+   "aws-native:networkmanager:SiteToSiteVpnAttachment": "SiteToSiteVpnAttachment",
+   "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration",
+   "aws-native:networkmanager:VpcAttachment": "VpcAttachment"
   }
  },
  {
@@ -2422,7 +2428,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.rekognition",
   "classes": {
    "aws-native:rekognition:Collection": "Collection",
-   "aws-native:rekognition:Project": "Project"
+   "aws-native:rekognition:Project": "Project",
+   "aws-native:rekognition:StreamProcessor": "StreamProcessor"
   }
  },
  {
@@ -2568,6 +2575,7 @@ _utilities.register(
    "aws-native:sagemaker:Model": "Model",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
    "aws-native:sagemaker:ModelExplainabilityJobDefinition": "ModelExplainabilityJobDefinition",
+   "aws-native:sagemaker:ModelPackage": "ModelPackage",
    "aws-native:sagemaker:ModelPackageGroup": "ModelPackageGroup",
    "aws-native:sagemaker:ModelQualityJobDefinition": "ModelQualityJobDefinition",
    "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",

@@ -104,7 +104,41 @@ __all__ = [
     'ModelImageConfigArgs',
     'ModelInferenceExecutionConfigArgs',
     'ModelMultiModelConfigArgs',
+    'ModelPackageAdditionalInferenceSpecificationDefinitionArgs',
+    'ModelPackageBiasArgs',
+    'ModelPackageContainerDefinitionModelInputPropertiesArgs',
+    'ModelPackageContainerDefinitionArgs',
+    'ModelPackageCreatedByArgs',
+    'ModelPackageCustomerMetadataPropertiesArgs',
+    'ModelPackageDataSourceArgs',
+    'ModelPackageDriftCheckBaselinesArgs',
+    'ModelPackageDriftCheckBiasArgs',
+    'ModelPackageDriftCheckExplainabilityArgs',
+    'ModelPackageDriftCheckModelDataQualityArgs',
+    'ModelPackageDriftCheckModelQualityArgs',
+    'ModelPackageEnvironmentArgs',
+    'ModelPackageExplainabilityArgs',
+    'ModelPackageFileSourceArgs',
     'ModelPackageGroupTagArgs',
+    'ModelPackageInferenceSpecificationArgs',
+    'ModelPackageLastModifiedByArgs',
+    'ModelPackageMetadataPropertiesArgs',
+    'ModelPackageMetricsSourceArgs',
+    'ModelPackageModelDataQualityArgs',
+    'ModelPackageModelMetricsArgs',
+    'ModelPackageModelQualityArgs',
+    'ModelPackageS3DataSourceArgs',
+    'ModelPackageSourceAlgorithmSpecificationArgs',
+    'ModelPackageSourceAlgorithmArgs',
+    'ModelPackageStatusDetailsArgs',
+    'ModelPackageStatusItemArgs',
+    'ModelPackageTagArgs',
+    'ModelPackageTransformInputArgs',
+    'ModelPackageTransformJobDefinitionArgs',
+    'ModelPackageTransformOutputArgs',
+    'ModelPackageTransformResourcesArgs',
+    'ModelPackageValidationProfileArgs',
+    'ModelPackageValidationSpecificationArgs',
     'ModelQualityJobDefinitionClusterConfigArgs',
     'ModelQualityJobDefinitionConstraintsResourceArgs',
     'ModelQualityJobDefinitionEndpointInputArgs',
@@ -3983,6 +4017,663 @@ class ModelMultiModelConfigArgs:
 
 
 @pulumi.input_type
+class ModelPackageAdditionalInferenceSpecificationDefinitionArgs:
+    def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]],
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 supported_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 supported_realtime_inference_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 supported_response_mime_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 supported_transform_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
+        :param pulumi.Input[str] name: A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+        :param pulumi.Input[str] description: A description of the additional Inference specification.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_content_types: The supported MIME types for the input data.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_realtime_inference_instance_types: A list of the instance types that are used to generate inferences in real-time
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_response_mime_types: The supported MIME types for the output data.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_transform_instance_types: A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if supported_content_types is not None:
+            pulumi.set(__self__, "supported_content_types", supported_content_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_response_mime_types is not None:
+            pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]]:
+        """
+        The Amazon ECR registry path of the Docker image that contains the inference code.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the additional Inference specification.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The supported MIME types for the input data.
+        """
+        return pulumi.get(self, "supported_content_types")
+
+    @supported_content_types.setter
+    def supported_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_content_types", value)
+
+    @property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the instance types that are used to generate inferences in real-time
+        """
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @supported_realtime_inference_instance_types.setter
+    def supported_realtime_inference_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_realtime_inference_instance_types", value)
+
+    @property
+    @pulumi.getter(name="supportedResponseMIMETypes")
+    def supported_response_mime_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The supported MIME types for the output data.
+        """
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @supported_response_mime_types.setter
+    def supported_response_mime_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_response_mime_types", value)
+
+    @property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        return pulumi.get(self, "supported_transform_instance_types")
+
+    @supported_transform_instance_types.setter
+    def supported_transform_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_transform_instance_types", value)
+
+
+@pulumi.input_type
+class ModelPackageBiasArgs:
+    def __init__(__self__, *,
+                 post_training_report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 pre_training_report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Contains bias metrics for a model.
+        """
+        if post_training_report is not None:
+            pulumi.set(__self__, "post_training_report", post_training_report)
+        if pre_training_report is not None:
+            pulumi.set(__self__, "pre_training_report", pre_training_report)
+        if report is not None:
+            pulumi.set(__self__, "report", report)
+
+    @property
+    @pulumi.getter(name="postTrainingReport")
+    def post_training_report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "post_training_report")
+
+    @post_training_report.setter
+    def post_training_report(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "post_training_report", value)
+
+    @property
+    @pulumi.getter(name="preTrainingReport")
+    def pre_training_report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "pre_training_report")
+
+    @pre_training_report.setter
+    def pre_training_report(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "pre_training_report", value)
+
+    @property
+    @pulumi.getter
+    def report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "report")
+
+    @report.setter
+    def report(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "report", value)
+
+
+@pulumi.input_type
+class ModelPackageContainerDefinitionModelInputPropertiesArgs:
+    def __init__(__self__, *,
+                 data_input_config: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_input_config: The input configuration object for the model.
+        """
+        pulumi.set(__self__, "data_input_config", data_input_config)
+
+    @property
+    @pulumi.getter(name="dataInputConfig")
+    def data_input_config(self) -> pulumi.Input[str]:
+        """
+        The input configuration object for the model.
+        """
+        return pulumi.get(self, "data_input_config")
+
+    @data_input_config.setter
+    def data_input_config(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_input_config", value)
+
+
+@pulumi.input_type
+class ModelPackageContainerDefinitionArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 container_hostname: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input['ModelPackageEnvironmentArgs']] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
+                 framework_version: Optional[pulumi.Input[str]] = None,
+                 image_digest: Optional[pulumi.Input[str]] = None,
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_input: Optional[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs']] = None,
+                 nearest_model_name: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the Docker container for the model package.
+        :param pulumi.Input[str] image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+        :param pulumi.Input[str] container_hostname: The DNS host name for the Docker container.
+        :param pulumi.Input[str] framework: The machine learning framework of the model package container image.
+        :param pulumi.Input[str] framework_version: The framework version of the Model Package Container Image.
+        :param pulumi.Input[str] image_digest: An MD5 hash of the training algorithm that identifies the Docker image used for training.
+        :param pulumi.Input[str] model_data_url: A structure with Model Input details.
+        :param pulumi.Input[str] nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+        :param pulumi.Input[str] product_id: The AWS Marketplace product ID of the model package.
+        """
+        pulumi.set(__self__, "image", image)
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_input is not None:
+            pulumi.set(__self__, "model_input", model_input)
+        if nearest_model_name is not None:
+            pulumi.set(__self__, "nearest_model_name", nearest_model_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS host name for the Docker container.
+        """
+        return pulumi.get(self, "container_hostname")
+
+    @container_hostname.setter
+    def container_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_hostname", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['ModelPackageEnvironmentArgs']]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['ModelPackageEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def framework(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine learning framework of the model package container image.
+        """
+        return pulumi.get(self, "framework")
+
+    @framework.setter
+    def framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework", value)
+
+    @property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The framework version of the Model Package Container Image.
+        """
+        return pulumi.get(self, "framework_version")
+
+    @framework_version.setter
+    def framework_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework_version", value)
+
+    @property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        An MD5 hash of the training algorithm that identifies the Docker image used for training.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @image_digest.setter
+    def image_digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_digest", value)
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        A structure with Model Input details.
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @model_data_url.setter
+    def model_data_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelInput")
+    def model_input(self) -> Optional[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs']]:
+        return pulumi.get(self, "model_input")
+
+    @model_input.setter
+    def model_input(self, value: Optional[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs']]):
+        pulumi.set(self, "model_input", value)
+
+    @property
+    @pulumi.getter(name="nearestModelName")
+    def nearest_model_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+        """
+        return pulumi.get(self, "nearest_model_name")
+
+    @nearest_model_name.setter
+    def nearest_model_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nearest_model_name", value)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Marketplace product ID of the model package.
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_id", value)
+
+
+@pulumi.input_type
+class ModelPackageCreatedByArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ModelPackageCustomerMetadataPropertiesArgs:
+    def __init__(__self__):
+        """
+        The metadata properties associated with the model package versions.
+        """
+        pass
+
+
+@pulumi.input_type
+class ModelPackageDataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_source: pulumi.Input['ModelPackageS3DataSourceArgs']):
+        """
+        Describes the input source of a transform job and the way the transform job consumes it.
+        """
+        pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> pulumi.Input['ModelPackageS3DataSourceArgs']:
+        return pulumi.get(self, "s3_data_source")
+
+    @s3_data_source.setter
+    def s3_data_source(self, value: pulumi.Input['ModelPackageS3DataSourceArgs']):
+        pulumi.set(self, "s3_data_source", value)
+
+
+@pulumi.input_type
+class ModelPackageDriftCheckBaselinesArgs:
+    def __init__(__self__, *,
+                 bias: Optional[pulumi.Input['ModelPackageDriftCheckBiasArgs']] = None,
+                 explainability: Optional[pulumi.Input['ModelPackageDriftCheckExplainabilityArgs']] = None,
+                 model_data_quality: Optional[pulumi.Input['ModelPackageDriftCheckModelDataQualityArgs']] = None,
+                 model_quality: Optional[pulumi.Input['ModelPackageDriftCheckModelQualityArgs']] = None):
+        """
+        Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        """
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if explainability is not None:
+            pulumi.set(__self__, "explainability", explainability)
+        if model_data_quality is not None:
+            pulumi.set(__self__, "model_data_quality", model_data_quality)
+        if model_quality is not None:
+            pulumi.set(__self__, "model_quality", model_quality)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[pulumi.Input['ModelPackageDriftCheckBiasArgs']]:
+        return pulumi.get(self, "bias")
+
+    @bias.setter
+    def bias(self, value: Optional[pulumi.Input['ModelPackageDriftCheckBiasArgs']]):
+        pulumi.set(self, "bias", value)
+
+    @property
+    @pulumi.getter
+    def explainability(self) -> Optional[pulumi.Input['ModelPackageDriftCheckExplainabilityArgs']]:
+        return pulumi.get(self, "explainability")
+
+    @explainability.setter
+    def explainability(self, value: Optional[pulumi.Input['ModelPackageDriftCheckExplainabilityArgs']]):
+        pulumi.set(self, "explainability", value)
+
+    @property
+    @pulumi.getter(name="modelDataQuality")
+    def model_data_quality(self) -> Optional[pulumi.Input['ModelPackageDriftCheckModelDataQualityArgs']]:
+        return pulumi.get(self, "model_data_quality")
+
+    @model_data_quality.setter
+    def model_data_quality(self, value: Optional[pulumi.Input['ModelPackageDriftCheckModelDataQualityArgs']]):
+        pulumi.set(self, "model_data_quality", value)
+
+    @property
+    @pulumi.getter(name="modelQuality")
+    def model_quality(self) -> Optional[pulumi.Input['ModelPackageDriftCheckModelQualityArgs']]:
+        return pulumi.get(self, "model_quality")
+
+    @model_quality.setter
+    def model_quality(self, value: Optional[pulumi.Input['ModelPackageDriftCheckModelQualityArgs']]):
+        pulumi.set(self, "model_quality", value)
+
+
+@pulumi.input_type
+class ModelPackageDriftCheckBiasArgs:
+    def __init__(__self__, *,
+                 config_file: Optional[pulumi.Input['ModelPackageFileSourceArgs']] = None,
+                 post_training_constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 pre_training_constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+        """
+        if config_file is not None:
+            pulumi.set(__self__, "config_file", config_file)
+        if post_training_constraints is not None:
+            pulumi.set(__self__, "post_training_constraints", post_training_constraints)
+        if pre_training_constraints is not None:
+            pulumi.set(__self__, "pre_training_constraints", pre_training_constraints)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> Optional[pulumi.Input['ModelPackageFileSourceArgs']]:
+        return pulumi.get(self, "config_file")
+
+    @config_file.setter
+    def config_file(self, value: Optional[pulumi.Input['ModelPackageFileSourceArgs']]):
+        pulumi.set(self, "config_file", value)
+
+    @property
+    @pulumi.getter(name="postTrainingConstraints")
+    def post_training_constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "post_training_constraints")
+
+    @post_training_constraints.setter
+    def post_training_constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "post_training_constraints", value)
+
+    @property
+    @pulumi.getter(name="preTrainingConstraints")
+    def pre_training_constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "pre_training_constraints")
+
+    @pre_training_constraints.setter
+    def pre_training_constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "pre_training_constraints", value)
+
+
+@pulumi.input_type
+class ModelPackageDriftCheckExplainabilityArgs:
+    def __init__(__self__, *,
+                 config_file: Optional[pulumi.Input['ModelPackageFileSourceArgs']] = None,
+                 constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Contains explainability metrics for a model.
+        """
+        if config_file is not None:
+            pulumi.set(__self__, "config_file", config_file)
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> Optional[pulumi.Input['ModelPackageFileSourceArgs']]:
+        return pulumi.get(self, "config_file")
+
+    @config_file.setter
+    def config_file(self, value: Optional[pulumi.Input['ModelPackageFileSourceArgs']]):
+        pulumi.set(self, "config_file", value)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "constraints")
+
+    @constraints.setter
+    def constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "constraints", value)
+
+
+@pulumi.input_type
+class ModelPackageDriftCheckModelDataQualityArgs:
+    def __init__(__self__, *,
+                 constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "constraints")
+
+    @constraints.setter
+    def constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "constraints", value)
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "statistics")
+
+    @statistics.setter
+    def statistics(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "statistics", value)
+
+
+@pulumi.input_type
+class ModelPackageDriftCheckModelQualityArgs:
+    def __init__(__self__, *,
+                 constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "constraints")
+
+    @constraints.setter
+    def constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "constraints", value)
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "statistics")
+
+    @statistics.setter
+    def statistics(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "statistics", value)
+
+
+@pulumi.input_type
+class ModelPackageEnvironmentArgs:
+    def __init__(__self__):
+        """
+        Sets the environment variables in the Docker container
+        """
+        pass
+
+
+@pulumi.input_type
+class ModelPackageExplainabilityArgs:
+    def __init__(__self__, *,
+                 report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Contains explainability metrics for a model.
+        """
+        if report is not None:
+            pulumi.set(__self__, "report", report)
+
+    @property
+    @pulumi.getter
+    def report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "report")
+
+    @report.setter
+    def report(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "report", value)
+
+
+@pulumi.input_type
+class ModelPackageFileSourceArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[str],
+                 content_digest: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None):
+        """
+        Represents a File Source Object.
+        :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the file source.
+        :param pulumi.Input[str] content_digest: The digest of the file source.
+        :param pulumi.Input[str] content_type: The type of content stored in the file source.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if content_digest is not None:
+            pulumi.set(__self__, "content_digest", content_digest)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 URI for the file source.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="contentDigest")
+    def content_digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        The digest of the file source.
+        """
+        return pulumi.get(self, "content_digest")
+
+    @content_digest.setter
+    def content_digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_digest", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of content stored in the file source.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+
+@pulumi.input_type
 class ModelPackageGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -4018,6 +4709,927 @@ class ModelPackageGroupTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ModelPackageInferenceSpecificationArgs:
+    def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]],
+                 supported_content_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 supported_response_mime_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 supported_realtime_inference_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 supported_transform_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Details about inference jobs that can be run with models based on this model package.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_content_types: The supported MIME types for the input data.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_response_mime_types: The supported MIME types for the output data.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_realtime_inference_instance_types: A list of the instance types that are used to generate inferences in real-time
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_transform_instance_types: A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "supported_content_types", supported_content_types)
+        pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]]:
+        """
+        The Amazon ECR registry path of the Docker image that contains the inference code.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The supported MIME types for the input data.
+        """
+        return pulumi.get(self, "supported_content_types")
+
+    @supported_content_types.setter
+    def supported_content_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "supported_content_types", value)
+
+    @property
+    @pulumi.getter(name="supportedResponseMIMETypes")
+    def supported_response_mime_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The supported MIME types for the output data.
+        """
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @supported_response_mime_types.setter
+    def supported_response_mime_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "supported_response_mime_types", value)
+
+    @property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the instance types that are used to generate inferences in real-time
+        """
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @supported_realtime_inference_instance_types.setter
+    def supported_realtime_inference_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_realtime_inference_instance_types", value)
+
+    @property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
+        """
+        return pulumi.get(self, "supported_transform_instance_types")
+
+    @supported_transform_instance_types.setter
+    def supported_transform_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_transform_instance_types", value)
+
+
+@pulumi.input_type
+class ModelPackageLastModifiedByArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ModelPackageMetadataPropertiesArgs:
+    def __init__(__self__, *,
+                 commit_id: Optional[pulumi.Input[str]] = None,
+                 generated_by: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None):
+        """
+        Metadata properties of the tracking entity, trial, or trial component.
+        :param pulumi.Input[str] commit_id: The commit ID.
+        :param pulumi.Input[str] generated_by: The entity this entity was generated by.
+        :param pulumi.Input[str] project_id: The project ID metadata.
+        :param pulumi.Input[str] repository: The repository metadata.
+        """
+        if commit_id is not None:
+            pulumi.set(__self__, "commit_id", commit_id)
+        if generated_by is not None:
+            pulumi.set(__self__, "generated_by", generated_by)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="commitId")
+    def commit_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The commit ID.
+        """
+        return pulumi.get(self, "commit_id")
+
+    @commit_id.setter
+    def commit_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit_id", value)
+
+    @property
+    @pulumi.getter(name="generatedBy")
+    def generated_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The entity this entity was generated by.
+        """
+        return pulumi.get(self, "generated_by")
+
+    @generated_by.setter
+    def generated_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "generated_by", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID metadata.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository metadata.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+
+@pulumi.input_type
+class ModelPackageMetricsSourceArgs:
+    def __init__(__self__, *,
+                 content_type: pulumi.Input[str],
+                 s3_uri: pulumi.Input[str],
+                 content_digest: Optional[pulumi.Input[str]] = None):
+        """
+        Represents a Metric Source Object.
+        :param pulumi.Input[str] content_type: The type of content stored in the metric source.
+        :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the metric source.
+        :param pulumi.Input[str] content_digest: The digest of the metric source.
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if content_digest is not None:
+            pulumi.set(__self__, "content_digest", content_digest)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[str]:
+        """
+        The type of content stored in the metric source.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 URI for the metric source.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="contentDigest")
+    def content_digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        The digest of the metric source.
+        """
+        return pulumi.get(self, "content_digest")
+
+    @content_digest.setter
+    def content_digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_digest", value)
+
+
+@pulumi.input_type
+class ModelPackageModelDataQualityArgs:
+    def __init__(__self__, *,
+                 constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Metrics that measure the quality of the input data for a model.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "constraints")
+
+    @constraints.setter
+    def constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "constraints", value)
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "statistics")
+
+    @statistics.setter
+    def statistics(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "statistics", value)
+
+
+@pulumi.input_type
+class ModelPackageModelMetricsArgs:
+    def __init__(__self__, *,
+                 bias: Optional[pulumi.Input['ModelPackageBiasArgs']] = None,
+                 explainability: Optional[pulumi.Input['ModelPackageExplainabilityArgs']] = None,
+                 model_data_quality: Optional[pulumi.Input['ModelPackageModelDataQualityArgs']] = None,
+                 model_quality: Optional[pulumi.Input['ModelPackageModelQualityArgs']] = None):
+        """
+        A structure that contains model metrics reports.
+        """
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if explainability is not None:
+            pulumi.set(__self__, "explainability", explainability)
+        if model_data_quality is not None:
+            pulumi.set(__self__, "model_data_quality", model_data_quality)
+        if model_quality is not None:
+            pulumi.set(__self__, "model_quality", model_quality)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[pulumi.Input['ModelPackageBiasArgs']]:
+        return pulumi.get(self, "bias")
+
+    @bias.setter
+    def bias(self, value: Optional[pulumi.Input['ModelPackageBiasArgs']]):
+        pulumi.set(self, "bias", value)
+
+    @property
+    @pulumi.getter
+    def explainability(self) -> Optional[pulumi.Input['ModelPackageExplainabilityArgs']]:
+        return pulumi.get(self, "explainability")
+
+    @explainability.setter
+    def explainability(self, value: Optional[pulumi.Input['ModelPackageExplainabilityArgs']]):
+        pulumi.set(self, "explainability", value)
+
+    @property
+    @pulumi.getter(name="modelDataQuality")
+    def model_data_quality(self) -> Optional[pulumi.Input['ModelPackageModelDataQualityArgs']]:
+        return pulumi.get(self, "model_data_quality")
+
+    @model_data_quality.setter
+    def model_data_quality(self, value: Optional[pulumi.Input['ModelPackageModelDataQualityArgs']]):
+        pulumi.set(self, "model_data_quality", value)
+
+    @property
+    @pulumi.getter(name="modelQuality")
+    def model_quality(self) -> Optional[pulumi.Input['ModelPackageModelQualityArgs']]:
+        return pulumi.get(self, "model_quality")
+
+    @model_quality.setter
+    def model_quality(self, value: Optional[pulumi.Input['ModelPackageModelQualityArgs']]):
+        pulumi.set(self, "model_quality", value)
+
+
+@pulumi.input_type
+class ModelPackageModelQualityArgs:
+    def __init__(__self__, *,
+                 constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None,
+                 statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
+        """
+        Metrics that measure the quality of a model.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if statistics is not None:
+            pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "constraints")
+
+    @constraints.setter
+    def constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "constraints", value)
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        return pulumi.get(self, "statistics")
+
+    @statistics.setter
+    def statistics(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
+        pulumi.set(self, "statistics", value)
+
+
+@pulumi.input_type
+class ModelPackageS3DataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_type: pulumi.Input['ModelPackageS3DataSourceS3DataType'],
+                 s3_uri: pulumi.Input[str]):
+        """
+        Describes the S3 data source.
+        :param pulumi.Input['ModelPackageS3DataSourceS3DataType'] s3_data_type: The S3 Data Source Type
+        :param pulumi.Input[str] s3_uri: Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> pulumi.Input['ModelPackageS3DataSourceS3DataType']:
+        """
+        The S3 Data Source Type
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @s3_data_type.setter
+    def s3_data_type(self, value: pulumi.Input['ModelPackageS3DataSourceS3DataType']):
+        pulumi.set(self, "s3_data_type", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+@pulumi.input_type
+class ModelPackageSourceAlgorithmSpecificationArgs:
+    def __init__(__self__, *,
+                 source_algorithms: pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]]):
+        """
+        Details about the algorithm that was used to create the model package.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]] source_algorithms: A list of algorithms that were used to create a model package.
+        """
+        pulumi.set(__self__, "source_algorithms", source_algorithms)
+
+    @property
+    @pulumi.getter(name="sourceAlgorithms")
+    def source_algorithms(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]]:
+        """
+        A list of algorithms that were used to create a model package.
+        """
+        return pulumi.get(self, "source_algorithms")
+
+    @source_algorithms.setter
+    def source_algorithms(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]]):
+        pulumi.set(self, "source_algorithms", value)
+
+
+@pulumi.input_type
+class ModelPackageSourceAlgorithmArgs:
+    def __init__(__self__, *,
+                 algorithm_name: pulumi.Input[str],
+                 model_data_url: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        :param pulumi.Input[str] algorithm_name: The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        :param pulumi.Input[str] model_data_url: The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
+        pulumi.set(__self__, "algorithm_name", algorithm_name)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+
+    @property
+    @pulumi.getter(name="algorithmName")
+    def algorithm_name(self) -> pulumi.Input[str]:
+        """
+        The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        """
+        return pulumi.get(self, "algorithm_name")
+
+    @algorithm_name.setter
+    def algorithm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "algorithm_name", value)
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @model_data_url.setter
+    def model_data_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_data_url", value)
+
+
+@pulumi.input_type
+class ModelPackageStatusDetailsArgs:
+    def __init__(__self__, *,
+                 validation_statuses: pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]],
+                 image_scan_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]] = None):
+        """
+        Details about the current status of the model package.
+        """
+        pulumi.set(__self__, "validation_statuses", validation_statuses)
+        if image_scan_statuses is not None:
+            pulumi.set(__self__, "image_scan_statuses", image_scan_statuses)
+
+    @property
+    @pulumi.getter(name="validationStatuses")
+    def validation_statuses(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]:
+        return pulumi.get(self, "validation_statuses")
+
+    @validation_statuses.setter
+    def validation_statuses(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]):
+        pulumi.set(self, "validation_statuses", value)
+
+    @property
+    @pulumi.getter(name="imageScanStatuses")
+    def image_scan_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]:
+        return pulumi.get(self, "image_scan_statuses")
+
+    @image_scan_statuses.setter
+    def image_scan_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]):
+        pulumi.set(self, "image_scan_statuses", value)
+
+
+@pulumi.input_type
+class ModelPackageStatusItemArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 status: pulumi.Input['ModelPackageStatusItemStatus'],
+                 failure_reason: Optional[pulumi.Input[str]] = None):
+        """
+        Represents the overall status of a model package.
+        :param pulumi.Input[str] name: The name of the model package for which the overall status is being reported.
+        :param pulumi.Input['ModelPackageStatusItemStatus'] status: The current status.
+        :param pulumi.Input[str] failure_reason: If the overall status is Failed, the reason for the failure.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the model package for which the overall status is being reported.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['ModelPackageStatusItemStatus']:
+        """
+        The current status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['ModelPackageStatusItemStatus']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the overall status is Failed, the reason for the failure.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @failure_reason.setter
+    def failure_reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failure_reason", value)
+
+
+@pulumi.input_type
+class ModelPackageTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ModelPackageTransformInputArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input['ModelPackageDataSourceArgs'],
+                 compression_type: Optional[pulumi.Input['ModelPackageTransformInputCompressionType']] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 split_type: Optional[pulumi.Input['ModelPackageTransformInputSplitType']] = None):
+        """
+        Describes the input source of a transform job and the way the transform job consumes it.
+        :param pulumi.Input['ModelPackageTransformInputCompressionType'] compression_type: If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+        :param pulumi.Input[str] content_type: The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+        :param pulumi.Input['ModelPackageTransformInputSplitType'] split_type: The method to use to split the transform job's data files into smaller batches. 
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if split_type is not None:
+            pulumi.set(__self__, "split_type", split_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input['ModelPackageDataSourceArgs']:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input['ModelPackageDataSourceArgs']):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[pulumi.Input['ModelPackageTransformInputCompressionType']]:
+        """
+        If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: Optional[pulumi.Input['ModelPackageTransformInputCompressionType']]):
+        pulumi.set(self, "compression_type", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="splitType")
+    def split_type(self) -> Optional[pulumi.Input['ModelPackageTransformInputSplitType']]:
+        """
+        The method to use to split the transform job's data files into smaller batches. 
+        """
+        return pulumi.get(self, "split_type")
+
+    @split_type.setter
+    def split_type(self, value: Optional[pulumi.Input['ModelPackageTransformInputSplitType']]):
+        pulumi.set(self, "split_type", value)
+
+
+@pulumi.input_type
+class ModelPackageTransformJobDefinitionArgs:
+    def __init__(__self__, *,
+                 transform_input: pulumi.Input['ModelPackageTransformInputArgs'],
+                 transform_output: pulumi.Input['ModelPackageTransformOutputArgs'],
+                 transform_resources: pulumi.Input['ModelPackageTransformResourcesArgs'],
+                 batch_strategy: Optional[pulumi.Input['ModelPackageTransformJobDefinitionBatchStrategy']] = None,
+                 environment: Optional[pulumi.Input['ModelPackageEnvironmentArgs']] = None,
+                 max_concurrent_transforms: Optional[pulumi.Input[int]] = None,
+                 max_payload_in_mb: Optional[pulumi.Input[int]] = None):
+        """
+        Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+        :param pulumi.Input['ModelPackageTransformJobDefinitionBatchStrategy'] batch_strategy: A string that determines the number of records included in a single mini-batch.
+        :param pulumi.Input[int] max_concurrent_transforms: The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+        :param pulumi.Input[int] max_payload_in_mb: The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+        """
+        pulumi.set(__self__, "transform_input", transform_input)
+        pulumi.set(__self__, "transform_output", transform_output)
+        pulumi.set(__self__, "transform_resources", transform_resources)
+        if batch_strategy is not None:
+            pulumi.set(__self__, "batch_strategy", batch_strategy)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if max_concurrent_transforms is not None:
+            pulumi.set(__self__, "max_concurrent_transforms", max_concurrent_transforms)
+        if max_payload_in_mb is not None:
+            pulumi.set(__self__, "max_payload_in_mb", max_payload_in_mb)
+
+    @property
+    @pulumi.getter(name="transformInput")
+    def transform_input(self) -> pulumi.Input['ModelPackageTransformInputArgs']:
+        return pulumi.get(self, "transform_input")
+
+    @transform_input.setter
+    def transform_input(self, value: pulumi.Input['ModelPackageTransformInputArgs']):
+        pulumi.set(self, "transform_input", value)
+
+    @property
+    @pulumi.getter(name="transformOutput")
+    def transform_output(self) -> pulumi.Input['ModelPackageTransformOutputArgs']:
+        return pulumi.get(self, "transform_output")
+
+    @transform_output.setter
+    def transform_output(self, value: pulumi.Input['ModelPackageTransformOutputArgs']):
+        pulumi.set(self, "transform_output", value)
+
+    @property
+    @pulumi.getter(name="transformResources")
+    def transform_resources(self) -> pulumi.Input['ModelPackageTransformResourcesArgs']:
+        return pulumi.get(self, "transform_resources")
+
+    @transform_resources.setter
+    def transform_resources(self, value: pulumi.Input['ModelPackageTransformResourcesArgs']):
+        pulumi.set(self, "transform_resources", value)
+
+    @property
+    @pulumi.getter(name="batchStrategy")
+    def batch_strategy(self) -> Optional[pulumi.Input['ModelPackageTransformJobDefinitionBatchStrategy']]:
+        """
+        A string that determines the number of records included in a single mini-batch.
+        """
+        return pulumi.get(self, "batch_strategy")
+
+    @batch_strategy.setter
+    def batch_strategy(self, value: Optional[pulumi.Input['ModelPackageTransformJobDefinitionBatchStrategy']]):
+        pulumi.set(self, "batch_strategy", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['ModelPackageEnvironmentArgs']]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['ModelPackageEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentTransforms")
+    def max_concurrent_transforms(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+        """
+        return pulumi.get(self, "max_concurrent_transforms")
+
+    @max_concurrent_transforms.setter
+    def max_concurrent_transforms(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_transforms", value)
+
+    @property
+    @pulumi.getter(name="maxPayloadInMB")
+    def max_payload_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+        """
+        return pulumi.get(self, "max_payload_in_mb")
+
+    @max_payload_in_mb.setter
+    def max_payload_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_payload_in_mb", value)
+
+
+@pulumi.input_type
+class ModelPackageTransformOutputArgs:
+    def __init__(__self__, *,
+                 s3_output_path: pulumi.Input[str],
+                 accept: Optional[pulumi.Input[str]] = None,
+                 assemble_with: Optional[pulumi.Input['ModelPackageTransformOutputAssembleWith']] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the results of a transform job.
+        :param pulumi.Input[str] s3_output_path: The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+        :param pulumi.Input[str] accept: The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+        :param pulumi.Input['ModelPackageTransformOutputAssembleWith'] assemble_with: Defines how to assemble the results of the transform job as a single S3 object.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if accept is not None:
+            pulumi.set(__self__, "accept", accept)
+        if assemble_with is not None:
+            pulumi.set(__self__, "assemble_with", assemble_with)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @property
+    @pulumi.getter
+    def accept(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
+        """
+        return pulumi.get(self, "accept")
+
+    @accept.setter
+    def accept(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accept", value)
+
+    @property
+    @pulumi.getter(name="assembleWith")
+    def assemble_with(self) -> Optional[pulumi.Input['ModelPackageTransformOutputAssembleWith']]:
+        """
+        Defines how to assemble the results of the transform job as a single S3 object.
+        """
+        return pulumi.get(self, "assemble_with")
+
+    @assemble_with.setter
+    def assemble_with(self, value: Optional[pulumi.Input['ModelPackageTransformOutputAssembleWith']]):
+        pulumi.set(self, "assemble_with", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ModelPackageTransformResourcesArgs:
+    def __init__(__self__, *,
+                 instance_count: pulumi.Input[int],
+                 instance_type: pulumi.Input[str],
+                 volume_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the resources, including ML instance types and ML instance count, to use for transform job.
+        :param pulumi.Input[int] instance_count: The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+        :param pulumi.Input[str] instance_type: The ML compute instance type for the transform job.
+        :param pulumi.Input[str] volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        The ML compute instance type for the transform job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @volume_kms_key_id.setter
+    def volume_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_kms_key_id", value)
+
+
+@pulumi.input_type
+class ModelPackageValidationProfileArgs:
+    def __init__(__self__, *,
+                 profile_name: pulumi.Input[str],
+                 transform_job_definition: pulumi.Input['ModelPackageTransformJobDefinitionArgs']):
+        """
+        Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+        :param pulumi.Input[str] profile_name: The name of the profile for the model package.
+        """
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "transform_job_definition", transform_job_definition)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        The name of the profile for the model package.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="transformJobDefinition")
+    def transform_job_definition(self) -> pulumi.Input['ModelPackageTransformJobDefinitionArgs']:
+        return pulumi.get(self, "transform_job_definition")
+
+    @transform_job_definition.setter
+    def transform_job_definition(self, value: pulumi.Input['ModelPackageTransformJobDefinitionArgs']):
+        pulumi.set(self, "transform_job_definition", value)
+
+
+@pulumi.input_type
+class ModelPackageValidationSpecificationArgs:
+    def __init__(__self__, *,
+                 validation_profiles: pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgs']]],
+                 validation_role: pulumi.Input[str]):
+        """
+        Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+        :param pulumi.Input[str] validation_role: The IAM roles to be used for the validation of the model package.
+        """
+        pulumi.set(__self__, "validation_profiles", validation_profiles)
+        pulumi.set(__self__, "validation_role", validation_role)
+
+    @property
+    @pulumi.getter(name="validationProfiles")
+    def validation_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgs']]]:
+        return pulumi.get(self, "validation_profiles")
+
+    @validation_profiles.setter
+    def validation_profiles(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgs']]]):
+        pulumi.set(self, "validation_profiles", value)
+
+    @property
+    @pulumi.getter(name="validationRole")
+    def validation_role(self) -> pulumi.Input[str]:
+        """
+        The IAM roles to be used for the validation of the model package.
+        """
+        return pulumi.get(self, "validation_role")
+
+    @validation_role.setter
+    def validation_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "validation_role", value)
 
 
 @pulumi.input_type

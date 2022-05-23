@@ -24,6 +24,7 @@ class UserPoolClientArgs:
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -55,6 +56,8 @@ class UserPoolClientArgs:
             pulumi.set(__self__, "client_name", client_name)
         if default_redirect_uri is not None:
             pulumi.set(__self__, "default_redirect_uri", default_redirect_uri)
+        if enable_propagate_additional_user_context_data is not None:
+            pulumi.set(__self__, "enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
         if enable_token_revocation is not None:
             pulumi.set(__self__, "enable_token_revocation", enable_token_revocation)
         if explicit_auth_flows is not None:
@@ -158,6 +161,15 @@ class UserPoolClientArgs:
     @default_redirect_uri.setter
     def default_redirect_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_redirect_uri", value)
+
+    @property
+    @pulumi.getter(name="enablePropagateAdditionalUserContextData")
+    def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_propagate_additional_user_context_data")
+
+    @enable_propagate_additional_user_context_data.setter
+    def enable_propagate_additional_user_context_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_propagate_additional_user_context_data", value)
 
     @property
     @pulumi.getter(name="enableTokenRevocation")
@@ -277,6 +289,7 @@ class UserPoolClient(pulumi.CustomResource):
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -328,6 +341,7 @@ class UserPoolClient(pulumi.CustomResource):
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -361,6 +375,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["callback_urls"] = callback_urls
             __props__.__dict__["client_name"] = client_name
             __props__.__dict__["default_redirect_uri"] = default_redirect_uri
+            __props__.__dict__["enable_propagate_additional_user_context_data"] = enable_propagate_additional_user_context_data
             __props__.__dict__["enable_token_revocation"] = enable_token_revocation
             __props__.__dict__["explicit_auth_flows"] = explicit_auth_flows
             __props__.__dict__["generate_secret"] = generate_secret
@@ -408,6 +423,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["client_name"] = None
         __props__.__dict__["client_secret"] = None
         __props__.__dict__["default_redirect_uri"] = None
+        __props__.__dict__["enable_propagate_additional_user_context_data"] = None
         __props__.__dict__["enable_token_revocation"] = None
         __props__.__dict__["explicit_auth_flows"] = None
         __props__.__dict__["generate_secret"] = None
@@ -467,6 +483,11 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="defaultRedirectURI")
     def default_redirect_uri(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "default_redirect_uri")
+
+    @property
+    @pulumi.getter(name="enablePropagateAdditionalUserContextData")
+    def enable_propagate_additional_user_context_data(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
     @property
     @pulumi.getter(name="enableTokenRevocation")

@@ -17,7 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerTlsCertificateResult:
-    def __init__(__self__, is_attached=None, load_balancer_tls_certificate_arn=None, status=None):
+    def __init__(__self__, https_redirection_enabled=None, is_attached=None, load_balancer_tls_certificate_arn=None, status=None):
+        if https_redirection_enabled and not isinstance(https_redirection_enabled, bool):
+            raise TypeError("Expected argument 'https_redirection_enabled' to be a bool")
+        pulumi.set(__self__, "https_redirection_enabled", https_redirection_enabled)
         if is_attached and not isinstance(is_attached, bool):
             raise TypeError("Expected argument 'is_attached' to be a bool")
         pulumi.set(__self__, "is_attached", is_attached)
@@ -27,6 +30,14 @@ class GetLoadBalancerTlsCertificateResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="httpsRedirectionEnabled")
+    def https_redirection_enabled(self) -> Optional[bool]:
+        """
+        A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
+        """
+        return pulumi.get(self, "https_redirection_enabled")
 
     @property
     @pulumi.getter(name="isAttached")
@@ -56,6 +67,7 @@ class AwaitableGetLoadBalancerTlsCertificateResult(GetLoadBalancerTlsCertificate
         if False:
             yield self
         return GetLoadBalancerTlsCertificateResult(
+            https_redirection_enabled=self.https_redirection_enabled,
             is_attached=self.is_attached,
             load_balancer_tls_certificate_arn=self.load_balancer_tls_certificate_arn,
             status=self.status)
@@ -81,6 +93,7 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getLoadBalancerTlsCertificate', __args__, opts=opts, typ=GetLoadBalancerTlsCertificateResult).value
 
     return AwaitableGetLoadBalancerTlsCertificateResult(
+        https_redirection_enabled=__ret__.https_redirection_enabled,
         is_attached=__ret__.is_attached,
         load_balancer_tls_certificate_arn=__ret__.load_balancer_tls_certificate_arn,
         status=__ret__.status)

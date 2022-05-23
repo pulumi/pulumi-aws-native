@@ -484,6 +484,161 @@ func (o ResponsePlanChatChannelPtrOutput) ChatbotSns() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// A parameter with a dynamic value to set when starting the SSM automation document.
+type ResponsePlanDynamicSsmParameter struct {
+	Key   string                               `pulumi:"key"`
+	Value ResponsePlanDynamicSsmParameterValue `pulumi:"value"`
+}
+
+// ResponsePlanDynamicSsmParameterInput is an input type that accepts ResponsePlanDynamicSsmParameterArgs and ResponsePlanDynamicSsmParameterOutput values.
+// You can construct a concrete instance of `ResponsePlanDynamicSsmParameterInput` via:
+//
+//          ResponsePlanDynamicSsmParameterArgs{...}
+type ResponsePlanDynamicSsmParameterInput interface {
+	pulumi.Input
+
+	ToResponsePlanDynamicSsmParameterOutput() ResponsePlanDynamicSsmParameterOutput
+	ToResponsePlanDynamicSsmParameterOutputWithContext(context.Context) ResponsePlanDynamicSsmParameterOutput
+}
+
+// A parameter with a dynamic value to set when starting the SSM automation document.
+type ResponsePlanDynamicSsmParameterArgs struct {
+	Key   pulumi.StringInput                        `pulumi:"key"`
+	Value ResponsePlanDynamicSsmParameterValueInput `pulumi:"value"`
+}
+
+func (ResponsePlanDynamicSsmParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanDynamicSsmParameter)(nil)).Elem()
+}
+
+func (i ResponsePlanDynamicSsmParameterArgs) ToResponsePlanDynamicSsmParameterOutput() ResponsePlanDynamicSsmParameterOutput {
+	return i.ToResponsePlanDynamicSsmParameterOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanDynamicSsmParameterArgs) ToResponsePlanDynamicSsmParameterOutputWithContext(ctx context.Context) ResponsePlanDynamicSsmParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanDynamicSsmParameterOutput)
+}
+
+// ResponsePlanDynamicSsmParameterArrayInput is an input type that accepts ResponsePlanDynamicSsmParameterArray and ResponsePlanDynamicSsmParameterArrayOutput values.
+// You can construct a concrete instance of `ResponsePlanDynamicSsmParameterArrayInput` via:
+//
+//          ResponsePlanDynamicSsmParameterArray{ ResponsePlanDynamicSsmParameterArgs{...} }
+type ResponsePlanDynamicSsmParameterArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlanDynamicSsmParameterArrayOutput() ResponsePlanDynamicSsmParameterArrayOutput
+	ToResponsePlanDynamicSsmParameterArrayOutputWithContext(context.Context) ResponsePlanDynamicSsmParameterArrayOutput
+}
+
+type ResponsePlanDynamicSsmParameterArray []ResponsePlanDynamicSsmParameterInput
+
+func (ResponsePlanDynamicSsmParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlanDynamicSsmParameter)(nil)).Elem()
+}
+
+func (i ResponsePlanDynamicSsmParameterArray) ToResponsePlanDynamicSsmParameterArrayOutput() ResponsePlanDynamicSsmParameterArrayOutput {
+	return i.ToResponsePlanDynamicSsmParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanDynamicSsmParameterArray) ToResponsePlanDynamicSsmParameterArrayOutputWithContext(ctx context.Context) ResponsePlanDynamicSsmParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanDynamicSsmParameterArrayOutput)
+}
+
+// A parameter with a dynamic value to set when starting the SSM automation document.
+type ResponsePlanDynamicSsmParameterOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanDynamicSsmParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanDynamicSsmParameter)(nil)).Elem()
+}
+
+func (o ResponsePlanDynamicSsmParameterOutput) ToResponsePlanDynamicSsmParameterOutput() ResponsePlanDynamicSsmParameterOutput {
+	return o
+}
+
+func (o ResponsePlanDynamicSsmParameterOutput) ToResponsePlanDynamicSsmParameterOutputWithContext(ctx context.Context) ResponsePlanDynamicSsmParameterOutput {
+	return o
+}
+
+func (o ResponsePlanDynamicSsmParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlanDynamicSsmParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ResponsePlanDynamicSsmParameterOutput) Value() ResponsePlanDynamicSsmParameterValueOutput {
+	return o.ApplyT(func(v ResponsePlanDynamicSsmParameter) ResponsePlanDynamicSsmParameterValue { return v.Value }).(ResponsePlanDynamicSsmParameterValueOutput)
+}
+
+type ResponsePlanDynamicSsmParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanDynamicSsmParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlanDynamicSsmParameter)(nil)).Elem()
+}
+
+func (o ResponsePlanDynamicSsmParameterArrayOutput) ToResponsePlanDynamicSsmParameterArrayOutput() ResponsePlanDynamicSsmParameterArrayOutput {
+	return o
+}
+
+func (o ResponsePlanDynamicSsmParameterArrayOutput) ToResponsePlanDynamicSsmParameterArrayOutputWithContext(ctx context.Context) ResponsePlanDynamicSsmParameterArrayOutput {
+	return o
+}
+
+func (o ResponsePlanDynamicSsmParameterArrayOutput) Index(i pulumi.IntInput) ResponsePlanDynamicSsmParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlanDynamicSsmParameter {
+		return vs[0].([]ResponsePlanDynamicSsmParameter)[vs[1].(int)]
+	}).(ResponsePlanDynamicSsmParameterOutput)
+}
+
+// Value of the dynamic parameter to set when starting the SSM automation document.
+type ResponsePlanDynamicSsmParameterValue struct {
+	Variable *ResponsePlanVariableType `pulumi:"variable"`
+}
+
+// ResponsePlanDynamicSsmParameterValueInput is an input type that accepts ResponsePlanDynamicSsmParameterValueArgs and ResponsePlanDynamicSsmParameterValueOutput values.
+// You can construct a concrete instance of `ResponsePlanDynamicSsmParameterValueInput` via:
+//
+//          ResponsePlanDynamicSsmParameterValueArgs{...}
+type ResponsePlanDynamicSsmParameterValueInput interface {
+	pulumi.Input
+
+	ToResponsePlanDynamicSsmParameterValueOutput() ResponsePlanDynamicSsmParameterValueOutput
+	ToResponsePlanDynamicSsmParameterValueOutputWithContext(context.Context) ResponsePlanDynamicSsmParameterValueOutput
+}
+
+// Value of the dynamic parameter to set when starting the SSM automation document.
+type ResponsePlanDynamicSsmParameterValueArgs struct {
+	Variable ResponsePlanVariableTypePtrInput `pulumi:"variable"`
+}
+
+func (ResponsePlanDynamicSsmParameterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanDynamicSsmParameterValue)(nil)).Elem()
+}
+
+func (i ResponsePlanDynamicSsmParameterValueArgs) ToResponsePlanDynamicSsmParameterValueOutput() ResponsePlanDynamicSsmParameterValueOutput {
+	return i.ToResponsePlanDynamicSsmParameterValueOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanDynamicSsmParameterValueArgs) ToResponsePlanDynamicSsmParameterValueOutputWithContext(ctx context.Context) ResponsePlanDynamicSsmParameterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanDynamicSsmParameterValueOutput)
+}
+
+// Value of the dynamic parameter to set when starting the SSM automation document.
+type ResponsePlanDynamicSsmParameterValueOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanDynamicSsmParameterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanDynamicSsmParameterValue)(nil)).Elem()
+}
+
+func (o ResponsePlanDynamicSsmParameterValueOutput) ToResponsePlanDynamicSsmParameterValueOutput() ResponsePlanDynamicSsmParameterValueOutput {
+	return o
+}
+
+func (o ResponsePlanDynamicSsmParameterValueOutput) ToResponsePlanDynamicSsmParameterValueOutputWithContext(ctx context.Context) ResponsePlanDynamicSsmParameterValueOutput {
+	return o
+}
+
+func (o ResponsePlanDynamicSsmParameterValueOutput) Variable() ResponsePlanVariableTypePtrOutput {
+	return o.ApplyT(func(v ResponsePlanDynamicSsmParameterValue) *ResponsePlanVariableType { return v.Variable }).(ResponsePlanVariableTypePtrOutput)
+}
+
 // The incident template configuration.
 type ResponsePlanIncidentTemplate struct {
 	// The deduplication string.
@@ -754,6 +909,8 @@ type ResponsePlanSsmAutomation struct {
 	DocumentName string `pulumi:"documentName"`
 	// The version of the document to use when starting the SSM automation document.
 	DocumentVersion *string `pulumi:"documentVersion"`
+	// The parameters with dynamic values to set when starting the SSM automation document.
+	DynamicParameters []ResponsePlanDynamicSsmParameter `pulumi:"dynamicParameters"`
 	// The parameters to set when starting the SSM automation document.
 	Parameters []ResponsePlanSsmParameter `pulumi:"parameters"`
 	// The role ARN to use when starting the SSM automation document.
@@ -779,6 +936,8 @@ type ResponsePlanSsmAutomationArgs struct {
 	DocumentName pulumi.StringInput `pulumi:"documentName"`
 	// The version of the document to use when starting the SSM automation document.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
+	// The parameters with dynamic values to set when starting the SSM automation document.
+	DynamicParameters ResponsePlanDynamicSsmParameterArrayInput `pulumi:"dynamicParameters"`
 	// The parameters to set when starting the SSM automation document.
 	Parameters ResponsePlanSsmParameterArrayInput `pulumi:"parameters"`
 	// The role ARN to use when starting the SSM automation document.
@@ -875,6 +1034,11 @@ func (o ResponsePlanSsmAutomationOutput) DocumentVersion() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
+// The parameters with dynamic values to set when starting the SSM automation document.
+func (o ResponsePlanSsmAutomationOutput) DynamicParameters() ResponsePlanDynamicSsmParameterArrayOutput {
+	return o.ApplyT(func(v ResponsePlanSsmAutomation) []ResponsePlanDynamicSsmParameter { return v.DynamicParameters }).(ResponsePlanDynamicSsmParameterArrayOutput)
+}
+
 // The parameters to set when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationOutput) Parameters() ResponsePlanSsmParameterArrayOutput {
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) []ResponsePlanSsmParameter { return v.Parameters }).(ResponsePlanSsmParameterArrayOutput)
@@ -932,6 +1096,16 @@ func (o ResponsePlanSsmAutomationPtrOutput) DocumentVersion() pulumi.StringPtrOu
 		}
 		return v.DocumentVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters with dynamic values to set when starting the SSM automation document.
+func (o ResponsePlanSsmAutomationPtrOutput) DynamicParameters() ResponsePlanDynamicSsmParameterArrayOutput {
+	return o.ApplyT(func(v *ResponsePlanSsmAutomation) []ResponsePlanDynamicSsmParameter {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicParameters
+	}).(ResponsePlanDynamicSsmParameterArrayOutput)
 }
 
 // The parameters to set when starting the SSM automation document.
@@ -1179,6 +1353,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanActionArrayInput)(nil)).Elem(), ResponsePlanActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanChatChannelInput)(nil)).Elem(), ResponsePlanChatChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanChatChannelPtrInput)(nil)).Elem(), ResponsePlanChatChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanDynamicSsmParameterInput)(nil)).Elem(), ResponsePlanDynamicSsmParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanDynamicSsmParameterArrayInput)(nil)).Elem(), ResponsePlanDynamicSsmParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanDynamicSsmParameterValueInput)(nil)).Elem(), ResponsePlanDynamicSsmParameterValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanIncidentTemplateInput)(nil)).Elem(), ResponsePlanIncidentTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanNotificationTargetItemInput)(nil)).Elem(), ResponsePlanNotificationTargetItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanNotificationTargetItemArrayInput)(nil)).Elem(), ResponsePlanNotificationTargetItemArray{})
@@ -1196,6 +1373,9 @@ func init() {
 	pulumi.RegisterOutputType(ResponsePlanActionArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlanChatChannelOutput{})
 	pulumi.RegisterOutputType(ResponsePlanChatChannelPtrOutput{})
+	pulumi.RegisterOutputType(ResponsePlanDynamicSsmParameterOutput{})
+	pulumi.RegisterOutputType(ResponsePlanDynamicSsmParameterArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlanDynamicSsmParameterValueOutput{})
 	pulumi.RegisterOutputType(ResponsePlanIncidentTemplateOutput{})
 	pulumi.RegisterOutputType(ResponsePlanIncidentTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemOutput{})

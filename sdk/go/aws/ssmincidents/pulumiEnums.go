@@ -175,9 +175,178 @@ func (in *responsePlanSsmAutomationTargetAccountPtr) ToResponsePlanSsmAutomation
 	return pulumi.ToOutputWithContext(ctx, in).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
 }
 
+// The variable types used as dynamic parameter value when starting the SSM automation document.
+type ResponsePlanVariableType string
+
+const (
+	ResponsePlanVariableTypeIncidentRecordArn = ResponsePlanVariableType("INCIDENT_RECORD_ARN")
+	ResponsePlanVariableTypeInvolvedResources = ResponsePlanVariableType("INVOLVED_RESOURCES")
+)
+
+func (ResponsePlanVariableType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanVariableType)(nil)).Elem()
+}
+
+func (e ResponsePlanVariableType) ToResponsePlanVariableTypeOutput() ResponsePlanVariableTypeOutput {
+	return pulumi.ToOutput(e).(ResponsePlanVariableTypeOutput)
+}
+
+func (e ResponsePlanVariableType) ToResponsePlanVariableTypeOutputWithContext(ctx context.Context) ResponsePlanVariableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResponsePlanVariableTypeOutput)
+}
+
+func (e ResponsePlanVariableType) ToResponsePlanVariableTypePtrOutput() ResponsePlanVariableTypePtrOutput {
+	return e.ToResponsePlanVariableTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResponsePlanVariableType) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
+	return ResponsePlanVariableType(e).ToResponsePlanVariableTypeOutputWithContext(ctx).ToResponsePlanVariableTypePtrOutputWithContext(ctx)
+}
+
+func (e ResponsePlanVariableType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResponsePlanVariableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResponsePlanVariableType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResponsePlanVariableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResponsePlanVariableTypeOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanVariableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanVariableType)(nil)).Elem()
+}
+
+func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypeOutput() ResponsePlanVariableTypeOutput {
+	return o
+}
+
+func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypeOutputWithContext(ctx context.Context) ResponsePlanVariableTypeOutput {
+	return o
+}
+
+func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypePtrOutput() ResponsePlanVariableTypePtrOutput {
+	return o.ToResponsePlanVariableTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlanVariableType) *ResponsePlanVariableType {
+		return &v
+	}).(ResponsePlanVariableTypePtrOutput)
+}
+
+func (o ResponsePlanVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResponsePlanVariableTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResponsePlanVariableType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResponsePlanVariableTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResponsePlanVariableTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResponsePlanVariableType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResponsePlanVariableTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanVariableTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponsePlanVariableType)(nil)).Elem()
+}
+
+func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutput() ResponsePlanVariableTypePtrOutput {
+	return o
+}
+
+func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
+	return o
+}
+
+func (o ResponsePlanVariableTypePtrOutput) Elem() ResponsePlanVariableTypeOutput {
+	return o.ApplyT(func(v *ResponsePlanVariableType) ResponsePlanVariableType {
+		if v != nil {
+			return *v
+		}
+		var ret ResponsePlanVariableType
+		return ret
+	}).(ResponsePlanVariableTypeOutput)
+}
+
+func (o ResponsePlanVariableTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResponsePlanVariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResponsePlanVariableType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResponsePlanVariableTypeInput is an input type that accepts ResponsePlanVariableTypeArgs and ResponsePlanVariableTypeOutput values.
+// You can construct a concrete instance of `ResponsePlanVariableTypeInput` via:
+//
+//          ResponsePlanVariableTypeArgs{...}
+type ResponsePlanVariableTypeInput interface {
+	pulumi.Input
+
+	ToResponsePlanVariableTypeOutput() ResponsePlanVariableTypeOutput
+	ToResponsePlanVariableTypeOutputWithContext(context.Context) ResponsePlanVariableTypeOutput
+}
+
+var responsePlanVariableTypePtrType = reflect.TypeOf((**ResponsePlanVariableType)(nil)).Elem()
+
+type ResponsePlanVariableTypePtrInput interface {
+	pulumi.Input
+
+	ToResponsePlanVariableTypePtrOutput() ResponsePlanVariableTypePtrOutput
+	ToResponsePlanVariableTypePtrOutputWithContext(context.Context) ResponsePlanVariableTypePtrOutput
+}
+
+type responsePlanVariableTypePtr string
+
+func ResponsePlanVariableTypePtr(v string) ResponsePlanVariableTypePtrInput {
+	return (*responsePlanVariableTypePtr)(&v)
+}
+
+func (*responsePlanVariableTypePtr) ElementType() reflect.Type {
+	return responsePlanVariableTypePtrType
+}
+
+func (in *responsePlanVariableTypePtr) ToResponsePlanVariableTypePtrOutput() ResponsePlanVariableTypePtrOutput {
+	return pulumi.ToOutput(in).(ResponsePlanVariableTypePtrOutput)
+}
+
+func (in *responsePlanVariableTypePtr) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResponsePlanVariableTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationTargetAccountInput)(nil)).Elem(), ResponsePlanSsmAutomationTargetAccount("IMPACTED_ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationTargetAccountPtrInput)(nil)).Elem(), ResponsePlanSsmAutomationTargetAccount("IMPACTED_ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanVariableTypeInput)(nil)).Elem(), ResponsePlanVariableType("INCIDENT_RECORD_ARN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanVariableTypePtrInput)(nil)).Elem(), ResponsePlanVariableType("INCIDENT_RECORD_ARN"))
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationTargetAccountOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationTargetAccountPtrOutput{})
+	pulumi.RegisterOutputType(ResponsePlanVariableTypeOutput{})
+	pulumi.RegisterOutputType(ResponsePlanVariableTypePtrOutput{})
 }

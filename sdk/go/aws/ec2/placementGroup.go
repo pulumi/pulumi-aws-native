@@ -11,11 +11,12 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::PlacementGroup
-//
-// Deprecated: PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 
+	// The Group Name of Placement Group.
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// The placement strategy.
 	Strategy pulumi.StringPtrOutput `pulumi:"strategy"`
 }
 
@@ -58,11 +59,13 @@ func (PlacementGroupState) ElementType() reflect.Type {
 }
 
 type placementGroupArgs struct {
+	// The placement strategy.
 	Strategy *string `pulumi:"strategy"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
+	// The placement strategy.
 	Strategy pulumi.StringPtrInput
 }
 
@@ -103,6 +106,12 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Group Name of Placement Group.
+func (o PlacementGroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+}
+
+// The placement strategy.
 func (o PlacementGroupOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Strategy }).(pulumi.StringPtrOutput)
 }

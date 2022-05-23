@@ -68,6 +68,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.lightsail.LoadBalancerTag[] | undefined>;
+    /**
+     * The name of the TLS policy to apply to the load balancer.
+     */
+    public readonly tlsPolicyName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["sessionStickinessEnabled"] = args ? args.sessionStickinessEnabled : undefined;
             resourceInputs["sessionStickinessLBCookieDurationSeconds"] = args ? args.sessionStickinessLBCookieDurationSeconds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tlsPolicyName"] = args ? args.tlsPolicyName : undefined;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
         } else {
             resourceInputs["attachedInstances"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["sessionStickinessEnabled"] = undefined /*out*/;
             resourceInputs["sessionStickinessLBCookieDurationSeconds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tlsPolicyName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
@@ -144,4 +150,8 @@ export interface LoadBalancerArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.lightsail.LoadBalancerTagArgs>[]>;
+    /**
+     * The name of the TLS policy to apply to the load balancer.
+     */
+    tlsPolicyName?: pulumi.Input<string>;
 }

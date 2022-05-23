@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::PlacementGroup
- *
- * @deprecated PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class PlacementGroup extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PlacementGroup {
-        pulumi.log.warn("PlacementGroup is deprecated: PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new PlacementGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,6 +34,13 @@ export class PlacementGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlacementGroup.__pulumiType;
     }
 
+    /**
+     * The Group Name of Placement Group.
+     */
+    public /*out*/ readonly groupName!: pulumi.Output<string>;
+    /**
+     * The placement strategy.
+     */
     public readonly strategy!: pulumi.Output<string | undefined>;
 
     /**
@@ -46,14 +50,14 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PlacementGroup is deprecated: PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["strategy"] = args ? args.strategy : undefined;
+            resourceInputs["groupName"] = undefined /*out*/;
         } else {
+            resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["strategy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -65,5 +69,8 @@ export class PlacementGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
+    /**
+     * The placement strategy.
+     */
     strategy?: pulumi.Input<string>;
 }

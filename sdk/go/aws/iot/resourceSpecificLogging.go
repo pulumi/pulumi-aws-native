@@ -21,7 +21,7 @@ type ResourceSpecificLogging struct {
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// The target name.
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
-	// The target type. Value must be THING_GROUP.
+	// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
 	TargetType ResourceSpecificLoggingTargetTypeOutput `pulumi:"targetType"`
 }
 
@@ -77,7 +77,7 @@ type resourceSpecificLoggingArgs struct {
 	LogLevel ResourceSpecificLoggingLogLevel `pulumi:"logLevel"`
 	// The target name.
 	TargetName string `pulumi:"targetName"`
-	// The target type. Value must be THING_GROUP.
+	// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
 	TargetType ResourceSpecificLoggingTargetType `pulumi:"targetType"`
 }
 
@@ -87,7 +87,7 @@ type ResourceSpecificLoggingArgs struct {
 	LogLevel ResourceSpecificLoggingLogLevelInput
 	// The target name.
 	TargetName pulumi.StringInput
-	// The target type. Value must be THING_GROUP.
+	// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
 	TargetType ResourceSpecificLoggingTargetTypeInput
 }
 
@@ -143,7 +143,7 @@ func (o ResourceSpecificLoggingOutput) TargetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSpecificLogging) pulumi.StringOutput { return v.TargetName }).(pulumi.StringOutput)
 }
 
-// The target type. Value must be THING_GROUP.
+// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
 func (o ResourceSpecificLoggingOutput) TargetType() ResourceSpecificLoggingTargetTypeOutput {
 	return o.ApplyT(func(v *ResourceSpecificLogging) ResourceSpecificLoggingTargetTypeOutput { return v.TargetType }).(ResourceSpecificLoggingTargetTypeOutput)
 }

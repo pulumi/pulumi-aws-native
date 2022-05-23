@@ -21,8 +21,8 @@ func LookupHookTypeConfig(ctx *pulumi.Context, args *LookupHookTypeConfigArgs, o
 }
 
 type LookupHookTypeConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the type version.
-	TypeArn string `pulumi:"typeArn"`
+	// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
+	ConfigurationArn string `pulumi:"configurationArn"`
 }
 
 type LookupHookTypeConfigResult struct {
@@ -30,6 +30,8 @@ type LookupHookTypeConfigResult struct {
 	Configuration *string `pulumi:"configuration"`
 	// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
 	ConfigurationArn *string `pulumi:"configurationArn"`
+	// The Amazon Resource Name (ARN) of the type without version number.
+	TypeArn *string `pulumi:"typeArn"`
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -50,8 +52,8 @@ func LookupHookTypeConfigOutput(ctx *pulumi.Context, args LookupHookTypeConfigOu
 }
 
 type LookupHookTypeConfigOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the type version.
-	TypeArn pulumi.StringInput `pulumi:"typeArn"`
+	// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
+	ConfigurationArn pulumi.StringInput `pulumi:"configurationArn"`
 }
 
 func (LookupHookTypeConfigOutputArgs) ElementType() reflect.Type {
@@ -80,6 +82,11 @@ func (o LookupHookTypeConfigResultOutput) Configuration() pulumi.StringPtrOutput
 // The Amazon Resource Name (ARN) for the configuration data, in this account and region.
 func (o LookupHookTypeConfigResultOutput) ConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHookTypeConfigResult) *string { return v.ConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the type without version number.
+func (o LookupHookTypeConfigResultOutput) TypeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHookTypeConfigResult) *string { return v.TypeArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the type being registered.

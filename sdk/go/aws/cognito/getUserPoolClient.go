@@ -25,27 +25,28 @@ type LookupUserPoolClientArgs struct {
 }
 
 type LookupUserPoolClientResult struct {
-	AccessTokenValidity             *int                                  `pulumi:"accessTokenValidity"`
-	AllowedOAuthFlows               []string                              `pulumi:"allowedOAuthFlows"`
-	AllowedOAuthFlowsUserPoolClient *bool                                 `pulumi:"allowedOAuthFlowsUserPoolClient"`
-	AllowedOAuthScopes              []string                              `pulumi:"allowedOAuthScopes"`
-	AnalyticsConfiguration          *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
-	CallbackURLs                    []string                              `pulumi:"callbackURLs"`
-	ClientName                      *string                               `pulumi:"clientName"`
-	ClientSecret                    *string                               `pulumi:"clientSecret"`
-	DefaultRedirectURI              *string                               `pulumi:"defaultRedirectURI"`
-	EnableTokenRevocation           *bool                                 `pulumi:"enableTokenRevocation"`
-	ExplicitAuthFlows               []string                              `pulumi:"explicitAuthFlows"`
-	Id                              *string                               `pulumi:"id"`
-	IdTokenValidity                 *int                                  `pulumi:"idTokenValidity"`
-	LogoutURLs                      []string                              `pulumi:"logoutURLs"`
-	Name                            *string                               `pulumi:"name"`
-	PreventUserExistenceErrors      *string                               `pulumi:"preventUserExistenceErrors"`
-	ReadAttributes                  []string                              `pulumi:"readAttributes"`
-	RefreshTokenValidity            *int                                  `pulumi:"refreshTokenValidity"`
-	SupportedIdentityProviders      []string                              `pulumi:"supportedIdentityProviders"`
-	TokenValidityUnits              *UserPoolClientTokenValidityUnits     `pulumi:"tokenValidityUnits"`
-	WriteAttributes                 []string                              `pulumi:"writeAttributes"`
+	AccessTokenValidity                      *int                                  `pulumi:"accessTokenValidity"`
+	AllowedOAuthFlows                        []string                              `pulumi:"allowedOAuthFlows"`
+	AllowedOAuthFlowsUserPoolClient          *bool                                 `pulumi:"allowedOAuthFlowsUserPoolClient"`
+	AllowedOAuthScopes                       []string                              `pulumi:"allowedOAuthScopes"`
+	AnalyticsConfiguration                   *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
+	CallbackURLs                             []string                              `pulumi:"callbackURLs"`
+	ClientName                               *string                               `pulumi:"clientName"`
+	ClientSecret                             *string                               `pulumi:"clientSecret"`
+	DefaultRedirectURI                       *string                               `pulumi:"defaultRedirectURI"`
+	EnablePropagateAdditionalUserContextData *bool                                 `pulumi:"enablePropagateAdditionalUserContextData"`
+	EnableTokenRevocation                    *bool                                 `pulumi:"enableTokenRevocation"`
+	ExplicitAuthFlows                        []string                              `pulumi:"explicitAuthFlows"`
+	Id                                       *string                               `pulumi:"id"`
+	IdTokenValidity                          *int                                  `pulumi:"idTokenValidity"`
+	LogoutURLs                               []string                              `pulumi:"logoutURLs"`
+	Name                                     *string                               `pulumi:"name"`
+	PreventUserExistenceErrors               *string                               `pulumi:"preventUserExistenceErrors"`
+	ReadAttributes                           []string                              `pulumi:"readAttributes"`
+	RefreshTokenValidity                     *int                                  `pulumi:"refreshTokenValidity"`
+	SupportedIdentityProviders               []string                              `pulumi:"supportedIdentityProviders"`
+	TokenValidityUnits                       *UserPoolClientTokenValidityUnits     `pulumi:"tokenValidityUnits"`
+	WriteAttributes                          []string                              `pulumi:"writeAttributes"`
 }
 
 func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolClientResultOutput {
@@ -119,6 +120,10 @@ func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringPtrOutput 
 
 func (o LookupUserPoolClientResultOutput) DefaultRedirectURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.DefaultRedirectURI }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupUserPoolClientResultOutput) EnableTokenRevocation() pulumi.BoolPtrOutput {
