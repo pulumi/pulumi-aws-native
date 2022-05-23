@@ -39,6 +39,9 @@
       "properties" : {
         "EgressFilter" : {
           "$ref" : "#/definitions/EgressFilter"
+        },
+        "ServiceDiscovery" : {
+          "$ref" : "#/definitions/MeshServiceDiscovery"
         }
       }
     },
@@ -64,6 +67,15 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "MeshServiceDiscovery" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IpPreference" : {
+          "type" : "string"
+        }
+      }
     }
   },
   "createOnlyProperties" : [ "/properties/MeshName" ],

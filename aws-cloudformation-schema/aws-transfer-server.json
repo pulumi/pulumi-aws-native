@@ -86,6 +86,9 @@
         "PassiveIp" : {
           "type" : "string"
         },
+        "SetStatOption" : {
+          "type" : "string"
+        },
         "TlsSessionResumptionMode" : {
           "type" : "string"
         }

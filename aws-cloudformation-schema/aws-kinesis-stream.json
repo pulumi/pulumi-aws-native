@@ -111,7 +111,8 @@
       "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:ListTagsForStream" ]
     },
     "update" : {
-      "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:UpdateShardCount", "kinesis:UpdateStreamMode", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:DecreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:StopStreamEncryption", "kinesis:AddTagsToStream", "kinesis:RemoveTagsFromStream", "kinesis:ListTagsForStream" ]
+      "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:UpdateShardCount", "kinesis:UpdateStreamMode", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:DecreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:StopStreamEncryption", "kinesis:AddTagsToStream", "kinesis:RemoveTagsFromStream", "kinesis:ListTagsForStream" ],
+      "timeoutInMinutes" : 240
     },
     "delete" : {
       "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:DeleteStream", "kinesis:RemoveTagsFromStream" ]
