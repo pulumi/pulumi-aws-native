@@ -50,6 +50,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					Description: "Configuration for retrieving temporary credentials from the STS service.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:AssumeRole"},
 				},
+				"roleArn": {
+					Description: "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
 				"defaultTags": {
 					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:DefaultTags"},
@@ -144,6 +148,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 						Description: "Configuration for retrieving temporary credentials from the STS service.",
 						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAssumeRole"},
 					},
+					"roleArn": {
+						Description: "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.",
+						TypeSpec:    pschema.TypeSpec{Type: "string"},
+					},
 					"defaultTags": {
 						Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
 						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderDefaultTags"},
@@ -222,6 +230,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				"assumeRole": {
 					Description: "Configuration for retrieving temporary credentials from the STS service.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAssumeRole"},
+				},
+				"roleArn": {
+					Description: "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"defaultTags": {
 					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",

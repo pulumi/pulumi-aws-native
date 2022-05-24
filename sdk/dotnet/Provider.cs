@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
+        /// </summary>
+        [Output("roleArn")]
+        public Output<string?> RoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         /// </summary>
         [Output("sharedCredentialsFile")]
@@ -154,6 +160,12 @@ namespace Pulumi.AwsNative
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
+        /// </summary>
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         /// <summary>
         /// Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
