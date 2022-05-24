@@ -88,6 +88,7 @@ type cfnProvider struct {
 	region       string
 	partition    partition
 	resourceMap  *schema.CloudAPIMetadata
+	roleArn      *string
 	pulumiSchema []byte
 
 	cfn  *cloudformation.Client
@@ -377,6 +378,10 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 				}
 			})
 		cfg.Credentials = aws.NewCredentialsCache(creds)
+	}
+
+	if roleArn, ok := vars["aws-native:config:roleArn"]; ok {
+		p.roleArn = &roleArn
 	}
 
 	if maxRetries, ok := vars["aws-native:config:maxRetries"]; ok && cfg.Retryer == nil {
@@ -695,6 +700,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(cfType),
 		DesiredState: aws.String(desiredState),
+		RoleArn:      p.roleArn,
 	})
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
@@ -897,6 +903,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		TypeName:      aws.String(spec.CfType),
 		Identifier:    aws.String(id),
 		PatchDocument: &docAsString,
+		RoleArn:       p.roleArn,
 	})
 	if err != nil {
 		return nil, err
@@ -967,6 +974,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 		ClientToken: aws.String(clientToken),
 		TypeName:    aws.String(cfType),
 		Identifier:  aws.String(id),
+		RoleArn:     p.roleArn,
 	})
 	if err != nil {
 		return nil, err
@@ -1016,6 +1024,7 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 	getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
+		RoleArn:    p.roleArn,
 	})
 	if err != nil {
 		return nil, err

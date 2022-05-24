@@ -25,6 +25,7 @@ class ProviderArgs:
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  s3_force_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_credentials_file: Optional[pulumi.Input[str]] = None,
@@ -47,6 +48,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
         :param pulumi.Input[bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
@@ -82,6 +84,8 @@ class ProviderArgs:
             profile = _utilities.get_env('AWS_PROFILE')
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if s3_force_path_style is not None:
             pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
         if secret_key is not None:
@@ -244,6 +248,18 @@ class ProviderArgs:
         pulumi.set(self, "profile", value)
 
     @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
     @pulumi.getter(name="s3ForcePathStyle")
     def s3_force_path_style(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -368,6 +384,7 @@ class Provider(pulumi.ProviderResource):
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  s3_force_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_credentials_file: Optional[pulumi.Input[str]] = None,
@@ -394,6 +411,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
         :param pulumi.Input[bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
@@ -439,6 +457,7 @@ class Provider(pulumi.ProviderResource):
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  s3_force_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_credentials_file: Optional[pulumi.Input[str]] = None,
@@ -477,6 +496,7 @@ class Provider(pulumi.ProviderResource):
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
+            __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             if shared_credentials_file is None:
@@ -517,6 +537,14 @@ class Provider(pulumi.ProviderResource):
         The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         """
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
+        """
+        return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="sharedCredentialsFile")
