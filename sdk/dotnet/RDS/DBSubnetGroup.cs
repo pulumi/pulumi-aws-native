@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.RDS
     /// <summary>
     /// Resource Type definition for AWS::RDS::DBSubnetGroup
     /// </summary>
-    [Obsolete(@"DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:DBSubnetGroup")]
     public partial class DBSubnetGroup : Pulumi.CustomResource
     {

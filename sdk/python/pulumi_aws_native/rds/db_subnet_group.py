@@ -66,12 +66,7 @@ class DBSubnetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DBSubnetGroup(pulumi.CustomResource):
-    warnings.warn("""DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -116,7 +111,6 @@ class DBSubnetGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBSubnetGroup is deprecated: DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
