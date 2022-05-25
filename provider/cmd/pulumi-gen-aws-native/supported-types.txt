@@ -406,6 +406,7 @@ AWS::QuickSight::Theme
 AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
+AWS::RDS::DBSubnetGroup
 AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
 AWS::RUM::AppMonitor

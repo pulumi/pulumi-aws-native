@@ -30868,6 +30868,59 @@
                 "targetGroupName"
             ]
         },
+        "aws-native:rds:DBSubnetGroup": {
+            "cf": "AWS::RDS::DBSubnetGroup",
+            "inputs": {
+                "dBSubnetGroupDescription": {
+                    "type": "string"
+                },
+                "dBSubnetGroupName": {
+                    "type": "string"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rds:DBSubnetGroupTag"
+                    }
+                }
+            },
+            "outputs": {
+                "dBSubnetGroupDescription": {
+                    "type": "string"
+                },
+                "dBSubnetGroupName": {
+                    "type": "string"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rds:DBSubnetGroupTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "dBSubnetGroupName"
+            },
+            "required": [
+                "dBSubnetGroupDescription",
+                "subnetIds"
+            ],
+            "createOnly": [
+                "dBSubnetGroupName"
+            ]
+        },
         "aws-native:rds:EventSubscription": {
             "cf": "AWS::RDS::EventSubscription",
             "inputs": {
@@ -68314,6 +68367,17 @@
         "aws-native:rds:DBProxyTargetGroupTargetGroupName": {
             "type": "string"
         },
+        "aws-native:rds:DBSubnetGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:rds:EventSubscriptionSourceType": {
             "type": "string"
         },
@@ -79185,6 +79249,12 @@
             "cf": "AWS::RDS::DBProxyTargetGroup",
             "ids": [
                 "targetGroupArn"
+            ]
+        },
+        "aws-native:rds:getDBSubnetGroup": {
+            "cf": "AWS::RDS::DBSubnetGroup",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:rds:getEventSubscription": {
