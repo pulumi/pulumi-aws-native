@@ -66,13 +66,13 @@ func Test_getDefaultName(t *testing.T) {
 	urn := resource.URN("urn:pulumi:dev::test::test-provider:testModule:TestResource::myName")
 
 	for _, tt := range tests {
-		doTest := func(t *testing.T, sequenceNumber int) {
+		t.Run(tt.name, func(t *testing.T) {
 			autoNamingSpec := &schema.AutoNamingSpec{
 				SdkName:   "autoName",
 				MinLength: tt.minLength,
 				MaxLength: tt.maxLength,
 			}
-			got, err := getDefaultName(urn, sequenceNumber, autoNamingSpec, tt.olds, tt.news)
+			got, err := getDefaultName(urn, autoNamingSpec, tt.olds, tt.news)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
@@ -83,10 +83,7 @@ func Test_getDefaultName(t *testing.T) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
 			}
 			t.Logf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
-		}
-
-		t.Run(tt.name+" with no sequence number", func(t *testing.T) { doTest(t, 0) })
-		t.Run(tt.name+" with sequence number", func(t *testing.T) { doTest(t, 1) })
+		})
 	}
 }
 
