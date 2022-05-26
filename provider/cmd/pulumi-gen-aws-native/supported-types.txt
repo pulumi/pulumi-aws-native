@@ -198,6 +198,7 @@ AWS::EKS::Nodegroup
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
 AWS::EMRContainers::VirtualCluster
+AWS::EMRServerless::Application
 AWS::ElastiCache::GlobalReplicationGroup
 AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup

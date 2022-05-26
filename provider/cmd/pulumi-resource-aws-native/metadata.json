@@ -11786,6 +11786,10 @@
         "aws-native:ec2:TransitGatewayAttachment": {
             "cf": "AWS::EC2::TransitGatewayAttachment",
             "inputs": {
+                "options": {
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
+                    "description": "The options for the transit gateway vpc attachment."
+                },
                 "subnetIds": {
                     "type": "array",
                     "items": {
@@ -11806,6 +11810,10 @@
                 }
             },
             "outputs": {
+                "options": {
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
+                    "description": "The options for the transit gateway vpc attachment."
+                },
                 "subnetIds": {
                     "type": "array",
                     "items": {
@@ -11831,8 +11839,6 @@
                 "vpcId"
             ],
             "createOnly": [
-                "subnetIds",
-                "tags",
                 "transitGatewayId",
                 "vpcId"
             ]
@@ -14753,6 +14759,119 @@
             "createOnly": [
                 "containerProvider",
                 "name"
+            ]
+        },
+        "aws-native:emrserverless:Application": {
+            "cf": "AWS::EMRServerless::Application",
+            "inputs": {
+                "autoStartConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStartConfiguration",
+                    "description": "Configuration for Auto Start of Application."
+                },
+                "autoStopConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStopConfiguration",
+                    "description": "Configuration for Auto Stop of Application."
+                },
+                "initialCapacity": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:emrserverless:ApplicationInitialCapacityConfigKeyValuePair"
+                    },
+                    "description": "Initial capacity initialized when an Application is started."
+                },
+                "maximumCapacity": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationMaximumAllowedResources",
+                    "description": "Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "User friendly Application name."
+                },
+                "networkConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationNetworkConfiguration",
+                    "description": "Network Configuration for customer VPC connectivity."
+                },
+                "releaseLabel": {
+                    "type": "string",
+                    "description": "EMR release label."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:emrserverless:ApplicationTag"
+                    },
+                    "description": "Tag map with key and value"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the application"
+                }
+            },
+            "outputs": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "The ID of the EMR Serverless Application."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the EMR Serverless Application."
+                },
+                "autoStartConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStartConfiguration",
+                    "description": "Configuration for Auto Start of Application."
+                },
+                "autoStopConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStopConfiguration",
+                    "description": "Configuration for Auto Stop of Application."
+                },
+                "initialCapacity": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:emrserverless:ApplicationInitialCapacityConfigKeyValuePair"
+                    },
+                    "description": "Initial capacity initialized when an Application is started."
+                },
+                "maximumCapacity": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationMaximumAllowedResources",
+                    "description": "Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "User friendly Application name."
+                },
+                "networkConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationNetworkConfiguration",
+                    "description": "Network Configuration for customer VPC connectivity."
+                },
+                "releaseLabel": {
+                    "type": "string",
+                    "description": "EMR release label."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:emrserverless:ApplicationTag"
+                    },
+                    "description": "Tag map with key and value"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the application"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "required": [
+                "releaseLabel",
+                "type"
+            ],
+            "createOnly": [
+                "name",
+                "releaseLabel",
+                "type"
             ]
         },
         "aws-native:events:ApiDestination": {
@@ -30887,7 +31006,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:rds:DBSubnetGroupTag"
-                    }
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "outputs": {
@@ -30907,7 +31027,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:rds:DBSubnetGroupTag"
-                    }
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "autoNamingSpec": {
@@ -52335,6 +52456,118 @@
                 }
             }
         },
+        "aws-native:emrserverless:ApplicationAutoStartConfiguration": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If set to true, the Application will automatically start. Defaults to true."
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationAutoStopConfiguration": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If set to true, the Application will automatically stop after being idle. Defaults to true."
+                },
+                "idleTimeoutMinutes": {
+                    "type": "integer",
+                    "description": "The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes."
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationInitialCapacityConfig": {
+            "type": "object",
+            "properties": {
+                "workerConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationWorkerConfiguration"
+                },
+                "workerCount": {
+                    "type": "integer",
+                    "description": "Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped"
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationInitialCapacityConfigKeyValuePair": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Worker type for an analytics framework."
+                },
+                "value": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationInitialCapacityConfig"
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationMaximumAllowedResources": {
+            "type": "object",
+            "properties": {
+                "cpu": {
+                    "type": "string",
+                    "description": "Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional."
+                },
+                "disk": {
+                    "type": "string",
+                    "description": "Per worker Disk resource. GB is the only supported unit and specifying GB is optional"
+                },
+                "memory": {
+                    "type": "string",
+                    "description": "Per worker memory resource. GB is the only supported unit and specifying GB is optional."
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationNetworkConfiguration": {
+            "type": "object",
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of the security groups in the VPC to which you want to connect your job or application."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of the subnets in the VPC to which you want to connect your job or application."
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:emrserverless:ApplicationWorkerConfiguration": {
+            "type": "object",
+            "properties": {
+                "cpu": {
+                    "type": "string",
+                    "description": "Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional."
+                },
+                "disk": {
+                    "type": "string",
+                    "description": "Per worker Disk resource. GB is the only supported unit and specifying GB is optional"
+                },
+                "memory": {
+                    "type": "string",
+                    "description": "Per worker memory resource. GB is the only supported unit and specifying GB is optional."
+                }
+            }
+        },
         "aws-native:events:ApiDestinationHttpMethod": {
             "type": "string"
         },
@@ -68371,10 +68604,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 }
             }
         },
@@ -78044,6 +78279,12 @@
                 "id"
             ]
         },
+        "aws-native:emrserverless:getApplication": {
+            "cf": "AWS::EMRServerless::Application",
+            "ids": [
+                "applicationId"
+            ]
+        },
         "aws-native:events:getApiDestination": {
             "cf": "AWS::Events::ApiDestination",
             "ids": [
@@ -79254,7 +79495,7 @@
         "aws-native:rds:getDBSubnetGroup": {
             "cf": "AWS::RDS::DBSubnetGroup",
             "ids": [
-                "id"
+                "dBSubnetGroupName"
             ]
         },
         "aws-native:rds:getEventSubscription": {
