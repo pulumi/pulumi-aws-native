@@ -35,6 +35,10 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayAttachment.__pulumiType;
     }
 
+    /**
+     * The options for the transit gateway vpc attachment.
+     */
+    public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayAttachmentTag[] | undefined>;
     public readonly transitGatewayId!: pulumi.Output<string>;
@@ -60,11 +64,13 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         } else {
+            resourceInputs["options"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
@@ -79,6 +85,10 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGatewayAttachment resource.
  */
 export interface TransitGatewayAttachmentArgs {
+    /**
+     * The options for the transit gateway vpc attachment.
+     */
+    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayAttachmentTagArgs>[]>;
     transitGatewayId: pulumi.Input<string>;

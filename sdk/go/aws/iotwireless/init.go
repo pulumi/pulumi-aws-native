@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FuotaTask{}
 	case "aws-native:iotwireless:MulticastGroup":
 		r = &MulticastGroup{}
+	case "aws-native:iotwireless:NetworkAnalyzerConfiguration":
+		r = &NetworkAnalyzerConfiguration{}
 	case "aws-native:iotwireless:PartnerAccount":
 		r = &PartnerAccount{}
 	case "aws-native:iotwireless:ServiceProfile":

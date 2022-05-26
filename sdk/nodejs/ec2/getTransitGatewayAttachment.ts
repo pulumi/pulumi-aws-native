@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -24,6 +25,12 @@ export interface GetTransitGatewayAttachmentArgs {
 
 export interface GetTransitGatewayAttachmentResult {
     readonly id?: string;
+    /**
+     * The options for the transit gateway vpc attachment.
+     */
+    readonly options?: outputs.ec2.OptionsProperties;
+    readonly subnetIds?: string[];
+    readonly tags?: outputs.ec2.TransitGatewayAttachmentTag[];
 }
 
 export function getTransitGatewayAttachmentOutput(args: GetTransitGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayAttachmentResult> {

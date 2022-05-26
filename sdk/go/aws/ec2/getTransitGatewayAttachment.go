@@ -26,6 +26,10 @@ type LookupTransitGatewayAttachmentArgs struct {
 
 type LookupTransitGatewayAttachmentResult struct {
 	Id *string `pulumi:"id"`
+	// The options for the transit gateway vpc attachment.
+	Options   *OptionsProperties            `pulumi:"options"`
+	SubnetIds []string                      `pulumi:"subnetIds"`
+	Tags      []TransitGatewayAttachmentTag `pulumi:"tags"`
 }
 
 func LookupTransitGatewayAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayAttachmentResultOutput {
@@ -65,6 +69,19 @@ func (o LookupTransitGatewayAttachmentResultOutput) ToLookupTransitGatewayAttach
 
 func (o LookupTransitGatewayAttachmentResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The options for the transit gateway vpc attachment.
+func (o LookupTransitGatewayAttachmentResultOutput) Options() OptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) *OptionsProperties { return v.Options }).(OptionsPropertiesPtrOutput)
+}
+
+func (o LookupTransitGatewayAttachmentResultOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupTransitGatewayAttachmentResultOutput) Tags() TransitGatewayAttachmentTagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []TransitGatewayAttachmentTag { return v.Tags }).(TransitGatewayAttachmentTagArrayOutput)
 }
 
 func init() {

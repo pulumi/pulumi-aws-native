@@ -986,6 +986,115 @@ func (o MulticastGroupTagArrayOutput) Index(i pulumi.IntInput) MulticastGroupTag
 	}).(MulticastGroupTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type NetworkAnalyzerConfigurationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// NetworkAnalyzerConfigurationTagInput is an input type that accepts NetworkAnalyzerConfigurationTagArgs and NetworkAnalyzerConfigurationTagOutput values.
+// You can construct a concrete instance of `NetworkAnalyzerConfigurationTagInput` via:
+//
+//          NetworkAnalyzerConfigurationTagArgs{...}
+type NetworkAnalyzerConfigurationTagInput interface {
+	pulumi.Input
+
+	ToNetworkAnalyzerConfigurationTagOutput() NetworkAnalyzerConfigurationTagOutput
+	ToNetworkAnalyzerConfigurationTagOutputWithContext(context.Context) NetworkAnalyzerConfigurationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type NetworkAnalyzerConfigurationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NetworkAnalyzerConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAnalyzerConfigurationTag)(nil)).Elem()
+}
+
+func (i NetworkAnalyzerConfigurationTagArgs) ToNetworkAnalyzerConfigurationTagOutput() NetworkAnalyzerConfigurationTagOutput {
+	return i.ToNetworkAnalyzerConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i NetworkAnalyzerConfigurationTagArgs) ToNetworkAnalyzerConfigurationTagOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAnalyzerConfigurationTagOutput)
+}
+
+// NetworkAnalyzerConfigurationTagArrayInput is an input type that accepts NetworkAnalyzerConfigurationTagArray and NetworkAnalyzerConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `NetworkAnalyzerConfigurationTagArrayInput` via:
+//
+//          NetworkAnalyzerConfigurationTagArray{ NetworkAnalyzerConfigurationTagArgs{...} }
+type NetworkAnalyzerConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAnalyzerConfigurationTagArrayOutput() NetworkAnalyzerConfigurationTagArrayOutput
+	ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(context.Context) NetworkAnalyzerConfigurationTagArrayOutput
+}
+
+type NetworkAnalyzerConfigurationTagArray []NetworkAnalyzerConfigurationTagInput
+
+func (NetworkAnalyzerConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAnalyzerConfigurationTag)(nil)).Elem()
+}
+
+func (i NetworkAnalyzerConfigurationTagArray) ToNetworkAnalyzerConfigurationTagArrayOutput() NetworkAnalyzerConfigurationTagArrayOutput {
+	return i.ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAnalyzerConfigurationTagArray) ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAnalyzerConfigurationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type NetworkAnalyzerConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (NetworkAnalyzerConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAnalyzerConfigurationTag)(nil)).Elem()
+}
+
+func (o NetworkAnalyzerConfigurationTagOutput) ToNetworkAnalyzerConfigurationTagOutput() NetworkAnalyzerConfigurationTagOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationTagOutput) ToNetworkAnalyzerConfigurationTagOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o NetworkAnalyzerConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkAnalyzerConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o NetworkAnalyzerConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkAnalyzerConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NetworkAnalyzerConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAnalyzerConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAnalyzerConfigurationTag)(nil)).Elem()
+}
+
+func (o NetworkAnalyzerConfigurationTagArrayOutput) ToNetworkAnalyzerConfigurationTagArrayOutput() NetworkAnalyzerConfigurationTagArrayOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationTagArrayOutput) ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagArrayOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationTagArrayOutput) Index(i pulumi.IntInput) NetworkAnalyzerConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAnalyzerConfigurationTag {
+		return vs[0].([]NetworkAnalyzerConfigurationTag)[vs[1].(int)]
+	}).(NetworkAnalyzerConfigurationTagOutput)
+}
+
 type PartnerAccountSidewalkAccountInfo struct {
 	AppServerPrivateKey string `pulumi:"appServerPrivateKey"`
 }
@@ -2700,6 +2809,159 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataSource
 	}).(pulumi.StringPtrOutput)
 }
 
+// Trace content for your wireless gateway and wireless device resources
+type TraceContentProperties struct {
+	LogLevel                *NetworkAnalyzerConfigurationLogLevel                `pulumi:"logLevel"`
+	WirelessDeviceFrameInfo *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo `pulumi:"wirelessDeviceFrameInfo"`
+}
+
+// TraceContentPropertiesInput is an input type that accepts TraceContentPropertiesArgs and TraceContentPropertiesOutput values.
+// You can construct a concrete instance of `TraceContentPropertiesInput` via:
+//
+//          TraceContentPropertiesArgs{...}
+type TraceContentPropertiesInput interface {
+	pulumi.Input
+
+	ToTraceContentPropertiesOutput() TraceContentPropertiesOutput
+	ToTraceContentPropertiesOutputWithContext(context.Context) TraceContentPropertiesOutput
+}
+
+// Trace content for your wireless gateway and wireless device resources
+type TraceContentPropertiesArgs struct {
+	LogLevel                NetworkAnalyzerConfigurationLogLevelPtrInput                `pulumi:"logLevel"`
+	WirelessDeviceFrameInfo NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrInput `pulumi:"wirelessDeviceFrameInfo"`
+}
+
+func (TraceContentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TraceContentProperties)(nil)).Elem()
+}
+
+func (i TraceContentPropertiesArgs) ToTraceContentPropertiesOutput() TraceContentPropertiesOutput {
+	return i.ToTraceContentPropertiesOutputWithContext(context.Background())
+}
+
+func (i TraceContentPropertiesArgs) ToTraceContentPropertiesOutputWithContext(ctx context.Context) TraceContentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TraceContentPropertiesOutput)
+}
+
+func (i TraceContentPropertiesArgs) ToTraceContentPropertiesPtrOutput() TraceContentPropertiesPtrOutput {
+	return i.ToTraceContentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TraceContentPropertiesArgs) ToTraceContentPropertiesPtrOutputWithContext(ctx context.Context) TraceContentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TraceContentPropertiesOutput).ToTraceContentPropertiesPtrOutputWithContext(ctx)
+}
+
+// TraceContentPropertiesPtrInput is an input type that accepts TraceContentPropertiesArgs, TraceContentPropertiesPtr and TraceContentPropertiesPtrOutput values.
+// You can construct a concrete instance of `TraceContentPropertiesPtrInput` via:
+//
+//          TraceContentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type TraceContentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTraceContentPropertiesPtrOutput() TraceContentPropertiesPtrOutput
+	ToTraceContentPropertiesPtrOutputWithContext(context.Context) TraceContentPropertiesPtrOutput
+}
+
+type traceContentPropertiesPtrType TraceContentPropertiesArgs
+
+func TraceContentPropertiesPtr(v *TraceContentPropertiesArgs) TraceContentPropertiesPtrInput {
+	return (*traceContentPropertiesPtrType)(v)
+}
+
+func (*traceContentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TraceContentProperties)(nil)).Elem()
+}
+
+func (i *traceContentPropertiesPtrType) ToTraceContentPropertiesPtrOutput() TraceContentPropertiesPtrOutput {
+	return i.ToTraceContentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *traceContentPropertiesPtrType) ToTraceContentPropertiesPtrOutputWithContext(ctx context.Context) TraceContentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TraceContentPropertiesPtrOutput)
+}
+
+// Trace content for your wireless gateway and wireless device resources
+type TraceContentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TraceContentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TraceContentProperties)(nil)).Elem()
+}
+
+func (o TraceContentPropertiesOutput) ToTraceContentPropertiesOutput() TraceContentPropertiesOutput {
+	return o
+}
+
+func (o TraceContentPropertiesOutput) ToTraceContentPropertiesOutputWithContext(ctx context.Context) TraceContentPropertiesOutput {
+	return o
+}
+
+func (o TraceContentPropertiesOutput) ToTraceContentPropertiesPtrOutput() TraceContentPropertiesPtrOutput {
+	return o.ToTraceContentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TraceContentPropertiesOutput) ToTraceContentPropertiesPtrOutputWithContext(ctx context.Context) TraceContentPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TraceContentProperties) *TraceContentProperties {
+		return &v
+	}).(TraceContentPropertiesPtrOutput)
+}
+
+func (o TraceContentPropertiesOutput) LogLevel() NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v TraceContentProperties) *NetworkAnalyzerConfigurationLogLevel { return v.LogLevel }).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
+}
+
+func (o TraceContentPropertiesOutput) WirelessDeviceFrameInfo() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return o.ApplyT(func(v TraceContentProperties) *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
+		return v.WirelessDeviceFrameInfo
+	}).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
+}
+
+type TraceContentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TraceContentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TraceContentProperties)(nil)).Elem()
+}
+
+func (o TraceContentPropertiesPtrOutput) ToTraceContentPropertiesPtrOutput() TraceContentPropertiesPtrOutput {
+	return o
+}
+
+func (o TraceContentPropertiesPtrOutput) ToTraceContentPropertiesPtrOutputWithContext(ctx context.Context) TraceContentPropertiesPtrOutput {
+	return o
+}
+
+func (o TraceContentPropertiesPtrOutput) Elem() TraceContentPropertiesOutput {
+	return o.ApplyT(func(v *TraceContentProperties) TraceContentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TraceContentProperties
+		return ret
+	}).(TraceContentPropertiesOutput)
+}
+
+func (o TraceContentPropertiesPtrOutput) LogLevel() NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v *TraceContentProperties) *NetworkAnalyzerConfigurationLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.LogLevel
+	}).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
+}
+
+func (o TraceContentPropertiesPtrOutput) WirelessDeviceFrameInfo() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return o.ApplyT(func(v *TraceContentProperties) *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
+		if v == nil {
+			return nil
+		}
+		return v.WirelessDeviceFrameInfo
+	}).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
+}
+
 type WirelessDeviceAbpV10x struct {
 	DevAddr     string                           `pulumi:"devAddr"`
 	SessionKeys WirelessDeviceSessionKeysAbpV10x `pulumi:"sessionKeys"`
@@ -4166,6 +4428,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWANInput)(nil)).Elem(), MulticastGroupLoRaWANArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagInput)(nil)).Elem(), MulticastGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagArrayInput)(nil)).Elem(), MulticastGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagArrayInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
@@ -4186,6 +4450,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagArrayInput)(nil)).Elem(), TaskDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUpdateWirelessGatewayTaskCreateInput)(nil)).Elem(), TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUpdateWirelessGatewayTaskCreatePtrInput)(nil)).Elem(), TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TraceContentPropertiesInput)(nil)).Elem(), TraceContentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TraceContentPropertiesPtrInput)(nil)).Elem(), TraceContentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV10xInput)(nil)).Elem(), WirelessDeviceAbpV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV10xPtrInput)(nil)).Elem(), WirelessDeviceAbpV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11Input)(nil)).Elem(), WirelessDeviceAbpV11Args{})
@@ -4219,6 +4485,8 @@ func init() {
 	pulumi.RegisterOutputType(MulticastGroupLoRaWANPtrOutput{})
 	pulumi.RegisterOutputType(MulticastGroupTagOutput{})
 	pulumi.RegisterOutputType(MulticastGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagOutput{})
+	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoWithFingerprintOutput{})
@@ -4241,6 +4509,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput{})
+	pulumi.RegisterOutputType(TraceContentPropertiesOutput{})
+	pulumi.RegisterOutputType(TraceContentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV10xOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11Output{})

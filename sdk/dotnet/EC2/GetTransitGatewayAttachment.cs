@@ -50,11 +50,27 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetTransitGatewayAttachmentResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// The options for the transit gateway vpc attachment.
+        /// </summary>
+        public readonly Outputs.OptionsProperties? Options;
+        public readonly ImmutableArray<string> SubnetIds;
+        public readonly ImmutableArray<Outputs.TransitGatewayAttachmentTag> Tags;
 
         [OutputConstructor]
-        private GetTransitGatewayAttachmentResult(string? id)
+        private GetTransitGatewayAttachmentResult(
+            string? id,
+
+            Outputs.OptionsProperties? options,
+
+            ImmutableArray<string> subnetIds,
+
+            ImmutableArray<Outputs.TransitGatewayAttachmentTag> tags)
         {
             Id = id;
+            Options = options;
+            SubnetIds = subnetIds;
+            Tags = tags;
         }
     }
 }

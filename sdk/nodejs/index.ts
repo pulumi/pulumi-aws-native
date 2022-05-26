@@ -96,6 +96,7 @@ import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
 import * as elasticsearch from "./elasticsearch";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
+import * as emrserverless from "./emrserverless";
 import * as events from "./events";
 import * as eventschemas from "./eventschemas";
 import * as evidently from "./evidently";
@@ -290,6 +291,7 @@ export {
     elasticsearch,
     emr,
     emrcontainers,
+    emrserverless,
     events,
     eventschemas,
     evidently,

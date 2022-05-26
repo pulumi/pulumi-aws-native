@@ -171,6 +171,8 @@ if typing.TYPE_CHECKING:
     emr = __emr
     import pulumi_aws_native.emrcontainers as __emrcontainers
     emrcontainers = __emrcontainers
+    import pulumi_aws_native.emrserverless as __emrserverless
+    emrserverless = __emrserverless
     import pulumi_aws_native.events as __events
     events = __events
     import pulumi_aws_native.eventschemas as __eventschemas
@@ -479,6 +481,7 @@ else:
     elasticsearch = _utilities.lazy_import('pulumi_aws_native.elasticsearch')
     emr = _utilities.lazy_import('pulumi_aws_native.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws_native.emrcontainers')
+    emrserverless = _utilities.lazy_import('pulumi_aws_native.emrserverless')
     events = _utilities.lazy_import('pulumi_aws_native.events')
     eventschemas = _utilities.lazy_import('pulumi_aws_native.eventschemas')
     evidently = _utilities.lazy_import('pulumi_aws_native.evidently')
@@ -1505,6 +1508,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "emrserverless",
+  "fqn": "pulumi_aws_native.emrserverless",
+  "classes": {
+   "aws-native:emrserverless:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "events",
   "fqn": "pulumi_aws_native.events",
   "classes": {
@@ -1885,6 +1896,7 @@ _utilities.register(
    "aws-native:iotwireless:DeviceProfile": "DeviceProfile",
    "aws-native:iotwireless:FuotaTask": "FuotaTask",
    "aws-native:iotwireless:MulticastGroup": "MulticastGroup",
+   "aws-native:iotwireless:NetworkAnalyzerConfiguration": "NetworkAnalyzerConfiguration",
    "aws-native:iotwireless:PartnerAccount": "PartnerAccount",
    "aws-native:iotwireless:ServiceProfile": "ServiceProfile",
    "aws-native:iotwireless:TaskDefinition": "TaskDefinition",

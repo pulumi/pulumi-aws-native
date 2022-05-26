@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::RDS::DBSubnetGroup
+ * The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
  */
 export class DBSubnetGroup extends pulumi.CustomResource {
     /**
@@ -38,6 +38,9 @@ export class DBSubnetGroup extends pulumi.CustomResource {
     public readonly dBSubnetGroupDescription!: pulumi.Output<string>;
     public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.rds.DBSubnetGroupTag[] | undefined>;
 
     /**
@@ -79,5 +82,8 @@ export interface DBSubnetGroupArgs {
     dBSubnetGroupDescription: pulumi.Input<string>;
     dBSubnetGroupName?: pulumi.Input<string>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBSubnetGroupTagArgs>[]>;
 }

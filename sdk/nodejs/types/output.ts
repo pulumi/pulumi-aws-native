@@ -12307,6 +12307,104 @@ export namespace emrcontainers {
 
 }
 
+export namespace emrserverless {
+    /**
+     * Configuration for Auto Start of Application
+     */
+    export interface ApplicationAutoStartConfiguration {
+        /**
+         * If set to true, the Application will automatically start. Defaults to true.
+         */
+        enabled?: boolean;
+    }
+
+    /**
+     * Configuration for Auto Stop of Application
+     */
+    export interface ApplicationAutoStopConfiguration {
+        /**
+         * If set to true, the Application will automatically stop after being idle. Defaults to true.
+         */
+        enabled?: boolean;
+        /**
+         * The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
+         */
+        idleTimeoutMinutes?: number;
+    }
+
+    export interface ApplicationInitialCapacityConfig {
+        workerConfiguration: outputs.emrserverless.ApplicationWorkerConfiguration;
+        /**
+         * Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped
+         */
+        workerCount: number;
+    }
+
+    export interface ApplicationInitialCapacityConfigKeyValuePair {
+        /**
+         * Worker type for an analytics framework.
+         */
+        key: string;
+        value: outputs.emrserverless.ApplicationInitialCapacityConfig;
+    }
+
+    export interface ApplicationMaximumAllowedResources {
+        /**
+         * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
+         */
+        cpu: string;
+        /**
+         * Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+         */
+        disk?: string;
+        /**
+         * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
+         */
+        memory: string;
+    }
+
+    export interface ApplicationNetworkConfiguration {
+        /**
+         * The ID of the security groups in the VPC to which you want to connect your job or application.
+         */
+        securityGroupIds?: string[];
+        /**
+         * The ID of the subnets in the VPC to which you want to connect your job or application.
+         */
+        subnetIds?: string[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ApplicationTag {
+        /**
+         * The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    export interface ApplicationWorkerConfiguration {
+        /**
+         * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
+         */
+        cpu: string;
+        /**
+         * Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+         */
+        disk?: string;
+        /**
+         * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
+         */
+        memory: string;
+    }
+
+}
+
 export namespace events {
     export interface ConnectionApiKeyAuthParameters {
         apiKeyName: string;
@@ -17547,6 +17645,20 @@ export namespace iotwireless {
         value?: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface NetworkAnalyzerConfigurationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface PartnerAccountSidewalkAccountInfo {
         appServerPrivateKey: string;
     }
@@ -17620,6 +17732,14 @@ export namespace iotwireless {
         loRaWAN?: outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreate;
         updateDataRole?: string;
         updateDataSource?: string;
+    }
+
+    /**
+     * Trace content for your wireless gateway and wireless device resources
+     */
+    export interface TraceContentProperties {
+        logLevel?: enums.iotwireless.NetworkAnalyzerConfigurationLogLevel;
+        wirelessDeviceFrameInfo?: enums.iotwireless.NetworkAnalyzerConfigurationWirelessDeviceFrameInfo;
     }
 
     export interface WirelessDeviceAbpV10x {
@@ -26824,8 +26944,17 @@ export namespace rds {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBSubnetGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: string;
     }
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
-    /// Resource Type definition for AWS::RDS::DBSubnetGroup
+    /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBSubnetGroup")]
     public partial class DBSubnetGroup : Pulumi.CustomResource
@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.RDS
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DBSubnetGroupTag>> Tags { get; private set; } = null!;
 
@@ -88,6 +91,10 @@ namespace Pulumi.AwsNative.RDS
 
         [Input("tags")]
         private InputList<Inputs.DBSubnetGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.DBSubnetGroupTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DBSubnetGroupTagArgs>());

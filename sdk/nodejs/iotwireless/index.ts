@@ -12,12 +12,14 @@ export * from "./getDestination";
 export * from "./getDeviceProfile";
 export * from "./getFuotaTask";
 export * from "./getMulticastGroup";
+export * from "./getNetworkAnalyzerConfiguration";
 export * from "./getPartnerAccount";
 export * from "./getServiceProfile";
 export * from "./getTaskDefinition";
 export * from "./getWirelessDevice";
 export * from "./getWirelessGateway";
 export * from "./multicastGroup";
+export * from "./networkAnalyzerConfiguration";
 export * from "./partnerAccount";
 export * from "./serviceProfile";
 export * from "./taskDefinition";
@@ -32,6 +34,7 @@ import { Destination } from "./destination";
 import { DeviceProfile } from "./deviceProfile";
 import { FuotaTask } from "./fuotaTask";
 import { MulticastGroup } from "./multicastGroup";
+import { NetworkAnalyzerConfiguration } from "./networkAnalyzerConfiguration";
 import { PartnerAccount } from "./partnerAccount";
 import { ServiceProfile } from "./serviceProfile";
 import { TaskDefinition } from "./taskDefinition";
@@ -50,6 +53,8 @@ const _module = {
                 return new FuotaTask(name, <any>undefined, { urn })
             case "aws-native:iotwireless:MulticastGroup":
                 return new MulticastGroup(name, <any>undefined, { urn })
+            case "aws-native:iotwireless:NetworkAnalyzerConfiguration":
+                return new NetworkAnalyzerConfiguration(name, <any>undefined, { urn })
             case "aws-native:iotwireless:PartnerAccount":
                 return new PartnerAccount(name, <any>undefined, { urn })
             case "aws-native:iotwireless:ServiceProfile":

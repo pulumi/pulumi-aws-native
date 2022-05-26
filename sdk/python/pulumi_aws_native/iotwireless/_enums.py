@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'DestinationExpressionType',
+    'NetworkAnalyzerConfigurationLogLevel',
+    'NetworkAnalyzerConfigurationWirelessDeviceFrameInfo',
     'PartnerAccountPartnerType',
     'TaskDefinitionType',
     'WirelessDeviceType',
@@ -18,6 +20,17 @@ class DestinationExpressionType(str, Enum):
     """
     RULE_NAME = "RuleName"
     MQTT_TOPIC = "MqttTopic"
+
+
+class NetworkAnalyzerConfigurationLogLevel(str, Enum):
+    INFO = "INFO"
+    ERROR = "ERROR"
+    DISABLED = "DISABLED"
+
+
+class NetworkAnalyzerConfigurationWirelessDeviceFrameInfo(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class PartnerAccountPartnerType(str, Enum):

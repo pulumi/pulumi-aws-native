@@ -12,6 +12,21 @@ export const DestinationExpressionType = {
  */
 export type DestinationExpressionType = (typeof DestinationExpressionType)[keyof typeof DestinationExpressionType];
 
+export const NetworkAnalyzerConfigurationLogLevel = {
+    Info: "INFO",
+    Error: "ERROR",
+    Disabled: "DISABLED",
+} as const;
+
+export type NetworkAnalyzerConfigurationLogLevel = (typeof NetworkAnalyzerConfigurationLogLevel)[keyof typeof NetworkAnalyzerConfigurationLogLevel];
+
+export const NetworkAnalyzerConfigurationWirelessDeviceFrameInfo = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type NetworkAnalyzerConfigurationWirelessDeviceFrameInfo = (typeof NetworkAnalyzerConfigurationWirelessDeviceFrameInfo)[keyof typeof NetworkAnalyzerConfigurationWirelessDeviceFrameInfo];
+
 export const PartnerAccountPartnerType = {
     Sidewalk: "Sidewalk",
 } as const;

@@ -21,6 +21,7 @@ class DBSubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBSubnetGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "d_b_subnet_group_description", d_b_subnet_group_description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -59,6 +60,9 @@ class DBSubnetGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -77,10 +81,11 @@ class DBSubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::RDS::DBSubnetGroup
+        The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -89,7 +94,7 @@ class DBSubnetGroup(pulumi.CustomResource):
                  args: DBSubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::RDS::DBSubnetGroup
+        The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 
         :param str resource_name: The name of the resource.
         :param DBSubnetGroupArgs args: The arguments to use to populate this resource's properties.
@@ -176,5 +181,8 @@ class DBSubnetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBSubnetGroupTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

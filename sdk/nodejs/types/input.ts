@@ -12039,6 +12039,103 @@ export namespace emrcontainers {
     }
 }
 
+export namespace emrserverless {
+    /**
+     * Configuration for Auto Start of Application
+     */
+    export interface ApplicationAutoStartConfigurationArgs {
+        /**
+         * If set to true, the Application will automatically start. Defaults to true.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Configuration for Auto Stop of Application
+     */
+    export interface ApplicationAutoStopConfigurationArgs {
+        /**
+         * If set to true, the Application will automatically stop after being idle. Defaults to true.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
+         */
+        idleTimeoutMinutes?: pulumi.Input<number>;
+    }
+
+    export interface ApplicationInitialCapacityConfigArgs {
+        workerConfiguration: pulumi.Input<inputs.emrserverless.ApplicationWorkerConfigurationArgs>;
+        /**
+         * Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped
+         */
+        workerCount: pulumi.Input<number>;
+    }
+
+    export interface ApplicationInitialCapacityConfigKeyValuePairArgs {
+        /**
+         * Worker type for an analytics framework.
+         */
+        key: pulumi.Input<string>;
+        value: pulumi.Input<inputs.emrserverless.ApplicationInitialCapacityConfigArgs>;
+    }
+
+    export interface ApplicationMaximumAllowedResourcesArgs {
+        /**
+         * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
+         */
+        cpu: pulumi.Input<string>;
+        /**
+         * Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+         */
+        disk?: pulumi.Input<string>;
+        /**
+         * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
+         */
+        memory: pulumi.Input<string>;
+    }
+
+    export interface ApplicationNetworkConfigurationArgs {
+        /**
+         * The ID of the security groups in the VPC to which you want to connect your job or application.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnets in the VPC to which you want to connect your job or application.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ApplicationTagArgs {
+        /**
+         * The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ApplicationWorkerConfigurationArgs {
+        /**
+         * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
+         */
+        cpu: pulumi.Input<string>;
+        /**
+         * Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+         */
+        disk?: pulumi.Input<string>;
+        /**
+         * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
+         */
+        memory: pulumi.Input<string>;
+    }
+}
+
 export namespace events {
     export interface ConnectionApiKeyAuthParametersArgs {
         apiKeyName: pulumi.Input<string>;
@@ -17214,6 +17311,20 @@ export namespace iotwireless {
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface NetworkAnalyzerConfigurationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface PartnerAccountSidewalkAccountInfoArgs {
         appServerPrivateKey: pulumi.Input<string>;
     }
@@ -17281,6 +17392,14 @@ export namespace iotwireless {
         loRaWAN?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs>;
         updateDataRole?: pulumi.Input<string>;
         updateDataSource?: pulumi.Input<string>;
+    }
+
+    /**
+     * Trace content for your wireless gateway and wireless device resources
+     */
+    export interface TraceContentPropertiesArgs {
+        logLevel?: pulumi.Input<enums.iotwireless.NetworkAnalyzerConfigurationLogLevel>;
+        wirelessDeviceFrameInfo?: pulumi.Input<enums.iotwireless.NetworkAnalyzerConfigurationWirelessDeviceFrameInfo>;
     }
 
     export interface WirelessDeviceAbpV10xArgs {
@@ -25970,8 +26089,17 @@ export namespace rds {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBSubnetGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: pulumi.Input<string>;
     }
 

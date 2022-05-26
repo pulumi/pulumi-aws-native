@@ -1650,8 +1650,11 @@ func (o DBSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) DBSecurityGroupT
 	}).(DBSecurityGroupTagOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBSubnetGroupTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -1666,8 +1669,11 @@ type DBSubnetGroupTagInput interface {
 	ToDBSubnetGroupTagOutputWithContext(context.Context) DBSubnetGroupTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type DBSubnetGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1708,6 +1714,7 @@ func (i DBSubnetGroupTagArray) ToDBSubnetGroupTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBSubnetGroupTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (DBSubnetGroupTagOutput) ElementType() reflect.Type {
@@ -1722,10 +1729,12 @@ func (o DBSubnetGroupTagOutput) ToDBSubnetGroupTagOutputWithContext(ctx context.
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBSubnetGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DBSubnetGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBSubnetGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DBSubnetGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }

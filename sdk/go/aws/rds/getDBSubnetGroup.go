@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RDS::DBSubnetGroup
+// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 func LookupDBSubnetGroup(ctx *pulumi.Context, args *LookupDBSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupDBSubnetGroupResult, error) {
 	var rv LookupDBSubnetGroupResult
 	err := ctx.Invoke("aws-native:rds:getDBSubnetGroup", args, &rv, opts...)
@@ -21,14 +21,13 @@ func LookupDBSubnetGroup(ctx *pulumi.Context, args *LookupDBSubnetGroupArgs, opt
 }
 
 type LookupDBSubnetGroupArgs struct {
-	Id string `pulumi:"id"`
+	DBSubnetGroupName string `pulumi:"dBSubnetGroupName"`
 }
 
 type LookupDBSubnetGroupResult struct {
-	DBSubnetGroupDescription *string            `pulumi:"dBSubnetGroupDescription"`
-	Id                       *string            `pulumi:"id"`
-	SubnetIds                []string           `pulumi:"subnetIds"`
-	Tags                     []DBSubnetGroupTag `pulumi:"tags"`
+	DBSubnetGroupDescription *string `pulumi:"dBSubnetGroupDescription"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []DBSubnetGroupTag `pulumi:"tags"`
 }
 
 func LookupDBSubnetGroupOutput(ctx *pulumi.Context, args LookupDBSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDBSubnetGroupResultOutput {
@@ -45,7 +44,7 @@ func LookupDBSubnetGroupOutput(ctx *pulumi.Context, args LookupDBSubnetGroupOutp
 }
 
 type LookupDBSubnetGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	DBSubnetGroupName pulumi.StringInput `pulumi:"dBSubnetGroupName"`
 }
 
 func (LookupDBSubnetGroupOutputArgs) ElementType() reflect.Type {
@@ -70,14 +69,7 @@ func (o LookupDBSubnetGroupResultOutput) DBSubnetGroupDescription() pulumi.Strin
 	return o.ApplyT(func(v LookupDBSubnetGroupResult) *string { return v.DBSubnetGroupDescription }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupDBSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupDBSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
-}
-
+// An array of key-value pairs to apply to this resource.
 func (o LookupDBSubnetGroupResultOutput) Tags() DBSubnetGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupDBSubnetGroupResult) []DBSubnetGroupTag { return v.Tags }).(DBSubnetGroupTagArrayOutput)
 }

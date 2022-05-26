@@ -18,6 +18,7 @@ __all__ = [
     'FuotaTaskTag',
     'MulticastGroupLoRaWAN',
     'MulticastGroupTag',
+    'NetworkAnalyzerConfigurationTag',
     'PartnerAccountSidewalkAccountInfo',
     'PartnerAccountSidewalkAccountInfoWithFingerprint',
     'PartnerAccountSidewalkUpdateAccount',
@@ -29,6 +30,7 @@ __all__ = [
     'TaskDefinitionLoRaWANUpdateGatewayTaskEntry',
     'TaskDefinitionTag',
     'TaskDefinitionUpdateWirelessGatewayTaskCreate',
+    'TraceContentProperties',
     'WirelessDeviceAbpV10x',
     'WirelessDeviceAbpV11',
     'WirelessDeviceLoRaWANDevice',
@@ -407,6 +409,39 @@ class MulticastGroupTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkAnalyzerConfigurationTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 
@@ -982,6 +1017,52 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
     @pulumi.getter(name="updateDataSource")
     def update_data_source(self) -> Optional[str]:
         return pulumi.get(self, "update_data_source")
+
+
+@pulumi.output_type
+class TraceContentProperties(dict):
+    """
+    Trace content for your wireless gateway and wireless device resources
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logLevel":
+            suggest = "log_level"
+        elif key == "wirelessDeviceFrameInfo":
+            suggest = "wireless_device_frame_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TraceContentProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TraceContentProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TraceContentProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_level: Optional['NetworkAnalyzerConfigurationLogLevel'] = None,
+                 wireless_device_frame_info: Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo'] = None):
+        """
+        Trace content for your wireless gateway and wireless device resources
+        """
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+        if wireless_device_frame_info is not None:
+            pulumi.set(__self__, "wireless_device_frame_info", wireless_device_frame_info)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional['NetworkAnalyzerConfigurationLogLevel']:
+        return pulumi.get(self, "log_level")
+
+    @property
+    @pulumi.getter(name="wirelessDeviceFrameInfo")
+    def wireless_device_frame_info(self) -> Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']:
+        return pulumi.get(self, "wireless_device_frame_info")
 
 
 @pulumi.output_type

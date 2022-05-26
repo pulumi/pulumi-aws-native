@@ -175,6 +175,335 @@ func (in *destinationExpressionTypePtr) ToDestinationExpressionTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DestinationExpressionTypePtrOutput)
 }
 
+type NetworkAnalyzerConfigurationLogLevel string
+
+const (
+	NetworkAnalyzerConfigurationLogLevelInfo     = NetworkAnalyzerConfigurationLogLevel("INFO")
+	NetworkAnalyzerConfigurationLogLevelError    = NetworkAnalyzerConfigurationLogLevel("ERROR")
+	NetworkAnalyzerConfigurationLogLevelDisabled = NetworkAnalyzerConfigurationLogLevel("DISABLED")
+)
+
+func (NetworkAnalyzerConfigurationLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAnalyzerConfigurationLogLevel)(nil)).Elem()
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToNetworkAnalyzerConfigurationLogLevelOutput() NetworkAnalyzerConfigurationLogLevelOutput {
+	return pulumi.ToOutput(e).(NetworkAnalyzerConfigurationLogLevelOutput)
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToNetworkAnalyzerConfigurationLogLevelOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkAnalyzerConfigurationLogLevelOutput)
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToNetworkAnalyzerConfigurationLogLevelPtrOutput() NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return e.ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return NetworkAnalyzerConfigurationLogLevel(e).ToNetworkAnalyzerConfigurationLogLevelOutputWithContext(ctx).ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkAnalyzerConfigurationLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkAnalyzerConfigurationLogLevelOutput struct{ *pulumi.OutputState }
+
+func (NetworkAnalyzerConfigurationLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAnalyzerConfigurationLogLevel)(nil)).Elem()
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToNetworkAnalyzerConfigurationLogLevelOutput() NetworkAnalyzerConfigurationLogLevelOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToNetworkAnalyzerConfigurationLogLevelOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToNetworkAnalyzerConfigurationLogLevelPtrOutput() NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return o.ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAnalyzerConfigurationLogLevel) *NetworkAnalyzerConfigurationLogLevel {
+		return &v
+	}).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkAnalyzerConfigurationLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkAnalyzerConfigurationLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkAnalyzerConfigurationLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAnalyzerConfigurationLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAnalyzerConfigurationLogLevel)(nil)).Elem()
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToNetworkAnalyzerConfigurationLogLevelPtrOutput() NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) Elem() NetworkAnalyzerConfigurationLogLevelOutput {
+	return o.ApplyT(func(v *NetworkAnalyzerConfigurationLogLevel) NetworkAnalyzerConfigurationLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAnalyzerConfigurationLogLevel
+		return ret
+	}).(NetworkAnalyzerConfigurationLogLevelOutput)
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkAnalyzerConfigurationLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkAnalyzerConfigurationLogLevelInput is an input type that accepts NetworkAnalyzerConfigurationLogLevelArgs and NetworkAnalyzerConfigurationLogLevelOutput values.
+// You can construct a concrete instance of `NetworkAnalyzerConfigurationLogLevelInput` via:
+//
+//          NetworkAnalyzerConfigurationLogLevelArgs{...}
+type NetworkAnalyzerConfigurationLogLevelInput interface {
+	pulumi.Input
+
+	ToNetworkAnalyzerConfigurationLogLevelOutput() NetworkAnalyzerConfigurationLogLevelOutput
+	ToNetworkAnalyzerConfigurationLogLevelOutputWithContext(context.Context) NetworkAnalyzerConfigurationLogLevelOutput
+}
+
+var networkAnalyzerConfigurationLogLevelPtrType = reflect.TypeOf((**NetworkAnalyzerConfigurationLogLevel)(nil)).Elem()
+
+type NetworkAnalyzerConfigurationLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAnalyzerConfigurationLogLevelPtrOutput() NetworkAnalyzerConfigurationLogLevelPtrOutput
+	ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput
+}
+
+type networkAnalyzerConfigurationLogLevelPtr string
+
+func NetworkAnalyzerConfigurationLogLevelPtr(v string) NetworkAnalyzerConfigurationLogLevelPtrInput {
+	return (*networkAnalyzerConfigurationLogLevelPtr)(&v)
+}
+
+func (*networkAnalyzerConfigurationLogLevelPtr) ElementType() reflect.Type {
+	return networkAnalyzerConfigurationLogLevelPtrType
+}
+
+func (in *networkAnalyzerConfigurationLogLevelPtr) ToNetworkAnalyzerConfigurationLogLevelPtrOutput() NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
+}
+
+func (in *networkAnalyzerConfigurationLogLevelPtr) ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
+}
+
+type NetworkAnalyzerConfigurationWirelessDeviceFrameInfo string
+
+const (
+	NetworkAnalyzerConfigurationWirelessDeviceFrameInfoEnabled  = NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("ENABLED")
+	NetworkAnalyzerConfigurationWirelessDeviceFrameInfoDisabled = NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("DISABLED")
+)
+
+func (NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo)(nil)).Elem()
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
+	return pulumi.ToOutput(e).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput)
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput)
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return e.ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return NetworkAnalyzerConfigurationWirelessDeviceFrameInfo(e).ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutputWithContext(ctx).ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx)
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput struct{ *pulumi.OutputState }
+
+func (NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo)(nil)).Elem()
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return o.ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
+		return &v
+	}).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAnalyzerConfigurationWirelessDeviceFrameInfo)(nil)).Elem()
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return o
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) Elem() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
+	return o.ApplyT(func(v *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAnalyzerConfigurationWirelessDeviceFrameInfo
+		return ret
+	}).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput)
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput is an input type that accepts NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs and NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput values.
+// You can construct a concrete instance of `NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput` via:
+//
+//          NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs{...}
+type NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput interface {
+	pulumi.Input
+
+	ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput
+	ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutputWithContext(context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput
+}
+
+var networkAnalyzerConfigurationWirelessDeviceFrameInfoPtrType = reflect.TypeOf((**NetworkAnalyzerConfigurationWirelessDeviceFrameInfo)(nil)).Elem()
+
+type NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput
+	ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput
+}
+
+type networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr string
+
+func NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtr(v string) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrInput {
+	return (*networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr)(&v)
+}
+
+func (*networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr) ElementType() reflect.Type {
+	return networkAnalyzerConfigurationWirelessDeviceFrameInfoPtrType
+}
+
+func (in *networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return pulumi.ToOutput(in).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
+}
+
+func (in *networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
+}
+
 // The partner type
 type PartnerAccountPartnerType string
 
@@ -671,6 +1000,10 @@ func (in *wirelessDeviceTypePtr) ToWirelessDeviceTypePtrOutputWithContext(ctx co
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationExpressionTypeInput)(nil)).Elem(), DestinationExpressionType("RuleName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationExpressionTypePtrInput)(nil)).Elem(), DestinationExpressionType("RuleName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationLogLevelInput)(nil)).Elem(), NetworkAnalyzerConfigurationLogLevel("INFO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationLogLevelPtrInput)(nil)).Elem(), NetworkAnalyzerConfigurationLogLevel("INFO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput)(nil)).Elem(), NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrInput)(nil)).Elem(), NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountPartnerTypeInput)(nil)).Elem(), PartnerAccountPartnerType("Sidewalk"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountPartnerTypePtrInput)(nil)).Elem(), PartnerAccountPartnerType("Sidewalk"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTypeInput)(nil)).Elem(), TaskDefinitionType("UPDATE"))
@@ -679,6 +1012,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTypePtrInput)(nil)).Elem(), WirelessDeviceType("Sidewalk"))
 	pulumi.RegisterOutputType(DestinationExpressionTypeOutput{})
 	pulumi.RegisterOutputType(DestinationExpressionTypePtrOutput{})
+	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationLogLevelOutput{})
+	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput{})
+	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountPartnerTypeOutput{})
 	pulumi.RegisterOutputType(PartnerAccountPartnerTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypeOutput{})

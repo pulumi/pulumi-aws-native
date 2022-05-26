@@ -38,6 +38,63 @@ namespace Pulumi.AwsNative.IoTWireless
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct NetworkAnalyzerConfigurationLogLevel : IEquatable<NetworkAnalyzerConfigurationLogLevel>
+    {
+        private readonly string _value;
+
+        private NetworkAnalyzerConfigurationLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkAnalyzerConfigurationLogLevel Info { get; } = new NetworkAnalyzerConfigurationLogLevel("INFO");
+        public static NetworkAnalyzerConfigurationLogLevel Error { get; } = new NetworkAnalyzerConfigurationLogLevel("ERROR");
+        public static NetworkAnalyzerConfigurationLogLevel Disabled { get; } = new NetworkAnalyzerConfigurationLogLevel("DISABLED");
+
+        public static bool operator ==(NetworkAnalyzerConfigurationLogLevel left, NetworkAnalyzerConfigurationLogLevel right) => left.Equals(right);
+        public static bool operator !=(NetworkAnalyzerConfigurationLogLevel left, NetworkAnalyzerConfigurationLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkAnalyzerConfigurationLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkAnalyzerConfigurationLogLevel other && Equals(other);
+        public bool Equals(NetworkAnalyzerConfigurationLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct NetworkAnalyzerConfigurationWirelessDeviceFrameInfo : IEquatable<NetworkAnalyzerConfigurationWirelessDeviceFrameInfo>
+    {
+        private readonly string _value;
+
+        private NetworkAnalyzerConfigurationWirelessDeviceFrameInfo(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkAnalyzerConfigurationWirelessDeviceFrameInfo Enabled { get; } = new NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("ENABLED");
+        public static NetworkAnalyzerConfigurationWirelessDeviceFrameInfo Disabled { get; } = new NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("DISABLED");
+
+        public static bool operator ==(NetworkAnalyzerConfigurationWirelessDeviceFrameInfo left, NetworkAnalyzerConfigurationWirelessDeviceFrameInfo right) => left.Equals(right);
+        public static bool operator !=(NetworkAnalyzerConfigurationWirelessDeviceFrameInfo left, NetworkAnalyzerConfigurationWirelessDeviceFrameInfo right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkAnalyzerConfigurationWirelessDeviceFrameInfo value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkAnalyzerConfigurationWirelessDeviceFrameInfo other && Equals(other);
+        public bool Equals(NetworkAnalyzerConfigurationWirelessDeviceFrameInfo other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The partner type
     /// </summary>

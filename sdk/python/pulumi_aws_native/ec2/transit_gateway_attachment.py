@@ -18,13 +18,17 @@ class TransitGatewayAttachmentArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  transit_gateway_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
+                 options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayAttachment resource.
+        :param pulumi.Input['OptionsPropertiesArgs'] options: The options for the transit gateway vpc attachment.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -57,6 +61,18 @@ class TransitGatewayAttachmentArgs:
 
     @property
     @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['OptionsPropertiesArgs']]:
+        """
+        The options for the transit gateway vpc attachment.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['OptionsPropertiesArgs']]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayAttachmentTagArgs']]]]:
         return pulumi.get(self, "tags")
 
@@ -70,6 +86,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -80,6 +97,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']] options: The options for the transit gateway vpc attachment.
         """
         ...
     @overload
@@ -105,6 +123,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -121,6 +140,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransitGatewayAttachmentArgs.__new__(TransitGatewayAttachmentArgs)
 
+            __props__.__dict__["options"] = options
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -153,11 +173,20 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         __props__ = TransitGatewayAttachmentArgs.__new__(TransitGatewayAttachmentArgs)
 
+        __props__.__dict__["options"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_id"] = None
         __props__.__dict__["vpc_id"] = None
         return TransitGatewayAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Output[Optional['outputs.OptionsProperties']]:
+        """
+        The options for the transit gateway vpc attachment.
+        """
+        return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="subnetIds")

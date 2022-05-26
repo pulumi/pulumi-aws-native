@@ -11,14 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RDS::DBSubnetGroup
+// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
 type DBSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	DBSubnetGroupDescription pulumi.StringOutput         `pulumi:"dBSubnetGroupDescription"`
-	DBSubnetGroupName        pulumi.StringPtrOutput      `pulumi:"dBSubnetGroupName"`
-	SubnetIds                pulumi.StringArrayOutput    `pulumi:"subnetIds"`
-	Tags                     DBSubnetGroupTagArrayOutput `pulumi:"tags"`
+	DBSubnetGroupDescription pulumi.StringOutput      `pulumi:"dBSubnetGroupDescription"`
+	DBSubnetGroupName        pulumi.StringPtrOutput   `pulumi:"dBSubnetGroupName"`
+	SubnetIds                pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// An array of key-value pairs to apply to this resource.
+	Tags DBSubnetGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDBSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -66,10 +67,11 @@ func (DBSubnetGroupState) ElementType() reflect.Type {
 }
 
 type dbsubnetGroupArgs struct {
-	DBSubnetGroupDescription string             `pulumi:"dBSubnetGroupDescription"`
-	DBSubnetGroupName        *string            `pulumi:"dBSubnetGroupName"`
-	SubnetIds                []string           `pulumi:"subnetIds"`
-	Tags                     []DBSubnetGroupTag `pulumi:"tags"`
+	DBSubnetGroupDescription string   `pulumi:"dBSubnetGroupDescription"`
+	DBSubnetGroupName        *string  `pulumi:"dBSubnetGroupName"`
+	SubnetIds                []string `pulumi:"subnetIds"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []DBSubnetGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DBSubnetGroup resource.
@@ -77,7 +79,8 @@ type DBSubnetGroupArgs struct {
 	DBSubnetGroupDescription pulumi.StringInput
 	DBSubnetGroupName        pulumi.StringPtrInput
 	SubnetIds                pulumi.StringArrayInput
-	Tags                     DBSubnetGroupTagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags DBSubnetGroupTagArrayInput
 }
 
 func (DBSubnetGroupArgs) ElementType() reflect.Type {
@@ -129,6 +132,7 @@ func (o DBSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DBSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o DBSubnetGroupOutput) Tags() DBSubnetGroupTagArrayOutput {
 	return o.ApplyT(func(v *DBSubnetGroup) DBSubnetGroupTagArrayOutput { return v.Tags }).(DBSubnetGroupTagArrayOutput)
 }

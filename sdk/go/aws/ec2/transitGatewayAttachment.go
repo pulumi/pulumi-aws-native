@@ -15,6 +15,8 @@ import (
 type TransitGatewayAttachment struct {
 	pulumi.CustomResourceState
 
+	// The options for the transit gateway vpc attachment.
+	Options          OptionsPropertiesPtrOutput             `pulumi:"options"`
 	SubnetIds        pulumi.StringArrayOutput               `pulumi:"subnetIds"`
 	Tags             TransitGatewayAttachmentTagArrayOutput `pulumi:"tags"`
 	TransitGatewayId pulumi.StringOutput                    `pulumi:"transitGatewayId"`
@@ -69,6 +71,8 @@ func (TransitGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type transitGatewayAttachmentArgs struct {
+	// The options for the transit gateway vpc attachment.
+	Options          *OptionsProperties            `pulumi:"options"`
 	SubnetIds        []string                      `pulumi:"subnetIds"`
 	Tags             []TransitGatewayAttachmentTag `pulumi:"tags"`
 	TransitGatewayId string                        `pulumi:"transitGatewayId"`
@@ -77,6 +81,8 @@ type transitGatewayAttachmentArgs struct {
 
 // The set of arguments for constructing a TransitGatewayAttachment resource.
 type TransitGatewayAttachmentArgs struct {
+	// The options for the transit gateway vpc attachment.
+	Options          OptionsPropertiesPtrInput
 	SubnetIds        pulumi.StringArrayInput
 	Tags             TransitGatewayAttachmentTagArrayInput
 	TransitGatewayId pulumi.StringInput
@@ -118,6 +124,11 @@ func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutput() Trans
 
 func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentOutput {
 	return o
+}
+
+// The options for the transit gateway vpc attachment.
+func (o TransitGatewayAttachmentOutput) Options() OptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) OptionsPropertiesPtrOutput { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
 func (o TransitGatewayAttachmentOutput) SubnetIds() pulumi.StringArrayOutput {

@@ -18,16 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBSubnetGroupResult:
-    def __init__(__self__, d_b_subnet_group_description=None, id=None, subnet_ids=None, tags=None):
+    def __init__(__self__, d_b_subnet_group_description=None, tags=None):
         if d_b_subnet_group_description and not isinstance(d_b_subnet_group_description, str):
             raise TypeError("Expected argument 'd_b_subnet_group_description' to be a str")
         pulumi.set(__self__, "d_b_subnet_group_description", d_b_subnet_group_description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if subnet_ids and not isinstance(subnet_ids, list):
-            raise TypeError("Expected argument 'subnet_ids' to be a list")
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,17 +33,10 @@ class GetDBSubnetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "subnet_ids")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DBSubnetGroupTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -60,18 +47,16 @@ class AwaitableGetDBSubnetGroupResult(GetDBSubnetGroupResult):
             yield self
         return GetDBSubnetGroupResult(
             d_b_subnet_group_description=self.d_b_subnet_group_description,
-            id=self.id,
-            subnet_ids=self.subnet_ids,
             tags=self.tags)
 
 
-def get_db_subnet_group(id: Optional[str] = None,
+def get_db_subnet_group(d_b_subnet_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBSubnetGroupResult:
     """
-    Resource Type definition for AWS::RDS::DBSubnetGroup
+    The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['dBSubnetGroupName'] = d_b_subnet_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -80,15 +65,13 @@ def get_db_subnet_group(id: Optional[str] = None,
 
     return AwaitableGetDBSubnetGroupResult(
         d_b_subnet_group_description=__ret__.d_b_subnet_group_description,
-        id=__ret__.id,
-        subnet_ids=__ret__.subnet_ids,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_db_subnet_group)
-def get_db_subnet_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_db_subnet_group_output(d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBSubnetGroupResult]:
     """
-    Resource Type definition for AWS::RDS::DBSubnetGroup
+    The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
     """
     ...

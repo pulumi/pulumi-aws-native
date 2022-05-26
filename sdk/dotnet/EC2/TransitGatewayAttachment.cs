@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayAttachment")]
     public partial class TransitGatewayAttachment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The options for the transit gateway vpc attachment.
+        /// </summary>
+        [Output("options")]
+        public Output<Outputs.OptionsProperties?> Options { get; private set; } = null!;
+
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
@@ -72,6 +78,12 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class TransitGatewayAttachmentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options for the transit gateway vpc attachment.
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.OptionsPropertiesArgs>? Options { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
         public InputList<string> SubnetIds
