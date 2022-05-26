@@ -594,7 +594,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 
 	if autoNamingSpec := spec.AutoNamingSpec; autoNamingSpec != nil {
 		// Auto-name fields if not already specified
-		val, err := getDefaultName(urn, int(req.GetSequenceNumber()), autoNamingSpec, olds, newInputs)
+		val, err := getDefaultName(urn, autoNamingSpec, olds, newInputs)
 		if err != nil {
 			return nil, err
 		}
