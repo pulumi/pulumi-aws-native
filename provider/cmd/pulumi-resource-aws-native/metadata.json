@@ -21856,6 +21856,91 @@
                 "loRaWAN"
             ]
         },
+        "aws-native:iotwireless:NetworkAnalyzerConfiguration": {
+            "cf": "AWS::IoTWireless::NetworkAnalyzerConfiguration",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the new resource"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the network analyzer configuration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:NetworkAnalyzerConfigurationTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "traceContent": {
+                    "$ref": "#/types/aws-native:iotwireless:TraceContentProperties",
+                    "description": "Trace content for your wireless gateway and wireless device resources"
+                },
+                "wirelessDevices": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of wireless gateway resources that have been added to the network analyzer configuration"
+                },
+                "wirelessGateways": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of wireless gateway resources that have been added to the network analyzer configuration"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "Arn for network analyzer configuration, Returned upon successful create."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the new resource"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the network analyzer configuration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:NetworkAnalyzerConfigurationTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "traceContent": {
+                    "$ref": "#/types/aws-native:iotwireless:TraceContentProperties",
+                    "description": "Trace content for your wireless gateway and wireless device resources"
+                },
+                "wirelessDevices": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of wireless gateway resources that have been added to the network analyzer configuration"
+                },
+                "wirelessGateways": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of wireless gateway resources that have been added to the network analyzer configuration"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 1024
+            },
+            "createOnly": [
+                "name",
+                "tags"
+            ]
+        },
         "aws-native:iotwireless:ServiceProfile": {
             "cf": "AWS::IoTWireless::ServiceProfile",
             "inputs": {
@@ -58872,6 +58957,25 @@
                 }
             }
         },
+        "aws-native:iotwireless:NetworkAnalyzerConfigurationLogLevel": {
+            "type": "string"
+        },
+        "aws-native:iotwireless:NetworkAnalyzerConfigurationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:iotwireless:NetworkAnalyzerConfigurationWirelessDeviceFrameInfo": {
+            "type": "string"
+        },
         "aws-native:iotwireless:ServiceProfileLoRaWANServiceProfile": {
             "type": "object",
             "properties": {
@@ -59012,6 +59116,17 @@
                 },
                 "updateDataSource": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:iotwireless:TraceContentProperties": {
+            "type": "object",
+            "properties": {
+                "logLevel": {
+                    "$ref": "#/types/aws-native:iotwireless:NetworkAnalyzerConfigurationLogLevel"
+                },
+                "wirelessDeviceFrameInfo": {
+                    "$ref": "#/types/aws-native:iotwireless:NetworkAnalyzerConfigurationWirelessDeviceFrameInfo"
                 }
             }
         },
@@ -78845,6 +78960,12 @@
             "cf": "AWS::IoTWireless::MulticastGroup",
             "ids": [
                 "id"
+            ]
+        },
+        "aws-native:iotwireless:getNetworkAnalyzerConfiguration": {
+            "cf": "AWS::IoTWireless::NetworkAnalyzerConfiguration",
+            "ids": [
+                "name"
             ]
         },
         "aws-native:iotwireless:getServiceProfile": {
