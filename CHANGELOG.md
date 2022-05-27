@@ -1,4 +1,8 @@
 ## HEAD (Unreleased)
+(None)
+
+## 0.18.0 (May 26, 2022)
+- Update to include the latest resource definitions
 - Add support to pass AWS IAM Role to Cloud Control API [#493](https://github.com/pulumi/pulumi-aws-native/pull/493)
 - Revert use sequence numbers to generate deterministic autonames.
   [#341](https://github.com/pulumi/pulumi-aws-native/pull/341)
