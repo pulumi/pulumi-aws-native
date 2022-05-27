@@ -1,5 +1,5 @@
 ## HEAD (Unreleased)
-(None)
+- Add support for allowedAccountIds and forbiddenAccountIds [#508](https://github.com/pulumi/pulumi-aws-native/pull/508)
 
 ## 0.18.0 (May 26, 2022)
 - Update to include the latest resource definitions
