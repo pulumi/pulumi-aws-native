@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// Create and manage NetworkAnalyzerConfiguration resource.
     /// </summary>
-    [Obsolete(@"NetworkAnalyzerConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotwireless:NetworkAnalyzerConfiguration")]
     public partial class NetworkAnalyzerConfiguration : Pulumi.CustomResource
     {

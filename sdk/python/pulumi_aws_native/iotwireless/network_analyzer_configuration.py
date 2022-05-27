@@ -117,12 +117,7 @@ class NetworkAnalyzerConfigurationArgs:
         pulumi.set(self, "wireless_gateways", value)
 
 
-warnings.warn("""NetworkAnalyzerConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class NetworkAnalyzerConfiguration(pulumi.CustomResource):
-    warnings.warn("""NetworkAnalyzerConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +172,6 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
                  wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkAnalyzerConfiguration is deprecated: NetworkAnalyzerConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

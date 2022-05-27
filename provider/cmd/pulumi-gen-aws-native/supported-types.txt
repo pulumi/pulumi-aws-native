@@ -302,6 +302,7 @@ AWS::IoTWireless::Destination
 AWS::IoTWireless::DeviceProfile
 AWS::IoTWireless::FuotaTask
 AWS::IoTWireless::MulticastGroup
+AWS::IoTWireless::NetworkAnalyzerConfiguration
 AWS::IoTWireless::ServiceProfile
 AWS::IoTWireless::TaskDefinition
 AWS::IoTWireless::WirelessDevice

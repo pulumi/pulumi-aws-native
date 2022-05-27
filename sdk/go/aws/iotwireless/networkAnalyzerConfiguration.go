@@ -11,8 +11,6 @@ import (
 )
 
 // Create and manage NetworkAnalyzerConfiguration resource.
-//
-// Deprecated: NetworkAnalyzerConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type NetworkAnalyzerConfiguration struct {
 	pulumi.CustomResourceState
 
